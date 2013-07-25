@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block page_scripts %}
+<script type="text/javascript">
+	var data = {{ data|safe }};
+	var config = {{ config|safe }};
+</script>
+<script type="text/javascript" src="{{ script }}"></script>
+{% endblock %}
+
+
+{% block body %}
+<div id="content">
+	<div id="chart">
+	</div>
+	<div id="data">
+		<header>
+			<h1>{{ title }}</h1>
+		</header>
+		<div class="selected">
+			<h2 class="id"></h2>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

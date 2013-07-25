@@ -1,0 +1,39 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+//@import "compass/reset";
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+@import "compass";
+@import "datatables";
+@import "table";
+
+$max-width: 100%;
+
+html, body {
+	box-sizing: border-box;
+	font-family: "Helvetica Neue Light", Helvetica, Arial, sans-serif;
+	height: 100%;
+	margin: 0;
+}
+
+#map {
+	height: 100%;
+	position: relative;
+}
+
+#wrap {
+	margin: 20px auto;
+	max-width: 1100px;
+}
+
+.clearfix {
+	@include clearfix;
+}
+
+@import "plots";
+
+

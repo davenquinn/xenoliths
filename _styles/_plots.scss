@@ -1,0 +1,52 @@
+body {
+	padding: 0px;
+}
+
+#content {
+	@include outer-container;
+	@include fill-parent;
+	height: 100%;
+}
+
+#map {
+	height: 100%;
+	@include span-columns(9);
+	svg .dot {
+	  fill-opacity: 1.0;
+	}
+}
+
+svg .dot.selected {
+		&:hover{
+			stroke: #333;
+		}
+		stroke: #555;
+		stroke-width: 2px;
+	}
+
+#chart {
+	height: 100%;
+	@include span-columns(9);
+
+}
+#data {
+	height: 100%;
+	padding: 10px;
+	@include span-columns(3);
+}
+
+rect {
+  fill: #eee;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #fff;
+}
+
+.label, .value {
+	display: block;
+}
+.label {
+	font-size: .8em;
+}

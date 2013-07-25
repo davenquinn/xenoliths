@@ -1,0 +1,35 @@
+{% extends "page.html" %}
+
+{% load static %}
+
+{% block title %}Table{% endblock %}
+
+{% block page_scripts %}
+    <script type="text/javascript"
+        src="{% static "js/lib/jquery.dataTables.js" %}">
+    </script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$("table").dataTable({"iDisplayLength": 50});
+
+    		$('table tbody tr').on('click', function(evt) {
+		        $(this).toggleClass('row_selected');
+		    });
+    	});
+
+    </script>
+{% endblock %}
+
+{% block content %}
+<table>
+	<thead>
+   		<tr>{{header|safe}}</tr>
+   	</thead>
+   	<tbody>
+	    {% for o in lines %}
+	    <tr>{{o|safe}}</tr>
+	    {% endfor %}  		
+   	</tbody>
+
+</table>
+{% endblock %}
