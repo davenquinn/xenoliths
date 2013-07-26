@@ -3,61 +3,25 @@
 import numpy as N
 import re
 import IPython
-import json
-from affine import Affine
+from array import Array
 from django.contrib.gis.geos import GEOSGeometry
 from samples import data,models
 import os
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 
-
-def transform_coordinates(sample, records):
-	dtype = [("point", int), ("x", float), ("y", float)]
-	try:
-		affine_seed = N.loadtxt(sample+"_affine.txt", delimiter="\t", comments="#", dtype=dtype)
-	except IOError:
-		print "No affine seed points available for "+sample
-		return records
-
-	fromCoords = []
-	toCoords = []
-	for a in affine_seed:
-		idx = records['Line Numbers'] == a['point']
-		point = records[idx][0]
-		cord = [point[i+" Stage Coordinates (mm)"] for i in ["X","Y"]]
-		tocord = [a["x"], a["y"]]
-		print repr(cord)+" --> "+repr(tocord)
-		fromCoords.append(cord)
-		toCoords.append(tocord)
-
-	affine = Affine.construct(fromCoords, toCoords, verbose=True)
-
-	cords = N.transpose(N.vstack([records[i+" Stage Coordinates (mm)"] for i in ["X","Y"]]))
-	outcords = affine.transform(cords)
-	for i,a in enumerate(["X","Y"]):
-		records[a+" Stage Coordinates (mm)"] = outcords[:,i]
-
-	return records
-
-def field_names(filename):
+def fix_cations(sample_name, obj):
+	filename = sample_name+".dat"
 	with open(filename, "r") as f:
 		field_names = f.readline()
 		field_names = ' '.join(field_names.split()).replace('" "', ',').replace('"',"")
 		field_names = field_names.split(",")
-	#for f in field_names: print f
-	return field_names
 
-def get_array(sample_name, verbose=False):
-	filename = sample_name+".dat"
-	dtype = [(n,float) for n in field_names(filename)]
-	if verbose: print field_names(filename)
-	return N.loadtxt(filename, comments='"', dtype=dtype)	
-		
-def fix_cations(obj):
+	dtype = [(n,float) for n in field_names]
+	return N.loadtxt(filename, comments='"', dtype=dtype)
 	a = 0
 	for cat in settings.CATIONS:
-		a += getattr(obj,cat)
+		a += obj.get(cat)
 	a += obj.O
 	dif = a-obj.Total
 	if N.abs(dif) > .0001:
@@ -66,37 +30,32 @@ def fix_cations(obj):
 		obj.save()
 
 def import_sample(sample_name):
-	arr = get_array(sample_name, False)
+	arr = Array(sample_name+".dat")
 
-	arr = transform_coordinates(sample_name, arr)
+	arr.transform_coordinates(sample_name+"_affine.txt")
 
 	sample, created = models.Sample.objects.get_or_create(id=sample_name)
 
-	for rec in arr:
-		coords = [rec[a+" Stage Coordinates (mm)"] for a in "X Y".split()]
-		wkt = "POINT({0} {1})".format(*coords)
-		geom = GEOSGeometry(wkt)
-
+	for rec in arr.each():
 		try:
-			point = models.Point.objects.get(id=int(rec["Line Numbers"]))
-
+			point = models.Point.objects.get(id=rec.id)
 		except ObjectDoesNotExist:
-			point = models.Point(id=int(rec["Line Numbers"]),sample = sample)
+			point = models.Point(id=int(rec.id),sample = sample)
 
-		point.geometry = geom 
+		point.geometry = rec.geometry()
 
 		for cation in settings.CATIONS:
-			setattr(point,cation, rec[cation+" Formula Atoms"])
-			setattr(point,cation+"_err", rec[cation+" Percent Errors"])
+			setattr(point,cation, rec.get(cation+" Formula Atoms"))
+			setattr(point,cation+"_err", rec.get(cation+" Percent Errors"))
 
 		point.O = 6
 
-		point.Total = rec["Formula Totals"]
+		point.Total = rec.get("Formula Totals")
 		for oxide in settings.OXIDES:
-			setattr(point,oxide, rec[oxide+" Oxide Percents"])
-		point.Ox_tot = rec["Oxide Totals"]
+			setattr(point,oxide, rec.get(oxide+" Oxide Percents"))
+		point.Ox_tot = rec.get("Oxide Totals")
 		point.save()
-		fix_cations(point)
+		fix_cations(sample_name, point)
 
 
 def import_all(delete=True):

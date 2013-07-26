@@ -174,6 +174,11 @@ MINERAL_SYSTEMS = {
 		"En": {"SiO2":1,"MgO":1},
 		"Fs": {"SiO2":1,"FeO":1}
 	},
+	"na_px": {
+		"Diopside": {"SiO2":2,"CaO":1,"MgO":1},
+		"Hedenbergite": {"SiO2":2, "CaO":1,"FeO":1},
+		"Jadite": {"SiO2":2, "Al2O3":1,"Na2O":.5}
+	},
 	"olivine": {
 		"Fo": {"SiO2":1,"MgO":2},
 		"Fa": {"SiO2":1,"FeO":2}
