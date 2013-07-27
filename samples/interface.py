@@ -18,17 +18,7 @@ def make_json(*args, **kwargs):
 			"sample": obj.sample.id
 		}
 		if type in ["oxides","both"]:
-			a["oxides"] = {"total": obj.Ox_tot}
-			for c in settings.OXIDES:
-				a["oxides"][c] = getattr(obj,c)
-
-		if type in ["formula","both"]:
-			a["formula"] = {
-				"total": obj.Total,
-				"O": obj.O
-				}
-			for c in settings.CATIONS:
-				a["formula"][c] = getattr(obj,c)
+			a["oxides"] = obj.oxides
 
 		i  = {
 			"id": obj.id,
@@ -37,7 +27,6 @@ def make_json(*args, **kwargs):
 			"geometry": json.loads(obj.geometry.json)
 		}
 		output.append(i)
-
 	output = {
 		"type": "FeatureCollection",
 		"features": output

@@ -75,3 +75,15 @@ class ArrayRow(object):
 		coords = [self.data[a+" Stage Coordinates (mm)"] for a in "X Y".split()]
 		wkt = "POINT({0} {1})".format(*coords)
 		return GEOSGeometry(wkt)
+
+	def oxide_weights(self):
+		oxides = {"Total": self.data["Oxide Totals"]}
+		for oxide in settings.OXIDES:
+			oxides[oxide] = self.data[oxide+" Oxide Percents"]
+		return oxides
+
+	def errors(self):
+		errors = {}
+		for cation in settings.CATIONS:
+			errors[cation] = self.data[cation+" Percent Errors"]
+		return errors

@@ -10,25 +10,6 @@ import os
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 
-def fix_cations(sample_name, obj):
-	filename = sample_name+".dat"
-	with open(filename, "r") as f:
-		field_names = f.readline()
-		field_names = ' '.join(field_names.split()).replace('" "', ',').replace('"',"")
-		field_names = field_names.split(",")
-
-	dtype = [(n,float) for n in field_names]
-	return N.loadtxt(filename, comments='"', dtype=dtype)
-	a = 0
-	for cat in settings.CATIONS:
-		a += obj.get(cat)
-	a += obj.O
-	dif = a-obj.Total
-	if N.abs(dif) > .0001:
-		#print obj.id, dif
-		obj.O = 4
-		obj.save()
-
 def import_sample(sample_name):
 	arr = Array(sample_name+".dat")
 
@@ -43,20 +24,9 @@ def import_sample(sample_name):
 			point = models.Point(id=int(rec.id),sample = sample)
 
 		point.geometry = rec.geometry()
-
-		for cation in settings.CATIONS:
-			setattr(point,cation, rec.get(cation+" Formula Atoms"))
-			setattr(point,cation+"_err", rec.get(cation+" Percent Errors"))
-
-		point.O = 6
-
-		point.Total = rec.get("Formula Totals")
-		for oxide in settings.OXIDES:
-			setattr(point,oxide, rec.get(oxide+" Oxide Percents"))
-		point.Ox_tot = rec.get("Oxide Totals")
+		point.oxides = rec.oxide_weights()
+		point.errors = rec.errors()
 		point.save()
-		fix_cations(sample_name, point)
-
 
 def import_all(delete=True):
 

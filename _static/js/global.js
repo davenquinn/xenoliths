@@ -131,7 +131,7 @@ var DataView = Class.$extend({
 		oxides = data.properties.oxides;
 		ob = [];
 		for (var key in this.oxides) { v = this.oxides[key]; ob.push(oxides[v]);}
-		if (oxides.total < 100) ob.push(100-oxides.total);
+		if (oxides.Total < 100) ob.push(100-oxides.Total);
 		else ob.push(0);
 		d = this.donut(ob);
 		return d
@@ -140,7 +140,7 @@ var DataView = Class.$extend({
 		var a = this;
 		this.id.text(data.id);
 		this.sample.text(data.properties.sample);
-		this.total.text(data.properties.oxides.total.toFixed(2)+"%")
+		this.total.text(data.properties.oxides.Total.toFixed(2)+"%")
   		this.arcs = this.arcs.data(this.processData(data));
   		this.arcs.transition().duration(300).attrTween("d", a.arcTween); // redraw the arcs
   	}

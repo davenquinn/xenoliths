@@ -129,7 +129,7 @@ var Map = Class.$extend({
                     .attr("class", "dot")
                     .attr("d",path.pointRadius(3))
                     .style("fill", function(d){
-                        return ramp(100-d.properties.oxides.total);
+                        return ramp(100-d.properties.oxides.Total);
                     })
                     .on("mouseover", a.onMouseMove)
 
