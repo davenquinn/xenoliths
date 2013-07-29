@@ -93,21 +93,35 @@ def map(request, sample):
 		)		
 
 def plot(request, type="oxides", axes="Ca-Mg"):
-	elements = axes.split("-")
-	if type == "oxides":
+	oxides = None
+	if type != "ternary":
+		elements = axes.split("-")
 		oxides = [settings.OXIDES[settings.CATIONS.index(e)] for e in elements]
 
-	types = {
-		"oxides": {
-			"title": "{0} vs. {1}".format(*tuple(oxides)),
+	if type == "oxides": 
+		data = {
+			"title": "{0} vs. {1} (Oxides)".format(*tuple(oxides)),
 			"script": "/static/js/plots/composition.js",
 			"data":  make_json(type="oxides",**filter_args(request)),
 			"config": json.dumps({"axes": {"x": oxides[1], "y": oxides[0]}})
 		}
-	}
+	elif type == "molar": 
+		data = {
+			"title": "{0} vs. {1} (Molar)".format(*tuple(oxides)),
+			"script": "/static/js/plots/composition.js",
+			"data":  make_json(type="molar",**filter_args(request)),
+			"config": json.dumps({"axes": {"x": oxides[1], "y": oxides[0]}})
+		}
+	elif type == "ternary":
+		data = {
+			"title": "{0} ternary".format(axes.capitalize()),
+			"script": "/static/js/plots/ternary.js",
+			"data":  make_json(type="oxides",**filter_args(request)),
+			"config": json.dumps({"axes": axes})
+		}
 
 	return render_to_response(
 			'plot.html',
-			types[type],
+			data,
 			context_instance=RequestContext(request)
 		)	

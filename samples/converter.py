@@ -1,25 +1,25 @@
 """Converts between coordinate systems. These can be compositional or literally anything."""
+from django.conf import settings
+import numpy as N
 
 class Converter(object):
-	def __init__(self, array=None):
+	def __init__(self, array, components):
 		self.array = array
+		self.components = components
 
-	def transform(self, points):
-		return N.dot(augment(N.array(points)), self.array)
+	def transform(self, molar_percent):
+		points = N.array([molar_percent.get(i,0) for i in settings.OXIDES]).T
+		result = N.dot(self.array,points)
+		result = result/result.sum()
+		return dict(zip(self.components,result))
 
 	@classmethod
-	def construct(cls, fromCoordinates, toCoordinates, verbose=False):
-		fromCoords = augment(N.array(fromCoordinates))
-		toCoords = N.array(toCoordinates)
-		model, residuals, rank, sv = N.linalg.lstsq(fromCoords, toCoords)
-		if verbose:
-			print model
-		affine =  cls(model)
-
-		sol = N.dot(fromCoords,affine.array)
-		res = (toCoords - sol)
-		if verbose:
-			print "Errors:"
-			print res
-
-		return affine
+	def construct(cls, system="pyroxene"):
+		system = settings.MINERAL_SYSTEMS[system]
+		ls = []
+		components = []
+		for i,component in system.iteritems():
+			ls.append([component.get(j,0) for j in settings.OXIDES])
+			components.append(i)
+		model = N.linalg.pinv(N.array(ls).T)
+		return cls(model, components)

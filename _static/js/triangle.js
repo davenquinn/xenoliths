@@ -12,8 +12,6 @@ var Point = Class.$extend({
   }
 });
 
-
-
 var color = d3.scale.linear()
     .domain([0,40,50])
     .range(["black", "gray", "red"]);

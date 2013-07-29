@@ -1,11 +1,20 @@
+var sin30 = Math.pow(3,1/2)/2;
+var cos30 = .5;
 
 // Store the currently-displayed angles in this._current.
 // Then, interpolate from this._current to the new angles.
 
-var Chart = Class.$extend({
-	__classvars__: {
+var Point = Class.$extend({
+  __init__: function(x, y){
+    this.x = x;
+    this.y = y;
+  },
+  asString: function(){
+    return this.x+","+this.y;
+  }
+});
 
-	},
+var Ternary = Class.$extend({
 	__init__: function(div, axes, data){
 		this.colors = { "CK-2": "lightblue",
 			"CK-3": "lightgreen",
@@ -24,11 +33,18 @@ var Chart = Class.$extend({
 		var width = $(div).width()-margin.left-margin.right;
 		var height = $(div).height()-margin.top-margin.bottom;
 
+		var rad = height/1.5;
+		var h = height
+		var c = Point(width/2,rad);
+		var l = Point(c.x-rad*sin30, c.y + rad*cos30);
+		var r = Point(c.x+rad*sin30, c.y + rad*cos30);
+		var t = Point(c.x, c.y - rad);
+
 		var x = d3.scale.linear()
-				.domain([-.5,100])
+				.domain([0,1])
 				.range([0, width]);
 		var y = d3.scale.linear()
-				.domain([-.5,100])
+				.domain([0,1])
 				.range([height, 0]);
 
 		this.x = x; this.y = y
@@ -51,55 +67,26 @@ var Chart = Class.$extend({
 			.scaleExtent([1, 40])
 			.on("zoom", this.onZoom);
 
+		this.xTransform = function(d) {
+			sy = d.properties.transforms.pyroxene
+			return r.x - rad - sin30*x(sy.Fs) + cos30*y(sy.En);
+		};
+		this.yTransform = function(d) { return t.y + h - y(d.properties.transforms.pyroxene.En); }
+
 		this.svg = d3.select(div).append("svg")
 	    		.attr("width", $(div).width())
 	    		.attr("height", $(div).width())
 	  			.append("g")
 	    			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 	    			.call(this.zoomer);
-
-		this.svg.append("rect")
-			.attr("id", "clip")
-		    .attr("width", width)
-		    .attr("height", height);
-
-		this.svg.append("g")
-		    .attr("class", "x axis")
-		    .attr("transform", "translate(0," + height + ")")
-		    .call(this.xAxis)
-			.append("text")
-				.attr("class", "label")
-				.attr("x", width/2)
-				.attr("y", 30)
-				.style("text-anchor", "center")
-				.text(this.axes.x+" (%)");
-
-		this.svg.append("g")
-		    .attr("class", "y axis")
-		    .call(this.yAxis)
-		    .append("text")
-		      .attr("class", "label")
-		      .attr("transform", "rotate(-90)")
-		      .attr("y", -40)
-		      .attr("x", -height/2)
-		      .attr("dy", ".71em")
-		      .style("text-anchor", "center")
-		      .text(this.axes.y + " (%)")
-
-
-	    var clip = this.svg.append("defs").append("svg:clipPath")
-	        .attr("id", "clip")
-	        .append("svg:rect")
-	        .attr("id", "clip-rect")
-	        .attr("x", "0")
-	        .attr("y", "0")
-	        .attr("width", width)
-	        .attr("height", height)
+    
+		this.svg.append('polygon')
+		      .attr('stroke', 'black')
+		      .attr('fill','white')
+		      .attr('points', t.asString()+' '+l.asString()+' '+r.asString())
 
 		 var points = this.svg.append("g")
 		 	.attr("class","data")
-		 	.attr("clip-path", "url(#clip)");
-
 		 
 		 points.selectAll(".dot")
 		    .data(this.data)
@@ -118,8 +105,6 @@ var Chart = Class.$extend({
 	setupEventHandlers: function(){
 		var a = this;
 		this.events = d3.dispatch("updated");
-		this.xTransform = function(d) { return a.x(d.properties.oxides[a.axes.x]); }
-		this.yTransform = function(d) { return a.y(d.properties.oxides[a.axes.y]); }
 		this.onZoom = function(){
 	    	var translate = a.zoomer.translate(),
 	        	scale = a.zoomer.scale();
@@ -156,7 +141,7 @@ jQuery(document).ready(function($){
     	});
     };
 
-	chart = Chart("#chart", config.axes, data);
+	chart = Ternary("#chart", config.axes, data);
 	chart.events.on("updated",function(d){
 		if (typeof dataView === "undefined") window.dataView = DataView("#data", d);
 		else window.dataView.update(d);

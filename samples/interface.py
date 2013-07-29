@@ -15,11 +15,13 @@ def make_json(*args, **kwargs):
 	for obj in query:
 		a = {
 			"mineral": obj.mineral,
-			"sample": obj.sample.id
+			"sample": obj.sample.id,
+			"transforms": obj.transforms
 		}
-		if type in ["oxides","both"]:
+		if type in ["oxides"]:
 			a["oxides"] = obj.oxides
-
+		if type in ["molar"]:
+			a["oxides"] = obj.molar
 		i  = {
 			"id": obj.id,
 			"type": "Feature",

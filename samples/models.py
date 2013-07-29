@@ -1,6 +1,9 @@
 from django.contrib.gis.db import models
 from django.conf import settings
 from picklefield.fields import PickledObjectField
+import periodictable as pt
+from django.conf import settings
+from converter import Converter
 
 # Create your models here.
 class Sample(models.Model):
@@ -14,27 +17,42 @@ class Point(models.Model):
 	sample = models.ForeignKey(Sample)
 	oxides = PickledObjectField()
 	errors = PickledObjectField()
+	transforms = PickledObjectField()
+	molar = PickledObjectField()
 
-	def assign_mineral(self):
-		if self.Si/self.O > 1.75/6:
-			if self.Ca/self.O > .5/6:
-				self.mineral = "CPX"
-			else:
-				self.mineral = "OPX"
-		if self.Si/self.O < 1./6:
-			self.mineral = "SP"
-			self.rebase(4)
-		else:
-			self.mineral = "OL"
-			self.rebase(4)
+	def save(self, *args, **kwargs):
+		compute_parameters = kwargs.pop("compute_parameters",False)
+		if compute_parameters:
+			self.molar = self.compute_molar()
+			self.transforms = dict([(k,self.compute_transform(k)) for k in settings.MINERAL_SYSTEMS.keys()])
+		super(Point, self).save(*args, **kwargs)		
 
-	def rebase(self, formula_O=4):
-		current = self.O
-		ratio = formula_O/float(current)
-		ls = settings.CATIONS + ["Total"] + [i+"_err" for i in settings.CATIONS]
-		for i in ls:
-			curr = getattr(self,i)
-			setattr(self,i,curr*ratio)
-		self.O = formula_O
-		self.save()
+	def compute_molar(self):
+		"""Computes the molar percentage of KNOWN products (i.e. unknown components not included)."""
+		molar = {}
+		for key, value in self.oxides.items():
+			if key == 'Total': continue
+			oxide = pt.formula(key)
+			molar[key] = value/oxide.mass
+		total = sum(molar.itervalues())
+		for key, value in molar.iteritems():
+			molar[key] = value/total*100
+		molar["Total"] = 100
+		return molar
 
+	def compute_transform(self, system="pyroxene"):
+		converter = Converter.construct(system)
+		return converter.transform(self.molar)
+
+	def compute_formula(self, oxygen=4):
+		formula = {}
+		for key, molar_pct in self.molar.items():
+			if key == "Total": continue
+			oxide = pt.formula(key)
+			for i,n in oxide.atoms.iteritems():
+				formula[str(i)] = formula.get(str(i),0)+n*molar_pct
+		scalar = oxygen/formula["O"]
+		for key, value in formula.iteritems():
+			formula[key] = value*scalar
+		formula["Total"] = sum(formula.itervalues())
+		return formula
