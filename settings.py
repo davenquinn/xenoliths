@@ -51,7 +51,6 @@ SITE_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)))
 
 # Location to store images
 IMAGE_ROOT = os.path.join(SITE_DIR, '_images')
-
 MEDIA_ROOT = os.path.join(SITE_DIR, '_media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -72,6 +71,7 @@ STATIC_URL = '/static/'
 # Additional locations of static files
 STATICFILES_DIRS = (
 	os.path.join(SITE_DIR,"_static"),
+	os.path.join(SITE_DIR,"frontend"),
 	# Put strings here, like "/home/html/static" or "C:/www/django/static".
 	# Always use forward slashes, even on Windows.
 	# Don't forget to use absolute paths, not relative paths.
@@ -123,7 +123,8 @@ INSTALLED_APPS = (
 	'django.contrib.staticfiles',
 	'django.contrib.gis',
 	'django_extensions',
-	'samples'
+	'samples',
+	'jsonrpc'
 )
 
 # A sample logging configuration. The only tangible logging
@@ -168,6 +169,16 @@ MAP_OPTIONS = {
 		"bounds": [0.0, -7200.0, 8577.0, 0.0]
 	}
 }
+SAMPLES = "CK-2 CK-3 CK-4 CK-5 CK-6 CK-7".split()
+
+MINERALS = [
+	("cpx", "Clinopyroxene"),
+	("opx", "Orthopyroxene"),
+	("sp", "Spinel"),
+	("ol", "Olivine"),
+	("na", "Unknown")
+]
+
 MINERAL_SYSTEMS = {
 	"pyroxene": {
 		"Wo": {"SiO2":1,"CaO":1},
@@ -175,13 +186,19 @@ MINERAL_SYSTEMS = {
 		"Fs": {"SiO2":1,"FeO":1}
 	},
 	"na_px": {
-		"Diopside": {"SiO2":2,"CaO":1,"MgO":1},
-		"Hedenbergite": {"SiO2":2, "CaO":1,"FeO":1},
-		"Jadite": {"SiO2":2, "Al2O3":1,"Na2O":.5}
+		"di": {"SiO2":2,"CaO":1,"MgO":1},
+		"he": {"SiO2":2, "CaO":1,"FeO":1},
+		"ja": {"SiO2":2, "Al2O3":.5,"Na2O":.5}
 	},
 	"olivine": {
 		"Fo": {"SiO2":1,"MgO":2},
 		"Fa": {"SiO2":1,"FeO":2}
+	},
+	"minerals": {
+		"sp": {"FeO + MgO": 1, "Al2O3 + Cr2O3": 1},
+		"ol": {"FeO + MgO":2,"SiO2":1},
+		"cpx": {"FeO + MgO":1,"CaO":1,"SiO2": 2},
+		"opx": {"FeO + MgO":2,"SiO2": 2}
 	}
 }
 

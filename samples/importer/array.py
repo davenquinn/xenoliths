@@ -33,8 +33,8 @@ class Array(object):
 		try:
 			affine_seed = N.loadtxt(seed_file, delimiter="\t", comments="#", dtype=dtype)
 		except IOError:
-			print "No affine seed points available for "+sample
-			return records
+			print "No affine seed points available for "+seed_file
+			return self.records
 
 		fromCoords = []
 		toCoords = []

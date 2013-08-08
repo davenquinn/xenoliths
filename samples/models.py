@@ -4,27 +4,37 @@ from picklefield.fields import PickledObjectField
 import periodictable as pt
 from django.conf import settings
 from converter import Converter
+import operator
 
 # Create your models here.
 class Sample(models.Model):
 	id = models.CharField(max_length=4,primary_key=True)
 	desc = models.TextField(blank=True)
+	classification = PickledObjectField(blank=True, compress=True)
 
 class Point(models.Model):
-	id = models.IntegerField(primary_key=True)
+	uid = models.CharField(primary_key=True, max_length=10)
+	id = models.IntegerField()
 	geometry = models.PointField(blank=True, srid=900913)
-	mineral = models.CharField(blank=True, max_length=20)
+	mineral = models.CharField(blank=True, max_length=4,choices=settings.MINERALS)
 	sample = models.ForeignKey(Sample)
 	oxides = PickledObjectField()
 	errors = PickledObjectField()
 	transforms = PickledObjectField()
 	molar = PickledObjectField()
+	formula = PickledObjectField()
+	params = PickledObjectField()
+	bad = models.BooleanField(default=False)
 
 	def save(self, *args, **kwargs):
 		compute_parameters = kwargs.pop("compute_parameters",False)
 		if compute_parameters:
 			self.molar = self.compute_molar()
 			self.transforms = dict([(k,self.compute_transform(k)) for k in settings.MINERAL_SYSTEMS.keys()])
+			self.compute_mineral()
+			self.compute_params()
+			self.formula = self.compute_formula(6)
+
 		super(Point, self).save(*args, **kwargs)		
 
 	def compute_molar(self):
@@ -40,8 +50,29 @@ class Point(models.Model):
 		molar["Total"] = 100
 		return molar
 
+	def compute_ratio(self, top, bottom):
+		molar = self.molar
+		if 0 in (molar[top],molar[bottom]):
+			return None
+		else:
+			return 100*molar[top]/(molar[top]+molar[bottom])
+
+	def compute_params(self):
+		molar = self.molar
+		params = {
+			"Mg#": self.compute_ratio("MgO","FeO"),
+			"Cr#": self.compute_ratio("Cr2O3","Al2O3")
+		}
+		self.params = params
+		return params
+
+	def compute_mineral(self):
+		t = self.transforms["minerals"]
+		mineral = max(t.iteritems(), key=operator.itemgetter(1))[0]
+		self.mineral = mineral
+
 	def compute_transform(self, system="pyroxene"):
-		converter = Converter.construct(system)
+		converter = Converter(system)
 		return converter.transform(self.molar)
 
 	def compute_formula(self, oxygen=4):

@@ -1,9 +1,15 @@
 {
-	"folders": [
+	"folders":
+	[
 		{
+			"folder_exclude_patterns":
+			[
+				".database",
+				".sass-cache"
+			],
+			"follow_symlinks": true,
 			"name": "Project Root",
-			"path": "/Users/Daven/Projects/Development/Xenoliths",
-			"folder_exclude_patterns": [".database",".sass-cache"]
+			"path": "/Users/Daven/Projects/Development/Xenoliths"
 		}
 	]
 }

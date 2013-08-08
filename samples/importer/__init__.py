@@ -18,20 +18,23 @@ def import_sample(sample_name):
 	sample, created = models.Sample.objects.get_or_create(id=sample_name)
 
 	for rec in arr.each():
+		uid = "_".join((sample_name,str(int(rec.id))))
 		try:
-			point = models.Point.objects.get(id=rec.id)
+			point = models.Point.objects.get(uid=uid)
 		except ObjectDoesNotExist:
-			point = models.Point(id=int(rec.id),sample = sample)
+			point = models.Point(uid=uid, id=int(rec.id),sample = sample)
 
 		point.geometry = rec.geometry()
 		point.oxides = rec.oxide_weights()
 		point.errors = rec.errors()
+		if point.oxides["Total"] < 85:
+			point.bad = True
 		point.save(compute_parameters=True)
 
 def import_all(delete=True):
 
 	os.chdir(os.path.dirname(data.__file__))
-	for sample in "CK-2 CK-3 CK-4".split():
+	for sample in settings.SAMPLES:
 		import_sample(sample)
 
 if __name__ == "__main__":

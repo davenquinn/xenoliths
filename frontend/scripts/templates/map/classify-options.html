@@ -1,0 +1,23 @@
+<h2>Options</h2>
+<p>
+	<label for="mode">Mode</label>
+	<select name="mode" class="form-control">
+	  	<option value="draw" selected>Draw</option>
+	  	<option value="navigate">Navigate</option>
+	</select>
+</p>
+<p>
+	<label for="mineral">Mineral</label>
+	<select name="mineral" class="form-control">
+		{{#each minerals}}
+	  		<option value="{{@key}}">{{name}}</option>
+	  	{{/each}}
+	</select>
+</p>
+<p>
+	<label for="opacity">Opacity</label>
+	<input name="opacity" type="text" />
+</p>
+<p>
+	<button type="button" id="save" class="btn-success btn">Save</button>
+</p>

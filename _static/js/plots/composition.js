@@ -16,8 +16,8 @@ var Chart = Class.$extend({
 		this.data = data.features;
 
 		margin = {
-			left: 60,
-			top: 40,
+			left: 50,
+			top: 20,
 			bottom: 40,
 			right: 0
 		}
@@ -25,10 +25,10 @@ var Chart = Class.$extend({
 		var height = $(div).height()-margin.top-margin.bottom;
 
 		var x = d3.scale.linear()
-				.domain([-.5,100])
+				.domain([-.05, 1.05*d3.max(this.data,function(d) { return d.properties.oxides[a.axes.x];})])
 				.range([0, width]);
 		var y = d3.scale.linear()
-				.domain([-.5,100])
+				.domain([-.05,1.05*d3.max(this.data,function(d) { return d.properties.oxides[a.axes.y];})])
 				.range([height, 0]);
 
 		this.x = x; this.y = y
@@ -155,6 +155,7 @@ jQuery(document).ready(function($){
     		$(this).html(ntext);
     	});
     };
+    $("#content").height($(window).height()-$("#header").outerHeight());
 
 	chart = Chart("#chart", config.axes, data);
 	chart.events.on("updated",function(d){

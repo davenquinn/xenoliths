@@ -1,0 +1,86 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "lib/bourbon/bourbon";
+@import "lib/neat/neat";
+@import 'lib/bootstrap';
+@import "lib/datatables";
+@import "lib/jquery_simple_slider";
+@import "compass";
+@import "table";
+@import "plots";
+
+$max-width: 100%;
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	font-family: "Helvetica Neue Light", Helvetica, Arial, sans-serif;
+	height: 100%;
+	margin: 0;
+	position: relative;
+}
+
+#header {
+	padding: 10px 20px;
+	h1 {
+		margin: 0 0 0 0;
+		font-size: 1.2em;
+	}
+}
+
+#wrap {
+	margin: 20px auto;
+	max-width: 1100px;
+}
+
+#main {
+	@include fill-parent;
+	height: 100%;
+	@include span-columns(9);
+	//width: 75%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	&>div{
+		height: 100%;
+	}
+}
+
+#sidebar {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	height: 100%;
+	max-height: 100%;
+	padding: 30px;
+	padding-left: 0;
+	@include fill-parent;
+	@include span-columns(3);
+	@include omega();
+	h1 {
+		margin-top: 0;
+		font-size: 1.5em;
+	}
+	#tabs {
+		position: relative;
+		height: 100%;
+		&>div {
+			width: 100%;
+			position: relative;
+			overflow-y: scroll;
+			height: 100%
+		}
+	}
+}
+
+.clearfix {
+	@include clearfix;
+}
+

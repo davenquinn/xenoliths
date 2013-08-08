@@ -2,8 +2,9 @@
 from django.conf import settings
 import numpy as N
 
-class Converter(object):
-	def __init__(self, array, components):
+class SimpleConverter(object):
+	def __init__(self, array, components, system="pyroxene"):
+		self.system = system
 		self.array = array
 		self.components = components
 
@@ -22,4 +23,44 @@ class Converter(object):
 			ls.append([component.get(j,0) for j in settings.OXIDES])
 			components.append(i)
 		model = N.linalg.pinv(N.array(ls).T)
-		return cls(model, components)
+		return cls(model, components, system=system)
+
+
+class Converter(object):
+	def __init__(self, system="pyroxene"):
+		system = settings.MINERAL_SYSTEMS[system]
+		self.in_components = [i for i in settings.OXIDES]
+		self.out_components = []
+		array = []
+		for name,component in system.iteritems():
+			for key in component.keys():
+				if not key in self.in_components:
+					self.in_components.append(key)
+		for name,component in system.iteritems():
+			ls = [component.get(j,0) for j in self.in_components]
+			array.append(ls)
+			self.out_components.append(name)
+		self.array = N.linalg.pinv(N.array(array).T)
+
+
+	def preprocess(self, molar_data):
+		out = []
+		for name in self.in_components:
+			if name not in settings.OXIDES:
+				# check for cases in which we are adding oxides
+				items = name.split()
+				for i, item in enumerate(items):
+					if item in settings.OXIDES:
+						items[i] = "{0:.8g}".format(molar_data.get(item,0))
+				expr = "".join(items)
+				res = eval(expr)
+			else:
+				res = molar_data.get(name,0)
+			out.append(res)
+		return out
+
+	def transform(self, molar_data):
+		points = N.array(self.preprocess(molar_data)).T
+		result = N.dot(self.array,points)
+		result = result/result.sum()
+		return dict(zip(self.out_components,result))

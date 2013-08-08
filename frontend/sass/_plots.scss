@@ -1,0 +1,45 @@
+body {
+	padding: 0px;
+}
+
+#content {
+	@include outer-container;
+	@include fill-parent;
+	position: relative;
+	height: 100%;
+}
+
+#map {
+	background: #000;
+}
+
+svg {
+	.tick line {
+		stroke: #bbb;
+	}
+	rect#clip {
+		fill: #fff;
+	}
+	.dot {
+		fill-opacity: 1.0;
+		&.selected {
+			&:hover{
+				stroke: #333;
+			}
+			stroke: #555;
+			stroke-width: 2px;
+		}
+	}
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #fff;
+}
+
+.label, .value {
+	display: block;
+}
+.label {
+	font-size: .8em;
+}

@@ -1,0 +1,19 @@
+{
+	"name": "Xenoliths",
+	"version": "1.0.0",
+	"dependencies": {
+		"jquery": "*",
+		"backbone-amd": "*",
+		"underscore-amd": "*",
+		"icanhazjs": "*",
+		"openlayers": "*",
+		"requirejs": "*",
+		"d3": "*",
+		"handlebars": "*",
+		"bootstrap": "*",
+		"font-awesome": "*",
+		"jquery-simple-slider": "*",
+		"requirejs-text": "*",
+		"classy": "https://github.com/mitsuhiko/classy/archive/master.zip"
+	}
+}

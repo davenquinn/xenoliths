@@ -1,0 +1,9 @@
+{
+  "name": "classy",
+  "_cacheHeaders": {
+    "Content-Type": "application/zip",
+    "Content-Disposition": "attachment; filename=classy-master.zip"
+  },
+  "_source": "https://github.com/mitsuhiko/classy/archive/master.zip",
+  "_target": "*"
+}

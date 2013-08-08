@@ -1,0 +1,19 @@
+<form>
+  <fieldset>
+    <legend>Filter Data</legend>
+    <div class="form-group">
+        <label for="filter_sample">Sample</label>
+        <select multiple name="filter_sample" class="form-control">
+            {{#each samples}}
+            <option value="{{@key}}">{{@key}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="form-group">
+      <label>
+        <input type="checkbox" name="bad"> Show bad data
+      </label>
+    </div>
+    <button type="button" class="filter btn btn-default">Filter</button>
+  </fieldset>
+</form>
