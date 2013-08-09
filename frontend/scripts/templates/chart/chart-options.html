@@ -11,14 +11,15 @@
     </div>
     <button type="button" class="axes btn btn-default">Change Axes</button>
   </fieldset>
+  <fieldset id="colormap">
+    <label for="colormap">Colormap</label>
+    <select name="colormap" class="form-control">
+    	<option value="oxide_total" selected>Oxide Totals</option>
+    	<option value="minerals">Minerals</option>
+    	<option value="samples">Samples</option>
+    	{{#each oxides}}
+      	<option value="{{this}}">{{this}}</option>
+      	{{/each}}
+    </select>
+  </fieldset>
 </form>
-
-<label for="colormap">Colormap</label>
-<select name="colormap" class="form-control">
-	<option value="oxide_total" selected>Oxide Totals</option>
-	<option value="minerals">Minerals</option>
-	<option value="samples">Samples</option>
-	{{#each oxides}}
-  	<option value="{{this}}">{{this}}</option>
-  	{{/each}}
-</select>

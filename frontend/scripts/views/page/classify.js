@@ -1,8 +1,8 @@
 define([
     "views/base/generic",
     "views/map/classify",
-    "views/map/classify-options",
-    "views/map/select",
+    "views/controls/classify-options",
+    "views/controls/select-map",
     "text!templates/page/classify.html",
     ],function(GenericView, MapPanel, Options, SelectMap, template){
 

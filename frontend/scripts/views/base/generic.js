@@ -3,6 +3,10 @@ define([
 	"handlebars"
 	],function(Backbone, Handlebars){
     GenericView = Backbone.View.extend({
+    	initialize: function(){
+    		this.parent = this.options.parent;
+        	this.map = this.parent.map;
+    	},
     	assign : function (view, selector) {
     		//http://ianstormtaylor.com/rendering-views-in-backbonejs-isnt-always-simple/
 		    view.setElement(this.$(selector)).render();

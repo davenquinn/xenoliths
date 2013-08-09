@@ -8,7 +8,7 @@ define([
     Sidebar = GenericView.extend({
         initialize: function(){
             this.parent = this.options.parent;
-            this.map = this.options.map;
+            this.map = this.parent.map;
             this.activeTab = "#"+this.options.controls[0]
             this.compile(template);
             this.render();

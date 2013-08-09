@@ -5,7 +5,7 @@ define([
 	'views/page/map',
 	'views/page/chart',
 	'data'
-	], function($, Backbone, ClassifyPage, MapPage, ChartPage,DataManager){
+	], function($, Backbone, ClassifyPage, MapPage, ChartPage, DataManager){
 
 	Router = Backbone.Router.extend({
 		initialize: function(options){
