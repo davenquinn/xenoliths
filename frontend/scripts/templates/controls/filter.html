@@ -10,6 +10,14 @@
         </select>
     </div>
     <div class="form-group">
+        <label for="filter_mineral">Mineral</label>
+        <select multiple name="filter_minerals" class="form-control">
+            {{#each minerals}}
+            <option value="{{@key}}">{{@key}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="form-group">
       <label>
         <input type="checkbox" name="bad"> Show bad data
       </label>

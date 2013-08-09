@@ -15,7 +15,7 @@ define([
         render: function(data) {
             var a = this;
 
-            width = this.$el.innerWidth();
+            width = $("#tabs").innerWidth();
             this.parent = d3.select(this.el)
             this.r = width/2
             this.svg = this.parent.append("svg")

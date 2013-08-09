@@ -23,6 +23,7 @@ html, body {
 	height: 100%;
 	margin: 0;
 	position: relative;
+	overflow: hidden;
 }
 
 #header {
@@ -76,6 +77,39 @@ html, body {
 			position: relative;
 			overflow-y: scroll;
 			height: 100%
+		}
+		pre {
+			display: block;
+			overflow-y: scroll
+		}
+	}
+}
+
+#tabs {
+	#data {
+		ul {
+			padding-left: 0;
+			list-style: none;
+			li {
+				margin-left: 0;
+				line-height: 24px;
+				font-size: 22px;
+				clear: both;
+				span {
+					&.label {
+						padding-left: 0;
+						font-size: 14px;
+						line-height: 24px;
+						color: #444;
+						min-width: 70px;
+						float: left;
+						text-align: left;
+					}
+					display: inline;
+					background-color: inherit;
+					background: inherit;;
+				}
+			}
 		}
 	}
 }

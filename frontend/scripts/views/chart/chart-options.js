@@ -2,10 +2,9 @@ define([
     "jquery",
     "views/base/generic",
     "options",
-    "views/controls/filter",
     "text!templates/chart/chart-options.html",
     "jquery.slider"
-    ], function($, GenericView, Options, FilterView, template){
+    ], function($, GenericView, Options, template){
 
     OptionsView = GenericView.extend({
         initialize: function(){
@@ -13,7 +12,6 @@ define([
             this.map = this.parent.map;
             this.compile(template);
             this.render();
-            this.filter = new FilterView({parent: this, map: this.map});
         },
         events: {
             "change select[name=colormap]": 'changeColormap',

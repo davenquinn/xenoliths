@@ -75,6 +75,20 @@ class Point(models.Model):
 		converter = Converter(system)
 		return converter.transform(self.molar)
 
+	def get_cations(self):
+		formula = {}
+		for key, molar_pct in self.molar.items():
+			if key == "Total": continue
+			oxide = pt.formula(key)
+			for i,n in oxide.atoms.iteritems():
+				if str(i) == "O": continue
+				formula[str(i)] = formula.get(str(i),0)+n*molar_pct
+		scalar = 100/sum(formula.itervalues())
+		for key, value in formula.iteritems():
+			formula[key] = value*scalar		
+		formula["Total"] = sum(formula.itervalues())
+		return formula	
+
 	def compute_formula(self, oxygen=4):
 		formula = {}
 		for key, molar_pct in self.molar.items():

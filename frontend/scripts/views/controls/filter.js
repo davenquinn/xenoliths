@@ -20,7 +20,10 @@ define([
         	"click  button.filter": 'filterData'
         },
         render: function(){
-            this.$el.html(this.template({samples: this.samples}));
+            this.$el.html(this.template({
+                samples: this.samples,
+                minerals: Options.minerals
+            }));
             return this;
         },
         filterData: function(event){

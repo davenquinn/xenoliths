@@ -6,8 +6,13 @@ define([
 
     RawViewer = GenericView.extend({
         initialize: function(){
-            this.parent = this.options.parent
-            this.compile(template)
+            var a = this;
+            this.parent = this.options.parent;
+            this.map = this.options.map;
+            this.compile(template);
+            this.map.dispatcher.on("updated.raw",function(d){
+                a.update(d)
+            });
         },
         events: {
             "click button.close": "destroy"

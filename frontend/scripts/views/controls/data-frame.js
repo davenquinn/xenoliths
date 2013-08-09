@@ -2,16 +2,21 @@ define([
     "jquery",
     "views/base/generic", 
     "views/controls/oxides",
-    "views/controls/raw-data",
     "text!templates/controls/data-frame.html",
-    ],function($, GenericView, OxidesWheel, RawData,template){
+    "options"
+    ],function($, GenericView, OxidesWheel,template, Options){
 
     DataFrame = GenericView.extend({
         initialize: function(){
             var a = this;
+            this.map = this.options.map;
+            console.log("Data frame");
             this.compile(template)
             this.render()
             this.oxides = new OxidesWheel({el: "#oxides",parent: this})
+            this.map.dispatcher.on("updated.data",function(d){
+                a.update(d);
+            });
         },
         render: function(){
             this.$el.html(this.template);
@@ -19,7 +24,10 @@ define([
         },
         update: function(data){
             this.data = data;
-            this.$("h2.name").html(data.properties.sample+" "+data.properties.id);
+            this.$(".id").html(data.properties.id);
+            this.$(".sample").html(data.properties.sample);
+            mineral = Options.minerals[data.properties.mineral]
+            this.$(".mineral").html(mineral.name);            
             this.oxides.update(data)
         },
     });

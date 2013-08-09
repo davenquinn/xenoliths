@@ -23,7 +23,7 @@ define([
             }
             this.width = this.$el.width()-this.margin.left-this.margin.right;
             this.height = this.$el.height()-this.margin.top-this.margin.bottom;
-            a = this;
+            var a = this;
             this.onMouseMove = function(d,i) {
                 d3.select(".dot.selected")
                     .attr("class","dot")
@@ -150,9 +150,8 @@ define([
             }
         },
         setColormap: function(name, options){
-            console.log("Setting colormap")
             this.colormap = new Colorizer[name](options);
-            this.points.selectAll(".dot").style("fill", a.colormap.func)
+            this.points.selectAll(".dot").style("fill", this.colormap.func)
         },
         setAxes: function(axes){
             d3.select(this.el).select("svg").remove();
