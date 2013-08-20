@@ -26,6 +26,7 @@ define([
         },
         render: function(data) {
             a = this;
+            h = 8;
             nbars = this.map.sel.length;
             var createBar = function(d,i){
                 var y = i;
@@ -37,21 +38,21 @@ define([
                         .append("rect")
                         .attr("x", function(d){return d.off+"%"})
                         .attr("width",function(d){return d.w+"%"})
-                        .attr("height",8)
-                        .attr("y", 8*i)
+                        .attr("height",h)
+                        .attr("y", h*i)
                         .attr("fill", function(d,i){ return a.color(i)})
 
             }
 
             this.bars = this.svg.selectAll("g.point")
-                .data(data, function(d){ return d.properties.id })
+                .data(data, function(d){ return d.properties.id; })
             
             this.bars.enter()
                     .append("g")
                     .attr("class","point")
                     .each(createBar);
             this.bars.exit().remove();
-            this.svg.attr("height", 8*nbars);
+            this.svg.attr("height", h*nbars);
         },
         processData: function(data){
             oxides = data.properties.oxides;
