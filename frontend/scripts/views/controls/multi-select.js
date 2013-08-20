@@ -44,7 +44,7 @@ define([
             }
 
             this.bars = this.svg.selectAll("g.point")
-                .data(data)
+                .data(data, function(d){ return d.properties.id })
             
             this.bars.enter()
                     .append("g")
