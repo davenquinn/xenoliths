@@ -12,7 +12,7 @@ define([
             this.data = this.options.data;
             this.sel = this.options.selected;
             if (!this.sel) this.sel = [];
-            this.selectMode = "single";
+
             this.setupEventHandlers();
             this.colormap = new this.colors["oxide_total"]();
             this.addPoints(this.data);
@@ -53,6 +53,7 @@ define([
                     .attr("d",path.pointRadius(3.5))
                     .style("fill", a.colormap.func)
                     .on("mouseover", a.onMouseMove)
+                    .on("mouseout", a.onMouseOut)
                     .on("click",a.onClick)
                     .classed("selected", function(d){ return a.sel.indexOf(d) != -1 });
 
@@ -88,24 +89,28 @@ define([
         },
         setupEventHandlers: function(){
             var a = this;
-            this.dispatcher = d3.dispatch("updated");
+            this.dispatcher = d3.dispatch("updated", "mouseout");
             this.onMouseMove = function(d,i) {
-                if (a.selectMode == "single") {
-                    d3.selectAll(".dot.selected")
-                        .attr("class","dot")
-                    a.sel.length = 0;
-                }
-                if (a.selectMode == "multiple" &&  !d3.event.shiftKey) return;
+                d3.selectAll(".dot.hovered").classed("hovered", false)
+
                 sel = d3.select(this);
-                if (!sel.classed("selected")) {
-                    sel.classed("selected", true)
+                if (d3.event.shiftKey && !sel.classed("selected")){
+                    sel.classed("selected",true)
                     a.sel.push(d)
+                }
+                sel.classed("hovered", true);
+                a.dispatcher.updated.apply(this,arguments);
+            };
+            this.onMouseOut = function(d,i){
+                sel = d3.select(this);
+                if (a.sel.length > 0) {
+                    sel.classed("hovered", false)
+                    a.dispatcher.mouseout.apply(this,arguments);
                 };
-                a.dispatcher.updated(d);
             };
             this.onClick = function(d,i) {
                 item = d3.select(this)
-                if (a.selectMode == "multiple") {
+                //if (a.selectMode == "multiple") {
                     toSelect = !item.classed("selected")
                     item.classed("selected", toSelect)
                     if (toSelect) {
@@ -113,19 +118,18 @@ define([
                     } else {
                         var index = a.sel.indexOf(d);
                         a.sel.splice(index,1);
-                        console.log("Removed from selection")
                     }
-                    a.dispatcher.updated(d);
-                }
+                    a.dispatcher.updated.apply(this,arguments);
+                //}
                 d3.event.stopPropagation();
             };
             this.onBackgroundClick = function(d,i){
-                if (a.selectMode == "multiple") {
+                //if (a.selectMode == "multiple") {
                     d3.selectAll(".dot.selected").classed("selected",false);
                     d3.event.stopPropagation();
                     a.sel.length = 0;
-                    a.dispatcher.updated();
-                }
+                    a.dispatcher.updated.apply(this,arguments);
+                //}
             };
         },
         setColormap: function(name, options){
@@ -134,11 +138,6 @@ define([
         },
         setSelectMode: function(mode){
             this.selectMode = mode;
-            /*if (mode == "multiple") {
-                this.setDraggable(false);
-            } else {
-                this.setDraggable(true);
-            }*/
         }
     });
     return Map;

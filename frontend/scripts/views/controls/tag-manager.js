@@ -47,6 +47,10 @@ define([
             //takes a list of point items and outputs an object containing
             // tags as indices to boolean values for whether the tag is shared
             // by all items.
+            if (typeof(data) === "undefined") {
+                this.tags.length = 0;
+                return this.tags;
+            }
             this.data = data;
             var nitems = data.length;
             arrays = data.map(function(item){
@@ -69,7 +73,6 @@ define([
                 };
                 this.tags.push(obj);
             }
-            console.log(this.tags);
             return this.tags;
         },
         removeTag: function(event){
@@ -100,6 +103,7 @@ define([
         },
         addTag: function(event){
             arr = this.$("form").serializeObject();
+            this.$("input[type=text]").val("");
             if (arr.tag == "") return false;
             var tag = arr.tag.toLowerCase()
             var elements = [];

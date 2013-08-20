@@ -8412,19 +8412,24 @@ svg .dot.selected {
 svg .dot.selected:hover {
   stroke: #333;
 }
+/* line 32, ../sass/_plots.scss */
+svg .dot.hovered {
+  stroke-width: 3px;
+  stroke: #222;
+}
 
-/* line 35, ../sass/_plots.scss */
+/* line 41, ../sass/_plots.scss */
 .axis path, .axis line {
   fill: none;
   stroke: #fff;
 }
 
-/* line 40, ../sass/_plots.scss */
+/* line 46, ../sass/_plots.scss */
 .label, .value {
   display: block;
 }
 
-/* line 43, ../sass/_plots.scss */
+/* line 49, ../sass/_plots.scss */
 .label {
   font-size: .8em;
 }
@@ -8623,7 +8628,7 @@ html, body {
   overflow-y: scroll;
 }
 
-/* line 113, ../sass/screen.scss */
+/* line 114, ../sass/screen.scss */
 h3.label {
   font-size: 13px !important;
   display: block;
@@ -8633,63 +8638,69 @@ h3.label {
   text-transform: uppercase;
   padding-left: 0;
   text-align: left;
+  margin-top: 0;
   background-color: none;
   background: none;
   margin-bottom: 4px;
 }
 
-/* line 120, ../sass/screen.scss */
+/* line 121, ../sass/screen.scss */
 #selection_type {
   margin-bottom: 10px;
 }
 
-/* line 125, ../sass/screen.scss */
+/* line 126, ../sass/screen.scss */
 #tag_manager .form-control {
   width: 80%;
 }
 
 /* line 131, ../sass/screen.scss */
-#tag_field ul {
+#tag_field {
   list-style: none;
+  overflow: hidden;
+  *zoom: 1;
+  padding-left: 0;
 }
-/* line 134, ../sass/screen.scss */
+/* line 135, ../sass/screen.scss */
 #tag_field li {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  font-size: 18px !important;
-  padding: 4px 6px 2px 6px;
-  margin-right: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 14px !important;
+  padding: 2px 4px 1px 4px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  float: left;
 }
-/* line 139, ../sass/screen.scss */
+/* line 142, ../sass/screen.scss */
 #tag_field li i {
   margin-left: 5px;
 }
-/* line 142, ../sass/screen.scss */
+/* line 145, ../sass/screen.scss */
 #tag_field li.some {
   background-color: #cccccc;
 }
-/* line 145, ../sass/screen.scss */
+/* line 148, ../sass/screen.scss */
 #tag_field li.all {
   background-color: #87b4f8;
 }
 
-/* line 151, ../sass/screen.scss */
+/* line 154, ../sass/screen.scss */
 .navbar {
   margin-bottom: 10px;
 }
 
-/* line 157, ../sass/screen.scss */
-#tabs #data ul {
+/* line 160, ../sass/screen.scss */
+#tabs #data ul.info {
   padding-left: 0;
   list-style: none;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 161, ../sass/screen.scss */
-#tabs #data ul li {
+/* line 164, ../sass/screen.scss */
+#tabs #data ul.info li {
   margin-left: 0;
   line-height: 24px;
   font-size: 22px;
@@ -8699,13 +8710,13 @@ h3.label {
   clear: none;
   min-width: 60px;
 }
-/* line 170, ../sass/screen.scss */
-#tabs #data ul li span {
+/* line 173, ../sass/screen.scss */
+#tabs #data ul.info li span {
   background-color: inherit;
   background: inherit;
 }
-/* line 171, ../sass/screen.scss */
-#tabs #data ul li span.label {
+/* line 174, ../sass/screen.scss */
+#tabs #data ul.info li span.label {
   display: block;
   color: #666;
   font-weight: 600;
@@ -8713,15 +8724,36 @@ h3.label {
   text-transform: uppercase;
   padding-left: 0;
   text-align: left;
+  margin-top: 0;
 }
-/* line 177, ../sass/screen.scss */
-#tabs #data ul li a {
+/* line 180, ../sass/screen.scss */
+#tabs #data ul.info li a {
   font-size: .8em;
   line-height: 40px;
   margin-left: 20px;
 }
 
-/* line 187, ../sass/screen.scss */
+/* line 190, ../sass/screen.scss */
+#oxides {
+  margin-bottom: -15px;
+  margin-top: -10px;
+}
+
+/* line 196, ../sass/screen.scss */
+#tag_manager #tag_field {
+  min-height: 26px;
+  margin-bottom: 5px;
+}
+/* line 197, ../sass/screen.scss */
+#tag_manager #tag_field li {
+  cursor: pointer;
+}
+/* line 203, ../sass/screen.scss */
+#tag_manager h3 {
+  margin-top: 0;
+}
+
+/* line 208, ../sass/screen.scss */
 .clearfix {
   overflow: hidden;
   *zoom: 1;

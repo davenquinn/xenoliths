@@ -29,7 +29,13 @@ svg {
 			stroke: #555;
 			stroke-width: 2px;
 		}
+		&.hovered {
+			stroke-width: 3px;
+
+			stroke: #222;
+		}
 	}
+
 }
 
 .axis path, .axis line {

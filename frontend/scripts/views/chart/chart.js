@@ -12,9 +12,8 @@ define([
             this.axes = this.options.axes;
             this.data = this.options.data;
             this.colormap = new Colorizer["samples"]();
-            this.dispatcher = d3.dispatch("updated");
-            this.selectMode = "single";
-            this.sel = [this.data.features[0]]
+            this.sel = this.options.selected;
+            if (!this.sel) this.sel = [];
 
             this.margin = {
                 left: 50,
@@ -24,43 +23,7 @@ define([
             }
             this.width = this.$el.width()-this.margin.left-this.margin.right;
             this.height = this.$el.height()-this.margin.top-this.margin.bottom;
-            var a = this;
-            this.onMouseMove = function(d,i) {
-                if (a.selectMode == "single") {
-                    d3.selectAll(".dot.selected")
-                        .attr("class","dot")
-                    a.sel.length = 0;
-                }
-                if (a.selectMode == "multiple" &&  !d3.event.shiftKey) return;
-                sel = d3.select(this);
-                if (!sel.classed("selected")) {
-                    sel.classed("selected", true)
-                    a.sel.push(d)
-                };
-                a.dispatcher.updated(d);
-            };
-            this.onClick = function(d,i) {
-                item = d3.select(this)
-                if (a.selectMode == "multiple") {
-                    toSelect = !item.classed("selected")
-                    item.classed("selected", toSelect)
-                    if (toSelect) {
-                        a.sel.push(d)
-                    } else {
-                        var index = a.sel.indexOf(d);
-                        a.sel.splice(index,1);
-                    }
-                    a.dispatcher.updated(d);
-                }
-            };
-            this.onBackgroundClick = function(d,i){
-                if (a.selectMode == "multiple") {
-                    d3.selectAll(".dot.selected").classed("selected",false);
-                    d3.event.stopPropagation();
-                    a.sel.length = 0;
-                    a.dispatcher.updated();
-                }
-            };
+
             this.setupEventHandlers();
             this.loadAxes();
         },
@@ -154,6 +117,47 @@ define([
         },
         setupEventHandlers: function(){
             var a = this;
+
+            this.dispatcher = d3.dispatch("updated", "mouseout");
+            this.onMouseMove = function(d,i) {
+                d3.selectAll(".dot.hovered").classed("hovered", false)
+
+                sel = d3.select(this);
+                if (d3.event.shiftKey && !sel.classed("selected")){
+                    sel.classed("selected",true)
+                    a.sel.push(d)
+                }
+                sel.classed("hovered", true);
+                a.dispatcher.updated.apply(this,arguments);
+            };
+            this.onMouseOut = function(d,i){
+                sel = d3.select(this);
+                if (a.sel.length > 0) {
+                    sel.classed("hovered", false)
+                    a.dispatcher.mouseout.apply(this,arguments);
+                };
+            };
+            this.onClick = function(d,i) {
+                item = d3.select(this)
+                toSelect = !item.classed("selected")
+                item.classed("selected", toSelect)
+                if (toSelect) {
+                    a.sel.push(d)
+                } else {
+                    var index = a.sel.indexOf(d);
+                    a.sel.splice(index,1);
+                }
+                a.dispatcher.updated.apply(this,arguments);
+
+                d3.event.stopPropagation();
+            };
+            this.onBackgroundClick = function(d,i){
+                d3.selectAll(".dot.selected").classed("selected",false);
+                d3.event.stopPropagation();
+                a.sel.length = 0;
+                a.dispatcher.updated.apply(this,arguments);
+            };
+
             this.xTransform = function(d) { return a.x(eval("d.properties."+a.axes.x)); }
             this.yTransform = function(d) { return a.y(eval("d.properties."+a.axes.y)); }
             this.onZoom = function(){
@@ -181,6 +185,7 @@ define([
                     .attr("cy", a.yTransform)
                     .on("mouseover", a.onMouseMove)
                     .on("click", a.onClick)
+                    .on("mouseout", a.onMouseOut)
                     .style("fill", a.colormap.func);   
             };
         },
@@ -199,9 +204,6 @@ define([
         setData: function(data){
             this.data = data;
             this.refresh()
-        },
-        setSelectMode: function(mode){
-            this.selectMode = mode;
         }
     });
     return Chart;

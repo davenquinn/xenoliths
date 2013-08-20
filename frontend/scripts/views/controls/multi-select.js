@@ -27,7 +27,7 @@ define([
         render: function(data) {
             a = this;
             h = 8;
-            nbars = this.map.sel.length;
+            nbars = data.length;
             var createBar = function(d,i){
                 var y = i;
                 group = d3.select(this);
@@ -50,6 +50,9 @@ define([
             this.bars.enter()
                     .append("g")
                     .attr("class","point")
+                    .on("mouseover", function(d,i){
+                        a.parent.update(d);
+                    })
                     .each(createBar);
             this.bars.exit().remove();
             this.svg.attr("height", h*nbars);
@@ -74,7 +77,7 @@ define([
             }
             return bb
         },
-        update: function(data){
+        update: function(){
             this.render(this.map.sel);
         }
     });
