@@ -185,7 +185,7 @@ define([
                     .attr("cy", a.yTransform)
                     .on("mouseover", a.onMouseMove)
                     .on("click", a.onClick)
-                    .on("mouseout", a.onMouseOut)
+                    .on("mouseout", a.onMouseOut)d
                     .style("fill", a.colormap.func);   
             };
         },
