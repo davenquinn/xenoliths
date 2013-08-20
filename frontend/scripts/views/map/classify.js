@@ -8,7 +8,8 @@ define([
     ClassifyMap = MapBase.extend({
         initialize: function(){
             ClassifyMap.__super__.initialize.apply(this, arguments);
-            this.data = this.options.data;
+            this.parent = this.options.parent;
+            this.data = this.parent.data;
             this.classifyLayer();
             var div = d3.selectAll("#" + this.overlay.div.id);
             this.svg = div.selectAll("svg");

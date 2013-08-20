@@ -14,10 +14,10 @@ define([],function(){
 				"bounds": [0.0, -9854.0, 9920.0, 0.0]
 			},
 			"CK-6": {
-				"bounds": [0.0, -9096.0, 8928.0, 0.0]
+				"bounds": [0.0, -8338.0, 8928.0, 0.0]
 			},
 			"CK-7": {
-				"bounds": [0.0, -8338.0, 8928.0, 0.0]
+				"bounds": [0.0, -9096.0, 8928.0, 0.0]
 			}
 		},
 		"minerals": {
@@ -43,7 +43,7 @@ define([],function(){
     		}
 		},
 		"oxides": ["SiO2","MgO","FeO","CaO","Al2O3","Cr2O3","TiO2","NiO","MnO","Na2O"],
-		"atoms": ["Si","Mg","Fe","Ca","Al","Cr","Ti","Ni","Mn","Na", "O"],
+		"cations": ["Si","Mg","Fe","Ca","Al","Cr","Ti","Ni","Mn","Na"]
 	};
 	return options;
 });

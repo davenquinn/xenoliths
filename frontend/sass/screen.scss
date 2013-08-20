@@ -5,12 +5,18 @@
 
 @import "lib/bourbon/bourbon";
 @import "lib/neat/neat";
+
+$FontAwesomePath: "/static/scripts/lib/font-awesome/font";
+@import "../scripts/lib/font-awesome/scss/font-awesome";
+
 @import 'lib/bootstrap';
 @import "lib/datatables";
 @import "lib/jquery_simple_slider";
 @import "compass";
+@import "compass/utilities/general/clearfix";
 @import "table";
 @import "plots";
+@import "lib/switch";
 
 $max-width: 100%;
 
@@ -53,7 +59,16 @@ html, body {
 	}
 }
 
+#chart {
+	svg {
+		text.label {
+			font-size: 15px;
+		}
+	}
+}
+
 #sidebar {
+	padding-top: 10px;
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -85,29 +100,84 @@ html, body {
 	}
 }
 
+@mixin label {
+	display: block;
+	color: #666;
+	font-weight: 600;
+	font-size: .6em;
+	text-transform: uppercase;
+	padding-left: 0;
+	text-align: left;
+}
+
+h3.label {
+	font-size: 13px !important;
+	@include label;
+	background-color: none;
+	background: none;
+	margin-bottom: 4px;
+}
+#selection_type {
+	margin-bottom: 10px;
+}
+
+#tag_manager {
+	.form-control {
+		width: 80%;
+	}
+}
+
+#tag_field {
+	ul {
+		list-style: none;
+	}
+	li {
+		@include border-radius(5px);
+		font-size: 18px !important;
+		padding: 4px 6px 2px 6px;
+		margin-right: 5px;
+		i {
+			margin-left: 5px;
+		}
+		&.some {
+			background-color: #cccccc;
+		}
+		&.all {
+			background-color: #87b4f8;
+		}
+	}
+}
+
+.navbar {
+	margin-bottom: 10px;
+}
+
 #tabs {
 	#data {
 		ul {
 			padding-left: 0;
 			list-style: none;
+			@include clearfix;
 			li {
 				margin-left: 0;
 				line-height: 24px;
 				font-size: 22px;
 				clear: both;
+				display: block;
+				float: left;
+				clear: none;
+				min-width: 60px;
 				span {
 					&.label {
-						padding-left: 0;
-						font-size: 14px;
-						line-height: 24px;
-						color: #444;
-						min-width: 70px;
-						float: left;
-						text-align: left;
+						@include label;
 					}
-					display: inline;
 					background-color: inherit;
-					background: inherit;;
+					background: inherit;
+				}
+				a {
+					font-size: .8em;
+					line-height: 40px;
+					margin-left: 20px;
 				}
 			}
 		}

@@ -1,6 +1,6 @@
 {
   "name": "d3",
-  "version": "3.2.7",
+  "version": "3.2.8",
   "main": "d3.js",
   "scripts": [
     "d3.js"
@@ -23,11 +23,11 @@
     "test"
   ],
   "homepage": "https://github.com/mbostock/d3",
-  "_release": "3.2.7",
+  "_release": "3.2.8",
   "_resolution": {
     "type": "version",
-    "tag": "v3.2.7",
-    "commit": "80e8e89b8d953f644eaefbb658902c27a2e4452a"
+    "tag": "v3.2.8",
+    "commit": "68c775674d61975b0be47b6db616058818ad3198"
   },
   "_source": "git://github.com/mbostock/d3.git",
   "_target": "*"

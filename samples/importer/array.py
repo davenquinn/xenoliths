@@ -31,7 +31,7 @@ class Array(object):
 	def transform_coordinates(self, seed_file):
 		dtype = [("point", int), ("x", float), ("y", float)]
 		try:
-			affine_seed = N.loadtxt(seed_file, delimiter="\t", comments="#", dtype=dtype)
+			affine_seed = N.loadtxt(seed_file, comments="#", dtype=dtype)
 		except IOError:
 			print "No affine seed points available for "+seed_file
 			return self.records
@@ -43,7 +43,7 @@ class Array(object):
 			point = self.records[idx][0]
 			cord = [point[i+" Stage Coordinates (mm)"] for i in ["X","Y"]]
 			tocord = [a["x"], a["y"]]
-			print repr(cord)+" --> "+repr(tocord)
+			print u"{} -> {}".format(repr(cord),repr(tocord))
 			fromCoords.append(cord)
 			toCoords.append(tocord)
 

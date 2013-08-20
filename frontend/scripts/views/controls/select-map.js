@@ -20,6 +20,7 @@ define([
         },
         render: function(){
             this.$el.html(this.template({samples: this.samples}));
+            this.setSelected(this.map.sample_name)
             return this;
         },
         sampleChanged: function(event){

@@ -26,8 +26,6 @@ class Affine(object):
 		fromCoords = augment(N.array(fromCoordinates))
 		toCoords = N.array(toCoordinates)
 		model, residuals, rank, sv = N.linalg.lstsq(fromCoords, toCoords)
-		if verbose:
-			print model
 		affine =  cls(model)
 
 		sol = N.dot(fromCoords,affine.array)
@@ -41,5 +39,4 @@ class Affine(object):
 
 if __name__ == "__main__":
 	import IPython
-
 	IPython.embed()

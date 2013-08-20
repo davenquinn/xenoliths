@@ -1,43 +1,48 @@
 define([
-    "jquery",
-    "backbone"
-    ],function($,Backbone){
-    var DataManager = Backbone.Model.extend({
-        initialize: function(){
-            console.log('Initializing data manager');
-            this.data = window.data;
+	"jquery",
+	"classy",
+	'options',
+	], function($, Class, Options){
+
+    var Data = Class.$extend({
+        __init__: function(data){
+            this.data = data;
         },
-        JSON_RPC: function(method, params, callback){
-            var url = "/json/";
-            request = {
-                method: method,
-                params: params,
-                jsonrpc: "2.0",
-                id: 1
-            };
-            $.post(url, JSON.stringify(request), callback, "json");
-        },
-        filterData: function(options){
+        filter: function(options){
             var data = this.data;
-            if (typeof(options.sample) === 'undefined'){
-                var newFeatures = this.data.features;
-            } else {
-                if (typeof(options.sample) === "array") {
-                    samples = options.sample
-                } else if (typeof(options.sample) === "string") {
-                    samples = [options.sample];
+            var newFeatures = this.data.features;
+            $.each(["samples","minerals"], function(i,item){
+	            if (typeof(options[item]) !== 'undefined'){
+	                if (typeof(options[item]) !== "array") {
+	                    if (typeof(options[item]) === "string") {
+	                    	options[item] = [options[item]];
+	                	}
+	                }
+	            }            	
+            });
+            if (typeof(options["bad"]) === 'undefined') options["bad"] = true;
+
+            var newFeatures = []
+            $.each(this.data.features, function(i,d){
+            	var c1 = true;
+            	var c2 = true;
+            	var c3 = true;
+                if (typeof(options["samples"]) !== 'undefined') {
+                	c1 = $.inArray(d.properties.sample, options["samples"]) > -1
+               	}
+               	if (typeof(options["minerals"]) !== 'undefined') {
+                	c2 = $.inArray(d.properties.mineral, options["minerals"]) > -1 
+            	}
+            	if (options["bad"] == false) {
+                    c3 = d.properties.tags.indexOf("bad") == -1;
                 }
-                var newFeatures = []
-                $.each(data.features, function(i,d){
-                    if (samples.indexOf(d.properties.sample) > -1) newFeatures.push(d);
-                });
-            }
+                if (c1 && c2 && c3) newFeatures.push(d);
+            });
             return {
                 type: "FeatureCollection",
                 features: newFeatures
             };
         }
-    }); 
-    return DataManager;
+    });
+	return Data;
 });
-

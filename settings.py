@@ -123,6 +123,7 @@ INSTALLED_APPS = (
 	'django.contrib.staticfiles',
 	'django.contrib.gis',
 	'django_extensions',
+	'taggit',
 	'samples',
 	'jsonrpc'
 )
@@ -158,17 +159,6 @@ LOGGING = {
 
 CATIONS = "Si Fe Mg Ti Al Na Ca Mn Cr Ni".split()
 OXIDES = "SiO2 FeO MgO TiO2 Al2O3 Na2O CaO MnO Cr2O3 NiO".split()
-MAP_OPTIONS = {
-	"CK-2": {
-		"bounds": [0.0, -8640.0, 8577.0, 0.0]
-	},
-	"CK-3": {
-		"bounds": [0.0, -5040.0, 11436.0, 0.0]
-	},
-	"CK-4": {
-		"bounds": [0.0, -7200.0, 8577.0, 0.0]
-	}
-}
 SAMPLES = "CK-2 CK-3 CK-4 CK-5 CK-6 CK-7".split()
 
 MINERALS = [
@@ -180,6 +170,11 @@ MINERALS = [
 ]
 
 MINERAL_SYSTEMS = {
+	"silicate": {
+		"si": {"SiO2": 1},
+		"fe": {"FeO": 1},
+		"mg": {"MgO": 1}
+	},
 	"pyroxene": {
 		"Wo": {"SiO2":1,"CaO":1},
 		"En": {"SiO2":1,"MgO":1},

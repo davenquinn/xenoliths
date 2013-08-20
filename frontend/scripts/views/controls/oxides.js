@@ -28,6 +28,26 @@ define([
             this.center = this.svg.append("g")
                 .attr("class","center")
 
+            this.center.append("text")
+                .attr("class", "label")
+                .attr("x", 0)
+                .attr("y", -22)
+                .style("text-anchor", "middle")
+                .style("alignment-baseline", "middle")
+                .style("font-size", "1em")
+                .style("font-weight","600")
+                .style("fill ", "#888")
+                .text("OXIDES")
+
+            this.mineral = this.center.append("text")
+                .attr("class", "label")
+                .attr("x", 0)
+                .attr("y", 28)
+                .style("text-anchor", "middle")
+                .style("alignment-baseline", "middle")
+                .style("font-size", ".8em")
+                .style("font-weight","600")
+
             this.total = this.center.append("text")
                 .attr("class", "label")
                 .attr("x", 0)
@@ -82,6 +102,11 @@ define([
                     this.arcs.transition().duration(300).attrTween("d", a.arcTween); // redraw the arcs
                 }
                 this.total.text(data.properties.oxides.Total.toFixed(2)+"%")
+                min = Options.minerals[data.properties.mineral];
+                this.mineral.text(min.name.toUpperCase());
+                color = d3.hsl(min.color);
+                color.l = .3
+                this.mineral.style("fill",color.toString());
 
             }
             this.arcTween = function(s) {

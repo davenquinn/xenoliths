@@ -27,21 +27,22 @@ define([
             this.map = new OpenLayers.Map(Options);
             this.GeoJSON = new OpenLayers.Format.GeoJSON();
 
+
+            this.navControl = new OpenLayers.Control.Navigation()
             this.map.addControls([new OpenLayers.Control.Zoom(),
-                     new OpenLayers.Control.Navigation(),
+                     this.navControl,
                      //new OpenLayers.Control.KeyboardDefaults(),
                      new OpenLayers.Control.MousePosition({numDigits:2}),
                      new OpenLayers.Control.ArgParser()]);
 
             this.setupTiles();
-            this.map.zoomToExtent(this.bounds);
-           
+            this.map.zoomToExtent(this.bounds);           
         },
         setupTiles: function(){
             var a = this;
             var getURL = function(bounds) {
                 var mapMinZoom = 0;
-                var mapMaxZoom = 8;
+                var mapMaxZoom = 7;
                 var emptyTileURL = "http://www.maptiler.org/img/none.png";
                 bounds = this.adjustBounds(bounds);
                 var res = this.getServerResolution();
@@ -60,7 +61,7 @@ define([
                 }
             }; 
             layer = new OpenLayers.Layer.TMS(this.sample, "",{
-                resolutions: [16,8,4,2,1],
+                resolutions: [16,8,4,2,1,0.5],
                 serverResolutions: [64,32,16,8,4,2,1],
                 transitionEffect: 'resize',
                 alpha: true,
@@ -71,7 +72,19 @@ define([
         },
         changeSample: function(sample){
             this.sample = Options["samples"][sample]
+            this.sample_name = sample;
             this.startMap();
+        },
+        zoomToPoint: function(point, level){
+            var centerPoint = new OpenLayers.LonLat(point[0],point[1]);      
+            this.map.setCenter(centerPoint, level); 
+        },
+        setDraggable: function(bool){
+            if (bool) {
+                this.navControl.activate()
+            } else {
+                this.navControl.deactivate()
+            }
         }
     });
     return Map;

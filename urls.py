@@ -12,12 +12,12 @@ urlpatterns = patterns('',
     url(r'^data.json', 'samples.views.data'), # for HTTP GET only, also omissible
 
     # Examples:
-    url(r'^table/(?P<type>[\w]+)/', 'samples.views.table'),
-    url(r'^map/(?P<sample>[-\w\d]+)/', 'samples.views.map'),
-    url(r'^plot/(?P<type>[\w]+)/(?P<axes>[-\w\d]+)/', 'samples.views.plot'),
-    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
-        'document_root': settings.MEDIA_ROOT,
-    }),
+    #url(r'^table/(?P<type>[\w]+)/', 'samples.views.table'),
+    #url(r'^map/(?P<sample>[-\w\d]+)/', 'samples.views.map'),
+    #url(r'^plot/(?P<type>[\w]+)/(?P<axes>[-\w\d]+)/', 'samples.views.plot'),
+    #url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+    #    'document_root': settings.MEDIA_ROOT,
+    #}),
     url(r'^$', TemplateView.as_view(template_name="index.html")),
 )
 

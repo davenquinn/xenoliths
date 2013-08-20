@@ -13,6 +13,9 @@ define([
             this.map.dispatcher.on("updated.raw",function(d){
                 a.update(d)
             });
+            if (this.map.selected) {
+                this.update(this.map.selected)
+            } else this.update(this.map.data.features[0])
         },
         events: {
             "click button.close": "destroy"

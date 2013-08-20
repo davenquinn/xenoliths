@@ -15,9 +15,7 @@ define([
         },
         render: function(){
             var controls = [];
-            console.log(this.options.controls)
             for (var c in this.options.controls){
-                console.log(c,this.options.controls[c])
                 id = this.options.controls[c];
                 control = Controls[id];
                 control.id = id;
@@ -26,7 +24,6 @@ define([
             opts = {controls: controls};
             this.$el.html(this.template(opts));
 
-            console.log(controls);
             for (var c in controls){
                 control = controls[c];
                 control = new control.obj({

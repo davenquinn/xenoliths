@@ -7,14 +7,34 @@ define([
 
     MapPage = GenericView.extend({
         initialize: function(){
-            this.sample = "CK-2";
-            this.manager = this.options.manager;
+            console.log(this.options)
+            this.sample = this.options.sample
+            if (this.sample == null) this.sample = "CK-2";
             this.compile(template)
             this.setup()
         },
         setup: function(){
-            this.data = this.manager.filterData({sample: this.sample});
+            this.filter = {samples: [this.sample]};
+            this.data = App.Data.filter(this.filter);
             this.render();
+        },
+        createSelection: function(){
+            a = this;
+            function isSelected(element, index, array) {
+                s = (element.properties.id == a.options.point);
+                return s;
+            }
+            function isTagged(element, index, array) {
+                ind = element.properties.tags.indexOf(a.options.tag)
+                console.log(ind)
+                return (ind > -1)
+            }
+            var selection = null;
+            if (this.options.tag) selection = this.data.features.filter(isTagged)
+            if (this.options.point) selection = this.data.features.filter(isSelected)
+            console.log(selection);
+
+            return selection          
         },
         render: function(){
             this.$el.height($(window).height());
@@ -23,7 +43,8 @@ define([
                 el: "#map",
                 parent: this,
                 sample: this.sample,
-                data: this.data
+                data: this.data,
+                selected: this.createSelection()
             });
             this.sidebar = new Sidebar({
                 el:"#sidebar",

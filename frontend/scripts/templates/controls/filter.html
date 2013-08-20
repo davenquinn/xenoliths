@@ -1,25 +1,33 @@
 <form>
   <fieldset>
     <legend>Filter Data</legend>
-    <div class="form-group">
-        <label for="filter_sample">Sample</label>
-        <select multiple name="filter_sample" class="form-control">
+    <div class="form-group" id="filter-settings">
+      <label class="checkbox-inline">
+        <input type="checkbox" name="filter-samples"> Filter samples
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" name="filter-minerals"> Filter minerals
+      </label>
+    </div>
+    <div class="form-group samples">
+        <label for="samples">Sample</label>
+        <select multiple name="samples" class="form-control">
             {{#each samples}}
-            <option value="{{@key}}">{{@key}}</option>
+            <option selected value="{{@key}}">{{@key}}</option>
             {{/each}}
         </select>
     </div>
-    <div class="form-group">
-        <label for="filter_mineral">Mineral</label>
-        <select multiple name="filter_minerals" class="form-control">
+    <div class="form-group minerals">
+        <label for="minerals">Mineral</label>
+        <select multiple name="minerals" class="form-control">
             {{#each minerals}}
-            <option value="{{@key}}">{{@key}}</option>
+            <option selected value="{{@key}}">{{ name }}</option>
             {{/each}}
         </select>
     </div>
     <div class="form-group">
-      <label>
-        <input type="checkbox" name="bad"> Show bad data
+      <label class="checkbox-inline">
+        <input type="checkbox" checked name="bad"> Bad data
       </label>
     </div>
     <button type="button" class="filter btn btn-default">Filter</button>

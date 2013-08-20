@@ -9,14 +9,12 @@ define([
         initialize: function(){
             this.axes = {x:"oxides.MgO",y:"oxides.FeO"};
             this.filter = {};
-            this.manager = this.options.manager;
             this.parent = options.parent
             this.compile(template)
             this.setup()
         },
         setup: function(){
-            var self = this;
-            this.data = this.manager.filterData(this.filter);
+            this.data = App.Data.filter(this.filter);
             this.render();
         },
         render: function(){

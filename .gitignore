@@ -3,5 +3,6 @@ database.log
 .database
 _static/media/
 _static/tiles/
+samples/data/backup/
 *.pyc
 .sass-cache

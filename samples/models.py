@@ -1,10 +1,13 @@
+from __future__ import division
+import operator
+import periodictable as pt
 from django.contrib.gis.db import models
 from django.conf import settings
 from picklefield.fields import PickledObjectField
-import periodictable as pt
-from django.conf import settings
 from converter import Converter
-import operator
+from uncertainties import ufloat
+from quality import data_quality
+from taggit.managers import TaggableManager
 
 # Create your models here.
 class Sample(models.Model):
@@ -13,8 +16,7 @@ class Sample(models.Model):
 	classification = PickledObjectField(blank=True, compress=True)
 
 class Point(models.Model):
-	uid = models.CharField(primary_key=True, max_length=10)
-	id = models.IntegerField()
+	n = models.IntegerField()
 	geometry = models.PointField(blank=True, srid=900913)
 	mineral = models.CharField(blank=True, max_length=4,choices=settings.MINERALS)
 	sample = models.ForeignKey(Sample)
@@ -24,17 +26,17 @@ class Point(models.Model):
 	molar = PickledObjectField()
 	formula = PickledObjectField()
 	params = PickledObjectField()
-	bad = models.BooleanField(default=False)
+	#rejected = models.BooleanField(default=False)
+	#rejected_manually = models.BooleanField(default=False)
+	tags = TaggableManager()
 
 	def save(self, *args, **kwargs):
 		compute_parameters = kwargs.pop("compute_parameters",False)
 		if compute_parameters:
 			self.molar = self.compute_molar()
 			self.transforms = dict([(k,self.compute_transform(k)) for k in settings.MINERAL_SYSTEMS.keys()])
-			self.compute_mineral()
 			self.compute_params()
 			self.formula = self.compute_formula(6)
-
 		super(Point, self).save(*args, **kwargs)		
 
 	def compute_molar(self):
@@ -66,38 +68,41 @@ class Point(models.Model):
 		self.params = params
 		return params
 
-	def compute_mineral(self):
-		t = self.transforms["minerals"]
-		mineral = max(t.iteritems(), key=operator.itemgetter(1))[0]
-		self.mineral = mineral
-
 	def compute_transform(self, system="pyroxene"):
 		converter = Converter(system)
 		return converter.transform(self.molar)
 
-	def get_cations(self):
+	def __get_atomic__(self):
 		formula = {}
 		for key, molar_pct in self.molar.items():
 			if key == "Total": continue
 			oxide = pt.formula(key)
 			for i,n in oxide.atoms.iteritems():
-				if str(i) == "O": continue
 				formula[str(i)] = formula.get(str(i),0)+n*molar_pct
-		scalar = 100/sum(formula.itervalues())
+		return formula		
+
+	def get_cations(self, oxygen=6, uncertainties=True):
+		formula = self.__get_atomic__()
+		scalar = oxygen/formula["O"]
 		for key, value in formula.iteritems():
-			formula[key] = value*scalar		
+			formula[key] = value*scalar	
+		del formula["O"]	
+
+		if uncertainties:
+			for key, cation in formula.iteritems():
+				err_pct = self.errors[key]
+				abs_err = err_pct/100.*cation
+				formula[key] = ufloat(cation, abs_err, key+"_probe")
+
 		formula["Total"] = sum(formula.itervalues())
 		return formula	
 
-	def compute_formula(self, oxygen=4):
-		formula = {}
-		for key, molar_pct in self.molar.items():
-			if key == "Total": continue
-			oxide = pt.formula(key)
-			for i,n in oxide.atoms.iteritems():
-				formula[str(i)] = formula.get(str(i),0)+n*molar_pct
+	def compute_formula(self, oxygen=6):
+		formula = self.__get_atomic__()
 		scalar = oxygen/formula["O"]
 		for key, value in formula.iteritems():
 			formula[key] = value*scalar
 		formula["Total"] = sum(formula.itervalues())
 		return formula
+
+

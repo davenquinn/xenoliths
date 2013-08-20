@@ -14,6 +14,9 @@ require.config({
         },
         "jquery.slider": {
             deps: ["jquery"]
+        },
+        "jquery.switch": {
+            deps: ["jquery"]
         }
     },
     urlArgs: "bust=" +  (new Date()).getTime(),
@@ -28,27 +31,23 @@ require.config({
 		"d3": "lib/d3/d3",
 		"jquery.bootstrap": "lib/bootstrap/dist/js/bootstrap",
 		"jquery.slider": "lib/jquery-simple-slider/js/simple-slider",
-        "text" : "lib/requirejs-text/text"
+        "jquery.switch": "lib/bootstrap-switch/static/js/bootstrap-switch",
+        "text" : "lib/requirejs-text/text",
+        "d3-dragrect": "lib/d3-dragrect/lib/d3-dragrect"
     }
 });
 
 require([
     'jquery',
 	'backbone',
-	'router'
-	],function($,Backbone,Router){
+    'app',
+	],function($,Backbone,startApp){
         console.log("Starting to get data");
         $("body").append("<img class='loading' src='/static/images/ajax-loader.gif' />");
         $.ajax({
-            url: "/data.json",
+            url: "/static/data.json?bust=" +  (new Date()).getTime(),
             dataType:"json",
-            success: function(data){
-                console.log("Got data");
-                window.data = data;
-                $("body").html("");
-                router = new Router();
-                Backbone.history.start();
-            },
+            success: startApp,
             error: function(request, textStatus, errorThrown) {
                 console.log(textStatus);
                 console.log(errorThrown);

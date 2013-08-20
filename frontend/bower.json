@@ -14,6 +14,8 @@
 		"font-awesome": "*",
 		"jquery-simple-slider": "*",
 		"requirejs-text": "*",
-		"classy": "https://github.com/mitsuhiko/classy/archive/master.zip"
+		"classy": "https://github.com/mitsuhiko/classy/archive/master.zip",
+		"bootstrap-switch": "*",
+		"d3-dragrect": "https://github.com/jprichardson/d3-dragrect/archive/master.zip"
 	}
 }

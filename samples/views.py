@@ -1,11 +1,32 @@
+import os
 from jsonrpc import jsonrpc_method
 from models import Sample, Point
 import simplejson as json
 import IPython
-from django.http import HttpResponse
+from django.conf import settings
+from django.core.cache import cache
+from django.core.urlresolvers import reverse
 from django.views.decorators.cache import cache_page
+from django.http import HttpRequest
+from django.utils.cache import get_cache_key
 
-import simplejson
+def expire_cache():
+    """
+    This function allows you to invalidate any view-level cache. 
+        view_name: view function you wish to invalidate or it's named url pattern
+        args: any arguments passed to the view function
+        namepace: optioal, if an application namespace is needed
+        key prefix: for the @cache_page decorator for the function (if any)
+    """
+    request = HttpRequest()
+
+    request.path = reverse(data)
+    key = get_cache_key(request)
+    if key:
+        if cache.get(key):
+            cache.set(key, None, 0)
+        return True
+    return False
 
 class PrettyFloat(float):
     def __repr__(self):
@@ -35,12 +56,9 @@ def make_json():
 				"oxides": obj.oxides,
 				"formula": obj.formula,
 				"molar": obj.molar,
-				"id": obj.id,
+				"id": obj.n,
 				"params": obj.params,
-				"flags": {
-					"bad": obj.bad,
-					"review": False
-				}
+				"tags": [str(tag) for tag in obj.tags.all()]
 			},
 			"geometry": json.loads(obj.geometry.json)
 		}
@@ -48,11 +66,14 @@ def make_json():
 	output = {
 		"type": "FeatureCollection",
 		"features": output,
-		"properties": {
-			"samples": [obj.id for obj in samples]
-		}
 	}
 	return output
+
+def write_json(path=None):
+	if path is None:
+		path = os.path.join(settings.SITE_DIR,"frontend","data.json")
+	with open(path, "w") as f:
+		json.dump(pretty_floats(make_json()), f)
 
 @jsonrpc_method('get_classification')
 def get_classification(request, sample):
@@ -71,10 +92,22 @@ def save_classification(request, sample, classification):
 	except:
 		return False
 
+@jsonrpc_method('add_tag')
+def add_tag(request, tag, points):
+	for point in points:
+		pt = Point.objects.get(sample=point[0], n=point[1])
+		pt.tags.add(tag)
+
+@jsonrpc_method('remove_tag')
+def remove_tag(request, tag, points):
+	for point in points:
+		pt = Point.objects.get(sample=point[0], n=point[1])
+		pt.tags.remove(tag)	
+
 @jsonrpc_method('get_data')
 def get_data(request):
 	return make_json()
 	
-@cache_page(60*60)
+@cache_page(10)
 def data(request):
 	return HttpResponse(json.dumps(pretty_floats(make_json())), mimetype="application/json")

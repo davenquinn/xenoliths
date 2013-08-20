@@ -3,7 +3,7 @@ define([
     "d3", 
     "views/base/generic", 
     "options",
-    "views/base/colors"
+    "views/base/colors",
     ],function(Backbone, d3, GenericView, Options, Colorizer){
 
     Chart = GenericView.extend({
@@ -13,7 +13,8 @@ define([
             this.data = this.options.data;
             this.colormap = new Colorizer["samples"]();
             this.dispatcher = d3.dispatch("updated");
-
+            this.selectMode = "single";
+            this.sel = [this.data.features[0]]
 
             this.margin = {
                 left: 50,
@@ -25,14 +26,42 @@ define([
             this.height = this.$el.height()-this.margin.top-this.margin.bottom;
             var a = this;
             this.onMouseMove = function(d,i) {
-                d3.select(".dot.selected")
-                    .attr("class","dot")
-                d3.select(this)
-                    .attr("class","dot selected")
+                if (a.selectMode == "single") {
+                    d3.selectAll(".dot.selected")
+                        .attr("class","dot")
+                    a.sel.length = 0;
+                }
+                if (a.selectMode == "multiple" &&  !d3.event.shiftKey) return;
+                sel = d3.select(this);
+                if (!sel.classed("selected")) {
+                    sel.classed("selected", true)
+                    a.sel.push(d)
+                };
                 a.dispatcher.updated(d);
             };
+            this.onClick = function(d,i) {
+                item = d3.select(this)
+                if (a.selectMode == "multiple") {
+                    toSelect = !item.classed("selected")
+                    item.classed("selected", toSelect)
+                    if (toSelect) {
+                        a.sel.push(d)
+                    } else {
+                        var index = a.sel.indexOf(d);
+                        a.sel.splice(index,1);
+                    }
+                    a.dispatcher.updated(d);
+                }
+            };
+            this.onBackgroundClick = function(d,i){
+                if (a.selectMode == "multiple") {
+                    d3.selectAll(".dot.selected").classed("selected",false);
+                    d3.event.stopPropagation();
+                    a.sel.length = 0;
+                    a.dispatcher.updated();
+                }
+            };
             this.setupEventHandlers();
-
             this.loadAxes();
         },
         loadAxes: function(){
@@ -77,7 +106,8 @@ define([
             this.svg.append("rect")
                 .attr("id", "clip")
                 .attr("width", this.width)
-                .attr("height", this.height);
+                .attr("height", this.height)
+                .on("click", this.onBackgroundClick);
 
             this.svg.append("g")
                 .attr("class", "x axis")
@@ -116,19 +146,11 @@ define([
                 .attr("class","data")
                 .attr("clip-path", "url(#clip)");
 
-             this.points.selectAll(".dot")
-                .data(this.data.features)
-                .enter().append("circle")
-                    .attr("class", "dot")
-                    .attr("r", 3.5)
-                    .attr("cx", this.xTransform)
-                    .attr("cy", this.yTransform)
-                    .on("mouseover", this.onMouseMove)
-                    .style("fill", a.colormap.func);
+             this.points.call(this.joinData, this.data);
+
 
             this.dims = [this.width, this.height]
 
-            this.setupEventHandlers()
         },
         setupEventHandlers: function(){
             var a = this;
@@ -148,15 +170,38 @@ define([
                     .attr("cx", a.xTransform)
                     .attr("cy", a.yTransform)
             }
+            this.joinData = function(element, data){
+                var dot = element.selectAll(".dot")
+                    .data(data.features);
+                dot.exit().remove();
+                dot.enter().append("circle")
+                    .attr("class", "dot")
+                    .attr("r", 3.5)
+                    .attr("cx", a.xTransform)
+                    .attr("cy", a.yTransform)
+                    .on("mouseover", a.onMouseMove)
+                    .on("click", a.onClick)
+                    .style("fill", a.colormap.func);   
+            };
         },
         setColormap: function(name, options){
             this.colormap = new Colorizer[name](options);
             this.points.selectAll(".dot").style("fill", this.colormap.func)
         },
-        setAxes: function(axes){
+        refresh: function() {
             d3.select(this.el).select("svg").remove();
+            this.loadAxes()
+        },
+        setAxes: function(axes){
             this.axes = axes;
-            this.loadAxes();
+            this.refresh()
+        },
+        setData: function(data){
+            this.data = data;
+            this.refresh()
+        },
+        setSelectMode: function(mode){
+            this.selectMode = mode;
         }
     });
     return Chart;
