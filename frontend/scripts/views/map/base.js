@@ -16,7 +16,7 @@ define([
         },
         startMap: function(){
             this.bounds = OpenLayers.Bounds.fromArray(this.sample.bounds);
-             var Options = {
+            var Options = {
                 div: this.el,
                 controls: [],
                 maxExtent: this.bounds,
@@ -34,11 +34,13 @@ define([
                      //new OpenLayers.Control.KeyboardDefaults(),
                      new OpenLayers.Control.MousePosition({numDigits:2}),
                      new OpenLayers.Control.ArgParser()]);
-
-            this.setupTiles();
+            this.baseLayers = {}
+            this.setupTiles("sem");
+            this.setupTiles("scan");
+            this.setLayer("sem");
             this.map.zoomToExtent(this.bounds);           
         },
-        setupTiles: function(){
+        setupTiles: function(mapType){
             var a = this;
             var getURL = function(bounds) {
                 var mapMinZoom = 0;
@@ -49,7 +51,7 @@ define([
                 var x = Math.round((bounds.left - this.tileOrigin.lon) / (res * this.tileSize.w));
                 var y = Math.round((bounds.bottom - this.tileOrigin.lat) / (res * this.tileSize.h));
                 var z = this.getServerZoom();
-                var path = "/static/tiles/"+a.options.sample+"/" + z + "/" + x + "/" + y + "." + this.type;
+                var path = "/static/tiles/"+a.options.sample+"/" +mapType+"/"+ z + "/" + x + "/" + y + "." + this.type;
                 var url = this.url;
                 if (OpenLayers.Util.isArray(url)) {
                     url = this.selectUrl(path, url);
@@ -66,9 +68,12 @@ define([
                 transitionEffect: 'resize',
                 alpha: true,
                 type: 'png',
-                getURL: getURL
+                getURL: getURL,
+                tileOrigin: new OpenLayers.LonLat.fromArray(this.sample.layers[mapType])
             });
+            this.baseLayers[mapType] = layer;
             this.map.addLayers([layer]);
+            return layer
         },
         changeSample: function(sample){
             this.sample = Options["samples"][sample]
@@ -85,6 +90,10 @@ define([
             } else {
                 this.navControl.deactivate()
             }
+        },
+        setLayer: function(layer){
+            console.log(layer);
+            this.map.setBaseLayer(this.baseLayers[layer]);
         }
     });
     return Map;

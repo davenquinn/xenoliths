@@ -8435,7 +8435,8 @@ svg .dot.hovered {
 }
 
 /* line 3, ../sass/lib/_switch.scss */
-.onoffswitch {
+.layer-switch {
+  margin-top: 10px;
   position: relative;
   width: 100%;
   -webkit-user-select: none;
@@ -8443,13 +8444,13 @@ svg .dot.hovered {
   -ms-user-select: none;
 }
 
-/* line 8, ../sass/lib/_switch.scss */
-.onoffswitch-checkbox {
+/* line 10, ../sass/lib/_switch.scss */
+.layer-switch-checkbox {
   display: none;
 }
 
-/* line 12, ../sass/lib/_switch.scss */
-.onoffswitch-label {
+/* line 14, ../sass/lib/_switch.scss */
+.layer-switch-label {
   display: block;
   overflow: hidden;
   cursor: pointer;
@@ -8457,8 +8458,8 @@ svg .dot.hovered {
   border-radius: 7px;
 }
 
-/* line 17, ../sass/lib/_switch.scss */
-.onoffswitch-inner {
+/* line 19, ../sass/lib/_switch.scss */
+.layer-switch-inner {
   width: 200%;
   margin-left: -100%;
   -moz-transition: margin 0.3s ease-in 0s;
@@ -8467,8 +8468,8 @@ svg .dot.hovered {
   transition: margin 0.3s ease-in 0s;
 }
 
-/* line 23, ../sass/lib/_switch.scss */
-.onoffswitch-inner:before, .onoffswitch-inner:after {
+/* line 25, ../sass/lib/_switch.scss */
+.layer-switch-inner:before, .layer-switch-inner:after {
   float: left;
   width: 50%;
   height: 29px;
@@ -8482,25 +8483,25 @@ svg .dot.hovered {
   box-sizing: border-box;
 }
 
-/* line 30, ../sass/lib/_switch.scss */
-.onoffswitch-inner:before {
-  content: "Single Select";
+/* line 32, ../sass/lib/_switch.scss */
+.layer-switch-inner:before {
+  content: "SEM";
   padding-left: 10px;
   background-color: #EEEEEE;
   color: #666666;
 }
 
-/* line 36, ../sass/lib/_switch.scss */
-.onoffswitch-inner:after {
-  content: "Multiple Select";
+/* line 38, ../sass/lib/_switch.scss */
+.layer-switch-inner:after {
+  content: "Scan";
   padding-right: 10px;
   background-color: #EEEEEE;
   color: #666666;
   text-align: right;
 }
 
-/* line 43, ../sass/lib/_switch.scss */
-.onoffswitch-switch {
+/* line 45, ../sass/lib/_switch.scss */
+.layer-switch-switch {
   width: 10%;
   margin: 5px;
   background: #666666;
@@ -8516,13 +8517,13 @@ svg .dot.hovered {
   transition: all 0.3s ease-in 0s;
 }
 
-/* line 53, ../sass/lib/_switch.scss */
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+/* line 55, ../sass/lib/_switch.scss */
+.layer-switch-checkbox:checked + .layer-switch-label .layer-switch-inner {
   margin-left: 0;
 }
 
-/* line 57, ../sass/lib/_switch.scss */
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+/* line 59, ../sass/lib/_switch.scss */
+.layer-switch-checkbox:checked + .layer-switch-label .layer-switch-switch {
   right: 0px;
 }
 

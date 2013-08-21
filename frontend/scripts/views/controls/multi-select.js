@@ -53,6 +53,9 @@ define([
                     .on("mouseover", function(d,i){
                         a.parent.update(d);
                     })
+                    .on("mouseout", function(d,i){
+                        a.parent.update(null);
+                    })
                     .each(createBar);
             this.bars.exit().remove();
             this.svg.attr("height", h*nbars);
