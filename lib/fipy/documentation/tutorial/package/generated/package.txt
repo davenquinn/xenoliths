@@ -1,0 +1,18 @@
+package Package
+===============
+
+:mod:`~package.package` Package
+-------------------------------
+
+.. automodule:: package.__init__
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    package.subpackage
+

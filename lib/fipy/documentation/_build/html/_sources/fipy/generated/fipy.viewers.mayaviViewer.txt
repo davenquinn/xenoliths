@@ -1,0 +1,35 @@
+mayaviViewer Package
+====================
+
+:mod:`~fipy.mayaviViewer` Package
+---------------------------------
+
+.. automodule:: fipy.viewers.mayaviViewer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.viewers.mayaviViewer.mayaviClient` Module
+-----------------------------------------------------
+
+.. automodule:: fipy.viewers.mayaviViewer.mayaviClient
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.viewers.mayaviViewer.mayaviDaemon` Module
+-----------------------------------------------------
+
+.. automodule:: fipy.viewers.mayaviViewer.mayaviDaemon
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.viewers.mayaviViewer.test` Module
+---------------------------------------------
+
+.. automodule:: fipy.viewers.mayaviViewer.test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

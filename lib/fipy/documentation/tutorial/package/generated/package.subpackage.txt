@@ -1,0 +1,27 @@
+subpackage Package
+==================
+
+:mod:`~package.subpackage` Package
+----------------------------------
+
+.. automodule:: package.subpackage
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~package.subpackage.base` Module
+--------------------------------------
+
+.. automodule:: package.subpackage.base
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~package.subpackage.object` Module
+----------------------------------------
+
+.. automodule:: package.subpackage.object
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

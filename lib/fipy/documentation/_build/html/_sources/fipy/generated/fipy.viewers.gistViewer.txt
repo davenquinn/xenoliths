@@ -1,0 +1,59 @@
+gistViewer Package
+==================
+
+:mod:`~fipy.gistViewer` Package
+-------------------------------
+
+.. automodule:: fipy.viewers.gistViewer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.viewers.gistViewer.colorbar` Module
+-----------------------------------------------
+
+.. automodule:: fipy.viewers.gistViewer.colorbar
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.viewers.gistViewer.gist1DViewer` Module
+---------------------------------------------------
+
+.. automodule:: fipy.viewers.gistViewer.gist1DViewer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.viewers.gistViewer.gist2DViewer` Module
+---------------------------------------------------
+
+.. automodule:: fipy.viewers.gistViewer.gist2DViewer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.viewers.gistViewer.gistVectorViewer` Module
+-------------------------------------------------------
+
+.. automodule:: fipy.viewers.gistViewer.gistVectorViewer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.viewers.gistViewer.gistViewer` Module
+-------------------------------------------------
+
+.. automodule:: fipy.viewers.gistViewer.gistViewer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.viewers.gistViewer.test` Module
+-------------------------------------------
+
+.. automodule:: fipy.viewers.gistViewer.test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

@@ -1,0 +1,26 @@
+models Package
+==============
+
+:mod:`~fipy.models` Package
+---------------------------
+
+.. automodule:: fipy.models
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.models.test` Module
+-------------------------------
+
+.. automodule:: fipy.models.test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    fipy.models.levelSet
+

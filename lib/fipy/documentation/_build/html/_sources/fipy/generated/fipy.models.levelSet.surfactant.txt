@@ -1,0 +1,75 @@
+surfactant Package
+==================
+
+:mod:`~fipy.surfactant` Package
+-------------------------------
+
+.. automodule:: fipy.models.levelSet.surfactant
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.models.levelSet.surfactant.adsorbingSurfactantEquation` Module
+--------------------------------------------------------------------------
+
+.. automodule:: fipy.models.levelSet.surfactant.adsorbingSurfactantEquation
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.models.levelSet.surfactant.convectionCoeff` Module
+--------------------------------------------------------------
+
+.. automodule:: fipy.models.levelSet.surfactant.convectionCoeff
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.models.levelSet.surfactant.lines` Module
+----------------------------------------------------
+
+.. automodule:: fipy.models.levelSet.surfactant.lines
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.models.levelSet.surfactant.matplotlibSurfactantViewer` Module
+-------------------------------------------------------------------------
+
+.. automodule:: fipy.models.levelSet.surfactant.matplotlibSurfactantViewer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.models.levelSet.surfactant.mayaviSurfactantViewer` Module
+---------------------------------------------------------------------
+
+.. automodule:: fipy.models.levelSet.surfactant.mayaviSurfactantViewer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.models.levelSet.surfactant.surfactantBulkDiffusionEquation` Module
+------------------------------------------------------------------------------
+
+.. automodule:: fipy.models.levelSet.surfactant.surfactantBulkDiffusionEquation
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.models.levelSet.surfactant.surfactantEquation` Module
+-----------------------------------------------------------------
+
+.. automodule:: fipy.models.levelSet.surfactant.surfactantEquation
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.models.levelSet.surfactant.surfactantVariable` Module
+-----------------------------------------------------------------
+
+.. automodule:: fipy.models.levelSet.surfactant.surfactantVariable
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

@@ -1,0 +1,66 @@
+pysparse Package
+================
+
+:mod:`~fipy.pysparse` Package
+-----------------------------
+
+.. automodule:: fipy.solvers.pysparse
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.solvers.pysparse.linearCGSSolver` Module
+----------------------------------------------------
+
+.. automodule:: fipy.solvers.pysparse.linearCGSSolver
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.solvers.pysparse.linearGMRESSolver` Module
+------------------------------------------------------
+
+.. automodule:: fipy.solvers.pysparse.linearGMRESSolver
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.solvers.pysparse.linearJORSolver` Module
+----------------------------------------------------
+
+.. automodule:: fipy.solvers.pysparse.linearJORSolver
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.solvers.pysparse.linearLUSolver` Module
+---------------------------------------------------
+
+.. automodule:: fipy.solvers.pysparse.linearLUSolver
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.solvers.pysparse.linearPCGSolver` Module
+----------------------------------------------------
+
+.. automodule:: fipy.solvers.pysparse.linearPCGSolver
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`~fipy.solvers.pysparse.pysparseSolver` Module
+---------------------------------------------------
+
+.. automodule:: fipy.solvers.pysparse.pysparseSolver
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    fipy.solvers.pysparse.preconditioners
+
