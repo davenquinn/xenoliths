@@ -1,4 +1,0 @@
-examples.phase.anisotropy
-=========================
-
-.. automodule:: examples.phase.anisotropy

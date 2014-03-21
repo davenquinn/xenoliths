@@ -1,4 +1,0 @@
-examples.cahnHilliard.sphere
-============================
-
-.. automodule:: examples.cahnHilliard.sphere

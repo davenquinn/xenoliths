@@ -1,4 +1,0 @@
-examples.phase.quaternary
-=========================
-
-.. automodule:: examples.phase.quaternary

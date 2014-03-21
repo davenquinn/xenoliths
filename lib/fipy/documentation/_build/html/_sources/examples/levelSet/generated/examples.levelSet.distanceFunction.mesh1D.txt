@@ -1,4 +1,0 @@
-examples.levelSet.distanceFunction.mesh1D
-=========================================
-
-.. automodule:: examples.levelSet.distanceFunction.mesh1D

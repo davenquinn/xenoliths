@@ -1,4 +1,0 @@
-examples.levelSet.distanceFunction.circle
-=========================================
-
-.. automodule:: examples.levelSet.distanceFunction.circle

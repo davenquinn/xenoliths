@@ -1,4 +1,0 @@
-examples.diffusion.circle
-=========================
-
-.. automodule:: examples.diffusion.circle

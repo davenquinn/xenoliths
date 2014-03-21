@@ -1,4 +1,0 @@
-examples.phase.polyxtalCoupled
-==============================
-
-.. automodule:: examples.phase.polyxtalCoupled

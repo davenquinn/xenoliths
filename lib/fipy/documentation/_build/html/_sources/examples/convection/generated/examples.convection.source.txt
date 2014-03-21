@@ -1,4 +1,0 @@
-examples.convection.source
-==========================
-
-.. automodule:: examples.convection.source

@@ -1,4 +1,0 @@
-examples.levelSet.electroChem.simpleTrenchSystem
-================================================
-
-.. automodule:: examples.levelSet.electroChem.simpleTrenchSystem

@@ -1,4 +1,0 @@
-examples.levelSet.electroChem.gold
-==================================
-
-.. automodule:: examples.levelSet.electroChem.gold
