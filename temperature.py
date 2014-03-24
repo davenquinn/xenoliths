@@ -5,48 +5,28 @@ import fipy as F
 import numpy as N
 from scipy.special import erf
 
-from half_space import HalfSpace, MaterialModel
+from geotherm.models import HalfSpace, MaterialModel
+from geotherm.units import quantity
+from geotherm.finite import FiniteSolver
 
-Ma = lambda s: s/3.15569e11
-seconds = lambda Ma: 3.15569e11*Ma
+from matplotlib.pyplot import figure
+
+def plot(solver, iterations):
+    fig = figure()
+    ax = fig.add_subplot(111)
+    line = None
+    IPython.embed()
+    for sol in solver.solve(iterations):
+        if line == None:
+            y = solver.mesh.cellCenters[0]
+            line, = ax.plot(sol, y, 'r-') # Returns a tuple of line objects, thus the comma
+            fig.show()
+        else:
+            line.set_xdata(sol)
+            fig.canvas.draw()
+        yield sol
 
 material = MaterialModel()
-half = HalfSpace(material)
-
-depth = 1e5 #m
-dy = 10
-ny = int(depth/dy)
-mesh = F.Grid1D(nx=ny, dx=dy)
-
-val = [half.T_max]*ny
-
-phi = F.CellVariable(name="solution variable", mesh=mesh, value=val)
-phi.constrain(0, mesh.facesRight)
-phi.constrain(half.T_max, mesh.facesLeft)
-
-# 0.9 * Largest stable timestep for explicit differentiation
-time_step = 0.9 * dy**2 / (2 * material.diffusivity)
-print time_step
-# Implicit diffusion: sacrifice accuracy for speed
-eqX = F.TransientTerm() == F.DiffusionTerm(coeff=material.diffusivity)
-time_step = seconds(0.1)
-print "Time step: {0}".format(Ma(time_step))
-
-steps = 400
-
-print "Total time: {0}".format(Ma(time_step*steps))
-
-
-
-if __name__ == '__main__':
-    viewer = F.Matplotlib1DViewer(vars=(phi), datamin=0., datamax=2000., legend="lower right")
-    viewer.plot()
-
-for step in range(steps):
-    eqX.solve(var=phi,
-              dt=time_step)
-    if __name__ == '__main__':
-        viewer.plot()
-        print Ma(step*time_step)
-
-IPython.embed()
+space = HalfSpace(material)
+solver = FiniteSolver(space)
+data = list(plot(solver,100))
