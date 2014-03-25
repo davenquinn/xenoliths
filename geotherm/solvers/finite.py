@@ -3,7 +3,7 @@ from __future__ import division
 import fipy as F
 import numpy as N
 
-from ..units import quantity
+from ..units import unit
 
 class FiniteSolver(object):
     """Explicit finite differentiation"""
@@ -24,17 +24,23 @@ class FiniteSolver(object):
         self.var.constrain(t_max, self.mesh.facesRight)
         self.equation = F.TransientTerm() == F.DiffusionTerm(coeff=self.material.diffusivity.magnitude)
 
-    def time_step(self):
+    def fractional_timestep(self, duration):
+        ts = self.stable_timestep()
+        n_steps = int(N.ceil((duration/ts).to("year")))
+        return duration/n_steps, n_steps
+
+    def stable_timestep(self, padding=0):
         """Calculates stable time step for explicit finite solving"""
-        time_step = 0.9 * self.dy**2 / (2 * self.material.diffusivity)
-        print time_step
+        time_step = (1-padding)*self.dy**2 / (2 * self.material.diffusivity)
         return time_step
 
-    def solve(self, steps=10, viewer=False):
-        time_step = self.time_step()
-        if viewer:
-            view = F.Matplotlib1DViewer(vars=(self.var))
-            view.plot()
+    def solve(self, steps=None, duration=None):
+        if duration:
+            time_step, steps = self.fractional_timestep(duration)
+        elif steps:
+            time_step = self.stable_timestep(0.9)
+        else:
+            raise TypeError("either `steps` or `duration` argument must be provided")
 
         for step in range(steps):
             simulation_time = step*time_step

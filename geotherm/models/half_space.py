@@ -1,7 +1,7 @@
 from __future__ import division
 from scipy.special import erf,erfc, erfcinv
 from .base import BaseModel
-from ..units import quantity, ensure_unit, registry
+from ..units import quantity, ensure_unit, unit
 
 class HalfSpace(BaseModel):
     defaults = {
@@ -14,10 +14,10 @@ class HalfSpace(BaseModel):
         self.material = material_model
 
     def temperature(self,time,depth):
-        time = ensure_unit(time, registry.seconds)
-        depth = ensure_unit(depth, registry.meters)
+        time = ensure_unit(time, unit.seconds)
+        depth = ensure_unit(depth, unit.meters)
         t = self._temperature(time,depth)
-        return t.to(registry.degC)
+        return t.to(unit.degC)
 
     def _temperature(self,time,depth):
         d = self.material.length_scale(time).magnitude
@@ -25,7 +25,7 @@ class HalfSpace(BaseModel):
         return first*(self.T_surface.magnitude-self.T_max.magnitude)+self.T_max.to("kelvin").magnitude
 
     def depth(self,time,temperature):
-        temp = ensure_unit(temperature, registry.degC)
+        temp = ensure_unit(temperature, unit.degC)
         theta = (temp-self.T_max).magnitude/(self.T_surface-self.T_max).magnitude
         eta = erfcinv(theta)
         return 2*eta*self.material.length_scale(time)

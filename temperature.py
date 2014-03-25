@@ -7,7 +7,7 @@ from scipy.special import erf
 import seaborn as sns
 
 from geotherm.models import HalfSpace, MaterialModel
-from geotherm.units import quantity
+from geotherm.units import unit
 from geotherm.solvers import FiniteSolver
 
 from matplotlib.pyplot import figure, subplots
