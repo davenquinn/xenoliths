@@ -1,5 +1,6 @@
 from __future__ import division
-from ..units import quantity, ensure_unit
+from ..units import quantity, ensure_unit, registry
+import numpy as N
 
 class BaseModel(object):
     defaults = {}
@@ -27,11 +28,11 @@ class MaterialModel(BaseModel):
         The distance over which heat will propagate in a given time period.
         Accepts time in seconds
         """
-        return N.sqrt(self.diffusivity*ensure_unit(time,u.second))
+        return N.sqrt(self.diffusivity*ensure_unit(time,registry.second))
 
     def time_scale(self, distance=1000):
         """
         The time over which temperature changes will propagate a given distance.
         Accepts distance in meters (default 1km)
         """
-        return (ensure_unit(distance,u.meter)**2/self.diffusivity)
+        return (ensure_unit(distance,registry.meter)**2/self.diffusivity)

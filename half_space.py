@@ -21,7 +21,7 @@ class BaseModel(object):
 	def __init__(self,**kwargs):
 		for key,item in self.defaults.items():
 			i = Q_(kwargs.get(key,item[0]),item[1])
-			setattr(self, key, i)
+			setattr(self, key, i)
 
 
 class MaterialModel(BaseModel):

@@ -4,21 +4,23 @@
 from __future__ import division
 
 import IPython
-from half_space import *
+import numpy as N
 import matplotlib.pyplot as P
 import seaborn as sns
 
-m = MaterialModel()
+from geotherm.units import registry
+from geotherm.models import HalfSpace, MaterialModel
 
-space = HalfSpace(m)
+m = MaterialModel()
+half_space = HalfSpace(m)
 
 def plot_halfspace():
-	times = N.linspace(0, 1e8,100)*u.year
+	times = N.linspace(0, 1e8, 100)*registry.year
 	series = range(1,8)
 	with sns.palette_context("RdPu",len(series)):
 		for i in series:
 			T = i*200
-			depths = N.array(space.depth(times,T))
+			depths = N.array(half_space.depth(times,T))
 			P.plot(times, depths/1000)
 			ax = P.gca()
 			ax.set_xlabel("Time (years)")
