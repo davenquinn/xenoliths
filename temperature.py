@@ -12,12 +12,19 @@ from geotherm.solvers import FiniteSolver
 
 from matplotlib.pyplot import figure, subplots
 
-def plot(solver, iterations, range=None):
-
+def plot(solver, **kwargs):
+    """
+    Takes arguments
+    ..range
+    """
     fig, axarr = subplots(1,2,sharey=True)
     ax0,ax1 = axarr
     ax0.invert_yaxis()
-    if range: ax0.set_xlim(range)
+
+    range = kwargs.pop("range",None)
+    if range:
+        ax0.set_xlim(range)
+
     y = solver.mesh.cellCenters[0]
 
     line1, = ax0.plot(solver.initial_values, y, '-')
@@ -25,7 +32,7 @@ def plot(solver, iterations, range=None):
     diff, = ax1.plot([0]*len(y),y,'-')
     fig.show()
 
-    for t,solution in solver.solve(iterations):
+    for t,solution in solver.solve(**kwargs):
         analytic = solver.space_model._temperature(t,y)
         line1.set_xdata(solution)
         line2.set_xdata(analytic)
@@ -39,4 +46,6 @@ material = MaterialModel()
 space = HalfSpace(material)
 solver = FiniteSolver(space)
 
-data = list(plot(solver,1000, range=(0,2000)))
+time = 3*unit.Myr
+
+data = list(plot(solver,duration=time,range=(0,2000)))
