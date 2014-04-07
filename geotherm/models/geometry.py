@@ -84,5 +84,6 @@ def stack_sections(*args):
     """Append a list of sections to form an aggregate."""
     layers = list(chain.from_iterable((sect.layers for sect in args)))
     a = Section(layers)
-    a.profile = u(N.concatenate(list(sect.profile.into("degC") for sect in args)),"degC")
+    profiles = list(sect.profile.into("degC") for sect in args))
+    a.profile = u(N.concatenate(profiles,"degC")
     return a
