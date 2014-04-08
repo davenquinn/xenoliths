@@ -9,7 +9,8 @@ import seaborn as sns
 from geotherm.models.material import Material
 from geotherm.models.geometry import Layer
 from geotherm.units import unit, u
-from geotherm.solvers import HalfSpaceSolver, SimpleFiniteSolver
+from geotherm.solvers import HalfSpaceSolver
+from geotherm.solvers.finite import SimpleFiniteSolver
 
 from matplotlib.pyplot import figure, subplots
 
@@ -43,8 +44,7 @@ def plot(finite, analytic, **kwargs):
         fig.canvas.draw()
         yield solution
 
-material = Material()
-layer = Layer(material, u(100,"km"), grid_spacing=u(100,"m"))
+layer = oceanic_mantle.to_layer(u(100,"km"))
 finite = SimpleFiniteSolver(layer)
 analytic = HalfSpaceSolver(layer)
 

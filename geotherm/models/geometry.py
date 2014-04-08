@@ -32,6 +32,7 @@ class Section(BaseModel):
         self.n_cells = N.sum([i.n_cells for i in self.layers])
         self.cell_centers = self.set_cell_centers()
         self.cell_boundaries = self.set_cell_boundaries()
+        self.cell_sizes = (self.cell_centers - self.cell_boundaries)*2
 
         uniform_temperature = kwargs.pop("uniform_temperature", None)
         if uniform_temperature is not None:
@@ -40,33 +41,28 @@ class Section(BaseModel):
             self.profile = None
 
     def set_cell_boundaries(self):
-        def layers():
-            a = u(0,"m")
-            for layer in self.layers:
-                yield (layer.cell_boundaries + a).into("meters")
-                a += layer.thickness
-        return u(N.concatenate(list(layers())),"m")
+        func = lambda layer, offset: (layer.cell_boundaries+offset).into("meters")
+        ls = [func(layer,top) for (top,bottom), layer in self.iterlayers()]
+        return u(N.concatenate(ls),"m")
 
     def set_cell_centers(self):
-        def layers():
-            a = u(0,"m")
-            for layer in self.layers:
-                yield (layer.cell_centers + a).into("meters")
-                a += layer.thickness
-        return u(N.concatenate(list(layers())),"m")
+        func = lambda layer, offset: (layer.cell_centers+offset).into("meters")
+        ls = [func(layer,top) for (top,bottom), layer in self.iterlayers()]
+        return u(N.concatenate(ls),"m")
+
+    def iterlayers(self):
+        top = u(0,"km")
+        for layer in self.layers:
+            bottom = top+layer.thickness
+            yield (top,bottom), layer
+            top = bottom
 
     def layer_bounds(self):
-        def accumulate():
-            a = u(0,"km")
-            for layer in self.layers:
-                b = a+layer.thickness
-                yield (a,b), layer
-                a = b
-        return N.concatenate(list(accumulate()))
+        return N.concatenate(list(self.iterlayers()))
 
     def get_slice(self, top, bottom):
         def layers():
-            for bounds, layer in zip(self.layer_bounds(),self.layers):
+            for bounds, layer in self.iterlayers():
                 thickness = layer.thickness
                 if bounds[0] >= bottom or bounds[1] <= top: continue
                 if bounds[0] < top:
@@ -84,6 +80,6 @@ def stack_sections(*args):
     """Append a list of sections to form an aggregate."""
     layers = list(chain.from_iterable((sect.layers for sect in args)))
     a = Section(layers)
-    profiles = list(sect.profile.into("degC") for sect in args))
-    a.profile = u(N.concatenate(profiles,"degC")
+    profiles = list(sect.profile.into("degC") for sect in args)
+    a.profile = u(N.concatenate(profiles),"degC")
     return a

@@ -1,12 +1,13 @@
 from __future__ import division
 from ..units import ensure_unit, unit, u
 from .base import BaseModel
+from .geometry import Layer
 import numpy as N
 
 class Material(BaseModel):
     defaults = {
-        "conductivity": u(3.35,"W/m/K"),
-        "specific_heat": u(1171,"J/K/kg"),
+        "conductivity": u(3.35,"W/m"),
+        "specific_heat": u(1171,"J/kg"),
         "density": u(3000,"kg/m**3")
     }
     def __init__(self,**kwargs):
@@ -30,3 +31,7 @@ class Material(BaseModel):
         Accepts distance in meters (default 1km)
         """
         return distance**2/self.diffusivity
+
+    def to_layer(self, thickness):
+        """Returns a Layer object that has a thickness assigned"""
+        return Layer(self,thickness)

@@ -2,27 +2,38 @@
 from __future__ import division
 
 from geotherm.units import u
-from geotherm.models.material import Material
-from geotherm.models.geometry import Layer, Section, stack_sections
+from geotherm.materials import oceanic_mantle, continental_crust
+from geotherm.models.geometry import Section, Layer, stack_sections
 from geotherm.solvers import HalfSpaceSolver
+from geotherm.solvers.finite import AdvancedFiniteSolver
+from geotherm.plot import Plotter
 
-oceanic_crust = Material()
-continental_crust = Material()
+Layer.defaults["grid_spacing"] = u(100,"m")
 
 # Initialize oceanic crust (analytical)
-oceanic = HalfSpaceSolver(Layer(oceanic_crust, u(100,"km")))
+oceanic = HalfSpaceSolver(oceanic_mantle.to_layer(u(100,"km")))
 evolved_oceanic = oceanic.solution(u(30,"Myr"))
 
 # Will put royden solver here.
 
 # Initialize continental crust (analytical)
-evolved_forearc = Section([Layer(continental_crust, u(30,"km"))], uniform_temperature=u(200,"degC"))
+evolved_forearc = Section([continental_crust.to_layer(u(30,"km"))], uniform_temperature=u(200,"degC"))
 
 # Stack the two of them
 final_section = stack_sections(
     evolved_forearc.get_slice(u(0,"km"), u(30,"km")),
-    evolved_oceanic.get_slice(u(0,"km"),u(70,"km"))
-    )
+    evolved_oceanic)
+
+solver = AdvancedFiniteSolver(
+    final_section,
+    constraints=tuple(u(i,"degC") for i in (25,1500)))
+
+solution = solver.solve_implicit(
+    duration=u(20,"Myr"),
+    steps=500,
+    plotter=Plotter(range=(0,1500)))
+
+list(solution)
 
 # Run to completion
 if __name__ == "__main__":

@@ -1,15 +1,26 @@
 from __future__ import division
 
+import seaborn as sns
 from matplotlib.pyplot import figure
 
-def plot(solution):
-    fig = figure()
-    ax = fig.add_subplot(111)
-    line = None
-    for sol in solution:
-        if line == None:
-            line = ax.plot(x, y, 'r-') # Returns a tuple of line objects, thus the comma
+class Plotter(object):
+    def __init__(self, **plotting_options):
+        self.options = plotting_options
 
-for phase in np.linspace(0, 10*np.pi, 500):
-    line1.set_ydata(np.sin(x + phase))
-    fig.canvas.draw()
+    def initialize(self, solver):
+        self.solver = solver
+        self.fig = figure()
+        self.ax = self.fig.add_subplot(111)
+        self.ax.invert_yaxis()
+        self.ax.set_xlabel(u"Temperature: \u00b0C")
+        self.ax.set_ylabel("Depth (m)")
+
+        temp_range = self.options.pop("range",None)
+        if temp_range: self.ax.set_xlim(temp_range)
+        y = self.solver.mesh.cellCenters[0]
+        self.solution, = self.ax.plot(self.solver.initial_values, y, '-')
+        self.fig.show()
+
+    def plot_solution(self,solution):
+        self.solution.set_xdata(solution)
+        self.fig.canvas.draw()

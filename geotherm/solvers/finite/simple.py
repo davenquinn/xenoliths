@@ -4,14 +4,14 @@ import fipy as F
 import numpy as N
 import IPython
 
-from .base import BaseSolver
-from ..units import unit, u
+from .base import BaseFiniteSolver
+from ...units import unit, u
 
-class SimpleFiniteSolver(BaseSolver):
+class SimpleFiniteSolver(BaseFiniteSolver):
     """Explicit finite differentiation for one-layer 1d materials"""
 
     def __init__(self, layer, **kwargs):
-        super(SimpleFiniteSolver,self).__init__(**kwargs)
+        super(SimpleFiniteSolver,self).__init__(layer, **kwargs)
         try:
             layers = layer.layers
             if len(layers) == 1:
