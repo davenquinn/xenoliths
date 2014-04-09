@@ -1,5 +1,6 @@
 from __future__ import division
 from pint import UnitRegistry
+from pint.unit import DimensionalityError
 
 unit = UnitRegistry()
 

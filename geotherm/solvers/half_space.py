@@ -7,8 +7,16 @@ from ..units import ensure_unit, unit, u
 class HalfSpaceSolver(BaseSolver):
     def __init__(self, layer, **kwargs):
         super(HalfSpaceSolver, self).__init__(**kwargs)
-        self.layer = layer
-        self.material = layer.material
+        try:
+            layers = layer.layers
+            if len(layers) == 1:
+                self.layer = layers[0]
+            else:
+                arg = self.__class__.__name__+" can be initialized only from a single layer or a section containing only one layer."
+                raise ArgumentError(arg)
+        except AttributeError:
+            self.layer = layer
+        self.material = self.layer.material
 
     def temperature(self,time,depth):
         time = ensure_unit(time, unit.seconds)

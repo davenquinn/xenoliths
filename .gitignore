@@ -1,3 +1,5 @@
 *.pyc
 *.sublime-*
 resources
+data
+.DS_Store

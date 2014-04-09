@@ -4,7 +4,7 @@ from IPython import embed
 import fipy as F
 import numpy as N
 from .base import BaseFiniteSolver
-from ...units import u
+from ...units import u, DimensionalityError
 
 class AdvancedFiniteSolver(BaseFiniteSolver):
     def __init__(self, section, **kwargs):
@@ -21,8 +21,13 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         if self.constraints is not None:
             ## This implements only temperature constraints
             ## Will implement no-flux constraints if needed
-            self.var.constrain(self.constraints[0].into("K"), self.mesh.facesLeft)
-            self.var.constrain(self.constraints[1].into("K"), self.mesh.facesRight)
+            faces = (self.mesh.facesLeft, self.mesh.facesRight)
+            for val, face in zip(self.constraints,faces):
+                try:
+                    self.var.constrain(val.into("K"), face) ## Constrain as temperature
+                except DimensionalityError:
+                    v = val.into("W/m**2")
+                    self.var.faceGrad.constrain([v], face) ## Constrain as flux
 
         self.create_coefficient()
         self.create_equation()
@@ -73,3 +78,11 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
 
     def solve_crank_nicholson(self,duration=None,steps=10,plotter=None):
         pass
+
+    def solution(self, duration, type="implicit", **kwargs):
+        if type == "implicit":
+            sol = self.solve_implicit(duration=duration, **kwargs)
+        item = None # hackish; bring variable scope out of loop
+        for item in sol:
+            pass
+        return item[1]
