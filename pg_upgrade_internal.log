@@ -1,7 +1,0 @@
-
------------------------------------------------------------------
-  pg_upgrade run on Tue Dec  3 01:23:59 2013
------------------------------------------------------------------
-
-You must identify the directory where the new cluster data resides.
-Please use the -D command-line option or the PGDATANEW environment variable.
