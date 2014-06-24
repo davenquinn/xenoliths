@@ -18,7 +18,7 @@ class Array(object):
 		if verbose: print self.field_names()
 		return N.loadtxt(self.filename, comments='"', dtype=self.create_dtype())
 
-	def field_names(self):	
+	def field_names(self):
 		with open(self.filename, "r") as f:
 			field_names = f.readline()
 			field_names = ' '.join(field_names.split()).replace('" "', ',').replace('"',"")
@@ -57,7 +57,7 @@ class Array(object):
 
 	def row(self, id):
 		idx = self.records['Line Numbers'] == id
-		return ArrayRow(self.records[idx][0])		
+		return ArrayRow(self.records[idx][0])
 
 	def each(self,id_list=None):
 		for row in self.records:

@@ -118,6 +118,7 @@ define([
                 points: elements
             });
             this.ul.call(this.bindData,this.processData(this.data));
+            App.Data.pushTag(tag)
             return false;
         }
     });

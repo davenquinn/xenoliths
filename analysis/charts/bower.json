@@ -1,0 +1,9 @@
+{
+	"name": "Xenoliths Charts",
+	"version": "1.0.0",
+	"dependencies": {
+		"requirejs": "*",
+		"d3": "*",
+		"nvd3": "*"
+	}
+}

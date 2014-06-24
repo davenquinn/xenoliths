@@ -12,7 +12,7 @@ from django.utils.cache import get_cache_key
 
 def expire_cache():
     """
-    This function allows you to invalidate any view-level cache. 
+    This function allows you to invalidate any view-level cache.
         view_name: view function you wish to invalidate or it's named url pattern
         args: any arguments passed to the view function
         namepace: optioal, if an application namespace is needed
@@ -38,7 +38,7 @@ def pretty_floats(obj):
     elif isinstance(obj, dict):
         return dict((k, pretty_floats(v)) for k, v in obj.items())
     elif isinstance(obj, (list, tuple)):
-        return map(pretty_floats, obj)             
+        return map(pretty_floats, obj)
     return obj
 
 def make_json():
@@ -102,12 +102,12 @@ def add_tag(request, tag, points):
 def remove_tag(request, tag, points):
 	for point in points:
 		pt = Point.objects.get(sample=point[0], n=point[1])
-		pt.tags.remove(tag)	
+		pt.tags.remove(tag)
 
 @jsonrpc_method('get_data')
 def get_data(request):
 	return make_json()
-	
+
 @cache_page(10)
 def data(request):
 	return HttpResponse(json.dumps(pretty_floats(make_json())), mimetype="application/json")

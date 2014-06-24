@@ -1,7 +1,6 @@
 #!/bin/bash
 
-export PGDATA="$PROJECT_DIR/.database"
-pg_ctl start -l "$PROJECT_DIR/database.log"
+pg_ctl start
 echo "Database has been started."
 
 alias manage=$PROJECT_DIR/manage.py

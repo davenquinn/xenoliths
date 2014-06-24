@@ -8,6 +8,9 @@
       <label class="checkbox-inline">
         <input type="checkbox" name="filter-minerals"> Filter minerals
       </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" name="filter-tags"> Filter tags
+      </label>
     </div>
     <div class="form-group samples">
         <label for="samples">Sample</label>
@@ -25,10 +28,9 @@
             {{/each}}
         </select>
     </div>
-    <div class="form-group">
-      <label class="checkbox-inline">
-        <input type="checkbox" checked name="bad"> Bad data
-      </label>
+    <div class="form-group tags">
+      <label>Tags</label>
+      <div id="tag-filter"></div>
     </div>
     <button type="button" class="filter btn btn-default">Filter</button>
   </fieldset>

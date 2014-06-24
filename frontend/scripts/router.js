@@ -4,8 +4,10 @@ define([
 	'views/page/classify',
 	'views/page/map',
 	'views/page/chart',
+	'views/page/home',
+	'views/page/ternary',
 	'data'
-	], function($, Backbone, ClassifyPage, MapPage, ChartPage, DataManager){
+	], function($, Backbone, ClassifyPage, MapPage, ChartPage, IndexPage, TernaryPage, DataManager){
 
 	Router = Backbone.Router.extend({
 		initialize: function(options){
@@ -17,10 +19,11 @@ define([
 	        'classify(/:sample)': 'classify',
 	        'map(/:sample)(/point/:point)': 'map',
 	        'map(/:sample)/tag(/:tag)': 'map',
-	        "chart": "chart"
+	        "chart": "chart",
+	        "ternary(/:system)": "ternary"
 	    },
 	    index: function(){
-	        $(document.body).append("Index route has been called..");
+	    	new IndexPage({el: "body"})
 	    },
 	    classify: function(sample){
 	    	new ClassifyPage({el: "body", sample: sample});
@@ -29,8 +32,12 @@ define([
 			new MapPage({el: "body", sample: sample, point: point, tag: tag});
 	    },
 	    chart: function(){
-			new ChartPage({el: "body", manager: this.manager});
+			new ChartPage({el: "body"});
 	    },
+	    ternary: function(system){
+	    	system = system || "pyroxene";
+			new TernaryPage({el: "body", system: system});
+	    }
 	});
 	return Router;
 });

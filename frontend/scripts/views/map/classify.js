@@ -45,7 +45,7 @@ define([
                         ccy = y.toFixed(0), // cell count y
                         states = new Array();
                         d3.range(ccx*ccy).forEach(function(i) {
-                            states.push({v:"na"})
+                            states.push({v:"un"})
                         });
                     a.data = {
                         w: ccx,
@@ -57,26 +57,44 @@ define([
                 svg.attr("viewBox","0 0 "+a.data.w+" "+a.data.h)
 
                 minerals = Options.minerals;
-                var getColor = function(d) { return minerals[d.v].color };
+                var getColor = function(d) {
+                    if (d.v == "un") {
+                        return "";
+                    } else {
+                        return minerals[d.v].color;
+                    }
+                };
+                var fillOpacity = function(d){
+                    if (d.v == "un") {
+                        return "0.0";
+                    } else {
+                        return "1.0";
+                    }
+                };
                 svg.selectAll("rect")
                     .data(a.data.values)
                     .enter().append("svg:rect")
                         .attr("stroke", "none")
                         .attr("fill", getColor)
+                        .attr("fill-opacity", fillOpacity)
                         .attr("x", function(d,i) { return i%a.data.w })
                         .attr("y", function(d,i) { return Math.floor(i/a.data.w)})
                         .attr("width", 1)
                         .attr("height", 1)
                         .on("mousedown", function(d,i){
                             console.log(a.mousedown)
-                            if (d.v == a.mineral) d.v = "na";
+                            if (d.v == a.mineral) d.v = "un";
                             else d.v = a.mineral;
-                            d3.select(this).attr("fill", getColor);
+                            d3.select(this)
+                                .attr("fill", getColor)
+                                .attr("fill-opacity", fillOpacity);
                         })
                         .on("mouseover", function(d,i) {
                             if (d3.event.shiftKey) {
                                 d.v = a.mineral;
-                                d3.select(this).attr("fill", getColor);
+                                d3.select(this)
+                                    .attr("fill", getColor)
+                                    .attr("fill-opacity", fillOpacity);
                             }
                         });
 

@@ -28,8 +28,9 @@ def import_sample(sample_name):
 		point.geometry = rec.geometry()
 		point.oxides = rec.oxide_weights()
 		point.errors = rec.errors()
+		point.save()
 		point.save(compute_parameters=True)
-		data_quality(point)
+		#data_quality(point)
 
 
 def import_all(delete=True):

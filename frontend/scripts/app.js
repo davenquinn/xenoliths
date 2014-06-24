@@ -13,7 +13,9 @@ define([
                 jsonrpc: "2.0",
                 id: 1
             };
-            $.post(url, JSON.stringify(request), callback, "json");
+            req = JSON.stringify(request);
+            console.log(req);
+            $.post(url, req, callback, "json");
         }
     };
     var startApp = function(data){

@@ -9,7 +9,7 @@ define([
 
     });
 
-    Colorizer = {
+    ColorMaps = {
         "oxide_total": ColorMap.$extend({
             __init__: function(options){
                 var a = this
@@ -36,9 +36,9 @@ define([
         "samples": ColorMap.$extend({
             __init__: function(options){
                 var a = this;
-                this.values = d3.scale.category10();
+                this.values = Options.samples
                 this.func = function(d){
-                    return a.values(d.properties.sample);
+                    return a.values[d.properties.sample].color;
                 }               
             }
         }),
@@ -52,5 +52,5 @@ define([
             }
         })
     };
-    return Colorizer;
+    return ColorMaps;
 });

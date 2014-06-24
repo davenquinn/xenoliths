@@ -6,16 +6,22 @@ from django.conf import settings
 from picklefield.fields import PickledObjectField
 from converter import Converter
 from uncertainties import ufloat
-from quality import data_quality
+from quality import compute_mineral, data_quality
 from taggit.managers import TaggableManager
+
+from managers import PointManager
 
 # Create your models here.
 class Sample(models.Model):
 	id = models.CharField(max_length=4,primary_key=True)
 	desc = models.TextField(blank=True)
 	classification = PickledObjectField(blank=True, compress=True)
+	def apply(self, callable):
+		queryset = Point.objects.filter(sample=self)
 
 class Point(models.Model):
+	objects = PointManager()
+
 	n = models.IntegerField()
 	geometry = models.PointField(blank=True, srid=900913)
 	mineral = models.CharField(blank=True, max_length=4,choices=settings.MINERALS)
@@ -26,8 +32,6 @@ class Point(models.Model):
 	molar = PickledObjectField()
 	formula = PickledObjectField()
 	params = PickledObjectField()
-	#rejected = models.BooleanField(default=False)
-	#rejected_manually = models.BooleanField(default=False)
 	tags = TaggableManager()
 
 	def save(self, *args, **kwargs):
@@ -36,7 +40,7 @@ class Point(models.Model):
 			self.molar = self.compute_molar()
 			self.transforms = dict([(k,self.compute_transform(k)) for k in settings.MINERAL_SYSTEMS.keys()])
 			self.compute_params()
-			self.formula = self.compute_formula(6)
+			data_quality(self, False)
 		super(Point, self).save(*args, **kwargs)		
 
 	def compute_molar(self):

@@ -1,0 +1,60 @@
+CK-2
+Core
+-6.045+/-0.013
+T: 953.44±61.53ºC (Taylor, 1998)
+   1015.16±1.47ºC (Brey and Köhler, 1990) [used for pressure calculation]
+P: 1.46 GPa (TA98 pinned to 90mW/m2 geothermal gradient)
+   2.18+/-0.04 GPa (Köhler and Brey, 1990)
+   Errors
+-  probe: 0.04
+
+CK-4
+Core
+-5.642+/-0.008
+T: 1038.21±68.12ºC (Taylor, 1998)
+   1082.17±0.75ºC (Brey and Köhler, 1990) [used for pressure calculation]
+P: 1.60 GPa (TA98 pinned to 90mW/m2 geothermal gradient)
+   2.44+/-0.02 GPa (Köhler and Brey, 1990)
+   Errors
+-  probe: 0.02
+
+CK-5
+Core
+-6.028+/-0.015
+T: 956.16±61.67ºC (Taylor, 1998)
+   1023.58±1.05ºC (Brey and Köhler, 1990) [used for pressure calculation]
+P: 1.46 GPa (TA98 pinned to 90mW/m2 geothermal gradient)
+   2.12+/-0.04 GPa (Köhler and Brey, 1990)
+   Errors
+-  probe: 0.04
+
+CK-6
+Core
+-5.610+/-0.013
+T: 1062.07±70.98ºC (Taylor, 1998)
+   1097.54±0.78ºC (Brey and Köhler, 1990) [used for pressure calculation]
+P: 1.65 GPa (TA98 pinned to 90mW/m2 geothermal gradient)
+   2.37+/-0.03 GPa (Köhler and Brey, 1990)
+   Errors
+-  probe: 0.03
+
+CK-3
+Core
+-5.707+/-0.009
+T: 1040.85±68.48ºC (Taylor, 1998)
+   1087.67±0.66ºC (Brey and Köhler, 1990) [used for pressure calculation]
+P: 1.61 GPa (TA98 pinned to 90mW/m2 geothermal gradient)
+   2.22+/-0.02 GPa (Köhler and Brey, 1990)
+   Errors
+-  probe: 0.02
+
+CK-7
+Core
+-5.887+/-0.011
+T: 981.26±63.83ºC (Taylor, 1998)
+   1035.65±0.96ºC (Brey and Köhler, 1990) [used for pressure calculation]
+P: 1.50 GPa (TA98 pinned to 90mW/m2 geothermal gradient)
+   2.33+/-0.03 GPa (Köhler and Brey, 1990)
+   Errors
+-  probe: 0.03
+

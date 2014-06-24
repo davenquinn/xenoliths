@@ -42,6 +42,7 @@ define([
             });
         },
         update: function(data){
+            if (typeof(data) === "undefined") return;
             this.$el.html("<pre>"+this.syntaxHighlight(data)+"</pre>");
         }
     });

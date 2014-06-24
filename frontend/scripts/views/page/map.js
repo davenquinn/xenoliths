@@ -7,7 +7,6 @@ define([
 
     MapPage = GenericView.extend({
         initialize: function(){
-            console.log(this.options)
             this.sample = this.options.sample
             if (this.sample == null) this.sample = "CK-2";
             this.compile(template)

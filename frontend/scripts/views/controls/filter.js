@@ -3,11 +3,11 @@ define([
 	"views/base/generic",
 	"options",
     "app",
+    "views/controls/tag-filter",
 	"text!templates/controls/filter.html",
-	], function($, GenericView, Options, App, template){
-
-    $.fn.serializeObject = function()
-    {
+	], function($, GenericView, Options, App, TagFilter, template){
+    
+    $.fn.serializeObject = function() {
        var o = {};
        var a = this.serializeArray();
        $.each(a, function() {
@@ -39,14 +39,17 @@ define([
         	"click  button.filter": 'filterData'
         },
         render: function(){
-            a = this;
+            var a = this;
             this.$el.html(this.template({
                 samples: this.samples,
                 minerals: Options.minerals
             }));
-            $.each(["minerals","samples"],function(i,d){
+            this.tagFilter = new TagFilter({
+                el:this.$("#tag-filter"),
+                parent: this
+            });
+            $.each(["minerals","samples", "tags"],function(i,d){
                 condition = a.$("input[name=filter-"+d+"]").is(":checked");
-                console.log(condition);
                 a.$("div."+d).toggle(condition, {duration: 300});
             });
             return this;
@@ -65,7 +68,9 @@ define([
                 }
                 delete arr["filter-"+d];
             });
-            arr["bad"] = arr["bad"] == "on" ? true : false;
+            if (arr["filter-tags"] == "on") {
+                arr["tags"] = this.tagFilter.getFilter();
+            }
             console.log(arr)
             data = window.App.Data.filter(arr);
             this.map.setData(data);

@@ -29,14 +29,25 @@ define([
         },
         loadAxes: function(){
             var a = this;
+            minfunc = function(axes) {
+                axfunc = function(d) { return eval("d.properties."+axes)}
+                max = d3.max(a.data.features,axfunc);
+                min = d3.min(a.data.features,axfunc);
+                rng = max-min;
+                return min - 0.02*rng;
+            };
+            maxfunc = function(axes) {
+                axfunc = function(d) { return eval("d.properties."+axes)}
+                max = d3.max(a.data.features,axfunc);
+                min = d3.min(a.data.features,axfunc);
+                rng = max-min;
+                return max + 0.02*rng;
+            };
             this.x = d3.scale.linear()
-                    .domain([-.05, 1.05*d3.max(this.data.features,function(d) {
-                        return eval("d.properties."+a.axes.x);
-                    })])
+                    .domain([minfunc(this.axes.x), maxfunc(this.axes.x)])
                     .range([0, this.width]);
             this.y = d3.scale.linear()
-                    .domain([-.05,1.05*d3.max(this.data.features,function(d) {
-                        return eval("d.properties."+a.axes.y);})])
+                    .domain([minfunc(this.axes.y), maxfunc(this.axes.y)])
                     .range([this.height, 0]);
 
             this.xAxis = d3.svg.axis()

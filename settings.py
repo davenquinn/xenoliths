@@ -13,7 +13,7 @@ ADMINS = (
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-		'NAME': 'xenoliths2',                      # Or path to database file if using sqlite3.
+		'NAME': 'xenoliths',                      # Or path to database file if using sqlite3.
 		'USER': '',                      # Not used with sqlite3.
 		'PASSWORD': '',                  # Not used with sqlite3.
 		'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -159,7 +159,7 @@ LOGGING = {
 
 CATIONS = "Si Fe Mg Ti Al Na Ca Mn Cr Ni".split()
 OXIDES = "SiO2 FeO MgO TiO2 Al2O3 Na2O CaO MnO Cr2O3 NiO".split()
-SAMPLES = "CK-2 CK-3 CK-4 CK-5 CK-6 CK-7".split()
+SAMPLES = "CK-2 CK-3 CK-4 CK-5 CK-6 CK-7 CKD1 CKD2".split()
 
 MINERALS = [
 	("cpx", "Clinopyroxene"),

@@ -5,10 +5,10 @@ from django.views.generic import TemplateView
 from jsonrpc import jsonrpc_site
 import samples.views
 
-urlpatterns = patterns('', 
+urlpatterns = patterns('',
     url(r'^json/browse/', 'jsonrpc.views.browse', name="jsonrpc_browser"), # for the graphical browser/web console only, omissible
     url(r'^json/', jsonrpc_site.dispatch, name="jsonrpc_mountpoint"),
-    url(r'^json/(?P<method>[a-zA-Z0-9.]+)$', jsonrpc_site.dispatch), # for HTTP GET only, also omissible
+    #url(r'^json/(?P<method>[a-zA-Z0-9.]+)$', jsonrpc_site.dispatch), # for HTTP GET only, also omissible
     url(r'^data.json', 'samples.views.data'), # for HTTP GET only, also omissible
 
     # Examples:
