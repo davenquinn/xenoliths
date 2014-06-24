@@ -1,6 +1,3 @@
-*.sublime-workspace
-database.log
-
 data/
 
 samples/data/backup/
