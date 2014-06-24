@@ -48,7 +48,7 @@ USE_TZ = True
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 
-SITE_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)))
+SITE_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)),"..")
 
 # Location to store images
 IMAGE_ROOT = os.path.join(SITE_DIR, '_images')
