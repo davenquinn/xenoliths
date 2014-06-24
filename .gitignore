@@ -1,6 +1,5 @@
 *.sublime-workspace
 database.log
-.database
 
 data/
 
