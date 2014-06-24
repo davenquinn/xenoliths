@@ -1,8 +1,9 @@
 *.sublime-workspace
 database.log
 .database
-_static/media/
-_static/tiles/
+
+data/
+
 samples/data/backup/
 *.pyc
 .sass-cache

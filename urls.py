@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
-from django.views.generic import TemplateView
+from django.views.generic import RedirectView
 from jsonrpc import jsonrpc_site
 import samples.views
 
@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     #url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
     #    'document_root': settings.MEDIA_ROOT,
     #}),
-    url(r'^$', TemplateView.as_view(template_name="index.html")),
+    url(r'^$', RedirectView.as_view(url="/static/index.html")),
 )
 
 urlpatterns += staticfiles_urlpatterns()

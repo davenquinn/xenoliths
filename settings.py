@@ -1,3 +1,4 @@
+
 # Django settings for ctx_site project.
 import os
 
@@ -70,7 +71,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-	os.path.join(SITE_DIR,"_static"),
+	os.path.join(SITE_DIR,"data"),
 	os.path.join(SITE_DIR,"frontend"),
 	# Put strings here, like "/home/html/static" or "C:/www/django/static".
 	# Always use forward slashes, even on Windows.
@@ -196,4 +197,3 @@ MINERAL_SYSTEMS = {
 		"opx": {"FeO + MgO":2,"SiO2": 2}
 	}
 }
-

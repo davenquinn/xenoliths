@@ -71,7 +71,7 @@ def make_json():
 
 def write_json(path=None):
 	if path is None:
-		path = os.path.join(settings.SITE_DIR,"frontend","data.json")
+		path = os.path.join(settings.SITE_DIR,"data","data.json")
 	with open(path, "w") as f:
 		json.dump(pretty_floats(make_json()), f)
 
