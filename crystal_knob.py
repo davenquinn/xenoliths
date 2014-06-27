@@ -17,15 +17,12 @@ from geotherm.solvers.finite import AdvancedFiniteSolver
 args = docopt(__doc__)
 solution = args["<solution>"]
 
-plotter = Plotter(range=(0,1500))
-
-
 present = u(1.65,"Myr") # K-Ar age for Crystal Knob xenoliths
 
 
 solver_constraints = (
     u(25,"degC"), # Surface temperature
-    u(1500,"degC"))
+    u(1400,"degC"))
     #u(48,"mW/m**2"))
     # Globally averaged mantle heat flux from Pollack, et al., 1977
 
@@ -36,10 +33,11 @@ forearc = Section([
     continental_crust.to_layer(u(30,"km"))
     ], uniform_temperature=u(400,"degC")) # This is obviously over-simplified
 
-def basic_case(start, subduction):
+def basic_case(name, start, subduction):
     """Both the Monterey and Farallon-Plate scenarios involve the same
     basic steps, just with different timing.
     """
+    print(name)
     underplated_oceanic = oceanic_solver.solution(start-subduction)
 
     final_section = stack_sections(
@@ -53,22 +51,25 @@ def basic_case(start, subduction):
     return solver.solution(
         subduction-present,
         steps=500,
-        plotter=plotter)
+        plotter=Plotter(range=(0,1400), title=name))
 
 def monterey_plate():
-    print("Monterey Plate")
+    name = "Monterey Plate"
+
     start = u(28,"Myr")
     subduction = u(26,"Myr")
-    return basic_case(start,subduction)
+    return basic_case(name, start,subduction)
 
 def farallon_plate():
-    print("Farallon Plate")
+    name = "Farallon Plate"
     start = u(140, "Myr")
     subduction = u(70, "Myr")
-    return basic_case(start,subduction)
+    return basic_case(name, start,subduction)
 
 def underplating():
-    print("Underplating")
+    name = "Underplating"
+    print(name)
+
     start = u(20,"Myr")
 
     slab_window_upwelling = Section([
@@ -86,12 +87,11 @@ def underplating():
     return solver.solution(
         duration=start-present,
         steps=200,
-        plotter=plotter)
+        plotter=Plotter(range=(0,1400), title=name))
 
 
 if solution == "monterey":
     monterey = monterey_plate()
-
 
 if solution == "farallon":
     farallon = farallon_plate()

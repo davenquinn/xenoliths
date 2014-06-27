@@ -5,10 +5,11 @@ from ..models.geometry import Section, Layer
 from ..units import ensure_unit, unit, u
 
 class HalfSpaceSolver(BaseSolver):
-    def __init__(self, layer, **kwargs):
+    def __init__(self, section, **kwargs):
         super(HalfSpaceSolver, self).__init__(**kwargs)
+        self.section = section
         try:
-            layers = layer.layers
+            layers = section.layers
             if len(layers) == 1:
                 self.layer = layers[0]
             else:
@@ -42,5 +43,8 @@ class HalfSpaceSolver(BaseSolver):
 
     def solution(self,time):
         res = Section([Layer(self.layer.material, self.layer.thickness)])
-        res.profile = self._temperature(time,self.layer.cell_centers)
+        res.profile = self.profile(time)
         return res
+
+    def profile(self,time):
+        return self._temperature(time,self.section.cell_centers)

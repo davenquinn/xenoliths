@@ -5,6 +5,7 @@ import numpy as N
 import IPython
 
 from .base import BaseFiniteSolver
+from ..half_space import HalfSpaceSolver
 from ...units import unit, u
 
 class SimpleFiniteSolver(BaseFiniteSolver):
@@ -22,15 +23,18 @@ class SimpleFiniteSolver(BaseFiniteSolver):
         except AttributeError:
             self.layer = layer
 
+        self.analytical_solver = HalfSpaceSolver(layer)
+
         self.material = self.layer.material
         self.depth = self.layer.thickness
         self.dy = self.layer.grid_spacing
         self.ny = int((self.depth/self.dy).into("dimensionless"))
         self.mesh = F.Grid1D(nx=self.ny, dx=self.dy.into("m"))
 
-        t_min,t_max = (i.into("kelvin") for i in (self.T_surface, self.T_max))
+        t_min,t_max = (i.into("kelvin") for i in self.constraints)
 
-        self.initial_values = [t_max]*self.ny
+        self.initial_values = N.empty(self.ny)
+        self.initial_values.fill(t_max)
 
         self.var = F.CellVariable(name="Temperature", mesh=self.mesh, value=self.initial_values)
         self.var.constrain(t_min, self.mesh.facesLeft)
@@ -49,7 +53,7 @@ class SimpleFiniteSolver(BaseFiniteSolver):
         time_step = (1-padding)*self.dy**2 / (2 * self.material.diffusivity)
         return time_step
 
-    def solve(self, steps=None, duration=None):
+    def solve(self, steps=None, duration=None, plotter=None):
         if duration:
             time_step, steps = self.fractional_timestep(duration)
         elif steps:
@@ -61,8 +65,21 @@ class SimpleFiniteSolver(BaseFiniteSolver):
         print("Duration: {0:.2e}".format(duration.to("year")))
         print("Number of steps: {0}\n".format(steps))
 
+        if plotter: plotter.initialize(self)
+        y = self.mesh.cellCenters[0]
+
         for step in range(steps):
             simulation_time = step*time_step
             print(simulation_time.to("year"))
-            yield simulation_time, N.array(self.var.value)
+            sol = u(N.array(self.var.value),"K").to("degC")
+            analytical = self.analytical_solver._temperature(simulation_time,y)
+            plotter.plot_solution(sol,analytical)
+            yield simulation_time, sol
             soln = self.equation.solve(var=self.var,dt=time_step.into("seconds"))
+
+    def solution(self, duration, **kwargs):
+        sol = self.solve(duration=duration, **kwargs)
+        item = None # hackish; bring variable scope out of loop
+        for t,item in sol:
+            pass
+        return item

@@ -3,7 +3,6 @@ from ..units import ensure_unit, u
 from .base import BaseModel
 import numpy as N
 from itertools import chain
-import IPython
 
 class Layer(BaseModel):
     defaults = dict(

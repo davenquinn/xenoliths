@@ -1,5 +1,6 @@
 from __future__ import division, print_function
 from ..base import BaseSolver
+from ...models.geometry import Section
 from ...units import u
 import fipy as F
 import numpy as N
@@ -9,7 +10,6 @@ class BaseFiniteSolver(BaseSolver):
         constraints = (u(i,"degC") for i in (25,1500))
     )
     def __init__(self, section,**kwargs):
-        self.section = section
         super(BaseFiniteSolver, self).__init__(**kwargs)
 
     def fractional_timestep(self, duration):

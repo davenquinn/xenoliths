@@ -51,6 +51,7 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         self.equation = trans == diff
 
     def stable_timestep(self, padding=0):
+        """Stable timestep for explicit diffusion"""
         def gen():
             for layer in self.section.layers:
                 d = layer.material.diffusivity
@@ -58,21 +59,42 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
                 yield super(AdvancedFiniteSolver,self).stable_timestep(d,s,padding=padding)
         return min(s for s in gen())
 
-    def solve_implicit(self, duration=None, steps=10, plotter=None):
-        """Quick but inaccurate"""
+    def solve_implicit(self, **kw):
+        """Quick but inaccurate, using any number of steps you choose."""
         print("Solving implicit")
-        time_step = duration/steps
+        kw["steps"] = kw.pop("steps",100)
+        return self.__solve__(**kw)
+
+    def solve_explicit(self, **kw):
+        print("Solving explicit")
+        if "duration" in kw:
+            time_step, steps = self.fractional_timestep(duration)
+            kw["steps"] = steps
+        elif "steps" in kw:
+            time_step = self.stable_timestep(0.05)
+            kw["duration"] = kw["steps"]*time_step
+        else:
+            raise TypeError("either `steps` or `duration` argument must be provided")
+        return self.__solve__(**kw)
+
+    def __solve__(self, steps=None, duration=None, plotter=None):
+
+        print("Duration: {0:.2e}".format(duration.to("year")))
+        print("Number of steps: {0}\n".format(steps))
+
         if plotter:
             plotter.initialize(self)
+
+        time_step = duration/steps
 
         for step in range(steps):
             simulation_time = step*time_step
             print(simulation_time.to("year"))
             sol = u(N.array(self.var.value),"K").to("degC")
             if plotter:
-                plotter.plot_solution(sol)
+                plotter.plot_solution(simulation_time,sol)
             yield simulation_time, sol
-            sol = self.equation.solve(
+            self.equation.solve(
                 var=self.var,
                 dt=time_step.into("seconds"))
 
@@ -80,8 +102,8 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         pass
 
     def solution(self, duration, type="implicit", **kwargs):
-        if type == "implicit":
-            sol = self.solve_implicit(duration=duration, **kwargs)
+        function = getattr(self, "solve_"+type)
+        sol = function(duration=duration, **kwargs)
         item = None # hackish; bring variable scope out of loop
         for item in sol:
             pass

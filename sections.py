@@ -4,8 +4,7 @@ from __future__ import division
 from geotherm.units import u
 from geotherm.materials import oceanic_mantle, continental_crust
 from geotherm.models.geometry import Section, Layer, stack_sections
-from geotherm.solvers import HalfSpaceSolver
-from geotherm.solvers.finite import AdvancedFiniteSolver
+from geotherm.solvers import HalfSpaceSolver, AdvancedFiniteSolver
 from geotherm.plot import Plotter
 
 Layer.defaults["grid_spacing"] = u(100,"m")
