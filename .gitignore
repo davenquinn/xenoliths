@@ -1,9 +1,0 @@
-*.sublime-workspace
-database.log
-.database
-data/*
-samples/data/backup/
-*.pyc
-.sass-cache
-
-frontend/scripts_old
