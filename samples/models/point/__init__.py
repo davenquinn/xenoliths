@@ -12,7 +12,7 @@ from ...application import db
 from ...config import MINERALS
 from ..util.choice import Choice
 
-tags = db.Table('tags',
+tags = db.Table('tag_manager',
     db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')),
     db.Column('page_id', db.Integer, db.ForeignKey('point.id'))
 )
