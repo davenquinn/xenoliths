@@ -1,15 +1,17 @@
 #!/usr/bin/env python
 
 import numpy as N
-import re
-import IPython
-from array import Array
 from django.contrib.gis.geos import GEOSGeometry
-from samples import models,views
 from samples.quality import data_quality
 import os
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
+
+from ..models import Sample, Point
+from .array import Array
+
+def get_or_create(model, *args, **kwargs):
+	return model.query.get(*args, **kwargs), False
 
 
 def import_sample(sample_name):
@@ -17,11 +19,11 @@ def import_sample(sample_name):
 
 	arr.transform_coordinates(sample_name+"_affine.txt")
 
-	sample, created = models.Sample.objects.get_or_create(id=sample_name)
+	sample, created = get_or_create(Sample,id=sample_name)
 
 	for rec in arr.each():
 		try:
-			point = models.Point.objects.get(n=int(rec.id), sample=sample)
+			point = models.Point.query.get(line_number=int(rec.id), sample=sample)
 		except ObjectDoesNotExist:
 			point = models.Point(n=int(rec.id),sample = sample)
 
