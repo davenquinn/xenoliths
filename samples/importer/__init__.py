@@ -5,7 +5,7 @@ import re
 import IPython
 from array import Array
 from django.contrib.gis.geos import GEOSGeometry
-from samples import data,models,views
+from samples import models,views
 from samples.quality import data_quality
 import os
 from django.conf import settings
@@ -34,7 +34,7 @@ def import_sample(sample_name):
 
 
 def import_all(delete=True):
-	os.chdir(os.path.dirname(data.__file__))
+	os.chdir(os.path.join(settings.SITE_DIR,"data","samples"))
 	for sample in settings.SAMPLES:
 		print sample
 		import_sample(sample)

@@ -3,7 +3,7 @@ import numpy as N
 import json
 from affine import Affine
 from django.contrib.gis.geos import GEOSGeometry
-from samples import data,models
+from samples import models
 import os
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
