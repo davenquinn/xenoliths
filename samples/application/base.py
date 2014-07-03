@@ -4,7 +4,7 @@ from flask import Flask, Blueprint
 from ..config import DATA_DIR
 
 data = Blueprint('static', __name__,
-    static_folder=STATIC_DIR,
+    static_folder=DATA_DIR,
     static_url_path="")
 
 class Application(Flask):

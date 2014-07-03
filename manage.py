@@ -5,6 +5,7 @@ from __future__ import division, print_function
 from flask.ext.script import Manager, Server
 
 from samples.application import app, db
+from samples import models
 
 manager = Manager(app)
 
@@ -13,7 +14,13 @@ manager.add_command("serve", server)
 
 @manager.shell
 def make_context():
-	return dict(app=app,db=db)
+	return dict(app=app,db=db,models=models)
+
+@manager.command
+def setup(hard=False):
+	with app.app_context():
+		if hard: db.drop_all()
+		db.create_all()
 
 if __name__ == "__main__":
     manager.run()
