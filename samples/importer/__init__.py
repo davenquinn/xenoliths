@@ -34,7 +34,7 @@ def import_sample(sample_name):
 
 
 def import_all(delete=True):
-	os.chdir(os.path.dirname(data.__file__))
+	os.chdir(os.path.join(SITE_DIR,"data","samples"))
 	for sample in settings.SAMPLES:
 		print sample
 		import_sample(sample)
