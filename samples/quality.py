@@ -1,4 +1,5 @@
 import operator
+from .application import app
 
 def compute_mineral(point):
 	"""Mineral totals from Taylor 1998, adjusted to be slightly more forgiving"""
@@ -24,12 +25,10 @@ def compute_mineral(point):
 		if not 3.97 < cation_total < 4.03:
 			mineral = "na"
 
-	point.mineral = mineral
+	point.mineral = app.config.get("MINERALS")[mineral]
 
 def data_quality(point, save=True):
 	compute_mineral(point)
 
 	if point.oxides["Total"] < 90:
-		point.tags.add("bad")
-	if save:
-		point.save()
+		point.add_tag("bad")

@@ -6,6 +6,7 @@ from flask.ext.script import Manager, Server
 
 from samples.application import app, db
 from samples import models
+from samples.provision import import_all
 
 manager = Manager(app)
 
@@ -21,6 +22,7 @@ def setup(hard=False):
 	with app.app_context():
 		if hard: db.drop_all()
 		db.create_all()
+		import_all()
 
 if __name__ == "__main__":
     manager.run()

@@ -1,46 +1,40 @@
-#!/usr/bin/env python
-
 import numpy as N
-from django.contrib.gis.geos import GEOSGeometry
-from samples.quality import data_quality
 import os
-from django.conf import settings
-from django.core.exceptions import ObjectDoesNotExist
+from geoalchemy2.shape import from_shape
 
+from ..application import app, db
 from ..models import Sample, Point
+from ..models.point import serializer
 from .array import Array
 
-def get_or_create(model, *args, **kwargs):
-	return model.query.get(*args, **kwargs), False
-
+def write_json():
+	path = os.path.join(app.config.get("DATA_DIR"),"data_new.json")
+	query = serializer.from_iterable(Point.query.all())
+	with open(path, "w") as f:
+		f.write(query)
 
 def import_sample(sample_name):
 	arr = Array(sample_name+".dat")
 
 	arr.transform_coordinates(sample_name+"_affine.txt")
 
-	sample, created = get_or_create(Sample,id=sample_name)
+	sample, created = Sample.get_or_create(id=sample_name)
 
 	for rec in arr.each():
-		try:
-			point = models.Point.query.get(line_number=int(rec.id), sample=sample)
-		except ObjectDoesNotExist:
-			point = models.Point(n=int(rec.id),sample = sample)
-
-		point.geometry = rec.geometry()
+		point, created = Point.get_or_create(line_number=int(rec.id), sample=sample)
+		point.geometry = from_shape(rec.geometry)
 		point.oxides = rec.oxide_weights()
 		point.errors = rec.errors()
-		point.save()
-		point.save(compute_parameters=True)
-		#data_quality(point)
+		point.derived_data()
+	db.session.commit()
 
-
-def import_all(delete=True):
-	os.chdir(os.path.join(settings.SITE_DIR,"data","samples"))
-	for sample in settings.SAMPLES:
+def import_all():
+	data_dir, samples = (app.config.get(i) for i in ("DATA_DIR", "SAMPLES"))
+	os.chdir(os.path.join(data_dir,"samples"))
+	for sample in samples:
 		print sample
 		import_sample(sample)
-	views.write_json()
+	write_json()
 
 if __name__ == "__main__":
 	import_all()

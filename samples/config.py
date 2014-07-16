@@ -12,13 +12,13 @@ CATIONS = "Si Fe Mg Ti Al Na Ca Mn Cr Ni".split()
 OXIDES = "SiO2 FeO MgO TiO2 Al2O3 Na2O CaO MnO Cr2O3 NiO".split()
 SAMPLES = "CK-1 CK-2 CK-3 CK-4 CK-5 CK-6 CK-7 CKD1 CKD2".split()
 
-MINERALS = [
-	("cpx", "Clinopyroxene"),
-	("opx", "Orthopyroxene"),
-	("sp", "Spinel"),
-	("ol", "Olivine"),
-	("na", "Unknown")
-]
+MINERALS = {
+	"cpx": "Clinopyroxene",
+	"opx": "Orthopyroxene",
+	"sp": "Spinel",
+	"ol": "Olivine",
+	"na": "Unknown"
+}
 
 MINERAL_SYSTEMS = {
 	"silicate": {

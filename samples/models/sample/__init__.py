@@ -2,9 +2,9 @@ from __future__ import division
 
 from sqlalchemy.dialects.postgresql import ARRAY
 
-from ...application import db
+from ..base import BaseModel,db
 
-class Sample(db.Model):
+class Sample(BaseModel):
     id = db.Column(db.String(64), primary_key=True)
     desc = db.Column(db.Text)
     classification = db.Column(ARRAY(db.Integer, dimensions=2))

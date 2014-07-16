@@ -8,24 +8,29 @@ from geoalchemy2.types import Geometry
 
 from ...converter import Converter
 from ...quality import compute_mineral, data_quality
-from ...application import db
-from ...config import MINERALS
-from ..util.choice import Choice
+from ...config import MINERALS, MINERAL_SYSTEMS
+from ..base import BaseModel, db
+from ..util.choice import ChoiceType
 
 tags = db.Table('tag_manager',
-    db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')),
+    db.Column('tag_name', db.String(64), db.ForeignKey('tag.name')),
     db.Column('page_id', db.Integer, db.ForeignKey('point.id'))
 )
 
-class Tag(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), nullable=False)
+class Tag(BaseModel):
+    name = db.Column(db.String(64), primary_key=True)
 
-class Point(db.Model):
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return "Tag {0}".format(self)
+
+class Point(BaseModel):
     id = db.Column(db.Integer,primary_key=True)
     line_number = db.Column(db.Integer, nullable=False)
     geometry = db.Column(Geometry("Point"))
-    mineral = db.Column(Choice(MINERALS))
+    mineral = db.Column(ChoiceType(MINERALS))
 
     oxides = db.Column(JSON)
     errors = db.Column(JSON)
@@ -39,17 +44,35 @@ class Point(db.Model):
     tags = db.relationship('Tag', secondary=tags,
         backref=db.backref('points', lazy='dynamic'))
 
-    def save(self, *args, **kwargs):
-        compute_parameters = kwargs.pop("compute_parameters",False)
-        if compute_parameters:
-            self.molar = self.compute_molar()
-            self.transforms = dict([(k,self.compute_transform(k)) for k in settings.MINERAL_SYSTEMS.keys()])
-            self.compute_params()
-            data_quality(self, False)
-        super(Point, self).save(*args, **kwargs)
+    @property # for compatibility
+    def n(self):
+        return self.line_number
+
+    def add_tag(self,name):
+        tag, created = Tag.get_or_create(name=name)
+        try:
+            idx = self.tags.index(tag)
+        except ValueError:
+            self.tags.append(tag)
+        db.session.commit()
+
+    def remove_tag(self,name):
+        tag = db.session.query(Tag).filter_by(name=name).first()
+        try:
+            self.tags.remove(tag)
+        except ValueError:
+            pass
+        db.session.commit()
+
+    def derived_data(self):
+        self.molar = self.compute_molar()
+        self.transforms = {k: self.compute_transform(k) for k in MINERAL_SYSTEMS.keys()}
+        self.compute_params()
+        data_quality(self, False)
 
     def compute_molar(self):
-        """Computes the molar percentage of KNOWN products (i.e. unknown components not included)."""
+        """Computes the molar percentage of KNOWN products
+        (i.e. unknown components not included)."""
         molar = {}
         for key, value in self.oxides.items():
             if key == 'Total': continue

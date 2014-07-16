@@ -1,12 +1,10 @@
-import IPython
 import numpy as N
 import json
-from affine import Affine
-from django.contrib.gis.geos import GEOSGeometry
-from samples import models
 import os
-from django.conf import settings
-from django.core.exceptions import ObjectDoesNotExist
+from shapely.geometry import Point
+
+from .affine import Affine
+from ..application import app
 
 class Array(object):
 	"""A wrapper around a .dat file obtained for the electron microprobe."""
@@ -71,19 +69,19 @@ class ArrayRow(object):
 	def get(self,name):
 		return self.data[name]
 
+	@property
 	def geometry(self):
 		coords = [self.data[a+" Stage Coordinates (mm)"] for a in "X Y".split()]
-		wkt = "POINT({0} {1})".format(*coords)
-		return GEOSGeometry(wkt)
+		return Point(*coords)
 
 	def oxide_weights(self):
 		oxides = {"Total": self.data["Oxide Totals"]}
-		for oxide in settings.OXIDES:
+		for oxide in app.config.get("OXIDES"):
 			oxides[oxide] = self.data[oxide+" Oxide Percents"]
 		return oxides
 
 	def errors(self):
 		errors = {}
-		for cation in settings.CATIONS:
+		for cation in app.config.get("CATIONS"):
 			errors[cation] = self.data[cation+" Percent Errors"]
 		return errors
