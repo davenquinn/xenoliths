@@ -11,6 +11,7 @@ from ...quality import compute_mineral, data_quality
 from ...config import MINERALS, MINERAL_SYSTEMS
 from ..base import BaseModel, db
 from ..util.choice import ChoiceType
+from .serialize import serialize
 
 tags = db.Table('tag_manager',
     db.Column('tag_name', db.String(64), db.ForeignKey('tag.name')),
@@ -44,12 +45,16 @@ class Point(BaseModel):
     tags = db.relationship('Tag', secondary=tags,
         backref=db.backref('points', lazy='dynamic'))
 
+    # Object methods
+    serialize = serialize
+
+
     @property # for compatibility
     def n(self):
         return self.line_number
 
     def add_tag(self,name):
-        tag, created = Tag.get_or_create(name=name)
+        tag = Tag.get_or_create(name=name)
         try:
             idx = self.tags.index(tag)
         except ValueError:

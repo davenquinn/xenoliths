@@ -1,27 +1,31 @@
 import numpy as N
 import os
 from geoalchemy2.shape import from_shape
+import json
 
 from ..application import app, db
 from ..models import Sample, Point
-from ..models.point import serializer
 from .array import Array
 
 def write_json():
-	path = os.path.join(app.config.get("DATA_DIR"),"data_new.json")
-	query = serializer.from_iterable(Point.query.all())
+	path = os.path.join(app.config.get("DATA_DIR"),"data.json")
+	data = dict(
+		type="FeatureCollection",
+		features=map(lambda o: o.serialize(), Point.query.all()))
 	with open(path, "w") as f:
-		f.write(query)
+		json.dump(data, f)
 
 def import_sample(sample_name):
 	arr = Array(sample_name+".dat")
 
 	arr.transform_coordinates(sample_name+"_affine.txt")
 
-	sample, created = Sample.get_or_create(id=sample_name)
+	sample = Sample.get_or_create(id=sample_name)
 
 	for rec in arr.each():
-		point, created = Point.get_or_create(line_number=int(rec.id), sample=sample)
+		point = Point.get_or_create(
+			line_number=int(rec.id),
+			sample=sample)
 		point.geometry = from_shape(rec.geometry)
 		point.oxides = rec.oxide_weights()
 		point.errors = rec.errors()

@@ -23,6 +23,7 @@ def setup(hard=False):
 		if hard: db.drop_all()
 		db.create_all()
 		import_all()
+		
 
 if __name__ == "__main__":
     manager.run()
