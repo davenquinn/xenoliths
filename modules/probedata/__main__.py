@@ -1,12 +1,10 @@
-#!/usr/bin/env python
-
 from __future__ import division, print_function
 
 from flask.ext.script import Manager, Server
 
-from samples.application import app, db
-from samples import models
-from samples.provision import import_all
+from probedata.application import app, db
+from probedata.provision import import_all
+from probedata import models
 
 manager = Manager(app)
 
@@ -15,15 +13,15 @@ manager.add_command("serve", server)
 
 @manager.shell
 def make_context():
-	return dict(app=app,db=db,models=models)
+    return dict(app=app,db=db,models=models)
 
 @manager.command
 def setup(hard=False):
-	with app.app_context():
-		if hard: db.drop_all()
-		db.create_all()
-		import_all()
-		
+    with app.app_context():
+        if hard: db.drop_all()
+        db.create_all()
+        import_all()
+
 
 if __name__ == "__main__":
     manager.run()

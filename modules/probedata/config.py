@@ -4,7 +4,7 @@ DEBUG = True
 
 SQLALCHEMY_DATABASE_URI = "postgresql://Daven@localhost/xenoliths_flask"
 
-SITE_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)),"..")
+SITE_DIR = "/Users/Daven/Development/Xenoliths/"
 
 DATA_DIR = os.path.join(SITE_DIR,"data")
 

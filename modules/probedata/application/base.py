@@ -13,5 +13,5 @@ class Application(Flask):
             static_url_path="static",
             static_folder="static")
         Flask.__init__(self, *args,**kwargs)
-        self.config.from_object("samples.config")
+        self.config.from_object("probedata.config")
         self.register_blueprint(data, url_prefix="/data")
