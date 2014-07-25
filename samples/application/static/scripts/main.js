@@ -19,6 +19,7 @@ require.config({
             deps: ["jquery"]
         }
     },
+    urlArgs: "bust=" +  (new Date()).getTime(),
 	paths: {
         "classy": "lib/classy/classy",
 		"jquery": "lib/jquery/jquery",
@@ -44,7 +45,7 @@ require([
         console.log("Starting to get data");
         $("body").append("<img class='loading' src='/static/images/ajax-loader.gif' />");
         $.ajax({
-            url: "/static/data.json",
+            url: "/data/data.json?bust=" +  (new Date()).getTime(),
             dataType:"json",
             success: startApp,
             error: function(request, textStatus, errorThrown) {

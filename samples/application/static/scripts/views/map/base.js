@@ -1,6 +1,6 @@
 define([
     "views/base/generic",
-    "openlayers", 
+    "openlayers",
     "options",
     "views/base/colors"
     ],function(GenericView, OpenLayers, Options, Colorizer){
@@ -38,7 +38,7 @@ define([
             this.setupTiles("sem");
             this.setupTiles("scan");
             this.setLayer("sem");
-            this.map.zoomToExtent(this.bounds);           
+            this.map.zoomToExtent(this.bounds);
         },
         setupTiles: function(mapType){
             var a = this;
@@ -51,7 +51,7 @@ define([
                 var x = Math.round((bounds.left - this.tileOrigin.lon) / (res * this.tileSize.w));
                 var y = Math.round((bounds.bottom - this.tileOrigin.lat) / (res * this.tileSize.h));
                 var z = this.getServerZoom();
-                var path = "/static/tiles/"+a.options.sample+"/" +mapType+"/"+ z + "/" + x + "/" + y + "." + this.type;
+                var path = "/data/tiles/"+a.options.sample+"/" +mapType+"/"+ z + "/" + x + "/" + y + "." + this.type;
                 var url = this.url;
                 if (OpenLayers.Util.isArray(url)) {
                     url = this.selectUrl(path, url);
@@ -61,7 +61,7 @@ define([
                 } else {
                     return emptyTileURL;
                 }
-            }; 
+            };
             layer = new OpenLayers.Layer.TMS(this.sample, "",{
                 resolutions: [16,8,4,2,1,0.5],
                 serverResolutions: [64,32,16,8,4,2,1],
@@ -81,8 +81,8 @@ define([
             this.startMap();
         },
         zoomToPoint: function(point, level){
-            var centerPoint = new OpenLayers.LonLat(point[0],point[1]);      
-            this.map.setCenter(centerPoint, level); 
+            var centerPoint = new OpenLayers.LonLat(point[0],point[1]);
+            this.map.setCenter(centerPoint, level);
         },
         setDraggable: function(bool){
             if (bool) {
