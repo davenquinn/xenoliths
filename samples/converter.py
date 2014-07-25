@@ -1,5 +1,5 @@
 """Converts between coordinate systems. These can be compositional or literally anything."""
-from django.conf import settings
+from .config import OXIDES, MINERAL_SYSTEMS
 import numpy as N
 
 class SimpleConverter(object):
@@ -9,18 +9,18 @@ class SimpleConverter(object):
 		self.components = components
 
 	def transform(self, molar_percent):
-		points = N.array([molar_percent.get(i,0) for i in settings.OXIDES]).T
+		points = N.array([molar_percent.get(i,0) for i in OXIDES]).T
 		result = N.dot(self.array,points)
 		result = result/result.sum()
 		return dict(zip(self.components,result))
 
 	@classmethod
 	def construct(cls, system="pyroxene"):
-		system = settings.MINERAL_SYSTEMS[system]
+		system = MINERAL_SYSTEMS[system]
 		ls = []
 		components = []
 		for i,component in system.iteritems():
-			ls.append([component.get(j,0) for j in settings.OXIDES])
+			ls.append([component.get(j,0) for j in OXIDES])
 			components.append(i)
 		model = N.linalg.pinv(N.array(ls).T)
 		return cls(model, components, system=system)
@@ -28,8 +28,8 @@ class SimpleConverter(object):
 
 class Converter(object):
 	def __init__(self, system="pyroxene"):
-		system = settings.MINERAL_SYSTEMS[system]
-		self.in_components = [i for i in settings.OXIDES]
+		system = MINERAL_SYSTEMS[system]
+		self.in_components = [i for i in OXIDES]
 		self.out_components = []
 		array = []
 		for name,component in system.iteritems():
@@ -46,11 +46,11 @@ class Converter(object):
 	def preprocess(self, molar_data):
 		out = []
 		for name in self.in_components:
-			if name not in settings.OXIDES:
+			if name not in OXIDES:
 				# check for cases in which we are adding oxides
 				items = name.split()
 				for i, item in enumerate(items):
-					if item in settings.OXIDES:
+					if item in OXIDES:
 						items[i] = "{0:.8g}".format(molar_data.get(item,0))
 				expr = "".join(items)
 				res = eval(expr)
