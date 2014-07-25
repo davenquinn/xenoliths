@@ -40,7 +40,10 @@ class Point(BaseModel):
     formula = db.Column(JSON)
     params = db.Column(JSON)
 
-    sample_id = db.Column(db.String, db.ForeignKey('sample.id'))
+    sample_id = db.Column(
+        db.String,
+        db.ForeignKey('sample.id'),
+        nullable=True)
 
     tags = db.relationship('Tag', secondary=tags,
         backref=db.backref('points', lazy='dynamic'))
