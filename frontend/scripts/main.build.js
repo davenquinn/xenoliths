@@ -44,7 +44,7 @@ require([
         console.log("Starting to get data");
         $("body").append("<img class='loading' src='/static/images/ajax-loader.gif' />");
         $.ajax({
-            url: "/static/data.json",
+            url: "/data/data.json",
             dataType:"json",
             success: startApp,
             error: function(request, textStatus, errorThrown) {
