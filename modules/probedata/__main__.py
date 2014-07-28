@@ -3,7 +3,7 @@ from __future__ import division, print_function
 from flask.ext.script import Manager, Server
 
 from probedata.application import app, db
-from probedata.provision import import_all
+from probedata.management.setup import import_all
 from probedata import models
 
 manager = Manager(app)
