@@ -10,6 +10,3 @@ db.init_app(app)
 @app.route("/")
 def root():
     return app.send_static_file('index.html')
-
-def run():
-    app.run(host='0.0.0.0')
