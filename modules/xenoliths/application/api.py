@@ -1,7 +1,7 @@
 import os
 from flask import Blueprint, request
 
-from ..models import Sample, Point
+from ..microprobe.models import Sample, Point
 
 api = Blueprint()
 

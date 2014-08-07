@@ -1,5 +1,5 @@
 import operator
-from .application import app
+from ..application import app
 
 def compute_mineral(point):
 	"""Mineral totals from Taylor 1998, adjusted to be slightly more forgiving"""

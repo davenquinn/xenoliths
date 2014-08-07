@@ -4,7 +4,7 @@ import os
 from shapely.geometry import Point
 
 from .affine import Affine
-from ...application import app
+from ....application import app
 
 class Array(object):
 	"""A wrapper around a .dat file obtained for the electron microprobe."""
