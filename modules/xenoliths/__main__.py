@@ -2,9 +2,9 @@ from __future__ import division, print_function
 
 from flask.ext.script import Manager, Server
 
-from probedata.application import app, db
-from probedata.management.setup import import_all
-from probedata import models
+from xenoliths.application import app, db
+from xenoliths.microprobe.management.setup import import_all
+from xenoliths.microprobe import models
 
 manager = Manager(app)
 

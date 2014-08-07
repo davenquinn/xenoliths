@@ -3,7 +3,7 @@ import os
 from geoalchemy2.shape import from_shape
 import json
 
-from ...application import app, db
+from ....application import app, db
 from ...models import Sample, Point
 from .array import Array
 

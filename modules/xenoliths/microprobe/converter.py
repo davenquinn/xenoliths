@@ -1,5 +1,5 @@
 """Converts between coordinate systems. These can be compositional or literally anything."""
-from .config import OXIDES, MINERAL_SYSTEMS
+from ..config import OXIDES, MINERAL_SYSTEMS
 import numpy as N
 
 class SimpleConverter(object):
