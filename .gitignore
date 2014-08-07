@@ -1,6 +1,9 @@
 data/
+raw_data/
 
 samples/data/backup/
 *.pyc
 .sass-cache
 .DS_Store
+
+modules/Xenoliths.egg-info
