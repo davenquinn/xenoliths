@@ -3,7 +3,7 @@ from __future__ import division, print_function
 from flask.ext.script import Manager, Server
 
 from xenoliths.application import app, db
-from xenoliths.microprobe.management.setup import import_all
+from xenoliths.microprobe.manage.setup import import_all
 from xenoliths.microprobe import models
 
 manager = Manager(app)
