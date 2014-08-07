@@ -2,7 +2,8 @@ import os
 
 DEBUG = True
 
-SQLALCHEMY_DATABASE_URI = "postgresql://Daven@localhost/xenoliths_flask"
+DB_NAME = "xenoliths_flask"
+SQLALCHEMY_DATABASE_URI = "postgresql://Daven@localhost/"+DB_NAME
 
 SITE_DIR = "/Users/Daven/Development/Xenoliths/"
 
