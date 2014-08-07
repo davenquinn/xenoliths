@@ -7,6 +7,7 @@ SQLALCHEMY_DATABASE_URI = "postgresql://Daven@localhost/xenoliths_flask"
 SITE_DIR = "/Users/Daven/Development/Xenoliths/"
 
 DATA_DIR = os.path.join(SITE_DIR,"data")
+RAW_DATA = os.path.join(SITE_DIR,"raw_data")
 
 CATIONS = "Si Fe Mg Ti Al Na Ca Mn Cr Ni".split()
 OXIDES = "SiO2 FeO MgO TiO2 Al2O3 Na2O CaO MnO Cr2O3 NiO".split()

@@ -1,7 +1,12 @@
+from click import echo
 import numpy as N
 import os
 from geoalchemy2.shape import from_shape
 import json
+import re
+from pathlib import Path
+from datetime import datetime
+from pandas import read_table
 
 from ....application import app, db
 from ...models import Sample, Point
@@ -32,13 +37,36 @@ def import_sample(sample_name):
 		point.derived_data()
 	db.session.commit()
 
+
+sample_regex = re.compile(r"(CK-\S+)")
+date_regex = re.compile(r"(\d\d-\d\d-\d\d)")
+
+def parse_filename(path):
+	name = path.stem.replace("_"," ")
+	m = sample_regex.search(name)
+	date = date_regex.search(name).group()
+	return dict(
+		sample_id = m.group(),
+		group = name[m.end()+1:]
+		date = datetime.strptime(date, "%m-%d-%y"))
+
 def import_all():
-	data_dir, samples = (app.config.get(i) for i in ("DATA_DIR", "SAMPLES"))
-	os.chdir(os.path.join(data_dir,"samples"))
-	for sample in samples:
-		print sample
-		import_sample(sample)
-	write_json()
+	data_dir = Path(app.config.get("RAW_DATA"))/"Probe"/"datafiles"
+	files = data_dir.glob("*.dat")
+
+	for path in files:
+		file_data = parse_filename(path)
+		data = read_table(str(path))
+
+		s_id = file_data.pop("sample_id")
+		assert s_id in app.config.get("SAMPLES")
+		sample = Sample.get_or_create(id=s_id)
+
+
+
+	import IPython; IPython.embed()
+
+
 
 if __name__ == "__main__":
 	import_all()
