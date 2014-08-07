@@ -9,7 +9,7 @@ from geoalchemy2.types import Geometry
 from ...converter import Converter
 from ...quality import compute_mineral, data_quality
 from ....config import MINERALS, MINERAL_SYSTEMS
-from ..base import BaseModel, db
+from ....core.models.base import BaseModel, db
 from ..util.choice import ChoiceType
 from .serialize import serialize
 

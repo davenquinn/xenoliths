@@ -1,8 +1,6 @@
-from flask.ext.sqlalchemy import SQLAlchemy
-
 from .base import Application
+from ..database import db
 
-db = SQLAlchemy()
 app = Application(__name__)
 
 db.init_app(app)

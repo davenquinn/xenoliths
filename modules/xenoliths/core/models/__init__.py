@@ -2,7 +2,7 @@ from __future__ import division
 
 from sqlalchemy.dialects.postgresql import ARRAY
 
-from ..base import BaseModel,db
+from .base import BaseModel,db
 
 class Sample(BaseModel):
     id = db.Column(db.String(64), primary_key=True)
