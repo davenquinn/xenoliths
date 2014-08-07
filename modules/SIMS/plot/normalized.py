@@ -1,11 +1,7 @@
-#!/usr/bin/env python
-# coding=utf-8
-
 from __future__ import division
 
 import os
 import json
-import IPython
 
 import periodictable as pt
 import matplotlib.pyplot as P
@@ -17,7 +13,7 @@ data_dir = "raw"
 plot_dir = "plots"
 
 def elements():
-	return sorted(pt.elements, key=lambda x: x.number)	
+	return sorted(pt.elements, key=lambda x: x.number)
 
 def load(file):
 	dtype = [("el", str, 2), ("abundance", float), ("err", float)]
