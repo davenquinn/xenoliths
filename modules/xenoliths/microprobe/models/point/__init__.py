@@ -20,12 +20,8 @@ tags = db.Table('tag_manager',
 
 class Tag(BaseModel):
     name = db.Column(db.String(64), primary_key=True)
-
-    def __str__(self):
-        return self.name
-
-    def __repr__(self):
-        return "Tag {0}".format(self)
+    __str__ = lambda self: self.name
+    __repr__ = lambda self: "Tag {0}".format(self)
 
 class Point(BaseModel):
     id = db.Column(db.Integer,primary_key=True)
@@ -144,3 +140,15 @@ class Point(BaseModel):
             formula[key] = value*scalar
         formula["Total"] = sum(formula.itervalues())
         return formula
+
+def test_formula():
+    """Tests the calculation of oxide percents."""
+    query = Point.objects.all()
+    for obj in query:
+        a = 0
+        for cat in settings.CATIONS:
+            a += getattr(obj,cat)
+        a += obj.O
+        dif = a-obj.Total
+        if fabs(dif) > .0001:
+            print obj.id, dif
