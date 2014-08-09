@@ -5,7 +5,8 @@ import json
 
 from .file_handler import get_data
 from ....application import app, db
-from ...models import Sample, Point
+from ....core.models import Sample
+from ...models import Point
 
 def write_json():
     path = os.path.join(app.config.get("DATA_DIR"),"data.json")
