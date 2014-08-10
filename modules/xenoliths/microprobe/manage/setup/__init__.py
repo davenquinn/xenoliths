@@ -51,7 +51,7 @@ def import_all():
         #point.errors = {k:row[k+" %ERR"] for k in app.config.get("CATIONS")}
         point.derived_data()
         db.session.add(point)
-    db.session.commit()
+        db.session.commit()
 
 
     write_json()
