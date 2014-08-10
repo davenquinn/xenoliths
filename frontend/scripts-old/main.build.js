@@ -1,12 +1,4 @@
-({
-    appDir: ".",
-    baseUrl: "scripts",
-    dir: "../frontend-build",
-    modules: [
-        {
-            name: "main"
-        }
-    ],
+require.config({
     shim: {
          'handlebars': {
             exports: 'Handlebars'
@@ -42,4 +34,23 @@
         "text" : "lib/requirejs-text/text",
         "d3-dragrect": "lib/d3-dragrect/lib/d3-dragrect"
     }
-})
+});
+
+require([
+    'jquery',
+	'backbone',
+    'app',
+	],function($,Backbone,startApp){
+        console.log("Starting to get data");
+        $("body").append("<img class='loading' src='/static/images/ajax-loader.gif' />");
+        $.ajax({
+            url: "/data/data.json",
+            dataType:"json",
+            success: startApp,
+            error: function(request, textStatus, errorThrown) {
+                console.log(textStatus);
+                console.log(errorThrown);
+            }
+        });
+
+});
