@@ -33,9 +33,6 @@ def create_samples(data):
     db.session.commit()
 
 def import_all():
-    db.drop_all()
-    db.create_all()
-
     data = get_data(app.config.get("RAW_DATA"))
 
     samples = {k:v for k,v in create_samples(data)}
@@ -51,7 +48,7 @@ def import_all():
         #point.errors = {k:row[k+" %ERR"] for k in app.config.get("CATIONS")}
         point.derived_data()
         db.session.add(point)
-    db.session.commit()
+        db.session.commit()
 
 
     write_json()

@@ -5,11 +5,14 @@ from flask.ext.script import Manager, Server
 from xenoliths.application import app, db
 from xenoliths.microprobe.manage.setup import import_all
 from xenoliths.microprobe import models
+from xenoliths.database.manage import MigrateCommand
 
 manager = Manager(app)
 
 server = Server(host='0.0.0.0', port=8000)
 manager.add_command("serve", server)
+
+manager.add_command("db", MigrateCommand)
 
 @manager.shell
 def make_context():

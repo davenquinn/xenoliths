@@ -5,6 +5,7 @@ import periodictable as pt
 from uncertainties import ufloat
 from sqlalchemy.dialects.postgresql import JSON
 from geoalchemy2.types import Geometry
+from slugify import slugify
 
 from ...converter import Converter
 from ...quality import compute_mineral, data_quality
@@ -53,20 +54,20 @@ class Point(BaseModel):
         return self.line_number
 
     def add_tag(self,name):
-        tag = Tag.get_or_create(name=name)
+        slug = slugify(name, to_lower=True)
+        tag = Tag.get_or_create(name=slug)
         try:
             idx = self.tags.index(tag)
         except ValueError:
             self.tags.append(tag)
-        db.session.commit()
+        return tag.name
 
     def remove_tag(self,name):
-        tag = db.session.query(Tag).filter_by(name=name).first()
+        tag = Tag.query.get(name)
         try:
             self.tags.remove(tag)
         except ValueError:
             pass
-        db.session.commit()
 
     def derived_data(self):
         self.molar = self.compute_molar()
