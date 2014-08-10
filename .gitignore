@@ -1,5 +1,7 @@
 data/
 raw_data/
+node_modules/
+modules/xenoliths/application/static/scripts/lib/
 
 samples/data/backup/
 *.pyc
