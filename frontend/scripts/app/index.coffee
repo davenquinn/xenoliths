@@ -1,5 +1,5 @@
 $ = require "jquery"
-Route = require("spine-route").Route
+Spine = require("spine")
 Data = require "./data"
 
 class App
@@ -8,7 +8,7 @@ class App
         routes = require "./routes"
         @Data = new Data(data)
         for own url, func of routes
-            Route.add url, func
+            Spine.Route.add url, func
         console.log "Finished setting up routes"
     State:
         page: null

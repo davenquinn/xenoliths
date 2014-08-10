@@ -15,6 +15,7 @@ class Sidebar extends Spacepen.View
 
     initialize: (controls)->
         @activeTab = "#" + controls[0]
+        @find(".navbar-nav a").on "click", @onNav
 
     render: ->
         controls = []
@@ -41,20 +42,17 @@ class Sidebar extends Spacepen.View
         @render()
         return
 
-    events:
-        "click .navbar-nav a": "onNav"
-
-    onNav: (event) ->
+    onNav: (event) =>
+        event.preventDefault()
         val = event.currentTarget.hash
         @activeTab = val
         @viewTab val
-        false
+        console.log val
 
     viewTab: (tab) ->
-        @$(".navbar-nav li").removeClass "active"
-        @$("#tabs>div").hide()
+        @find(".navbar-nav li").removeClass "active"
+        @find("#tabs>div").hide()
         @find("a[href=#{tab}]").parent().addClass "active"
-        $(tab).show()
-        return
+        @find(tab).show()
 
 module.exports = Sidebar

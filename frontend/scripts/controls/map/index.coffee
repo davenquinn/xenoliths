@@ -23,14 +23,14 @@ class MapPanel extends Spacepen.View
         #ll = @_map.unproject([0,8640], @_map.getMaxZoom())
         #ur = @_map.unproject([8577,0], @_map.getMaxZoom())
         #@_map.setMaxBounds(new L.LatLngBounds(ll,ur))
-        layer = L.tileLayer '/tiles/CK-2/sem/{z}/{x}/{y}.png',
+        layer = L.tileLayer '/data/tiles/CK-2/sem/{z}/{x}/{y}.png',
             minZoom: 0
             maxZoom: 6
             tms: true
             noWrap: true
         layer.addTo @_map
 
-        layer = L.tileLayer '/tiles/CK-2/scan/{z}/{x}/{y}.png',
+        layer = L.tileLayer '/data/tiles/CK-2/scan/{z}/{x}/{y}.png',
             minZoom: 0
             maxZoom: 6
             tms: true
@@ -44,7 +44,7 @@ class MapPanel extends Spacepen.View
         properties =
             height: 8640
             width: 8577
-        image = new ImageLayer "/tiles/CK-2/sem", properties
+        image = new ImageLayer "/data/tiles/CK-2/sem", properties
         image.addTo(@_map)
 
 
