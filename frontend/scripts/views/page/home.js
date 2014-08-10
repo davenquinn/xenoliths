@@ -1,17 +1,16 @@
-define([
-    "views/page/base",
-    "views/chart/chart",
-    "views/base/sidebar",
-    "text!templates/page/home.html",
-    ],function(BasePage, ChartPanel, Sidebar, template){
+var BasePage = require('./base');
+var ChartPanel = require('../chart/chart');
+var Sidebar = require('../base/sidebar');
+var template = require('../../text!templates/page/home.html');
 
-    IndexPage = BasePage.extend({
-        initialize: function(){
-            this.compile(template)
-            this.render()
-        },
-        render: function(){
-            this.$el.html(this.template);        }
-    });
-    return IndexPage;
+
+IndexPage = BasePage.extend({
+    initialize: function(){
+        this.compile(template)
+        this.render()
+    },
+    render: function(){
+        this.$el.html(this.template);        }
 });
+module.exports = IndexPage;
+

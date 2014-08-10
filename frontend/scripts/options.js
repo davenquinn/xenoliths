@@ -1,4 +1,5 @@
-define([],function(){
+
+
 	options = {
 		samples: {
 			"CK-1": {
@@ -78,27 +79,27 @@ define([],function(){
 			"cpx": {
 				name: "Clinopyroxene",
 				color: "#a6ff9b"
-    		},
-        	"opx": {
-    			name: "Orthopyroxene",
-    			color: "#cc0000"
-    		},
-        	"ol": {
-    			name: "Olivine",
-    			color: "#006699"
-    		},
-        	"sp": {
-    			name: "Spinel",
-    			color: "#663300"
-    		},
-    		"al": {
-    			name: "Alteration",
-    			color: "#888888"
-    		},
-    		"na": {
-    			name: "None",
-    			color: "#000000"
-    		}
+		},
+    	"opx": {
+			name: "Orthopyroxene",
+			color: "#cc0000"
+		},
+    	"ol": {
+			name: "Olivine",
+			color: "#006699"
+		},
+    	"sp": {
+			name: "Spinel",
+			color: "#663300"
+		},
+		"al": {
+			name: "Alteration",
+			color: "#888888"
+		},
+		"na": {
+			name: "None",
+			color: "#000000"
+		}
 		},
 		"oxides": ["SiO2","MgO","FeO","CaO","Al2O3","Cr2O3","TiO2","NiO","MnO","Na2O"],
 		"cations": ["Si","Mg","Fe","Ca","Al","Cr","Ti","Ni","Mn","Na"],
@@ -123,5 +124,5 @@ define([],function(){
 			}
 		}
 	};
-	return options;
-});
+	module.exports = options;
+

@@ -1,10 +1,9 @@
-define([
-    "jquery",
-    "views/base/generic"
-    ],function($, GenericView){
+var $ = require('jquery');
+var GenericView = require('../base/generic');
 
-    GenericPage = GenericView.extend({
 
-    });
-    return GenericPage;
+GenericPage = GenericView.extend({
+
 });
+module.exports = GenericPage;
+

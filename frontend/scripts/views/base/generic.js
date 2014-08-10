@@ -1,14 +1,13 @@
-define([
-	"backbone",
-	"handlebars"
-	],function(Backbone, Handlebars){
-    GenericView = Backbone.View.extend({
-    	initialize: function(){
-    		this.parent = this.options.parent;
-        	this.map = this.parent.map;
-    	},
-    	assign : function (view, selector) {
-    		//http://ianstormtaylor.com/rendering-views-in-backbonejs-isnt-always-simple/
+var Backbone = require('backbone');
+var Handlebars = require('handlebars');
+
+GenericView = Backbone.View.extend({
+	initialize: function(){
+		this.parent = this.options.parent;
+    	this.map = this.parent.map;
+	},
+	assign : function (view, selector) {
+		//http://ianstormtaylor.com/rendering-views-in-backbonejs-isnt-always-simple/
 		    view.setElement(this.$(selector)).render();
 		},
 		remove: function() {
@@ -28,7 +27,7 @@ define([
 		    this.remove();  
 		    Backbone.View.prototype.remove.call(this);
 		}
-    });
-    return GenericView;
 });
+module.exports = GenericView;
+
 

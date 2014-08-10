@@ -1,3 +1,7 @@
+var $ = require('jquery');
+var Backbone = require('backbone');
+var startApp = require('./app');
+
 require.config({
     shim: {
          'handlebars': {
@@ -36,21 +40,16 @@ require.config({
     }
 });
 
-require([
-    'jquery',
-	'backbone',
-    'app',
-	],function($,Backbone,startApp){
-        console.log("Starting to get data");
-        $("body").append("<img class='loading' src='/static/images/ajax-loader.gif' />");
-        $.ajax({
-            url: "/data/data.json",
-            dataType:"json",
-            success: startApp,
-            error: function(request, textStatus, errorThrown) {
-                console.log(textStatus);
-                console.log(errorThrown);
-            }
-        });
+    console.log("Starting to get data");
+    $("body").append("<img class='loading' src='/static/images/ajax-loader.gif' />");
+    $.ajax({
+        url: "/data/data.json",
+        dataType:"json",
+        success: startApp,
+        error: function(request, textStatus, errorThrown) {
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
+    });
 
-});
+
