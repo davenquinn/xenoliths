@@ -7,8 +7,8 @@
 @import "lib/neat/neat";
 
 $FontAwesomePath: "/static/lib/font-awesome";
-@import "../../node_modules/font-awesome/scss/font-awesome";
-@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap-compass';
+@import "font-awesome/scss/font-awesome";
+@import 'bootstrap-sass/assets/stylesheets/bootstrap-compass';
 @import "lib/datatables";
 //@import "lib/jquery_simple_slider";
 @import "compass";
