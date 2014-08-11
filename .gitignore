@@ -1,10 +1,6 @@
 data/
 raw_data/
 node_modules/
-<<<<<<< HEAD
-=======
-modules/xenoliths/application/static/scripts/lib/
->>>>>>> Flask
 
 samples/data/backup/
 *.pyc

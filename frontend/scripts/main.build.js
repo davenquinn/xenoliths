@@ -1,3 +1,7 @@
+var $ = require('jquery');
+var Backbone = require('backbone');
+var startApp = require('./app');
+
 require.config({
     shim: {
          'handlebars': {
@@ -15,7 +19,7 @@ require.config({
         "jquery.slider": {
             deps: ["jquery"]
         },
-        "jquery.switch": {
+        "bootstrap-switch": {
             deps: ["jquery"]
         }
     },
@@ -30,27 +34,22 @@ require.config({
 		"d3": "lib/d3/d3",
 		"jquery.bootstrap": "lib/bootstrap/dist/js/bootstrap",
 		"jquery.slider": "lib/jquery-simple-slider/js/simple-slider",
-        "jquery.switch": "lib/bootstrap-switch/static/js/bootstrap-switch",
+        "bootstrap-switch": "lib/bootstrap-switch/static/js/bootstrap-switch",
         "text" : "lib/requirejs-text/text",
         "d3-dragrect": "lib/d3-dragrect/lib/d3-dragrect"
     }
 });
 
-require([
-    'jquery',
-	'backbone',
-    'app',
-	],function($,Backbone,startApp){
-        console.log("Starting to get data");
-        $("body").append("<img class='loading' src='/static/images/ajax-loader.gif' />");
-        $.ajax({
-            url: "/data/data.json",
-            dataType:"json",
-            success: startApp,
-            error: function(request, textStatus, errorThrown) {
-                console.log(textStatus);
-                console.log(errorThrown);
-            }
-        });
+    console.log("Starting to get data");
+    $("body").append("<img class='loading' src='/static/images/ajax-loader.gif' />");
+    $.ajax({
+        url: "/data/data.json",
+        dataType:"json",
+        success: startApp,
+        error: function(request, textStatus, errorThrown) {
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
+    });
 
-});
+

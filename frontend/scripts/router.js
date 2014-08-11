@@ -1,19 +1,18 @@
-define([
-	"jquery",
-	"backbone",
-	'views/page/classify',
-	'views/page/map',
-	'views/page/chart',
-	'views/page/home',
-	'views/page/ternary',
-	'data'
-	], function($, Backbone, ClassifyPage, MapPage, ChartPage, IndexPage, TernaryPage, DataManager){
+var $ = require('jquery');
+var Backbone = require('backbone');
+var ClassifyPage = require('./views/page/classify');
+var MapPage = require('./views/page/map');
+var ChartPage = require('./views/page/chart');
+var IndexPage = require('./views/page/home');
+var TernaryPage = require('./views/page/ternary');
+var DataManager = require('./data');
+
 
 	Router = Backbone.Router.extend({
 		initialize: function(options){
 			this.manager = new DataManager();
 			window.dataManager = this.manager;
-		},	
+		},
 	    routes: {
 	        '': 'index',
 	        'classify(/:sample)': 'classify',
@@ -39,5 +38,4 @@ define([
 			new TernaryPage({el: "body", system: system});
 	    }
 	});
-	return Router;
-});
+	module.exports = Router;

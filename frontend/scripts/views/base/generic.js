@@ -1,14 +1,15 @@
-define([
-	"backbone",
-	"handlebars"
-	],function(Backbone, Handlebars){
-    GenericView = Backbone.View.extend({
-    	initialize: function(){
-    		this.parent = this.options.parent;
-        	this.map = this.parent.map;
-    	},
-    	assign : function (view, selector) {
-    		//http://ianstormtaylor.com/rendering-views-in-backbonejs-isnt-always-simple/
+var Backbone = require('backbone');
+var Handlebars = require('handlebars');
+
+GenericView = Backbone.View.extend({
+	initialize: function(options){
+		this.options = options
+		console.log(options)
+		this.parent = this.options.parent;
+    	this.map = this.parent.map;
+	},
+	assign : function (view, selector) {
+		//http://ianstormtaylor.com/rendering-views-in-backbonejs-isnt-always-simple/
 		    view.setElement(this.$(selector)).render();
 		},
 		remove: function() {
@@ -17,18 +18,16 @@ define([
 			return this;
 		},
 		compile: function(template){
-			this.template = Handlebars.compile(template);
+			this.template = template;
 			return this.template;
 		},
 		destroy_view: function() {
 		    //COMPLETELY UNBIND THE VIEW
 		    this.undelegateEvents();
-		    this.$el.removeData().unbind(); 
+		    this.$el.removeData().unbind();
 		    //Remove view from DOM
-		    this.remove();  
+		    this.remove();
 		    Backbone.View.prototype.remove.call(this);
 		}
-    });
-    return GenericView;
 });
-
+module.exports = GenericView;
