@@ -13,6 +13,7 @@ gulp.task 'setDist', ->
 gulp.task "dist", ["setDist", "build"]
 
 gulp.task 'default', [
+        'build'
         'backend'
         'watch'
     ]

@@ -6,9 +6,11 @@
 @import "lib/bourbon/bourbon";
 @import "lib/neat/neat";
 
+@import "lib/openlayers";
+
 $FontAwesomePath: "/static/lib/font-awesome";
 @import "font-awesome/scss/font-awesome";
-@import 'bootstrap-sass/assets/stylesheets/bootstrap-compass';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap';
 @import "lib/datatables";
 //@import "lib/jquery_simple_slider";
 @import "compass";

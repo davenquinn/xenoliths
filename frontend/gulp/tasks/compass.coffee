@@ -17,7 +17,7 @@ gulp.task "compass", ->
         import_path: "node_modules"
 
     debug = (if global.dist then false else true)
-    pipeline = gulp.src("./frontend/styles/*.scss")
+    pipeline = gulp.src("./frontend/styles/screen.scss")
         .pipe plumber()
         .pipe compass(cfg)
         .pipe autoprefixer("last 1 version")
