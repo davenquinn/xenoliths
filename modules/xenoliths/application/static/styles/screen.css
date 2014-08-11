@@ -3,12 +3,12 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 2, ../../../../../frontend/styles/lib/neat/grid/_grid.scss */
+/* line 2, ../../frontend/styles/lib/neat/grid/_grid.scss */
 * {
   box-sizing: border-box;
 }
 
-/* line 1, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 1, ../../frontend/styles/lib/_openlayers.scss */
 div.olMap {
   z-index: 0;
   padding: 0 !important;
@@ -16,47 +16,47 @@ div.olMap {
   cursor: default;
 }
 
-/* line 8, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 8, ../../frontend/styles/lib/_openlayers.scss */
 div.olMapViewport {
   text-align: left;
   -ms-touch-action: none;
 }
 
-/* line 13, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 13, ../../frontend/styles/lib/_openlayers.scss */
 div.olLayerDiv {
   -moz-user-select: none;
   -khtml-user-select: none;
 }
 
-/* line 18, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 18, ../../frontend/styles/lib/_openlayers.scss */
 .olLayerGoogleCopyright {
   left: 2px;
   bottom: 2px;
 }
 
-/* line 22, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 22, ../../frontend/styles/lib/_openlayers.scss */
 .olLayerGoogleV3.olLayerGoogleCopyright {
   right: auto !important;
 }
 
-/* line 25, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 25, ../../frontend/styles/lib/_openlayers.scss */
 .olLayerGooglePoweredBy {
   left: 2px;
   bottom: 15px;
 }
 
-/* line 29, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 29, ../../frontend/styles/lib/_openlayers.scss */
 .olLayerGoogleV3.olLayerGooglePoweredBy {
   bottom: 15px !important;
 }
 
 /* GMaps should not set styles on its container */
-/* line 33, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 33, ../../frontend/styles/lib/_openlayers.scss */
 .olForeignContainer {
   opacity: 1 !important;
 }
 
-/* line 36, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 36, ../../frontend/styles/lib/_openlayers.scss */
 .olControlAttribution {
   font-size: smaller;
   right: 3px;
@@ -65,7 +65,7 @@ div.olLayerDiv {
   display: block;
 }
 
-/* line 43, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 43, ../../frontend/styles/lib/_openlayers.scss */
 .olControlScale {
   right: 3px;
   bottom: 3em;
@@ -74,7 +74,7 @@ div.olLayerDiv {
   font-size: smaller;
 }
 
-/* line 50, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 50, ../../frontend/styles/lib/_openlayers.scss */
 .olControlScaleLine {
   display: block;
   position: absolute;
@@ -83,7 +83,7 @@ div.olLayerDiv {
   font-size: xx-small;
 }
 
-/* line 57, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 57, ../../frontend/styles/lib/_openlayers.scss */
 .olControlScaleLineBottom {
   border: solid 2px black;
   border-bottom: none;
@@ -91,14 +91,14 @@ div.olLayerDiv {
   text-align: center;
 }
 
-/* line 63, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 63, ../../frontend/styles/lib/_openlayers.scss */
 .olControlScaleLineTop {
   border: solid 2px black;
   border-top: none;
   text-align: center;
 }
 
-/* line 69, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 69, ../../frontend/styles/lib/_openlayers.scss */
 .olControlPermalink {
   right: 3px;
   bottom: 1.5em;
@@ -107,7 +107,7 @@ div.olLayerDiv {
   font-size: smaller;
 }
 
-/* line 77, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 77, ../../frontend/styles/lib/_openlayers.scss */
 div.olControlMousePosition {
   bottom: 0;
   right: 3px;
@@ -117,21 +117,21 @@ div.olControlMousePosition {
   font-size: smaller;
 }
 
-/* line 86, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 86, ../../frontend/styles/lib/_openlayers.scss */
 .olControlOverviewMapContainer {
   position: absolute;
   bottom: 0;
   right: 0;
 }
 
-/* line 92, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 92, ../../frontend/styles/lib/_openlayers.scss */
 .olControlOverviewMapElement {
   padding: 10px 18px 10px 10px;
   background-color: #00008B;
   -moz-border-radius: 1em 0 0 0;
 }
 
-/* line 98, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 98, ../../frontend/styles/lib/_openlayers.scss */
 .olControlOverviewMapMinimizeButton,
 .olControlOverviewMapMaximizeButton {
   height: 18px;
@@ -141,7 +141,7 @@ div.olControlMousePosition {
   cursor: pointer;
 }
 
-/* line 107, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 107, ../../frontend/styles/lib/_openlayers.scss */
 .olControlOverviewMapExtentRectangle {
   overflow: hidden;
   background-image: url("img/blank.gif");
@@ -149,7 +149,7 @@ div.olControlMousePosition {
   border: 2px dotted red;
 }
 
-/* line 113, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 113, ../../frontend/styles/lib/_openlayers.scss */
 .olControlOverviewMapRectReplacement {
   overflow: hidden;
   cursor: move;
@@ -158,7 +158,7 @@ div.olControlMousePosition {
   background-position: center;
 }
 
-/* line 121, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 121, ../../frontend/styles/lib/_openlayers.scss */
 .olLayerGeoRSSDescription {
   float: left;
   width: 100%;
@@ -166,7 +166,7 @@ div.olControlMousePosition {
   font-size: 1.0em;
 }
 
-/* line 127, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 127, ../../frontend/styles/lib/_openlayers.scss */
 .olLayerGeoRSSClose {
   float: right;
   color: gray;
@@ -175,19 +175,19 @@ div.olControlMousePosition {
   font-family: sans-serif;
 }
 
-/* line 134, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 134, ../../frontend/styles/lib/_openlayers.scss */
 .olLayerGeoRSSTitle {
   float: left;
   font-size: 1.2em;
 }
 
-/* line 138, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 138, ../../frontend/styles/lib/_openlayers.scss */
 .olPopupContent {
   padding: 5px;
   overflow: auto;
 }
 
-/* line 143, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 143, ../../frontend/styles/lib/_openlayers.scss */
 .olControlNavigationHistory {
   background-image: url("img/navigation_history.png");
   background-repeat: no-repeat;
@@ -195,41 +195,41 @@ div.olControlMousePosition {
   height: 24px;
 }
 
-/* line 150, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 150, ../../frontend/styles/lib/_openlayers.scss */
 .olControlNavigationHistoryPreviousItemActive {
   background-position: 0 0;
 }
 
-/* line 153, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 153, ../../frontend/styles/lib/_openlayers.scss */
 .olControlNavigationHistoryPreviousItemInactive {
   background-position: 0 -24px;
 }
 
-/* line 156, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 156, ../../frontend/styles/lib/_openlayers.scss */
 .olControlNavigationHistoryNextItemActive {
   background-position: -24px 0;
 }
 
-/* line 159, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 159, ../../frontend/styles/lib/_openlayers.scss */
 .olControlNavigationHistoryNextItemInactive {
   background-position: -24px -24px;
 }
 
-/* line 163, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 163, ../../frontend/styles/lib/_openlayers.scss */
 div.olControlSaveFeaturesItemActive {
   background-image: url(img/save_features_on.png);
   background-repeat: no-repeat;
   background-position: 0 1px;
 }
 
-/* line 168, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 168, ../../frontend/styles/lib/_openlayers.scss */
 div.olControlSaveFeaturesItemInactive {
   background-image: url(img/save_features_off.png);
   background-repeat: no-repeat;
   background-position: 0 1px;
 }
 
-/* line 174, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 174, ../../frontend/styles/lib/_openlayers.scss */
 .olHandlerBoxZoomBox {
   border: 2px solid red;
   position: absolute;
@@ -239,7 +239,7 @@ div.olControlSaveFeaturesItemInactive {
   filter: alpha(opacity=50);
 }
 
-/* line 182, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 182, ../../frontend/styles/lib/_openlayers.scss */
 .olHandlerBoxSelectFeature {
   border: 2px solid blue;
   position: absolute;
@@ -249,13 +249,13 @@ div.olControlSaveFeaturesItemInactive {
   filter: alpha(opacity=50);
 }
 
-/* line 191, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 191, ../../frontend/styles/lib/_openlayers.scss */
 .olControlPanPanel {
   top: 10px;
   left: 5px;
 }
 
-/* line 196, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 196, ../../frontend/styles/lib/_openlayers.scss */
 .olControlPanPanel div {
   background-image: url(img/pan-panel.png);
   height: 18px;
@@ -264,21 +264,21 @@ div.olControlSaveFeaturesItemInactive {
   position: absolute;
 }
 
-/* line 204, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 204, ../../frontend/styles/lib/_openlayers.scss */
 .olControlPanPanel .olControlPanNorthItemInactive {
   top: 0;
   left: 9px;
   background-position: 0 0;
 }
 
-/* line 209, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 209, ../../frontend/styles/lib/_openlayers.scss */
 .olControlPanPanel .olControlPanSouthItemInactive {
   top: 36px;
   left: 9px;
   background-position: 18px 0;
 }
 
-/* line 214, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 214, ../../frontend/styles/lib/_openlayers.scss */
 .olControlPanPanel .olControlPanWestItemInactive {
   position: absolute;
   top: 18px;
@@ -286,20 +286,20 @@ div.olControlSaveFeaturesItemInactive {
   background-position: 0 18px;
 }
 
-/* line 220, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 220, ../../frontend/styles/lib/_openlayers.scss */
 .olControlPanPanel .olControlPanEastItemInactive {
   top: 18px;
   left: 18px;
   background-position: 18px 18px;
 }
 
-/* line 226, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 226, ../../frontend/styles/lib/_openlayers.scss */
 .olControlZoomPanel {
   top: 71px;
   left: 14px;
 }
 
-/* line 231, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 231, ../../frontend/styles/lib/_openlayers.scss */
 .olControlZoomPanel div {
   background-image: url(img/zoom-panel.png);
   position: absolute;
@@ -308,21 +308,21 @@ div.olControlSaveFeaturesItemInactive {
   cursor: pointer;
 }
 
-/* line 239, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 239, ../../frontend/styles/lib/_openlayers.scss */
 .olControlZoomPanel .olControlZoomInItemInactive {
   top: 0;
   left: 0;
   background-position: 0 0;
 }
 
-/* line 245, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 245, ../../frontend/styles/lib/_openlayers.scss */
 .olControlZoomPanel .olControlZoomToMaxExtentItemInactive {
   top: 18px;
   left: 0;
   background-position: 0 -18px;
 }
 
-/* line 251, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 251, ../../frontend/styles/lib/_openlayers.scss */
 .olControlZoomPanel .olControlZoomOutItemInactive {
   top: 36px;
   left: 0;
@@ -333,30 +333,30 @@ div.olControlSaveFeaturesItemInactive {
  * When a potential text is bigger than the image it move the image
  * with some headers (closes #3154)
  */
-/* line 261, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 261, ../../frontend/styles/lib/_openlayers.scss */
 .olControlPanZoomBar div {
   font-size: 1px;
 }
 
-/* line 265, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 265, ../../frontend/styles/lib/_openlayers.scss */
 .olPopupCloseBox {
   background: url("img/close.gif") no-repeat;
   cursor: pointer;
 }
 
-/* line 270, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 270, ../../frontend/styles/lib/_openlayers.scss */
 .olFramedCloudPopupContent {
   padding: 5px;
   overflow: auto;
 }
 
-/* line 275, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 275, ../../frontend/styles/lib/_openlayers.scss */
 .olControlNoSelect {
   -moz-user-select: none;
   -khtml-user-select: none;
 }
 
-/* line 280, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 280, ../../frontend/styles/lib/_openlayers.scss */
 .olImageLoadError {
   background-color: pink;
   opacity: 0.5;
@@ -367,34 +367,34 @@ div.olControlSaveFeaturesItemInactive {
 /**
  * Cursor styles
  */
-/* line 290, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 290, ../../frontend/styles/lib/_openlayers.scss */
 .olCursorWait {
   cursor: wait;
 }
 
-/* line 293, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 293, ../../frontend/styles/lib/_openlayers.scss */
 .olDragDown {
   cursor: move;
 }
 
-/* line 296, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 296, ../../frontend/styles/lib/_openlayers.scss */
 .olDrawBox {
   cursor: crosshair;
 }
 
-/* line 299, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 299, ../../frontend/styles/lib/_openlayers.scss */
 .olControlDragFeatureOver {
   cursor: move;
 }
 
-/* line 302, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 302, ../../frontend/styles/lib/_openlayers.scss */
 .olControlDragFeatureActive.olControlDragFeatureOver.olDragDown {
 }
 
 /**
  * Layer switcher
  */
-/* line 309, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 309, ../../frontend/styles/lib/_openlayers.scss */
 .olControlLayerSwitcher {
   position: absolute;
   top: 25px;
@@ -410,7 +410,7 @@ div.olControlSaveFeaturesItemInactive {
   background-color: transparent;
 }
 
-/* line 324, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 324, ../../frontend/styles/lib/_openlayers.scss */
 .olControlLayerSwitcher .layersDiv {
   padding-top: 5px;
   padding-left: 10px;
@@ -419,7 +419,7 @@ div.olControlSaveFeaturesItemInactive {
   background-color: darkblue;
 }
 
-/* line 332, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 332, ../../frontend/styles/lib/_openlayers.scss */
 .olControlLayerSwitcher .layersDiv .baseLbl,
 .olControlLayerSwitcher .layersDiv .dataLbl {
   margin-top: 3px;
@@ -427,13 +427,13 @@ div.olControlSaveFeaturesItemInactive {
   margin-bottom: 3px;
 }
 
-/* line 339, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 339, ../../frontend/styles/lib/_openlayers.scss */
 .olControlLayerSwitcher .layersDiv .baseLayersDiv,
 .olControlLayerSwitcher .layersDiv .dataLayersDiv {
   padding-left: 10px;
 }
 
-/* line 344, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 344, ../../frontend/styles/lib/_openlayers.scss */
 .olControlLayerSwitcher .maximizeDiv,
 .olControlLayerSwitcher .minimizeDiv {
   width: 18px;
@@ -443,32 +443,32 @@ div.olControlSaveFeaturesItemInactive {
   cursor: pointer;
 }
 
-/* line 353, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 353, ../../frontend/styles/lib/_openlayers.scss */
 .olBingAttribution {
   color: #DDD;
 }
 
-/* line 356, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 356, ../../frontend/styles/lib/_openlayers.scss */
 .olBingAttribution.road {
   color: #333;
 }
 
-/* line 360, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 360, ../../frontend/styles/lib/_openlayers.scss */
 .olGoogleAttribution.hybrid, .olGoogleAttribution.satellite {
   color: #EEE;
 }
 
-/* line 363, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 363, ../../frontend/styles/lib/_openlayers.scss */
 .olGoogleAttribution {
   color: #333;
 }
 
-/* line 366, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 366, ../../frontend/styles/lib/_openlayers.scss */
 span.olGoogleAttribution a {
   color: #77C;
 }
 
-/* line 369, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 369, ../../frontend/styles/lib/_openlayers.scss */
 span.olGoogleAttribution.hybrid a, span.olGoogleAttribution.satellite a {
   color: #EEE;
 }
@@ -477,13 +477,13 @@ span.olGoogleAttribution.hybrid a, span.olGoogleAttribution.satellite a {
  * Editing and navigation icons.
  * (using the editing_tool_bar.png sprint image)
  */
-/* line 377, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 377, ../../frontend/styles/lib/_openlayers.scss */
 .olControlNavToolbar,
 .olControlEditingToolbar {
   margin: 5px 5px 0 0;
 }
 
-/* line 381, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 381, ../../frontend/styles/lib/_openlayers.scss */
 .olControlNavToolbar div,
 .olControlEditingToolbar div {
   background-image: url("img/editing_tool_bar.png");
@@ -495,80 +495,80 @@ span.olGoogleAttribution.hybrid a, span.olGoogleAttribution.satellite a {
 }
 
 /* positions */
-/* line 391, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 391, ../../frontend/styles/lib/_openlayers.scss */
 .olControlEditingToolbar {
   right: 0;
   top: 0;
 }
 
-/* line 395, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 395, ../../frontend/styles/lib/_openlayers.scss */
 .olControlNavToolbar {
   top: 295px;
   left: 9px;
 }
 
 /* layouts */
-/* line 400, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 400, ../../frontend/styles/lib/_openlayers.scss */
 .olControlEditingToolbar div {
   float: right;
 }
 
 /* individual controls */
-/* line 404, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 404, ../../frontend/styles/lib/_openlayers.scss */
 .olControlNavToolbar .olControlNavigationItemInactive,
 .olControlEditingToolbar .olControlNavigationItemInactive {
   background-position: -103px -1px;
 }
 
-/* line 408, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 408, ../../frontend/styles/lib/_openlayers.scss */
 .olControlNavToolbar .olControlNavigationItemActive,
 .olControlEditingToolbar .olControlNavigationItemActive {
   background-position: -103px -24px;
 }
 
-/* line 412, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 412, ../../frontend/styles/lib/_openlayers.scss */
 .olControlNavToolbar .olControlZoomBoxItemInactive,
 .olControlEditingToolbar .olControlZoomBoxItemInactive {
   background-position: -128px -1px;
 }
 
-/* line 416, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 416, ../../frontend/styles/lib/_openlayers.scss */
 .olControlNavToolbar .olControlZoomBoxItemActive,
 .olControlEditingToolbar .olControlZoomBoxItemActive {
   background-position: -128px -24px;
 }
 
-/* line 420, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 420, ../../frontend/styles/lib/_openlayers.scss */
 .olControlEditingToolbar .olControlDrawFeaturePointItemInactive {
   background-position: -77px -1px;
 }
 
-/* line 423, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 423, ../../frontend/styles/lib/_openlayers.scss */
 .olControlEditingToolbar .olControlDrawFeaturePointItemActive {
   background-position: -77px -24px;
 }
 
-/* line 426, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 426, ../../frontend/styles/lib/_openlayers.scss */
 .olControlEditingToolbar .olControlDrawFeaturePathItemInactive {
   background-position: -51px -1px;
 }
 
-/* line 429, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 429, ../../frontend/styles/lib/_openlayers.scss */
 .olControlEditingToolbar .olControlDrawFeaturePathItemActive {
   background-position: -51px -24px;
 }
 
-/* line 432, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 432, ../../frontend/styles/lib/_openlayers.scss */
 .olControlEditingToolbar .olControlDrawFeaturePolygonItemInactive {
   background-position: -26px -1px;
 }
 
-/* line 435, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 435, ../../frontend/styles/lib/_openlayers.scss */
 .olControlEditingToolbar .olControlDrawFeaturePolygonItemActive {
   background-position: -26px -24px;
 }
 
-/* line 439, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 439, ../../frontend/styles/lib/_openlayers.scss */
 div.olControlZoom, div.olControlTextButtonPanel {
   position: absolute;
   top: 8px;
@@ -578,7 +578,7 @@ div.olControlZoom, div.olControlTextButtonPanel {
   padding: 2px;
 }
 
-/* line 447, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 447, ../../frontend/styles/lib/_openlayers.scss */
 div.olControlZoom a {
   font-size: 18px;
   line-height: 19px;
@@ -587,7 +587,7 @@ div.olControlZoom a {
   padding: 0;
 }
 
-/* line 454, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 454, ../../frontend/styles/lib/_openlayers.scss */
 div.olControlZoom a, div.olControlTextButtonPanel .olButton {
   display: block;
   margin: 1px;
@@ -602,7 +602,7 @@ div.olControlZoom a, div.olControlTextButtonPanel .olButton {
   filter: alpha(opacity=80);
 }
 
-/* line 466, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 466, ../../frontend/styles/lib/_openlayers.scss */
 div.olControlZoom a:hover, div.olControlTextButtonPanel .olButton:hover {
   background: #130085;
   /* fallback for IE */
@@ -611,17 +611,17 @@ div.olControlZoom a:hover, div.olControlTextButtonPanel .olButton:hover {
 }
 
 @media only screen and (max-width: 600px) {
-  /* line 472, ../../../../../frontend/styles/lib/_openlayers.scss */
+  /* line 472, ../../frontend/styles/lib/_openlayers.scss */
   div.olControlZoom a:hover, div.olControlTextButtonPanel .olButton:hover {
     background: rgba(0, 60, 136, 0.5);
   }
 }
-/* line 476, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 476, ../../frontend/styles/lib/_openlayers.scss */
 a.olControlZoomIn {
   border-radius: 4px 4px 0 0;
 }
 
-/* line 479, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 479, ../../frontend/styles/lib/_openlayers.scss */
 a.olControlZoomOut {
   border-radius: 0 0 4px 4px;
 }
@@ -629,33 +629,33 @@ a.olControlZoomOut {
 /**
  * TextButtonPanel
  */
-/* line 487, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 487, ../../frontend/styles/lib/_openlayers.scss */
 div.olControlTextButtonPanel .olButton {
   float: left;
   padding: 4px;
 }
 
-/* line 492, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 492, ../../frontend/styles/lib/_openlayers.scss */
 div.olControlTextButtonPanel.vertical .olButton {
   float: none;
 }
 
-/* line 495, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 495, ../../frontend/styles/lib/_openlayers.scss */
 div.olControlTextButtonPanel .olButton:first-child {
   border-radius: 4px 0 0 4px;
 }
 
-/* line 498, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 498, ../../frontend/styles/lib/_openlayers.scss */
 div.olControlTextButtonPanel .olButton:last-child {
   border-radius: 0 4px 4px 0;
 }
 
-/* line 501, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 501, ../../frontend/styles/lib/_openlayers.scss */
 div.olControlTextButtonPanel.vertical .olButton:first-child {
   border-radius: 4px 4px 0 0;
 }
 
-/* line 504, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 504, ../../frontend/styles/lib/_openlayers.scss */
 div.olControlTextButtonPanel.vertical .olButton:last-child {
   border-radius: 0 0 4px 4px;
 }
@@ -663,13 +663,13 @@ div.olControlTextButtonPanel.vertical .olButton:last-child {
 /**
  * Animations
  */
-/* line 513, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 513, ../../frontend/styles/lib/_openlayers.scss */
 .olLayerGrid .olTileImage {
   transition: opacity 0.2s linear;
 }
 
 /* Turn on GPU support where available */
-/* line 521, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 521, ../../frontend/styles/lib/_openlayers.scss */
 .olTileImage {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -682,13 +682,13 @@ div.olControlTextButtonPanel.vertical .olButton:last-child {
 }
 
 /* when replacing tiles, do not show tile and backbuffer at the same time */
-/* line 538, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 538, ../../frontend/styles/lib/_openlayers.scss */
 .olTileReplacing {
   display: none;
 }
 
 /* override any max-width image settings (e.g. bootstrap.css) */
-/* line 543, ../../../../../frontend/styles/lib/_openlayers.scss */
+/* line 543, ../../frontend/styles/lib/_openlayers.scss */
 img.olTileImage {
   max-width: none;
 }
@@ -11118,14 +11118,14 @@ button.close {
 /*
  * Table
  */
-/* line 5, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 5, ../../frontend/styles/lib/_datatables.scss */
 table.dataTable {
   margin: 0 auto;
   clear: both;
   width: 100%;
 }
 
-/* line 11, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 11, ../../frontend/styles/lib/_datatables.scss */
 table.dataTable thead th {
   padding: 3px 18px 3px 10px;
   border-bottom: 1px solid black;
@@ -11134,60 +11134,60 @@ table.dataTable thead th {
   *cursor: hand;
 }
 
-/* line 19, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 19, ../../frontend/styles/lib/_datatables.scss */
 table.dataTable tfoot th {
   padding: 3px 18px 3px 10px;
   border-top: 1px solid black;
   font-weight: bold;
 }
 
-/* line 25, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 25, ../../frontend/styles/lib/_datatables.scss */
 table.dataTable td {
   padding: 3px 10px;
 }
 
-/* line 29, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 29, ../../frontend/styles/lib/_datatables.scss */
 table.dataTable td.center,
 table.dataTable td.dataTables_empty {
   text-align: center;
 }
 
-/* line 34, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 34, ../../frontend/styles/lib/_datatables.scss */
 table.dataTable tr.odd {
   background-color: #E2E4FF;
 }
 
-/* line 35, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 35, ../../frontend/styles/lib/_datatables.scss */
 table.dataTable tr.even {
   background-color: white;
 }
 
-/* line 37, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 37, ../../frontend/styles/lib/_datatables.scss */
 table.dataTable tr.odd td.sorting_1 {
   background-color: #D3D6FF;
 }
 
-/* line 38, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 38, ../../frontend/styles/lib/_datatables.scss */
 table.dataTable tr.odd td.sorting_2 {
   background-color: #DADCFF;
 }
 
-/* line 39, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 39, ../../frontend/styles/lib/_datatables.scss */
 table.dataTable tr.odd td.sorting_3 {
   background-color: #E0E2FF;
 }
 
-/* line 40, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 40, ../../frontend/styles/lib/_datatables.scss */
 table.dataTable tr.even td.sorting_1 {
   background-color: #EAEBFF;
 }
 
-/* line 41, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 41, ../../frontend/styles/lib/_datatables.scss */
 table.dataTable tr.even td.sorting_2 {
   background-color: #F2F3FF;
 }
 
-/* line 42, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 42, ../../frontend/styles/lib/_datatables.scss */
 table.dataTable tr.even td.sorting_3 {
   background-color: #F9F9FF;
 }
@@ -11195,7 +11195,7 @@ table.dataTable tr.even td.sorting_3 {
 /*
  * Table wrapper
  */
-/* line 48, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 48, ../../frontend/styles/lib/_datatables.scss */
 .dataTables_wrapper {
   position: relative;
   clear: both;
@@ -11205,7 +11205,7 @@ table.dataTable tr.even td.sorting_3 {
 /*
  * Page length menu
  */
-/* line 58, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 58, ../../frontend/styles/lib/_datatables.scss */
 .dataTables_length {
   float: left;
 }
@@ -11213,7 +11213,7 @@ table.dataTable tr.even td.sorting_3 {
 /*
  * Filter
  */
-/* line 66, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 66, ../../frontend/styles/lib/_datatables.scss */
 .dataTables_filter {
   float: right;
   text-align: right;
@@ -11222,7 +11222,7 @@ table.dataTable tr.even td.sorting_3 {
 /*
  * Table information
  */
-/* line 75, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 75, ../../frontend/styles/lib/_datatables.scss */
 .dataTables_info {
   clear: both;
   float: left;
@@ -11231,14 +11231,14 @@ table.dataTable tr.even td.sorting_3 {
 /*
  * Pagination
  */
-/* line 84, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 84, ../../frontend/styles/lib/_datatables.scss */
 .dataTables_paginate {
   float: right;
   text-align: right;
 }
 
 /* Two button pagination - previous / next */
-/* line 90, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 90, ../../frontend/styles/lib/_datatables.scss */
 .paginate_disabled_previous,
 .paginate_enabled_previous,
 .paginate_disabled_next,
@@ -11250,7 +11250,7 @@ table.dataTable tr.even td.sorting_3 {
   color: #111 !important;
 }
 
-/* line 100, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 100, ../../frontend/styles/lib/_datatables.scss */
 .paginate_disabled_previous:hover,
 .paginate_enabled_previous:hover,
 .paginate_disabled_next:hover,
@@ -11258,7 +11258,7 @@ table.dataTable tr.even td.sorting_3 {
   text-decoration: none !important;
 }
 
-/* line 106, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 106, ../../frontend/styles/lib/_datatables.scss */
 .paginate_disabled_previous:active,
 .paginate_enabled_previous:active,
 .paginate_disabled_next:active,
@@ -11266,73 +11266,73 @@ table.dataTable tr.even td.sorting_3 {
   outline: none;
 }
 
-/* line 113, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 113, ../../frontend/styles/lib/_datatables.scss */
 .paginate_disabled_previous,
 .paginate_disabled_next {
   color: #666 !important;
 }
 
-/* line 117, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 117, ../../frontend/styles/lib/_datatables.scss */
 .paginate_disabled_previous,
 .paginate_enabled_previous {
   padding-left: 23px;
 }
 
-/* line 121, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 121, ../../frontend/styles/lib/_datatables.scss */
 .paginate_disabled_next,
 .paginate_enabled_next {
   padding-right: 23px;
   margin-left: 10px;
 }
 
-/* line 127, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 127, ../../frontend/styles/lib/_datatables.scss */
 .paginate_enabled_previous {
   background: url("../images/back_enabled.png") no-repeat top left;
 }
 
-/* line 128, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 128, ../../frontend/styles/lib/_datatables.scss */
 .paginate_enabled_previous:hover {
   background: url("../images/back_enabled_hover.png") no-repeat top left;
 }
 
-/* line 129, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 129, ../../frontend/styles/lib/_datatables.scss */
 .paginate_disabled_previous {
   background: url("../images/back_disabled.png") no-repeat top left;
 }
 
-/* line 131, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 131, ../../frontend/styles/lib/_datatables.scss */
 .paginate_enabled_next {
   background: url("../images/forward_enabled.png") no-repeat top right;
 }
 
-/* line 132, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 132, ../../frontend/styles/lib/_datatables.scss */
 .paginate_enabled_next:hover {
   background: url("../images/forward_enabled_hover.png") no-repeat top right;
 }
 
-/* line 133, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 133, ../../frontend/styles/lib/_datatables.scss */
 .paginate_disabled_next {
   background: url("../images/forward_disabled.png") no-repeat top right;
 }
 
 /* Full number pagination */
-/* line 136, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 136, ../../frontend/styles/lib/_datatables.scss */
 .paging_full_numbers {
   height: 22px;
   line-height: 22px;
 }
 
-/* line 140, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 140, ../../frontend/styles/lib/_datatables.scss */
 .paging_full_numbers a:active {
   outline: none;
 }
 
-/* line 143, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 143, ../../frontend/styles/lib/_datatables.scss */
 .paging_full_numbers a:hover {
   text-decoration: none;
 }
 
-/* line 147, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 147, ../../frontend/styles/lib/_datatables.scss */
 .paging_full_numbers a.paginate_button,
 .paging_full_numbers a.paginate_active {
   border: 1px solid #aaa;
@@ -11344,18 +11344,18 @@ table.dataTable tr.even td.sorting_3 {
   color: #333 !important;
 }
 
-/* line 160, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 160, ../../frontend/styles/lib/_datatables.scss */
 .paging_full_numbers a.paginate_button {
   background-color: #ddd;
 }
 
-/* line 164, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 164, ../../frontend/styles/lib/_datatables.scss */
 .paging_full_numbers a.paginate_button:hover {
   background-color: #ccc;
   text-decoration: none !important;
 }
 
-/* line 169, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 169, ../../frontend/styles/lib/_datatables.scss */
 .paging_full_numbers a.paginate_active {
   background-color: #99B3FF;
 }
@@ -11363,7 +11363,7 @@ table.dataTable tr.even td.sorting_3 {
 /*
  * Processing indicator
  */
-/* line 177, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 177, ../../frontend/styles/lib/_datatables.scss */
 .dataTables_processing {
   position: absolute;
   top: 50%;
@@ -11383,32 +11383,32 @@ table.dataTable tr.even td.sorting_3 {
 /*
  * Sorting
  */
-/* line 197, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 197, ../../frontend/styles/lib/_datatables.scss */
 .sorting {
   background: url("../images/sort_both.png") no-repeat center right;
 }
 
-/* line 198, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 198, ../../frontend/styles/lib/_datatables.scss */
 .sorting_asc {
   background: url("../images/sort_asc.png") no-repeat center right;
 }
 
-/* line 199, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 199, ../../frontend/styles/lib/_datatables.scss */
 .sorting_desc {
   background: url("../images/sort_desc.png") no-repeat center right;
 }
 
-/* line 201, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 201, ../../frontend/styles/lib/_datatables.scss */
 .sorting_asc_disabled {
   background: url("../images/sort_asc_disabled.png") no-repeat center right;
 }
 
-/* line 202, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 202, ../../frontend/styles/lib/_datatables.scss */
 .sorting_desc_disabled {
   background: url("../images/sort_desc_disabled.png") no-repeat center right;
 }
 
-/* line 204, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 204, ../../frontend/styles/lib/_datatables.scss */
 table.dataTable thead th:active,
 table.dataTable thead td:active {
   outline: none;
@@ -11417,18 +11417,18 @@ table.dataTable thead td:active {
 /*
  * Scrolling
  */
-/* line 213, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 213, ../../frontend/styles/lib/_datatables.scss */
 .dataTables_scroll {
   clear: both;
 }
 
-/* line 217, ../../../../../frontend/styles/lib/_datatables.scss */
+/* line 217, ../../frontend/styles/lib/_datatables.scss */
 .dataTables_scrollBody {
   *margin-top: -1px;
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 1, ../../../../../frontend/styles/_table.scss */
+/* line 1, ../../frontend/styles/_table.scss */
 tr, td {
   min-width: 40px;
 }
@@ -11534,12 +11534,12 @@ table tr:hover td {
 	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
 	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);	
 }*/
-/* line 1, ../../../../../frontend/styles/_plots.scss */
+/* line 1, ../../frontend/styles/_plots.scss */
 body {
   padding: 0px;
 }
 
-/* line 5, ../../../../../frontend/styles/_plots.scss */
+/* line 5, ../../frontend/styles/_plots.scss */
 #content {
   overflow: hidden;
   *zoom: 1;
@@ -11551,55 +11551,55 @@ body {
   height: 100%;
 }
 
-/* line 12, ../../../../../frontend/styles/_plots.scss */
+/* line 12, ../../frontend/styles/_plots.scss */
 #map {
   background: #000;
 }
 
-/* line 17, ../../../../../frontend/styles/_plots.scss */
+/* line 17, ../../frontend/styles/_plots.scss */
 svg .tick line {
   stroke: #bbb;
 }
-/* line 20, ../../../../../frontend/styles/_plots.scss */
+/* line 20, ../../frontend/styles/_plots.scss */
 svg rect#clip {
   fill: #fff;
 }
-/* line 23, ../../../../../frontend/styles/_plots.scss */
+/* line 23, ../../frontend/styles/_plots.scss */
 svg .dot {
   fill-opacity: 1.0;
 }
-/* line 25, ../../../../../frontend/styles/_plots.scss */
+/* line 25, ../../frontend/styles/_plots.scss */
 svg .dot.selected {
   stroke: #555;
   stroke-width: 2px;
 }
-/* line 26, ../../../../../frontend/styles/_plots.scss */
+/* line 26, ../../frontend/styles/_plots.scss */
 svg .dot.selected:hover {
   stroke: #333;
 }
-/* line 32, ../../../../../frontend/styles/_plots.scss */
+/* line 32, ../../frontend/styles/_plots.scss */
 svg .dot.hovered {
   stroke-width: 3px;
   stroke: #222;
 }
 
-/* line 41, ../../../../../frontend/styles/_plots.scss */
+/* line 41, ../../frontend/styles/_plots.scss */
 .axis path, .axis line {
   fill: none;
   stroke: #fff;
 }
 
-/* line 46, ../../../../../frontend/styles/_plots.scss */
+/* line 46, ../../frontend/styles/_plots.scss */
 .label, .value {
   display: block;
 }
 
-/* line 49, ../../../../../frontend/styles/_plots.scss */
+/* line 49, ../../frontend/styles/_plots.scss */
 .label {
   font-size: .8em;
 }
 
-/* line 3, ../../../../../frontend/styles/lib/_switch.scss */
+/* line 3, ../../frontend/styles/lib/_switch.scss */
 .layer-switch {
   margin-top: 10px;
   position: relative;
@@ -11609,12 +11609,12 @@ svg .dot.hovered {
   -ms-user-select: none;
 }
 
-/* line 10, ../../../../../frontend/styles/lib/_switch.scss */
+/* line 10, ../../frontend/styles/lib/_switch.scss */
 .layer-switch-checkbox {
   display: none;
 }
 
-/* line 14, ../../../../../frontend/styles/lib/_switch.scss */
+/* line 14, ../../frontend/styles/lib/_switch.scss */
 .layer-switch-label {
   display: block;
   overflow: hidden;
@@ -11623,14 +11623,14 @@ svg .dot.hovered {
   border-radius: 7px;
 }
 
-/* line 19, ../../../../../frontend/styles/lib/_switch.scss */
+/* line 19, ../../frontend/styles/lib/_switch.scss */
 .layer-switch-inner {
   width: 200%;
   margin-left: -100%;
   transition: margin 0.3s ease-in 0s;
 }
 
-/* line 25, ../../../../../frontend/styles/lib/_switch.scss */
+/* line 25, ../../frontend/styles/lib/_switch.scss */
 .layer-switch-inner:before, .layer-switch-inner:after {
   float: left;
   width: 50%;
@@ -11643,7 +11643,7 @@ svg .dot.hovered {
   box-sizing: border-box;
 }
 
-/* line 32, ../../../../../frontend/styles/lib/_switch.scss */
+/* line 32, ../../frontend/styles/lib/_switch.scss */
 .layer-switch-inner:before {
   content: "SEM";
   padding-left: 10px;
@@ -11651,7 +11651,7 @@ svg .dot.hovered {
   color: #666666;
 }
 
-/* line 38, ../../../../../frontend/styles/lib/_switch.scss */
+/* line 38, ../../frontend/styles/lib/_switch.scss */
 .layer-switch-inner:after {
   content: "Scan";
   padding-right: 10px;
@@ -11660,7 +11660,7 @@ svg .dot.hovered {
   text-align: right;
 }
 
-/* line 45, ../../../../../frontend/styles/lib/_switch.scss */
+/* line 45, ../../frontend/styles/lib/_switch.scss */
 .layer-switch-switch {
   width: 10%;
   margin: 5px;
@@ -11674,12 +11674,12 @@ svg .dot.hovered {
   transition: all 0.3s ease-in 0s;
 }
 
-/* line 55, ../../../../../frontend/styles/lib/_switch.scss */
+/* line 55, ../../frontend/styles/lib/_switch.scss */
 .layer-switch-checkbox:checked + .layer-switch-label .layer-switch-inner {
   margin-left: 0;
 }
 
-/* line 59, ../../../../../frontend/styles/lib/_switch.scss */
+/* line 59, ../../frontend/styles/lib/_switch.scss */
 .layer-switch-checkbox:checked + .layer-switch-label .layer-switch-switch {
   right: 0px;
 }
@@ -11691,7 +11691,7 @@ svg .dot.hovered {
  * Licensed under the MIT License:
  * http://www.opensource.org/licenses/mit-license.php
  */
-/* line 12, ../../../../../frontend/styles/lib/_toggle.scss */
+/* line 12, ../../frontend/styles/lib/_toggle.scss */
 .switch {
   position: relative;
   margin: 10px 0px;
@@ -11701,7 +11701,7 @@ svg .dot.hovered {
   border-radius: 3px;
 }
 
-/* line 23, ../../../../../frontend/styles/lib/_toggle.scss */
+/* line 23, ../../frontend/styles/lib/_toggle.scss */
 .switch-label {
   position: relative;
   z-index: 2;
@@ -11714,17 +11714,17 @@ svg .dot.hovered {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
   cursor: pointer;
 }
-/* line 35, ../../../../../frontend/styles/lib/_toggle.scss */
+/* line 35, ../../frontend/styles/lib/_toggle.scss */
 .switch-label:active {
   font-weight: bold;
 }
 
-/* line 38, ../../../../../frontend/styles/lib/_toggle.scss */
+/* line 38, ../../frontend/styles/lib/_toggle.scss */
 .switch-label-off {
   padding-left: 2px;
 }
 
-/* line 39, ../../../../../frontend/styles/lib/_toggle.scss */
+/* line 39, ../../frontend/styles/lib/_toggle.scss */
 .switch-label-on {
   padding-right: 2px;
 }
@@ -11735,24 +11735,24 @@ svg .dot.hovered {
  *       See this article for more info and a potential fix:
  *       http://css-tricks.com/webkit-sibling-bug/
  */
-/* line 48, ../../../../../frontend/styles/lib/_toggle.scss */
+/* line 48, ../../frontend/styles/lib/_toggle.scss */
 .switch-input {
   display: none;
 }
-/* line 51, ../../../../../frontend/styles/lib/_toggle.scss */
+/* line 51, ../../frontend/styles/lib/_toggle.scss */
 .switch-input:checked + .switch-label {
   font-weight: bold;
   color: rgba(0, 0, 0, 0.65);
   text-shadow: 0 1px rgba(255, 255, 255, 0.25);
   transition: ease-out 0.15s;
 }
-/* line 58, ../../../../../frontend/styles/lib/_toggle.scss */
+/* line 58, ../../frontend/styles/lib/_toggle.scss */
 .switch-input:checked + .switch-label-on ~ .switch-selection {
   left: 60px;
   /* Note: left: 50% doesn't transition in WebKit */
 }
 
-/* line 63, ../../../../../frontend/styles/lib/_toggle.scss */
+/* line 63, ../../frontend/styles/lib/_toggle.scss */
 .switch-selection {
   display: block;
   position: absolute;
@@ -11768,25 +11768,25 @@ svg .dot.hovered {
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
   transition: left 0.15s ease-out;
 }
-/* line 78, ../../../../../frontend/styles/lib/_toggle.scss */
+/* line 78, ../../frontend/styles/lib/_toggle.scss */
 .switch-blue .switch-selection {
   background: #3aa2d0;
   background-color: #4fc9ee;
   background-image: linear-gradient(top, #4fc9ee, #3aa2d0);
 }
-/* line 83, ../../../../../frontend/styles/lib/_toggle.scss */
+/* line 83, ../../frontend/styles/lib/_toggle.scss */
 .switch-yellow .switch-selection {
   background: #c4bb61;
   background-color: #e0dd94;
   background-image: linear-gradient(top, #e0dd94, #c4bb61);
 }
 
-/* line 25, ../../../../../frontend/styles/screen.scss */
+/* line 25, ../../frontend/styles/screen.scss */
 * {
   box-sizing: border-box;
 }
 
-/* line 29, ../../../../../frontend/styles/screen.scss */
+/* line 29, ../../frontend/styles/screen.scss */
 html, body {
   font-family: "Helvetica Neue Light", Helvetica, Arial, sans-serif;
   height: 100%;
@@ -11795,30 +11795,30 @@ html, body {
   overflow: hidden;
 }
 
-/* line 37, ../../../../../frontend/styles/screen.scss */
+/* line 37, ../../frontend/styles/screen.scss */
 #header {
   padding: 10px 20px;
 }
-/* line 39, ../../../../../frontend/styles/screen.scss */
+/* line 39, ../../frontend/styles/screen.scss */
 #header h1 {
   margin: 0 0 0 0;
   font-size: 1.2em;
 }
 
-/* line 45, ../../../../../frontend/styles/screen.scss */
+/* line 45, ../../frontend/styles/screen.scss */
 #wrap {
   margin: 20px auto;
   max-width: 1100px;
 }
 
-/* line 50, ../../../../../frontend/styles/screen.scss */
+/* line 50, ../../frontend/styles/screen.scss */
 ul.links {
   list-style: none;
   padding-left: 0;
   font-size: 1.4em;
 }
 
-/* line 56, ../../../../../frontend/styles/screen.scss */
+/* line 56, ../../frontend/styles/screen.scss */
 #main {
   width: 100%;
   height: 100%;
@@ -11831,21 +11831,21 @@ ul.links {
   left: 0;
   bottom: 0;
 }
-/* line 54, ../../../../../frontend/styles/lib/neat/grid/_span-columns.scss */
+/* line 54, ../../frontend/styles/lib/neat/grid/_span-columns.scss */
 #main:last-child {
   margin-right: 0;
 }
-/* line 65, ../../../../../frontend/styles/screen.scss */
+/* line 65, ../../frontend/styles/screen.scss */
 #main > div {
   height: 100%;
 }
 
-/* line 72, ../../../../../frontend/styles/screen.scss */
+/* line 72, ../../frontend/styles/screen.scss */
 #chart svg text.label {
   font-size: 15px;
 }
 
-/* line 78, ../../../../../frontend/styles/screen.scss */
+/* line 78, ../../frontend/styles/screen.scss */
 #sidebar {
   padding-top: 10px;
   position: fixed;
@@ -11863,34 +11863,34 @@ ul.links {
   width: 23.23176%;
   margin-right: 0;
 }
-/* line 54, ../../../../../frontend/styles/lib/neat/grid/_span-columns.scss */
+/* line 54, ../../frontend/styles/lib/neat/grid/_span-columns.scss */
 #sidebar:last-child {
   margin-right: 0;
 }
-/* line 91, ../../../../../frontend/styles/screen.scss */
+/* line 91, ../../frontend/styles/screen.scss */
 #sidebar h1 {
   margin-top: 0;
   font-size: 1.5em;
 }
-/* line 95, ../../../../../frontend/styles/screen.scss */
+/* line 95, ../../frontend/styles/screen.scss */
 #sidebar #tabs {
   position: relative;
   height: 100%;
 }
-/* line 98, ../../../../../frontend/styles/screen.scss */
+/* line 98, ../../frontend/styles/screen.scss */
 #sidebar #tabs > div {
   width: 100%;
   position: relative;
   overflow-y: scroll;
   height: 100%;
 }
-/* line 104, ../../../../../frontend/styles/screen.scss */
+/* line 104, ../../frontend/styles/screen.scss */
 #sidebar #tabs pre {
   display: block;
   overflow-y: scroll;
 }
 
-/* line 122, ../../../../../frontend/styles/screen.scss */
+/* line 122, ../../frontend/styles/screen.scss */
 h3.label {
   font-size: 13px !important;
   display: block;
@@ -11906,24 +11906,24 @@ h3.label {
   margin-bottom: 4px;
 }
 
-/* line 129, ../../../../../frontend/styles/screen.scss */
+/* line 129, ../../frontend/styles/screen.scss */
 #selection_type {
   margin-bottom: 10px;
 }
 
-/* line 134, ../../../../../frontend/styles/screen.scss */
+/* line 134, ../../frontend/styles/screen.scss */
 #tag_manager .form-control {
   width: 80%;
 }
 
-/* line 139, ../../../../../frontend/styles/screen.scss */
+/* line 139, ../../frontend/styles/screen.scss */
 #tag_field {
   list-style: none;
   overflow: hidden;
   *zoom: 1;
   padding-left: 0;
 }
-/* line 143, ../../../../../frontend/styles/screen.scss */
+/* line 143, ../../frontend/styles/screen.scss */
 #tag_field li {
   border-radius: 3px;
   font-size: 14px !important;
@@ -11932,20 +11932,20 @@ h3.label {
   margin-bottom: 3px;
   float: left;
 }
-/* line 150, ../../../../../frontend/styles/screen.scss */
+/* line 150, ../../frontend/styles/screen.scss */
 #tag_field li i {
   margin-left: 5px;
 }
-/* line 153, ../../../../../frontend/styles/screen.scss */
+/* line 153, ../../frontend/styles/screen.scss */
 #tag_field li.some {
   background-color: #cccccc;
 }
-/* line 156, ../../../../../frontend/styles/screen.scss */
+/* line 156, ../../frontend/styles/screen.scss */
 #tag_field li.all {
   background-color: #87b4f8;
 }
 
-/* line 163, ../../../../../frontend/styles/screen.scss */
+/* line 163, ../../frontend/styles/screen.scss */
 #tag-filter a {
   font-size: 0.9em;
   background-color: #dddddd;
@@ -11954,14 +11954,14 @@ h3.label {
   border-radius: 2px;
   margin-right: 10px;
 }
-/* line 171, ../../../../../frontend/styles/screen.scss */
+/* line 171, ../../frontend/styles/screen.scss */
 #tag-filter ul {
   list-style: none;
   overflow: hidden;
   *zoom: 1;
   padding-left: 0;
 }
-/* line 175, ../../../../../frontend/styles/screen.scss */
+/* line 175, ../../frontend/styles/screen.scss */
 #tag-filter ul li {
   border-radius: 3px;
   font-size: 12px !important;
@@ -11976,28 +11976,28 @@ h3.label {
       -ms-user-select: none;
           user-select: none;
 }
-/* line 184, ../../../../../frontend/styles/screen.scss */
+/* line 184, ../../frontend/styles/screen.scss */
 #tag-filter ul li.include {
   background-color: #87b4f8;
 }
-/* line 187, ../../../../../frontend/styles/screen.scss */
+/* line 187, ../../frontend/styles/screen.scss */
 #tag-filter ul li.exclude {
   background-color: #ffcccc;
 }
 
-/* line 196, ../../../../../frontend/styles/screen.scss */
+/* line 196, ../../frontend/styles/screen.scss */
 .navbar {
   margin-bottom: 10px;
 }
 
-/* line 202, ../../../../../frontend/styles/screen.scss */
+/* line 202, ../../frontend/styles/screen.scss */
 #tabs #data ul.info {
   padding-left: 0;
   list-style: none;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 206, ../../../../../frontend/styles/screen.scss */
+/* line 206, ../../frontend/styles/screen.scss */
 #tabs #data ul.info li {
   margin-left: 0;
   line-height: 24px;
@@ -12008,12 +12008,12 @@ h3.label {
   clear: none;
   min-width: 60px;
 }
-/* line 215, ../../../../../frontend/styles/screen.scss */
+/* line 215, ../../frontend/styles/screen.scss */
 #tabs #data ul.info li span {
   background-color: inherit;
   background: inherit;
 }
-/* line 216, ../../../../../frontend/styles/screen.scss */
+/* line 216, ../../frontend/styles/screen.scss */
 #tabs #data ul.info li span.label {
   display: block;
   color: #666;
@@ -12024,34 +12024,34 @@ h3.label {
   text-align: left;
   margin-top: 0;
 }
-/* line 222, ../../../../../frontend/styles/screen.scss */
+/* line 222, ../../frontend/styles/screen.scss */
 #tabs #data ul.info li a {
   font-size: .8em;
   line-height: 40px;
   margin-left: 20px;
 }
 
-/* line 232, ../../../../../frontend/styles/screen.scss */
+/* line 232, ../../frontend/styles/screen.scss */
 #oxides {
   margin-bottom: -15px;
   margin-top: -10px;
 }
 
-/* line 238, ../../../../../frontend/styles/screen.scss */
+/* line 238, ../../frontend/styles/screen.scss */
 #tag_manager #tag_field {
   min-height: 26px;
   margin-bottom: 5px;
 }
-/* line 239, ../../../../../frontend/styles/screen.scss */
+/* line 239, ../../frontend/styles/screen.scss */
 #tag_manager #tag_field li {
   cursor: pointer;
 }
-/* line 245, ../../../../../frontend/styles/screen.scss */
+/* line 245, ../../frontend/styles/screen.scss */
 #tag_manager h3 {
   margin-top: 0;
 }
 
-/* line 250, ../../../../../frontend/styles/screen.scss */
+/* line 250, ../../frontend/styles/screen.scss */
 .clearfix {
   overflow: hidden;
   *zoom: 1;
