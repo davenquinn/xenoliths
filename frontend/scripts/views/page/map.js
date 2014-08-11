@@ -1,0 +1,61 @@
+var GenericView = require('./base');
+var MapPanel = require('../map/map');
+var Sidebar = require('../base/sidebar');
+var template = require('../../templates/page/map.html');
+
+
+MapPage = GenericView.extend({
+    initialize: function(options){
+        this.options = options
+        this.sample = this.options.sample
+        if (this.sample == null) this.sample = "CK-2";
+        this.compile(template)
+        this.setup()
+    },
+    setup: function(){
+        this.filter = {samples: [this.sample]};
+        this.data = App.Data.filter(this.filter);
+        this.render();
+    },
+    createSelection: function(){
+        a = this;
+        function isSelected(element, index, array) {
+            s = (element.properties.id == a.options.point);
+            return s;
+        }
+        function isTagged(element, index, array) {
+            ind = element.properties.tags.indexOf(a.options.tag)
+            console.log(ind)
+            return (ind > -1)
+        }
+        var selection = null;
+        if (this.options.tag) selection = this.data.features.filter(isTagged)
+        if (this.options.point) selection = this.data.features.filter(isSelected)
+        console.log(selection);
+
+        return selection
+    },
+    render: function(){
+        this.$el.height($(window).height());
+        this.$el.html(this.template);
+        this.map = new MapPanel({
+            el: "#map",
+            parent: this,
+            sample: this.sample,
+            data: this.data,
+            selected: this.createSelection()
+        });
+        this.sidebar = new Sidebar({
+            el:"#sidebar",
+            parent: this,
+            controls: ["data", "raw", "map-options", "filter"]
+        });
+    },
+    onSampleChanged: function(sample){
+        this.sample = sample;
+        this.map.remove();
+        this.sidebar.refresh();
+        this.setup()
+    },
+});
+module.exports = MapPage;
