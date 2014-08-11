@@ -1,11 +1,12 @@
 var GenericView = require('./base');
 var MapPanel = require('../map/map');
 var Sidebar = require('../base/sidebar');
-var template = require('../../text!templates/page/map.html');
+var template = require('../../templates/page/map.html');
 
 
 MapPage = GenericView.extend({
-    initialize: function(){
+    initialize: function(options){
+        this.options = options
         this.sample = this.options.sample
         if (this.sample == null) this.sample = "CK-2";
         this.compile(template)
@@ -32,7 +33,7 @@ MapPage = GenericView.extend({
         if (this.options.point) selection = this.data.features.filter(isSelected)
         console.log(selection);
 
-        return selection          
+        return selection
     },
     render: function(){
         this.$el.height($(window).height());
@@ -58,4 +59,3 @@ MapPage = GenericView.extend({
     },
 });
 module.exports = MapPage;
-

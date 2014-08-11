@@ -1,11 +1,12 @@
 var BasePage = require('./base');
 var ChartPanel = require('../chart/chart');
 var Sidebar = require('../base/sidebar');
-var template = require('../../text!templates/page/chart.html');
+var template = require('../../templates/page/chart.html');
 
 
 ChartPage = BasePage.extend({
-    initialize: function(){
+    initialize: function(options){
+        this.options = options;
         this.axes = {x:"oxides.MgO",y:"oxides.FeO"};
         this.filter = {};
         this.parent = options.parent
@@ -39,4 +40,3 @@ ChartPage = BasePage.extend({
     }
 });
 module.exports = ChartPage;
-

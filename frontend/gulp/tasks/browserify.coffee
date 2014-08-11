@@ -5,6 +5,8 @@ gulp = require("gulp")
 handleErrors = require("../util/handleErrors")
 source = require("vinyl-source-stream")
 coffeeify = require("coffeeify")
+hbsfy = require("hbsfy").configure
+	extensions: ["html"]
 config = require('../config')
 
 setupEndpoint = (name,location) ->
@@ -22,7 +24,10 @@ setupEndpoint = (name,location) ->
 	if global.isWatching
 		bundler = watchify(bundler)
 
-	bundler.transform coffeeify
+	bundler
+		.transform coffeeify
+		.transform hbsfy
+
 	if global.dist
 		bundler.transform {global: true}, 'uglifyify'
 

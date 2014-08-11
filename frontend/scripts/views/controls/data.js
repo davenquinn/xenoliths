@@ -3,13 +3,14 @@ var GenericView = require('../base/generic');
 var OxidesWheel = require('./oxides');
 var MultiSelect = require('./multi-select');
 var TagManager = require('./tag-manager');
-var template = require('../../text!templates/controls/data-frame.html');
+var template = require('../../templates/controls/data-frame.html');
 var Options = require('../../options');
-require('jquery.switch');
+require('bootstrap-switch');
 
 
 DataFrame = GenericView.extend({
-    initialize: function(){
+    initialize: function(options){
+        this.options = options;
         var a = this;
         this.map = this.options.map;
         this.compile(template)
@@ -51,9 +52,8 @@ DataFrame = GenericView.extend({
         sample = data.properties.sample;
         this.$(".id").html(id);
         this.$(".sample").html(sample);
-        this.$(".map-link").attr("href","#map/"+sample+"/point/"+id)          
+        this.$(".map-link").attr("href","#map/"+sample+"/point/"+id)
         this.oxides.update(data)
     },
 });
 module.exports = DataFrame;
-

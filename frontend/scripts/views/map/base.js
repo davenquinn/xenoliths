@@ -1,11 +1,13 @@
 var GenericView = require('../base/generic');
-var OpenLayers = require('openlayers');
 var Options = require('../../options');
 var Colorizer = require('../base/colors');
 
+var OpenLayers = window.OpenLayers;
 
 Map = GenericView.extend({
-    initialize: function(){
+    initialize: function(options){
+        this.options = options;
+        console.log(options)
         this.render()
         this.colors = Colorizer;
     },
@@ -96,4 +98,3 @@ Map = GenericView.extend({
     }
 });
 module.exports = Map;
-

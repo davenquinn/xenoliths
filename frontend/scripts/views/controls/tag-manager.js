@@ -1,7 +1,7 @@
 var $ = require('jquery');
 var d3 = require('d3');
 var GenericView = require('../base/generic');
-var template = require('../../text!templates/controls/tag-manager.html');
+var template = require('../../templates/controls/tag-manager.html');
 var Options = require('../../options');
 
 
@@ -89,7 +89,7 @@ TagManager = GenericView.extend({
 
         }
         App.JSON_RPC("remove_tag",{
-            tag: tag, 
+            tag: tag,
             points: elements
         });
         this.ul.call(this.bindData,this.processData(this.data));
@@ -113,7 +113,7 @@ TagManager = GenericView.extend({
             elements.push([d.properties.sample,d.properties.id])
         }
         App.JSON_RPC("add_tag",{
-            tag: tag, 
+            tag: tag,
             points: elements
         });
         this.ul.call(this.bindData,this.processData(this.data));
@@ -122,4 +122,3 @@ TagManager = GenericView.extend({
     }
 });
 module.exports = TagManager;
-

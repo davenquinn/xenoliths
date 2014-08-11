@@ -6,19 +6,20 @@ notify = require("gulp-notify")
 handleErrors = require("../util/handleErrors")
 config = require("../config")
 cssmin = require("gulp-cssmin")
+path = require("path")
 
 gulp.task "compass", ->
+    console.log config.dist
     debug = (if global.dist then false else true)
-    pipeline = gulp.src("#{config.dev}/styles/*.scss")
+    pipeline = gulp.src("#{config.dev}/styles/screen.scss")
         .pipe plumber()
         .pipe compass
-            css: "#{config.dist}/styles"
-            sass: "#{config.dev}/styles"
-            image: "#{config.dist}/images"
-            require: ['susy', 'breakpoint']
+            css: "css"
+            sass: "#{path.resolve(config.dev)}/styles"
+            image: "images"
             sourcemap: debug
             debug: debug
-            import_path: "#{config.dev}/styles"
+            #import_path: "#{config.dev}/styles"
         .pipe autoprefixer("last 1 version")
         .on "error", handleErrors
 

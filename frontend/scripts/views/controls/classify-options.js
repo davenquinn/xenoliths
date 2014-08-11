@@ -2,16 +2,15 @@ var $ = require('jquery');
 var GenericView = require('../base/generic');
 var Handlebars = require('handlebars');
 var Options = require('../../options');
-var template = require('../../text!templates/map/classify-options.html');
-require('jquery.slider');
-
+var template = require('../../templates/map/classify-options.html');
 
 OptionsView = GenericView.extend({
 	defaults: {
 		opacity: 0.7,
 		mineral: "ol"
 	},
-    initialize: function(){
+    initialize: function(options){
+		this.options = options;
     	this.parent = this.options.parent;
     	this.map = this.parent.map;
     	this.minerals = Options["minerals"];
@@ -54,4 +53,3 @@ OptionsView = GenericView.extend({
     }
 });
 module.exports = OptionsView;
-

@@ -2,7 +2,9 @@ var Backbone = require('backbone');
 var Handlebars = require('handlebars');
 
 GenericView = Backbone.View.extend({
-	initialize: function(){
+	initialize: function(options){
+		this.options = options
+		console.log(options)
 		this.parent = this.options.parent;
     	this.map = this.parent.map;
 	},
@@ -16,18 +18,16 @@ GenericView = Backbone.View.extend({
 			return this;
 		},
 		compile: function(template){
-			this.template = Handlebars.compile(template);
+			this.template = template;
 			return this.template;
 		},
 		destroy_view: function() {
 		    //COMPLETELY UNBIND THE VIEW
 		    this.undelegateEvents();
-		    this.$el.removeData().unbind(); 
+		    this.$el.removeData().unbind();
 		    //Remove view from DOM
-		    this.remove();  
+		    this.remove();
 		    Backbone.View.prototype.remove.call(this);
 		}
 });
 module.exports = GenericView;
-
-

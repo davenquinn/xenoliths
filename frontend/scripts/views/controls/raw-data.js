@@ -1,10 +1,11 @@
 var $ = require('jquery');
 var GenericView = require('../base/generic');
-var template = require('../../text!templates/controls/raw-data.html');
+var template = require('../../templates/controls/raw-data.html');
 
 
 RawViewer = GenericView.extend({
-    initialize: function(){
+    initialize: function(options){
+        this.options = options;
         var a = this;
         this.parent = this.options.parent;
         this.map = this.options.map;
@@ -46,4 +47,3 @@ RawViewer = GenericView.extend({
     }
 });
 module.exports = RawViewer;
-

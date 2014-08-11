@@ -1,11 +1,12 @@
 var BasePage = require('./base');
 var TernaryPanel = require('../chart/ternary');
 var Sidebar = require('../base/sidebar');
-var template = require('../../text!templates/page/chart.html');
+var template = require('../../templates/page/chart.html');
 
 
 ChartPage = BasePage.extend({
-    initialize: function(){
+    initialize: function(options){
+        this.options = options;
         this.filter = {};
         this.parent = options.parent;
         this.compile(template);
@@ -38,4 +39,3 @@ ChartPage = BasePage.extend({
     }
 });
 module.exports = ChartPage;
-

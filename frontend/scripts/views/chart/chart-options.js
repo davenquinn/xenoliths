@@ -1,12 +1,11 @@
 var $ = require('jquery');
 var GenericView = require('../base/generic');
 var Options = require('../../options');
-var template = require('../../text!templates/chart/chart-options.html');
-require('jquery.slider');
-
+var template = require('../../templates/chart/chart-options.html');
 
 OptionsView = GenericView.extend({
-    initialize: function(){
+    initialize: function(options){
+        this.options = options;
         this.parent = this.options.parent;
         this.map = this.parent.map;
         this.compile(template);
@@ -31,10 +30,9 @@ OptionsView = GenericView.extend({
         axes = {
             x:this.$("#x-axis").val(),
             y:this.$("#y-axis").val()
-        }   
+        }
         this.map.setAxes(axes)
         return false;
     }
 });
 module.exports = OptionsView;
-

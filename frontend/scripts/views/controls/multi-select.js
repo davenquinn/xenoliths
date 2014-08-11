@@ -5,7 +5,8 @@ var Options = require('../../options');
 
 
 MultiSelectControl = GenericView.extend({
-    initialize: function(){
+    initialize: function(options){
+        this.options = options;
         var a = this;
         this.parent = this.options.parent;
         this.map = this.parent.map;
@@ -45,7 +46,7 @@ MultiSelectControl = GenericView.extend({
 
         this.bars = this.svg.selectAll("g.point")
             .data(data, function(d){ return d.properties.id; })
-        
+
         this.bars.enter()
                 .append("g")
                 .attr("class","point")
@@ -69,7 +70,7 @@ MultiSelectControl = GenericView.extend({
         } else {
             var scalar = 100/oxides.Total;
             ob.push(0);
-        } 
+        }
         var e = 0
         var bb = [];
         for(var i in ob) {
@@ -84,4 +85,3 @@ MultiSelectControl = GenericView.extend({
     }
 });
 module.exports = MultiSelectControl;
-

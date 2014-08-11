@@ -1,7 +1,7 @@
 var BasePage = require('./base');
 var ChartPanel = require('../chart/chart');
 var Sidebar = require('../base/sidebar');
-var template = require('../../text!templates/page/home.html');
+var template = require('../../templates/page/home.html');
 
 
 IndexPage = BasePage.extend({
@@ -13,4 +13,3 @@ IndexPage = BasePage.extend({
         this.$el.html(this.template);        }
 });
 module.exports = IndexPage;
-

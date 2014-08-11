@@ -1,9 +1,9 @@
 var $ = require('jquery');
-var GenericView = require('../base/generic');
-var Options = require('../../options');
-var App = require('../../app');
-var TagFilter = require('./tag-filter');
-var template = require('../../text!templates/controls/filter.html');
+var GenericView = require('../../base/generic');
+var Options = require('../../../options');
+var App = require('../../../app');
+var TagFilter = require('../tag-filter');
+var template = require('./filter.html');
 
 
 $.fn.serializeObject = function() {
@@ -23,7 +23,8 @@ $.fn.serializeObject = function() {
 };
 
 FilterData = GenericView.extend({
-    initialize: function(){
+    initialize: function(options){
+        this.options = options;
     	this.parent = this.options.parent;
     	this.map = this.parent.map;
         /*if (this.sample === typeof("undefined")) {
@@ -76,4 +77,3 @@ FilterData = GenericView.extend({
     }
 });
 module.exports = FilterData;
-

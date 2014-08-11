@@ -1,11 +1,12 @@
 var $ = require('jquery');
 var GenericView = require('../base/generic');
 var Options = require('../../options');
-var template = require('../../text!templates/controls/change-colormap.html');
+var template = require('../../templates/controls/change-colormap.html');
 
 
 ChangeColormap = GenericView.extend({
-    initialize: function(){
+    initialize: function(options){
+        this.options = options;
     	this.parent = this.options.parent;
     	this.map = this.parent.map;
     	this.compile(template);
@@ -28,4 +29,3 @@ ChangeColormap = GenericView.extend({
     }
 });
 module.exports = ChangeColormap;
-

@@ -12,7 +12,7 @@ var DataManager = require('./data');
 		initialize: function(options){
 			this.manager = new DataManager();
 			window.dataManager = this.manager;
-		},	
+		},
 	    routes: {
 	        '': 'index',
 	        'classify(/:sample)': 'classify',

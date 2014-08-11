@@ -5,7 +5,8 @@ var ChangeColormap = require('./change-colormap');
 
 
 MapOptions = GenericView.extend({
-    initialize: function(){
+    initialize: function(options){
+        this.options = options;
         //this.__super__.initialize.apply(this,arguments)
     	this.parent = this.options.parent;
     	this.map = this.parent.map
@@ -17,7 +18,7 @@ MapOptions = GenericView.extend({
         new ChangeColormap({
             el: "#colormap",
             parent: this.parent
-        });           
+        });
     },
     render: function(){
         this.$el.html('<div id="select-map"></div><div id="colormap"></div>');
@@ -25,4 +26,3 @@ MapOptions = GenericView.extend({
     },
 });
 module.exports = MapOptions;
-

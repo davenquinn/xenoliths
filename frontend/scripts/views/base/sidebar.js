@@ -1,11 +1,12 @@
 var $ = require('jquery');
 var GenericView = require('./generic');
-var template = require('../../text!templates/base/sidebar.html');
+var template = require('../../templates/base/sidebar.html');
 var Controls = require('../controls/registry');
 
 
 Sidebar = GenericView.extend({
-    initialize: function(){
+    initialize: function(options){
+        this.options = options;
         this.parent = this.options.parent;
         this.map = this.parent.map;
         this.activeTab = "#"+this.options.controls[0]
@@ -56,4 +57,3 @@ Sidebar = GenericView.extend({
     }
 });
 module.exports = Sidebar;
-

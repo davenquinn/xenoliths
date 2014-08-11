@@ -21,13 +21,18 @@
     "gulp-notify": "^1.4.2",
     "gulp-plumber": "^0.6.4",
     "gulp-util": "^3.0.0",
+    "hbsfy": "^2.0.0",
     "pretty-hrtime": "^0.2.1",
+    "underscore": "^1.6.0",
     "vinyl-source-stream": "^0.1.1",
     "watchify": "^1.0.1"
   },
   "dependencies": {
     "backbone": "^1.1.2",
+    "bootstrap-sass": "^3.2.0",
+    "bootstrap-switch": "^3.0.2",
     "d3": "^3.4.11",
+    "font-awesome": "^4.1.0",
     "jquery": "^2.1.1",
     "leaflet": "^0.7.3",
     "space-pen": "^3.3.0",

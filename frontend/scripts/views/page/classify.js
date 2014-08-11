@@ -2,11 +2,12 @@ var GenericView = require('../base/generic');
 var MapPanel = require('../map/classify');
 var Options = require('../controls/classify-options');
 var SelectMap = require('../controls/select-map');
-var template = require('../../text!templates/page/classify.html');
+var template = require('../../templates/page/classify.html');
 
 
 ClassifyPage = GenericView.extend({
-    initialize: function(){
+    initialize: function(options){
+        this.options = options;
         this.sample = this.options.sample;
         if (this.sample === null) this.sample = "CK-2";
         this.compile(template)
@@ -37,7 +38,7 @@ ClassifyPage = GenericView.extend({
     },
     onSaved: function(){
         App.JSON_RPC("save_classification",{
-            sample: this.sample, 
+            sample: this.sample,
             classification: this.map.getData()
         },function(data,err){
                 self.data = data.result;
@@ -46,4 +47,3 @@ ClassifyPage = GenericView.extend({
     }
 });
 module.exports = ClassifyPage;
-

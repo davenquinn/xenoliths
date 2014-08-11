@@ -5,7 +5,8 @@ var Options = require('../../options');
 
 
 TagFilter = GenericView.extend({
-    initialize: function(){
+    initialize: function(options){
+        this.options = options;
         this.tags = window.App.Data.getTags();
         this.render();
     },
@@ -60,7 +61,7 @@ TagFilter = GenericView.extend({
             });
     },
     getFilter: function(){
-        var reduce = function(d){return d.name}; 
+        var reduce = function(d){return d.name};
         return {
             include: this.data.filter(function(d){return d.sel}).map(reduce),
             exclude: this.data.filter(function(d){return d.sel == false}).map(reduce)
@@ -75,4 +76,3 @@ TagFilter = GenericView.extend({
     }
 });
 module.exports = TagFilter;
-

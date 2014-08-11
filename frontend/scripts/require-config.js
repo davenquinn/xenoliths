@@ -9,7 +9,7 @@ require.config({
         "jquery.slider": {
             deps: ["jquery"]
         },
-        "jquery.switch": {
+        "bootstrap-switch": {
             deps: ["jquery"]
         }
     },
@@ -24,7 +24,7 @@ require.config({
         "d3": null,
         "jquery.bootstrap": "lib/bootstrap/dist/js/bootstrap",
         "jquery.slider": "lib/jquery-simple-slider/js/simple-slider",
-        "jquery.switch": "lib/bootstrap-switch/static/js/bootstrap-switch",
+        "bootstrap-switch": "lib/bootstrap-switch/static/js/bootstrap-switch",
         "text" : "lib/requirejs-text/text",
     }
 });

@@ -1,5 +1,5 @@
 var $ = require('jquery');
-var Class = require('../../lib/classy/classy');
+var Class = require('./classy');
 var d3 = require('d3');
 var Options = require('../../options');
 
@@ -15,7 +15,7 @@ ColorMaps = {
             this.values = d3.scale.sqrt().domain([0,10]).range(["#71eeb8","salmon"]);
             this.func = function(d){
                 return a.values(100-d.properties.oxides.Total);
-            };               
+            };
         }
     }),
     "oxide": ColorMap.$extend({
@@ -24,7 +24,7 @@ ColorMaps = {
             this.oxide = options.oxide;
             this.data = options.data;
             this.domain = d3.extent(this.data.features, function(d) {
-                return d.properties.oxides[a.oxide] 
+                return d.properties.oxides[a.oxide]
             });
             this.values = d3.scale.linear().domain(this.domain).range(["#71eeb8","salmon"]);
             this.func = function(d){
@@ -38,7 +38,7 @@ ColorMaps = {
             this.values = Options.samples
             this.func = function(d){
                 return a.values[d.properties.sample].color;
-            }               
+            }
         }
     }),
     "minerals": ColorMap.$extend({
@@ -47,9 +47,8 @@ ColorMaps = {
             this.values = Options.minerals
             this.func = function(d){
                 return a.values[d.properties.mineral].color;
-            }               
+            }
         }
     })
 };
 module.exports = ColorMaps;
-

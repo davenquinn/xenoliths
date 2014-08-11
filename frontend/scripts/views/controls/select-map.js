@@ -1,13 +1,14 @@
 var $ = require('jquery');
 var GenericView = require('../base/generic');
 var Options = require('../../options');
-var template = require('../../text!templates/map/select-map.html');
+var template = require('../../templates/map/select-map.html');
 
 SelectMap = GenericView.extend({
 	defaults: {
 		sample: "CK-2"
 	},
-    initialize: function(){
+    initialize: function(options){
+		this.options = options;
     	this.parent = this.options.parent;
     	this.map = this.parent.map;
     	this.samples = Options["samples"];
@@ -33,10 +34,9 @@ SelectMap = GenericView.extend({
     },
     changeLayer: function(event){
         val = $(event.currentTarget).val();
-        lyr = this.currentLayer == "sem" ? "scan" : "sem"; 
+        lyr = this.currentLayer == "sem" ? "scan" : "sem";
         this.map.setLayer(lyr);
         this.currentLayer = lyr;
     }
 });
 module.exports = SelectMap;
-

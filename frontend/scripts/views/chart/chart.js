@@ -6,7 +6,8 @@ var Colorizer = require('../base/colors');
 
 
 Chart = GenericView.extend({
-    initialize: function(){
+    initialize: function(options){
+        this.options = options;
         this.parent = this.options.parent;
         this.axes = this.options.axes;
         this.data = this.options.data;
@@ -196,7 +197,7 @@ Chart = GenericView.extend({
                 .on("mouseover", a.onMouseMove)
                 .on("click", a.onClick)
                 .on("mouseout", a.onMouseOut)
-                .style("fill", a.colormap.func);   
+                .style("fill", a.colormap.func);
         };
     },
     setColormap: function(name, options){
@@ -217,4 +218,3 @@ Chart = GenericView.extend({
     }
 });
 module.exports = Chart;
-

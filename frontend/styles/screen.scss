@@ -6,12 +6,11 @@
 @import "lib/bourbon/bourbon";
 @import "lib/neat/neat";
 
-$FontAwesomePath: "/static/scripts/lib/font-awesome/font";
-@import "../scripts/lib/font-awesome/scss/font-awesome";
-
-@import 'lib/bootstrap';
+$FontAwesomePath: "/static/lib/font-awesome";
+@import "../../node_modules/font-awesome/scss/font-awesome";
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap-compass';
 @import "lib/datatables";
-@import "lib/jquery_simple_slider";
+//@import "lib/jquery_simple_slider";
 @import "compass";
 @import "compass/utilities/general/clearfix";
 @import "table";
@@ -249,4 +248,3 @@ h3.label {
 .clearfix {
 	@include clearfix;
 }
-

@@ -5,7 +5,8 @@ var Options = require('../../options');
 
 
 OxidesWheel = GenericView.extend({
-    initialize: function(){
+    initialize: function(options){
+        this.options = options;
         var a = this;
         this.oxides = Options.oxides
         this.createEventHandlers()
@@ -127,7 +128,7 @@ OxidesWheel = GenericView.extend({
             //el.attr("stroke-width", 10)
         }
         this.onMouseOut = function(d,i){
-            a.overlay.style("display","none")           
+            a.overlay.style("display","none")
         }
     },
     processData: function(data){
@@ -141,4 +142,3 @@ OxidesWheel = GenericView.extend({
     }
 });
 module.exports = OxidesWheel;
-

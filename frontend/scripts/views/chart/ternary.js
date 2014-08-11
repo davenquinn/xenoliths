@@ -17,7 +17,8 @@ defaults: {
     system: "pyroxene",
     selection: [],
 },
-initialize: function(){
+initialize: function(options){
+    this.options = options;
     _.defaults(this.options, this.defaults)
     console.log(this.options)
     this.parent = this.options.parent;
@@ -137,7 +138,7 @@ setupEventHandlers: function(){
             .on("mouseover", a.onMouseMove)
             .on("click", a.onClick)
             .on("mouseout", a.onMouseOut)
-            .style("fill", a.options.colormap.func);   
+            .style("fill", a.options.colormap.func);
     };
 },
 setColormap: function(name, options){
@@ -158,5 +159,3 @@ setData: function(data){
 }
 });
 module.exports = TernaryChart;
-
-
