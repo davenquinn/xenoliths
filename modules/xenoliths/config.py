@@ -14,19 +14,6 @@ CATIONS = "Si Fe Mg Ti Al Na Ca Mn Cr Ni".split()
 OXIDES = "SiO2 FeO MgO TiO2 Al2O3 Na2O CaO MnO Cr2O3 NiO".split()
 SAMPLES = "CK-1 CK-2 CK-3 CK-4 CK-5 CK-6 CK-7 CK-D1 CK-D2".split()
 
-CATION_BASIS = dict(
-	Si=2,
-	Fe=1,
-	Mg=1,
-	Ti=2,
-	Al=1.5,
-	Na=0.5,
-	Ca=1,
-	Mn=1,
-	Cr=1.5,
-	Ni=1
-)
-
 MINERALS = {
 	"cpx": "Clinopyroxene",
 	"opx": "Orthopyroxene",
