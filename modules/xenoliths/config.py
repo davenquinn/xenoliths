@@ -49,3 +49,13 @@ MINERAL_SYSTEMS = {
 		"opx": {"FeO + MgO":2,"SiO2": 2}
 	}
 }
+
+BAD_TAGS = [
+	"bad",
+	"alteration",
+	"mixed",
+	"marginal",
+	"anomalous",
+	"review",
+	"near alteration"
+]

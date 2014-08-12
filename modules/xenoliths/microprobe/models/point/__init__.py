@@ -44,10 +44,8 @@ class Point(BaseModel):
 
     tags = db.relationship('Tag', secondary=tags,
         backref=db.backref('points', lazy='dynamic'))
-
     # Object methods
     serialize = serialize
-
 
     @property # for compatibility
     def n(self):

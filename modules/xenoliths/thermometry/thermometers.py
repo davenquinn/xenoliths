@@ -1,9 +1,8 @@
 from __future__ import division
 from uncertainties import ufloat
 from uncertainties.umath import log
-from django.conf import settings
-from samples.models import Point
-from samples.group import get_cations
+from ..models import Point
+from ..microprobe.group import get_cations
 
 class Thermometer(object):
 	def __init__(self):
@@ -82,7 +81,7 @@ class Taylor1998(TwoPyroxeneThermometer):
 
 	def X_ts(self):
 		"""
-		A correction for tschermak substitution 
+		A correction for tschermak substitution
 		(3+ cation in both octahedral and tetrahedral site)
 		Ex. Ca Al2 Si O6 (don't know if that actually happens)
 		"""
@@ -122,4 +121,3 @@ class Taylor1998(TwoPyroxeneThermometer):
 
 		T = (self.num(24787,826, "4")+self.num(678,87,"5")*pressure)/bottom
 		return T-273.15
-

@@ -6,13 +6,16 @@ from xenoliths.application import app, db
 from xenoliths.microprobe.manage.setup import import_all
 from xenoliths.microprobe import models
 from xenoliths.database.manage import MigrateCommand
+from xenoliths.thermometry.command import TemperatureCommand
 
 manager = Manager(app)
 
 server = Server(host='0.0.0.0', port=8000)
 manager.add_command("serve", server)
-
 manager.add_command("db", MigrateCommand)
+
+manager.add_command("temperature", TemperatureCommand)
+
 
 @manager.shell
 def make_context():

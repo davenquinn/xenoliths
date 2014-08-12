@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 from __future__ import division
-from django.conf import settings
 
-from samples.models import Sample,Point
+from ..models import Sample,Point
 from thermometers import Taylor1998
 
 import numpy as N
@@ -35,15 +34,12 @@ def temperature(queryset, thermometer=Taylor1998, type=None, pressure=1.5, uncer
 
 def aggregate_errors(T, combine_bases=[]):
 	"""Quadratic sum of errors with same tag. Provides contribution to total error."""
-	errors = {}
-	for var, error in T.error_components().iteritems():
-		tag = var.tag
-		for base in combine_bases:
-			if base in var.tag:
-				tag = base
-				break
-		errors[tag] = errors.get(tag,0) + error**2
-	for tag,error in errors.iteritems():
-		errors[tag] = error**.5
-	return errors
-
+	def get_components():
+		for var, error in T.error_components().iteritems():
+			tag = var.tag
+			for base in combine_bases:
+				if base in var.tag:
+					tag = base
+					break
+			yield tag, errors.get(tag,0) + error**2
+	return {t: e**.5 for t,e in get_components()}
