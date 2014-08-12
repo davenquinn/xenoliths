@@ -51,17 +51,22 @@ def single_measurement(queryset, method=Taylor1998):
 		"n_cpx": len(cpx)
 	}
 
+def closest(measurement, queryset):
+	return queryset.distance(measurement.geometry)
+		.order_by("-distance")[0]
+
 def separate_measurements(queryset, method=Taylor1998):
-	opx = queryset.filter(mineral="opx").distinct()
-	cpx = queryset.filter(mineral="cpx").distinct()
-	if len(opx) < len(cpx):
+	all_opx = queryset.filter(mineral="opx").distinct()
+	all_cpx = queryset.filter(mineral="cpx").distinct()
+	if len(all_opx) < len(all_cpx):
 		for single_cpx in cpx:
-			single_opx = opx.distance(single_cpx.geometry).order_by("-distance")[0]
+			single_opx = closest(single_cpx,opx)
 			thermometer = method(single_opx,single_cpx, uncertainties=True)
 			yield thermometer.temperature(pressure=pressure).n
 	else:
+		cpx
 		for single_opx in opx:
-			single_cpx = cpx.distance(single_opx.geometry).order_by("-distance")[0]
+			single_cpx = closest(single_opx,cpx)
 			thermometer = method(single_opx,single_cpx, uncertainties=True)
 			yield thermometer.temperature(pressure=pressure).n
 
@@ -105,8 +110,3 @@ for i,sample in enumerate(Sample.objects.all()):
 path = os.path.join(os.path.dirname(os.path.abspath( __file__ )), "results.json")
 with open(path, "w") as f:
 	json.dump(output, f)
-
-
-
-
-

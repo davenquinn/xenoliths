@@ -54,7 +54,7 @@ class Point(BaseModel):
         return self.line_number
 
     def add_tag(self,name):
-        slug = slugify(name, to_lower=True)
+        slug = slugify(name.strip(), to_lower=True)
         tag = Tag.get_or_create(name=slug)
         try:
             idx = self.tags.index(tag)
