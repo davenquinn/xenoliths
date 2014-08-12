@@ -18,7 +18,7 @@ def backup():
     click.echo("Backing up database...")
     db_name, data_dir = map(app.config.get,("DB_NAME","DATA_DIR"))
 
-    fn = arrow.now().format('YYYY-MM-DD_HH:mm:ss')+".sql"
+    fn = arrow.now().format('YYYY-MM-DD_HH.mm.ss')+".sql"
     path = Path(data_dir)/"backups"/fn
     run("pg_dump -Fc {0} > {1}".format(db_name, path))
     click.secho("Success!", fg="green")
