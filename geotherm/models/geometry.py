@@ -1,4 +1,4 @@
-from __future__ import division
+from __future__ import division, print_function
 from ..units import ensure_unit, u
 from .base import BaseModel
 import numpy as N
@@ -24,7 +24,10 @@ class Layer(BaseModel):
         self.cell_centers = self.cell_boundaries+self.grid_spacing/2
 
 class Section(BaseModel):
-    """Rudimentary support for unequal grid spacing (defined per-layer)"""
+    """
+    A section of crust that contains several layers with individually-defined
+    material models. Rudimentary support for unequal grid spacing (defined per-layer)
+    """
     def __init__(self, layers, **kwargs):
         self.layers = layers
         self.thickness = N.sum([i.thickness for i in self.layers])
@@ -76,7 +79,7 @@ class Section(BaseModel):
         return a
 
 def stack_sections(*args):
-    """Append a list of sections to form an aggregate."""
+    """Stack a list of sections to form an aggregate."""
     layers = list(chain.from_iterable((sect.layers for sect in args)))
     a = Section(layers)
     profiles = list(sect.profile.into("degC") for sect in args)

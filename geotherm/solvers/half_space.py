@@ -5,6 +5,7 @@ from ..models.geometry import Section, Layer
 from ..units import ensure_unit, unit, u
 
 class HalfSpaceSolver(BaseSolver):
+    """This class implements the Half-space cooling model for cooling oceanic crust."""
     def __init__(self, section, **kwargs):
         super(HalfSpaceSolver, self).__init__(**kwargs)
         self.section = section

@@ -5,11 +5,11 @@ from .geometry import Layer
 import numpy as N
 
 class Material(BaseModel):
-    defaults = {
-        "conductivity": u(3.35,"W/m"),
-        "specific_heat": u(1171,"J/kg"),
-        "density": u(3000,"kg/m**3")
-    }
+    defaults = dict(
+        conductivity = u(3.35,"W/m"),
+        specific_heat = u(1171,"J/kg"),
+        density = u(3000,"kg/m**3"))
+
     def __init__(self,**kwargs):
         super(Material, self).__init__(**kwargs)
 
@@ -21,14 +21,15 @@ class Material(BaseModel):
     def length_scale(self, time):
         """
         The distance over which heat will propagate in a given time period.
-        Accepts time in seconds
+        
+        :arg time: Time in seconds
         """
         return N.sqrt(self.diffusivity*time).to("meters")
 
     def time_scale(self, distance=u(1,"km")):
         """
         The time over which temperature changes will propagate a given distance.
-        Accepts distance in meters (default 1km)
+        Accepts distance in meters (default 1km).
         """
         return distance**2/self.diffusivity
 

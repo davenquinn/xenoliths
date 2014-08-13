@@ -26,19 +26,19 @@ solver_constraints = (
     #u(48,"mW/m**2"))
     # Globally averaged mantle heat flux from Pollack, et al., 1977
 
-oceanic_section = Section([oceanic_mantle.to_layer(u(100,"km"))])
+oceanic_section = Section([oceanic_mantle.to_layer(u(200,"km"))])
 oceanic_solver = HalfSpaceSolver(oceanic_section)
 
 forearc = Section([
     continental_crust.to_layer(u(30,"km"))
     ], uniform_temperature=u(400,"degC")) # This is obviously over-simplified
 
-def basic_case(name, start, subduction):
+def subduction_case(name, start_time, subduction_time):
     """Both the Monterey and Farallon-Plate scenarios involve the same
     basic steps, just with different timing.
     """
     print(name)
-    underplated_oceanic = oceanic_solver.solution(start-subduction)
+    underplated_oceanic = oceanic_solver.solution(start_time-subduction_time)
 
     final_section = stack_sections(
         forearc,
@@ -49,22 +49,19 @@ def basic_case(name, start, subduction):
         constraints=solver_constraints)
 
     return solver.solution(
-        subduction-present,
+        subduction_time-present,
         steps=500,
         plotter=Plotter(range=(0,1400), title=name))
 
 def monterey_plate():
-    name = "Monterey Plate"
-
-    start = u(28,"Myr")
-    subduction = u(26,"Myr")
-    return basic_case(name, start,subduction)
+    return subduction_case("Monterey Plate"
+        u(28,"Myr"),
+        u(26,"Myr"))
 
 def farallon_plate():
-    name = "Farallon Plate"
-    start = u(140, "Myr")
-    subduction = u(70, "Myr")
-    return basic_case(name, start,subduction)
+    return subduction_case("Farallon Plate"
+        u(140, "Myr"),
+        u(70, "Myr"))
 
 def underplating():
     name = "Underplating"

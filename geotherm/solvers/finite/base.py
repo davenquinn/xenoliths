@@ -21,8 +21,7 @@ class BaseFiniteSolver(BaseSolver):
     def create_mesh(self):
         kwargs = dict(
             nx = self.section.n_cells,
-            dx = self.section.cell_sizes.into("m")
-        )
+            dx = self.section.cell_sizes.into("m"))
         return F.Grid1D(**kwargs)
 
     def stable_timestep(self, diffusivity, cell_spacing, padding=0):
