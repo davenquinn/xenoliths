@@ -11,11 +11,11 @@ class HalfSpaceSolver(BaseSolver):
         self.section = section
         try:
             layers = section.layers
-            if len(layers) == 1:
-                self.layer = layers[0]
-            else:
-                arg = self.__class__.__name__+" can be initialized only from a single layer or a section containing only one layer."
-                raise ArgumentError(arg)
+            assert len(layers) == 1
+            self.layer = layers[0]
+        except AssertionError:
+            s = "{0} can be initialized only from a single layer or a section containing only one layer."
+            raise ArgumentError(s.format(self.__class__))
         except AttributeError:
             self.layer = layer
         self.material = self.layer.material
