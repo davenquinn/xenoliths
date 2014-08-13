@@ -5,6 +5,9 @@ class Choice(object):
         self.id = k
         self.name = v
 
+    def __str__(self):
+        return self.name
+
 class ChoiceType(types.TypeDecorator):
 
     impl = types.String()

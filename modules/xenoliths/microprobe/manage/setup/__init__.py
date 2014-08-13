@@ -45,7 +45,7 @@ def import_all():
             sample=sample)
         point.geometry = geometry(row)
         point.oxides = oxide_weights(row)
-        #point.errors = {k:row[k+" %ERR"] for k in app.config.get("CATIONS")}
+        point.errors = {k:row[k+" %ERR"] for k in app.config.get("CATIONS")}
         point.derived_data()
         db.session.add(point)
         db.session.commit()

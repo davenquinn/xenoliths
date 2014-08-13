@@ -1,6 +1,7 @@
 from __future__ import division
 from uncertainties import ufloat
 from uncertainties.umath import log
+from functools import partial
 from ..models import Point
 from ..microprobe.group import get_cations
 
@@ -9,19 +10,27 @@ class Thermometer(object):
 		pass
 
 class TwoPyroxeneThermometer(Thermometer):
-	def __init__(self, opx, cpx, pressure=1.5, uncertainties=True):
-		self.uncertainties = uncertainties
-		self.formula = {
-			"opx": get_cations(opx, 6, uncertainties),
-			"cpx": get_cations(cpx, 6, uncertainties)
-		}
-		self.P = pressure #GPa
+	def __init__(self, opx, cpx, **kwargs):
+		"""
+		:param pressure: Pressure in GPa
+		:param uncertainties: Whether to use uncertainties in calculation
+		"""
+		self.P = kwargs.pop("pressure", 1.5) #GPa
+		self.uncertainties = kwargs.pop("uncertainties",False)
+		cations = partial(get_cations,oxygen=6,uncertainties=self.uncertainties)
+		self.formula = dict(
+			opx=cations(opx),
+			cpx=cations(cpx))
 
 class Ca_OPX(Thermometer):
 	name = "Ca in OPX"
-	def __init__(self, opx, cpx=None, pressure=1.5, uncertainties=True):
-		self.opx = get_cations(opx, 6, uncertainties)
-		self.P = pressure #GPa
+	def __init__(self, opx, cpx=None, **kwargs):
+		"""
+		:param pressure: Pressure in GPa
+		:param uncertainties: Whether to use uncertainties in calculation
+		"""
+		self.P = kwargs.pop("pressure", 1.5) #GPa
+		self.opx = get_cations(opx, oxygen=6, **kwargs)
 
 	def temperature(self, pressure=None):
 		if pressure == None: pressure = self.P

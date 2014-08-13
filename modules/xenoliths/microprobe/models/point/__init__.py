@@ -47,6 +47,12 @@ class Point(BaseModel):
     # Object methods
     serialize = serialize
 
+    def __repr__(self):
+        return "Probe analysis {0}:{1} {2}".format(
+            self.sample_id,
+            self.line_number,
+            self.mineral)
+
     @property # for compatibility
     def n(self):
         return self.line_number
@@ -123,7 +129,7 @@ class Point(BaseModel):
             formula[key] = value*scalar
         del formula["O"]
 
-        if uncertainties:
+        if uncertainties and self.errors:
             for key, cation in formula.iteritems():
                 err_pct = self.errors[key]
                 abs_err = err_pct/100.*cation
