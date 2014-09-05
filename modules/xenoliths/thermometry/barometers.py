@@ -1,18 +1,16 @@
 from __future__ import division
 from uncertainties import ufloat
 from uncertainties.umath import log
-from django.conf import settings
-from samples.group import get_cations
-from .thermometers import Taylor1998
+from ..microprobe.group import get_cations
 
 class Ca_Olivine(object):
 	"""From Kohler and Brey, 1990"""
 	name = "Ca in Olivine"
-	def __init__(self, ol, cpx, uncertainties=True, breakout_errors=False):
-		self.breakout_errors = breakout_errors
+	def __init__(self, ol, cpx, **kwargs):
+		self.breakout_errors = kwargs.pop("breakout_errors",False)
 
-		self.cpx = get_cations(cpx, 6, uncertainties)
-		self.ol = get_cations(ol, 4, uncertainties)
+		self.cpx = get_cations(cpx, oxygen=6, **kwargs)
+		self.ol = get_cations(ol, oxygen=4, **kwargs)
 
 		self.D_Ca = self.ol["Ca"]/self.cpx["Ca"]
 

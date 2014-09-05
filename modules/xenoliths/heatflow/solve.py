@@ -7,7 +7,6 @@ import json
 
 from functools import partial
 
-from geotherm.plot import Plotter
 from geotherm.units import u
 from geotherm.materials import oceanic_mantle, continental_crust
 from geotherm.models.geometry import Section, Layer, stack_sections
@@ -15,6 +14,10 @@ from geotherm.solvers import HalfSpaceSolver, FiniteSolver
 
 from . import results_dir
 from ..application import app
+
+plot_opts = dict(
+    range=(0,1500),
+    title=name)
 
 present = u(1.65,"Myr") # K-Ar age for Crystal Knob xenoliths
 
@@ -24,8 +27,10 @@ solver_constraints = (
     #u(48,"mW/m**2"))
     # Globally averaged mantle heat flux from Pollack, et al., 1977
 
-oceanic_section = Section([oceanic_mantle.to_layer(u(270,"km"))])
-oceanic_solver = HalfSpaceSolver(oceanic_section, T_max=u(1400,"degC"))
+oceanic_section = Section([
+    oceanic_crust.to_layer(u(10,"km")),
+    oceanic_mantle.to_layer(u(270,"km"))])
+oceanic_solver = FiniteSolver(oceanic_section, constraints=solver_constraints)
 
 forearc = Section([
     continental_crust.to_layer(u(30,"km"))
@@ -49,7 +54,7 @@ def subduction_case(name, start_time, subduction_time):
     return solver.solution(
         subduction_time-present,
         steps=500,
-        plotter=Plotter(range=(0,1500), title=name))
+        plot_options=plot_opts)
 
 monterey_plate = partial(
         subduction_case,
@@ -84,14 +89,13 @@ def underplating():
     return solver.solution(
         duration=start-present,
         steps=100,
-        plotter=Plotter(range=(0,1500), title=name))
+        plot_options=plot_opts)
 
 def solve():
     data = dict(
         monterey=list(monterey_plate().into("degC")),
         farallon=list(farallon_plate().into("degC")),
-        underplating=list(underplating().into("degC"))
-    )
+        underplating=list(underplating().into("degC")))
     fn = results_dir("models.json")
     with open(str(fn),"w") as f:
         json.dump(data, f)

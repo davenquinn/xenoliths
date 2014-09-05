@@ -1,19 +1,16 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*- 
-
 """
 This file defines a model continental geotherm using methods similar to
-Luffi et al, 2009. 
+Luffi et al, 2009.
 """
 from __future__ import division
 import numpy as N
 from scipy.optimize import fsolve
 
-class HeatFlowModel(object):
+class ConductiveGeotherm(object):
     """
-    Heat flow equations are taken from Turcotte and Schubert, 2002 
+    Heat flow equations are taken from Turcotte and Schubert, 2002
     Geodynamics (eqn 4-31, p274)
-    T = T_0 + q_m*y/k + (q_0 − q_m)*h_r (1 − exp(−y/h_r )) / k
+    T = T_0 + q_m*y/k + (q_0 - q_m)*h_r (1 - exp(-y/h_r )) / k
 
     q_m: lower boundary condition (heat flux from asthenosphere)
     q_0: upper boundary condition (heat flux at surface)
@@ -23,7 +20,7 @@ class HeatFlowModel(object):
     y: depth
     """
     T_0 = 30
-    q_m = 57 #±3 mW/m2 (Luffi et al.)
+    q_m = 57 #+/-3 mW/m2 (Luffi et al.)
     q_0 = 95 # Luffi, Erkan and Blackwell (estimated from Fig. 1)
     K = 3.35 # W/m/K (Turcotte and Schubert, 2002)
     h_r = 10 #m
