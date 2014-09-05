@@ -19,7 +19,7 @@ def classification(sample):
 
     if request.method == "GET":
         s = sample.classification
-        if not s: raise NotDefinedError
+        if not s: raise Exception
         return s
 
 @api.route('/point/tag', methods=["POST","DELETE"])
