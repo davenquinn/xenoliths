@@ -2,6 +2,7 @@ data/
 raw_data/
 node_modules/
 reference/
+notebooks/
 
 samples/data/backup/
 *.pyc
