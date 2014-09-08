@@ -1,13 +1,11 @@
 import click
 import arrow
 
-from flask.ext.script import Manager
+from flask.ext.migrate import MigrateCommand
 from subprocess import call
 from pathlib import Path
 
 from ..application import app
-
-MigrateCommand = Manager()
 
 def run(command):
     click.secho(command, fg="cyan")
@@ -15,6 +13,7 @@ def run(command):
 
 @MigrateCommand.command
 def backup():
+    """ Backs up database to PostgreSQL dump file"""
     click.echo("Backing up database...")
     db_name, data_dir = map(app.config.get,("DB_NAME","DATA_DIR"))
 
