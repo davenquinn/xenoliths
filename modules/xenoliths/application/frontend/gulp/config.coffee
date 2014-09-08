@@ -5,4 +5,4 @@ module.exports =
     dev: "#{app}/frontend"
     dist: "#{app}/static"
     endpoints:
-        main: "./#{app}/scripts/main"
+        main: "./#{app}/frontend/scripts/main"
