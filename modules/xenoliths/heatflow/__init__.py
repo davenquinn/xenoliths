@@ -6,7 +6,6 @@ from flask.ext.script import Manager
 
 from ..application import app
 
-
 def results_dir(file=None):
     return Path(app.config.get("DATA_DIR"))/"results"/"heat-flow"/file
 
