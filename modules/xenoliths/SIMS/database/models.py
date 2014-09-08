@@ -15,5 +15,7 @@ class Measurement(object):
         db.String(64),
         db.ForeignKey("sample"))
     description = db.Column(db.String(256))
+    mineral = db.Column(db.String(256))
 
     elements = db.relationship("datum", backref="measurement")
+    sample = db.relationship("sample", backref="sims_measurements")
