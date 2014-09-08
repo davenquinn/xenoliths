@@ -2,6 +2,7 @@ from __future__ import print_function
 
 from flask import Flask, Blueprint
 from ..config import DATA_DIR
+from .api import api
 
 data = Blueprint('static', __name__,
     static_folder=DATA_DIR,
@@ -15,3 +16,4 @@ class Application(Flask):
         Flask.__init__(self, *args,**kwargs)
         self.config.from_object("xenoliths.config")
         self.register_blueprint(data, url_prefix="/data")
+        self.register_blueprint(api,url_prefix="/api")

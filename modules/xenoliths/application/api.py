@@ -1,13 +1,16 @@
 import os
 from flask import Blueprint, request
+from flask import jsonify
+from json import dumps
 
-from ..microprobe.models import Sample, Point
 
-api = Blueprint()
+api = Blueprint('api', __name__,)
 
-@api.route('/sample/classification/', methods=["POST","GET"])
+@api.route('/sample/classification/<sample>', methods=["POST","GET"])
 def classification(sample):
-    sample = Sample.query.get(id=sample)
+    from ..core.models import Sample
+
+    sample = Sample.query.get(sample)
 
     if request.method == "POST":
         try:
@@ -20,10 +23,11 @@ def classification(sample):
     if request.method == "GET":
         s = sample.classification
         if not s: raise Exception
-        return s
+        return dumps(s)
 
 @api.route('/point/tag', methods=["POST","DELETE"])
 def tags(tag, points):
+    from ..microprobe.models import Point
     if request.method == "POST":
         for point in points:
             pt = Point.query.get(sample=point[0], n=point[1])
