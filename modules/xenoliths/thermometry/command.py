@@ -3,7 +3,7 @@ from flask.ext.script import Manager
 
 from .results import text_output
 
-TemperatureCommand = Manager()
+TemperatureCommand = Manager(usage="Command to manage thermometry.")
 
 @TemperatureCommand.command
 def results():

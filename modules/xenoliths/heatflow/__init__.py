@@ -12,7 +12,7 @@ def results_dir(file=None):
 from .solve import solve
 from .plot import plot
 
-HeatFlowCommand = Manager()
+HeatFlowCommand = Manager(usage="Command to manage heat flow models.")
 
 HeatFlowCommand.command(solve)
 HeatFlowCommand.command(plot)
