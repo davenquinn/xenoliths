@@ -10,3 +10,5 @@ continental_crust = Material(
     conductivity = u(2.5,"W/m"),
     specific_heat = u(1000,"J/kg"),
     density = u(2800,"kg/m**3"))
+
+oceanic_crust = oceanic_mantle
