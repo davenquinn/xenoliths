@@ -19,7 +19,7 @@ class Measurement(BaseModel):
     id = db.Column(db.Integer, primary_key=True)
     sample_id = db.Column(
         db.String(64),
-        db.ForeignKey("sample"))
+        db.ForeignKey("sample.id"))
     description = db.Column(db.String(1024))
     mineral = db.Column(ChoiceType(MINERALS))
 
