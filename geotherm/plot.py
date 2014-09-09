@@ -14,6 +14,7 @@ class Plotter(object):
             self.title_prefix += ": "
 
     def initialize(self, solver):
+        print("Initializing plotter.")
         self.solver = solver
         self.fig = figure(figsize=self.size, facecolor="white")
         self.ax = self.fig.add_subplot(111)
@@ -34,6 +35,7 @@ class Plotter(object):
     def plot_solution(self, time, solution):
         self.title.set_text(self.title_prefix+"{0:.4f}".format(time))
         self.solution.set_xdata(solution)
+        print("Plotting solution")
         self.fig.canvas.draw()
 
 
@@ -63,4 +65,3 @@ class ComparisonPlotter(Plotter):
         self.ax2.relim()
         self.ax2.autoscale()
         super(ComparisonPlotter, self).plot_solution(time,solution)
-

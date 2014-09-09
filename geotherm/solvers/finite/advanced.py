@@ -77,15 +77,18 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
             raise TypeError("either `steps` or `duration` argument must be provided")
         return self.__solve__(**kw)
 
-    def __solve__(self, steps=None, duration=None, plotter=None):
+    def __solve__(self, steps=None, duration=None, **kw):
+        """ A private method that implements solving given the keyword combinations
+            defined in the `solve_implicit`, `solve_explicit`, and `solve_crank_nicholson`
+            methods.
+        """
 
         print("Duration: {0:.2e}".format(duration.to("year")))
-        print("Number of steps: {0}\n".format(steps))
-
-        if plotter:
-            plotter.initialize(self)
+        print("Number of steps: {0}".format(steps))
 
         time_step = duration/steps
+
+        plotter = self.setup_plotter(kw)
 
         for step in range(steps):
             simulation_time = step*time_step
@@ -97,6 +100,7 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
             self.equation.solve(
                 var=self.var,
                 dt=time_step.into("seconds"))
+        print("")
 
     def solve_crank_nicholson(self,duration=None,steps=10,plotter=None):
         pass

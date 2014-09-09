@@ -1,5 +1,6 @@
 from __future__ import division, print_function
 from ..base import BaseSolver
+from ...plot import Plotter
 from ...models.geometry import Section
 from ...units import u
 import fipy as F
@@ -29,7 +30,15 @@ class BaseFiniteSolver(BaseSolver):
         time_step = (1-padding)*cell_spacing**2 / (2*diffusivity)
         return time_step
 
-    def solve(self, steps=None, duration=None, plotter=None):
+    def setup_plotter(self, kwargs):
+        plotter = kwargs.pop("plotter", Plotter)
+        plotter = plotter(**kwargs.pop("plot_options",{}))
+        if plotter: plotter.initialize(self)
+        return plotter
+
+
+    def solve(self, steps=None, duration=None, **kwargs):
+
         if duration:
             time_step, steps = self.fractional_timestep(duration)
         elif steps:
@@ -41,8 +50,7 @@ class BaseFiniteSolver(BaseSolver):
         print("Duration: {0:.2e}".format(duration.to("year")))
         print("Number of steps: {0}\n".format(steps))
 
-        if plotter:
-            plotter.initialize(self)
+        plotter = self.setup_plotter(kwargs)
 
         for step in range(steps):
             simulation_time = step*time_step

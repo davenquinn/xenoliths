@@ -30,8 +30,8 @@ class Section(BaseModel):
     """
     def __init__(self, layers, **kwargs):
         self.layers = layers
-        self.thickness = N.sum([i.thickness for i in self.layers])
-        self.n_cells = N.sum([i.n_cells for i in self.layers])
+        self.thickness = sum([i.thickness for i in self.layers])
+        self.n_cells = sum([i.n_cells for i in self.layers])
         self.cell_centers = self.set_cell_centers()
         self.cell_boundaries = self.set_cell_boundaries()
         self.cell_sizes = (self.cell_centers - self.cell_boundaries)*2
