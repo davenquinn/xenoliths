@@ -1,14 +1,12 @@
-from __future__ import division, print_function
-
 from flask.ext.script import Manager, Server
 
-from xenoliths.application import app, db
-from xenoliths.microprobe.manage.setup import import_all
-from xenoliths.microprobe import models
-from xenoliths.database.manage import MigrateCommand
-from xenoliths.thermometry.command import TemperatureCommand
-from xenoliths.heatflow import HeatFlowCommand
-from xenoliths.SIMS import SIMSCommand
+from .application import app, db
+from .microprobe.manage.setup import import_all
+from .database.manage import MigrateCommand
+from .thermometry.command import TemperatureCommand
+from .heatflow import HeatFlowCommand
+from .SIMS import SIMSCommand
+from . import models
 
 manager = Manager(app)
 
@@ -26,10 +24,5 @@ def make_context():
 @manager.command
 def setup(hard=False):
     with app.app_context():
-        if hard: db.drop_all()
         db.create_all()
         import_all()
-
-
-if __name__ == "__main__":
-    manager.run()
