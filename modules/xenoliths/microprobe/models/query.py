@@ -1,4 +1,4 @@
-from ....application import app
+from ...application import app
 from . import tags, Point
 from sqlalchemy.orm import aliased
 

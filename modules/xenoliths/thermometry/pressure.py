@@ -3,7 +3,7 @@ from .thermometers import BKN, Taylor1998
 from .barometers import Ca_Olivine
 from .results import pyroxene_pairs, closest
 from ..models import Point,Sample
-from ..microprobe.models.point.query import tagged, exclude_bad
+from ..microprobe.models.query import tagged, exclude_bad
 
 def triplets(queryset):
     olivines = queryset.filter(Point.mineral=="ol")

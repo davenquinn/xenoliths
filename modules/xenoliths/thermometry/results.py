@@ -10,7 +10,7 @@ from uncertainties import ufloat
 from functools import partial
 
 from ..models import Sample, Point
-from ..microprobe.models.point.query import tagged, exclude_bad
+from ..microprobe.models.query import tagged, exclude_bad
 from .thermometers import BKN, Taylor1998, Ca_OPX, Ca_OPX_Corr
 
 def serializable(ufloat):
