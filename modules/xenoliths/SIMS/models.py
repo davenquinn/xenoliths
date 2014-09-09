@@ -1,4 +1,8 @@
-class Datum():
+from ..core.models.base import BaseModel, db
+from ..database.util import ChoiceType
+from ..config import MINERALS
+
+class Datum(BaseModel):
     __tablename__ = "sims_datum"
     measurement_id = db.Column(
         db.Integer,
@@ -10,14 +14,14 @@ class Datum():
     raw_ppm = db.Column(db.Float)
     raw_std = db.Column(db.Float)
 
-class Measurement(object):
+class Measurement(BaseModel):
     __tablename__ = "sims_measurement"
     id = db.Column(db.Integer, primary_key=True)
     sample_id = db.Column(
         db.String(64),
         db.ForeignKey("sample"))
-    description = db.Column(db.String(256))
-    mineral = db.Column(db.String(256))
+    description = db.Column(db.String(1024))
+    mineral = db.Column(ChoiceType(MINERALS))
 
     elements = db.relationship("sims_datum",
         backref="measurement",
