@@ -1,45 +1,39 @@
 #!/usr/bin/env python
 from __future__ import division
 
-from ..models import Sample,Point
-from thermometers import Taylor1998
+from flask import Blueprint, Response, render_template
+from cStringIO import StringIO
+from .rare_earth.plot import plot_DREE
+from .rare_earth.calc import prepare_data, big10, rare_earths
+from ..core.models import Sample
 
-import numpy as N
+thermometry = Blueprint(
+	'Thermometry',
+	__name__,
+	static_folder="static",
+	template_folder="templates")
 
-pressure = 1.5
+@thermometry.route("/ree/")
+def ree():
+	return "Hello, world."
 
-bad_tags = [
-	"bad",
-	"alteration",
-	"mixed",
-	"marginal",
-	"anomalous",
-	"review",
-	"near alteration"
-]
+@thermometry.route("/ree_<sample>.svg")
+def ree_opx(sample):
+	sample = Sample.query.get(sample)
+	fig = plot_DREE(sample)
+	imgdata = StringIO()
+	fig.savefig(imgdata, format="svg")
+	imgdata.seek(0)
+	return Response(imgdata.read(), mimetype="image/svg+xml")
 
-def remove_bad(queryset):
-	return queryset.exclude(tags__name__in=bad_tags)
-
-def temperature(queryset, thermometer=Taylor1998, type=None, pressure=1.5, uncertainties=False):
-	queryset = remove_bad(queryset)
-	if type is not None:
-		queryset = queryset.filter(tags__name__in=[type])
-
-	opx = queryset.filter(mineral="opx").distinct()
-	cpx = queryset.filter(mineral="cpx").distinct()
-
-	thermometer = thermometer(opx,cpx, uncertainties=uncertainties)
-	return thermometer.temperature(pressure=pressure)
-
-def aggregate_errors(T, combine_bases=[]):
-	"""Quadratic sum of errors with same tag. Provides contribution to total error."""
-	def get_components():
-		for var, error in T.error_components().iteritems():
-			tag = var.tag
-			for base in combine_bases:
-				if base in var.tag:
-					tag = base
-					break
-			yield tag, errors.get(tag,0) + error**2
-	return {t: e**.5 for t,e in get_components()}
+@thermometry.route("/ree/input")
+def table():
+	def inner():
+		first = ["ID"]+big10+rare_earths+[" "]+big10+rare_earths
+		yield ", ".join(first)
+		for sample in Sample.query.all():
+			d = prepare_data(sample)
+			a = [sample.id]+d["major"]["cpx"]+d["trace"]["cpx"]+[""]+d["major"]["opx"]+d["trace"]["opx"]
+			yield ", ".join([str(i) for i in a])
+	a = "\n".join(list(inner()))
+	return Response(a, mimetype='text')

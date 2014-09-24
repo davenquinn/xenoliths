@@ -1,13 +1,19 @@
 """This section implements the REE-in-two-pyroxene thermometer of Liang, Sun, and Yao (2013).
 """
+from __future__ import division, print_function
+from IPython import embed
 
-def effective_youngs_modulus():
-    return E
+from ...core.models import Sample
+from .calc import ree_pyroxene
+from .pyx import BKN
 
-def Dpyx_melt(coefficients, i):
-    """This corresponds to the partition coefficient of a pyroxene with melt"""
-    E = effective_youngs_modulus()
+def ree():
+    """ Calculates rare-earth element temperatures using the REE-in-two-pyroxene
+        thermometer of Liang, Sun, and Yao (2013).
+    """
+    samples = filter(lambda x: len(x.sims_measurements) > 0, Sample.query.all())
 
-    (a5-4*N.pi*avogadro*E)/R
 
-Dopx_cpx = Dopx_melt/Dcpx_melt
+    for sample in samples:
+        print(sample.id)
+        ree_pyroxene(sample)
