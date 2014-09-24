@@ -26,7 +26,7 @@ data_dir = "raw"
 plot_dir = "plots"
 
 def elements():
-	return sorted(pt.elements, key=lambda x: x.number)	
+	return sorted(pt.elements, key=lambda x: x.number)
 
 def load(file):
 	dtype = [("el", str, 2), ("abundance", float), ("err", float)]
@@ -52,7 +52,7 @@ def setup_axis(ax, limits=None, type="nrm"):
 		lbl = "CPX abundance (ppm)"
 	if type == "nrm":
 		lbl = "CPX / CI chondrite"
-	ax.set_ylabel(lbl)	
+	ax.set_ylabel(lbl)
 
 
 with open("index.json", "r") as f:
@@ -98,13 +98,13 @@ for typ in ["ppm","nrm"]:
 			y = N.array([i.n for i in data[4:-1]])
 			bottom = y-s
 			bottom[bottom < 0] = .1 * y[bottom < 0]
-	  
+
 			ax.fill_between(x, bottom, y+s, facecolor="#666666", edgecolor="none", alpha=0.2)
 			ax.plot(x,y, color="k")
 
 			ax_allavg.plot(x,y, color=colors[sample], alpha=0.6, linewidth=0.5)
 			ax_allavg.fill_between(x, bottom, y+s, facecolor=colors[sample], edgecolor="none", alpha=0.1)
- 
+
 			ax_all.plot(x,y, color=colors[sample], linewidth=1  )
 			ax_all.fill_between(x, bottom, y+s, facecolor=colors[sample], edgecolor="none", alpha=0.2)
 

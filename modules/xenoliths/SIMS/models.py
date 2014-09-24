@@ -1,5 +1,9 @@
+# =*= coding:utf-8 =*=
+
 from periodictable import elements
 from sqlalchemy.ext.hybrid import hybrid_property
+from uncertainties import ufloat
+from collections import defaultdict
 
 from ..core.models.base import BaseModel, db
 from ..database.util import ChoiceType
@@ -17,13 +21,27 @@ class Datum(BaseModel):
     raw_ppm = db.Column(db.Float)
     raw_std = db.Column(db.Float)
 
+    raw = property(lambda s: s.__ufloat__("raw"))
+    norm = property(lambda s: s.__ufloat__())
+
+    def __ufloat__(self, t="norm"):
+        ppm = getattr(self, t+"_ppm")
+        std = getattr(self, t+"_std")
+        if std < 0: std = 0
+        return ufloat(ppm,std)
+
+    def __repr__(self):
+        n = self.norm
+        return "{0}: {1}±{2}".format(self.element,n.n,n.s)
+
     @hybrid_property
     def element(self):
-        return elements(self._element).symbol
+        return elements[self._element]
 
     @element.setter
     def element(self, value):
         self._element = getattr(elements,value).number
+
 
 class Measurement(BaseModel):
     __tablename__ = "sims_measurement"
@@ -43,3 +61,14 @@ class Measurement(BaseModel):
     def __repr__(self):
         return "SIMS: {0} {1} ({2})".format(
             self.sample.id, self.name, self.mineral)
+
+def average(queryset, uncertainties=True, normalized=True):
+    attr = "norm" if normalized else "raw"
+    if not uncertainties: attr += "_ppm"
+    length = queryset.count()
+    def reactor(d, n):
+        for e in n.data:
+            d[e.element.symbol] += getattr(e,attr)/length
+        return d
+    data = reduce(reactor, queryset.all(), defaultdict(float))
+    return defaultdict(lambda: float("NaN"), data)
