@@ -12,7 +12,6 @@ from ..quality import compute_mineral, data_quality
 from ...config import MINERALS, MINERAL_SYSTEMS
 from ...core.models.base import BaseModel, db
 from ...database.util import ChoiceType
-from .serialize import serialize
 
 tags = db.Table('tag_manager',
     db.Column('tag_name', db.String(64), db.ForeignKey('tag.name')),
@@ -45,7 +44,7 @@ class Point(BaseModel):
     tags = db.relationship('Tag', secondary=tags,
         backref=db.backref('points', lazy='dynamic'))
     # Object methods
-    serialize = serialize
+    from .serialize import serialize
 
     def __repr__(self):
         return "Probe analysis {0}:{1} {2}".format(

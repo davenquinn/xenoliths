@@ -1,8 +1,9 @@
 from __future__ import division
 
+from flask import current_app
 from sqlalchemy.dialects.postgresql import ARRAY
 
-from .base import BaseModel,db
+from .base import BaseModel, db
 
 class Sample(BaseModel):
     id = db.Column(db.String(64), primary_key=True)
@@ -13,3 +14,7 @@ class Sample(BaseModel):
 
     def __repr__(self):
         return "Sample {0}".format(self.id)
+
+    @property
+    def color(self):
+        return current_app.config.get("COLORS")[self.id]

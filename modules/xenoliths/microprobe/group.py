@@ -1,16 +1,12 @@
+from collections import defaultdict
 
 def get_oxides(queryset, oxygen=6, uncertainties=True):
 	nobs = len(queryset)
-	formula = {}
+	formula = defaultdict(int)
 	for obj in queryset:
-		oxs = obj.oxides
-		for i,n in oxs.iteritems():
-			formula[i] = formula.get(i,0)+n
-
-	for key, item in formula.iteritems():
-		formula[key] = item/nobs
-
-	return formula
+		for i,n in obj.oxides.iteritems():
+			formula[i] += n/nobs
+	return defaultdict(lambda: float("NaN"),formula)
 
 def get_cations(queryset, **kwargs):
 	"""
@@ -21,13 +17,9 @@ def get_cations(queryset, **kwargs):
 		nobs = len(queryset)
 	except TypeError:
 		return queryset.get_cations(**kwargs)
-	formula = {}
+	formula = defaultdict(int)
 	for obj in queryset:
 		cats = obj.get_cations(**kwargs)
 		for i,n in cats.iteritems():
-			formula[i] = formula.get(i,0)+n
-
-	for key, item in formula.iteritems():
-		formula[key] = item/nobs
-
-	return formula
+			formula[i] += n/nobs
+	return defaultdict(lambda: float("NaN"),formula)
