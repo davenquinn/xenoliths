@@ -13,7 +13,6 @@ def ree():
     """
     samples = filter(lambda x: len(x.sims_measurements) > 0, Sample.query.all())
 
-
     for sample in samples:
         print(sample.id)
         ree_pyroxene(sample)

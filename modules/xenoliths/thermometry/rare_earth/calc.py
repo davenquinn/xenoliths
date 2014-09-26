@@ -46,7 +46,7 @@ def ree_pyroxene(sample, pressure=1.5):
 
     opx = major_elements.filter(Point.mineral == "opx").all()
     cpx = major_elements.filter(Point.mineral == "cpx").all()
-    T_BKN = BKN(opx,cpx).temperature(1.5) # Two-pyroxene BKN temperature
+    T_BKN = BKN(opx,cpx).temperature(pressure) # Two-pyroxene BKN temperature
     assert T_BKN - BKN_test(opx,cpx).temperature(1.5) < 0.0001
 
     ree_opx = average(trace_elements.filter_by(mineral="opx"), uncertainties=False)#, normalized=False)

@@ -3,7 +3,8 @@ from __future__ import division
 
 from flask import Blueprint, Response, render_template
 from cStringIO import StringIO
-from .rare_earth.plot import plot_DREE
+from .results import sample_temperatures
+from .rare_earth.plot import plot_DREE, ree_temperature
 from .rare_earth.calc import prepare_data, big10, rare_earths
 from ..core.models import Sample
 
@@ -13,11 +14,27 @@ thermometry = Blueprint(
 	static_folder="static",
 	template_folder="templates")
 
+filter_samples = lambda x: len(x.sims_measurements) > 0
+
+def prepare_data(sample):
+	res = ree_temperature(sample, pressure=1.5)
+	t = sample_temperatures(sample)
+	return dict(
+		sample=sample,
+		ree=res.temperature,
+		bkn=t["core"]["bkn"]["single"]["val"],
+		ta98=t["core"]["ta98"]["single"]["val"])
+
 @thermometry.route("/ree/")
 def ree():
-	return "Hello, world."
+	samples = filter(filter_samples, Sample.query.all())
+	data = map(prepare_data, samples)
 
-@thermometry.route("/ree_<sample>.svg")
+	return render_template("thermometry/list.html",
+		title="Thermometry results (core grains)",
+		data=data)
+
+@thermometry.route("/ree/<sample>.svg")
 def ree_opx(sample):
 	sample = Sample.query.get(sample)
 	fig = plot_DREE(sample)
@@ -26,12 +43,13 @@ def ree_opx(sample):
 	imgdata.seek(0)
 	return Response(imgdata.read(), mimetype="image/svg+xml")
 
-@thermometry.route("/ree/input")
+@thermometry.route("/ree/excel-input")
 def table():
 	def inner():
 		first = ["ID"]+big10+rare_earths+[" "]+big10+rare_earths
 		yield ", ".join(first)
-		for sample in Sample.query.all():
+		samples = filter(filter_samples, Sample.query.all())
+		for sample in samples:
 			d = prepare_data(sample)
 			a = [sample.id]+d["major"]["cpx"]+d["trace"]["cpx"]+[""]+d["major"]["opx"]+d["trace"]["opx"]
 			yield ", ".join([str(i) for i in a])

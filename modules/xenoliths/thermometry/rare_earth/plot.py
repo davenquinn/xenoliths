@@ -4,6 +4,7 @@ from pandas import DataFrame
 import periodictable as pt
 import numpy as N
 from .calc import ree_pyroxene, rare_earths
+import statsmodels.api as sm
 
 elements = sorted(pt.elements, key=lambda x: x.number)
 
@@ -15,13 +16,27 @@ def setup_figure():
     ax.set_xlabel(r"$ln(D)-A$")
     return fig, ax
 
-def plot_DREE(sample):
-    fig, ax = setup_figure()
-    X,Y = ree_pyroxene(sample, 1.5)
-    df = [("el",rare_earths),("lnD_A",X),("B",Y)]
-    frame = DataFrame.from_items(df)
+def regress(X,Y):
+    model = sm.RLM(Y,X, M=sm.robust.norms.HuberT())
+    res = model.fit()
+    kelvin = res.params[0]
+    res.temperature = kelvin-273.15
+    # Make sure that the regression goes through the origin
+    assert N.allclose(res.fittedvalues/kelvin,X)
+    return res
 
-    a = sns.lmplot("lnD_A", "B", frame, robust=True, n_boot=50, ax=ax)
+def plot_DREE(sample):
+    X,Y = ree_pyroxene(sample, 1.5)
+    res = regress(X,Y)
+
+    fig, ax = setup_figure()
+    ax.plot(X,Y, "o")
+    ax.plot(X,res.fittedvalues,"-")
+
     for x,y,t in zip(X,Y,rare_earths):
         ax.annotate(t, (x,y), xytext=(5,5), textcoords="offset points")
     return fig
+
+def ree_temperature(sample, **kwargs):
+    X,Y = ree_pyroxene(sample, **kwargs)
+    return regress(X,Y)

@@ -81,3 +81,17 @@ def core_temperatures(sample, method=Taylor1998):
     queryset = exclude_bad(Point.query.filter_by(sample=sample))
     queryset = tagged(queryset, "core")
     res = separate_measurements(queryset, method=thermometer)
+
+def sample_temperatures(sample):
+    base_queryset = exclude_bad(Point.query)
+    sample_queryset = base_queryset.filter(Point.sample==sample)
+
+    def type_results(typeid="core"):
+        queryset = tagged(sample_queryset, typeid)
+        for tname, thermometer in thermometers.iteritems():
+            sep = separate_measurements(queryset, method=thermometer)
+            T = N.array(sep)
+            yield tname, dict(
+                sep = T,
+                single = single_measurement(queryset, method=thermometer))
+    return {i:{k:v for k,v in type_results(i)} for i in ("core","rim")}
