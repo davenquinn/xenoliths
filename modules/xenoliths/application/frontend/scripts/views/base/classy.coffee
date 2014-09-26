@@ -4,37 +4,24 @@ Classy - classy classes for JavaScript
 :copyright: (c) 2011 by Armin Ronacher.
 :license: BSD.
 ###
-not (definition) ->
-  if typeof module isnt "undefined" and module.exports
-    module.exports = definition()
-  else if typeof define is "function" and typeof define.amd is "object"
-    define definition
-  else
-    @Class = definition()
-  return
-((undefined_) ->
-  
-  # we check if $super is in use by a class if we can.  But first we have to
-  #     check if the JavaScript interpreter supports that.  This also matches
-  #     to false positives later, but that does not do any harm besides slightly
-  #     slowing calls down. 
+createClasses = ->
   usesSuper = (obj) ->
     not probe_super or /\B\$super\b/.test(obj.toString())
-  
+
   # helper function to set the attribute of something to a value or
-  #     removes it if the value is undefined. 
+  #     removes it if the value is undefined.
   setOrUnset = (obj, key, value) ->
     if value is `undefined`
       delete obj[key]
     else
       obj[key] = value
     return
-  
-  # gets the own property of an object 
+
+  # gets the own property of an object
   getOwnProperty = (obj, name) ->
     (if Object::hasOwnProperty.call(obj, name) then obj[name] else `undefined`)
-  
-  # instanciate a class without calling the constructor 
+
+  # instanciate a class without calling the constructor
   cheapNew = (cls) ->
     disable_constructor = true
     rv = new cls
@@ -48,37 +35,37 @@ not (definition) ->
     $super()
     return
   ).toString().indexOf("$super") > 0
-  
-  # the base class we export 
+
+  # the base class we export
   Class = ->
 
-  
+
   # restore the global Class name and pass it to a function.  This allows
   #     different versions of the classy library to be used side by side and
-  #     in combination with other libraries. 
+  #     in combination with other libraries.
   Class.$noConflict = ->
     try
       setOrUnset context, "Class", old
     catch e
-      
+
       # fix for IE that does not support delete on window
       context.Class = old
     Class
 
-  
-  # what version of classy are we using? 
+
+  # what version of classy are we using?
   Class.$classyVersion = CLASSY_VERSION
-  
-  # extend functionality 
+
+  # extend functionality
   Class.$extend = (properties) ->
     super_prototype = @::
-    
+
     # disable constructors and instanciate prototype.  Because the
     #       prototype can't raise an exception when created, we are safe
-    #       without a try/finally here. 
+    #       without a try/finally here.
     prototype = cheapNew(this)
-    
-    # copy all properties of the includes over if there are any 
+
+    # copy all properties of the includes over if there are any
     if properties.__include__
       i = 0
       n = properties.__include__.length
@@ -89,14 +76,14 @@ not (definition) ->
           value = getOwnProperty(mixin, name)
           prototype[name] = mixin[name]  if value isnt `undefined`
         ++i
-    
-    # copy class vars from the superclass 
+
+    # copy class vars from the superclass
     properties.__classvars__ = properties.__classvars__ or {}
     if prototype.__classvars__
       for key of prototype.__classvars__
         continue
-    
-    # copy all properties over to the new prototype 
+
+    # copy all properties over to the new prototype
     for name of properties
       value = getOwnProperty(properties, name)
       continue  if name is "__include__" or value is `undefined`
@@ -110,8 +97,8 @@ not (definition) ->
             setOrUnset this, "$super", old_super
           return
       )(value, name) else value)
-    
-    # dummy constructor 
+
+    # dummy constructor
     rv = ->
       return  if disable_constructor
       proper_this = (if context is this then cheapNew(arguments.callee) else this)
@@ -119,22 +106,22 @@ not (definition) ->
       proper_this.$class = rv
       proper_this
 
-    
-    # copy all class vars over of any 
+
+    # copy all class vars over of any
     for key of properties.__classvars__
       value = getOwnProperty(properties.__classvars__, key)
       rv[key] = value  if value isnt `undefined`
-    
+
     # copy prototype and constructor over, reattach $extend and
-    #       return the class 
+    #       return the class
     rv:: = prototype
     rv.constructor = rv
     rv.$extend = Class.$extend
     rv.$withData = Class.$withData
     rv
 
-  
-  # instanciate with data functionality 
+
+  # instanciate with data functionality
   Class.$withData = (data) ->
     rv = cheapNew(this)
     for key of data
@@ -142,7 +129,7 @@ not (definition) ->
       rv[key] = value  if value isnt `undefined`
     rv
 
-  
-  # export the class 
   Class
-)
+
+  # export the class
+module.exports = createClasses()
