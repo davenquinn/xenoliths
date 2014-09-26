@@ -1,4 +1,5 @@
 var $ = require('jquery');
+require("../../helpers/simple-slider");
 var GenericView = require('../base/generic');
 var Handlebars = require('handlebars');
 var Options = require('../../options');
@@ -14,9 +15,9 @@ OptionsView = GenericView.extend({
     	this.parent = this.options.parent;
     	this.map = this.parent.map;
     	this.minerals = Options["minerals"];
-    	this.template = Handlebars.compile(template);
+    	this.template = template;
     	this.render();
-    	//this.opacity.bind("slider:changed", this.opacityChanged)
+    	this.opacity.bind("slider:changed", this.opacityChanged)
     },
     events: {
     	"change select[name=mineral]": 'mineralChanged',

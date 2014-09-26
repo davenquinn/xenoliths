@@ -9,23 +9,19 @@ ClassifyPage = GenericView.extend
         @options = options
         @sample = @options.sample
         @sample = "CK-2" if @sample is null
-        @compile template
+        #@compile template
         @setup()
 
     setup: ->
         App.API
             url: "/sample/classification/"+@sample
             type: 'GET'
-            success: (data) =>
-                @data = data.result
-                console.log data
-                @render()
-
+            success: (@data) => @render()
     render: ->
-        @$el.html @template
+        @$el.html template
         @map = new MapPanel(
             el: "#map"
-            parent: this
+            parent: @
             sample: @sample
         )
         @sel = new SelectMap(

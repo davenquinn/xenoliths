@@ -16,12 +16,13 @@ App =
         $.post url, req, callback, "json"
     API: (o)->
         o.url = "/api"+o.url
+        o.dataType ?= "json"
         return $.ajax(o)
 
 startApp = (data) ->
     window.App = App
-    App["Data"] = new Data(data)
-    App["Router"] = new Router()
+    App.Data = new Data(data)
+    App.Router = new Router()
     Backbone.history.start()
     return
 
