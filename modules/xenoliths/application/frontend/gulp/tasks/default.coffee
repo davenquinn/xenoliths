@@ -2,7 +2,6 @@ gulp = require 'gulp'
 util = require 'gulp-util'
 
 gulp.task "build", [
-    "browserify"
     "compass"
 ]
 
