@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import seaborn as sns
 import matplotlib.pyplot as P
 from pandas import DataFrame
@@ -5,6 +6,7 @@ import periodictable as pt
 import numpy as N
 from .calc import ree_pyroxene, rare_earths
 import statsmodels.api as sm
+from uncertainties import ufloat
 
 elements = sorted(pt.elements, key=lambda x: x.number)
 
@@ -17,7 +19,7 @@ def setup_figure():
     return fig, ax
 
 def regress(X,Y):
-    model = sm.RLM(Y,X, M=sm.robust.norms.HuberT())
+    model = sm.RLM(Y,X, M=sm.robust.norms.TukeyBiweight())
     res = model.fit()
     kelvin = res.params[0]
     res.temperature = kelvin-273.15
@@ -25,11 +27,23 @@ def regress(X,Y):
     assert N.allclose(res.fittedvalues/kelvin,X)
     return res
 
+def temperature(results, uncertainty=True):
+    T = results.params[0]-273.15
+    if uncertainty:
+        return ufloat(T, results.bse[0]) # B-hat standard error (std. error of estimator)
+    else:
+        return T
+
 def plot_DREE(sample):
     X,Y = ree_pyroxene(sample, 1.5)
     res = regress(X,Y)
+    T = temperature(res)
 
     fig, ax = setup_figure()
+    fig.suptitle(u"{id}: {n:.0f}±{s:.0f} °C".format(
+        id=sample.id,
+        n=T.n,
+        s=T.s))
     ax.plot(X,Y, "o")
     ax.plot(X,res.fittedvalues,"-")
 
@@ -38,5 +52,6 @@ def plot_DREE(sample):
     return fig
 
 def ree_temperature(sample, **kwargs):
+    uncertain = kwargs.pop("uncertainties", True)
     X,Y = ree_pyroxene(sample, **kwargs)
-    return regress(X,Y)
+    return temperature(regress(X,Y), uncertain)

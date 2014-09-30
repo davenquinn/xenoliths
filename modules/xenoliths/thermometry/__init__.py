@@ -17,16 +17,17 @@ thermometry = Blueprint(
 filter_samples = lambda x: len(x.sims_measurements) > 0
 
 def prepare_data(sample):
-	res = ree_temperature(sample, pressure=1.5)
 	t = sample_temperatures(sample)
 	return dict(
 		sample=sample,
-		ree=res.temperature,
+		ree= ree_temperature(sample,
+			pressure=1.5,
+			uncertainties=True),
 		bkn=t["core"]["bkn"]["single"]["val"],
 		ta98=t["core"]["ta98"]["single"]["val"])
 
-@thermometry.route("/ree/")
-def ree():
+@thermometry.route("/")
+def index():
 	samples = filter(filter_samples, Sample.query.all())
 	data = map(prepare_data, samples)
 
@@ -55,3 +56,7 @@ def table():
 			yield ", ".join([str(i) for i in a])
 	a = "\n".join(list(inner()))
 	return Response(a, mimetype='text')
+
+@thermometry.route("/ree-ta98.svg")
+def comparison():
+	return "Hello"

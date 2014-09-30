@@ -99,8 +99,3 @@ def ree_pyroxene(sample, pressure=1.5):
 
     LnD_A = N.log(DREE)-A
     return LnD_A, Br
-
-
-def least_squares(X,Y):
-    M = N.vstack([X,N.ones(len(X))]).transpose()
-    return N.linalg.lstsq(M,Y)

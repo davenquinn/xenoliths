@@ -17,6 +17,14 @@ manager.add_command("sims", SIMSCommand)
 manager.add_command("temperature", TemperatureCommand)
 manager.add_command("heat-flow", HeatFlowCommand)
 
+@manager.command
+def profile():
+    from werkzeug.contrib.profiler import ProfilerMiddleware
+    app.config['PROFILE'] = True
+    app.wsgi_app = ProfilerMiddleware(app.wsgi_app, restrictions=[30])
+    app.run(debug = True, host='0.0.0.0', port=8000)
+
+
 @manager.shell
 def make_context():
     return dict(app=app,db=db,models=models)
