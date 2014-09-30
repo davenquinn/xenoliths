@@ -6,13 +6,13 @@ import json
 from .file_handler import get_data
 from ....application import app, db
 from ....core.models import Sample
-from ...models import Point
+from ...models import ProbeMeasurement
 
 def write_json():
     path = os.path.join(app.config.get("DATA_DIR"),"data.json")
     data = dict(
         type="FeatureCollection",
-        features=map(lambda o: o.serialize(), Point.query.all()))
+        features=map(lambda o: o.serialize(), ProbeMeasurement.query.all()))
     with open(path, "w") as f:
         json.dump(data, f)
 
@@ -40,7 +40,7 @@ def import_all():
     for i,row in data.iterrows():
         print(i)
         sample = samples[row["sample_id"]]
-        point = Point.get_or_create(
+        point = ProbeMeasurement.get_or_create(
             line_number=row["LINE"],
             sample=sample)
         point.geometry = geometry(row)

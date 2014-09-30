@@ -1,5 +1,5 @@
 from ...application import app
-from . import tags, Point
+from . import tags
 from sqlalchemy.orm import aliased
 
 def tagged(query,tag):

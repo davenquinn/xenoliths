@@ -15,7 +15,7 @@ from ...database.util import ChoiceType
 
 tags = db.Table('tag_manager',
     db.Column('tag_name', db.String(64), db.ForeignKey('tag.name')),
-    db.Column('page_id', db.Integer, db.ForeignKey('point.id'))
+    db.Column('page_id', db.Integer, db.ForeignKey('probe_measurement.id'))
 )
 
 class Tag(BaseModel):
@@ -23,7 +23,8 @@ class Tag(BaseModel):
     __str__ = lambda self: self.name
     __repr__ = lambda self: "Tag {0}".format(self)
 
-class Point(BaseModel):
+class ProbeMeasurement(BaseModel):
+    __tablename__ = "probe_measurement"
     id = db.Column(db.Integer,primary_key=True)
     line_number = db.Column(db.Integer, nullable=False)
     geometry = db.Column(Geometry("Point"))

@@ -2,7 +2,7 @@ from __future__ import division
 from uncertainties import ufloat
 from uncertainties.umath import log
 from functools import partial
-from ..models import Point
+from ..models import ProbeMeasurement
 from ..microprobe.group import get_cations
 
 class Thermometer(object):

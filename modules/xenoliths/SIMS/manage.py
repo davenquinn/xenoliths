@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as N
 
 from ..models import Sample
-from .models import Measurement, Datum, db
+from .models import SIMSMeasurement, SIMSDatum, db
 from ..application import app
 
 SIMSCommand = Manager(usage="Command to manage SIMS data")
@@ -24,7 +24,7 @@ def import_measurement(mineral, raw,norm):
     sample_id, name = clean_filename(raw.stem)
     sample = Sample.query.get(sample_id)
     if not sample: return # We're not importing standards
-    meas = Measurement(
+    meas = SIMSMeasurement(
         name = name,
         sample = sample,
         mineral = app.config["MINERALS"][mineral])
@@ -34,7 +34,7 @@ def import_measurement(mineral, raw,norm):
     raw, norm = tuple(map(load_data,(raw,norm)))
     for rd, nd in zip(raw, norm):
         assert rd["el"] == nd["el"]
-        d = Datum(
+        d = SIMSDatum(
             measurement = meas,
             raw_ppm = rd["abundance"],
             raw_std = rd["err"],
@@ -48,10 +48,10 @@ def import_measurement(mineral, raw,norm):
 @SIMSCommand.command
 def init():
     """ Import SIMS data into application."""
-    Datum.query.delete()
-    Measurement.query.delete()
+    SIMSDatum.query.delete()
+    SIMSMeasurement.query.delete()
     db.session.commit()
-    
+
     data_dir = Path(app.config.get("RAW_DATA"))/"SIMS"
     for mineral in ["cpx", "opx"]:
         directory = data_dir/mineral

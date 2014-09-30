@@ -9,7 +9,7 @@ import numpy as N
 from uncertainties import ufloat
 from functools import partial
 
-from ..models import Sample, Point
+from ..models import Sample, ProbeMeasurement
 from ..microprobe.models.query import tagged, exclude_bad
 from .thermometers import BKN, Taylor1998, Ca_OPX, Ca_OPX_Corr
 
@@ -28,11 +28,11 @@ thermometers = {
 
 #pressure = ufloat(1.5, 0.2, "pressure")
 
-#base_queryset = Point.query.filter()
+#base_queryset = ProbeMeasurement.query.filter()
 
 def single_measurement(queryset, method=Taylor1998):
-    opx = queryset.filter(Point.mineral=="opx").all()
-    cpx = queryset.filter(Point.mineral=="cpx").all()
+    opx = queryset.filter(ProbeMeasurement.mineral=="opx").all()
+    cpx = queryset.filter(ProbeMeasurement.mineral=="cpx").all()
     thermometer = method(opx,cpx, uncertainties=True)
     return {
         "val": thermometer.temperature(),
@@ -41,11 +41,11 @@ def single_measurement(queryset, method=Taylor1998):
     }
 
 def closest(queryset, measurement):
-    return queryset.order_by(Point.geometry.distance_centroid(measurement.geometry)).first()
+    return queryset.order_by(ProbeMeasurement.geometry.distance_centroid(measurement.geometry)).first()
 
 def pyroxene_pairs(queryset):
-    all_opx = queryset.filter(Point.mineral=="opx")
-    all_cpx = queryset.filter(Point.mineral=="cpx")
+    all_opx = queryset.filter(ProbeMeasurement.mineral=="opx")
+    all_cpx = queryset.filter(ProbeMeasurement.mineral=="cpx")
     if all_opx.count() < all_cpx.count():
         return [(closest(all_opx, c),c) for c in all_cpx.all()]
     else:
@@ -56,9 +56,9 @@ def separate_measurements(queryset, method=Taylor1998):
     return [method(*a, uncertainties=False).temperature() for a in pairs]
 
 def text_output():
-    base_queryset = exclude_bad(Point.query)
+    base_queryset = exclude_bad(ProbeMeasurement.query)
     for sample in Sample.query.all():
-        sample_queryset = base_queryset.filter(Point.sample==sample)
+        sample_queryset = base_queryset.filter(ProbeMeasurement.sample==sample)
         print sample.id
         for typeid in ["core", "rim"]:
             queryset = tagged(sample_queryset, typeid)
@@ -78,13 +78,13 @@ def text_output():
                 print ""
 
 def core_temperatures(sample, method=Taylor1998):
-    queryset = exclude_bad(Point.query.filter_by(sample=sample))
+    queryset = exclude_bad(ProbeMeasurement.query.filter_by(sample=sample))
     queryset = tagged(queryset, "core")
     res = separate_measurements(queryset, method=thermometer)
 
 def sample_temperatures(sample):
-    base_queryset = exclude_bad(Point.query)
-    sample_queryset = base_queryset.filter(Point.sample==sample)
+    base_queryset = exclude_bad(ProbeMeasurement.query)
+    sample_queryset = base_queryset.filter_by(sample=sample)
 
     def type_results(typeid="core"):
         queryset = tagged(sample_queryset, typeid)

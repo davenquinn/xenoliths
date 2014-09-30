@@ -2,11 +2,11 @@ from __future__ import division
 from .thermometers import BKN, Taylor1998
 from .barometers import Ca_Olivine
 from .results import pyroxene_pairs, closest
-from ..models import Point,Sample
+from ..models import ProbeMeasurement,Sample
 from ..microprobe.models.query import tagged, exclude_bad
 
 def triplets(queryset):
-    olivines = queryset.filter(Point.mineral=="ol")
+    olivines = queryset.filter(ProbeMeasurement.mineral=="ol")
     for opx,cpx in pyroxene_pairs(queryset):
         yield opx,cpx,closest(olivines, cpx)
 
@@ -26,7 +26,9 @@ class GeoThermometryResult(object):
         self.pressure = Ca_Olivine(ol,cpx).pressure(self.bkn)
 
     def grouped_pressure(self):
-        all_olivines = Point.query.filter(Point.mineral=="ol",Point.sample==self.sample)
+        all_olivines = ProbeMeasurement.query.filter(
+                ProbeMeasurement.mineral=="ol",
+                ProbeMeasurement.sample==self.sample)
         all_olivines = exclude_bad(tagged(all_olivines,"core"))
         return Ca_Olivine(all_olivines.all(),self.cpx).pressure(self.bkn)
 
@@ -36,8 +38,8 @@ class GeoThermometryResult(object):
 
 
 def pressure_measurements():
-    base_queryset = tagged(exclude_bad(Point.query),"core")
+    base_queryset = tagged(exclude_bad(ProbeMeasurement.query),"core")
     for sample in Sample.query.all():
-        queryset = base_queryset.filter(Point.sample==sample)
+        queryset = base_queryset.filter(ProbeMeasurement.sample==sample)
         for grains in triplets(queryset):
             yield GeoThermometryResult(*grains)

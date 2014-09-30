@@ -2,7 +2,7 @@ import matplotlib.pyplot as P
 import periodictable as pt
 import numpy as N
 
-from .models import Measurement
+from .models import SIMSMeasurement
 
 elements = sorted(pt.elements, key=lambda x: x.number)
 
@@ -31,7 +31,7 @@ def plot_all(mineral, averaged=False):
 
     fig, ax = setup_figure(mineral)
 
-    query = Measurement.query.filter_by(mineral=mineral)
+    query = SIMSMeasurement.query.filter_by(mineral=mineral)
     for meas in query.all():
         data = list(filter(rare_earths, meas.data))
         color = meas.sample.color

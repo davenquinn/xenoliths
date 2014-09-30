@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import seaborn as sns
 import matplotlib.pyplot as P
-from pandas import DataFrame
 import periodictable as pt
 import numpy as N
 from .calc import ree_pyroxene, rare_earths

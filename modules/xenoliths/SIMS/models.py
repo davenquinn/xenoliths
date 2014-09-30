@@ -9,7 +9,7 @@ from ..core.models.base import BaseModel, db
 from ..database.util import ChoiceType
 from ..config import MINERALS
 
-class Datum(BaseModel):
+class SIMSDatum(BaseModel):
     __tablename__ = "sims_datum"
     measurement_id = db.Column(
         db.Integer,
@@ -43,7 +43,7 @@ class Datum(BaseModel):
         self._element = getattr(elements,value).number
 
 
-class Measurement(BaseModel):
+class SIMSMeasurement(BaseModel):
     __tablename__ = "sims_measurement"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
@@ -53,9 +53,9 @@ class Measurement(BaseModel):
     description = db.Column(db.String(1024))
     mineral = db.Column(ChoiceType(MINERALS))
 
-    data = db.relationship(Datum,
+    data = db.relationship(SIMSDatum,
         backref="measurement",
-        order_by=Datum._element)
+        order_by=SIMSDatum._element)
     sample = db.relationship("Sample", backref="sims_measurements")
 
     def __repr__(self):

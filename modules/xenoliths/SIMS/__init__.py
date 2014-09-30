@@ -2,15 +2,15 @@ from flask import Blueprint, Response, render_template
 from cStringIO import StringIO
 
 from .manage import SIMSCommand
-from .models import Measurement, Datum
+from .models import SIMSMeasurement, SIMSDatum
 from .plot import plot_all
 
 sims = Blueprint('SIMS', __name__, static_folder="static", template_folder="templates")
 
 @sims.route("/list/<mineral>/")
 def list(mineral):
-    cols = Datum.query.distinct(Datum._element).all()
-    data = Measurement.query.filter_by(mineral=mineral).all()
+    cols = SIMSDatum.query.distinct(SIMSDatum._element).all()
+    data = SIMSMeasurement.query.filter_by(mineral=mineral).all()
     return render_template("sims/list.html",
         objects=data,
         columns=[d.element for d in cols])

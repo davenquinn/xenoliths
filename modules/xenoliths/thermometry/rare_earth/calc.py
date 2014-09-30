@@ -1,9 +1,9 @@
 from __future__ import division
 import numpy as N
 
-from ...SIMS.models import Measurement, average
+from ...SIMS.models import SIMSMeasurement, average
 from ...microprobe.group import get_cations, get_oxides
-from ...microprobe.models import Point
+from ...microprobe.models import ProbeMeasurement
 from ...microprobe.models.query import tagged, exclude_bad
 from .pyx import pyroxene_form, BKN
 from ..thermometers import BKN as BKN_test
@@ -15,12 +15,12 @@ rare_earths = "La Ce Pr Nd Sm Eu Gd Tb Dy Y Ho Er Tm Yb Lu".split()
 minerals = ("opx", "cpx")
 
 def prepare_data(sample):
-    probedata = Point.query.filter(Point.sample==sample)
+    probedata = ProbeMeasurement.query.filter(ProbeMeasurement.sample==sample)
     major_elements = tagged(exclude_bad(probedata),"core")
-    trace_elements = Measurement.query.filter(Measurement.sample==sample)
+    trace_elements = SIMSMeasurement.query.filter(SIMSMeasurement.sample==sample)
 
     def prep_oxides(mineral):
-        q = major_elements.filter(Point.mineral == mineral).all()
+        q = major_elements.filter(ProbeMeasurement.mineral == mineral).all()
         avg = get_oxides(q)
         return [avg[k] for k in big10]
 
@@ -41,11 +41,11 @@ def ree_pyroxene(sample, pressure=1.5):
         Converted to Python from VBScript by Daven Quinn (2014-09-14)
     """
 
-    major_elements = tagged(exclude_bad(Point.query.filter(Point.sample==sample)),"core")
-    trace_elements = Measurement.query.filter(Measurement.sample==sample)
+    major_elements = tagged(exclude_bad(ProbeMeasurement.query.filter(ProbeMeasurement.sample==sample)),"core")
+    trace_elements = SIMSMeasurement.query.filter(SIMSMeasurement.sample==sample)
 
-    opx = major_elements.filter(Point.mineral == "opx").all()
-    cpx = major_elements.filter(Point.mineral == "cpx").all()
+    opx = major_elements.filter(ProbeMeasurement.mineral == "opx").all()
+    cpx = major_elements.filter(ProbeMeasurement.mineral == "cpx").all()
     T_BKN = BKN(opx,cpx).temperature(pressure) # Two-pyroxene BKN temperature
     assert T_BKN - BKN_test(opx,cpx).temperature(1.5) < 0.0001
 
