@@ -10,7 +10,7 @@ class Sample(BaseModel):
     desc = db.Column(db.Text)
     classification = db.Column(ARRAY(db.String(8), dimensions=2))
 
-    point = db.relationship("Point", backref="sample")
+    point = db.relationship("ProbeMeasurement", backref="sample")
 
     def __repr__(self):
         return "Sample {0}".format(self.id)

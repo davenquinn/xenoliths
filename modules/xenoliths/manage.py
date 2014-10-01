@@ -1,7 +1,7 @@
 from flask.ext.script import Manager, Server
 
 from .application import app, db
-from .microprobe.manage.setup import import_all
+from .microprobe.manage import import_all
 from .database.manage import MigrateCommand
 from .thermometry.command import TemperatureCommand
 from .heatflow import HeatFlowCommand
