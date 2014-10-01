@@ -42,7 +42,7 @@ def subduction_case(name, start_time, subduction_time):
         range=(0,1500),
         title=name)
 
-    underplated_oceanic = oceanic_solver.solution(start_time-subduction_time)
+    underplated_oceanic = oceanic_solver.final_section(start_time-subduction_time)
 
     final_section = stack_sections(
         forearc,
@@ -54,7 +54,7 @@ def subduction_case(name, start_time, subduction_time):
 
     return solver.solution(
         subduction_time-present,
-        steps=500,
+        steps=50,
         plot_options=plot_opts)
 
 monterey_plate = partial(
@@ -66,11 +66,14 @@ monterey_plate = partial(
 farallon_plate = partial(
     subduction_case,
     "Farallon Plate",
-    u(140, "Myr"),
-    u(70, "Myr"))
+    u(140, "Myr"))
 
 def underplating():
     name = "Underplating"
+
+    plot_opts = dict(
+        range=(0,1500),
+        title=name)
 
     start = u(20,"Myr")
 
@@ -89,15 +92,20 @@ def underplating():
 
     return solver.solution(
         duration=start-present,
-        steps=100,
+        steps=50,
         plot_options=plot_opts)
 
 def solve():
     # This does the computational heavy lifting
     data = dict(
-        monterey=list(monterey_plate().into("degC")),
-        farallon=list(farallon_plate().into("degC")),
-        underplating=list(underplating().into("degC")))
+        monterey=monterey_plate(),
+        farallon_70=farallon_plate(u(70,"Myr")),
+        farallon_80=farallon_plate(u(80,"Myr")),
+        farallon_60=farallon_plate(u(60,"Myr")),
+        underplating=underplating())
+
+    data = {k:list(v.into("degC")) for k,v in data.items()}
+
     fn = results_dir("models.json")
     with open(str(fn),"w") as f:
         json.dump(data, f)

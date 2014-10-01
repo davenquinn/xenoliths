@@ -11,7 +11,9 @@ from ..thermometry.plot import pressure_temperature
 
 colors = dict(
     underplating="#e75348",
-    farallon="#397eb8",
+    farallon_70="#397eb8",
+    farallon_60="#7fafd7",
+    farallon_80="#255277",
     monterey="#52af4a"
 )
 
@@ -28,13 +30,12 @@ def plot():
     T = N.array(map(m.temperature, y))
     ax.plot(T,y,color="#aaaaaa",linewidth=1,label=r"90 mW/m2 Conductive Geotherm")
 
-    y = (N.arange(len(data["farallon"])) * 10 + 5)/1000
-
     for k,x in data.items():
         opts = dict(
             color=colors[k],
             linewidth=2,
             label=k.capitalize())
+        y = (N.arange(len(x)) * 10 + 5)/1000
         ax.plot(x,y, **opts)
     ax.set_xlabel(u'Temperature (\u00b0C)')
     ax.set_ylabel(u'Depth (km)')
