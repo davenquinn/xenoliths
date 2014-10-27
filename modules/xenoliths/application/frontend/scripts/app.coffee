@@ -1,29 +1,27 @@
 $ = require("jquery")
-Backbone = require("backbone")
-Router = require("./router")
-Data = require("./data")
 
 App =
     JSON_RPC: (method, params, callback) ->
-        url = "/json/"
-        request =
-            method: method
-            params: params
-            jsonrpc: "2.0"
-            id: 1
-
-        req = JSON.stringify(request)
-        $.post url, req, callback, "json"
+        console.log "Invalid JSON_RPC request", method, params, callback
     API: (o)->
         o.url = "/api"+o.url
         o.dataType ?= "json"
+        if o.type == "POST"
+          o.data = JSON.stringify o.data
+          o.contentType = "application/json"
         return $.ajax(o)
+    require: (s)-> require __dirname+"/"+s
 
 startApp = (data) ->
     window.App = App
+
+    Backbone = require("backbone")
+    Router = require("./router")
+    Data = require("./data")
+
     App.Data = new Data(data)
+    App.Options = require "./options"
     App.Router = new Router()
     Backbone.history.start()
-    return
 
 module.exports = startApp

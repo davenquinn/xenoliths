@@ -1,6 +1,5 @@
 chart_options = require("../chart/chart-options")
 map_options = require("./map-options")
-classify_options = require("./classify-options")
 data_frame = require("./data")
 raw_data = require("./raw-data")
 filter = require("./filter")

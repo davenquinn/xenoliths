@@ -1,6 +1,5 @@
-Backbone = require("backbone")
 d3 = require("d3")
-MapBase = require("./base")
+MapBase = require("../map/base")
 Options = require("../../options")
 
 getShape = (bounds, n_cells=5000)->
@@ -11,10 +10,9 @@ getShape = (bounds, n_cells=5000)->
         x: Math.round(y * aspect_ratio)
         y: Math.round(y)
 
-ClassifyMap = MapBase.extend(
-    initialize: ->
-        ClassifyMap.__super__.initialize.apply this, arguments
-        @parent = @options.parent
+class ClassifyMap extends MapBase
+    constructor: ->
+        super
         @data = @setupData(@parent.data)
 
         @classifyLayer()
@@ -26,7 +24,6 @@ ClassifyMap = MapBase.extend(
         width = data[0].length
         height = data.length
         shape = getShape(@bounds)
-        console.log shape
         console.assert(width == shape.x)
         console.assert(height == shape.y)
 
@@ -62,10 +59,9 @@ ClassifyMap = MapBase.extend(
                     h: shp.y
                     values: states
             @mousedown = 0
-            svg.attr "viewBox", "0 0 " + @data.w + " " + @data.h
+            svg.attr "viewBox", "0 0 #{@data.w} #{@data.h}"
 
-            getColor = (d) => if d.v is "un" then "" else Options.minerals[d.v].color
-
+            getColor = (d) -> if d.v is "un" then "" else App.Options.minerals[d.v].color
             fillOpacity = (d) -> if d.v is "un" then "0.0" else "1.0"
 
             rectangles = svg.selectAll("rect")
@@ -85,60 +81,49 @@ ClassifyMap = MapBase.extend(
                                 v = "un"
                             else
                                 v = a.mineral
-                            @data.values[i].v = v
-                            console.log d
+                            a.data.values[i].v = v
                             d3.select(@).attr
-                                fill: (d)->
-                                    console.log d
-                                    getColor(d)
+                                fill: (d)->getColor(d)
                                 "fill-opacity": fillOpacity
                         .on "mouseover", (d, i) ->
                             if d3.event.shiftKey
-                                @data.values[i].v = a.mineral
+                                a.data.values[i].v = a.mineral
                                 d3.select(@).attr
                                     fill: getColor
                                     "fill-opacity": fillOpacity
 
             reset = ->
-                bottomLeft = project([
-                    bounds.left
-                    bounds.bottom
-                ])
-                topRight = project([
-                    bounds.right
-                    bounds.top
-                ])
-                svg.attr("width", topRight[0] - bottomLeft[0]).attr("height", bottomLeft[1] - topRight[1]).style("margin-left", bottomLeft[0] + "px").style "margin-top", topRight[1] + "px"
-                return
+                bottomLeft = project [bounds.left, bounds.bottom]
+                topRight = project [bounds.right, bounds.top]
+                svg.attr
+                  width: topRight[0] - bottomLeft[0]
+                  height: bottomLeft[1] - topRight[1]
+                svg.style
+                  "margin-left": "#{bottomLeft[0]}px"
+                  "margin-top": "#{topRight[1]}px"
 
-
-            #g.attr("transform", "translate(" + -bottomLeft[0] + "," + -topRight[1] + ")");
             reset()
             @map.events.register "moveend", @map, reset
             @svg = svg
             return
-
         @map.addLayer overlay
         @overlay = overlay
         return
 
-    onChangeOpacity: (opacity) ->
-        @svg.attr "opacity", opacity
-        return
 
     setDraw: (bool) ->
-        bool = true    if bool is typeof ("undefined")
+        bool = true if bool is typeof ("undefined")
         if bool is true
             @svg.attr "pointer-events", "all"
         else
             @svg.attr "pointer-events", "none"
-        return
 
-    onChangeMineral: (mineral) ->
-        @mineral = mineral
-        return
+    setOpacity: (d) -> @svg.attr "opacity", d
+    setMineral: (d) -> @mineral = d
 
     getData: ->
-        @data
-)
+        # split data into n columns.
+        d = @data.values.map (d)->d.v
+        return (d.splice(0, @data.w) while d.length)
+
 module.exports = ClassifyMap

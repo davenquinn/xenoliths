@@ -1,6 +1,6 @@
 $ = require("jquery")
 Backbone = require("backbone")
-ClassifyPage = require("./views/page/classify")
+ClassifyPage = require("./controls/classify")
 MapPage = require("./views/page/map")
 ChartPage = require("./views/page/chart")
 IndexPage = require("./views/page/home")

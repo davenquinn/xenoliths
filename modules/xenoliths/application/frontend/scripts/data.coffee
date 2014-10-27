@@ -1,8 +1,6 @@
 class Data
-    constructor: (data) ->
-        @data = data
+    constructor: (@data) ->
         @tags = []
-        return
 
     getTags: =>
         return @tags    if @tags.length > 0
@@ -23,13 +21,12 @@ class Data
 
         arr = @data.features
         if options.samples
-            arr = arr.filter((d) ->
-                options.samples.indexOf(d.properties.sample) > -1
-            )
+            arr = arr.filter (d) ->
+              options.samples.indexOf(d.properties.sample) > -1
         if options.minerals
-            arr = arr.filter((d) ->
-                options.minerals.indexOf(d.properties.mineral) > -1
-            )
+            arr = arr.filter (d) ->
+              options.minerals.indexOf(d.properties.mineral) > -1
+
         if options.tags
             excluded = (t) ->
                 options.tags.exclude.indexOf(t) > -1
@@ -37,14 +34,14 @@ class Data
             included = (t) ->
                 options.tags.include.indexOf(t) > -1
 
-            arr = arr.filter((d) ->
+            arr = arr.filter (d) ->
                 if d.properties.tags.some(excluded)
                     false
                 else if d.properties.tags.some(included)
                     true
                 else
                     false
-            )
+
         out =
             type: "FeatureCollection"
             features: arr

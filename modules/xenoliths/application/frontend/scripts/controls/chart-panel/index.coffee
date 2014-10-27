@@ -3,15 +3,13 @@ GenericView = require("../base/generic")
 OxidesWheel = require("./oxides")
 MultiSelect = require("./multi-select")
 TagManager = require("./tag-manager")
-template = require("../../templates/controls/data-frame.html")
-Options = require("../../options")
+template = require("./chart-panel.html")
+Options = App.Options
 require "bootstrap-switch"
-DataFrame = GenericView.extend(
-  initialize: (options) ->
-    @options = options
-    a = this
-    @map = @options.map
-    @compile template
+
+class DataFrame extends Spine.Controller
+  constructor: ->
+    super
     @render()
     @oxides = new OxidesWheel(
       el: "#oxides"
@@ -30,22 +28,16 @@ DataFrame = GenericView.extend(
       @update @map.sel[0]
     else
       @update @map.data.features[0]
-    @map.dispatcher.on "updated.data", (d) ->
+    @map.dispatcher.on "updated.data", (d) =>
       sel = d3.select(this)
-      a.tdata = d  if sel.classed("selected")
-      a.update d
-      return
+      @tdata = d  if sel.classed("selected")
+      @update d
 
-    @map.dispatcher.on "mouseout", (d) ->
+    @map.dispatcher.on "mouseout", (d) =>
       sel = d3.select(this)
-      a.update null
-      return
+      @update null
 
-    return
-
-  render: ->
-    @$el.html @template
-    this
+  render: -> @$el.html template
 
   update: (data) ->
     unless data?
@@ -61,6 +53,5 @@ DataFrame = GenericView.extend(
     @$(".sample").html sample
     @$(".map-link").attr "href", "#map/" + sample + "/point/" + id
     @oxides.update data
-    return
-)
+
 module.exports = DataFrame

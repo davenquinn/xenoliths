@@ -1,54 +1,33 @@
-$ = require("jquery")
-Class = require("./classy")
 d3 = require("d3")
-Options = require("../../options")
-ColorMap = Class.$extend({})
-ColorMaps =
-  oxide_total: ColorMap.$extend(__init__: (options) ->
-    a = this
-    @values = d3.scale.sqrt().domain([
-      0
-      10
-    ]).range([
-      "#71eeb8"
-      "salmon"
-    ])
-    @func = (d) ->
-      a.values 100 - d.properties.oxides.Total
 
-    return
-  )
-  oxide: ColorMap.$extend(__init__: (options) ->
-    a = this
-    @oxide = options.oxide
-    @data = options.data
-    @domain = d3.extent(@data.features, (d) ->
-      d.properties.oxides[a.oxide]
-    )
-    @values = d3.scale.linear().domain(@domain).range([
-      "#71eeb8"
-      "salmon"
-    ])
-    @func = (d) ->
-      a.values d.properties.oxides[a.oxide]
+Spine = require "spine"
 
-    return
-  )
-  samples: ColorMap.$extend(__init__: (options) ->
-    a = this
-    @values = Options.samples
-    @func = (d) ->
-      a.values[d.properties.sample].color
+class OxideTotal
+  constructor: ->
+    @values = d3.scale.sqrt().domain([0,10]).range ["#71eeb8","salmon"]
+  func: (d) => @values 100-d.properties.oxides.Total
 
-    return
-  )
-  minerals: ColorMap.$extend(__init__: (options) ->
-    a = this
-    @values = Options.minerals
-    @func = (d) ->
-      a.values[d.properties.mineral].color
+class Oxide
+  constructor: (o)->
+    @data = o.data
+    @oxide = o.oxide
+    @values = d3.scale.linear()
+      .domain d3.extent @data.features,
+        (d)=> d.properties.oxides[@oxide]
+      .range ["#71eeb8","salmon"]
 
-    return
-  )
+   func: (d) =>
+      @values d.properties.oxides[@oxide]
 
-module.exports = ColorMaps
+class Sample
+  func: (d) -> App.Options.samples[d.properties.sample].color
+
+class Mineral
+  func: (d) -> App.Options.minerals[d.properties.mineral].color
+
+
+module.exports =
+  oxide_total: OxideTotal
+  oxide: Oxide
+  samples: Sample
+  minerals: Mineral

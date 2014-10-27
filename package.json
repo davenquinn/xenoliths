@@ -33,6 +33,7 @@
     "bootstrap-sass": "^3.2.0",
     "bootstrap-switch": "^3.0.2",
     "d3": "^3.4.11",
+    "dragdealer": "^0.9.7",
     "font-awesome": "^4.1.0",
     "jquery": "^2.1.1",
     "leaflet": "^0.7.3",

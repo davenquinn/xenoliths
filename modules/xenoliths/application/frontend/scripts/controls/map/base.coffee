@@ -1,38 +1,30 @@
-GenericView = require("../base/generic")
 Options = require("../../options")
-Colorizer = require("../base/colors")
+Colorizer = require("../../views/base/colors")
+Spine = require "spine"
 OpenLayers = window.OpenLayers
-Map = GenericView.extend(
-  initialize: (options) ->
-    @options = options
-    console.log options
-    @render()
-    @colors = Colorizer
-    return
 
-  render: ->
-    @changeSample @options.sample
-    this
+class Map extends Spine.Controller
+  constructor: ->
+    super
+    @changeSample @sample
+    @colors = Colorizer
 
   startMap: ->
     @bounds = OpenLayers.Bounds.fromArray(@sample.bounds)
-    Options =
-      div: @el
+
+    @map = new OpenLayers.Map
+      div: @el[0]
       controls: []
       maxExtent: @bounds
-      
-      #restrictedExtent: this.bounds,
+      theme: null
       maxResolution: 64.000000
       numZoomLevels: 8
 
-    @map = new OpenLayers.Map(Options)
     @GeoJSON = new OpenLayers.Format.GeoJSON()
     @navControl = new OpenLayers.Control.Navigation()
     @map.addControls [
       new OpenLayers.Control.Zoom()
-      this.navControl
-      
-      #new OpenLayers.Control.KeyboardDefaults(),
+      @navControl
       new OpenLayers.Control.MousePosition(numDigits: 2)
       new OpenLayers.Control.ArgParser()
     ]
@@ -41,10 +33,9 @@ Map = GenericView.extend(
     @setupTiles "scan"
     @setLayer "sem"
     @map.zoomToExtent @bounds
-    return
 
   setupTiles: (mapType) ->
-    a = this
+    a = @
     getURL = (bounds) ->
       mapMinZoom = 0
       mapMaxZoom = 7
@@ -62,30 +53,15 @@ Map = GenericView.extend(
       else
         emptyTileURL
 
-    layer = new OpenLayers.Layer.TMS(@sample, "",
-      resolutions: [
-        16
-        8
-        4
-        2
-        1
-        0.5
-      ]
-      serverResolutions: [
-        64
-        32
-        16
-        8
-        4
-        2
-        1
-      ]
+    layer = new OpenLayers.Layer.TMS @sample, "",
+      resolutions: [16,8,4,2,1,0.5]
+      serverResolutions: [64,32,16,8,4,2,1]
       transitionEffect: "resize"
       alpha: true
       type: "png"
       getURL: getURL
       tileOrigin: new OpenLayers.LonLat.fromArray(@sample.layers[mapType])
-    )
+
     @baseLayers[mapType] = layer
     @map.addLayers [layer]
     layer
@@ -106,11 +82,9 @@ Map = GenericView.extend(
       @navControl.activate()
     else
       @navControl.deactivate()
-    return
 
   setLayer: (layer) ->
-    console.log layer
     @map.setBaseLayer @baseLayers[layer]
-    return
-)
+
+
 module.exports = Map

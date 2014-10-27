@@ -11428,6 +11428,37 @@ table.dataTable thead td:active {
   -webkit-overflow-scrolling: touch;
 }
 
+/* line 1, ../../frontend/styles/_drag.scss */
+.dragdealer {
+  position: relative;
+  height: 30px;
+  background: #EEE;
+}
+
+/* line 6, ../../frontend/styles/_drag.scss */
+.dragdealer .handle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+/* line 12, ../../frontend/styles/_drag.scss */
+.dragdealer .red-bar {
+  width: 100px;
+  height: 30px;
+  background: #CC0000;
+  color: #FFF;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+}
+
+/* line 21, ../../frontend/styles/_drag.scss */
+.dragdealer .disabled {
+  background: #898989;
+}
+
 /* line 1, ../../frontend/styles/_table.scss */
 tr, td {
   min-width: 40px;
@@ -11989,15 +12020,19 @@ h3.label {
 .navbar {
   margin-bottom: 10px;
 }
+/* line 198, ../../frontend/styles/screen.scss */
+.navbar .active a {
+  background-color: #f6f6f6;
+}
 
-/* line 202, ../../frontend/styles/screen.scss */
+/* line 205, ../../frontend/styles/screen.scss */
 #tabs #data ul.info {
   padding-left: 0;
   list-style: none;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 206, ../../frontend/styles/screen.scss */
+/* line 209, ../../frontend/styles/screen.scss */
 #tabs #data ul.info li {
   margin-left: 0;
   line-height: 24px;
@@ -12008,12 +12043,12 @@ h3.label {
   clear: none;
   min-width: 60px;
 }
-/* line 215, ../../frontend/styles/screen.scss */
+/* line 218, ../../frontend/styles/screen.scss */
 #tabs #data ul.info li span {
   background-color: inherit;
   background: inherit;
 }
-/* line 216, ../../frontend/styles/screen.scss */
+/* line 219, ../../frontend/styles/screen.scss */
 #tabs #data ul.info li span.label {
   display: block;
   color: #666;
@@ -12024,35 +12059,47 @@ h3.label {
   text-align: left;
   margin-top: 0;
 }
-/* line 222, ../../frontend/styles/screen.scss */
+/* line 225, ../../frontend/styles/screen.scss */
 #tabs #data ul.info li a {
   font-size: .8em;
   line-height: 40px;
   margin-left: 20px;
 }
 
-/* line 232, ../../frontend/styles/screen.scss */
+/* line 235, ../../frontend/styles/screen.scss */
 #oxides {
   margin-bottom: -15px;
   margin-top: -10px;
 }
 
-/* line 238, ../../frontend/styles/screen.scss */
+/* line 241, ../../frontend/styles/screen.scss */
 #tag_manager #tag_field {
   min-height: 26px;
   margin-bottom: 5px;
 }
-/* line 239, ../../frontend/styles/screen.scss */
+/* line 242, ../../frontend/styles/screen.scss */
 #tag_manager #tag_field li {
   cursor: pointer;
 }
-/* line 245, ../../frontend/styles/screen.scss */
+/* line 248, ../../frontend/styles/screen.scss */
 #tag_manager h3 {
   margin-top: 0;
 }
 
-/* line 250, ../../frontend/styles/screen.scss */
+/* line 253, ../../frontend/styles/screen.scss */
 .clearfix {
   overflow: hidden;
   *zoom: 1;
+}
+
+/* line 257, ../../frontend/styles/screen.scss */
+.slider {
+  height: 10px;
+}
+
+/* line 258, ../../frontend/styles/screen.scss */
+.dragger {
+  height: 10px;
+  width: 10px;
+  background-color: black;
 }

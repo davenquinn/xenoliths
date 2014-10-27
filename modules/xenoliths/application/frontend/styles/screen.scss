@@ -5,7 +5,6 @@
 
 @import "lib/bourbon/bourbon";
 @import "lib/neat/neat";
-
 @import "lib/openlayers";
 
 $FontAwesomePath: "/static/lib/font-awesome";
@@ -13,6 +12,7 @@ $FontAwesomePath: "/static/lib/font-awesome";
 @import 'bootstrap-sass/assets/stylesheets/bootstrap';
 @import "lib/datatables";
 //@import "lib/jquery_simple_slider";
+@import "drag";
 @import "compass";
 @import "compass/utilities/general/clearfix";
 @import "table";
@@ -195,6 +195,9 @@ h3.label {
 
 .navbar {
 	margin-bottom: 10px;
+  .active a {
+    background-color: #f6f6f6;
+  }
 }
 
 #tabs {
@@ -250,3 +253,9 @@ h3.label {
 .clearfix {
 	@include clearfix;
 }
+
+.slider { height: 10px;}
+.dragger {
+  height: 10px;
+  width: 10px;
+  background-color: black; }
