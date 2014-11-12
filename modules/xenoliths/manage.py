@@ -27,7 +27,7 @@ def profile():
 
 @manager.shell
 def make_context():
-    return dict(app=app,db=db,models=models)
+    return dict(app=app,db=db,m=models)
 
 @manager.command
 def setup(hard=False):

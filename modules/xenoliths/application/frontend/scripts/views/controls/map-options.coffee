@@ -1,6 +1,6 @@
 GenericView = require("../base/generic")
 Controls = require("./registry")
-SelectMap = require("./select-map")
+SelectMap = require("../../controls/map/select")
 ChangeColormap = require("./change-colormap")
 MapOptions = GenericView.extend(
   initialize: (options) ->

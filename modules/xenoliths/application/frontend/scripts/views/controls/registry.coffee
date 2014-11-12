@@ -1,16 +1,11 @@
 chart_options = require("../chart/chart-options")
 map_options = require("./map-options")
-data_frame = require("./data")
 raw_data = require("./raw-data")
 filter = require("./filter")
 Controls =
   raw:
     name: "Raw"
     obj: raw_data
-
-  data:
-    name: "Data"
-    obj: data_frame
 
   "chart-options":
     name: "Options"
@@ -19,6 +14,10 @@ Controls =
   "map-options":
     name: "Options"
     obj: map_options
+
+  data:
+    name: "Data"
+    obj: require "../../controls/chart-panel"
 
   filter:
     name: "Filter"

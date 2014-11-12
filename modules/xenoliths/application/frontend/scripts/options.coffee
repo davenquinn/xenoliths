@@ -175,26 +175,27 @@ options =
     cpx:
       name: "Clinopyroxene"
       color: "#a6ff9b"
-
+      color2: "#009245"
     opx:
       name: "Orthopyroxene"
       color: "#cc0000"
-
+      color2: "#8CC63F"
     ol:
       name: "Olivine"
       color: "#006699"
-
+      color2: "#66AAFF"
     sp:
       name: "Spinel"
       color: "#663300"
-
+      color2: "#663300"
     al:
       name: "Alteration"
       color: "#888888"
-
+      color2: "#888888"
     na:
       name: "None"
       color: "#000000"
+      color2: "#000000"
 
   oxides: [
     "SiO2"

@@ -38,7 +38,7 @@ def create_data(point,row):
             measurement=point,
             oxide=oxide)
         d.cation = oxide[0:2]
-        d.oxide_percent = row[oxide]
+        d.weight_percent = row[oxide]
         d.error = row[d.cation.symbol+" %ERR"]
         db.session.add(d)
         yield d
@@ -55,7 +55,7 @@ def import_all():
             line_number=row["LINE"],
             sample=sample)
         point.geometry = geometry(row)
-        point.oxide_weight = sum([o.oxide_percent for o in create_data(point,row)])
+        point.oxide_total = sum([o.weight_percent for o in create_data(point,row)])
         db.session.add(point)
         db.session.commit()
 

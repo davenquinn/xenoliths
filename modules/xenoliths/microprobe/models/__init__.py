@@ -37,8 +37,11 @@ class ProbeDatum(BaseModel):
     molar_percent = db.Column(db.Float)
     error = db.Column(db.Float)
 
+    measurement = db.relationship("ProbeMeasurement",
+        backref=db.backref("data", lazy="dynamic"))
+
     def __repr__(self):
-        return "{0}: {1}".format(self.element,self.weight_percent)
+        return "{0}: {1}%wt".format(self.oxide,self.weight_percent)
 
     @hybrid_property
     def cation(self):
@@ -70,9 +73,6 @@ class ProbeMeasurement(BaseModel):
         db.String,
         db.ForeignKey('sample.id'),
         nullable=True)
-
-    data = db.relationship(ProbeDatum,
-        backref="measurement")
 
     tags = db.relationship('Tag', secondary=tags,
         backref=db.backref('points', lazy='dynamic'))

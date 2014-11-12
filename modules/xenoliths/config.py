@@ -22,6 +22,14 @@ MINERALS = {
 	"na": "Unknown"
 }
 
+MINERAL_DENSITIES = {
+	"cpx": 3.279,
+	"opx": 3.204,
+	"ol": 3.21,
+	"sp": 3.6,
+	"al": 3.23
+}
+
 COLORS = {
 	"CK-2": "#456AA0",
 	"CK-3": "#FF9700",

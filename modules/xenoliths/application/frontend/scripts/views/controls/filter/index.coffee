@@ -54,7 +54,7 @@ class FilterData extends Spine.Controller
 
   filterData: (event) ->
     arr = @$("form").serializeObject()
-    ["minerals","samples"].each (d) ->
+    ["minerals","samples"].forEach (d) ->
       delete arr[d] unless arr["filter-" + d] is "on"
       delete arr["filter-" + d]
 

@@ -3,6 +3,7 @@ $ = require("jquery")
 template = require("./template.html")
 Dragdealer = require("dragdealer").Dragdealer
 Spine = require "spine"
+Toggle = require "../../toggle"
 
 class OptionsView extends Spine.Controller
   defaults:
@@ -29,12 +30,17 @@ class OptionsView extends Spine.Controller
         @trigger "change:opacity", x
         @$('#opacity .handle').text Math.round(x * 100)+"%"
 
+    @mode = new Toggle
+      el: $(".mode")
+      values: ["draw","navigate"]
+      labels: ["Draw","Navigate"]
+    @listenTo @mode, "change", @modeChanged
+
   mineralChanged: (event) ->
     min = $(event.currentTarget).val()
     @trigger "change:mineral", min
 
-  modeChanged: (event) ->
-    mode = $(event.currentTarget).val()
+  modeChanged: (mode) =>
     draw = if mode is "draw" then true else false
     @trigger "change:draw-enabled", draw
 

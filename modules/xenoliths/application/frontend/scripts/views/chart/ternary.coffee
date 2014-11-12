@@ -38,7 +38,13 @@ TernaryChart = GenericView.extend(
 
   drawSVG: ->
     a = this
-    @svg = d3.select(@el).append("svg").attr("width", @$el.width()).attr("height", @$el.height()).append("g").attr("transform", "translate(" + m.left + "," + m.top + ")")
+    m = @options.margin
+    @svg = d3.select(@el)
+      .append("svg")
+        .attr("width", @$el.width())
+        .attr("height", @$el.height())
+        .append("g")
+          .attr("transform", "translate(" + m.left + "," + m.top + ")")
     sin30 = Math.pow(3, 1 / 2) / 2
     cos30 = .5
     rad = @height / 1.5

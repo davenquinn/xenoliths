@@ -1,5 +1,6 @@
 $ = require("jquery")
 Spine = require "spine"
+Toggle = require "../../toggle"
 template = require("./select-map.html")
 
 class SelectMap extends Spine.Controller
@@ -9,16 +10,21 @@ class SelectMap extends Spine.Controller
   constructor: ->
     super
     @map = @parent.map
-    @currentLayer = "sem"
     @render()
 
   events:
     "change select[name=sample]": "sampleChanged"
-    "change .layer-switch": "changeLayer"
 
   render: ->
     @$el.html template samples: App.Options.samples
     @setSelected @map.sample_name
+
+    @layer = new Toggle
+      el: @$(".layer")
+      values: ["sem","scan"]
+      labels: ["SEM","Scan"]
+    @listenTo @layer, "change", @layerChanged
+
 
   sampleChanged: (event) ->
     smp = $(event.currentTarget).val()
@@ -27,9 +33,7 @@ class SelectMap extends Spine.Controller
   setSelected: (sample) ->
     @$("select[name=sample]").val sample
 
-  changeLayer: (event) ->
-    val = $(event.currentTarget).val()
-    lyr = (if @currentLayer is "sem" then "scan" else "sem")
+  layerChanged: (lyr) =>
     @map.setLayer lyr
     @currentLayer = lyr
 

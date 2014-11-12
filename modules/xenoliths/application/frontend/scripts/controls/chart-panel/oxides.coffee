@@ -1,12 +1,11 @@
 $ = require("jquery")
-GenericView = require("../base/generic")
+GenericView = require("../../views/base/generic")
 d3 = require("d3")
-Options = require("../../options")
 OxidesWheel = GenericView.extend(
   initialize: (options) ->
     @options = options
     a = this
-    @oxides = Options.oxides
+    @oxides = App.Options.oxides
     @createEventHandlers()
     return
 
@@ -49,7 +48,7 @@ OxidesWheel = GenericView.extend(
         @arcs = @arcs.data(@processData(data))
         @arcs.transition().duration(300).attrTween "d", a.arcTween # redraw the arcs
       @total.text data.properties.oxides.Total.toFixed(2) + "%"
-      min = Options.minerals[data.properties.mineral]
+      min = App.Options.minerals[data.properties.mineral]
       @mineral.text min.name.toUpperCase()
       color = d3.hsl(min.color)
       color.l = .3
@@ -70,7 +69,6 @@ OxidesWheel = GenericView.extend(
       a.overlay_val.text d.value.toFixed(2) + "%"
       return
 
-    
     #el.attr("stroke", b);
     #el.attr("stroke-width", 10)
     @onMouseOut = (d, i) ->

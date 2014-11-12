@@ -25,6 +25,7 @@ class Map extends Spine.Controller
     @map.addControls [
       new OpenLayers.Control.Zoom()
       @navControl
+      new OpenLayers.Control.KeyboardDefaults()
       new OpenLayers.Control.MousePosition(numDigits: 2)
       new OpenLayers.Control.ArgParser()
     ]

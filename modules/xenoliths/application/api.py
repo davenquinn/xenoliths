@@ -1,24 +1,34 @@
 import os
-from flask import Blueprint, request
-from flask import jsonify
+from flask import Blueprint, request, make_response, jsonify
 from json import dumps
 
 
 api = Blueprint('api', __name__,)
 
+@api.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify(status='error', message='Not found'), 404)
+
 @api.route('/sample/classification/<sample>', methods=["POST","GET"])
 def classification(sample):
+    from . import db
     from ..core.models import Sample
 
-    sample = Sample.query.get(sample)
+    sample = db.session.query(Sample).get(sample)
 
     if request.method == "POST":
         try:
-            sample.classification = classification
-            sample.save()
-            return True
-        except:
-            return False
+            data = request.json
+            assert len(sample.classification) == len(data)
+            assert len(sample.classification[0]) == len(data[0])
+            sample.classification = data
+            db.session.commit()
+            return jsonify(status="success")
+        except Exception, err:
+            return jsonify(
+                    status="error",
+                    message=str(err),
+                    data=request.json)
 
     if request.method == "GET":
         s = sample.classification
