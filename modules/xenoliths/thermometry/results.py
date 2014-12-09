@@ -84,7 +84,7 @@ def core_temperatures(sample, method=Taylor1998):
 
 def sample_temperatures(sample):
     base_queryset = exclude_bad(ProbeMeasurement.query)
-    sample_queryset = base_queryset.filter_by(sample=sample)
+    sample_queryset = base_queryset.filter(ProbeMeasurement.sample==sample)
 
     def type_results(typeid="core"):
         queryset = tagged(sample_queryset, typeid)

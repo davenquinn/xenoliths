@@ -50,6 +50,26 @@ def plot_DREE(sample):
         ax.annotate(t, (x,y), xytext=(5,5), textcoords="offset points")
     return fig
 
+
+def all_DREE(samples):
+    fig, ax = setup_figure()
+    fig.suptitle("DREE (all samples)")
+
+    for sample in samples:
+        try:
+            X,Y = ree_pyroxene(sample, 1.5)
+            res = regress(X,Y)
+            T = temperature(res)
+
+            ax.plot(X,Y, "-")
+            ax.plot(X,res.fittedvalues,"-")
+
+        except AssertionError:
+            continue
+    return fig
+
+
+
 def ree_temperature(sample, **kwargs):
     uncertain = kwargs.pop("uncertainties", True)
     X,Y = ree_pyroxene(sample, **kwargs)

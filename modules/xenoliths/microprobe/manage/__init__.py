@@ -2,11 +2,15 @@ from click import echo
 import os
 from geoalchemy2.elements import WKTElement
 import json
+import numpy as N
+from flask.ext.script import Manager
 
 from .file_handler import get_data
 from ...application import app, db
 from ...core.models import Sample
 from ..models import ProbeMeasurement, ProbeDatum
+
+ProbeCommand = Manager(usage="Command to manage SIMS data")
 
 def write_json():
     path = os.path.join(app.config.get("DATA_DIR"),"data.json")
@@ -39,11 +43,13 @@ def create_data(point,row):
             oxide=oxide)
         d.cation = oxide[0:2]
         d.weight_percent = row[oxide]
-        d.error = row[d.cation.symbol+" %ERR"]
+        d.error = row[d._cation+" %ERR"]
         db.session.add(d)
         yield d
 
-def import_all():
+@ProbeCommand.command
+def setup():
+    """Imports microprobe data."""
     data = get_data(app.config.get("RAW_DATA"))
 
     samples = {k:v for k,v in create_samples(data)}
@@ -55,8 +61,21 @@ def import_all():
             line_number=row["LINE"],
             sample=sample)
         point.geometry = geometry(row)
-        point.oxide_total = sum([o.weight_percent for o in create_data(point,row)])
+
+        oxide_total = sum([o.weight_percent for o in create_data(point,row)])
+        assert N.abs(row["TOTAL"] - oxide_total) < 0.001
+        point.oxide_total = oxide_total
+
         db.session.add(point)
         db.session.commit()
 
+    recalculate()
     write_json()
+
+@ProbeCommand.command
+def recalculate():
+    """Calculates derived parameters for already-imported data"""
+    for meas in ProbeMeasurement.query.all():
+        print(meas.id)
+        meas.compute_derived(db.session)
+    db.session.commit()

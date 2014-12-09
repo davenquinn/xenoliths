@@ -4,7 +4,7 @@ from __future__ import division
 from flask import Blueprint, Response, render_template
 from cStringIO import StringIO
 from .results import sample_temperatures
-from .rare_earth.plot import plot_DREE, ree_temperature
+from .rare_earth.plot import plot_DREE, all_DREE, ree_temperature
 from .rare_earth.calc import prepare_data, big10, rare_earths
 from ..core.models import Sample
 
@@ -35,14 +35,24 @@ def index():
 		title="Thermometry results (core grains)",
 		data=data)
 
+@thermometry.route("/ree/all.svg")
+def ree_all():
+    samples = Sample.query.all()
+    fig = all_DREE(samples)
+    imgdata = StringIO()
+    fig.savefig(imgdata, format="svg")
+    imgdata.seek(0)
+    return Response(imgdata.read(), mimetype="image/svg+xml")
+
+
 @thermometry.route("/ree/<sample>.svg")
 def ree_opx(sample):
-	sample = Sample.query.get(sample)
-	fig = plot_DREE(sample)
-	imgdata = StringIO()
-	fig.savefig(imgdata, format="svg")
-	imgdata.seek(0)
-	return Response(imgdata.read(), mimetype="image/svg+xml")
+    sample = Sample.query.get(sample)
+    fig = plot_DREE(sample)
+    imgdata = StringIO()
+    fig.savefig(imgdata, format="svg")
+    imgdata.seek(0)
+    return Response(imgdata.read(), mimetype="image/svg+xml")
 
 @thermometry.route("/ree/excel-input")
 def table():

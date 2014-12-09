@@ -10,15 +10,16 @@ from geoalchemy2.types import Geometry
 from slugify import slugify
 
 from ..converter import Converter
-from ..quality import compute_mineral, data_quality
-from ...config import MINERALS, MINERAL_SYSTEMS
+from .compute import oxygen_basis
+from ..quality import compute_mineral
+from ...config import OXIDES, MINERALS, MINERAL_SYSTEMS
 from ...core.models.base import BaseModel, db
-from ...database.util import ChoiceType
+
+FORMULAE = {k:pt.formula(k) for k in OXIDES}
 
 tags = db.Table('tag_manager',
     db.Column('tag_name', db.String(64), db.ForeignKey('tag.name')),
-    db.Column('page_id', db.Integer, db.ForeignKey('probe_measurement.id'))
-)
+    db.Column('page_id', db.Integer, db.ForeignKey('probe_measurement.id')))
 
 class Tag(BaseModel):
     name = db.Column(db.String(64), primary_key=True)
@@ -32,7 +33,7 @@ class ProbeDatum(BaseModel):
         db.ForeignKey('probe_measurement.id'),
         primary_key=True)
     _cation = db.Column("cation",db.Integer, primary_key=True)
-    oxide = db.Column(db.String(5),nullable=False)
+    _oxide = db.Column("oxide",db.String(5),nullable=False)
     weight_percent = db.Column(db.Float)
     molar_percent = db.Column(db.Float)
     error = db.Column(db.Float)
@@ -51,12 +52,20 @@ class ProbeDatum(BaseModel):
     def cation(self, value):
         self._cation = getattr(elements,value).number
 
+    @hybrid_property
+    def oxide(self):
+        return FORMULAE[self._oxide]
+
+    @oxide.setter
+    def oxide(self, value):
+        self._oxide = oxide
+
 class ProbeMeasurement(BaseModel):
     __tablename__ = "probe_measurement"
     id = db.Column(db.Integer,primary_key=True)
     line_number = db.Column(db.Integer, nullable=False)
     geometry = db.Column(Geometry("Point"))
-    mineral = db.Column(ChoiceType(MINERALS))
+    mineral = db.Column(db.String)
 
     oxide_total = db.Column(db.Float)
     mg_number = db.Column(db.Float)
@@ -78,16 +87,25 @@ class ProbeMeasurement(BaseModel):
         backref=db.backref('points', lazy='dynamic'))
     # Object methods
     from .serialize import serialize
+    from .compute import compute_derived
 
     def __repr__(self):
         return "Probe analysis {0}:{1} {2}".format(
             self.sample_id,
             self.line_number,
-            self.mineral)
+            self.mineral_name)
 
     @property # for compatibility
     def n(self):
         return self.line_number
+
+    @property
+    def oxygen_basis(self):
+        return oxygen_basis(self.mineral)
+
+    @property
+    def mineral_name(self):
+        return MINERALS[self.mineral]
 
     def add_tag(self,name):
         slug = slugify(name.strip(), to_lower=True)
@@ -105,53 +123,11 @@ class ProbeMeasurement(BaseModel):
         except ValueError:
             pass
 
-    def derived_data(self):
-        self.molar = self.compute_molar()
-        self.transforms = {k: self.compute_transform(k) for k in MINERAL_SYSTEMS.keys()}
-        self.compute_params()
-        data_quality(self, False)
-
-    def compute_molar(self):
-        """Computes the molar percentage of KNOWN products
-        (i.e. unknown components not included)."""
-        molar = {}
-        for key, value in self.oxides.items():
-            if key == 'Total': continue
-            oxide = pt.formula(key)
-            molar[key] = value/oxide.mass
-        total = sum(molar.itervalues())
-        for key, value in molar.iteritems():
-            molar[key] = value/total*100
-        molar["Total"] = 100
-        return molar
-
-    def compute_ratio(self, top, bottom):
-        molar = self.molar
-        if 0 in (molar[top],molar[bottom]):
-            return None
-        else:
-            return 100*molar[top]/(molar[top]+molar[bottom])
-
-    def compute_params(self):
-        molar = self.molar
-        params = {
-            "Mg#": self.compute_ratio("MgO","FeO"),
-            "Cr#": self.compute_ratio("Cr2O3","Al2O3")
-        }
-        self.params = params
-        return params
-
-    def compute_transform(self, system="pyroxene"):
-        converter = Converter(system)
-        return converter.transform(self.molar)
-
     def __get_atomic__(self):
         formula = {}
-        for key, molar_pct in self.molar.items():
-            if key == "Total": continue
-            oxide = pt.formula(key)
-            for i,n in oxide.atoms.iteritems():
-                formula[str(i)] = formula.get(str(i),0)+n*molar_pct
+        for d in self.data:
+            for i, n in d.oxide.atoms.iteritems():
+                formula[str(i)] = formula.get(str(i),0)+n*d.molar_percent
         return formula
 
     def get_cations(self, oxygen=6, uncertainties=True):
@@ -167,14 +143,6 @@ class ProbeMeasurement(BaseModel):
                 abs_err = err_pct/100.*cation
                 formula[key] = ufloat(cation, abs_err, key+"_probe")
 
-        formula["Total"] = sum(formula.itervalues())
-        return formula
-
-    def compute_formula(self, oxygen=6):
-        formula = self.__get_atomic__()
-        scalar = oxygen/formula["O"]
-        for key, value in formula.iteritems():
-            formula[key] = value*scalar
         formula["Total"] = sum(formula.itervalues())
         return formula
 

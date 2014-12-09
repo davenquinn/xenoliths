@@ -1,7 +1,7 @@
 from flask.ext.script import Manager, Server
 
 from .application import app, db
-from .microprobe.manage import import_all
+from .microprobe.manage import ProbeCommand
 from .database.manage import MigrateCommand
 from .thermometry.command import TemperatureCommand
 from .heatflow import HeatFlowCommand
@@ -16,6 +16,7 @@ manager.add_command("db", MigrateCommand)
 manager.add_command("sims", SIMSCommand)
 manager.add_command("temperature", TemperatureCommand)
 manager.add_command("heat-flow", HeatFlowCommand)
+manager.add_command("probe", ProbeCommand)
 
 @manager.command
 def profile():
