@@ -50,14 +50,11 @@ Chart = GenericView.extend(
     ]).range([
       0
       this.width
-    ])
-    @y = d3.scale.linear().domain([
-      minfunc(@axes.y)
-      maxfunc(@axes.y)
-    ]).range([
-      this.height
-      0
-    ])
+    ]).nice()
+    @y = d3.scale.linear()
+      .domain [minfunc(@axes.y), maxfunc(@axes.y)]
+      .nice()
+      .range [this.height, 0]
     @xAxis = d3.svg.axis().scale(@x).orient("bottom").tickSize(-@height)
     @yAxis = d3.svg.axis().scale(@y).orient("left").ticks(5).tickSize(-@width)
     @zoomer = d3.behavior.zoom().x(@x).y(@y).scaleExtent([

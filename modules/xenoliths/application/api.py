@@ -1,7 +1,7 @@
 import os
 from flask import Blueprint, request, make_response, jsonify
 from json import dumps
-
+from sqlalchemy.orm import joinedload
 
 api = Blueprint('api', __name__,)
 
@@ -47,3 +47,39 @@ def tags(tag, points):
         for point in points:
             pt = Point.query.get(sample=point[0], n=point[1])
             pt.tags.remove(tag)
+
+@api.route('/modes')
+def modes():
+    from . import db
+    from ..core.models import Sample
+    from .mineral_modes import compute_modes
+
+    def modes():
+        samples = db.session.query(Sample).all()
+        for s in samples:
+            try:
+                m, complete = compute_modes(s)
+            except:
+                continue
+            yield dict(
+                id=s.id,
+                complete=complete,
+                modes=m)
+
+    return jsonify(
+        status="success",
+        data=list(modes()))
+
+@api.route("/probe-data")
+def probe_data():
+    from . import db
+    from ..microprobe.models import ProbeMeasurement
+
+    q = db.session.query(ProbeMeasurement)\
+        .options(joinedload("data"))\
+        .all()
+
+    return jsonify(
+        type="FeatureCollection",
+        features=[o.serialize() for o in q])
+

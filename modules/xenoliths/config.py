@@ -19,6 +19,7 @@ MINERALS = {
 	"opx": "Orthopyroxene",
 	"sp": "Spinel",
 	"ol": "Olivine",
+    "al": "Alteration",
 	"na": "Unknown"
 }
 

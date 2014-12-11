@@ -14,7 +14,7 @@ def setup_figure(mineral):
 
     ticks = [el.number for el in elements]
     labels = [el.symbol for el in elements]
-    #labels[pt.promethium.number] = "--"
+    labels[pt.promethium.number] = "--"
 
     ax.set_yscale('log')
 

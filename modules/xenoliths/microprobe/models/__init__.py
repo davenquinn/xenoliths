@@ -38,9 +38,6 @@ class ProbeDatum(BaseModel):
     molar_percent = db.Column(db.Float)
     error = db.Column(db.Float)
 
-    measurement = db.relationship("ProbeMeasurement",
-        backref=db.backref("data", lazy="dynamic"))
-
     def __repr__(self):
         return "{0}: {1}%wt".format(self.oxide,self.weight_percent)
 
@@ -58,23 +55,22 @@ class ProbeDatum(BaseModel):
 
     @oxide.setter
     def oxide(self, value):
-        self._oxide = oxide
+        self._oxide = value
 
 class ProbeMeasurement(BaseModel):
     __tablename__ = "probe_measurement"
     id = db.Column(db.Integer,primary_key=True)
     line_number = db.Column(db.Integer, nullable=False)
     geometry = db.Column(Geometry("Point"))
+    location = db.Column(Geometry("Point"))
     mineral = db.Column(db.String)
 
     oxide_total = db.Column(db.Float)
     mg_number = db.Column(db.Float)
     cr_number = db.Column(db.Float)
 
-    oxides = db.Column(JSON)
     errors = db.Column(JSON)
     transforms = db.Column(JSON)
-    molar = db.Column(JSON)
     formula = db.Column(JSON)
     params = db.Column(JSON)
 
@@ -83,11 +79,21 @@ class ProbeMeasurement(BaseModel):
         db.ForeignKey('sample.id'),
         nullable=True)
 
+    data = db.relationship('ProbeDatum',
+        backref=db.backref("measurement"),
+        lazy="joined")
+    data_query = db.relationship(ProbeDatum, lazy="dynamic")
+
     tags = db.relationship('Tag', secondary=tags,
-        backref=db.backref('points', lazy='dynamic'))
+        backref=db.backref('points', lazy='dynamic'),
+        lazy="joined")
     # Object methods
     from .serialize import serialize
     from .compute import compute_derived
+
+    def oxide(self, oxide):
+        """ Gets the probe datum corresponding to a specific oxide"""
+        return self.data_query.filter_by(_oxide=oxide).first()
 
     def __repr__(self):
         return "Probe analysis {0}:{1} {2}".format(

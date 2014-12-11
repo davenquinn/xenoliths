@@ -10,7 +10,7 @@ from ...application import app, db
 from ...core.models import Sample
 from ..models import ProbeMeasurement, ProbeDatum
 
-ProbeCommand = Manager(usage="Command to manage SIMS data")
+ProbeCommand = Manager(usage="Command to manage microprobe data")
 
 def write_json():
     path = os.path.join(app.config.get("DATA_DIR"),"data.json")
@@ -26,7 +26,7 @@ def oxide_weights(row):
     return ox
 
 def geometry(row):
-    xy = row["X-POS"],row["Y-POS"]
+    xy = row["X-POS_affine"],row["Y-POS_affine"]
     return WKTElement("POINT({0} {1})".format(*xy))
 
 def create_samples(data):
@@ -40,10 +40,10 @@ def create_data(point,row):
     for oxide in app.config.get("OXIDES"):
         d = ProbeDatum.get_or_create(
             measurement=point,
-            oxide=oxide)
+            _oxide=oxide)
         d.cation = oxide[0:2]
         d.weight_percent = row[oxide]
-        d.error = row[d._cation+" %ERR"]
+        d.error = row[d.cation.symbol+" %ERR"]
         db.session.add(d)
         yield d
 
@@ -60,6 +60,9 @@ def setup():
         point = ProbeMeasurement.get_or_create(
             line_number=row["LINE"],
             sample=sample)
+        point.location = WKTElement("POINT({x} {y})".format(
+            x = row["X-POS"],
+            y = row["Y-POS"]))
         point.geometry = geometry(row)
 
         oxide_total = sum([o.weight_percent for o in create_data(point,row)])

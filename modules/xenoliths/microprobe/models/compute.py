@@ -9,8 +9,9 @@ def oxygen_basis(mineral):
         return 6
 
 def compute_molar(self, session):
-    """Computes the molar percentage of KNOWN products
-    (i.e. unknown components not included)."""
+    """ Computes the molar percentage of KNOWN products
+        (i.e. unknown components not included).
+    """
     def calculate(datum):
         molar_mass = datum.oxide.mass
         return datum.weight_percent/molar_mass
@@ -22,9 +23,8 @@ def compute_molar(self, session):
         session.add(d)
 
 def compute_ratio(self, top, bottom):
-    datum = lambda n: self.data.filter_by(_oxide=n).first()
-    top = datum(top).molar_percent
-    bottom = datum(bottom).molar_percent
+    top = self.oxide(top).molar_percent
+    bottom = self.oxide(bottom).molar_percent
     try:
         return 100*top/(top+bottom)
     except ZeroDivisionError:
@@ -32,7 +32,8 @@ def compute_ratio(self, top, bottom):
 
 def compute_transform(self, system="pyroxene"):
     converter = Converter(system)
-    return converter.transform(self.molar)
+    molar = {i._oxide:i.molar_percent for i in self.data}
+    return converter.transform(molar)
 
 def compute_formula(meas, oxygen=6):
     formula = meas.__get_atomic__()

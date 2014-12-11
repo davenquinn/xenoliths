@@ -1,22 +1,44 @@
-$ = require("jquery")
-GenericView = require("../../views/base/generic")
+$ = require "jquery"
+Spine = require "spine"
 d3 = require("d3")
-OxidesWheel = GenericView.extend(
-  initialize: (options) ->
-    @options = options
-    a = this
+
+class OxidesWheel extends Spine.Controller
+  constructor: ->
+    super
     @oxides = App.Options.oxides
     @createEventHandlers()
-    return
 
   render: (data) ->
     a = this
     width = $("#tabs").innerWidth()
-    @parent = d3.select(@el)
+    @parent = d3.select(@el[0])
     @r = width / 2
-    @svg = @parent.append("svg").attr("width", width).attr("height", width).attr("viewBox", "0 0 " + width + " " + width).attr("preserveAspectRatio", "xMidYMid").append("g").attr("transform", "translate(" + @r + "," + @r + ")")
-    @center = @svg.append("g").attr("class", "center")
-    @center.append("text").attr("class", "label").attr("x", 0).attr("y", -22).style("text-anchor", "middle").style("alignment-baseline", "middle").style("font-size", "1em").style("font-weight", "600").style("fill ", "#888").text "OXIDES"
+    @svg = @parent
+      .append "svg"
+        .attr
+          width: width
+          height: width
+          viewBox: "0 0 #{width} #{width}"
+          preserveAspectRatio: "xMidYMid"
+        .append "g"
+          .attr transform: "translate(#{@r},#{@r})"
+
+    @center = @svg.append "g"
+      .attr class: "center"
+
+    @center.append("text")
+      .attr
+        class: "label"
+        x: 0
+        y: -22
+      .style
+        "text-anchor": "middle"
+        "alignment-baseline": "middle"
+        "font-size": "1em"
+        "font-weight": "600"
+        "fill ": "#888"
+      .text "OXIDES"
+
     @mineral = @center.append("text").attr("class", "label").attr("x", 0).attr("y", 28).style("text-anchor", "middle").style("alignment-baseline", "middle").style("font-size", ".8em").style("font-weight", "600")
     @total = @center.append("text").attr("class", "label").attr("x", 0).attr("y", 4).style("text-anchor", "middle").style("alignment-baseline", "middle").style("font-size", "1.8em")
     @overlay = @center.append("g")
@@ -27,7 +49,10 @@ OxidesWheel = GenericView.extend(
     @color = d3.scale.category20()
     @donut = d3.layout.pie().sort(null)
 
-    @arc = d3.svg.arc().innerRadius(@r - 85).outerRadius(@r)
+    @arc = d3.svg.arc()
+      .innerRadius(@r - 85)
+      .outerRadius(@r)
+
     @arcs = @svg.selectAll("path").data(@processData(data)).enter().append("svg:path").attr("pointer-events", "all").attr("fill", (d, i) ->
       a.color i
     ).attr("class", (d, i) ->
@@ -89,5 +114,5 @@ OxidesWheel = GenericView.extend(
       ob.push 0
     d = @donut(ob)
     d
-)
+
 module.exports = OxidesWheel

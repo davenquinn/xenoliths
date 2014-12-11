@@ -40,9 +40,11 @@ def transform_coordinates(directory,data):
 
             points = data[data.sample_id == sample]
 
+            points["X-POS_affine"] = points["X-POS"]
+            points["Y-POS_affine"] = points["Y-POS"]
             incoords = points[["X-POS","Y-POS"]].values
             outcords = affine.transform(incoords)
-            points[["X-POS","Y-POS"]] = outcords
+            points[["X-POS_affine","Y-POS_affine"]] = outcords
             yield points
 
     return concat(generate_transformed())

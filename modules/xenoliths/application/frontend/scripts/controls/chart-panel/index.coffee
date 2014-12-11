@@ -11,18 +11,18 @@ class DataFrame extends Spine.Controller
   constructor: ->
     super
     @render()
-    @oxides = new OxidesWheel(
+    @oxides = new OxidesWheel
       el: $("#oxides")
       parent: this
-    )
-    @tags = new TagManager(
+
+    @tags = new TagManager
       el: $("#tag_manager")
       parent: this
-    )
-    @multiSelect = new MultiSelect(
+
+    @multiSelect = new MultiSelect
       el: $("#multiple")
       parent: this
-    )
+
     @tdata = null
     if @map.sel
       @update @map.sel[0]
@@ -52,7 +52,7 @@ class DataFrame extends Spine.Controller
     sample = data.properties.sample
     @$(".id").html id
     @$(".sample").html sample
-    @$(".map-link").attr "href", "#map/" + sample + "/point/" + id
+    @$(".map-link").attr "href", "#map/#{sample}/point/#{id}"
     @oxides.update data
 
 module.exports = DataFrame
