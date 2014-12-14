@@ -1,5 +1,5 @@
 import operator
-from ...application import app
+from flask import current_app
 from ..converter import Converter
 
 def oxygen_basis(mineral):
@@ -47,7 +47,7 @@ def compute_mineral(point):
     """Mineral totals from Taylor 1998, adjusted to be slightly more forgiving"""
 
     point.transforms = {k: compute_transform(point,k)
-        for k in app.config["MINERAL_SYSTEMS"].keys()}
+        for k in current_app.config["MINERAL_SYSTEMS"].keys()}
 
     t = point.transforms["minerals"]
     mineral = max(t.iteritems(), key=operator.itemgetter(1))[0]

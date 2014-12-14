@@ -12,6 +12,8 @@ class Sample(BaseModel):
 
     point = db.relationship("ProbeMeasurement", backref="sample")
 
+    xenolith = db.Column(db.Boolean)
+
     def __repr__(self):
         return "Sample {0}".format(self.id)
 

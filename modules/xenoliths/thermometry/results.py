@@ -8,8 +8,12 @@ import numpy as N
 
 from uncertainties import ufloat
 from functools import partial
+from itertools import chain
+from sqlalchemy.sql import func, select
+from sqlalchemy.orm import aliased
 
 from ..models import Sample, ProbeMeasurement
+from ..application import db
 from ..microprobe.models.query import tagged, exclude_bad
 from .thermometers import BKN, Taylor1998, Ca_OPX, Ca_OPX_Corr
 
@@ -31,25 +35,40 @@ thermometers = {
 #base_queryset = ProbeMeasurement.query.filter()
 
 def single_measurement(queryset, method=Taylor1998):
-    opx = queryset.filter(ProbeMeasurement.mineral=="opx").all()
-    cpx = queryset.filter(ProbeMeasurement.mineral=="cpx").all()
+    opx = queryset.filter(ProbeMeasurement.mineral=="opx")
+    cpx = queryset.filter(ProbeMeasurement.mineral=="cpx")
     thermometer = method(opx,cpx, uncertainties=True)
     return {
         "val": thermometer.temperature(),
-        "n_opx": len(opx),
-        "n_cpx": len(cpx)
+        "n_opx": opx.count(),
+        "n_cpx": cpx.count()
     }
 
-def closest(queryset, measurement):
-    return queryset.order_by(ProbeMeasurement.geometry.distance_centroid(measurement.geometry)).first()
+def closest(a,b, distinct=None):
+
+    if distinct == None:
+        distinct = a
+    distinct = distinct.c.id
+
+    dist = func.ST_Distance(a.c.geometry,b.c.geometry)
+    return select(
+        [a.c.id, b.c.id],
+        a.c.id != b.c.id,
+        distinct=distinct,
+        order_by=[distinct, dist],
+        use_labels=True)
 
 def pyroxene_pairs(queryset):
-    all_opx = queryset.filter(ProbeMeasurement.mineral=="opx")
-    all_cpx = queryset.filter(ProbeMeasurement.mineral=="cpx")
-    if all_opx.count() < all_cpx.count():
-        return [(closest(all_opx, c),c) for c in all_cpx.all()]
-    else:
-        return [(o,closest(all_cpx, o)) for o in all_opx.all()]
+    names = ("opx","cpx")
+    opx,cpx = (queryset\
+                .filter(ProbeMeasurement.mineral==a)\
+                .subquery() for a in names)
+    c = min((opx,cpx),key=lambda d: d.count())
+    q = closest(opx,cpx, distinct=c)
+    res = db.session.execute(q).fetchall()
+    for pair in res:
+        yield tuple(ProbeMeasurement.query.get(i)\
+                for i in pair)
 
 def separate_measurements(queryset, method=Taylor1998):
     pairs = pyroxene_pairs(queryset)

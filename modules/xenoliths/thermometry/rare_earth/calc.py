@@ -44,8 +44,8 @@ def ree_pyroxene(sample, pressure=1.5):
     major_elements = tagged(exclude_bad(ProbeMeasurement.query.filter(ProbeMeasurement.sample==sample)),"core")
     trace_elements = SIMSMeasurement.query.filter(SIMSMeasurement.sample==sample)
 
-    opx = major_elements.filter(ProbeMeasurement.mineral == "opx").all()
-    cpx = major_elements.filter(ProbeMeasurement.mineral == "cpx").all()
+    opx = major_elements.filter(ProbeMeasurement.mineral == "opx")
+    cpx = major_elements.filter(ProbeMeasurement.mineral == "cpx")
     T_BKN = BKN(opx,cpx).temperature(pressure) # Two-pyroxene BKN temperature
     assert T_BKN - BKN_test(opx,cpx).temperature(1.5) < 0.0001
 

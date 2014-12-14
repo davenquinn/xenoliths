@@ -11,7 +11,7 @@ migrate = Migrate(app, db)
 
 from ..microprobe.models import ProbeMeasurement
 from ..SIMS import sims
-from ..thermometry import thermometry
+from ..thermometry.routes import thermometry
 app.register_blueprint(sims,url_prefix="/sims")
 app.register_blueprint(thermometry,url_prefix="/temp")
 
