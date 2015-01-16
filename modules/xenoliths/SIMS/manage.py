@@ -7,6 +7,7 @@ import numpy as N
 from ..models import Sample
 from .models import SIMSMeasurement, SIMSDatum, db
 from ..application import app
+from .quality import check_quality
 
 SIMSCommand = Manager(usage="Command to manage SIMS data")
 
@@ -44,6 +45,7 @@ def import_measurement(mineral, raw,norm):
         db.session.add(d)
 
 
+SIMSCommand.command(check_quality)
 
 @SIMSCommand.command
 def init():

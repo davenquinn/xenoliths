@@ -5,7 +5,7 @@ DEBUG = True
 DB_NAME = "xenoliths_flask"
 SQLALCHEMY_DATABASE_URI = "postgresql://Daven@localhost/"+DB_NAME
 
-SITE_DIR = "/Users/Daven/Development/Xenoliths/code"
+SITE_DIR = "/Users/Daven/Development/Xenoliths/application"
 
 DATA_DIR = os.path.join(SITE_DIR,"data")
 RAW_DATA = os.path.join(SITE_DIR,"raw_data")

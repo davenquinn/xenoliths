@@ -1,19 +1,16 @@
-from ...core.models.base import BaseModel, db
+from pathlib import Path
+from ...application import app
+from ...core.models import BaseModel, db
 from sqlalchemy.ext.hybrid import hybrid_property
-from slugify import Slugify
-
-slug_length = 255
-slugify = Slugify(
-    to_lower=True,
-    max_length=slug_length)
 
 class ProbeImage(BaseModel):
-    slug = db.Column(db.String(slug_length))
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255))
 
-    xmin = db.Column(db.Float)
-    xmax = db.Column(db.Float)
-    ymin = db.Column(db.Float)
-    ymax = db.Column(db.Float)
+    x_min = db.Column(db.Float)
+    x_max = db.Column(db.Float)
+    y_min = db.Column(db.Float)
+    y_max = db.Column(db.Float)
     magnification = db.Column(db.Float)
 
     sample_id = db.Column(
@@ -21,10 +18,14 @@ class ProbeImage(BaseModel):
         db.ForeignKey('sample.id'),
         nullable=True)
 
-    @hybrid_property
-    def name(self):
-        return self.slug
+    filename = property(lambda s: s.name+".png")
 
-    @name.setter
-    def name(self, value):
-        self.slug = slugify(value)
+    @property
+    def path(self):
+        p = Path(app.config.get("DATA_DIR"))/"probe-images"
+        return p/self.filename
+
+    @property
+    def url(self):
+        return "/data/probe-images/"+self.filename
+

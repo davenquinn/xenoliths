@@ -21,8 +21,12 @@ def get_quantity(quantity, queryset, **kwargs):
     uncertainties = kwargs.pop("uncertainties",False)
     if uncertainties:
         e = ProbeDatum.error
-        std = func.sqrt(func.sum(func.pow(e*quantity/100,2)))/func.count("*")
-        qvars.append(std.label("std"))
+        sum_ = func.sum(func.pow(e*quantity/100,2))
+        std = func.sqrt(sum_)/func.count("*")
+        qvars.append(std.label("analytic_std"))
+
+        std2 = func.stddev(quantity)
+        qvars.append(std2.label("sample_std"))
 
     data = db.session.query(*tuple(qvars))\
                 .filter(filt)\
@@ -30,7 +34,7 @@ def get_quantity(quantity, queryset, **kwargs):
                 .all()
 
     if uncertainties:
-        return {o:ufloat(n,s) for o,n,s in data}
+        return {o:ufloat(n,a+s) for o,n,a,s in data}
     else:
         return {o:n for o,n in data}
 

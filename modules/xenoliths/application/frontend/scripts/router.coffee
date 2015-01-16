@@ -7,6 +7,7 @@ IndexPage = require("./views/page/home")
 TernaryPage = require("./views/page/ternary")
 DataManager = require("./data")
 MineralModes = require "./pages/mineral-modes"
+NewMap = require "./pages/map"
 
 Router = Backbone.Router.extend(
   initialize: (options) ->
@@ -19,6 +20,7 @@ Router = Backbone.Router.extend(
     "classify(/:sample)": "classify"
     "map(/:sample)(/point/:point)": "map"
     "map(/:sample)/tag(/:tag)": "map"
+    "map2(/:sample)": "map2"
     chart: "chart"
     "ternary(/:system)": "ternary"
     "modes": "modes"
@@ -45,6 +47,11 @@ Router = Backbone.Router.extend(
       tag: tag
     )
     return
+
+  map2: (sample)->
+    new NewMap
+      el: "body"
+      sample: sample
 
   chart: ->
     new ChartPage(el: "body")

@@ -13,7 +13,6 @@ from geotherm.models.geometry import Section, Layer, stack_sections
 from geotherm.solvers import HalfSpaceSolver, FiniteSolver
 
 from . import results_dir
-from ..application import app
 
 present = u(1.65,"Myr") # K-Ar age for Crystal Knob xenoliths
 
@@ -99,9 +98,9 @@ def solve():
     # This does the computational heavy lifting
     data = dict(
         monterey=monterey_plate(),
-        farallon_70=farallon_plate(u(70,"Myr")),
-        farallon_80=farallon_plate(u(80,"Myr")),
-        farallon_60=farallon_plate(u(60,"Myr")),
+        farallon=farallon_plate(u(70,"Myr")),
+        #farallon_80=farallon_plate(u(80,"Myr")),
+        #farallon_60=farallon_plate(u(60,"Myr")),
         underplating=underplating())
 
     data = {k:list(v.into("degC")) for k,v in data.items()}

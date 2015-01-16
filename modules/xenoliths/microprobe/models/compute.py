@@ -44,7 +44,9 @@ def compute_formula(meas, oxygen=6):
     return formula
 
 def compute_mineral(point):
-    """Mineral totals from Taylor 1998, adjusted to be slightly more forgiving"""
+    """ Mineral totals from Taylor 1998
+        We could multiply these ranges by two if it makes sense...
+    """
 
     point.transforms = {k: compute_transform(point,k)
         for k in current_app.config["MINERAL_SYSTEMS"].keys()}
@@ -58,13 +60,13 @@ def compute_mineral(point):
 
     cation_total = point.formula["Total"]-ofu
     if mineral == "ol":
-        if not 2.98 < cation_total < 3.02:
+        if not 2.99 < cation_total < 3.01:
             mineral = "na"
-        if not 0.98 < point.formula["Si"] < 1.02:
+        if not 0.91 < point.formula["Si"] < 1.01:
             mineral = "na"
 
     if mineral in ["opx", "cpx"]:
-        if not 3.97 < cation_total < 4.03:
+        if not 3.985 < cation_total < 4.015:
             mineral = "na"
 
     point.mineral = mineral

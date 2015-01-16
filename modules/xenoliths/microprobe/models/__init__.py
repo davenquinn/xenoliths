@@ -6,14 +6,17 @@ from periodictable import elements
 from uncertainties import ufloat
 from sqlalchemy.dialects.postgresql import JSON
 from sqlalchemy.ext.hybrid import hybrid_property
+from flask.ext.sqlalchemy import BaseQuery
 from geoalchemy2.types import Geometry
 from slugify import slugify
 
+from .image import ProbeImage
 from ..converter import Converter
 from .compute import oxygen_basis
 from ..quality import compute_mineral
 from ...config import OXIDES, MINERALS, MINERAL_SYSTEMS
-from ...core.models.base import BaseModel, db
+from ...core.models import BaseModel, db
+
 
 FORMULAE = {k:pt.formula(k) for k in OXIDES}
 
@@ -57,8 +60,13 @@ class ProbeDatum(BaseModel):
     def oxide(self, value):
         self._oxide = value
 
+class QueryClass(BaseQuery):
+    from .query import tagged, exclude_bad
+
 class ProbeMeasurement(BaseModel):
     __tablename__ = "probe_measurement"
+    query_class = QueryClass
+
     id = db.Column(db.Integer,primary_key=True)
     line_number = db.Column(db.Integer, nullable=False)
     geometry = db.Column(Geometry("Point"))

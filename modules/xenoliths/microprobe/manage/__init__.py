@@ -6,11 +6,13 @@ import numpy as N
 from flask.ext.script import Manager
 
 from .file_handler import get_data
+from .images import import_images
 from ...application import app, db
 from ...core.models import Sample
 from ..models import ProbeMeasurement, ProbeDatum
 
 ProbeCommand = Manager(usage="Command to manage microprobe data")
+ProbeCommand.command(import_images)
 
 def write_json():
     path = os.path.join(app.config.get("DATA_DIR"),"data.json")
@@ -82,3 +84,4 @@ def recalculate():
         print(meas.id)
         meas.compute_derived(db.session)
     db.session.commit()
+

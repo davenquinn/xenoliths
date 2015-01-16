@@ -16,6 +16,7 @@ from ..models import Sample, ProbeMeasurement
 from ..application import db
 from ..microprobe.models.query import tagged, exclude_bad
 from .thermometers import BKN, Taylor1998, Ca_OPX, Ca_OPX_Corr
+from .barometers import Ca_Olivine
 
 def serializable(ufloat):
     return {
@@ -77,7 +78,8 @@ def separate_measurements(queryset, method=Taylor1998):
 def text_output():
     base_queryset = exclude_bad(ProbeMeasurement.query)
     for sample in Sample.query.all():
-        sample_queryset = base_queryset.filter(ProbeMeasurement.sample==sample)
+        sample_queryset = base_queryset\
+            .filter(ProbeMeasurement.sample==sample)
         print sample.id
         for typeid in ["core", "rim"]:
             queryset = tagged(sample_queryset, typeid)
@@ -99,7 +101,22 @@ def text_output():
 def core_temperatures(sample, method=Taylor1998):
     queryset = exclude_bad(ProbeMeasurement.query.filter_by(sample=sample))
     queryset = tagged(queryset, "core")
-    res = separate_measurements(queryset, method=thermometer)
+    return separate_measurements(queryset, method=method)
+
+def xenoliths():
+    return Sample.query\
+        .filter(Sample.xenolith==True)\
+        .order_by(Sample.id)\
+        .all()
+
+def core_pressures(sample):
+    queryset = ProbeMeasurement.query.filter_by(sample=sample)
+    queryset = tagged(exclude_bad(queryset), "core")
+    ol = queryset.filter(ProbeMeasurement.mineral=="ol")
+    opx = queryset.filter(ProbeMeasurement.mineral=="opx")
+    cpx = queryset.filter(ProbeMeasurement.mineral=="cpx")
+    T = BKN(opx, cpx).temperature()
+    return T,Ca_Olivine(ol, cpx).pressure(T)
 
 def sample_temperatures(sample):
     base_queryset = exclude_bad(ProbeMeasurement.query)
@@ -113,4 +130,7 @@ def sample_temperatures(sample):
             yield tname, dict(
                 sep = T,
                 single = single_measurement(queryset, method=thermometer))
-    return {i:{k:v for k,v in type_results(i)} for i in ("core","rim")}
+    s = {i:{k:v for k,v in type_results(i)} for i in ("core","rim")}
+    s["id"] = sample.id
+    return s
+

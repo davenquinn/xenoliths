@@ -11,7 +11,7 @@ gulp.task "compass", ->
 
     cfg =
         css: "#{config.dist}/styles"
-        sass: "#{config.dev}/styles"
+        sass: "#{config.dev}"
         sourcemap: debug
         debug: debug
         import_path: "node_modules"
