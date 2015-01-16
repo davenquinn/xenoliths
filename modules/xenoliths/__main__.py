@@ -1,4 +1,3 @@
-from xenoliths.manage import manager
+from xenoliths.cli import manager
 
-if __name__ == "__main__":
-    manager.run()
+manager.run()
