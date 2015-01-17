@@ -53,6 +53,7 @@ def import_image(sample, image, info):
 
     db.session.add(model)
 
+@click.command()
 def import_images():
     """
     Imports probe images into the database.

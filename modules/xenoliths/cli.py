@@ -1,35 +1,46 @@
-from flask.ext.script import Manager, Server
+import click
+
+from werkzeug.contrib.profiler import ProfilerMiddleware
 
 from .application import app, db
 from .microprobe.manage import ProbeCommand
-from .database.manage import MigrateCommand
-from .thermometry.command import TemperatureCommand
+from .thermometry.manage import TemperatureCommand
+from .database.manage import DBCommand
 from .SIMS import SIMSCommand
-from . import models
+from IPython import embed
 
-manager = Manager(app)
+commands = {
+    "SIMS": SIMSCommand,
+    "temperature": TemperatureCommand,
+    "probe": ProbeCommand,
+    "db": DBCommand}
 
-server = Server(host='0.0.0.0', port=8000)
-manager.add_command("serve", server)
-manager.add_command("db", MigrateCommand)
-manager.add_command("sims", SIMSCommand)
-manager.add_command("temperature", TemperatureCommand)
-manager.add_command("probe", ProbeCommand)
+cli = click.Group(name="Xenoliths", commands=commands)
 
-@manager.command
-def profile():
-    from werkzeug.contrib.profiler import ProfilerMiddleware
-    app.config['PROFILE'] = True
-    app.wsgi_app = ProfilerMiddleware(app.wsgi_app, restrictions=[30])
+@cli.command()
+@click.option("--profile",
+        is_flag=True,
+        default=False,
+        help="Use werkzeug profiler")
+def serve(profile):
+    """Run the application server"""
+    if profile:
+        app.config['PROFILE'] = True
+        app.wsgi_app = ProfilerMiddleware(
+            app.wsgi_app, restrictions=[30])
     app.run(debug = True, host='0.0.0.0', port=8000)
 
+@cli.command()
+def shell():
+    """ Create a python interpreter inside
+        the application.
+    """
+    from . import models as m
+    click.echo("Welcome to the "\
+        + click.style("Xenoliths",fg="green")\
+        + " application!")
+    embed()
 
-@manager.shell
-def make_context():
-    return dict(app=app,db=db,m=models)
-
-@manager.command
-def setup(hard=False):
+def manager():
     with app.app_context():
-        db.create_all()
-        import_all()
+        cli.main(prog_name="Xenoliths")

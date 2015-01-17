@@ -2,10 +2,13 @@
 """
 from __future__ import division, print_function
 
+import click
+
 from ...core.models import Sample
 from .calc import ree_pyroxene
 from .pyx import BKN
 
+@click.command()
 def ree():
     """ Calculates rare-earth element temperatures using the REE-in-two-pyroxene
         thermometer of Liang, Sun, and Yao (2013).

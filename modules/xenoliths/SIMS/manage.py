@@ -1,4 +1,4 @@
-from flask.ext.script import Manager
+import click
 from click import echo
 from pathlib import Path
 
@@ -9,7 +9,7 @@ from .models import SIMSMeasurement, SIMSDatum, db
 from ..application import app
 from .quality import check_quality
 
-SIMSCommand = Manager(usage="Command to manage SIMS data")
+SIMSCommand = click.Group(help="Command to manage SIMS data")
 
 def load_data(file):
     dtype = [("el", str, 2), ("abundance", float), ("err", float)]
@@ -45,9 +45,9 @@ def import_measurement(mineral, raw,norm):
         db.session.add(d)
 
 
-SIMSCommand.command(check_quality)
+SIMSCommand.add_command(check_quality)
 
-@SIMSCommand.command
+@SIMSCommand.command()
 def init():
     """ Import SIMS data into application."""
     SIMSDatum.query.delete()

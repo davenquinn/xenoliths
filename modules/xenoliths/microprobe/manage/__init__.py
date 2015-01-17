@@ -1,3 +1,4 @@
+import click
 from click import echo
 import os
 from geoalchemy2.elements import WKTElement
@@ -11,8 +12,8 @@ from ...application import app, db
 from ...core.models import Sample
 from ..models import ProbeMeasurement, ProbeDatum
 
-ProbeCommand = Manager(usage="Command to manage microprobe data")
-ProbeCommand.command(import_images)
+ProbeCommand = click.Group(help="Command to manage microprobe data")
+ProbeCommand.add_command("import-images",import_images)
 
 def write_json():
     path = os.path.join(app.config.get("DATA_DIR"),"data.json")
@@ -49,7 +50,7 @@ def create_data(point,row):
         db.session.add(d)
         yield d
 
-@ProbeCommand.command
+@ProbeCommand.command(name="import")
 def setup():
     """Imports microprobe data."""
     data = get_data(app.config.get("RAW_DATA"))
@@ -77,7 +78,7 @@ def setup():
     recalculate()
     write_json()
 
-@ProbeCommand.command
+@ProbeCommand.command()
 def recalculate():
     """Calculates derived parameters for already-imported data"""
     for meas in ProbeMeasurement.query.all():
