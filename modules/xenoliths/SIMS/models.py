@@ -1,6 +1,7 @@
 # =*= coding:utf-8 =*=
 
 from periodictable import elements
+from sqlalchemy.dialects.postgresql import array
 from sqlalchemy.ext.hybrid import hybrid_property
 from uncertainties import ufloat
 from collections import defaultdict
@@ -21,8 +22,19 @@ class SIMSDatum(BaseModel):
     raw_ppm = db.Column(db.Float)
     raw_std = db.Column(db.Float)
 
-    raw = property(lambda s: s.__ufloat__("raw"))
-    norm = property(lambda s: s.__ufloat__())
+    @hybrid_property
+    def norm(self):
+        return self.__ufloat__("norm")
+    @norm.expression
+    def norm(cls):
+        return array([cls.norm_ppm, cls.norm_std])
+
+    @hybrid_property
+    def raw(self):
+        return self.__ufloat__("norm")
+    @raw.expression
+    def raw(cls):
+        return array([cls.raw_ppm, cls.raw_std])
 
     def __ufloat__(self, t="norm"):
         ppm = getattr(self, t+"_ppm")
@@ -37,11 +49,13 @@ class SIMSDatum(BaseModel):
     @hybrid_property
     def element(self):
         return elements[self._element]
+    @element.expression
+    def element(cls):
+        return cls._element
 
     @element.setter
     def element(self, value):
         self._element = getattr(elements,value).number
-
 
 class SIMSMeasurement(BaseModel):
     __tablename__ = "sims_measurement"
@@ -51,7 +65,7 @@ class SIMSMeasurement(BaseModel):
         db.String(64),
         db.ForeignKey("sample.id"))
     description = db.Column(db.String(1024))
-    mineral = db.Column(ChoiceType(MINERALS))
+    mineral = db.Column(db.String)
 
     data = db.relationship(SIMSDatum,
         backref="measurement",

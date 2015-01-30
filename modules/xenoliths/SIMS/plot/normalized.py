@@ -3,7 +3,7 @@ from __future__ import division
 import os
 import json
 
-	import periodictable as pt
+import periodictable as pt
 import matplotlib.pyplot as P
 import numpy as N
 
