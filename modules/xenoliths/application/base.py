@@ -17,3 +17,4 @@ class Application(Flask):
         self.config.from_object("xenoliths.config")
         self.register_blueprint(data, url_prefix="/data")
         self.register_blueprint(api,url_prefix="/api")
+        self.api = api
