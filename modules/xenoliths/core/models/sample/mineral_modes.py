@@ -3,9 +3,9 @@ from __future__ import division
 import numpy as N
 from flask import current_app
 
-def compute_modes(sample):
-    minerals = current_app.config.get("MINERALS")
-    densities = current_app.config.get("MINERAL_DENSITIES")
+def modes(sample, completion=False):
+    minerals, densities = tuple(current_app.config.get(i)\
+        for i in ("MINERALS","MINERAL_DENSITIES"))
 
     arr = N.array(sample.classification)
     T = arr.size
@@ -35,4 +35,7 @@ def compute_modes(sample):
         wt[m] = item/total
 
     complete = arr[arr != "un"].size/T
-    return wt, complete
+    if completion:
+        return wt, complete
+    else:
+        return wt
