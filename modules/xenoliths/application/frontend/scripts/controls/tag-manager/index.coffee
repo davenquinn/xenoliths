@@ -1,24 +1,20 @@
 $ = require("jquery")
 d3 = require("d3")
-GenericView = require("../../views/base/generic")
+Spine = require "spine"
 
 template = require("./template.html")
 Options = require("../../options")
 
-TagManager = GenericView.extend(
-  initialize: ->
-    @compile template
+class TagManager extends Spine.Controller
+  constructor: ->
+    super
     @tags = []
     @data = []
     @render()
-    return
 
   render: ->
-    @$el.html @template
+    @el.html template
     @ul = d3.select("#tag_field")
-
-    #this.ul.call(this.bindData,[])
-    this
 
   events:
     "click .icon-remove": "removeTag"
@@ -120,5 +116,5 @@ TagManager = GenericView.extend(
     @ul.call @bindData, @processData(@data)
     App.Data.pushTag tag
     false
-)
+
 module.exports = TagManager
