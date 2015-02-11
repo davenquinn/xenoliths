@@ -1,7 +1,7 @@
-$ = require("jquery")
-TagFilter = require("./tags")
+$ = require "jquery"
+TagFilter = require "./tags"
 Spine = require "spine"
-template = require("./filter.html")
+template = require "./filter.html"
 
 $.fn.serializeObject = ->
   o = {}

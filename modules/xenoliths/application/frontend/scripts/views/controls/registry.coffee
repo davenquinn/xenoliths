@@ -1,7 +1,7 @@
 chart_options = require("../chart/chart-options")
 map_options = require("./map-options")
 raw_data = require("./raw-data")
-filter = require("./filter")
+
 Controls =
   raw:
     name: "Raw"
@@ -21,6 +21,6 @@ Controls =
 
   filter:
     name: "Filter"
-    obj: filter
+    obj: require "../../controls/filter"
 
 module.exports = Controls

@@ -79,5 +79,5 @@ class TagFilter extends Spine.Controller
       d.sel = (if d.sel then null else true)
     @ul.call @bindData, @data
     return
-)
+
 module.exports = TagFilter
