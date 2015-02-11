@@ -33,22 +33,25 @@ def temperature(results, uncertainty=True):
     else:
         return T
 
-def plot_DREE(sample):
-    X,Y = ree_pyroxene(sample, 1.5)
+def plot_DREE(ax, sample, annotate=True):
+    X,Y = ree_pyroxene(sample, 1.5) # Pressure in GPa
     res = regress(X,Y)
     T = temperature(res)
 
-    fig, ax = setup_figure()
-    fig.suptitle(u"{id}: {n:.0f}±{s:.0f} °C".format(
-        id=sample.id,
-        n=T.n,
-        s=T.s))
+    title = u"{id}: {n:.0f}±{s:.0f} °C"\
+        .format(
+            id=sample.id,
+            n=T.n,
+            s=T.s)
     ax.plot(X,Y, "o")
     ax.plot(X,res.fittedvalues,"-")
-
+    if not annotate:
+        return ax
     for x,y,t in zip(X,Y,rare_earths):
-        ax.annotate(t, (x,y), xytext=(5,5), textcoords="offset points")
-    return fig
+        ax.annotate(t, (x,y),
+                xytext=(5,5),
+                textcoords="offset points")
+    return ax
 
 
 def all_DREE(samples):
