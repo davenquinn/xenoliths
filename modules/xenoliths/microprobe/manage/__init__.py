@@ -13,7 +13,7 @@ from ...core.models import Sample
 from ..models import ProbeMeasurement, ProbeDatum
 
 ProbeCommand = click.Group(help="Command to manage microprobe data")
-ProbeCommand.add_command("import-images",import_images)
+ProbeCommand.add_command(import_images, name="import-images")
 
 def write_json():
     path = os.path.join(app.config.get("DATA_DIR"),"data.json")

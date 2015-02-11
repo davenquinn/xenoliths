@@ -29,3 +29,10 @@ class ProbeImage(BaseModel):
     def url(self):
         return "/data/probe-images/"+self.filename
 
+    def serialize(self):
+        return dict(
+            sample=self.sample_id,
+            url=self.url,
+            bbox=[[self.x_min,self.y_min],
+                  [self.x_max,self.y_max]])
+

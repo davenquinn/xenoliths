@@ -45,7 +45,8 @@ def compute_formula(meas, oxygen=6):
 
 def compute_mineral(point):
     """ Mineral totals from Taylor 1998
-        We could multiply these ranges by two if it makes sense...
+        We could multiply these ranges by two
+        if it makes sense...
     """
 
     point.transforms = {k: compute_transform(point,k)
