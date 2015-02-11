@@ -1,33 +1,32 @@
-$ = require("jquery")
-GenericView = require("./generic")
-template = require("../../templates/base/sidebar.html")
-Controls = require("../controls/registry")
-Sidebar = GenericView.extend(
-  initialize: (options) ->
-    @options = options
-    @parent = @options.parent
+$ = require "jquery"
+Spine = require "spine"
+template = require "./template.html"
+Controls = require "../../views/controls/registry"
+
+class Sidebar extends Spine.Controller
+  constructor: (options) ->
+    super
     @map = @parent.map
-    @activeTab = "#" + @options.controls[0]
-    @compile template
+    @activeTab = "#" + @controls[0]
     @render()
-    return
 
   render: ->
     controls = []
-    for c of @options.controls
-      id = @options.controls[c]
+    console.log @controls
+    for c of @controls
+      id = @controls[c]
       control = Controls[id]
       control.id = id
       controls.push control
     opts = controls: controls
-    @$el.html @template(opts)
+    @el.html template(opts)
     for c of controls
       control = controls[c]
-      control = new control.obj(
+      control = new control.obj
         el: "#" + control.id
         parent: this
         map: @map
-      )
+
     @viewTab @activeTab
     return
 
@@ -52,5 +51,5 @@ Sidebar = GenericView.extend(
     @$("a[href=" + tab + "]").parent().addClass "active"
     $(tab).show()
     return
-)
+
 module.exports = Sidebar

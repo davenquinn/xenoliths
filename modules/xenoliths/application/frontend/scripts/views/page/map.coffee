@@ -1,6 +1,6 @@
 GenericView = require("./base")
 MapPanel = require("../../controls/map")
-Sidebar = require("../base/sidebar")
+Sidebar = require("../../controls/sidebar")
 template = require("../../templates/page/map.html")
 MapPage = GenericView.extend(
   initialize: (options) ->

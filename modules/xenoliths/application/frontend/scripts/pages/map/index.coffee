@@ -1,6 +1,6 @@
 $ = require "jquery"
 Spine = require "spine"
-Sidebar = require "../../views/base/sidebar"
+Sidebar = require "../../controls/sidebar"
 MapPanel = require "../../controls/image-map"
 template = require "./template.html"
 
