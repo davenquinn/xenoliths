@@ -1,7 +1,7 @@
 $ = require("jquery")
 OxidesWheel = require("./oxides")
 MultiSelect = require("../../views/controls/multi-select")
-TagManager = require("../../views/controls/tag-manager")
+TagManager = require("../tag-manager")
 template = require("./chart-panel.html")
 Options = App.Options
 require "bootstrap-switch"

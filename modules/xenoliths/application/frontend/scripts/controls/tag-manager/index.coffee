@@ -1,8 +1,10 @@
 $ = require("jquery")
 d3 = require("d3")
-GenericView = require("../base/generic")
-template = require("../../templates/controls/tag-manager.html")
+GenericView = require("../../views/base/generic")
+
+template = require("./template.html")
 Options = require("../../options")
+
 TagManager = GenericView.extend(
   initialize: ->
     @compile template
@@ -14,7 +16,7 @@ TagManager = GenericView.extend(
   render: ->
     @$el.html @template
     @ul = d3.select("#tag_field")
-    
+
     #this.ul.call(this.bindData,[])
     this
 
@@ -41,7 +43,7 @@ TagManager = GenericView.extend(
     return
 
   processData: (data) ->
-    
+
     #takes a list of point items and outputs an object containing
     # tags as indices to boolean values for whether the tag is shared
     # by all items.
