@@ -10,9 +10,7 @@ class TagManager extends Spine.Controller
     super
     @tags = []
     @data = []
-    @render()
 
-  render: ->
     @el.html template
     @ul = d3.select("#tag_field")
 
@@ -22,16 +20,17 @@ class TagManager extends Spine.Controller
     "keypress input[type=text]": "addTagOnEnter"
 
   bindData: (ul, tags) ->
-    li = ul.selectAll("li").data(tags, (d) ->
-      tags.indexOf d
-    )
+    li = ul.selectAll "li"
+      .data tags, (d) -> tags.indexOf d
+
     li.exit().remove()
-    li.enter().append("li").html((d) ->
-      d.name
-    ).attr("class", (d) ->
-      (if d.all then "all" else "some")
-    ).append("span").html("<i class='icon-remove'></i>").attr "class", "remove"
-    return
+    li.enter().append("li")
+      .html (d) -> d.name
+      .attr "class", (d) ->
+        if d.all then "all" else "some"
+      .append "span"
+        .html "<i class='fa fa-times'></i>"
+        .attr "class", "remove"
 
   update: (data) ->
     @tags = @processData(data)
@@ -91,9 +90,7 @@ class TagManager extends Spine.Controller
     return
 
   addTagOnEnter: (e) ->
-    return  unless e.keyCode is 13
-    @addTag()
-    false
+    @addTag() if e.keyCode is 13
 
   addTag: (event) ->
     arr = @$("form").serializeObject()
