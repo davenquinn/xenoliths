@@ -1,19 +1,16 @@
-$ = require("jquery")
-d3 = require("d3")
-GenericView = require("../base/generic")
-Options = require("../../options")
-TagFilter = GenericView.extend(
-  initialize: (options) ->
-    @options = options
-    @tags = window.App.Data.getTags()
-    @render()
-    return
+$ = require "jquery"
+d3 = require "d3"
+Spine = require "spine"
+template = require "./template.html"
 
-  render: ->
-    @$el.append("<ul id=\"tag-filterlist\"></ul>").append "<div class=\"controls\"><a href=\"#all\">Select All</a><a href=\"#none\">Select None</a><a href=\"#bad\">Exclude Bad</a></div>"
+class TagFilter extends Spine.Controller
+  constructor: ->
+    super
+    @tags = App.Data.getTags()
+
+    @el.html template
     @ul = d3.select("#tag-filterlist")
     @ul.call @bindData, @prepareData()
-    this
 
   events:
     "click li": "changeTag"
@@ -40,7 +37,7 @@ TagFilter = GenericView.extend(
 
     else if v is "bad"
       @data.forEach (d) ->
-        d.sel = false  if Options.bad_tags.indexOf(d.name) > -1
+        d.sel = false  if App.Options.bad_tags.indexOf(d.name) > -1
         return
 
     @ul.call @bindData, @data

@@ -1,5 +1,5 @@
 $ = require("jquery")
-TagFilter = require("../tag-filter")
+TagFilter = require("./tags")
 Spine = require "spine"
 template = require("./filter.html")
 
