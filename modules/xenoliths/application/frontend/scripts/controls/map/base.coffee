@@ -35,8 +35,9 @@ class Map extends Spine.Controller
     @setLayer "sem"
     @map.zoomToExtent @bounds
 
-  setupTiles: (mapType) ->
+  setupTiles: (mapType) =>
     a = @
+    mapBounds = @bounds
     getURL = (bounds) ->
       mapMinZoom = 0
       mapMaxZoom = 7
@@ -49,7 +50,7 @@ class Map extends Spine.Controller
       path = "/data/tiles/" + a.options.sample + "/" + mapType + "/" + z + "/" + x + "/" + y + "." + @type
       url = @url
       url = @selectUrl(path, url)  if OpenLayers.Util.isArray(url)
-      if a.bounds.intersectsBounds(bounds) and (z >= mapMinZoom) and (z <= mapMaxZoom)
+      if mapBounds.intersectsBounds(bounds) and (z >= mapMinZoom) and (z <= mapMaxZoom)
         url + path
       else
         emptyTileURL

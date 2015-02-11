@@ -20,48 +20,64 @@ class Map extends MapBase
     # Add the container when the overlay is added to the map.
     #this.overlay.afterAdd = this.drawSVG;
     @map.addLayer @overlay
-    @drawSVG()
-    return
+    @setupSVG()
+    @drawFeatures data
 
-  drawSVG: ->
+  setData: (data)=>
+    @drawFeatures(data)
+
+  setupSVG: =>
     a = this
-    project = (x) ->
-      point = a.map.getViewPortPxFromLonLat(new OpenLayers.LonLat(x[0], x[1]))
+    @project = (x) =>
+      point = @map.getViewPortPxFromLonLat(new OpenLayers.LonLat(x[0], x[1]))
       [point.x, point.y]
 
-    div = d3.selectAll("#" + a.overlay.div.id)
+    div = d3.selectAll("#" + @overlay.div.id)
     div.selectAll("svg").remove()
     @svg = div.append("svg").on("click", @onBackgroundClick)
 
     #.attr("width", $("#map").width())
     #.attr("height", $("#map").height());
-    g = @svg.append("svg:g")
-    bounds = a.getBounds(a.data)
-    path = d3.geo.path().projection(project)
+    @g = @svg.append("svg:g")
+    @bounds = @getBounds @data
+    @path = d3.geo.path().projection(@project)
 
     #var ramp=d3.scale.sqrt().domain([0,10]).range(["#71eeb8","salmon"]);
-    a.feature = g.selectAll(".dot")
-      .data(a.data.features)
-      .enter()
+    #
+
+  reset: =>
+      bottomLeft = @project(@bounds[0])
+      topRight = @project(@bounds[1])
+      @svg
+        .attr
+          width: topRight[0] - bottomLeft[0]
+          height: bottomLeft[1] - topRight[1]
+        .style
+          "margin-left": bottomLeft[0] + "px"
+          "margin-top": topRight[1] + "px"
+      @g.attr "transform", "translate(#{-bottomLeft[0]},#{-topRight[1]})"
+      @features.attr "d", @path
+
+  drawFeatures: (data)=>
+    data = @data unless data?
+
+    @features = @g.selectAll("path.dot")
+      .data data.features, (d)->d.properties.id
+
+    @features.exit().remove()
+    @features.enter()
         .append("path")
           .attr("class", "dot")
-          .attr("d", path.pointRadius(3.5))
-          .style("fill", a.colormap.func)
-          .on("mouseover", a.onMouseMove)
-          .on("mouseout", a.onMouseOut)
-          .on("click", a.onClick)
-          .classed "selected", (d) ->
-            a.sel.indexOf(d) isnt -1
-    reset = ->
-      bottomLeft = project(bounds[0])
-      topRight = project(bounds[1])
-      a.svg.attr("width", topRight[0] - bottomLeft[0]).attr("height", bottomLeft[1] - topRight[1]).style("margin-left", bottomLeft[0] + "px").style "margin-top", topRight[1] + "px"
-      g.attr "transform", "translate(" + -bottomLeft[0] + "," + -topRight[1] + ")"
-      a.feature.attr "d", path
+          .attr("d", @path.pointRadius(3.5))
+          .style("fill", @colormap.func)
+          .on("mouseover", @onMouseMove)
+          .on("mouseout", @onMouseOut)
+          .on("click", @onClick)
+          .classed "selected", (d) => @sel.indexOf(d) isnt -1
 
-    reset()
-    a.map.events.register "moveend", a.map, reset
-    a.zoomToPoint @sel[0].geometry.coordinates, 4  if @sel[0]?
+    @reset()
+    @map.events.register "moveend", @map, @reset
+    @zoomToPoint @sel[0].geometry.coordinates, 4  if @sel[0]?
 
   getBounds: (data) ->
     xvalues = []
