@@ -3,7 +3,7 @@ from flask import Blueprint, request, make_response, jsonify
 from json import dumps
 from sqlalchemy.orm import joinedload
 
-api = Blueprint('api', __name__,)
+api = Blueprint('api', __name__)
 
 @api.errorhandler(404)
 def not_found(error):
@@ -52,13 +52,12 @@ def tags(tag, points):
 def modes():
     from . import db
     from ..core.models import Sample
-    from .mineral_modes import compute_modes
 
     def modes():
         samples = db.session.query(Sample).all()
         for s in samples:
             try:
-                m, complete = compute_modes(s)
+                m, complete = s.modes(completion=True)
             except:
                 continue
             yield dict(
@@ -69,6 +68,10 @@ def modes():
     return jsonify(
         status="success",
         data=list(modes()))
+
+@api.route("/test")
+def test():
+    return jsonify(status="Success")
 
 @api.route("/probe-data")
 def probe_data():
@@ -83,3 +86,12 @@ def probe_data():
         type="FeatureCollection",
         features=[o.serialize() for o in q])
 
+
+@api.route("/probe-image")
+def probe_images():
+    from . import db
+    from ..microprobe.models import ProbeImage
+
+    q = db.session.query(ProbeImage).all()
+    return jsonify(
+        images=[im.serialize() for im in q])
