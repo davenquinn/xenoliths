@@ -1,10 +1,15 @@
 import click
 import seaborn as sns
+sns.set_context("paper")
 from matplotlib import pyplot as P
 from xenoliths.application import app
 from xenoliths.SIMS.plot import plot_all
 from xenoliths.microprobe.group import get_oxides, get_molar
 from xenoliths.thermometry.results import xenoliths, core_pressures
+
+from .pyx_ree import pyx_dree
+from .trace_elements import trace_elements
+from .mineral_modes import mineral_modes
 
 @click.command()
 def ree_cpx():
@@ -17,11 +22,6 @@ def ree_opx():
     """ OPX rare-earth element profile"""
     fig = plot_all("opx")
     fig.savefig("includes/figures/generated/ree-opx.pdf")
-
-@click.command()
-def pyx_dree():
-    sample = Sample.query.get(sample)
-    fig = plot_DREE(sample)
 
 @click.command()
 def spinel_cr():
@@ -43,7 +43,10 @@ def pressures():
 cmds = {
     "ree-cpx": ree_cpx,
     "ree-opx": ree_opx,
-    "pressures": pressures
+    "pressures": pressures,
+    "pyx-dree": pyx_dree,
+    "ree": trace_elements,
+    "modes": mineral_modes
     }
 
 
