@@ -5,7 +5,7 @@ from __future__ import division, print_function
 import click
 
 from ...core.models import Sample
-from .calc import ree_pyroxene
+from .calc import ree_pyroxene, rare_earths
 from .pyx import BKN
 
 @click.command()
