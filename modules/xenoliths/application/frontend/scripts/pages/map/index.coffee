@@ -39,7 +39,7 @@ class MapPage extends Spine.Controller
       selected: null
     @sidebar = new Sidebar
       el: @$("#sidebar")
-      parent: this
+      parent: @
       controls: [
         "data"
         "raw"
