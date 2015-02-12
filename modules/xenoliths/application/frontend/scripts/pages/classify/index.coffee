@@ -1,4 +1,4 @@
-SelectMap = require("../map/select")
+SelectMap = require("../../controls/map/select")
 MapPanel = require("./map")
 Options = require("./options")
 template = require("./template.html")

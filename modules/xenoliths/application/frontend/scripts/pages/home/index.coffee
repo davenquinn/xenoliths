@@ -1,7 +1,6 @@
-BasePage = require("./base")
-ChartPanel = require("../chart/chart")
-Sidebar = require("../../controls/sidebar")
-template = require("../../templates/page/home.html")
+BasePage = require("../base")
+template = require("./template.html")
+
 IndexPage = BasePage.extend(
   initialize: ->
     @compile template

@@ -1,8 +1,9 @@
-Backbone = require("backbone")
 d3 = require("d3")
-GenericView = require("../base/generic")
-Options = require("../../options")
-Colorizer = require("../base/colors")
+
+Colorizer = require "../../views/base/colors"
+GenericView = require "../../views/base/generic"
+Options = require "../../options"
+
 Chart = GenericView.extend(
   initialize: (options) ->
     @options = options

@@ -1,13 +1,13 @@
 $ = require("jquery")
 Backbone = require("backbone")
-ClassifyPage = require("./controls/classify")
-MapPage = require("./views/page/map")
-ChartPage = require("./views/page/chart")
-IndexPage = require("./views/page/home")
-TernaryPage = require("./views/page/ternary")
-DataManager = require("./data")
+ClassifyPage = require "./pages/classify"
+MapPage = require "./pages/map"
+ChartPage = require "./pages/chart"
+IndexPage = require "./pages/home"
+TernaryPage = require "./pages/ternary"
+DataManager = require "./data"
 MineralModes = require "./pages/mineral-modes"
-NewMap = require "./pages/map"
+NewMap = require "./pages/map2"
 
 Router = Backbone.Router.extend(
   initialize: (options) ->

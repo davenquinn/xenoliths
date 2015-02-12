@@ -1,7 +1,7 @@
-BasePage = require("./base")
-ChartPanel = require("../chart/chart")
-Sidebar = require("../../controls/sidebar")
-template = require("../../templates/page/chart.html")
+BasePage = require "../base"
+ChartPanel = require "../../controls/chart"
+Sidebar = require "../../controls/sidebar"
+template = require "./template.html"
 ChartPage = BasePage.extend(
   initialize: (options) ->
     @options = options

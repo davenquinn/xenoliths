@@ -1,5 +1,5 @@
 d3 = require("d3")
-MapBase = require("../map/base")
+MapBase = require("../../controls/map/base")
 Options = require("../../options")
 
 getShape = (bounds, n_cells=5000)->

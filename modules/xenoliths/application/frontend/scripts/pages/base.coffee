@@ -1,4 +1,4 @@
 $ = require("jquery")
-GenericView = require("../base/generic")
+GenericView = require("../views/base/generic")
 GenericPage = GenericView.extend({})
 module.exports = GenericPage
