@@ -1,6 +1,6 @@
 $ = require("jquery")
 OxidesWheel = require("./oxides")
-MultiSelect = require("../../views/controls/multi-select")
+MultiSelect = require("../multi-select")
 TagManager = require("../tag-manager")
 template = require("./chart-panel.html")
 Options = App.Options

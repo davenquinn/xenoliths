@@ -1,5 +1,5 @@
 $ = require("jquery")
-GenericView = require("../base/generic")
+GenericView = require("../../views/base/generic")
 d3 = require("d3")
 Options = require("../../options")
 MultiSelectControl = GenericView.extend(

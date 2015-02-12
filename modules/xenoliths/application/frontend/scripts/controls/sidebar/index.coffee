@@ -1,7 +1,25 @@
 $ = require "jquery"
 Spine = require "spine"
 template = require "./template.html"
-Controls = require "../../views/controls/registry"
+
+Controls =
+  raw:
+    name: "Raw"
+    obj: require "../raw-data"
+  "chart-options":
+    name: "Options"
+    obj: require "../../views/chart/chart-options"
+  "map-options":
+    name: "Options"
+    obj: require "../map/options"
+
+  data:
+    name: "Data"
+    obj: require "../chart-panel"
+
+  filter:
+    name: "Filter"
+    obj: require "../filter"
 
 class Sidebar extends Spine.Controller
   constructor: (options) ->

@@ -1,6 +1,6 @@
 $ = require("jquery")
-GenericView = require("../base/generic")
-template = require("../../templates/controls/raw-data.html")
+GenericView = require "../../views/base/generic"
+template = require "./template.html"
 RawViewer = GenericView.extend(
   initialize: (options) ->
     @options = options

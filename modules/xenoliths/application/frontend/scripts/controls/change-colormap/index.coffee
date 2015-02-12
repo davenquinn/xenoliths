@@ -1,7 +1,8 @@
 $ = require("jquery")
-GenericView = require("../base/generic")
+GenericView = require("../../views/base/generic")
 Options = require("../../options")
-template = require("../../templates/controls/change-colormap.html")
+template = require "./template.html"
+
 ChangeColormap = GenericView.extend(
   initialize: (options) ->
     @options = options
