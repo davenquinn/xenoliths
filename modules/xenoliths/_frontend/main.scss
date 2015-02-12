@@ -3,23 +3,23 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "lib/bourbon/bourbon";
-@import "lib/neat/neat";
-@import "lib/openlayers";
+@import "styles/lib/bourbon/bourbon";
+@import "styles/lib/neat/neat";
+@import "styles/lib/openlayers";
 
 $FontAwesomePath: "/static/lib/font-awesome";
 @import "font-awesome/scss/font-awesome";
 @import 'bootstrap-sass/assets/stylesheets/bootstrap';
-@import "lib/datatables";
-//@import "lib/jquery_simple_slider";
-@import "drag";
+@import "styles/lib/datatables";
+//@import "styles/lib/jquery_simple_slider";
+@import "styles/drag";
 @import "compass";
 @import "compass/utilities/general/clearfix";
-@import "table";
-@import "plots";
-@import "lib/switch";
-@import "lib/toggle";
-@import "../scripts/controls/image-map/style";
+@import "styles/table";
+@import "styles/plots";
+@import "styles/lib/switch";
+@import "styles/lib/toggle";
+@import "./controls/image-map/style";
 
 $max-width: 100%;
 
