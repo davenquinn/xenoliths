@@ -149,10 +149,10 @@ class Map extends MapBase
 
 
   #}
-  setColormap: (name, options) ->
+  setColormap: (name, options) =>
     @colormap = new @colors[name](options)
-    @drawSVG()
-    return
+    @features.style fill: @colormap.func
+
 
   setSelectMode: (mode) ->
     @selectMode = mode
