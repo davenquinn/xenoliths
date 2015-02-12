@@ -20,7 +20,7 @@ Controls =
     obj: require "../filter"
 
 class Sidebar extends Spine.Controller
-  constructor: (options) ->
+  constructor: ->
     super
     @map = @parent.map
     @activeTab = "#" + @controls[0]
@@ -31,13 +31,17 @@ class Sidebar extends Spine.Controller
     console.log @controls
     for c of @controls
       id = @controls[c]
+      control = {}
       control = Controls[id]
       control.id = id
       controls.push control
     opts = controls: controls
+
     @el.html template(opts)
+
     for c of controls
       control = controls[c]
+      console.log control
       control = new control.obj
         el: "#" + control.id
         parent: this
@@ -66,6 +70,5 @@ class Sidebar extends Spine.Controller
     @$("#tabs>div").hide()
     @$("a[href=" + tab + "]").parent().addClass "active"
     $(tab).show()
-    return
 
 module.exports = Sidebar

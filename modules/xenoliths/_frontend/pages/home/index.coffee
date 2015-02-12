@@ -1,14 +1,9 @@
-BasePage = require("../base")
-template = require("./template.html")
+Spine = require "spine"
+template = require "./template.html"
 
-IndexPage = BasePage.extend(
-  initialize: ->
-    @compile template
-    @render()
-    return
+class IndexPage extends Spine.Controller
+  constructor: ->
+    super
+    @el.html template
 
-  render: ->
-    @$el.html @template
-    return
-)
 module.exports = IndexPage

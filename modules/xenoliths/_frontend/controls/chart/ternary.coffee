@@ -1,10 +1,9 @@
-_ = require("underscore")
-Backbone = require("backbone")
 d3 = require("d3")
-GenericView = require("../../views/base/generic")
-Options = require("../../options")
-Colorizer = require("../../views/base/colors")
-TernaryChart = GenericView.extend(
+Options = require "../../options"
+Colorizer = require "../../views/base/colors"
+
+Spine = require "spine"
+class TernaryChart extends Spine.Controller
   defaults:
     margin:
       left: 50
@@ -15,26 +14,22 @@ TernaryChart = GenericView.extend(
     system: "pyroxene"
     selection: []
 
-  initialize: (options) ->
-    @options = options
-    _.defaults @options, @defaults
-    console.log @options
-    @parent = @options.parent
-    @data = @options.data
-    @sel = @options.selection
+  constructor: ->
+    super
+    @margin = @margin or @defaults.margin
+    @system = @defaults.system unless @system?
+    @sel = @selection or []
     @options.colormap = new Colorizer["samples"]()
-    m = @options.margin
-    @width = @$el.width() - m.left - m.right
-    @height = @$el.height() - m.top - m.bottom
-    @system = Options.systems[@options.system]
+    m = @margin
+    @width = @el.width() - m.left - m.right
+    @height = @el.height() - m.top - m.bottom
+    @system = Options.systems[@system]
     @setupEventHandlers()
     @loadAxes()
-    return
 
   loadAxes: ->
     a = this
     @drawSVG()
-    return
 
   drawSVG: ->
     a = this
@@ -168,5 +163,5 @@ TernaryChart = GenericView.extend(
     @data = data
     @refresh()
     return
-)
+
 module.exports = TernaryChart

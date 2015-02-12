@@ -1,21 +1,19 @@
-GenericView = require "../base"
+Spine = require "spine"
+
 MapPanel = require "../../controls/map"
 Sidebar = require "../../controls/sidebar"
 template = require "./template.html"
-MapPage = GenericView.extend(
-  initialize: (options) ->
-    @options = options
-    @sample = @options.sample
-    @sample = "CK-2"  unless @sample?
-    @compile template
+
+class MapPage extends Spine.Controller
+  constructor: ->
+    super
+    @sample = "CK-2" unless @sample?
     @setup()
-    return
 
   setup: ->
     @filter = samples: [@sample]
     @data = App.Data.filter(@filter)
     @render()
-    return
 
   createSelection: ->
     isSelected = (element, index, array) ->
@@ -27,14 +25,14 @@ MapPage = GenericView.extend(
       ind > -1
     a = this
     selection = null
-    selection = @data.features.filter(isTagged)  if @options.tag
-    selection = @data.features.filter(isSelected)  if @options.point
+    selection = @data.features.filter(isTagged)  if @tag
+    selection = @data.features.filter(isSelected)  if @point
     console.log selection
     selection
 
   render: ->
-    @$el.height $(window).height()
-    @$el.html @template
+    @el.height $(window).height()
+    @el.html template
     @map = new MapPanel(
       el: "#map"
       parent: this
@@ -42,7 +40,7 @@ MapPage = GenericView.extend(
       data: @data
       selected: @createSelection()
     )
-    @sidebar = new Sidebar(
+    @sidebar = new Sidebar
       el: "#sidebar"
       parent: this
       controls: [
@@ -51,14 +49,11 @@ MapPage = GenericView.extend(
         "map-options"
         "filter"
       ]
-    )
-    return
 
   onSampleChanged: (sample) ->
     @sample = sample
     @map.remove()
     @sidebar.refresh()
     @setup()
-    return
-)
+
 module.exports = MapPage

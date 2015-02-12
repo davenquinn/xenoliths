@@ -1,23 +1,16 @@
-$ = require("jquery")
-GenericView = require("../../views/base/generic")
-Options = require("../../options")
+$ = require "jquery"
+Spine = require "spine"
+Options = require "../../options"
 template = require "./template.html"
 
-ChangeColormap = GenericView.extend(
-  initialize: (options) ->
-    @options = options
-    @parent = @options.parent
+class ChangeColormap extends Spine.Controller
+  constructor: ->
+    super
     @map = @parent.map
-    @compile template
-    @render()
-    return
+    @el.html template oxides: Options.oxides
 
   events:
     "change select[name=colormap]": "changeColormap"
-
-  render: ->
-    @$el.html @template(oxides: Options.oxides)
-    this
 
   changeColormap: (event) ->
     val = $(event.currentTarget).val()
@@ -30,5 +23,5 @@ ChangeColormap = GenericView.extend(
     else
       @map.setColormap val
     return
-)
+
 module.exports = ChangeColormap

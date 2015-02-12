@@ -1,17 +1,14 @@
 d3 = require("d3")
+Spine = require "spine"
 
 Colorizer = require "../../views/base/colors"
-GenericView = require "../../views/base/generic"
 Options = require "../../options"
 
-Chart = GenericView.extend(
-  initialize: (options) ->
-    @options = options
-    @parent = @options.parent
-    @axes = @options.axes
-    @data = @options.data
+class Chart extends Spine.Controller
+  constructor: ->
+    super
     @colormap = new Colorizer["samples"]()
-    @sel = @options.selected
+    @sel = @selected
     @sel = []  unless @sel
     @margin =
       left: 50
@@ -19,8 +16,8 @@ Chart = GenericView.extend(
       bottom: 40
       right: 0
 
-    @width = @$el.width() - @margin.left - @margin.right
-    @height = @$el.height() - @margin.top - @margin.bottom
+    @width = @el.width() - @margin.left - @margin.right
+    @height = @el.height() - @margin.top - @margin.bottom
     @setupEventHandlers()
     @loadAxes()
     return
@@ -167,5 +164,5 @@ Chart = GenericView.extend(
     @data = data
     @refresh()
     return
-)
+
 module.exports = Chart

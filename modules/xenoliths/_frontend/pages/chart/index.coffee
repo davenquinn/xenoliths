@@ -1,35 +1,32 @@
-BasePage = require "../base"
+Spine = require "spine"
 ChartPanel = require "../../controls/chart"
 Sidebar = require "../../controls/sidebar"
 template = require "./template.html"
-ChartPage = BasePage.extend(
-  initialize: (options) ->
-    @options = options
+
+class ChartPage extends Spine.Controller
+  constructor: ->
+    super
     @axes =
       x: "oxides.MgO"
       y: "oxides.FeO"
 
     @filter = {}
-    @parent = options.parent
-    @compile template
     @setup()
-    return
 
   setup: ->
     @data = App.Data.filter(@filter)
     @render()
-    return
 
   render: ->
-    @$el.height $(window).height()
-    @$el.html @template
-    @map = new ChartPanel(
+    @el.height $(window).height()
+    @el.html template
+    @map = new ChartPanel
       el: "#chart"
       parent: this
       data: @data
       axes: @axes
-    )
-    @sidebar = new Sidebar(
+
+    @sidebar = new Sidebar
       el: "#sidebar"
       map: @map
       parent: this
@@ -39,13 +36,10 @@ ChartPage = BasePage.extend(
         "chart-options"
         "filter"
       ]
-    )
-    return
 
   refresh: ->
     @map.remove()
     @setup()
     @sidebar.refresh()
-    return
-)
+
 module.exports = ChartPage

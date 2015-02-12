@@ -1,21 +1,24 @@
-$ = require("jquery")
-GenericView = require("../../views/base/generic")
-d3 = require("d3")
+$ = require "jquery"
+Spine = require "spine"
+d3 = require "d3"
+
 Options = require("../../options")
-MultiSelectControl = GenericView.extend(
-  initialize: (options) ->
-    @options = options
-    a = this
-    @parent = @options.parent
+
+class MultiSelectControl extends Spine.Controller
+  constructor: ->
+    super
     @map = @parent.map
     @oxides = Options.oxides
     width = $("#tabs").innerWidth()
-    
+
     #var height = $("#data").innerHeight()-$("#selection_type").height()-$("#tag_manager").height();
     #this.$el.height(height);
     #this.$el.css("overflow","scroll")
     @$el.css "padding-top", 20
-    @svg = d3.select(@el).append("svg").attr("width", width)
+    @svg = d3.select(@el[0])
+      .append("svg")
+      .attr("width", width)
+
     @width = width
     @color = d3.scale.category20()
     return
@@ -77,5 +80,5 @@ MultiSelectControl = GenericView.extend(
   update: ->
     @render @map.sel
     return
-)
+
 module.exports = MultiSelectControl

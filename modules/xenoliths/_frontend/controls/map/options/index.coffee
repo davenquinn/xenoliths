@@ -1,26 +1,18 @@
-GenericView = require "../../../views/base/generic"
+Spine = require "spine"
 SelectMap = require "../select"
 ChangeColormap = require "../../change-colormap"
-MapOptions = GenericView.extend(
-  initialize: (options) ->
-    @options = options
-    
-    #this.__super__.initialize.apply(this,arguments)
-    @parent = @options.parent
+
+class MapOptions extends Spine.Controller
+  constructor: ->
+    super
     @map = @parent.map
-    @render()
-    new SelectMap(
+    @el.html "<div id=\"select-map\"></div><div id=\"colormap\"></div>"
+    new SelectMap
       el: "#select-map"
       parent: @parent
-    )
-    new ChangeColormap(
+
+    new ChangeColormap
       el: "#colormap"
       parent: @parent
-    )
-    return
 
-  render: ->
-    @$el.html "<div id=\"select-map\"></div><div id=\"colormap\"></div>"
-    this
-)
 module.exports = MapOptions

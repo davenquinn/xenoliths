@@ -1,8 +1,8 @@
-$ = require("jquery")
-
-template = require("./template.html")
-Dragdealer = require("dragdealer").Dragdealer
+$ = require "jquery"
 Spine = require "spine"
+Dragdealer = require("dragdealer").Dragdealer
+
+template = require "./template.html"
 Toggle = require "../../../controls/toggle"
 
 class OptionsView extends Spine.Controller
