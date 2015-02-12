@@ -3,8 +3,6 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "styles/lib/bourbon/bourbon";
-@import "styles/lib/neat/neat";
 @import "styles/lib/openlayers";
 
 $FontAwesomePath: "/static/lib/font-awesome";
@@ -18,7 +16,6 @@ $FontAwesomePath: "/static/lib/font-awesome";
 @import "styles/table";
 @import "styles/plots";
 @import "styles/lib/switch";
-@import "styles/lib/toggle";
 @import "./controls/image-map/style";
 
 $max-width: 100%;
@@ -55,9 +52,7 @@ ul.links {
 }
 
 #main {
-	@include fill-parent;
 	height: 100%;
-	@include span-columns(9);
 	//width: 75%;
 	position: fixed;
 	top: 0;
@@ -86,9 +81,6 @@ ul.links {
 	max-height: 100%;
 	padding: 30px;
 	padding-left: 0;
-	@include fill-parent;
-	@include span-columns(3);
-	@include omega();
 	h1 {
 		margin-top: 0;
 		font-size: 1.5em;
