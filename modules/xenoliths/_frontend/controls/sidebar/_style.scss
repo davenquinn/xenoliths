@@ -2,24 +2,17 @@
 	padding-top: 10px;
 	height: 100vh;
   width: 20%;
-  min-width: 20em;
+  min-width: 25em;
+  display: flex;
+  flex-direction: column;
 	padding: 1em;
 	h1 {
 		margin-top: 0;
 		font-size: 1.5em;
 	}
 	#tabs {
+    flex-grow: 1;
+    overflow-y: scroll;
 		position: relative;
-		height: 100%;
-		&>div {
-			width: 100%;
-			position: relative;
-			overflow-y: scroll;
-			height: 100%
-		}
-		pre {
-			display: block;
-			overflow-y: scroll
-		}
 	}
 }
