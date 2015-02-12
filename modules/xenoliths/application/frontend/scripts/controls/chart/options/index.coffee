@@ -1,7 +1,8 @@
-$ = require("jquery")
-GenericView = require("../base/generic")
-Options = require("../../options")
-template = require("../../templates/chart/chart-options.html")
+$ = require "jquery"
+GenericView = require("../../../views/base/generic")
+Options = require("../../../options")
+template = require "./template.html"
+
 OptionsView = GenericView.extend(
   initialize: (options) ->
     @options = options

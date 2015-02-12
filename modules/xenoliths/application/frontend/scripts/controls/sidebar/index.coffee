@@ -8,15 +8,13 @@ Controls =
     obj: require "../raw-data"
   "chart-options":
     name: "Options"
-    obj: require "../../views/chart/chart-options"
+    obj: require "../chart/options"
   "map-options":
     name: "Options"
     obj: require "../map/options"
-
   data:
     name: "Data"
     obj: require "../chart-panel"
-
   filter:
     name: "Filter"
     obj: require "../filter"
