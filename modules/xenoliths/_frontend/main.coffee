@@ -1,9 +1,19 @@
-$ = require("jquery")
-window.$ = $
+$ = require "jquery"
 window.jQuery = $
-Backbone = require("backbone")
-Backbone.$ = $
-startApp = require("./app")
+window.$ = $
+Spine = require "spine"
+Spine.jQuery = $
+require "spine/lib/route"
+
+App = require "./app"
+
+startApp = (d)->
+  new App
+    el: "body"
+    data: d
+
+  console.log "Navigating"
+  Spine.Route.setup()
 
 console.log "Starting to get data"
 $("body").append "<img class='loading' src='/static/images/ajax-loader.gif' />"
