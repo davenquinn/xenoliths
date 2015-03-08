@@ -64,7 +64,15 @@ class Chart extends Spine.Controller
 
   drawSVG: ->
     a = this
-    @svg = d3.select(@el).append("svg").attr("width", @$el.width()).attr("height", @$el.width()).append("g").attr("transform", "translate(" + @margin.left + "," + @margin.top + ")").call(@zoomer)
+    @svg = d3.select @el[0]
+      .append "svg"
+        .attr
+          width: @el.width()
+          height: @el.width()
+        .append "g"
+          .attr "transform", "translate(#{@margin.left},#{@margin.top})"
+          .call @zoomer
+
     @svg.append("rect").attr("id", "clip").attr("width", @width).attr("height", @height).on "click", @onBackgroundClick
     @svg.append("g").attr("class", "x axis").attr("transform", "translate(0," + @height + ")").call(@xAxis).append("text").attr("class", "label").attr("x", @width / 2).attr("y", 30).style("text-anchor", "center").text @axes.x
     @svg.append("g").attr("class", "y axis").call(@yAxis).append("text").attr("class", "label").attr("transform", "rotate(-90)").attr("y", -40).attr("x", -@height / 2).attr("dy", ".71em").style("text-anchor", "center").text @axes.y

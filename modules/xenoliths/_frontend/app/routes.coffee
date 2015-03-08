@@ -43,8 +43,8 @@ module.exports =
     new ChartPage(el: page_element)
 
   "ternary/:system": (p) ->
-    system = system or "pyroxene"
+    system = p.system or "pyroxene"
     new TernaryPage
       el: page_element
-      system: p.system
+      system: system
 

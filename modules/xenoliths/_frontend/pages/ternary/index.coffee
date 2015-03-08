@@ -12,12 +12,13 @@ class ChartPage extends Spine.Controller
 
   setup: ->
     @data = App.Data.filter(@filter)
+    @log "Rendering ternary panel"
     @render()
 
   render: ->
     @el.height $(window).height()
     @el.html template
-    
+
     @map = new TernaryPanel
       el: "#chart"
       parent: this
