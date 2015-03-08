@@ -117,7 +117,6 @@ class TernaryChart extends Spine.Controller
       a.sel.length = 0
       a.dispatcher.updated.apply this, arguments
 
-    console.log a.options.system
     @xTransform = (d) ->
       a.x d.properties.systems[a.options.system]
 
