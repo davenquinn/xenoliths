@@ -1,8 +1,10 @@
 d3 = require("d3")
 Options = require "../../options"
 Colorizer = require "../../views/base/colors"
-
 Spine = require "spine"
+
+Ternary = require "./ternary-axes"
+
 class TernaryChart extends Spine.Controller
   defaults:
     margin:
@@ -26,11 +28,14 @@ class TernaryChart extends Spine.Controller
     @width = size - m.left - m.right
     @height = size - m.top - m.bottom
     @system = Options.systems[@system]
-    @setupEventHandlers()
-    @loadAxes()
 
-  loadAxes: ->
-    a = this
+    @dispatcher = d3.dispatch("updated", "mouseout")
+
+    @ternary = new Ternary
+      range: [0,Math.min(@width,@height)]
+      margin: [50,50]
+
+    @setupEventHandlers()
     @drawSVG()
 
   drawSVG: ->
@@ -49,10 +54,7 @@ class TernaryChart extends Spine.Controller
     rad = @height / 1.5
     h = @height
     c = [@width / 2, rad]
-    l = [
-      c[0] - rad * sin30
-      c[1] + rad * cos30
-    ]
+    l = [c[0]-rad*sin30,c[1]+rad*cos30]
     r = [
       c[0] + rad * sin30
       c[1] + rad * cos30
@@ -60,13 +62,8 @@ class TernaryChart extends Spine.Controller
     t = [c[0],c[1] - rad]
     corners = [t,r,l]
 
-    @x = (s) ->
-      d = a.system.components.map (i)->s[i]
-      corners[0][0] * d[0] + corners[1][0] * d[1] + corners[2][0] * d[2]
-
-    @y = (s) ->
-      d = a.system.components.map (i)->s[i]
-      corners[0][1] * d[0] + corners[1][1] * d[1] + corners[2][1] * d[2]
+    scales =
+      top: d3
 
     points = corners.reduce (p, c) -> "#{p} #{c[0]},#{c[1]}"
 
@@ -80,10 +77,9 @@ class TernaryChart extends Spine.Controller
     @points.call @joinData, @data
     @dims = [@width,@height]
 
-  setupEventHandlers: ->
-    a = this
-    @dispatcher = d3.dispatch("updated", "mouseout")
-    @onMouseMove = (d, i) ->
+  setupEventHandlers: =>
+    a = @
+    onMouseMove: (d, i) ->
       d3.selectAll(".dot.hovered").classed "hovered", false
       sel = d3.select(this)
       if d3.event.shiftKey and not sel.classed("selected")
@@ -93,50 +89,53 @@ class TernaryChart extends Spine.Controller
       a.dispatcher.updated.apply this, arguments
       return
 
-    @onMouseOut = (d, i) ->
-      sel = d3.select(this)
+    onMouseOut: (d, i) ->
+      sel = d3.select @
       if a.sel.length > 0
         sel.classed "hovered", false
-        a.dispatcher.mouseout.apply this, arguments
+        @dispatcher.mouseout.apply this, arguments
 
-    @onClick = (d, i) ->
-      item = d3.select(this)
+    onClick: (d, i) ->
+      item = d3.select @
       toSelect = not item.classed("selected")
       item.classed "selected", toSelect
       if toSelect
-        a.sel.push d
+        @sel.push d
       else
-        index = a.sel.indexOf(d)
-        a.sel.splice index, 1
-      a.dispatcher.updated.apply this, arguments
+        index = @sel.indexOf(d)
+        @sel.splice index, 1
+      @dispatcher.updated.apply this, arguments
       d3.event.stopPropagation()
 
-    @onBackgroundClick = (d, i) ->
-      d3.selectAll(".dot.selected").classed "selected", false
-      d3.event.stopPropagation()
-      a.sel.length = 0
-      a.dispatcher.updated.apply this, arguments
+  onBackgroundClick: (d, i) =>
+    d3.selectAll(".dot.selected").classed "selected", false
+    d3.event.stopPropagation()
+    @sel.length = 0
+    @dispatcher.updated.apply this, arguments
 
-    @xTransform = (d) ->
-      a.x d.properties.systems[a.options.system]
+  joinData: (element, data) =>
+    dot = element.selectAll ".dot"
+      .data data.features
 
-    @yTransform = (d) ->
-      a.y d.properties.systems[a.options.system]
+    ternary = @ternary
 
-    @joinData = (element, data) =>
-      dot = element.selectAll(".dot").data(data.features)
-      dot.exit().remove()
-      dot.enter()
-        .append "circle"
-        .attr
-          class: "dot"
-          r: 3.5
-          cx: @xTransform
-          cy: @yTransform
-        .on "mouseover", @onMouseMove
-        .on "click", @onClick
-        .on "mouseout", @onMouseOut
-        .style fill: @colormap.func
+    dot.exit().remove()
+    dot.enter()
+      .append "circle"
+      .attr
+        class: "dot"
+        r: 3.5
+      .each (d)->
+        pt = d.properties.systems["pyroxene"]
+        pos = ternary.point [pt.En,pt.Wo,pt.Fs]
+        d3.select @
+          .attr
+            cx: pos[0]
+            cy: pos[1]
+      .on "mouseover", @onMouseMove
+      .on "click", @onClick
+      .on "mouseout", @onMouseOut
+      .style fill: @colormap.func
 
   setColormap: (name, options) ->
     @options.colormap = new Colorizer[name](options)
