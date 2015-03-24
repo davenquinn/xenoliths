@@ -24,6 +24,7 @@ class MultiSelectControl extends Spine.Controller
     return
 
   render: (data) ->
+    return unless data?
     a = this
     h = 8
     nbars = data.length
