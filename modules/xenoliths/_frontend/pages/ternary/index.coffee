@@ -1,6 +1,6 @@
 Spine = require "spine"
 
-TernaryPanel = require "../../controls/chart/ternary"
+TernaryPanel = require "../../controls/ternary"
 Sidebar = require "../../controls/sidebar"
 template = require "../chart/template.html"
 

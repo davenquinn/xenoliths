@@ -1,48 +1,89 @@
-d3 = require("d3")
+d3 = require "d3"
+require "d3-ternary"
+
 Options = require "../../options"
 Colorizer = require "../../views/base/colors"
 Spine = require "spine"
 
-Ternary = require "./ternary-axes"
-
 class TernaryChart extends Spine.Controller
-  defaults:
-    margin:
-      left: 50
-      top: 20
-      bottom: 40
-      right: 0
-
-    system: "pyroxene"
-    selection: []
-
   constructor: ->
     super
-    @margin = @margin or @defaults.margin
-    @system = @defaults.system unless @system?
-    @sel = @selection or []
     @colormap = new Colorizer["samples"]()
-    m = @margin
-    size = Math.min @el.width(), @el.height()
-
-    @width = size - m.left - m.right
-    @height = size - m.top - m.bottom
-    @system = Options.systems[@system]
-
-    @dispatcher = d3.dispatch("updated", "mouseout")
-
-    @ternary = new Ternary
-      range: [0,Math.min(@width,@height)]
-      margin: [50,50]
-
-    @setupEventHandlers()
+    @sel = @selected
+    @sel = [] unless @sel
+    @dispatcher = d3.dispatch "updated", "mouseout"
+    console.log "Setting up ternary chart"
     @drawSVG()
+    @joinData()
 
   drawSVG: ->
-    a = this
-    m = @margin
-    @svg = d3.select @el[0]
-      .append("svg")
-        .attr
-          width: @el.width()
 
+    console.log @
+
+
+    verts = ["Clay", "Sand", "Silt"]
+
+    graticule = d3.ternary.graticule()
+      .majorInterval(0.2)
+      .minorInterval(0.05)
+
+    resize = (t)=>
+      t.fit @el.width(),@el.height()
+
+    @ternary = d3.ternary.plot()
+      .call resize
+      .call d3.ternary.scalebars()
+      .call d3.ternary.vertexLabels(verts)
+      .call d3.ternary.neatline()
+      .call graticule
+
+    d3.select @el[0]
+      .call @ternary
+
+    $(window).on "resize", =>
+      console.log "Resizing ternary"
+      resize(@ternary)
+      @redraw()
+
+  joinData: ->
+    a = @
+    @onMouseMove = (d, i) ->
+      d3.selectAll(".dot.hovered").classed "hovered", false
+      sel = d3.select(this)
+      if d3.event.shiftKey and not sel.classed("selected")
+        sel.classed "selected", true
+        a.sel.push d
+      sel.classed "hovered", true
+      a.dispatcher.updated.apply this, arguments
+      return
+
+    @selection = @ternary.plot()
+      .selectAll ".dot"
+        .data @data.features
+
+    @selection.exit().remove()
+    @selection.enter()
+      .append "circle"
+        .attr
+          class: "dot"
+          r: 3.5
+        .style "fill", @colormap.func
+        .on "mouseover", @onMouseMove
+        #.on "click", a.onClick
+        #.on "mouseout", a.onMouseOut
+
+    @redraw()
+
+  redraw: =>
+    console.log @ternary.point
+    point = @ternary.point
+    @selection.each (d,i)->
+      v = d.properties.systems.pyroxene
+      a = point [v.En,v.Fs,v.Wo]
+      d3.select @
+        .attr
+          cx: a[0]
+          cy: a[1]
+
+
+module.exports = TernaryChart
