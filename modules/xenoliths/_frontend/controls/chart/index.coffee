@@ -158,8 +158,8 @@ class Chart extends Spine.Controller
     @points.selectAll(".dot").style "fill", @colormap.func
     return
 
-  refresh: ->
-    d3.select(@el).select("svg").remove()
+  refresh: =>
+    d3.select(@el[0]).select("svg").remove()
     @loadAxes()
     return
 

@@ -119,9 +119,9 @@ class TernaryChart extends Spine.Controller
     @points.selectAll(".dot").style "fill", @colormap.func
     return
 
-  refresh: ->
-    d3.select(@el).select("svg").remove()
-    @loadAxes()
+  refresh: =>
+    d3.select(@el[0]).select("svg").remove()
+    @drawSVG()
     return
 
   setAxes: (axes) ->
