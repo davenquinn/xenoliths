@@ -1,47 +1,74 @@
+Spine = require "spine"
+
+inArr = (arr)->
+  (t) -> arr.indexOf(t) > -1
+notIn = (arr)->
+  (t) -> arr.indexOf(t) == -1
+
+class Measurement extends Spine.Module
+  @extend Spine.Events
+  @collection: []
+  @tags: []
+  @index: new Array
+  @get: (id)->@index[id]
+  @updateTags: (tags)->
+    newTags = tags.filter notIn(@tags)
+    for t in newTags
+      @tags.push t
+
+  constructor: (obj)->
+    super
+    for key of obj
+      @[key] = obj[key]
+    @constructor.collection.push @
+    @constructor.index[@id] = @
+    @constructor.updateTags @properties.tags
+
 class Data
   constructor: (@data) ->
-    @tags = []
+    for f in @data.features
+      new Measurement(f)
 
-  getTags: =>
-    return @tags  if @tags.length > 0
-    for d in @data.features
-      for t in d.properties.tags
-        @pushTag t
+    @data.features = Measurement.collection
+    @tags = Measurement.tags
 
-    @tags
+  getTags: => @tags
 
   pushTag: (tag) ->
-    if @tags.indexOf(tag) is -1
-      @tags.push tag
+    if Measurement.tags.indexOf(tag) is -1
+      Measurement.tags.push tag
 
   filter: (options) ->
-    data = @data
+    console.log options
     for item in ["samples","minerals"]
-      options[item] = [options[item]] if typeof (options[item]) is "string"
+      if typeof (options[item]) is "string"
+        options[item] = [options[item]]
 
-    arr = @data.features
-    if options.samples
-      arr = arr.filter (d) ->
-        options.samples.indexOf(d.properties.sample) > -1
-    if options.minerals
-      arr = arr.filter (d) ->
-        options.minerals.indexOf(d.properties.mineral) > -1
+    tests = {}
+    if options.samples?
+      tests.samples = notIn options.samples
+    if options.minerals?
+      tests.minerals = notIn options.minerals
+    if options.tags?
+      tests.tags =
+        excluded: inArr options.tags.exclude
+        included: inArr options.tags.include
 
-    if options.tags
-      excluded = (t) ->
-        options.tags.exclude.indexOf(t) > -1
-
-      included = (t) ->
-        options.tags.include.indexOf(t) > -1
-
-      arr = arr.filter (d) ->
-        if d.properties.tags.some(excluded)
-          false
-        else if d.properties.tags.some(included)
-          true
+    test = (d)->
+      if tests.samples?
+        return false if tests.samples(d.properties.sample)
+      if tests.minerals?
+        return false if tests.minerals(d.properties.mineral)
+      if tests.tags?
+        if d.properties.tags.some(tests.tags.excluded)
+          return false
+        else if d.properties.tags.some(tests.tags.included)
+          return true
         else
-          false
+          return false
+      return true
 
+    arr = Measurement.collection.filter test
     out =
       type: "FeatureCollection"
       features: arr
