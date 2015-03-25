@@ -16,6 +16,10 @@ class Measurement extends Spine.Module
     for t in newTags
       @tags.push t
 
+  @hovered: (d)->
+    d.hovered = not d.hovered
+    @trigger "hovered", d
+
   constructor: (obj)->
     super
     for key of obj
