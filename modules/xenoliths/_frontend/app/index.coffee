@@ -1,5 +1,5 @@
 Spine = require "spine"
-Data = require "../data"
+Data = require "./data"
 
 class App extends Spine.Controller
   API: (o)->
