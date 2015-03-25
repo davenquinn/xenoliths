@@ -43,7 +43,7 @@ class Data
       Measurement.tags.push tag
 
   filter: (options) ->
-    console.log options
+
     for item in ["samples","minerals"]
       if typeof (options[item]) is "string"
         options[item] = [options[item]]
