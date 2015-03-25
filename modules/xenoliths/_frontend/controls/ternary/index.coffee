@@ -12,16 +12,12 @@ class TernaryChart extends Spine.Controller
     @sel = @selected
     @sel = [] unless @sel
     @dispatcher = d3.dispatch "updated", "mouseout"
-    console.log "Setting up ternary chart"
+    @setupEventHandlers()
     @drawSVG()
     @joinData()
 
   drawSVG: ->
-
-    console.log @
-
-
-    verts = ["Clay", "Sand", "Silt"]
+    verts = Options.systems[@system].components
 
     graticule = d3.ternary.graticule()
       .majorInterval(0.2)
@@ -39,14 +35,16 @@ class TernaryChart extends Spine.Controller
 
     d3.select @el[0]
       .call @ternary
+      .on "click", @onBackgroundClick
 
     $(window).on "resize", =>
       console.log "Resizing ternary"
       resize(@ternary)
       @redraw()
 
-  joinData: ->
-    a = @
+  setupEventHandlers: ->
+    a = this
+    @dispatcher = d3.dispatch("updated", "mouseout")
     @onMouseMove = (d, i) ->
       d3.selectAll(".dot.hovered").classed "hovered", false
       sel = d3.select(this)
@@ -57,6 +55,34 @@ class TernaryChart extends Spine.Controller
       a.dispatcher.updated.apply this, arguments
       return
 
+    @onMouseOut = (d, i) ->
+      sel = d3.select(this)
+      if a.sel.length > 0
+        sel.classed "hovered", false
+        a.dispatcher.mouseout.apply this, arguments
+      return
+
+    @onClick = (d, i) ->
+      item = d3.select(this)
+      toSelect = not item.classed("selected")
+      item.classed "selected", toSelect
+      if toSelect
+        a.sel.push d
+      else
+        index = a.sel.indexOf(d)
+        a.sel.splice index, 1
+      a.dispatcher.updated.apply this, arguments
+      d3.event.stopPropagation()
+      return
+
+    @onBackgroundClick = (d, i) ->
+      d3.selectAll(".dot.selected").classed "selected", false
+      d3.event.stopPropagation()
+      a.sel.length = 0
+      a.dispatcher.updated.apply this, arguments
+      return
+
+  joinData: ->
     @selection = @ternary.plot()
       .selectAll ".dot"
         .data @data.features
@@ -69,21 +95,43 @@ class TernaryChart extends Spine.Controller
           r: 3.5
         .style "fill", @colormap.func
         .on "mouseover", @onMouseMove
-        #.on "click", a.onClick
-        #.on "mouseout", a.onMouseOut
+        .on "mouseout", @onMouseOut
+        .on "click", @onClick
 
     @redraw()
 
   redraw: =>
-    console.log @ternary.point
-    point = @ternary.point
+    components = Options.systems[@system].components
+    accessor = (d)=>
+      a = d.properties.systems[@system]
+      c = components.map (i)->a[i]
+      @ternary.point c
+
     @selection.each (d,i)->
-      v = d.properties.systems.pyroxene
-      a = point [v.En,v.Fs,v.Wo]
+      a = accessor(d)
       d3.select @
         .attr
           cx: a[0]
           cy: a[1]
 
+  setColormap: (name, options) ->
+    @colormap = new Colorizer[name](options)
+    @points.selectAll(".dot").style "fill", @colormap.func
+    return
+
+  refresh: ->
+    d3.select(@el).select("svg").remove()
+    @loadAxes()
+    return
+
+  setAxes: (axes) ->
+    @axes = axes
+    @refresh()
+    return
+
+  setData: (data) ->
+    @data = data
+    @refresh()
+    return
 
 module.exports = TernaryChart
