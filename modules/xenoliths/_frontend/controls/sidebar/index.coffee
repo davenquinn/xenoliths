@@ -63,6 +63,7 @@ class Sidebar extends Spine.Controller
     val = event.currentTarget.hash
     @activeTab = val
     @viewTab val
+    event.preventDefault()
     false
 
   viewTab: (tab) ->
