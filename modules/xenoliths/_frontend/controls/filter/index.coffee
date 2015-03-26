@@ -32,19 +32,20 @@ class FilterData extends Spine.Controller
       samples: App.Options.samples
       minerals: App.Options.minerals
 
-    @tagFilter = new TagFilter(
+    @tagFilter = new TagFilter
       el: @$("#tag-filter")
-      parent: this
-    )
-    $.each [
+      parent: @
+
+    sections = [
       "minerals"
       "samples"
       "tags"
-    ], (i, d) ->
-      condition = a.$("input[name=filter-" + d + "]").is(":checked")
-      a.$("div." + d).toggle condition,
-        duration: 500
+    ]
 
+    sections.forEach (d,i) =>
+      condition = @$("input[name=filter-#{d}]").is(":checked")
+      @$("div.#{d}").toggle condition,
+        duration: 500
 
   toggleControls: (event) ->
     checked = event.target.checked
@@ -62,6 +63,7 @@ class FilterData extends Spine.Controller
     console.log arr
     data = App.Data.filter(arr)
     @map.setData data
-    return
+    event.preventDefault()
+    false
 
 module.exports = FilterData
