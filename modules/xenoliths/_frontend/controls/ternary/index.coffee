@@ -11,8 +11,6 @@ class TernaryChart extends ChartBase
     @colormap = new Colorizer["samples"]()
     @sel = @selected
     @sel = [] unless @sel
-    @dispatcher = d3.dispatch "updated", "mouseout"
-    @setupEventHandlers()
     @loadAxes()
     @joinData()
 

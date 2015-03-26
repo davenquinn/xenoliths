@@ -11,6 +11,7 @@ class ChartBase extends Spine.Controller
     @sel = @selected
     @sel = []  unless @sel
 
+    @setupEventHandlers()
     @selection = null
 
   setupEventHandlers: ->
@@ -53,14 +54,34 @@ class ChartBase extends Spine.Controller
       a.dispatcher.updated.apply this, arguments
       return
 
+  joinData: (element)=>
+    @selection = element
+      .selectAll ".dot"
+        .data @data.features
+
+    @selection.exit().remove()
+    @selection.enter()
+      .append "circle"
+        .attr
+          class: "dot"
+          r: 3.5
+        .style "fill", @colormap.func
+        .on "mouseover", @onMouseMove
+        .on "mouseout", @onMouseOut
+        .on "click", @onClick
+    @redraw()
+
   setColormap: (name, options) ->
     @colormap = new Colorizer[name](options)
-    @selection.selectAll(".dot").style "fill", @colormap.func
+    @selection.style "fill", @colormap.func
     return
 
   refresh: =>
     d3.select(@el[0]).select("svg").remove()
     @loadAxes()
+
+  redraw: =>
+    # Redraw data on move
 
   setData: (data) ->
     @data = data

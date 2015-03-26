@@ -5,8 +5,6 @@ ChartBase = require "./base"
 Colorizer = require "../../views/base/colors"
 Options = require "../../options"
 
-console.log ChartBase
-
 class Chart extends ChartBase
   constructor: ->
     super
@@ -18,11 +16,14 @@ class Chart extends ChartBase
 
     @width = @el.width() - @margin.left - @margin.right
     @height = @el.height() - @margin.top - @margin.bottom
-    @setupEventHandlers()
     @loadAxes()
-    return
+    @svg.append "g"
+      .attr
+        class: "data"
+        "clip-path": "url(#clip)"
+      .call @joinData
 
-  loadAxes: ->
+  loadAxes: =>
     a = this
     minfunc = (axes) ->
       axfunc = (d) ->
@@ -76,49 +77,32 @@ class Chart extends ChartBase
     @svg.append("g").attr("class", "x axis").attr("transform", "translate(0," + @height + ")").call(@xAxis).append("text").attr("class", "label").attr("x", @width / 2).attr("y", 30).style("text-anchor", "center").text @axes.x
     @svg.append("g").attr("class", "y axis").call(@yAxis).append("text").attr("class", "label").attr("transform", "rotate(-90)").attr("y", -40).attr("x", -@height / 2).attr("dy", ".71em").style("text-anchor", "center").text @axes.y
     clip = @svg.append("defs").append("svg:clipPath").attr("id", "clip").append("svg:rect").attr("id", "clip-rect").attr("x", "0").attr("y", "0").attr("width", @width).attr("height", @height)
-    @points = @svg.append("g").attr("class", "data").attr("clip-path", "url(#clip)")
-    @points.call @joinData, @data
+
     @dims = [
       this.width
       this.height
     ]
 
-  setupEventHandlers: ->
-    super
-    a = this
-    @xTransform = (d) =>
+  redraw: =>
+    xt = (d)=>
       @x eval("d.properties." + @axes.x)
-
-    @yTransform = (d) =>
+    yt = (d)=>
       @y eval("d.properties." + @axes.y)
+    @selection.attr
+      cx: xt
+      cy: yt
 
-    @onZoom = ->
-      translate = a.zoomer.translate()
-      scale = a.zoomer.scale()
-      tx = Math.min(0, Math.max(a.dims[0] * (1 - scale), translate[0]))
-      ty = Math.min(0, Math.max(a.dims[1] * (1 - scale), translate[1]))
-      a.zoomer.translate [tx,ty]
-      a.svg.select(".x.axis").call a.xAxis
-      a.svg.select(".y.axis").call a.yAxis
-      a.svg.selectAll(".dot").attr("cx", a.xTransform).attr "cy", a.yTransform
+  onZoom: =>
+    translate = @zoomer.translate()
+    scale = @zoomer.scale()
 
-    @joinData = (element, data) ->
-      dot = element.selectAll(".dot").data(data.features)
-      dot.exit().remove()
-      dot.enter().append("circle").attr("class", "dot").attr("r", 3.5).attr("cx", a.xTransform).attr("cy", a.yTransform).on("mouseover", a.onMouseMove).on("click", a.onClick).on("mouseout", a.onMouseOut).style "fill", a.colormap.func
-      return
+    offs = @dims.map (d,i)->
+      Math.min 0, Math.max(d*(1 - scale), translate[i])
 
-    return
-
-  setColormap: (name, options) ->
-    @colormap = new Colorizer[name](options)
-    @points.selectAll(".dot").style "fill", @colormap.func
-    return
-
-  refresh: =>
-    d3.select(@el[0]).select("svg").remove()
-    @loadAxes()
-    return
+    @zoomer.translate offs
+    @svg.select(".x.axis").call @xAxis
+    @svg.select(".y.axis").call @yAxis
+    @redraw()
 
   setAxes: (axes) ->
     @axes = axes
