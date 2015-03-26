@@ -14,14 +14,7 @@ class Chart extends ChartBase
       bottom: 40
       right: 0
 
-    @width = @el.width() - @margin.left - @margin.right
-    @height = @el.height() - @margin.top - @margin.bottom
     @loadAxes()
-    @svg.append "g"
-      .attr
-        class: "data"
-        "clip-path": "url(#clip)"
-      .call @joinData
 
   loadAxes: =>
 
@@ -45,78 +38,44 @@ class Chart extends ChartBase
 
     @x = d3.scale.linear()
       .domain [minfunc(@axes.x), maxfunc(@axes.x)]
-      .range [0,@width]
       .nice()
 
     @y = d3.scale.linear()
       .domain [minfunc(@axes.y), maxfunc(@axes.y)]
       .nice()
-      .range [@height, 0]
 
     @xAxis = d3.svg.axis()
       .scale @x
       .orient "bottom"
-      .tickSize -@height
+      .ticks 10
 
     @yAxis = d3.svg.axis()
       .scale @y
       .orient "left"
-      .ticks 5
-      .tickSize -@width
+      .ticks 10
 
     @zoomer = d3.behavior.zoom()
+      .scaleExtent [1,40]
       .x @x
       .y @y
-      .scaleExtent [1,40]
       .on "zoom", @onZoom
+
     @drawSVG()
 
-  drawSVG: ->
-    a = this
+  drawSVG: =>
     @svg = d3.select @el[0]
       .append "svg"
-        .attr
-          width: @el.width()
-          height: @el.width()
         .append "g"
-          .attr
-            transform: "translate(#{@margin.left},#{@margin.top})"
           .call @zoomer
 
-    @svg.append "rect"
+    @background = @svg.append "rect"
       .attr
-        id: "clip"
-        width: @width
-        height: @height
-      .on "click", @onBackgroundClick
+        class: "background"
+        fill: "white"
+        x: 0
+        y: 0
 
-    @svg.append "g"
-      .attr
-        class: "x axis"
-        transform: "translate(0,#{@height})"
-      .call @xAxis
-      .append "text"
-        .attr
-          class: "label"
-          x: @width / 2
-          y: 30
-        .style "text-anchor", "center"
-        .text @axes.x
-
-    @svg.append "g"
-      .attr class: "y axis"
-      .call @yAxis
-      .append "text"
-        .attr
-          class: "label"
-          transform: "rotate(-90)"
-          x: -@height / 2
-          y: -40
-          dy: ".71em"
-        .style "text-anchor", "center"
-        .text @axes.y
-
-    clip = @svg.append "defs"
+    @clip = @svg.append "defs"
       .append "svg:clipPath"
       .attr id: "clip"
       .append "svg:rect"
@@ -124,15 +83,79 @@ class Chart extends ChartBase
           id: "clip-rect"
           x: 0
           y: 0
-          width: @width
-          height: @height
 
-    @dims = [
-      this.width
-      this.height
-    ]
+    @ax_x = @svg.append "g"
+      .attr class: "x axis"
+      .call @xAxis
+
+    @ax_y = @svg.append "g"
+      .attr class: "y axis"
+      .call @yAxis
+
+    @ax_x.append "text"
+      .attr
+        class: "label"
+        x: "50%"
+        y: 30
+      .style "text-anchor", "center"
+      .text @axes.x
+
+    @ax_y.append "text"
+      .attr
+        class: "label"
+        transform: "rotate(-90)"
+        x: "50%"
+        y: -40
+        dy: ".71em"
+      .style "text-anchor", "center"
+      .text @axes.y
+
+    @resize()
+
+    @dataFrame = @svg.append "g"
+      .attr
+        class: "data"
+        "clip-path": "url(#clip)"
+      .call @joinData
+      .on "click", @onBackgroundClick
+
+  resize: =>
+    console.log "Resizing"
+    w = @el.width()
+    h = @el.height()
+
+    @$ "svg"
+      .width w
+      .height h
+
+    @size =
+      width: w - @margin.left - @margin.right
+      height: h - @margin.top - @margin.bottom
+
+    @x.range [0,@size.width]
+    @y.range [@size.height, 0]
+
+    @clip.attr @size
+    @background.attr @size
+
+    @svg
+      .attr @size
+      .attr transform: "translate(#{@margin.left},#{@margin.top})"
+
+    @zoomer
+      .x @x
+      .y @y
+
+    @xAxis.tickSize -@size.height
+    @yAxis.tickSize -@size.width
+
+    @ax_x
+      .attr transform: "translate(0,#{@size.height})"
+      .call @xAxis
+    @ax_y.call @yAxis
 
   redraw: =>
+    console.log "Drawing data"
     xt = (d)=>
       @x eval("d.properties." + @axes.x)
     yt = (d)=>
@@ -145,7 +168,7 @@ class Chart extends ChartBase
     translate = @zoomer.translate()
     scale = @zoomer.scale()
 
-    offs = @dims.map (d,i)->
+    offs = [@size.width,@size.height].map (d,i)->
       Math.min 0, Math.max(d*(1 - scale), translate[i])
 
     @zoomer.translate offs
