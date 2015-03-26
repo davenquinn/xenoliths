@@ -24,42 +24,51 @@ class Chart extends ChartBase
       .call @joinData
 
   loadAxes: =>
-    a = this
-    minfunc = (axes) ->
+
+    minfunc = (axes) =>
       axfunc = (d) ->
         eval "d.properties." + axes
 
-      max = d3.max(a.data.features, axfunc)
-      min = d3.min(a.data.features, axfunc)
+      max = d3.max(@data.features, axfunc)
+      min = d3.min(@data.features, axfunc)
       rng = max - min
       min - 0.02 * rng
 
-    maxfunc = (axes) ->
+    maxfunc = (axes) =>
       axfunc = (d) ->
         eval "d.properties." + axes
 
-      max = d3.max(a.data.features, axfunc)
-      min = d3.min(a.data.features, axfunc)
+      max = d3.max(@data.features, axfunc)
+      min = d3.min(@data.features, axfunc)
       rng = max - min
       max + 0.02 * rng
 
-    @x = d3.scale.linear().domain([
-      minfunc(@axes.x)
-      maxfunc(@axes.x)
-    ]).range([
-      0
-      this.width
-    ]).nice()
+    @x = d3.scale.linear()
+      .domain [minfunc(@axes.x), maxfunc(@axes.x)]
+      .range [0,@width]
+      .nice()
+
     @y = d3.scale.linear()
       .domain [minfunc(@axes.y), maxfunc(@axes.y)]
       .nice()
-      .range [this.height, 0]
-    @xAxis = d3.svg.axis().scale(@x).orient("bottom").tickSize(-@height)
-    @yAxis = d3.svg.axis().scale(@y).orient("left").ticks(5).tickSize(-@width)
-    @zoomer = d3.behavior.zoom().x(@x).y(@y).scaleExtent([
-      1
-      40
-    ]).on("zoom", @onZoom)
+      .range [@height, 0]
+
+    @xAxis = d3.svg.axis()
+      .scale @x
+      .orient "bottom"
+      .tickSize -@height
+
+    @yAxis = d3.svg.axis()
+      .scale @y
+      .orient "left"
+      .ticks 5
+      .tickSize -@width
+
+    @zoomer = d3.behavior.zoom()
+      .x @x
+      .y @y
+      .scaleExtent [1,40]
+      .on "zoom", @onZoom
     @drawSVG()
 
   drawSVG: ->
@@ -70,13 +79,53 @@ class Chart extends ChartBase
           width: @el.width()
           height: @el.width()
         .append "g"
-          .attr "transform", "translate(#{@margin.left},#{@margin.top})"
+          .attr
+            transform: "translate(#{@margin.left},#{@margin.top})"
           .call @zoomer
 
-    @svg.append("rect").attr("id", "clip").attr("width", @width).attr("height", @height).on "click", @onBackgroundClick
-    @svg.append("g").attr("class", "x axis").attr("transform", "translate(0," + @height + ")").call(@xAxis).append("text").attr("class", "label").attr("x", @width / 2).attr("y", 30).style("text-anchor", "center").text @axes.x
-    @svg.append("g").attr("class", "y axis").call(@yAxis).append("text").attr("class", "label").attr("transform", "rotate(-90)").attr("y", -40).attr("x", -@height / 2).attr("dy", ".71em").style("text-anchor", "center").text @axes.y
-    clip = @svg.append("defs").append("svg:clipPath").attr("id", "clip").append("svg:rect").attr("id", "clip-rect").attr("x", "0").attr("y", "0").attr("width", @width).attr("height", @height)
+    @svg.append "rect"
+      .attr
+        id: "clip"
+        width: @width
+        height: @height
+      .on "click", @onBackgroundClick
+
+    @svg.append "g"
+      .attr
+        class: "x axis"
+        transform: "translate(0,#{@height})"
+      .call @xAxis
+      .append "text"
+        .attr
+          class: "label"
+          x: @width / 2
+          y: 30
+        .style "text-anchor", "center"
+        .text @axes.x
+
+    @svg.append "g"
+      .attr class: "y axis"
+      .call @yAxis
+      .append "text"
+        .attr
+          class: "label"
+          transform: "rotate(-90)"
+          x: -@height / 2
+          y: -40
+          dy: ".71em"
+        .style "text-anchor", "center"
+        .text @axes.y
+
+    clip = @svg.append "defs"
+      .append "svg:clipPath"
+      .attr id: "clip"
+      .append "svg:rect"
+        .attr
+          id: "clip-rect"
+          x: 0
+          y: 0
+          width: @width
+          height: @height
 
     @dims = [
       this.width
