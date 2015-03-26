@@ -1,15 +1,15 @@
 d3 = require("d3")
 Spine = require "spine"
 
+ChartBase = require "./base"
 Colorizer = require "../../views/base/colors"
 Options = require "../../options"
 
-class Chart extends Spine.Controller
+console.log ChartBase
+
+class Chart extends ChartBase
   constructor: ->
     super
-    @colormap = new Colorizer["samples"]()
-    @sel = @selected
-    @sel = []  unless @sel
     @margin =
       left: 50
       top: 20
@@ -60,7 +60,6 @@ class Chart extends Spine.Controller
       40
     ]).on("zoom", @onZoom)
     @drawSVG()
-    return
 
   drawSVG: ->
     a = this
@@ -83,67 +82,25 @@ class Chart extends Spine.Controller
       this.width
       this.height
     ]
-    return
 
   setupEventHandlers: ->
+    super
     a = this
-    @dispatcher = d3.dispatch("updated", "mouseout")
-    @onMouseMove = (d, i) ->
-      d3.selectAll(".dot.hovered").classed "hovered", false
-      sel = d3.select(this)
-      if d3.event.shiftKey and not sel.classed("selected")
-        sel.classed "selected", true
-        a.sel.push d
-      sel.classed "hovered", true
-      a.dispatcher.updated.apply this, arguments
-      return
+    @xTransform = (d) =>
+      @x eval("d.properties." + @axes.x)
 
-    @onMouseOut = (d, i) ->
-      sel = d3.select(this)
-      if a.sel.length > 0
-        sel.classed "hovered", false
-        a.dispatcher.mouseout.apply this, arguments
-      return
-
-    @onClick = (d, i) ->
-      item = d3.select(this)
-      toSelect = not item.classed("selected")
-      item.classed "selected", toSelect
-      if toSelect
-        a.sel.push d
-      else
-        index = a.sel.indexOf(d)
-        a.sel.splice index, 1
-      a.dispatcher.updated.apply this, arguments
-      d3.event.stopPropagation()
-      return
-
-    @onBackgroundClick = (d, i) ->
-      d3.selectAll(".dot.selected").classed "selected", false
-      d3.event.stopPropagation()
-      a.sel.length = 0
-      a.dispatcher.updated.apply this, arguments
-      return
-
-    @xTransform = (d) ->
-      a.x eval("d.properties." + a.axes.x)
-
-    @yTransform = (d) ->
-      a.y eval("d.properties." + a.axes.y)
+    @yTransform = (d) =>
+      @y eval("d.properties." + @axes.y)
 
     @onZoom = ->
       translate = a.zoomer.translate()
       scale = a.zoomer.scale()
       tx = Math.min(0, Math.max(a.dims[0] * (1 - scale), translate[0]))
       ty = Math.min(0, Math.max(a.dims[1] * (1 - scale), translate[1]))
-      a.zoomer.translate [
-        tx
-        ty
-      ]
+      a.zoomer.translate [tx,ty]
       a.svg.select(".x.axis").call a.xAxis
       a.svg.select(".y.axis").call a.yAxis
       a.svg.selectAll(".dot").attr("cx", a.xTransform).attr "cy", a.yTransform
-      return
 
     @joinData = (element, data) ->
       dot = element.selectAll(".dot").data(data.features)
@@ -166,11 +123,5 @@ class Chart extends Spine.Controller
   setAxes: (axes) ->
     @axes = axes
     @refresh()
-    return
-
-  setData: (data) ->
-    @data = data
-    @refresh()
-    return
 
 module.exports = Chart
