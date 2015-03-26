@@ -1,9 +1,6 @@
 d3 = require("d3")
-Spine = require "spine"
 
 ChartBase = require "./base"
-Colorizer = require "../../views/base/colors"
-Options = require "../../options"
 
 class Chart extends ChartBase
   constructor: ->

@@ -1,3 +1,4 @@
+$ = require "jquery"
 d3 = require "d3"
 Spine = require "spine"
 
@@ -13,6 +14,8 @@ class ChartBase extends Spine.Controller
 
     @setupEventHandlers()
     @selection = null
+
+    $(window).on "resize", @resize
 
   setupEventHandlers: ->
     a = this
@@ -82,6 +85,8 @@ class ChartBase extends Spine.Controller
 
   redraw: =>
     # Redraw data on move
+  resize: =>
+    # Event handler for resize
 
   setData: (data) ->
     @data = data
