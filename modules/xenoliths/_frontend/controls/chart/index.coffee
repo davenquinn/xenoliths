@@ -1,176 +1,180 @@
 d3 = require("d3")
-Spine = require "spine"
 
-Colorizer = require "../../views/base/colors"
-Options = require "../../options"
+ChartBase = require "./base"
 
-class Chart extends Spine.Controller
+class Chart extends ChartBase
   constructor: ->
     super
-    @colormap = new Colorizer["samples"]()
-    @sel = @selected
-    @sel = []  unless @sel
     @margin =
       left: 50
       top: 20
       bottom: 40
       right: 0
 
-    @width = @el.width() - @margin.left - @margin.right
-    @height = @el.height() - @margin.top - @margin.bottom
-    @setupEventHandlers()
     @loadAxes()
-    return
 
-  loadAxes: ->
-    a = this
-    minfunc = (axes) ->
+  loadAxes: =>
+
+    minfunc = (axes) =>
       axfunc = (d) ->
         eval "d.properties." + axes
 
-      max = d3.max(a.data.features, axfunc)
-      min = d3.min(a.data.features, axfunc)
+      max = d3.max(@data.features, axfunc)
+      min = d3.min(@data.features, axfunc)
       rng = max - min
       min - 0.02 * rng
 
-    maxfunc = (axes) ->
+    maxfunc = (axes) =>
       axfunc = (d) ->
         eval "d.properties." + axes
 
-      max = d3.max(a.data.features, axfunc)
-      min = d3.min(a.data.features, axfunc)
+      max = d3.max(@data.features, axfunc)
+      min = d3.min(@data.features, axfunc)
       rng = max - min
       max + 0.02 * rng
 
-    @x = d3.scale.linear().domain([
-      minfunc(@axes.x)
-      maxfunc(@axes.x)
-    ]).range([
-      0
-      this.width
-    ]).nice()
+    @x = d3.scale.linear()
+      .domain [minfunc(@axes.x), maxfunc(@axes.x)]
+      .nice()
+
     @y = d3.scale.linear()
       .domain [minfunc(@axes.y), maxfunc(@axes.y)]
       .nice()
-      .range [this.height, 0]
-    @xAxis = d3.svg.axis().scale(@x).orient("bottom").tickSize(-@height)
-    @yAxis = d3.svg.axis().scale(@y).orient("left").ticks(5).tickSize(-@width)
-    @zoomer = d3.behavior.zoom().x(@x).y(@y).scaleExtent([
-      1
-      40
-    ]).on("zoom", @onZoom)
-    @drawSVG()
-    return
 
-  drawSVG: ->
-    a = this
+    @xAxis = d3.svg.axis()
+      .scale @x
+      .orient "bottom"
+      .ticks 10
+
+    @yAxis = d3.svg.axis()
+      .scale @y
+      .orient "left"
+      .ticks 10
+
+    @zoomer = d3.behavior.zoom()
+      .scaleExtent [1,40]
+      .x @x
+      .y @y
+      .on "zoom", @onZoom
+
+    @drawSVG()
+
+  drawSVG: =>
     @svg = d3.select @el[0]
       .append "svg"
-        .attr
-          width: @el.width()
-          height: @el.width()
         .append "g"
-          .attr "transform", "translate(#{@margin.left},#{@margin.top})"
           .call @zoomer
 
-    @svg.append("rect").attr("id", "clip").attr("width", @width).attr("height", @height).on "click", @onBackgroundClick
-    @svg.append("g").attr("class", "x axis").attr("transform", "translate(0," + @height + ")").call(@xAxis).append("text").attr("class", "label").attr("x", @width / 2).attr("y", 30).style("text-anchor", "center").text @axes.x
-    @svg.append("g").attr("class", "y axis").call(@yAxis).append("text").attr("class", "label").attr("transform", "rotate(-90)").attr("y", -40).attr("x", -@height / 2).attr("dy", ".71em").style("text-anchor", "center").text @axes.y
-    clip = @svg.append("defs").append("svg:clipPath").attr("id", "clip").append("svg:rect").attr("id", "clip-rect").attr("x", "0").attr("y", "0").attr("width", @width).attr("height", @height)
-    @points = @svg.append("g").attr("class", "data").attr("clip-path", "url(#clip)")
-    @points.call @joinData, @data
-    @dims = [
-      this.width
-      this.height
-    ]
-    return
+    @background = @svg.append "rect"
+      .attr
+        class: "background"
+        fill: "white"
+        x: 0
+        y: 0
 
-  setupEventHandlers: ->
-    a = this
-    @dispatcher = d3.dispatch("updated", "mouseout")
-    @onMouseMove = (d, i) ->
-      d3.selectAll(".dot.hovered").classed "hovered", false
-      sel = d3.select(this)
-      if d3.event.shiftKey and not sel.classed("selected")
-        sel.classed "selected", true
-        a.sel.push d
-      sel.classed "hovered", true
-      a.dispatcher.updated.apply this, arguments
-      return
+    @clip = @svg.append "defs"
+      .append "svg:clipPath"
+      .attr id: "clip"
+      .append "svg:rect"
+        .attr
+          id: "clip-rect"
+          x: 0
+          y: 0
 
-    @onMouseOut = (d, i) ->
-      sel = d3.select(this)
-      if a.sel.length > 0
-        sel.classed "hovered", false
-        a.dispatcher.mouseout.apply this, arguments
-      return
+    @ax_x = @svg.append "g"
+      .attr class: "x axis"
+      .call @xAxis
 
-    @onClick = (d, i) ->
-      item = d3.select(this)
-      toSelect = not item.classed("selected")
-      item.classed "selected", toSelect
-      if toSelect
-        a.sel.push d
-      else
-        index = a.sel.indexOf(d)
-        a.sel.splice index, 1
-      a.dispatcher.updated.apply this, arguments
-      d3.event.stopPropagation()
-      return
+    @ax_y = @svg.append "g"
+      .attr class: "y axis"
+      .call @yAxis
 
-    @onBackgroundClick = (d, i) ->
-      d3.selectAll(".dot.selected").classed "selected", false
-      d3.event.stopPropagation()
-      a.sel.length = 0
-      a.dispatcher.updated.apply this, arguments
-      return
+    @ax_x.append "text"
+      .attr
+        class: "label"
+        x: "50%"
+        y: 30
+      .style "text-anchor", "center"
+      .text @axes.x
 
-    @xTransform = (d) ->
-      a.x eval("d.properties." + a.axes.x)
+    @ax_y.append "text"
+      .attr
+        class: "label"
+        transform: "rotate(-90)"
+        x: "50%"
+        y: -40
+        dy: ".71em"
+      .style "text-anchor", "center"
+      .text @axes.y
 
-    @yTransform = (d) ->
-      a.y eval("d.properties." + a.axes.y)
+    @resize()
 
-    @onZoom = ->
-      translate = a.zoomer.translate()
-      scale = a.zoomer.scale()
-      tx = Math.min(0, Math.max(a.dims[0] * (1 - scale), translate[0]))
-      ty = Math.min(0, Math.max(a.dims[1] * (1 - scale), translate[1]))
-      a.zoomer.translate [
-        tx
-        ty
-      ]
-      a.svg.select(".x.axis").call a.xAxis
-      a.svg.select(".y.axis").call a.yAxis
-      a.svg.selectAll(".dot").attr("cx", a.xTransform).attr "cy", a.yTransform
-      return
+    @dataFrame = @svg.append "g"
+      .attr
+        class: "data"
+        "clip-path": "url(#clip)"
+      .call @joinData
+      .on "click", @onBackgroundClick
 
-    @joinData = (element, data) ->
-      dot = element.selectAll(".dot").data(data.features)
-      dot.exit().remove()
-      dot.enter().append("circle").attr("class", "dot").attr("r", 3.5).attr("cx", a.xTransform).attr("cy", a.yTransform).on("mouseover", a.onMouseMove).on("click", a.onClick).on("mouseout", a.onMouseOut).style "fill", a.colormap.func
-      return
+  resize: =>
+    console.log "Resizing"
+    w = @el.width()
+    h = @el.height()
 
-    return
+    @$ "svg"
+      .width w
+      .height h
 
-  setColormap: (name, options) ->
-    @colormap = new Colorizer[name](options)
-    @points.selectAll(".dot").style "fill", @colormap.func
-    return
+    @size =
+      width: w - @margin.left - @margin.right
+      height: h - @margin.top - @margin.bottom
 
-  refresh: =>
-    d3.select(@el[0]).select("svg").remove()
-    @loadAxes()
-    return
+    @x.range [0,@size.width]
+    @y.range [@size.height, 0]
+
+    @clip.attr @size
+    @background.attr @size
+
+    @svg
+      .attr @size
+      .attr transform: "translate(#{@margin.left},#{@margin.top})"
+
+    @zoomer
+      .x @x
+      .y @y
+
+    @xAxis.tickSize -@size.height
+    @yAxis.tickSize -@size.width
+
+    @ax_x
+      .attr transform: "translate(0,#{@size.height})"
+      .call @xAxis
+    @ax_y.call @yAxis
+
+  redraw: =>
+    console.log "Drawing data"
+    xt = (d)=>
+      @x eval("d.properties." + @axes.x)
+    yt = (d)=>
+      @y eval("d.properties." + @axes.y)
+    @selection.attr
+      cx: xt
+      cy: yt
+
+  onZoom: =>
+    translate = @zoomer.translate()
+    scale = @zoomer.scale()
+
+    offs = [@size.width,@size.height].map (d,i)->
+      Math.min 0, Math.max(d*(1 - scale), translate[i])
+
+    @zoomer.translate offs
+    @svg.select(".x.axis").call @xAxis
+    @svg.select(".y.axis").call @yAxis
+    @redraw()
 
   setAxes: (axes) ->
     @axes = axes
     @refresh()
-    return
-
-  setData: (data) ->
-    @data = data
-    @refresh()
-    return
 
 module.exports = Chart
