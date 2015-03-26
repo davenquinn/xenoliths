@@ -21,6 +21,11 @@ classify_route = (p) ->
     el: page_element
     sample: p.sample
 
+ternary_route = (p) ->
+  system = p.system or "pyroxene"
+  new TernaryPage
+    el: page_element
+    system: system
 
 module.exports =
   "": ->
@@ -41,10 +46,6 @@ module.exports =
 
   "chart": ->
     new ChartPage(el: page_element)
-
-  "ternary/:system": (p) ->
-    system = p.system or "pyroxene"
-    new TernaryPage
-      el: page_element
-      system: system
+  "ternary": ternary_route
+  "ternary/:system": ternary_route
 

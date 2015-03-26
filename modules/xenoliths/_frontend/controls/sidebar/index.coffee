@@ -28,7 +28,6 @@ class Sidebar extends Spine.Controller
 
   render: ->
     controls = []
-    console.log @controls
     for c of @controls
       id = @controls[c]
       control = {}
@@ -41,7 +40,6 @@ class Sidebar extends Spine.Controller
 
     for c of controls
       control = controls[c]
-      console.log control
       control = new control.obj
         el: "#" + control.id
         parent: this
@@ -63,6 +61,7 @@ class Sidebar extends Spine.Controller
     val = event.currentTarget.hash
     @activeTab = val
     @viewTab val
+    event.preventDefault()
     false
 
   viewTab: (tab) ->
