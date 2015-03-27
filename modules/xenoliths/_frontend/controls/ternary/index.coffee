@@ -8,7 +8,6 @@ class TernaryChart extends ChartBase
   constructor: ->
     super
     @loadAxes()
-    @ternary.plot().call @joinData
 
   loadAxes: ->
     verts = Options.systems[@system].components
@@ -28,6 +27,8 @@ class TernaryChart extends ChartBase
     d3.select @el[0]
       .call @ternary
       .on "click", @onBackgroundClick
+
+    @ternary.plot().call @joinData
 
   resize: =>
     @ternary.fit @el.width(),@el.height()
