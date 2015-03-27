@@ -17,7 +17,7 @@ class Quantity(unit.Quantity):
 def ensure_unit(q,default):
     """Applies the default unit if no unit is applied"""
     try:
-        return q.to(default)
+        return q.to(default.units)
     except AttributeError:
         return q * default
 

@@ -6,9 +6,10 @@ import numpy as N
 
 class Material(BaseModel):
     defaults = dict(
-        conductivity = u(3.35,"W/m"),
-        specific_heat = u(1171,"J/kg"),
-        density = u(3000,"kg/m**3"))
+        conductivity = u(3.35,"W/m/K"),
+        specific_heat = u(1171,"J/kg/K"),
+        density = u(3000,"kg/m**3"),
+        heat_generation = u(0,"uW/m**3"))
 
     def __init__(self,**kwargs):
         super(Material, self).__init__(**kwargs)
@@ -21,7 +22,6 @@ class Material(BaseModel):
     def length_scale(self, time):
         """
         The distance over which heat will propagate in a given time period.
-        
         :arg time: Time in seconds
         """
         return N.sqrt(self.diffusivity*time).to("meters")

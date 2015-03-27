@@ -14,12 +14,11 @@ class HalfSpaceSolver(BaseSolver):
             assert len(layers) == 1
             self.layer = layers[0]
         except AssertionError:
-            s = "{0} can be initialized only from a single layer or a section containing only one layer."
+            s = "{} can be initialized only from a single layer or a section containing only one layer."
             raise ArgumentError(s.format(self.__class__))
         except AttributeError:
             self.layer = layer
         self.material = self.layer.material
-
     def temperature(self,time,depth):
         time = ensure_unit(time, unit.seconds)
         depth = ensure_unit(depth, unit.meters)
@@ -35,14 +34,14 @@ class HalfSpaceSolver(BaseSolver):
 
     def depth(self,time,temperature):
         temp = ensure_unit(temperature, unit.degC)
-        theta = (temp-self.T_max).into("K")/(self.T_surface-self.T_max).into("K")
+        theta = (temp-self.T_max).to("K")/(self.T_surface-self.T_max).to("K")
         eta = erfcinv(theta.into("dimensionless"))
         return 2*eta*self.material.length_scale(time)
 
     def lithospheric_thickness(self,time):
         return self.depth(time,self.T_lithosphere)
 
-    def solution(self,time):
+    def __call__(self,time):
         res = Section([Layer(self.layer.material, self.layer.thickness)])
         res.profile = self.profile(time)
         return res

@@ -32,7 +32,7 @@ class Plotter(object):
         self._y = self.solver.mesh.cellCenters[0]
         self.solution, = self.ax.plot(self.solver.initial_values, self._y, '-')
 
-    def plot_solution(self, time, solution):
+    def __call__(self, time, solution):
         self.title.set_text(self.title_prefix+"{0:.4f}".format(time))
         self.solution.set_xdata(solution)
         print("Plotting solution")
@@ -58,10 +58,10 @@ class ComparisonPlotter(Plotter):
         self.residuals, = self.ax2.plot(N.zeros(len(self._y)),self._y,'-')
         self.fig.show()
 
-    def plot_solution(self, time, solution):
+    def __call__(self, time, solution):
         comparator = self.comparison_function(time)
         self.comparison.set_xdata(comparator)
         self.residuals.set_xdata(solution-comparator)
         self.ax2.relim()
         self.ax2.autoscale()
-        super(ComparisonPlotter, self).plot_solution(time,solution)
+        super(ComparisonPlotter, self).__call__(time,solution)

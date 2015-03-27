@@ -22,4 +22,5 @@ def test_simple_case():
     time = u(100,"kyr")
     s = simple.solve()
 
-    for solS, solA in zip(s,a)
+    for solS, solA in zip(s,a):
+        pass

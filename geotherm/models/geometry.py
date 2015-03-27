@@ -6,10 +6,9 @@ from itertools import chain
 
 class Layer(BaseModel):
     defaults = dict(
-        grid_spacing = u(10,"m")
-    )
+        grid_spacing = u(10,"m"))
     def __init__(self, material, thickness, **kwargs):
-        super(Layer, self).__init__(**kwargs)
+        BaseModel.__init__(self,**kwargs)
         self.material = material
         self.thickness = thickness
         try:
@@ -28,26 +27,30 @@ class Section(BaseModel):
     A section of crust that contains several layers with individually-defined
     material models. Rudimentary support for unequal grid spacing (defined per-layer)
     """
+    thickness = property(lambda self:\
+            sum([i.thickness for i in self.layers]))
+    n_cells = property(lambda self:\
+            sum([i.n_cells for i in self.layers]))
+    cell_sizes = property(lambda self:\
+            (self.cell_centers - self.cell_boundaries)*2)
+
     def __init__(self, layers, **kwargs):
         self.layers = layers
-        self.thickness = sum([i.thickness for i in self.layers])
-        self.n_cells = sum([i.n_cells for i in self.layers])
-        self.cell_centers = self.set_cell_centers()
-        self.cell_boundaries = self.set_cell_boundaries()
-        self.cell_sizes = (self.cell_centers - self.cell_boundaries)*2
-
+        self.profile = kwargs.pop("profile", None)
         uniform_temperature = kwargs.pop("uniform_temperature", None)
         if uniform_temperature is not None:
-            self.profile = N.ones(self.n_cells)*uniform_temperature
-        else:
-            self.profile = None
+            if self.profile is not None:
+                raise ArgumentError("Cannot set both uniform and depth-profile temperature constraints")
+            self.profile = N.ones(self.n_cells)*uniform_temperature.to("K")
 
-    def set_cell_boundaries(self):
+    @property
+    def cell_boundaries(self):
         func = lambda layer, offset: (layer.cell_boundaries+offset).into("meters")
         ls = [func(layer,top) for (top,bottom), layer in self.iterlayers()]
         return u(N.concatenate(ls),"m")
 
-    def set_cell_centers(self):
+    @property
+    def cell_centers(self):
         func = lambda layer, offset: (layer.cell_centers+offset).into("meters")
         ls = [func(layer,top) for (top,bottom), layer in self.iterlayers()]
         return u(N.concatenate(ls),"m")

@@ -38,6 +38,7 @@ class BaseFiniteSolver(BaseSolver):
 
 
     def solve(self, steps=None, duration=None, **kwargs):
+        plotter = kwargs.pop("plotter", None)
 
         if duration:
             time_step, steps = self.fractional_timestep(duration)
@@ -50,14 +51,12 @@ class BaseFiniteSolver(BaseSolver):
         print("Duration: {0:.2e}".format(duration.to("year")))
         print("Number of steps: {0}\n".format(steps))
 
-        plotter = self.setup_plotter(kwargs)
-
         for step in range(steps):
             simulation_time = step*time_step
             print(simulation_time.to("year"))
             sol = u(N.array(self.var.value),"K").to("degC")
-            if plotter:
-                plotter.plot_solution(sol)
+            if plotter is not None:
+                plotter(sol)
             yield simulation_time, sol
             soln = self.equation.solve(
                 var=self.var,
