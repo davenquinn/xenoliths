@@ -77,7 +77,10 @@ class FilterData extends Spine.Controller
       if i.name is "tags"
         arr[i.name] = @tagFilter.getFilter()
       else
-        arr[i.name] = form[i.name]
+        v = form[i.name]
+        # Ensure it is an array instead of single value
+        v = [v] if typeof v is "string"
+        arr[i.name] = v
 
     console.log arr
     data = App.Data.filter(arr)

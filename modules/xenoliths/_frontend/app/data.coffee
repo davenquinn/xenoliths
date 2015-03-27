@@ -44,10 +44,6 @@ class Data
 
   filter: (options) ->
 
-    for item in ["samples","minerals"]
-      if typeof (options[item]) is "string"
-        options[item] = [options[item]]
-
     tests = {}
     if options.samples?
       tests.samples = notIn options.samples
