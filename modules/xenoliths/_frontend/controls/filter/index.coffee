@@ -54,7 +54,7 @@ class FilterData extends Spine.Controller
           s = if d.enabled then "circle" else "circle-o"
           "fa fa-"+s
       sel.select ".panel"
-        .style display: (d)->
+        .each (d)->
           o = $ @
           if d.enabled
             o.show 500
