@@ -6,3 +6,5 @@ archive
 .DS_Store
 
 *.egg-info
+
+lib/royden/*

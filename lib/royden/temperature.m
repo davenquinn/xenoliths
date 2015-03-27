@@ -1,8 +1,8 @@
- %     
+ %
 %     The Steady State Thermal Structure of Eroding
 %     Orogenic Belts and Accretionary Prisms
 %     L. H. Royden, jgr, 1993.
-%     
+%
 
 %Needs input-file interplatetopo that has two columns, first is
 %horizontal distance in kilometers, second is vertical distance
@@ -10,7 +10,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	parameters
 %
-%           depth: z 
+%           depth: z
 %           distance along the surface: x
 
 %	temperature at the base of the lithosphere (degrees C)
@@ -35,7 +35,7 @@
     alpha=1e-6;
 %   heat flow due to friction on fault (tau*v) (W/m2)
     qfric=15.*1e-3;
-%   dip angle of fault (degrees)    
+%   dip angle of fault (degrees)
     phi=10;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 t1=clock;
@@ -79,7 +79,7 @@ for i=-100:150
     if(h<0)
       h=-h;
     end
-    
+
   end
   for j=0:75
     if(x>0)
@@ -94,7 +94,7 @@ end
 t2=clock;
 disp(['Calculation took ',num2str(etime(t2,t1)),' sec'])
 %writing to file
-%dlmwrite('temperature_mat',M,' ')
+dlmwrite('temperature_mat',M,' ')
 t3=clock;
 tc2=cputime;
 disp(['Writing took ',num2str(etime(t3,t2)),' sec'])
