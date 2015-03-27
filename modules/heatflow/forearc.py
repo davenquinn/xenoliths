@@ -1,3 +1,8 @@
+from geotherm.units import u
+from geotherm.models.geometry import Section
+from geotherm.solvers import RoydenSolver
+from geotherm.materials import oceanic_mantle, continental_crust
+
 def forearc_section(**kwargs):
     distance = kwargs.pop("distance",30000)
     defaults = dict(
