@@ -19,7 +19,7 @@ from . import results_dir
 present = u(1.65,"Myr") # K-Ar age for Crystal Knob xenoliths
 
 solver_constraints = (
-    u(25,"degC"), # Surface temperature
+    u(20,"degC"), # Surface temperature
     u(1500,"degC"))
     #u(48,"mW/m**2"))
     # Globally averaged mantle heat flux from Pollack, et al., 1977
@@ -37,24 +37,19 @@ def subduction_case(name, start_time, subduction_time):
     half_space = HalfSpaceSolver(oceanic)
 
     t = start_time-subduction_time
-
     underplated_oceanic = half_space(t)
 
+    # Find the base of the lithosphere
     T_lithosphere = u(1300,"degC")
-
     d = half_space.depth(t, T_lithosphere)
-
     distance = 100e3
-
     echo("Depth of the base of the "
         "lithosphere at the time of "
         "subduction:{0:.2f}".format(d))
-
     forearc = forearc_section(
             distance = distance,
             Tm = T_lithosphere.into("degC"),
             l = d.into("m"))
-
     echo("Temperature at subduction interface "
          "at the time of underplating: {0}"\
           .format(forearc.profile[-1]))
