@@ -1,7 +1,7 @@
 $ = require "jquery"
 d3 = require "d3"
 Spine = require "spine"
-
+Measurement = require "../../app/data"
 Colorizer = require "../../views/base/colors"
 Options = require "../../options"
 
@@ -11,10 +11,8 @@ class ChartBase extends Spine.Controller
     @colormap = new Colorizer["samples"]()
     @sel = @selected
     @sel = []  unless @sel
-
     @setupEventHandlers()
     @selection = null
-
     $(window).on "resize", @resize
 
   setupEventHandlers: ->

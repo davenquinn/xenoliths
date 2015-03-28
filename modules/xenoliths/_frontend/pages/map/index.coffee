@@ -2,6 +2,7 @@ Spine = require "spine"
 
 MapPanel = require "../../controls/map"
 Sidebar = require "../../controls/sidebar"
+Measurement = require "../../app/data"
 template = require "./template.html"
 
 class MapPage extends Spine.Controller
@@ -12,7 +13,7 @@ class MapPage extends Spine.Controller
 
   setup: ->
     @filter = samples: [@sample]
-    @data = App.Data.filter(@filter)
+    @data = Measurement.filter(@filter)
     @render()
 
   createSelection: ->

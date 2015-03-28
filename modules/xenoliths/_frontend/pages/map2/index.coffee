@@ -1,6 +1,7 @@
 $ = require "jquery"
 Spine = require "spine"
 Sidebar = require "../../controls/sidebar"
+Measurement = require "../../app/data"
 MapPanel = require "../../controls/image-map"
 template = require "./template.html"
 
@@ -12,7 +13,7 @@ class MapPage extends Spine.Controller
 
   setup: ->
     @filter = samples: [@sample]
-    @data = window.App.Data.filter(@filter)
+    @data = Measurement.filter(@filter)
     @render()
 
   createSelection: ->

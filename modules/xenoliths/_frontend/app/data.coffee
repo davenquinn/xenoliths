@@ -16,33 +16,7 @@ class Measurement extends Spine.Module
     for t in newTags
       @tags.push t
 
-  @hovered: (d)->
-    d.hovered = not d.hovered
-    @trigger "hovered", d
-
-  constructor: (obj)->
-    super
-    for key of obj
-      @[key] = obj[key]
-    @constructor.collection.push @
-    @constructor.index[@id] = @
-    @constructor.updateTags @properties.tags
-
-class Data
-  constructor: (@data) ->
-    for f in @data.features
-      new Measurement(f)
-
-    @data.features = Measurement.collection
-    @tags = Measurement.tags
-
-  getTags: => @tags
-
-  pushTag: (tag) ->
-    if Measurement.tags.indexOf(tag) is -1
-      Measurement.tags.push tag
-
-  filter: (options) ->
+  @filter: (options) ->
 
     tests = {}
     if options.samples?
@@ -73,4 +47,16 @@ class Data
       type: "FeatureCollection"
       features: arr
 
-module.exports = Data
+  @hovered: (d)->
+    d.hovered = not d.hovered
+    @trigger "hovered", d
+
+  constructor: (obj)->
+    super
+    for key of obj
+      @[key] = obj[key]
+    @constructor.collection.push @
+    @constructor.index[@id] = @
+    @constructor.updateTags @properties.tags
+
+module.exports = Measurement

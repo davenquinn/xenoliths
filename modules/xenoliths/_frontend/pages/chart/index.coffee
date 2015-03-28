@@ -2,6 +2,7 @@ Spine = require "spine"
 ChartPanel = require "../../controls/chart"
 Sidebar = require "../../controls/sidebar"
 template = require "./template.html"
+Measurement = require "../../app/data"
 
 class ChartPage extends Spine.Controller
   constructor: ->
@@ -14,7 +15,7 @@ class ChartPage extends Spine.Controller
     @setup()
 
   setup: ->
-    @data = App.Data.filter(@filter)
+    @data = Measurement.filter(@filter)
     @render()
 
   render: ->

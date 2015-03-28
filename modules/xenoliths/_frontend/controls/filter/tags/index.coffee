@@ -6,7 +6,7 @@ template = require "./template.html"
 class TagFilter extends Spine.Controller
   constructor: ->
     super
-    @tags = App.Data.getTags()
+    @tags = App.Data.Measurement.tags
 
     @el.html template
     @ul = d3.select("#tag-filterlist")
