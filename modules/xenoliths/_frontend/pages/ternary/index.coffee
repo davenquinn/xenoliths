@@ -13,6 +13,7 @@ class ChartPage extends Spine.Controller
 
   setup: ->
     @data = Measurement.filter(@filter)
+    console.log @data
     @log "Rendering ternary panel"
     @render()
 

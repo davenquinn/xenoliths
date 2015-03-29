@@ -1,4 +1,5 @@
 Spine = require "spine"
+Selection = require "./data/selection"
 
 class App extends Spine.Controller
   API: (o)->
@@ -18,6 +19,7 @@ class App extends Spine.Controller
     for f in @data.features
       new @Data.Measurement(f)
 
+    @selection = new Selection
 
     @el.append "<div />"
       .attr "id", "container"

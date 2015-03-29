@@ -1,4 +1,5 @@
 Spine = require "spine"
+Selection = require "./selection"
 
 inArr = (arr)->
   (t) -> arr.indexOf(t) > -1
@@ -8,6 +9,7 @@ notIn = (arr)->
 class Measurement extends Spine.Module
   @extend Spine.Events
   @collection: []
+  @selection: new Selection
   @tags: []
   @index: new Array
   @get: (id)->@index[id]
@@ -47,7 +49,7 @@ class Measurement extends Spine.Module
       type: "FeatureCollection"
       features: arr
 
-  @hovered: (d)->
+  @hovered: (d)=>
     d.hovered = not d.hovered
     @trigger "hovered", d
 
@@ -58,5 +60,8 @@ class Measurement extends Spine.Module
     @constructor.collection.push @
     @constructor.index[@id] = @
     @constructor.updateTags @properties.tags
+
+  selected: ->
+    @constructor.selection.contains @
 
 module.exports = Measurement
