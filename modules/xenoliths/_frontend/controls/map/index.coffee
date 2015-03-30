@@ -31,8 +31,6 @@ class DataLayer extends ChartBase
 
   loadAxes: =>
 
-    @bounds = getBounds @data
-
     @svg = d3.select @el[0]
       .select "svg"
       .on "click", @onBackgroundClick
@@ -43,6 +41,7 @@ class DataLayer extends ChartBase
   redraw: =>
     proj = @projection
     @selection.each (d)->
+      console.log d
       p = proj d.geometry.coordinates
       d3.select @
         .attr cx: p[0], cy: p[1]
@@ -55,11 +54,7 @@ class Map extends MapBase
     # Add the container when the overlay is added to the map.
     #this.overlay.afterAdd = this.drawSVG;
     @map.addLayer @overlay
-    @setupSVG()
 
-  setData: (data)=>
-
-  setupSVG: =>
     @dataLayer = new DataLayer
       el: $ "#" + @overlay.div.id
       data: @data
@@ -70,7 +65,7 @@ class Map extends MapBase
 
     @map.events.register "moveend", @map, @dataLayer.redraw
 
-    #@zoomToPoint @sel[0].geometry.coordinates, 4  if @sel[0]?
+  setData: (data)=>
 
   setColormap: (args...)=>@dataLayer.setColormap.apply args
 

@@ -26,4 +26,5 @@ def serialize(obj):
             mg_number = obj.mg_number,
             cr_number = cr_number,
             tags = [tag.name for tag in obj.tags]),
-        geometry=mapping(to_shape(obj.location)))
+        geometry=mapping(to_shape(obj.geometry)),
+        location=mapping(to_shape(obj.location)))

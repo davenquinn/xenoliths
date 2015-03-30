@@ -72,7 +72,6 @@ class MapBase extends Spine.Controller
     @sample = Options["samples"][sample]
     @sample_name = sample
     @startMap()
-    return
 
   zoomToPoint: (point, level) ->
     centerPoint = new OpenLayers.LonLat(point[0], point[1])
