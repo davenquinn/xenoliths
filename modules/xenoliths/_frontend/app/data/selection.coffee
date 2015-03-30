@@ -17,5 +17,6 @@ class Selection extends Spine.Module
     @constructor.trigger "empty"
   contains: (d)=>
     @collection.indexOf(d) >= 0
+  first: => @collection[0]
 
 module.exports = Selection

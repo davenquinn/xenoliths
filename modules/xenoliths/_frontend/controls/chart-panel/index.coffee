@@ -46,7 +46,6 @@ class DataFrame extends Spine.Controller
       data = @tdata
     else
       @tags.update [data]
-    @multiSelect.update Measurement.selection.collection
     return  unless data?
     id = data.properties.id
     sample = data.properties.sample

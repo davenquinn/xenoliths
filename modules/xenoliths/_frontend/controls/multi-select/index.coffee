@@ -2,7 +2,9 @@ $ = require "jquery"
 Spine = require "spine"
 d3 = require "d3"
 
-Options = require("../../options")
+Selection = require "../../app/data/selection"
+Measurement = require "../../app/data"
+Options = require "../../options"
 
 class MultiSelectControl extends Spine.Controller
   constructor: ->
@@ -21,7 +23,8 @@ class MultiSelectControl extends Spine.Controller
 
     @width = width
     @color = d3.scale.category20()
-    return
+
+    @listenTo Selection, "add remove empty", @update
 
   render: (data) ->
     return unless data?
@@ -41,19 +44,17 @@ class MultiSelectControl extends Spine.Controller
       )
       return
 
-    @bars = @svg.selectAll("g.point").data(data, (d) ->
-      d.properties.id
-    )
-    @bars.enter().append("g").attr("class", "point").on("mouseover", (d, i) ->
-      a.parent.update d
-      return
-    ).on("mouseout", (d, i) ->
-      a.parent.update null
-      return
-    ).each createBar
+    @bars = @svg.selectAll "g.point"
+      .data data, (d) -> d.properties.id
+
+    @bars.enter()
+      .append("g")
+        .attr("class", "point")
+        .on "mouseover", Measurement.hovered
+        .on "mouseout", Measurement.hovered
+        .each createBar
     @bars.exit().remove()
     @svg.attr "height", h * nbars
-    return
 
   processData: (data) ->
     oxides = data.properties.oxides
@@ -78,8 +79,7 @@ class MultiSelectControl extends Spine.Controller
       e = e + val
     bb
 
-  update: ->
-    @render @map.sel
-    return
+  update: =>
+    @render Measurement.selection.collection
 
 module.exports = MultiSelectControl

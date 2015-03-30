@@ -1,15 +1,15 @@
 Spine = require "spine"
+Measurement = require "../../app/data"
 
 class RawViewer extends Spine.Controller
   constructor: ->
     super
-    @map.dispatcher.on "updated.raw", (d) =>
-      @update d
+    @listenTo Measurement, "hovered", @update
 
-    if @map.selected
-      @update @map.selected
+    if Measurement.selection.collection.length > 0
+      @update Measurement.selection.first()
     else
-      @update @map.data.features[0]
+      @update Measurement.collection[0]
 
   syntaxHighlight: (json) ->
     json = JSON.stringify(json, "undefined", 2)  unless typeof json is "string"
@@ -27,7 +27,7 @@ class RawViewer extends Spine.Controller
       "<span class=\"" + cls + "\">" + match + "</span>"
 
 
-  update: (data) ->
+  update: (data) =>
     return  if typeof (data) is "undefined"
     @el.html "<pre>" + @syntaxHighlight(data) + "</pre>"
 
