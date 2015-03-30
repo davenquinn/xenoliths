@@ -28,7 +28,6 @@ class MapPage extends Spine.Controller
     selection = null
     selection = @data.features.filter(isTagged)  if @tag
     selection = @data.features.filter(isSelected)  if @point
-    console.log selection
     selection
 
   render: ->
@@ -53,7 +52,7 @@ class MapPage extends Spine.Controller
 
   onSampleChanged: (sample) ->
     @sample = sample
-    @map.remove()
+    @map.el.remove()
     @sidebar.refresh()
     @setup()
 

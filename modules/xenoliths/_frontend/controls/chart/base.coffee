@@ -8,8 +8,10 @@ Options = require "../../options"
 
 class ChartBase extends Spine.Controller
   constructor: ->
+    for k,v of @defaults
+      @[k] = v
     super
-    @colormap = new Colorizer["samples"]()
+    @colormap = new Colorizer[@colormap or "sample"]()
     @sel = @selected
     @sel = []  unless @sel
     @setupEventHandlers()
@@ -51,7 +53,6 @@ class ChartBase extends Spine.Controller
   setColormap: (name, options) ->
     @colormap = new Colorizer[name](options)
     @selection.style "fill", @colormap.func
-    return
 
   refresh: =>
     d3.select(@el[0]).select("svg").remove()
@@ -61,6 +62,9 @@ class ChartBase extends Spine.Controller
     # Redraw data on move
   resize: =>
     # Event handler for resize
+
+  loadAxes: =>
+    # Create svg and append data
 
   setData: (data) ->
     @data = data

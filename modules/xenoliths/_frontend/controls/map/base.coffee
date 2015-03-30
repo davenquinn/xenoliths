@@ -3,7 +3,7 @@ Colorizer = require("../../views/base/colors")
 Spine = require "spine"
 OpenLayers = window.OpenLayers
 
-class Map extends Spine.Controller
+class MapBase extends Spine.Controller
   constructor: ->
     super
     @changeSample @sample
@@ -89,4 +89,4 @@ class Map extends Spine.Controller
     @map.setBaseLayer @baseLayers[layer]
 
 
-module.exports = Map
+module.exports = MapBase
