@@ -2,6 +2,7 @@ Spine = require "spine"
 
 MapPanel = require "../../controls/map"
 Sidebar = require "../../controls/sidebar"
+Measurement = require "../../app/data"
 template = require "./template.html"
 
 class MapPage extends Spine.Controller
@@ -12,7 +13,7 @@ class MapPage extends Spine.Controller
 
   setup: ->
     @filter = samples: [@sample]
-    @data = App.Data.filter(@filter)
+    @data = Measurement.filter(@filter)
     @render()
 
   createSelection: ->
@@ -27,7 +28,6 @@ class MapPage extends Spine.Controller
     selection = null
     selection = @data.features.filter(isTagged)  if @tag
     selection = @data.features.filter(isSelected)  if @point
-    console.log selection
     selection
 
   render: ->
@@ -52,7 +52,7 @@ class MapPage extends Spine.Controller
 
   onSampleChanged: (sample) ->
     @sample = sample
-    @map.remove()
+    @map.el.remove()
     @sidebar.refresh()
     @setup()
 

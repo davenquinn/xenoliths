@@ -7,9 +7,12 @@ Options = App.Options
 require "bootstrap-switch"
 Spine = require "Spine"
 
+Measurement = require "../../app/data"
+
 class DataFrame extends Spine.Controller
   constructor: ->
     super
+    @_d = null
     @render()
     @oxides = new OxidesWheel
       el: $("#oxides")
@@ -24,29 +27,25 @@ class DataFrame extends Spine.Controller
       parent: this
 
     @tdata = null
-    if @map.sel
-      @update @map.sel[0]
+    if Measurement.selection.collection.length > 0
+      @update Measurement.selection.collection[0]
     else
-      @update @map.data.features[0]
-    a = @
-    @map.dispatcher.on "updated.data", (d) ->
-      sel = d3.select @
-      a.tdata = d  if sel.classed("selected")
-      a.update d
+      @update Measurement.collection[0]
 
-    @map.dispatcher.on "mouseout", (d) =>
-      sel = d3.select @
-      a.update null
+    @listenTo Measurement, "hovered", (d) =>
+      @tdata = d if d.selected()
+      d = null if d == @_d
+      @update d
+      @_d = d
 
-  render: -> @$el.html template
+  render: -> @el.html template
 
   update: (data) ->
     unless data?
-      @tags.update @map.sel
+      @tags.update Measurement.selection.collection
       data = @tdata
     else
       @tags.update [data]
-    @multiSelect.update @map.sel
     return  unless data?
     id = data.properties.id
     sample = data.properties.sample

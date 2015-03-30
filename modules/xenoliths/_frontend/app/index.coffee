@@ -1,5 +1,5 @@
 Spine = require "spine"
-Data = require "../data"
+Selection = require "./data/selection"
 
 class App extends Spine.Controller
   API: (o)->
@@ -10,11 +10,17 @@ class App extends Spine.Controller
       o.contentType = "application/json"
     return $.ajax(o)
   Options: require "../options"
+  Data:
+    Measurement: require "./data"
   constructor: ->
     super
     window.App = @
-    console.log @data
-    @Data = new Data @data
+
+    for f in @data.features
+      new @Data.Measurement(f)
+
+    @selection = new Selection
+
     @el.append "<div />"
       .attr "id", "container"
     @routes require("./routes")

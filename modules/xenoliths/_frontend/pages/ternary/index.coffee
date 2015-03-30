@@ -2,6 +2,7 @@ Spine = require "spine"
 
 TernaryPanel = require "../../controls/ternary"
 Sidebar = require "../../controls/sidebar"
+Measurement = require "../../app/data"
 template = require "../chart/template.html"
 
 class ChartPage extends Spine.Controller
@@ -11,7 +12,8 @@ class ChartPage extends Spine.Controller
     @setup()
 
   setup: ->
-    @data = App.Data.filter(@filter)
+    @data = Measurement.filter(@filter)
+    console.log @data
     @log "Rendering ternary panel"
     @render()
 

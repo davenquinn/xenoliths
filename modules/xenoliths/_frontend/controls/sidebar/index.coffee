@@ -50,7 +50,7 @@ class Sidebar extends Spine.Controller
 
   refresh: ->
     for c of @controls
-      @controls[c].remove()
+      @controls[c].el.remove()
     @render()
     return
 

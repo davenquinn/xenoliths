@@ -37,7 +37,6 @@ module.exports =
   "map/:sample/tag/:tag": map_route
   "map/:sample": map_route
   "map": map_route
-
   "chart": ->
     new ChartPage(el: page_element)
   "ternary": ternary_route

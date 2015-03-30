@@ -1,36 +1,30 @@
+<h1>Filter Data</h1>
+
 <form>
   <fieldset>
-    <legend>Filter Data</legend>
-    <div class="form-group" id="filter-settings">
-      <label class="checkbox-inline">
-        <input type="checkbox" name="filter-samples"> Filter samples
-      </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" name="filter-minerals"> Filter minerals
-      </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" name="filter-tags"> Filter tags
-      </label>
-    </div>
     <div class="form-group samples">
-        <label for="samples">Sample</label>
-        <select multiple name="samples" class="form-control">
-            {{#each samples}}
-            <option selected value="{{@key}}">{{@key}}</option>
-            {{/each}}
-        </select>
+      <label for="samples"><i class="fa"></i> Samples</label>
+        <div class="panel">
+          <select multiple name="samples" class="form-control">
+              {{#each samples}}
+              <option selected value="{{@key}}">{{@key}}</option>
+              {{/each}}
+          </select>
+        </div>
     </div>
     <div class="form-group minerals">
-        <label for="minerals">Mineral</label>
-        <select multiple name="minerals" class="form-control">
-            {{#each minerals}}
-            <option selected value="{{@key}}">{{ name }}</option>
-            {{/each}}
-        </select>
+        <label for="minerals"><i class="fa"></i> Minerals</label>
+        <div class="panel">
+            <select multiple name="minerals" class="form-control">
+                {{#each minerals}}
+                <option selected value="{{@key}}">{{ name }}</option>
+                {{/each}}
+            </select>
+        </div>
     </div>
     <div class="form-group tags">
-      <label>Tags</label>
-      <div id="tag-filter"></div>
+      <label><i class="fa"></i> Tags</label>
+      <div id="tag-filter" class="panel"></div>
     </div>
     <button type="button" class="filter btn btn-default">Filter</button>
   </fieldset>

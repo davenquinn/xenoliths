@@ -1,62 +1,34 @@
 $ = require "jquery"
 d3 = require "d3"
 Spine = require "spine"
-
+Measurement = require "../../app/data"
+Selection = require "../../app/data/selection"
 Colorizer = require "../../views/base/colors"
 Options = require "../../options"
 
 class ChartBase extends Spine.Controller
   constructor: ->
+    for k,v of @defaults
+      @[k] = v
     super
-    @colormap = new Colorizer["samples"]()
+    @colormap = new Colorizer[@colormap or "samples"]()
     @sel = @selected
     @sel = []  unless @sel
-
     @setupEventHandlers()
     @selection = null
-
     $(window).on "resize", @resize
 
-  setupEventHandlers: ->
-    a = this
-    @dispatcher = d3.dispatch("updated", "mouseout")
-    @onMouseMove = (d, i) ->
-      d3.selectAll(".dot.hovered").classed "hovered", false
-      sel = d3.select(this)
-      if d3.event.shiftKey and not sel.classed("selected")
-        sel.classed "selected", true
-        a.sel.push d
-      sel.classed "hovered", true
-      a.dispatcher.updated.apply this, arguments
-      return
+  setupEventHandlers: =>
+    @listenTo Measurement, "hovered", =>
+      @selection.classed "hovered", (d)->d.hovered
 
-    @onMouseOut = (d, i) ->
-      sel = d3.select(this)
-      if a.sel.length > 0
-        sel.classed "hovered", false
-        a.dispatcher.mouseout.apply this, arguments
-      return
+    @listenTo Selection, "add remove empty", =>
+      @selection.classed "selected", Measurement.selection.contains
 
-    @onClick = (d, i) ->
-      item = d3.select(this)
-      toSelect = not item.classed("selected")
-      item.classed "selected", toSelect
-      if toSelect
-        a.sel.push d
-      else
-        index = a.sel.indexOf(d)
-        a.sel.splice index, 1
-      a.dispatcher.updated.apply this, arguments
-      d3.event.stopPropagation()
-      return
-
-    @onBackgroundClick = (d, i) ->
-      d3.selectAll(".dot.selected").classed "selected", false
-      d3.event.stopPropagation()
-      a.sel.length = 0
-      a.dispatcher.updated.apply this, arguments
-      return
-
+  onBackgroundClick: Measurement.selection.empty
+  onClick: (d)->
+    Measurement.selection.add d
+    d3.event.stopPropagation()
   joinData: (element)=>
     @selection = element
       .selectAll ".dot"
@@ -69,15 +41,18 @@ class ChartBase extends Spine.Controller
           class: "dot"
           r: 3.5
         .style "fill", @colormap.func
-        .on "mouseover", @onMouseMove
-        .on "mouseout", @onMouseOut
+        .on "mouseover", (d, i) ->
+          Measurement.hovered d
+          if d3.event.shiftKey
+            Measurement.selection.add d
+
+        .on "mouseout", Measurement.hovered
         .on "click", @onClick
     @redraw()
 
   setColormap: (name, options) ->
     @colormap = new Colorizer[name](options)
     @selection.style "fill", @colormap.func
-    return
 
   refresh: =>
     d3.select(@el[0]).select("svg").remove()
@@ -87,6 +62,9 @@ class ChartBase extends Spine.Controller
     # Redraw data on move
   resize: =>
     # Event handler for resize
+
+  loadAxes: =>
+    # Create svg and append data
 
   setData: (data) ->
     @data = data

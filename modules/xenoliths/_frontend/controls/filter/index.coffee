@@ -23,7 +23,6 @@ class FilterData extends Spine.Controller
     @render()
 
   events:
-    "change #filter-settings input": "toggleControls"
     "click  button.filter": "filterData"
 
   render: ->
@@ -32,36 +31,61 @@ class FilterData extends Spine.Controller
       samples: App.Options.samples
       minerals: App.Options.minerals
 
-    @tagFilter = new TagFilter(
+    @tagFilter = new TagFilter
       el: @$("#tag-filter")
-      parent: this
-    )
-    $.each [
-      "minerals"
+      parent: @
+
+    sections = [
       "samples"
+      "minerals"
       "tags"
-    ], (i, d) ->
-      condition = a.$("input[name=filter-" + d + "]").is(":checked")
-      a.$("div." + d).toggle condition,
-        duration: 500
+    ]
 
+    @sections = sections.map (d)->
+      {name: d, enabled: false}
 
-  toggleControls: (event) ->
-    checked = event.target.checked
-    cls = event.target.name.split("-")[1]
-    @$("." + cls).toggle checked,
-      duration: 300
+    @selection = d3.select @el[0]
+      .selectAll ".form-group"
+        .data @sections
 
-  filterData: (event) ->
-    arr = @$("form").serializeObject()
-    ["minerals","samples"].forEach (d) ->
-      delete arr[d] unless arr["filter-" + d] is "on"
-      delete arr["filter-" + d]
+    refresh = (sel)->
+      sel.select "label i"
+        .attr class: (d)->
+          s = if d.enabled then "circle" else "circle-o"
+          "fa fa-"+s
+      sel.select ".panel"
+        .each (d)->
+          o = $ @
+          if d.enabled
+            o.show 500
+          else
+            o.hide 500
 
-    arr["tags"] = @tagFilter.getFilter()  if arr["filter-tags"] is "on"
+    @selection
+      .call refresh
+      .select "label"
+        .on "click", (d)=>
+          d.enabled = not d.enabled
+          @selection.call refresh
+
+  filterData: (event) =>
+    form = @$("form").serializeObject()
+
+    arr = {}
+    for i in @selection.data()
+      continue unless i.enabled
+      if i.name is "tags"
+        arr[i.name] = @tagFilter.getFilter()
+      else
+        v = form[i.name]
+        # Ensure it is an array instead of single value
+        v = [v] if typeof v is "string"
+        arr[i.name] = v
+
     console.log arr
     data = App.Data.filter(arr)
     @map.setData data
-    return
+    event.preventDefault()
+    false
 
 module.exports = FilterData
