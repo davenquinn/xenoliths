@@ -39,6 +39,9 @@ def create_samples(data):
         yield val, sample
     db.session.commit()
 
+def create_sessions(data):
+    pass
+
 def create_data(point,row):
     for oxide in app.config.get("OXIDES"):
         d = ProbeDatum.get_or_create(
