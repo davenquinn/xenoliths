@@ -8,6 +8,7 @@ SQLALCHEMY_DATABASE_URI = "postgresql://Daven@localhost/"+DB_NAME
 SITE_DIR = "/Users/Daven/Development/Xenoliths/application"
 
 DATA_DIR = os.path.join(SITE_DIR,"data")
+DB_BACKUP_DIR = os.path.join(DATA_DIR, "backups")
 RAW_DATA = os.path.join(SITE_DIR,"raw_data")
 
 CATIONS = "Si Fe Mg Ti Al Na Ca Mn Cr Ni".split()
