@@ -21,9 +21,14 @@ def transform_coordinates(directory,data):
 
         for a in affine_seed:
             point = points[points.LINE==a["line_number"]]
+
+            # Temporary hack for situations when line-numbers are not unique
+            # AKA different probe sessions.
+            if len(point) > 1: point = point.head(1)
+
             cord = map(float, (point["X-POS"],point["Y-POS"]))
             tocord = (a["x"], a["y"])
-            print(u"{} -> {}".format(repr(cord),repr(tocord)))
+            #print(u"{} -> {}".format(repr(cord),repr(tocord)))
             yield cord,tocord
 
     def generate_transformed():
