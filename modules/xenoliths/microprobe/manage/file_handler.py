@@ -34,9 +34,9 @@ def transform_coordinates(directory,data):
     def generate_transformed():
         for sample in samples:
             try:
-                coordinates = load_transform(sample)
+                coordinates = list(load_transform(sample))
             except IOError:
-                print("No affine seed points available for "+sample.id)
+                print("No affine seed points available for "+sample)
                 continue
 
             fromCoords, toCoords = zip(*list(coordinates))
