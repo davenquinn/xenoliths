@@ -9,9 +9,14 @@ def serialize(obj):
 
     molar = {i._oxide:i.molar_percent for i in obj.data}
 
+    # Deal with Cr-number when not everything has
+    # chromium content
     cr_number = obj.cr_number
-    if isnan(cr_number):
-        cr_number = None
+    try:
+        nan = isnan(cr_number)
+    except TypeError:
+        nan = True
+    if nan: cr_number = None
 
     return dict(
         type = "Feature",
