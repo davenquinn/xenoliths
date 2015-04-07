@@ -40,11 +40,21 @@ def create_samples(data):
     db.session.commit()
 
 def create_data(point,row):
-    for oxide in app.config.get("OXIDES"):
+    """ Imports data from rows into a probe datum for each cation.
+    """
+    parts = tuple(app.config.get(i) for i in ("CATIONS", "OXIDES"))
+    for cation,oxide in zip(*parts):
+        try:
+            wt_pct = row[oxide]
+        except KeyError:
+            continue
+        if N.isnan(wt_pct):
+            continue
+
         d = ProbeDatum.get_or_create(
             measurement=point,
             _oxide=oxide)
-        d.cation = oxide[0:2]
+        d.cation = cation
         d.weight_percent = row[oxide]
         d.error = row[d.cation.symbol+" %ERR"]
         db.session.add(d)
@@ -61,6 +71,7 @@ def setup():
         print(i)
         sample = samples[row["sample_id"]]
         point = ProbeMeasurement.get_or_create(
+            # NEED to differentiate between sessions...
             line_number=row["LINE"],
             sample=sample)
         point.location = WKTElement("POINT({x} {y})".format(
@@ -68,8 +79,12 @@ def setup():
             y = row["Y-POS"]))
         point.geometry = geometry(row)
 
-        oxide_total = sum([o.weight_percent for o in create_data(point,row)])
-        assert N.abs(row["TOTAL"] - oxide_total) < 0.001
+        ls = [o.weight_percent for o in create_data(point,row)]
+        oxide_total = sum(ls)
+        try:
+            assert N.abs(row["TOTAL"] - oxide_total) < 0.001
+        except AssertionError:
+            print("Assertion error")
         point.oxide_total = oxide_total
 
         db.session.add(point)
