@@ -11,8 +11,8 @@ DATA_DIR = os.path.join(SITE_DIR,"data")
 DB_BACKUP_DIR = os.path.join(DATA_DIR, "backups")
 RAW_DATA = os.path.join(SITE_DIR,"raw_data")
 
-CATIONS = "Si Fe Mg Ti Al Na Ca Mn Cr Ni".split()
-OXIDES = "SiO2 FeO MgO TiO2 Al2O3 Na2O CaO MnO Cr2O3 NiO".split()
+CATIONS = "Si Fe Mg Ti Al Na Ca Mn Cr Ni K".split()
+OXIDES = "SiO2 FeO MgO TiO2 Al2O3 Na2O CaO MnO Cr2O3 NiO K2O".split()
 SAMPLES = "CK-1 CK-2 CK-3 CK-4 CK-5 CK-6 CK-7 CK-D1 CK-D2".split()
 
 MINERALS = {
