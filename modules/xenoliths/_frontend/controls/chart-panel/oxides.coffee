@@ -107,7 +107,8 @@ class OxidesWheel extends Spine.Controller
     ob = []
     for key of @oxides
       v = @oxides[key]
-      ob.push oxides[v]
+      ox = oxides[v] or 0
+      ob.push ox
     if oxides.Total < 100
       ob.push 100 - oxides.Total
     else
