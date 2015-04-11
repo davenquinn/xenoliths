@@ -39,6 +39,9 @@ def create_samples(data):
         yield val, sample
     db.session.commit()
 
+def create_sessions(data):
+    pass
+
 def create_data(point,row):
     """ Imports data from rows into a probe datum for each cation.
     """

@@ -29,6 +29,23 @@ class Tag(BaseModel):
     __str__ = lambda self: self.name
     __repr__ = lambda self: "Tag {0}".format(self)
 
+class ProbeSession(BaseModel):
+    __tablename__ = "probe_session"
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.DateTime)
+    sample_id = db.Column(
+        db.String,
+        db.ForeignKey('sample.id'))
+
+    # A key session is the one that the others are
+    # transformed to to stay in the same coordinate
+    # system
+    key = db.Column(db.Boolean)
+
+    translate_x = db.Column(db.Float)
+    translate_y = db.Column(db.Float)
+    rotate = db.Column(db.Float)
+
 class ProbeDatum(BaseModel):
     __tablename__ = "probe_datum"
     measurement_id = db.Column(
@@ -86,6 +103,10 @@ class ProbeMeasurement(BaseModel):
         db.String,
         db.ForeignKey('sample.id'),
         nullable=True)
+
+    session_id = db.Column(
+        db.Integer,
+        db.ForeignKey('probe_session.id'))
 
     data = db.relationship('ProbeDatum',
         backref=db.backref("measurement"),
