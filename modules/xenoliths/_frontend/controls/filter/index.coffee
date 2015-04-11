@@ -82,8 +82,7 @@ class FilterData extends Spine.Controller
         v = [v] if typeof v is "string"
         arr[i.name] = v
 
-    console.log arr
-    data = App.Data.filter(arr)
+    data = App.Data.Measurement.filter(arr)
     @map.setData data
     event.preventDefault()
     false
