@@ -37,14 +37,9 @@ class ProbeSession(BaseModel):
         db.String,
         db.ForeignKey('sample.id'))
 
-    # A key session is the one that the others are
-    # transformed to to stay in the same coordinate
-    # system
-    key = db.Column(db.Boolean)
-
-    translate_x = db.Column(db.Float)
-    translate_y = db.Column(db.Float)
-    rotate = db.Column(db.Float)
+    translate_x = db.Column(db.Float, default=0)
+    translate_y = db.Column(db.Float, default=0)
+    rotate = db.Column(db.Float, default=0)
 
 class ProbeDatum(BaseModel):
     __tablename__ = "probe_datum"
