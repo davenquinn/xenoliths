@@ -9,7 +9,7 @@ from functools import partial
 
 from geotherm.units import u
 from geotherm.models.geometry import Section, Layer, stack_sections
-from geotherm.solvers import HalfSpaceSolver, FiniteSolver, RoydenSolver
+from geotherm.solvers import HalfSpaceSolver, FiniteSolver, RoydenSolver, AdiabatSolver
 from geotherm.materials import oceanic_mantle, continental_crust
 
 from .scenario import ModelScenario
@@ -106,30 +106,30 @@ def underplating():
 
     start = u(20,"Myr")
 
-    forearc = Section([continental_crust.to_layer(u(30,"km"))],
-            uniform_temperature=u(400,"degC"))
+    interface = u(30,"km")
 
-    slab_window_upwelling = Section([
-        oceanic_mantle.to_layer(u(270,"km"))
-    ], uniform_temperature=u(1500,"degC"))
-    # This should be a mantle adiabat.
+    section = Section([
+        continental_crust.to_layer(interface),
+        oceanic_mantle.to_layer(u(300,"km")-interface)
+        ],
+        uniform_temperature=u(400,"degC"))
 
-    section = stack_sections(
-        forearc,
-        slab_window_upwelling)
+    apply_adiabat = AdiabatSolver(
+        start_depth=interface,
+        start_temp=u(1300,"degC"))
 
+    section = apply_adiabat(section)
     record("initial", section)
 
     solver = FiniteSolver(
         section,
         constraints=solver_constraints)
 
-    final = solver(
-        duration=start-present,
-        steps=steps,
-        plot_options=plot_opts)
+    final_section = solver(
+            start-present,
+            steps=steps)
 
-    record("final", section)
+    record("final", final_section)
 
 def solve():
     # This does the computational heavy lifting
