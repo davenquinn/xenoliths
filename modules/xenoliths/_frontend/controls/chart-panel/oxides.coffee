@@ -39,13 +39,55 @@ class OxidesWheel extends Spine.Controller
         "fill ": "#888"
       .text "OXIDES"
 
-    @mineral = @center.append("text").attr("class", "label").attr("x", 0).attr("y", 28).style("text-anchor", "middle").style("alignment-baseline", "middle").style("font-size", ".8em").style("font-weight", "600")
-    @total = @center.append("text").attr("class", "label").attr("x", 0).attr("y", 4).style("text-anchor", "middle").style("alignment-baseline", "middle").style("font-size", "1.8em")
-    @overlay = @center.append("g")
-    @overlay.append("circle").attr("r", @r - 85 - 2).attr("stroke-width", 5).style "fill", "white"
-    @overlay_name = @overlay.append("text").attr("class", "label").attr("x", 0).attr("y", 4).style("text-anchor", "middle").style("alignment-baseline", "middle").style("font-size", "1.9em")
-    @overlay_val = @overlay.append("text").attr("class", "total").attr("x", 5).attr("y", "1.9em").style("text-anchor", "middle").style("alignment-baseline", "middle").style("font-size", "1.2em")
-    @overlay.style "display", "none"
+    @mineral = @center.append "text"
+      .attr
+        class: "label"
+        x: 0
+        y: 28
+      .style
+        "text-anchor": "middle"
+        "alignment-baseline": "middle"
+        "font-size": ".8em"
+        "font-weight": "600"
+
+    @total = @center.append "text"
+      .attr
+        class: "label"
+        x: 0
+        y: 4
+      .style
+        "text-anchor": "middle"
+        "alignment-baseline": "middle"
+        "font-size": "1.8em"
+
+    @overlay = @center.append "g"
+    @overlay.append "circle"
+      .attr
+        r: @r - 85 - 2
+        "stroke-width": 5
+      .style fill: "white"
+
+    @overlay_name = @overlay.append "text"
+      .attr
+        class: "label"
+        x: 0
+        y: 4
+      .style
+        "text-anchor": "middle"
+        "alignment-baseline": "middle"
+        "font-size": "1.9em"
+
+    @overlay_val = @overlay.append "text"
+      .attr
+        class: "total"
+        x: 5
+        y: "1.9em"
+      .style
+        "text-anchor": "middle"
+        "alignment-baseline": "middle"
+        "font-size": "1.2em"
+
+    @overlay.style display: "none"
     @color = d3.scale.category20()
     @donut = d3.layout.pie().sort(null)
 
@@ -53,15 +95,20 @@ class OxidesWheel extends Spine.Controller
       .innerRadius(@r - 85)
       .outerRadius(@r)
 
-    @arcs = @svg.selectAll("path").data(@processData(data)).enter().append("svg:path").attr("pointer-events", "all").attr("fill", (d, i) ->
-      a.color i
-    ).attr("class", (d, i) ->
-      a.oxides.concat(["?"])[i]
-    ).attr("d", @arc).on("mouseover", @onMouseIn).on("mouseout", @onMouseOut).each((d) ->
-      @_current = d
-      return
-    )
-    return
+    @arcs = @svg.selectAll "path"
+      .data(@processData(data))
+
+    @arcs.enter()
+      .append("svg:path")
+      .attr
+        "pointer-events": "all"
+        fill: (d, i) -> a.color i
+      .attr
+        class: (d, i) -> a.oxides.concat(["?"])[i]
+        d: @arc
+      .on "mouseover", @onMouseIn
+      .on "mouseout", @onMouseOut
+      .each (d) -> @_current = d
 
   createEventHandlers: ->
     a = this
@@ -71,36 +118,34 @@ class OxidesWheel extends Spine.Controller
       else
         a = this
         @arcs = @arcs.data(@processData(data))
-        @arcs.transition().duration(300).attrTween "d", a.arcTween # redraw the arcs
+        @arcs.transition()
+          .duration 300
+          .attrTween "d", a.arcTween # redraw the arcs
+
       @total.text data.properties.oxides.Total.toFixed(2) + "%"
       min = App.Options.minerals[data.properties.mineral]
       @mineral.text min.name.toUpperCase()
       color = d3.hsl(min.color)
       color.l = .3
       @mineral.style "fill", color.toString()
-      return
 
     @arcTween = (s) ->
       i = d3.interpolate(@_current, s)
       @_current = i(0)
-      (t) ->
-        a.arc i(t)
+      (t) -> a.arc i(t)
 
     @onMouseIn = (d, i) ->
       el = d3.select(this)
       b = el.attr("fill")
-      a.overlay.style("display", "inherit").select("circle").style "stroke", b
-      a.overlay_name.text el.attr("class")
-      a.overlay_val.text d.value.toFixed(2) + "%"
-      return
+      a.overlay
+        .style display: "inherit"
+        .select("circle").style "stroke", b
 
-    #el.attr("stroke", b);
-    #el.attr("stroke-width", 10)
+      a.overlay_name.text el.attr "class"
+      a.overlay_val.text d.value.toFixed(2) + "%"
+
     @onMouseOut = (d, i) ->
       a.overlay.style "display", "none"
-      return
-
-    return
 
   processData: (data) ->
     oxides = data.properties.oxides
