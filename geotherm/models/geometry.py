@@ -69,6 +69,13 @@ class Section(BaseModel):
                 return layer.material
         return None
 
+    def depth(self, temperature):
+        """
+        Minimum depth where a certain temperature is exceeded.
+        """
+        test = self.profile > temperature
+        return self.cell_centers[test][0]
+
     def get_slice(self, top, bottom):
         def layers():
             for bounds, layer in self.iterlayers():
