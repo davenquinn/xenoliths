@@ -1,3 +1,6 @@
+from __future__ import division
+
+import numpy as N
 from ..units import u
 
 g = u(9.8,"m/s^2")
@@ -19,13 +22,13 @@ class AdiabatSolver(object):
         T = self.start_temp.to("K")
 
         # Cell sizes in center of cell
-        s = section.cell_sizes
-        s1 = s.roll(1)
+        s = section.cell_sizes.into("m")
+        s1 = N.roll(s,1)
         s1[0] = 0
-        depth_shift = (s+s1)/2
+        depth_shift = u(s-s1,"m")
 
-        zip(section.cell_centers, depth_shift)
-        for i,(z,dz) in enumerate(sizes):
+        cells = zip(section.cell_centers, depth_shift)
+        for i,(z,dz) in enumerate(cells):
             if z <= self.start_depth:
                 continue
 
