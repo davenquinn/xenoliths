@@ -77,4 +77,4 @@ def import_images():
                 echo("...."+style("skipping",fg="red"))
                 continue
             import_image(sample, image, info)
-        db.session.commit()
+    db.session.commit()

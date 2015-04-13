@@ -8,7 +8,7 @@ def oxygen_basis(mineral):
     else:
         return 6
 
-def compute_molar(self, session):
+def compute_molar(self):
     """ Computes the molar percentage of KNOWN products
         (i.e. unknown components not included).
     """
@@ -20,7 +20,6 @@ def compute_molar(self, session):
     total = sum(values)
     for d,v in zip(self.data,values):
         d.molar_percent = v/total*100
-        session.add(d)
 
 def compute_ratio(self, top, bottom):
     top = self.oxide(top).molar_percent
@@ -72,8 +71,8 @@ def compute_mineral(point):
 
     point.mineral = mineral
 
-def compute_derived(meas, session):
-    compute_molar(meas, session)
+def compute_derived(meas):
+    compute_molar(meas)
 
     meas.mg_number = compute_ratio(meas,"MgO","FeO"),
     meas.cr_number = compute_ratio(meas,"Cr2O3","Al2O3")
@@ -82,6 +81,7 @@ def compute_derived(meas, session):
 
     if meas.oxide_total < 90:
         meas.add_tag("bad")
+    if meas.spot_size > 0:
+        meas.add_tag("defocused")
 
-    session.add(meas)
 

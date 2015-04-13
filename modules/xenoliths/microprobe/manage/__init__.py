@@ -6,7 +6,7 @@ import json
 import numpy as N
 from flask.ext.script import Manager
 
-from .util import model_factory
+from .util import model_factory, find_spot_size
 from .file_handler import get_data
 from .images import import_images
 from ...application import app, db
@@ -56,7 +56,6 @@ def create_data(point,row):
         d.cation = cation
         d.weight_percent = row[oxide]
         d.error = row[d.cation.symbol+" %ERR"]
-        db.session.add(d)
         yield d
 
 @ProbeCommand.command(name="import")
@@ -77,7 +76,7 @@ def setup():
             x = row["X-POS"],
             y = row["Y-POS"]))
         point.geometry = geometry(row)
-        point.spot_size = row["spot_size"]
+        point.spot_size = find_spot_size(row["SAMPLE"])
 
         ls = [o.weight_percent for o in create_data(point,row)]
         oxide_total = sum(ls)
@@ -86,11 +85,9 @@ def setup():
         except AssertionError:
             print("ERROR: Totals do not match up!")
         point.oxide_total = oxide_total
+        point.compute_derived()
 
-        db.session.add(point)
-        db.session.commit()
-
-    recalculate()
+    db.session.commit()
     write_json()
 
 def recalculate():
