@@ -46,7 +46,6 @@ def forearc_section(**kwargs):
     temperatures = royden(distance,
             forearc.cell_centers.into("m"),
             u(30, "km").into("m"))
-    a = temperatures[-1]
 
-    forearc.profile = u(temperatures*700/a, "degC")
+    forearc.profile = u(temperatures, "degC")
     return forearc
