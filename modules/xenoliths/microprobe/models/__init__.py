@@ -91,6 +91,7 @@ class ProbeMeasurement(BaseModel):
     oxide_total = db.Column(db.Float)
     mg_number = db.Column(db.Float)
     cr_number = db.Column(db.Float)
+    spot_size = db.Column(db.Float)
 
     errors = db.Column(JSON)
     transforms = db.Column(JSON)
@@ -154,6 +155,7 @@ class ProbeMeasurement(BaseModel):
             idx = self.tags.index(tag)
         except ValueError:
             self.tags.append(tag)
+        db.session.flush()
         return tag.name
 
     def remove_tag(self,name):

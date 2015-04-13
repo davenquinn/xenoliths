@@ -6,7 +6,7 @@ import json
 import numpy as N
 from flask.ext.script import Manager
 
-from .util import model_factory
+from .util import model_factory, find_spot_size
 from .file_handler import get_data
 from .images import import_images
 from ...application import app, db
@@ -29,15 +29,6 @@ def write_json():
     with open(path, "w") as f:
         json.dump(data, f)
 
-def oxide_weights(row):
-    ox = {k:row[k] for k in app.config.get("OXIDES")}
-    ox["Total"] = sum(ox.values())
-    return ox
-
-def geometry(row):
-    xy = row["X-POS_affine"],row["Y-POS_affine"]
-    return WKTElement("POINT({0} {1})".format(*xy))
-
 def create_data(point,row):
     """ Imports data from rows into a probe datum for each cation.
     """
@@ -56,40 +47,51 @@ def create_data(point,row):
         d.cation = cation
         d.weight_percent = row[oxide]
         d.error = row[d.cation.symbol+" %ERR"]
-        db.session.add(d)
         yield d
+
+def import_measurement(row):
+
+    def geometry(x,y):
+        xy = row[x],row[y]
+        return WKTElement("POINT({0} {1})".format(*xy))
+
+    point = find_measurement(
+        line_number = row["LINE"],
+        sample = find_sample(id=row["sample_id"]),
+        session = find_session(
+            sample_id=row["sample_id"],
+            date=row["date"]))
+
+    xy = ("X-POS","Y-POS")
+    xy_affine = (a+"_affine" for a in xy)
+
+    point.location = geometry(*xy)
+    point.geometry = geometry(*xy_affine)
+
+    point.spot_size = find_spot_size(row["SAMPLE"])
+
+    ls = [o.weight_percent for o in create_data(point,row)]
+    oxide_total = sum(ls)
+    try:
+        assert N.abs(row["TOTAL"] - oxide_total) < 0.001
+    except AssertionError:
+        print("ERROR: Totals do not match up!")
+    point.oxide_total = oxide_total
+    point.compute_derived()
 
 @ProbeCommand.command(name="import")
 def setup():
     """Imports microprobe data."""
     data = get_data(app.config.get("RAW_DATA"))
+    rows = (row for (i,row) in data.iterrows())
+    n = len(data.index)
 
-    for i,row in data.iterrows():
-        print(i)
-        point = find_measurement(
-            line_number = row["LINE"],
-            sample = find_sample(id=row["sample_id"]),
-            session = find_session(
-                sample_id=row["sample_id"],
-                date=row["date"]))
+    echo("Importing probe measurements...")
+    with click.progressbar(rows, length=n) as bar:
+        for row in bar:
+            import_measurement(row)
 
-        point.location = WKTElement("POINT({x} {y})".format(
-            x = row["X-POS"],
-            y = row["Y-POS"]))
-        point.geometry = geometry(row)
-
-        ls = [o.weight_percent for o in create_data(point,row)]
-        oxide_total = sum(ls)
-        try:
-            assert N.abs(row["TOTAL"] - oxide_total) < 0.001
-        except AssertionError:
-            print("ERROR: Totals do not match up!")
-        point.oxide_total = oxide_total
-
-        db.session.add(point)
-        db.session.commit()
-
-    recalculate()
+    db.session.commit()
     write_json()
 
 def recalculate():
