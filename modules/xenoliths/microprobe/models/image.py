@@ -18,6 +18,10 @@ class ProbeImage(BaseModel):
         db.ForeignKey('sample.id'),
         nullable=True)
 
+    session_id = db.Column(
+        db.Integer,
+        db.ForeignKey('probe_session.id'))
+
     filename = property(lambda s: s.name+".png")
 
     @property
