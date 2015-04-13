@@ -155,6 +155,7 @@ class ProbeMeasurement(BaseModel):
             idx = self.tags.index(tag)
         except ValueError:
             self.tags.append(tag)
+        db.session.flush()
         return tag.name
 
     def remove_tag(self,name):
