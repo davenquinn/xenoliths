@@ -1,4 +1,5 @@
 import numpy as N
+import re
 
 from pathlib import Path
 from pandas import read_table, concat
@@ -53,6 +54,22 @@ def transform_coordinates(directory,data):
 
     return concat(generate_transformed())
 
+size_field = re.compile(r"defocused_(\d+)um")
+digit_regex = re.compile(r"(\d+)")
+
+def find_spot_size(string):
+    """
+    Finds the size of the probe spot used in a measurement
+    given a sample name containing a string such as
+    `defocused_xxx_um`
+    """
+    s = size_field.search(string)
+    if s == None:
+        return 0
+    else:
+        m = digit_regex.search(s.group())
+        return int(m.group())
+
 def data_frames(files):
     for path in files:
         data = read_table(str(path))
@@ -68,4 +85,8 @@ def get_data(directory):
     data_dir = Path(directory)/"Probe"/"data"
     files = data_dir.glob("*.dat")
     data = concat(data_frames(files))
+
+    for i,row in data.iterrows():
+        row["spot_size"] = find_spot_size(row["SAMPLE"])
+
     return transform_coordinates(directory, data)

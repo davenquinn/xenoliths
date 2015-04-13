@@ -77,6 +77,7 @@ def setup():
             x = row["X-POS"],
             y = row["Y-POS"]))
         point.geometry = geometry(row)
+        point.spot_size = row["spot_size"]
 
         ls = [o.weight_percent for o in create_data(point,row)]
         oxide_total = sum(ls)
