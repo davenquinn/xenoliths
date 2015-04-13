@@ -10,7 +10,7 @@ from functools import partial
 from geotherm.units import u
 from geotherm.models.geometry import Section, Layer, stack_sections
 from geotherm.solvers import HalfSpaceSolver, FiniteSolver, RoydenSolver, AdiabatSolver
-from geotherm.materials import oceanic_mantle, continental_crust
+from geotherm.materials import oceanic_mantle, continental_crust, oceanic_crust
 
 from .scenario import ModelScenario
 from .forearc import forearc_section
@@ -50,15 +50,22 @@ def subduction_case(name, start_time, subduction_time):
 
     record = partial(save_info, name)
 
-    oceanic = Section([oceanic_mantle.to_layer(u(250,"km"))])
+    oceanic = Section([
+        oceanic_crust.to_layer(u(7,"km")),
+        oceanic_mantle.to_layer(u(263,"km"))])
 
-    half_space = HalfSpaceSolver(oceanic)
-    initial = half_space(u(0,"yr"))
+    adiabat = AdiabatSolver()
 
-    record("initial", initial)
+    initial_section = adiabat(oceanic)
 
-    t = start_time-subduction_time
-    underplated_oceanic = half_space(t)
+    record("initial", initial_section)
+
+    solver = FiniteSolver(
+        initial_section,
+        constraints=solver_constraints)
+
+    t = start_time - subduction_time
+    underplated_oceanic = solver(t,steps=steps)
 
     record("before-subduction", underplated_oceanic)
 
@@ -91,10 +98,6 @@ def subduction_case(name, start_time, subduction_time):
         steps=steps)
 
     record("final",final_section)
-
-farallon_plate = partial(
-    subduction_case,
-    "farallon_plate")
 
 def underplating():
     name = "underplating"
