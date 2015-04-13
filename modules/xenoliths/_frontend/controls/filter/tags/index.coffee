@@ -41,7 +41,8 @@ class TagFilter extends Spine.Controller
         return
 
     @ul.call @bindData, @data
-    false
+
+    event.preventDefault()
 
   bindData: (ul, data) ->
     li = ul.selectAll("li").data(data, (d) ->
@@ -71,8 +72,7 @@ class TagFilter extends Spine.Controller
 
   changeTag: (event) ->
     d = event.currentTarget.__data__
-    
-    #var d = this.data[this.data.indexOf(data)];
+
     unless d.sel?
       d.sel = false
     else
