@@ -29,15 +29,6 @@ def write_json():
     with open(path, "w") as f:
         json.dump(data, f)
 
-def oxide_weights(row):
-    ox = {k:row[k] for k in app.config.get("OXIDES")}
-    ox["Total"] = sum(ox.values())
-    return ox
-
-def geometry(row):
-    xy = row["X-POS_affine"],row["Y-POS_affine"]
-    return WKTElement("POINT({0} {1})".format(*xy))
-
 def create_data(point,row):
     """ Imports data from rows into a probe datum for each cation.
     """
@@ -59,6 +50,11 @@ def create_data(point,row):
         yield d
 
 def import_measurement(row):
+
+    def geometry(x,y):
+        xy = row[x],row[y]
+        return WKTElement("POINT({0} {1})".format(*xy))
+
     point = find_measurement(
         line_number = row["LINE"],
         sample = find_sample(id=row["sample_id"]),
@@ -66,10 +62,12 @@ def import_measurement(row):
             sample_id=row["sample_id"],
             date=row["date"]))
 
-    point.location = WKTElement("POINT({x} {y})".format(
-        x = row["X-POS"],
-        y = row["Y-POS"]))
-    point.geometry = geometry(row)
+    xy = ("X-POS","Y-POS")
+    xy_affine = (a+"_affine" for a in xy)
+
+    point.location = geometry(*xy)
+    point.geometry = geometry(*xy_affine)
+
     point.spot_size = find_spot_size(row["SAMPLE"])
 
     ls = [o.weight_percent for o in create_data(point,row)]
