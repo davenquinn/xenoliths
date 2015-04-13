@@ -18,6 +18,8 @@ class App extends Spine.Controller
 
     for f in @data.features
       new @Data.Measurement(f)
+    @Data.Measurement.imported = true
+    @Data.Measurement.trigger "imported"
 
     @selection = new Selection
 

@@ -10,6 +10,7 @@ class Measurement extends Spine.Module
   @extend Spine.Events
   @collection: []
   @selection: new Selection
+  @imported: false
   @tags: []
   @index: new Array
   @get: (id)->@index[id]
@@ -25,6 +26,8 @@ class Measurement extends Spine.Module
       tests.samples = notIn options.samples
     if options.minerals?
       tests.minerals = notIn options.minerals
+    if options.dates?
+      tests.dates = notIn options.dates
     if options.tags?
       tests.tags =
         excluded: inArr options.tags.exclude
@@ -35,6 +38,8 @@ class Measurement extends Spine.Module
         return false if tests.samples(d.properties.sample)
       if tests.minerals?
         return false if tests.minerals(d.properties.mineral)
+      if tests.dates?
+        return false if tests.dates(d.properties.date)
       if tests.tags?
         if d.properties.tags.some(tests.tags.excluded)
           return false

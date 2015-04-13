@@ -20,16 +20,30 @@ class FilterData extends Spine.Controller
     super
     @map = @parent.map
     @samples = App.Options.samples
-    @render()
+
+    Meas = App.Data.Measurement
+    if Meas.imported
+      @render()
+    else
+      @listenToOnce Meas, "imported", @render
 
   events:
     "click  button.filter": "filterData"
 
-  render: ->
-    a = this
+  render: =>
+
+    # Get unique dates
+    dates = App.Data.Measurement.collection
+      .map (d)-> d.properties.date
+    console.log dates
+
+    unique = dates.filter (d,i,self)-> self.indexOf(d) == i
+    console.log unique
+
     @$el.html template
       samples: App.Options.samples
       minerals: App.Options.minerals
+      dates: unique
 
     @tagFilter = new TagFilter
       el: @$("#tag-filter")
@@ -38,6 +52,7 @@ class FilterData extends Spine.Controller
     sections = [
       "samples"
       "minerals"
+      "dates"
       "tags"
     ]
 
