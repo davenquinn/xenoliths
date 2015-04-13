@@ -4,14 +4,23 @@ from __future__ import division
 from geotherm.units import u
 from geotherm.materials import oceanic_mantle, continental_crust
 from geotherm.models.geometry import Section, Layer, stack_sections
-from geotherm.solvers import HalfSpaceSolver, AdvancedFiniteSolver
+from geotherm.solvers import HalfSpaceSolver, FiniteSolver, AdiabatSolver
 from geotherm.plot import Plotter
 
 Layer.defaults["grid_spacing"] = u(100,"m")
 
+mantle_section = Section([oceanic_mantle.to_layer(u(100,"km"))])
+
+apply_adiabat = AdiabatSolver()
+
+starting_mantle = apply_adiabat(mantle_section)
+
+from IPython import embed
+embed()
+
 # Initialize oceanic crust (analytical)
-oceanic = HalfSpaceSolver(oceanic_mantle.to_layer(u(100,"km")))
-evolved_oceanic = oceanic.solution(u(30,"Myr"))
+oceanic = HalfSpaceSolver(mantle_layer)
+evolved_oceanic = oceanic(u(30,"Myr"))
 
 # Will put royden solver here.
 
@@ -23,14 +32,13 @@ final_section = stack_sections(
     evolved_forearc.get_slice(u(0,"km"), u(30,"km")),
     evolved_oceanic)
 
-solver = AdvancedFiniteSolver(
+solver = FiniteSolver(
     final_section,
     constraints=tuple(u(i,"degC") for i in (25,1500)))
 
 solution = solver.solve_implicit(
     duration=u(20,"Myr"),
-    steps=500,
-    plotter=Plotter(range=(0,1500)))
+    steps=500)
 
 list(solution)
 

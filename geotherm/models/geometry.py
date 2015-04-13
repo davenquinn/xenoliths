@@ -37,10 +37,8 @@ class Section(BaseModel):
     def __init__(self, layers, **kwargs):
         self.layers = layers
         self.profile = kwargs.pop("profile", None)
-        uniform_temperature = kwargs.pop("uniform_temperature", None)
-        if uniform_temperature is not None:
-            if self.profile is not None:
-                raise ArgumentError("Cannot set both uniform and depth-profile temperature constraints")
+        uniform_temperature = kwargs.pop("uniform_temperature", u(0,"degC"))
+        if self.profile is None:
             self.profile = N.ones(self.n_cells)*uniform_temperature.to("K")
 
     @property
@@ -64,6 +62,12 @@ class Section(BaseModel):
 
     def layer_bounds(self):
         return N.concatenate(list(self.iterlayers()))
+
+    def material(self,depth):
+        for (top,bottom),layer in self.iterlayers():
+            if top < depth < bottom:
+                return layer.material
+        return None
 
     def get_slice(self, top, bottom):
         def layers():
