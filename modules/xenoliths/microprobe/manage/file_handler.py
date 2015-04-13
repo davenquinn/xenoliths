@@ -1,9 +1,8 @@
 import numpy as N
-import re
 
 from pathlib import Path
-from datetime import datetime
 from pandas import read_table, concat
+from .util import find_date
 from .affine import Affine
 
 def transform_coordinates(directory,data):
@@ -55,16 +54,14 @@ def transform_coordinates(directory,data):
     return concat(generate_transformed())
 
 def data_frames(files):
-    date_regex = re.compile(r"(\d\d-\d\d-\d\d)")
     for path in files:
-        date = date_regex.search(path.stem).group()
         data = read_table(str(path))
         data.columns = [s.strip() for s in data.columns]
         sample = data["SAMPLE"].str.replace("_"," ")
         splits = sample.str.split()
         data["sample_id"] = splits.str[0]
         data["group"] = splits.str[1:].str.join(" ")
-        data["date"] = datetime.strptime(date, "%m-%d-%y")
+        data["date"] = find_date(path.stem)
         yield data
 
 def get_data(directory):

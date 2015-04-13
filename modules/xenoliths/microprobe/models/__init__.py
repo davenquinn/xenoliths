@@ -41,6 +41,9 @@ class ProbeSession(BaseModel):
     translate_y = db.Column(db.Float, default=0)
     rotate = db.Column(db.Float, default=0)
 
+    sample = db.relationship('Sample',
+        backref=db.backref("sessions"))
+
 class ProbeDatum(BaseModel):
     __tablename__ = "probe_datum"
     measurement_id = db.Column(
@@ -111,6 +114,10 @@ class ProbeMeasurement(BaseModel):
     tags = db.relationship('Tag', secondary=tags,
         backref=db.backref('points', lazy='dynamic'),
         lazy="joined")
+
+    session = db.relationship('ProbeSession',
+        backref=db.backref("measurements"))
+
     # Object methods
     from .serialize import serialize
     from .compute import compute_derived
@@ -135,7 +142,10 @@ class ProbeMeasurement(BaseModel):
 
     @property
     def mineral_name(self):
-        return MINERALS[self.mineral]
+        try:
+            return MINERALS[self.mineral]
+        except KeyError:
+            return "Unknown"
 
     def add_tag(self,name):
         slug = slugify(name.strip(), to_lower=True)

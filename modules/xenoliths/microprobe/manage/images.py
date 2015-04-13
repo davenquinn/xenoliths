@@ -6,7 +6,8 @@ from click import echo, style
 from ...application import app, db
 from pathlib import Path
 from ...core.models import Sample
-from ..models import ProbeImage
+from ..models import ProbeImage, ProbeSession
+from .util import model_factory, find_date
 
 def get_info(info_filename):
     with open(str(info_filename)) as f:
@@ -31,27 +32,33 @@ field_map = dict(
     y_min='Stage Ymin',
     y_max='Stage Ymax')
 
-def import_image(sample, image, info):
-    info = {k:v for k,v in get_info(info)}
-    name = sanitize_name(image.stem)
-    echo(name)
-    model = db.session.query(ProbeImage)\
-        .filter_by(name=name).first()
-    if not model:
-        data = {k:float(info[v])\
-            for k,v in field_map.items()}
-        model = ProbeImage(
-            name=name,
-            sample_id=sample.id,
-            **data)
+find_image = model_factory(ProbeImage, echo=True)
+find_session = model_factory(ProbeSession, echo=True)
 
+def import_image(sample, image, info_file):
+    info = {k:v for k,v in get_info(info_file)}
+    name = sanitize_name(image.stem)
+
+    s1 = image.stem.replace("_","-")
+    session = find_session(
+        sample_id=sample.id,
+        date=find_date(s1))
+
+    data = {k:float(info[v])\
+        for k,v in field_map.items()}
+    data["sample_id"] = sample.id
+    data["session_id"] = session.id
+
+    model = find_image(name=name)
+    for k,d in data.items():
+        setattr(model,k,d)
+
+    # Save files if they don't already exist
     try:
         assert model.path.is_file()
     except AssertionError:
         im = Image.open(str(image))
         im.save(str(model.path))
-
-    db.session.add(model)
 
 @click.command()
 def import_images():

@@ -6,14 +6,20 @@ import json
 import numpy as N
 from flask.ext.script import Manager
 
+from .util import model_factory
 from .file_handler import get_data
 from .images import import_images
 from ...application import app, db
 from ...core.models import Sample
-from ..models import ProbeMeasurement, ProbeDatum
+from ..models import ProbeMeasurement, ProbeDatum, ProbeSession
 
 ProbeCommand = click.Group(help="Command to manage microprobe data")
 ProbeCommand.add_command(import_images, name="import-images")
+
+find_datum = model_factory(ProbeDatum)
+find_sample = model_factory(Sample, echo=True)
+find_session = model_factory(ProbeSession, echo=True)
+find_measurement = model_factory(ProbeMeasurement, echo=True)
 
 def write_json():
     path = os.path.join(app.config.get("DATA_DIR"),"data.json")
@@ -32,16 +38,6 @@ def geometry(row):
     xy = row["X-POS_affine"],row["Y-POS_affine"]
     return WKTElement("POINT({0} {1})".format(*xy))
 
-def create_samples(data):
-    for val in data["sample_id"].unique():
-        sample = Sample.get_or_create(id=val)
-        db.session.add(sample)
-        yield val, sample
-    db.session.commit()
-
-def create_sessions(data):
-    pass
-
 def create_data(point,row):
     """ Imports data from rows into a probe datum for each cation.
     """
@@ -54,7 +50,7 @@ def create_data(point,row):
         if N.isnan(wt_pct):
             continue
 
-        d = ProbeDatum.get_or_create(
+        d = find_datum(
             measurement=point,
             _oxide=oxide)
         d.cation = cation
@@ -68,15 +64,15 @@ def setup():
     """Imports microprobe data."""
     data = get_data(app.config.get("RAW_DATA"))
 
-    samples = {k:v for k,v in create_samples(data)}
-
     for i,row in data.iterrows():
         print(i)
-        sample = samples[row["sample_id"]]
-        point = ProbeMeasurement.get_or_create(
-            # NEED to differentiate between sessions...
-            line_number=row["LINE"],
-            sample=sample)
+        point = find_measurement(
+            line_number = row["LINE"],
+            sample = find_sample(id=row["sample_id"]),
+            session = find_session(
+                sample_id=row["sample_id"],
+                date=row["date"]))
+
         point.location = WKTElement("POINT({x} {y})".format(
             x = row["X-POS"],
             y = row["Y-POS"]))
@@ -87,7 +83,7 @@ def setup():
         try:
             assert N.abs(row["TOTAL"] - oxide_total) < 0.001
         except AssertionError:
-            print("Assertion error")
+            print("ERROR: Totals do not match up!")
         point.oxide_total = oxide_total
 
         db.session.add(point)
@@ -96,7 +92,6 @@ def setup():
     recalculate()
     write_json()
 
-@ProbeCommand.command()
 def recalculate():
     """Calculates derived parameters for already-imported data"""
     for meas in ProbeMeasurement.query.all():
@@ -104,3 +99,4 @@ def recalculate():
         meas.compute_derived(db.session)
     db.session.commit()
 
+ProbeCommand.add_command(recalculate, name="recalculate")
