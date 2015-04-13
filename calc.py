@@ -70,7 +70,7 @@ def subduction_case(name, start_time, subduction_time):
     record("before-subduction", underplated_oceanic)
 
     # Find the base of the lithosphere
-    d = half_space.depth(t, T_lithosphere)
+    d = underplated_oceanic.depth(T_lithosphere)
     distance = 100e3
     echo("Depth of the base of the "
         "lithosphere at the time of "
