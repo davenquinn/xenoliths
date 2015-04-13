@@ -30,4 +30,5 @@ class AdiabatSolver(object):
             c = mat.specific_heat
             dTdz = T*a*g/c
             T += dTdz * dz
+        return section
 
