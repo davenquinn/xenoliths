@@ -28,7 +28,7 @@ def import_measurement(mineral, raw,norm):
     meas = SIMSMeasurement(
         name = name,
         sample = sample,
-        mineral = app.config["MINERALS"][mineral])
+        mineral = mineral)
     echo(meas)
     db.session.add(meas)
 
