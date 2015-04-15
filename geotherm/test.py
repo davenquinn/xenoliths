@@ -1,6 +1,7 @@
 from .units import u
 from .models.material import Material
 from .models.geometry import Layer, Section, stack_sections
+from .materials import continental_crust
 
 def simple_profile():
     material = Material()
@@ -39,3 +40,12 @@ def realistic_profile():
         evolved_forearc.get_slice(u(0,"km"), u(30,"km")),
         evolved_oceanic.get_slice(u(0,"km"),u(70,"km"))
         )
+
+def test_radiogenic_units():
+    """
+    Tests unit conversion for the creation of a radiogenic
+    heating term.
+    """
+    cr = continental_crust
+    term = cr.heat_generation/cr.specific_heat/cr.density
+    assert term.dimensionality == u(1,"K/s").dimensionality
