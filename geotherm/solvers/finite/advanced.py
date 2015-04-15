@@ -62,16 +62,17 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
 
     def radiogenic_heat(self):
         """Radiogenic heat production varying in space."""
-        def build_array():
-            for layer in self.section.layers:
-                m = layer.material
-                coeff = m.heat_generation/m.specific_heat/m.density
-                a = N.empty(layer.n_cells)
-                a.fill(coeff.into("K/s"))
-                yield a
-        arr = N.concatenate(tuple(build_array()))
-        arr = N.append(arr, arr[-1])
-        assert len(arr) == len(self.mesh.faceCenters[0])
+
+        a, Cp, rho = (self.section.material_property(i)
+            for i in ("heat_generation","specific_heat", "density"))
+        if a.sum().magnitude == 0:
+            arr = 0
+        else:
+            arr = (a/Cp/rho).into("K/s")
+
+            arr = N.append(arr, arr[-1])
+            assert len(arr) == len(self.mesh.faceCenters[0])
+
         self.heat_generation = F.FaceVariable(mesh=self.mesh, value=arr)
 
     def create_equation(self, type="implicit"):
