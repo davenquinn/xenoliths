@@ -102,12 +102,7 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
             methods.
         """
 
-        print("Duration: {0:.2e}".format(duration.to("year")))
-        print("Number of steps: {0}".format(steps))
-
-        default = lambda t,sol: print(t.to("year"))
-        plotter = kw.pop("plotter",default)
-
+        plotter = kw.pop("plotter",self.plotter)
         time_step = kw.pop("time_step", self.time_step)
 
         if steps and duration:
@@ -116,21 +111,25 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         elif steps:
             duration = steps*time_step
         elif duration:
-            # Adjust timestep to be divisible into 
+            # Adjust timestep to be divisible into timeline
             time_step, steps = self.fractional_timestep(duration, time_step)
-            kw["steps"] = steps
         else:
             raise ArgumentError("Either `steps` or `duration` argument must be provided")
+
+        print("Duration: {0:.2e}".format(duration.to("year")))
+        print("Number of steps: {0}".format(steps))
 
         for step in range(steps):
             simulation_time = step*time_step
             sol = u(N.array(self.var.value),"K").to("degC")
             if plotter is not None:
-                plotter(simulation_time,sol)
+                print(len(self.section.cell_centers), len(sol))
+                plotter(simulation_time, (self.section.cell_centers, sol))
             yield simulation_time, sol
             self.equation.solve(
                 var=self.var,
                 dt=time_step.into("seconds"))
+
 
     def solution(self, duration, **kwargs):
         sol = self.__solve__(duration=duration, **kwargs)
