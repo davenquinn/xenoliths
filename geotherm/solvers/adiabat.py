@@ -24,9 +24,9 @@ class AdiabatSolver(object):
         idx = section.cell_centers >= self.start_depth
 
         # Cell sizes in center of cell
-        s = section.cell_sizes[idx].into("m")
+        s = section.cell_centers[idx].into("m")
         s1 = N.roll(s,1)
-        s1[0] = 0
+        s1[0] = self.start_depth.into("m")
         dz = u(s-s1,"m")
 
         a = section.material_property("thermal_expansivity")[idx]
