@@ -38,30 +38,3 @@ class Plotter(object):
         print("Plotting solution")
         self.fig.canvas.draw()
 
-
-class ComparisonPlotter(Plotter):
-    type = "paired"
-    def __init__(self,comparison_function,**plotting_options):
-        super(ComparisonPlotter,self).__init__(**plotting_options)
-        self.comparison_function = comparison_function
-
-    def initialize(self, solver):
-        self.solver = solver
-        self.fig, (self.ax,self.ax2) = subplots(
-            1,2,
-            sharey=True,
-            figsize=self.size,
-            facecolor="white")
-        self.setup_axes()
-        self.ax2.set_xlabel(u"Error: \u00b0C")
-        self.comparison, = self.ax.plot(self.solver.initial_values, self._y, '-')
-        self.residuals, = self.ax2.plot(N.zeros(len(self._y)),self._y,'-')
-        self.fig.show()
-
-    def __call__(self, time, solution):
-        comparator = self.comparison_function(time)
-        self.comparison.set_xdata(comparator)
-        self.residuals.set_xdata(solution-comparator)
-        self.ax2.relim()
-        self.ax2.autoscale()
-        super(ComparisonPlotter, self).__call__(time,solution)
