@@ -14,13 +14,3 @@ class TestMeshes(object):
         d = mesh.cellCenters - self.section.cell_centers.into("m")
         assert d.all() == 0
 
-def test_simple_case():
-    material = Material()
-    layer = Layer(material, u(100,"km"), grid_spacing=u(100,"m"))
-    simple = SimpleFiniteSolver(layer)
-    advanced = AdvancedFiniteSolver(layer)
-    time = u(100,"kyr")
-    s = simple.solve()
-
-    for solS, solA in zip(s,a):
-        pass
