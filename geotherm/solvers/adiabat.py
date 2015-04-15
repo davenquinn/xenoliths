@@ -21,23 +21,19 @@ class AdiabatSolver(object):
         """
         T = self.start_temp.to("K")
 
+        idx = section.cell_centers >= self.start_depth
+
         # Cell sizes in center of cell
-        s = section.cell_sizes.into("m")
+        s = section.cell_sizes[idx].into("m")
         s1 = N.roll(s,1)
         s1[0] = 0
-        depth_shift = u(s-s1,"m")
+        dz = u(s-s1,"m")
 
-        cells = zip(section.cell_centers, depth_shift)
-        for i,(z,dz) in enumerate(cells):
-            if z <= self.start_depth:
-                continue
+        a = section.material_property("thermal_expansivity")[idx]
+        Cp = section.material_property("specific_heat")[idx]
 
-            mat = section.material(z)
-            a = mat.thermal_expansivity
-            c = mat.specific_heat
-            dTdz = T*a*g/c
-            T += dTdz * dz
-            section.profile[i] = T
+        coeff = a*g*dz/Cp
+        section.profile[idx] = u(N.cumsum(coeff),"K") + T
 
         return section
 

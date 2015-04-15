@@ -60,6 +60,18 @@ class Section(BaseModel):
             yield (top,bottom), layer
             top = bottom
 
+    def material_property(self, parameter):
+        """ Returns an array of a material parameter (such as
+            diffusivity, density)
+        """
+        i = 0
+        arr = N.empty(self.n_cells)
+        for layer in self.layers:
+            coeff = getattr(layer.material, parameter)
+            arr[i:i+layer.n_cells] = coeff
+            i += layer.n_cells
+        return u(arr,coeff.units)
+
     def layer_bounds(self):
         return N.concatenate(list(self.iterlayers()))
 
