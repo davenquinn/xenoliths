@@ -8,15 +8,24 @@ import numpy as N
 
 class BaseFiniteSolver(BaseSolver):
     defaults = dict(
-        constraints = (u(i,"degC") for i in (25,1500))
+        constraints = (u(i,"degC") for i in (25,1500)),
+        time_step = None,
+        type = "implicit",
+        plotter = lambda t,sol: print(t.to("year"))
     )
     def __init__(self, section,**kwargs):
         super(BaseFiniteSolver, self).__init__(**kwargs)
 
-    def fractional_timestep(self, duration):
-        ts = self.stable_timestep()
-        print(ts.to("year"))
-        n_steps = int(N.ceil((duration/ts).to_base_units()))
+    def fractional_timestep(self, duration, ts=None):
+        """
+        Tunes a timestep to evenly divide up period.
+        If no timestep is provided, defaults to dividing
+        the period into 100 parts.
+        """
+        if ts:
+            n_steps = int(N.ceil((duration/ts).to_base_units()))
+        else:
+            n_steps = 100
         return duration/n_steps, n_steps
 
     def create_mesh(self):

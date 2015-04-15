@@ -37,10 +37,8 @@ class Section(BaseModel):
     def __init__(self, layers, **kwargs):
         self.layers = layers
         self.profile = kwargs.pop("profile", None)
-        uniform_temperature = kwargs.pop("uniform_temperature", None)
-        if uniform_temperature is not None:
-            if self.profile is not None:
-                raise ArgumentError("Cannot set both uniform and depth-profile temperature constraints")
+        uniform_temperature = kwargs.pop("uniform_temperature", u(0,"degC"))
+        if self.profile is None:
             self.profile = N.ones(self.n_cells)*uniform_temperature.to("K")
 
     @property
@@ -62,8 +60,33 @@ class Section(BaseModel):
             yield (top,bottom), layer
             top = bottom
 
+    def material_property(self, parameter):
+        """ Returns an array of a material parameter (such as
+            diffusivity, density)
+        """
+        i = 0
+        arr = N.empty(self.n_cells)
+        for layer in self.layers:
+            coeff = getattr(layer.material, parameter)
+            arr[i:i+layer.n_cells] = coeff
+            i += layer.n_cells
+        return u(arr,coeff.units)
+
     def layer_bounds(self):
         return N.concatenate(list(self.iterlayers()))
+
+    def material(self,depth):
+        for (top,bottom),layer in self.iterlayers():
+            if top < depth < bottom:
+                return layer.material
+        return None
+
+    def depth(self, temperature):
+        """
+        Minimum depth where a certain temperature is exceeded.
+        """
+        test = self.profile > temperature
+        return self.cell_centers[test][0]
 
     def get_slice(self, top, bottom):
         def layers():

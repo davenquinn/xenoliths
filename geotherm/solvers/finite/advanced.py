@@ -1,7 +1,9 @@
 from __future__ import division, print_function
 
+import click
 import fipy as F
 import numpy as N
+from warnings import warn
 from .base import BaseFiniteSolver
 from ...units import u, DimensionalityError
 from ...models import Section
@@ -29,9 +31,21 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
                     v = val.into("W/m**2")
                     self.var.faceGrad.constrain([v], face) ## Constrain as flux
 
+        if type == "explicit":
+            # Use stable timesteps if we're running explicit finite differences
+            if self.time_step is not None:
+                warn("For explicit finite differences, the"
+                          "timestep is not user-adjustable")
+            self.time_step = self.stable_timestep(0.05)
+
         self.create_coefficient()
         self.radiogenic_heat()
-        self.create_equation()
+
+        if self.type == "crank-nicholson":
+            eqns = [self.create_equation(i) for i in ("implicit","explicit")]
+            self.equation = sum(eqns)
+        else:
+            self.equation = self.create_equation(self.type)
 
     def create_coefficient(self):
         """A spatially varying diffusion coefficient"""
@@ -60,11 +74,19 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         assert len(arr) == len(self.mesh.faceCenters[0])
         self.heat_generation = F.FaceVariable(mesh=self.mesh, value=arr)
 
-    def create_equation(self):
+    def create_equation(self, type="implicit"):
+        if type == "implicit":
+            DiffusionTerm = F.DiffusionTerm
+        elif type == "explicit":
+            DiffusionTerm = F.ExplicitDiffusionTerm
+        else:
+            m = "Must specify either explicit or implicit diffusion"
+            raise ArgumentError(m)
+
         trans = F.TransientTerm()
-        diff = F.DiffusionTerm(coeff=self.diffusion_coefficient)\
+        diff = DiffusionTerm(coeff=self.diffusion_coefficient)\
                 + self.heat_generation.divergence
-        self.equation = trans == diff
+        return trans == diff
 
     def stable_timestep(self, padding=0):
         """Stable timestep for explicit diffusion"""
@@ -75,53 +97,43 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
                 yield super(AdvancedFiniteSolver,self).stable_timestep(d,s,padding=padding)
         return min(s for s in gen())
 
-    def solve_implicit(self, **kw):
-        """Quick but inaccurate, using any number of steps you choose."""
-        print("Solving implicit")
-        kw["steps"] = kw.pop("steps",100)
-        return self.__solve__(**kw)
-
-    def solve_explicit(self, **kw):
-        print("Solving explicit")
-        if "duration" in kw:
-            time_step, steps = self.fractional_timestep(duration)
-            kw["steps"] = steps
-        elif "steps" in kw:
-            time_step = self.stable_timestep(0.05)
-            kw["duration"] = kw["steps"]*time_step
-        else:
-            raise ArgumentError("either `steps` or `duration` argument must be provided")
-        return self.__solve__(**kw)
-
     def __solve__(self, steps=None, duration=None, **kw):
         """ A private method that implements solving given the keyword combinations
             defined in the `solve_implicit`, `solve_explicit`, and `solve_crank_nicholson`
             methods.
         """
 
+        plotter = kw.pop("plotter",self.plotter)
+        time_step = kw.pop("time_step", self.time_step)
+
+        if steps and duration:
+            # If we have both of these, we ignore any timestep that is set
+            time_step = duration/steps
+        elif steps:
+            duration = steps*time_step
+        elif duration:
+            # Adjust timestep to be divisible into timeline
+            time_step, steps = self.fractional_timestep(duration, time_step)
+        else:
+            raise ArgumentError("Either `steps` or `duration` argument must be provided")
+
         print("Duration: {0:.2e}".format(duration.to("year")))
         print("Number of steps: {0}".format(steps))
 
-        default = lambda t,sol: print(t.to("year"))
-        plotter = kw.pop("plotter",default)
-        time_step = duration/steps
+        with click.progressbar(range(steps),length=steps) as bar:
+            for step in bar:
+                simulation_time = step*time_step
+                sol = u(N.array(self.var.value),"K").to("degC")
+                if plotter is not None:
+                    plotter(simulation_time, (self.section.cell_centers, sol))
+                yield simulation_time, sol
+                self.equation.solve(
+                    var=self.var,
+                    dt=time_step.into("seconds"))
 
-        for step in range(steps):
-            simulation_time = step*time_step
-            sol = u(N.array(self.var.value),"K").to("degC")
-            if plotter is not None:
-                plotter(simulation_time,sol)
-            yield simulation_time, sol
-            self.equation.solve(
-                var=self.var,
-                dt=time_step.into("seconds"))
 
-    def solve_crank_nicholson(self,duration=None,steps=10,plotter=None):
-        pass
-
-    def solution(self, duration, type="implicit", **kwargs):
-        function = getattr(self, "solve_"+type)
-        sol = function(duration=duration, **kwargs)
+    def solution(self, duration, **kwargs):
+        sol = self.__solve__(duration=duration, **kwargs)
         item = None # hackish; bring variable scope out of loop
         for item in sol:
             pass

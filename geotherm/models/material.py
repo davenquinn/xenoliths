@@ -9,7 +9,8 @@ class Material(BaseModel):
         conductivity = u(3.35,"W/m/K"),
         specific_heat = u(1171,"J/kg/K"),
         density = u(3000,"kg/m**3"),
-        heat_generation = u(0,"uW/m**3"))
+        heat_generation = u(0,"uW/m**3"),
+        thermal_expansivity = u(3e-5,"1/K"))
 
     def __init__(self,**kwargs):
         super(Material, self).__init__(**kwargs)

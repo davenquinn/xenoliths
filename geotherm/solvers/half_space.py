@@ -17,7 +17,8 @@ class HalfSpaceSolver(BaseSolver):
             s = "{} can be initialized only from a single layer or a section containing only one layer."
             raise ArgumentError(s.format(self.__class__))
         except AttributeError:
-            self.layer = layer
+            # We were provided with a single homogenous layer
+            self.layer = section
         self.material = self.layer.material
     def temperature(self,time,depth):
         time = ensure_unit(time, unit.seconds)
