@@ -1,5 +1,6 @@
 from __future__ import division, print_function
 
+import click
 import fipy as F
 import numpy as N
 from warnings import warn
@@ -119,16 +120,16 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         print("Duration: {0:.2e}".format(duration.to("year")))
         print("Number of steps: {0}".format(steps))
 
-        for step in range(steps):
-            simulation_time = step*time_step
-            sol = u(N.array(self.var.value),"K").to("degC")
-            if plotter is not None:
-                print(len(self.section.cell_centers), len(sol))
-                plotter(simulation_time, (self.section.cell_centers, sol))
-            yield simulation_time, sol
-            self.equation.solve(
-                var=self.var,
-                dt=time_step.into("seconds"))
+        with click.progressbar(range(steps),length=steps) as bar:
+            for step in bar:
+                simulation_time = step*time_step
+                sol = u(N.array(self.var.value),"K").to("degC")
+                if plotter is not None:
+                    plotter(simulation_time, (self.section.cell_centers, sol))
+                yield simulation_time, sol
+                self.equation.solve(
+                    var=self.var,
+                    dt=time_step.into("seconds"))
 
 
     def solution(self, duration, **kwargs):

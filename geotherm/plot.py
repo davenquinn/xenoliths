@@ -37,6 +37,5 @@ class Plotter(object):
             self.solution.set_ydata(section[0])
             self.solution.set_xdata(section[1])
         self.title.set_text(self.title_prefix+"{0:.4f}".format(time))
-        print(time)
         self.fig.canvas.draw()
 
