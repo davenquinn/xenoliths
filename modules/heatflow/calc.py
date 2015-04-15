@@ -6,11 +6,14 @@ import os, json
 from click import echo
 
 from functools import partial
+import matplotlib
+matplotlib.use("TkAgg")
 
 from geotherm.units import u
 from geotherm.models.geometry import Section, Layer, stack_sections
 from geotherm.solvers import HalfSpaceSolver, FiniteSolver, RoydenSolver, AdiabatSolver
 from geotherm.materials import oceanic_mantle, continental_crust, oceanic_crust
+from geotherm.plot import Plotter
 
 from .scenario import ModelScenario
 from .forearc import forearc_section
@@ -28,6 +31,18 @@ solver_constraints = (
 steps = 50
 
 T_lithosphere = u(1300,"degC")
+
+plotter = Plotter(range=(0,1400))
+
+FiniteSolver.set_defaults(
+    type="implicit",
+    time_step=u(1,"Myr"),
+    constraints=solver_constraints,
+    plotter=plotter)
+
+def finite_solve(section, duration):
+    solver = FiniteSolver(section)
+    return solver(duration)
 
 def save_info(name, step, section):
     out = dict(
@@ -54,18 +69,14 @@ def subduction_case(name, start_time, subduction_time):
         oceanic_crust.to_layer(u(7,"km")),
         oceanic_mantle.to_layer(u(263,"km"))])
 
-    adiabat = AdiabatSolver()
+    apply_adiabat = AdiabatSolver()
 
-    initial_section = adiabat(oceanic)
+    initial_section = apply_adiabat(oceanic)
 
     record("initial", initial_section)
 
-    solver = FiniteSolver(
-        initial_section,
-        constraints=solver_constraints)
-
     t = start_time - subduction_time
-    underplated_oceanic = solver(t,steps=steps)
+    underplated_oceanic = finite_solve(initial_section, t)
 
     record("before-subduction", underplated_oceanic)
 
@@ -89,13 +100,7 @@ def subduction_case(name, start_time, subduction_time):
 
     record("after-subduction", section)
 
-    solver = FiniteSolver(
-        section,
-        constraints=solver_constraints)
-
-    final_section = solver(
-        subduction_time-present,
-        steps=steps)
+    final_section = finite_solve(section, subduction_time-present)
 
     record("final",final_section)
 
@@ -124,13 +129,7 @@ def underplating():
     section = apply_adiabat(section)
     record("initial", section)
 
-    solver = FiniteSolver(
-        section,
-        constraints=solver_constraints)
-
-    final_section = solver(
-            start-present,
-            steps=steps)
+    final_section = finite_solve(section,start-present)
 
     record("final", final_section)
 
