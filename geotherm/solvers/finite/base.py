@@ -8,7 +8,9 @@ import numpy as N
 
 class BaseFiniteSolver(BaseSolver):
     defaults = dict(
-        constraints = (u(i,"degC") for i in (25,1500))
+        constraints = (u(i,"degC") for i in (25,1500)),
+        coarsen_timesteps = 10,
+        type = "implicit"
     )
     def __init__(self, section,**kwargs):
         super(BaseFiniteSolver, self).__init__(**kwargs)

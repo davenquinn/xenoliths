@@ -29,9 +29,18 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
                     v = val.into("W/m**2")
                     self.var.faceGrad.constrain([v], face) ## Constrain as flux
 
+        if type == "explicit":
+            # Use stable timesteps if we're running explicit finite differences
+            self.coarsen_timesteps = 1
+
         self.create_coefficient()
         self.radiogenic_heat()
-        self.create_equation()
+
+        if self.type == "crank-nicholson":
+            eqns = [self.create_equation(i) for i in ("implicit","explicit")]
+            self.equation = sum(eqns)
+        else:
+            self.equation = self.create_equation(self.type)
 
     def create_coefficient(self):
         """A spatially varying diffusion coefficient"""
@@ -60,11 +69,19 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         assert len(arr) == len(self.mesh.faceCenters[0])
         self.heat_generation = F.FaceVariable(mesh=self.mesh, value=arr)
 
-    def create_equation(self):
+    def create_equation(self, type="implicit"):
+        if type == "implicit":
+            DiffusionTerm = F.DiffusionTerm
+        elif type == "explicit":
+            DiffusionTerm = F.ExplicitDiffusionTerm
+        else:
+            m = "Must specify either explicit or implicit diffusion"
+            raise ArgumentError(m)
+
         trans = F.TransientTerm()
-        diff = F.DiffusionTerm(coeff=self.diffusion_coefficient)\
+        diff = DiffusionTerm(coeff=self.diffusion_coefficient)\
                 + self.heat_generation.divergence
-        self.equation = trans == diff
+        return trans == diff
 
     def stable_timestep(self, padding=0):
         """Stable timestep for explicit diffusion"""
@@ -73,25 +90,11 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
                 d = layer.material.diffusivity
                 s = layer.grid_spacing
                 yield super(AdvancedFiniteSolver,self).stable_timestep(d,s,padding=padding)
-        return min(s for s in gen())
-
-    def solve_implicit(self, **kw):
-        """Quick but inaccurate, using any number of steps you choose."""
-        print("Solving implicit")
-        kw["steps"] = kw.pop("steps",100)
-        return self.__solve__(**kw)
-
-    def solve_explicit(self, **kw):
-        print("Solving explicit")
-        if "duration" in kw:
-            time_step, steps = self.fractional_timestep(duration)
-            kw["steps"] = steps
-        elif "steps" in kw:
-            time_step = self.stable_timestep(0.05)
-            kw["duration"] = kw["steps"]*time_step
+        ts = min(s for s in gen())
+        if self.type == "explicit":
+            return ts
         else:
-            raise ArgumentError("either `steps` or `duration` argument must be provided")
-        return self.__solve__(**kw)
+            return ts*self.coarsen_timesteps
 
     def __solve__(self, steps=None, duration=None, **kw):
         """ A private method that implements solving given the keyword combinations
@@ -104,7 +107,17 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
 
         default = lambda t,sol: print(t.to("year"))
         plotter = kw.pop("plotter",default)
-        time_step = duration/steps
+
+        if steps and duration:
+            time_step = duration/steps
+        elif steps and not duration:
+            time_step = self.stable_timestep(0.05)
+            duration = steps*timestep
+        elif duration and not steps:
+            time_step, steps = self.fractional_timestep(duration)
+            kw["steps"] = steps
+        elif not steps and not duration:
+            raise ArgumentError("Either `steps` or `duration` argument must be provided")
 
         for step in range(steps):
             simulation_time = step*time_step
@@ -116,12 +129,8 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
                 var=self.var,
                 dt=time_step.into("seconds"))
 
-    def solve_crank_nicholson(self,duration=None,steps=10,plotter=None):
-        pass
-
-    def solution(self, duration, type="implicit", **kwargs):
-        function = getattr(self, "solve_"+type)
-        sol = function(duration=duration, **kwargs)
+    def solution(self, duration, **kwargs):
+        sol = self.__solve__(duration=duration, **kwargs)
         item = None # hackish; bring variable scope out of loop
         for item in sol:
             pass
