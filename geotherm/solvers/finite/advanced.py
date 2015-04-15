@@ -2,6 +2,7 @@ from __future__ import division, print_function
 
 import fipy as F
 import numpy as N
+from warnings import warn
 from .base import BaseFiniteSolver
 from ...units import u, DimensionalityError
 from ...models import Section
@@ -31,7 +32,10 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
 
         if type == "explicit":
             # Use stable timesteps if we're running explicit finite differences
-            self.coarsen_timesteps = 1
+            if self.time_step is not None:
+                warn("For explicit finite differences, the"
+                          "timestep is not user-adjustable")
+            self.time_step = self.stable_timestep(0.05)
 
         self.create_coefficient()
         self.radiogenic_heat()
@@ -90,11 +94,7 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
                 d = layer.material.diffusivity
                 s = layer.grid_spacing
                 yield super(AdvancedFiniteSolver,self).stable_timestep(d,s,padding=padding)
-        ts = min(s for s in gen())
-        if self.type == "explicit":
-            return ts
-        else:
-            return ts*self.coarsen_timesteps
+        return min(s for s in gen())
 
     def __solve__(self, steps=None, duration=None, **kw):
         """ A private method that implements solving given the keyword combinations
@@ -108,15 +108,18 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         default = lambda t,sol: print(t.to("year"))
         plotter = kw.pop("plotter",default)
 
+        time_step = kw.pop("time_step", self.time_step)
+
         if steps and duration:
+            # If we have both of these, we ignore any timestep that is set
             time_step = duration/steps
-        elif steps and not duration:
-            time_step = self.stable_timestep(0.05)
-            duration = steps*timestep
-        elif duration and not steps:
-            time_step, steps = self.fractional_timestep(duration)
+        elif steps:
+            duration = steps*time_step
+        elif duration:
+            # Adjust timestep to be divisible into 
+            time_step, steps = self.fractional_timestep(duration, time_step)
             kw["steps"] = steps
-        elif not steps and not duration:
+        else:
             raise ArgumentError("Either `steps` or `duration` argument must be provided")
 
         for step in range(steps):
