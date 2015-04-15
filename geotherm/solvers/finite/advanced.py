@@ -39,7 +39,6 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
             self.time_step = self.stable_timestep(0.05)
 
         self.create_coefficient()
-        self.radiogenic_heat()
 
         if self.type == "crank-nicholson":
             eqns = [self.create_equation(i) for i in ("implicit","explicit")]
@@ -60,20 +59,19 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         assert len(arr) == len(self.mesh.faceCenters[0])
         self.diffusion_coefficient = F.FaceVariable(mesh=self.mesh, value=arr)
 
-    def radiogenic_heat(self):
+    def radiogenic_heating(self):
         """Radiogenic heat production varying in space."""
 
         a, Cp, rho = (self.section.material_property(i)
             for i in ("heat_generation","specific_heat", "density"))
         if a.sum().magnitude == 0:
-            arr = 0
-        else:
-            arr = (a/Cp/rho).into("K/s")
+            return None
 
-            arr = N.append(arr, arr[-1])
-            assert len(arr) == len(self.mesh.faceCenters[0])
+        arr = (a/Cp/rho).into("K/s")
+        arr = N.append(arr, arr[-1])
+        assert len(arr) == len(self.mesh.faceCenters[0])
 
-        self.heat_generation = F.FaceVariable(mesh=self.mesh, value=arr)
+        return F.FaceVariable(mesh=self.mesh, value=arr)
 
     def create_equation(self, type="implicit"):
         if type == "implicit":
@@ -85,8 +83,12 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
             raise ArgumentError(m)
 
         trans = F.TransientTerm()
-        diff = DiffusionTerm(coeff=self.diffusion_coefficient)\
-                + self.heat_generation.divergence
+        diff = DiffusionTerm(coeff=self.diffusion_coefficient)
+
+        # Apply radiogenic heating if it exists
+        h = self.radiogenic_heating()
+        if h: diff += h.divergence
+
         return trans == diff
 
     def stable_timestep(self, padding=0):
@@ -120,6 +122,7 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
 
         print("Duration: {0:.2e}".format(duration.to("year")))
         print("Number of steps: {0}".format(steps))
+        print("Step length: {0}".format(time_step))
 
         with click.progressbar(range(steps),length=steps) as bar:
             for step in bar:
