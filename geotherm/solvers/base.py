@@ -8,3 +8,6 @@ class BaseSolver(BaseModel):
         "T_max": u(1500,"degC"),
         "T_lithosphere": u(1300,"degC")
     }
+    @classmethod
+    def set_defaults(cls,**kwargs):
+        cls.defaults.update(kwargs)
