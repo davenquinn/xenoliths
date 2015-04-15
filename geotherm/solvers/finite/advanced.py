@@ -34,7 +34,7 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         if type == "explicit":
             # Use stable timesteps if we're running explicit finite differences
             if self.time_step is not None:
-                warn("For explicit finite differences, the"
+                warn("For explicit finite differences, the "
                           "timestep is not user-adjustable")
             self.time_step = self.stable_timestep(0.05)
 
