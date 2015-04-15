@@ -3,7 +3,6 @@ from __future__ import division
 import numpy as N
 from ..units import u
 
-g = u(9.8,"m/s^2")
 
 class AdiabatSolver(object):
     defaults = dict(
@@ -18,8 +17,9 @@ class AdiabatSolver(object):
         """
         Iteratively applies adiabatic profile.
         Ignores changing gravity with depth.
+
+        Values from Turcotte and Schubert, 2002 (p340)
         """
-        T = self.start_temp.to("K")
 
         idx = section.cell_centers >= self.start_depth
 
@@ -29,11 +29,14 @@ class AdiabatSolver(object):
         s1[0] = self.start_depth.into("m")
         dz = u(s-s1,"m")
 
+        g = u(10,"m/s^2")
         a = section.material_property("thermal_expansivity")[idx]
         Cp = section.material_property("specific_heat")[idx]
+        T = u(1600,"K")
 
-        coeff = a*g*dz/Cp
-        section.profile[idx] = u(N.cumsum(coeff),"K") + T
+        coeff = a*g*dz*T/Cp
+        integrated = u(N.cumsum(coeff.into("K")),coeff.units)
+        section.profile[idx] = integrated + self.start_temp.to("K")
 
         return section
 
