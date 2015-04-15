@@ -48,13 +48,7 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
 
     def create_coefficient(self):
         """A spatially varying diffusion coefficient"""
-        def build_array():
-            for layer in self.section.layers:
-                coeff = layer.material.diffusivity.into("m**2/s")
-                a = N.empty(layer.n_cells)
-                a.fill(coeff)
-                yield a
-        arr = N.concatenate(list(build_array()))
+        arr = self.section.material_property("diffusivity").into("m**2/s")
         arr = N.append(arr, arr[-1])
         assert len(arr) == len(self.mesh.faceCenters[0])
         self.diffusion_coefficient = F.FaceVariable(mesh=self.mesh, value=arr)
@@ -93,12 +87,10 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
 
     def stable_timestep(self, padding=0):
         """Stable timestep for explicit diffusion"""
-        def gen():
-            for layer in self.section.layers:
-                d = layer.material.diffusivity
-                s = layer.grid_spacing
-                yield super(AdvancedFiniteSolver,self).stable_timestep(d,s,padding=padding)
-        return min(s for s in gen())
+        d = self.section.material_property("diffusivity")
+        s = self.section.cell_sizes
+        arr = super(AdvancedFiniteSolver,self).stable_timestep(d,s,padding=padding)
+        return arr.min()
 
     def __solve__(self, steps=None, duration=None, **kw):
         """ A private method that implements solving given the keyword combinations
