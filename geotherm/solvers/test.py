@@ -25,7 +25,7 @@ def test_half_space():
 
     c = (u(25,"degC"),u(1500,"degC"))
     finite = FiniteSolver(section, constraints=c)
-    sol = finite(t, steps=500)
+    sol = finite(t, steps=50)
     hsol = half_space(t)
 
     f,h = tuple(i.profile for i in (sol, hsol))
@@ -33,9 +33,3 @@ def test_half_space():
     print("Maximum error: ",abs(f-h).max())
     assert N.allclose(f, h, atol=10)
 
-def test_radiogenic_heat():
-    """
-    Test that the finite element model at steady state
-    properly accounts for added heat from radiogenic heating
-    """
-    pass

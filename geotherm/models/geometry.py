@@ -56,6 +56,11 @@ class Section(BaseModel):
         ls = [func(layer,top) for (top,bottom), layer in self.iterlayers()]
         return u(N.concatenate(ls),"m")
 
+    def linear_geotherm(self, upper, lower):
+        pos = self.cell_centers/self.thickness
+        self.profile = (lower-upper)*pos+lower
+        return self
+
     def iterlayers(self):
         top = u(0,"km")
         for layer in self.layers:

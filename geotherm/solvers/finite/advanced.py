@@ -62,10 +62,9 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
             return None
 
         arr = (a/Cp/rho).into("K/s")
-        arr = N.append(arr, arr[-1])
-        assert len(arr) == len(self.mesh.faceCenters[0])
+        assert len(arr) == len(self.mesh.cellCenters[0])
 
-        return F.FaceVariable(mesh=self.mesh, value=arr)
+        return F.CellVariable(mesh=self.mesh, value=arr)
 
     def create_equation(self, type="implicit"):
         if type == "implicit":
@@ -79,10 +78,8 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         trans = F.TransientTerm()
         diff = DiffusionTerm(coeff=self.diffusion_coefficient)
 
-        # Apply radiogenic heating if it exists
         h = self.radiogenic_heating()
-        if h: diff += h.divergence
-
+        if h is not None: diff += h
         return trans == diff
 
     def stable_timestep(self, padding=0):
@@ -91,6 +88,9 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         s = self.section.cell_sizes
         arr = super(AdvancedFiniteSolver,self).stable_timestep(d,s,padding=padding)
         return arr.min()
+
+    def value(self):
+        return u(self.var.value,"K").to("degC")
 
     def __solve__(self, steps=None, duration=None, **kw):
         """ A private method that implements solving given the keyword combinations
@@ -117,16 +117,25 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         print("Step length: {0}".format(time_step))
 
         with click.progressbar(range(steps),length=steps) as bar:
+            h = self.radiogenic_heating()
             for step in bar:
                 simulation_time = step*time_step
-                sol = u(N.array(self.var.value),"K").to("degC")
+                sol = self.value()
                 if plotter is not None:
                     plotter(simulation_time, (self.section.cell_centers, sol))
                 yield simulation_time, sol
+                dt = time_step.into("seconds")
                 self.equation.solve(
                     var=self.var,
-                    dt=time_step.into("seconds"))
+                    dt=dt)
 
+    def steady_state(self):
+        diff = F.DiffusionTerm(coeff=self.diffusion_coefficient)
+        # Apply radiogenic heating if it exists
+        #h = self.radiogenic_heating()
+        #if h is not None: diff += h.divergence
+        diff.solve(var = self.var)
+        return self.value()
 
     def solution(self, duration, **kwargs):
         sol = self.__solve__(duration=duration, **kwargs)
