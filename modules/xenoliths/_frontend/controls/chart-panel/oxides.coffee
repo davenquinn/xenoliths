@@ -88,8 +88,10 @@ class OxidesWheel extends Spine.Controller
         "font-size": "1.2em"
 
     @overlay.style display: "none"
-    @color = d3.scale.category20()
+    @color = d3.scale.category20c()
     @donut = d3.layout.pie().sort(null)
+
+    arr = a.oxides.concat(["?"])
 
     @arc = d3.svg.arc()
       .innerRadius(@r - 85)
@@ -102,9 +104,13 @@ class OxidesWheel extends Spine.Controller
       .append("svg:path")
       .attr
         "pointer-events": "all"
-        fill: (d, i) -> a.color i
+        fill: (d, i) ->
+          if i == arr.length - 1
+            return "#ffffff"
+          else
+            return a.color i
       .attr
-        class: (d, i) -> a.oxides.concat(["?"])[i]
+        class: (d, i) -> arr[i]
         d: @arc
       .on "mouseover", @onMouseIn
       .on "mouseout", @onMouseOut
