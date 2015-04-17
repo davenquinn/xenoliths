@@ -7,6 +7,7 @@ Options = require "../../options"
 class TernaryChart extends ChartBase
   constructor: ->
     super
+    @el.addClass "ternary"
     @loadAxes()
 
   loadAxes: ->

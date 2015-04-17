@@ -9,7 +9,7 @@ class Chart extends ChartBase
       left: 50
       top: 20
       bottom: 40
-      right: 0
+      right: 10
 
     @loadAxes()
 
@@ -62,25 +62,10 @@ class Chart extends ChartBase
   drawSVG: =>
     @svg = d3.select @el[0]
       .append "svg"
-        .append "g"
-          .call @zoomer
-        .on "click", @onBackgroundClick
+      .append "g"
+      .call @zoomer
+      .on "click", @onBackgroundClick
 
-    @background = @svg.append "rect"
-      .attr
-        class: "background"
-        fill: "white"
-        x: 0
-        y: 0
-
-    @clip = @svg.append "defs"
-      .append "svg:clipPath"
-      .attr id: "clip"
-      .append "svg:rect"
-        .attr
-          id: "clip-rect"
-          x: 0
-          y: 0
 
     @ax_x = @svg.append "g"
       .attr class: "x axis"
@@ -94,31 +79,46 @@ class Chart extends ChartBase
       .attr
         class: "label"
         x: "50%"
-        y: 30
-      .style "text-anchor", "center"
+        dy: "2em"
+      .style "text-anchor", "middle"
       .text @axes.x
 
     @ax_y.append "text"
       .attr
         class: "label"
         transform: "rotate(-90)"
-        x: "50%"
-        y: -40
-        dy: ".71em"
-      .style "text-anchor", "center"
+        x: "-50%"
+        dy: "-2em"
+      .style "text-anchor", "middle"
       .text @axes.y
 
-    @resize()
+    @clip = @svg.append "defs"
+      .append "svg:clipPath"
+      .attr id: "clip"
+      .append "svg:rect"
+        .attr
+          id: "clip-rect"
+          x: 0
+          y: 0
+
+    @background = @svg.append "rect"
+      .attr
+        class: "background"
+        fill: "transparent"
+        x: 0
+        y: 0
 
     @dataFrame = @svg.append "g"
       .attr
         class: "data"
         "clip-path": "url(#clip)"
+
+    @resize()
+
+    @dataFrame
       .call @joinData
-      .on "click", @onBackgroundClick
 
   resize: =>
-    console.log "Resizing"
     w = @el.width()
     h = @el.height()
 
@@ -153,7 +153,6 @@ class Chart extends ChartBase
     @ax_y.call @yAxis
 
   redraw: =>
-    console.log "Drawing data"
     xt = (d)=>
       @x eval("d.properties." + @axes.x)
     yt = (d)=>

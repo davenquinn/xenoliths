@@ -63,14 +63,6 @@ ul.links {
 	}
 }
 
-#chart {
-	svg {
-		text.label {
-			font-size: 15px;
-		}
-	}
-}
-
 @mixin label {
 	display: block;
 	color: #666;
