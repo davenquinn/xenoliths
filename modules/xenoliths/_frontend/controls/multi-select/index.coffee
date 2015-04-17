@@ -22,7 +22,7 @@ class MultiSelectControl extends Spine.Controller
       .attr("width", width)
 
     @width = width
-    @color = d3.scale.category20()
+    @color = d3.scale.category20c()
 
     @listenTo Selection, "add remove empty", @update
 
@@ -35,14 +35,16 @@ class MultiSelectControl extends Spine.Controller
       y = i
       group = d3.select(this)
       data = a.processData(d)
-      bars = group.selectAll("rect").data(data).enter().append("rect").attr("x", (d) ->
-        d.off + "%"
-      ).attr("width", (d) ->
-        d.w + "%"
-      ).attr("height", h).attr("y", h * i).attr("fill", (d, i) ->
-        a.color i
-      )
-      return
+      bars = group.selectAll "rect"
+        .data(data)
+        .enter()
+        .append "rect"
+          .attr
+            x: (d) -> d.off + "%"
+            width: (d) -> d.w + "%"
+            height: h
+            y: h * i
+            fill: (d, i) -> a.color i
 
     @bars = @svg.selectAll "g.point"
       .data data, (d) -> d.properties.id
@@ -57,27 +59,32 @@ class MultiSelectControl extends Spine.Controller
     @svg.attr "height", h * nbars
 
   processData: (data) ->
-    oxides = data.properties.oxides
-    ob = []
-    for key of @oxides
-      v = @oxides[key]
-      ob.push oxides[v]
-    if oxides.Total < 100
-      ob.push 100 - oxides.Total
+    p = data.properties
+    data = @oxides.map (id)->
+      oxides: p.oxides[id] or 0
+      molar: p.molar[id] or 0
+      id: id
+
+    if p.oxides.Total < 100
+      ox = 100 - p.oxides.Total
       scalar = 1
     else
-      scalar = 100 / oxides.Total
-      ob.push 0
-    e = 0
-    bb = []
-    for i of ob
-      val = ob[i] * scalar
-      bb.push
-        off: e
-        w: val
+      ox = 0
+      scalar = 100/p.oxides.Total
+    data.push
+      oxides: ox
+      molar: 0
+      id: "?"
 
-      e = e + val
-    bb
+    mode = "oxides"
+    if mode == "molar" then scalar = 1
+    e = 0
+    cumsum = data.map (d)->
+      e += d[mode]*scalar
+
+    return data.map (d,i)->
+      off: cumsum[i]
+      w: d[mode]*scalar
 
   update: =>
     @render Measurement.selection.collection
