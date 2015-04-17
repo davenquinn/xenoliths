@@ -28,20 +28,22 @@ solver_constraints = (
     #u(48,"mW/m**2"))
     # Globally averaged mantle heat flux from Pollack, et al., 1977
 
-steps = 50
-
 T_lithosphere = u(1300,"degC")
 
 plotter = Plotter(range=(0,1400))
 
 FiniteSolver.set_defaults(
     type="implicit",
-    time_step=u(1,"Myr"),
+    time_step=u(200,"kyr"),
     constraints=solver_constraints,
     plotter=plotter)
 
 def finite_solve(section, duration):
-    solver = FiniteSolver(section)
+    constraints = (u(20,"degC"), section.profile[-1])
+    echo("Initializing finite solver with constraints "
+            "{0} and {1}".format(*constraints))
+
+    solver = FiniteSolver(section, constraints=constraints)
     return solver(duration)
 
 def save_info(name, step, section):
