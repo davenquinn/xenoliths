@@ -2,6 +2,9 @@ $ = require "jquery"
 Spine = require "spine"
 d3 = require("d3")
 
+pie = d3.layout.pie()
+  .sort(null)
+
 class OxidesWheel extends Spine.Controller
   constructor: ->
     super
@@ -89,7 +92,6 @@ class OxidesWheel extends Spine.Controller
 
     @overlay.style display: "none"
     @color = d3.scale.category20c()
-    @donut = d3.layout.pie().sort(null)
 
     arr = a.oxides.concat(["?"])
 
@@ -119,6 +121,7 @@ class OxidesWheel extends Spine.Controller
   createEventHandlers: ->
     a = this
     @update = (data) ->
+      console.log data
       if typeof @total is "undefined"
         @render data
       else
@@ -164,7 +167,6 @@ class OxidesWheel extends Spine.Controller
       ob.push 100 - oxides.Total
     else
       ob.push 0
-    d = @donut(ob)
-    d
+    pie ob
 
 module.exports = OxidesWheel

@@ -208,6 +208,7 @@ options =
     "NiO"
     "MnO"
     "Na2O"
+    "K2O"
   ]
   cations: [
     "Si"
@@ -220,6 +221,7 @@ options =
     "Ni"
     "Mn"
     "Na"
+    "K"
   ]
   bad_tags: [
     "bad"
