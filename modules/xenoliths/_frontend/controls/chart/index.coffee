@@ -64,6 +64,7 @@ class Chart extends ChartBase
       .append "svg"
         .append "g"
           .call @zoomer
+        .on "click", @onBackgroundClick
 
     @background = @svg.append "rect"
       .attr
