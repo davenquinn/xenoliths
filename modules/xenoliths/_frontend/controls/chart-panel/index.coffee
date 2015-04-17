@@ -26,14 +26,14 @@ class DataFrame extends Spine.Controller
       el: $("#multiple")
       parent: this
 
-    @tdata = null
+    @lastSelected = null
     if Measurement.selection.collection.length > 0
       @update Measurement.selection.collection[0]
     else
       @update Measurement.collection[0]
 
     @listenTo Measurement, "hovered", (d) =>
-      @tdata = d if d.selected()
+      @lastSelected = d if d.selected()
       d = null if d == @_d
       @update d
       @_d = d
@@ -41,11 +41,14 @@ class DataFrame extends Spine.Controller
   render: -> @el.html template
 
   update: (data) ->
-    unless data?
-      @tags.update Measurement.selection.collection
-      data = @tdata
-    else
-      @tags.update [data]
+    if not data?
+      if Measurement.selection.collection.length > 0
+        coll = Measurement.selection.collection
+        data = @lastSelected
+      else
+        data = @_d
+
+    @tags.update coll or [data]
     return  unless data?
     id = data.properties.id
     sample = data.properties.sample
