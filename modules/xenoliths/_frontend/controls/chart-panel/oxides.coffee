@@ -3,6 +3,7 @@ Spine = require "spine"
 d3 = require("d3")
 
 pie = d3.layout.pie()
+  .value (d)->d.oxide
   .sort(null)
 
 class OxidesWheel extends Spine.Controller
@@ -157,16 +158,21 @@ class OxidesWheel extends Spine.Controller
       a.overlay.style "display", "none"
 
   processData: (data) ->
-    oxides = data.properties.oxides
-    ob = []
-    for key of @oxides
-      v = @oxides[key]
-      ox = oxides[v] or 0
-      ob.push ox
-    if oxides.Total < 100
-      ob.push 100 - oxides.Total
-    else
-      ob.push 0
-    pie ob
+    p = data.properties
+    data = @oxides.map (id)->
+      oxide: p.oxides[id] or 0
+      molar: p.molar[id] or 0
+      id: id
+
+    ox = 0
+    if p.oxides.Total < 100
+      ox = 100 - p.oxides.Total
+
+    data.push
+      oxide: ox
+      molar: 0
+      id: "?"
+
+    pie data
 
 module.exports = OxidesWheel
