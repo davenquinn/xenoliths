@@ -2,76 +2,62 @@
 Solver for geothermal models related to the Crystal Knob xenoliths
 """
 from __future__ import division, print_function
-import json
+import os, json
 from click import echo
 
 from functools import partial
+import matplotlib
+matplotlib.use("TkAgg")
 
 from geotherm.units import u
 from geotherm.models.geometry import Section, Layer, stack_sections
-from geotherm.solvers import HalfSpaceSolver, FiniteSolver, RoydenSolver
-from geotherm.materials import oceanic_mantle, continental_crust
+from geotherm.solvers import HalfSpaceSolver, FiniteSolver, RoydenSolver, AdiabatSolver
+from geotherm.materials import oceanic_mantle, continental_crust, oceanic_crust
+from geotherm.plot import Plotter
 
+from .scenario import ModelScenario
+from .forearc import forearc_section
+from .util import mkdirs
 from . import results_dir
 
 present = u(1.65,"Myr") # K-Ar age for Crystal Knob xenoliths
 
 solver_constraints = (
-    u(25,"degC"), # Surface temperature
+    u(20,"degC"), # Surface temperature
     u(1500,"degC"))
     #u(48,"mW/m**2"))
     # Globally averaged mantle heat flux from Pollack, et al., 1977
 
-steps = 50
+T_lithosphere = u(1300,"degC")
 
-def forearc_section(**kwargs):
-    distance = kwargs.pop("distance",30000)
-    defaults = dict(
-            Al=oceanic_mantle.heat_generation.into("W/m**3"),
-            Au=continental_crust.heat_generation.into("W/m**3"),
-            Kl=oceanic_mantle.conductivity.into("W/m/K"),
-            Ku=continental_crust.conductivity.into("W/m/K"),
-            a=u(50,"m/Myr").into("m/s"),
-            e=u(250,"m/Myr").into("m/s"),
-            zr=120e3)
+plotter = Plotter(range=(0,1400))
 
-    defaults.update(kwargs)
+FiniteSolver.set_defaults(
+    type="implicit",
+    time_step=u(200,"kyr"),
+    constraints=solver_constraints,
+    plotter=plotter)
 
-    royden = RoydenSolver(**defaults)
-        # temperature at the base of the lithosphere (degrees C)
-        #Tm=1300,
-        ##   thickness of the lithosphere
-        #l=90e3,
-        ##   radiogenic heat production  (W/m3)
-        #Al=1e-9, #lower plate
-        #Au=1e-6, #upper plate
-        ##   heat conductivity in each plate  (W/m.K)
-        #Kl=2.5, #lower plate
-        #Ku=2.5, #upper plate
-        ##   depth to the base of the radiogenic layer (m)
-        #zr=30e3,
-        ##   rate of accretion (m/s)
-        #a=0,
-        ##   rate of erosion (m/s)
-        #e=0,
-        ##   rate of under thrusting (m/s)
-        #v=20.*1e-3/(365*24*3600),
-        ##   thermal diffusivity  (m2/s)
-        #alpha=1e-6,
-        ##   heat flow due to friction on fault (tau*v) (W/m2)
-        #qfric=15.*1e-3)
+def finite_solve(section, duration):
+    constraints = (u(20,"degC"), section.profile[-1])
+    echo("Initializing finite solver with constraints "
+            "{0} and {1}".format(*constraints))
 
-    thickness = u(30, "km")
+    solver = FiniteSolver(section, constraints=constraints)
+    return solver(duration)
 
-    forearc = Section([continental_crust.to_layer(thickness)])
-    temperatures = royden(distance,
-            forearc.cell_centers.into("m"),
-            u(30, "km").into("m"))
-    a = temperatures[-1]
+def save_info(name, step, section):
+    out = dict(
+        T=list(section.profile.into("degC")),
+        z=list(section.cell_centers.into("m")))
 
-    forearc.profile = u(temperatures*700/a, "degC")
-    return forearc
+    fn = step+".json"
+    path = results_dir(name,fn)
 
+    mkdirs(os.path.dirname(path))
+
+    with open(path,"w") as f:
+        json.dump(out,f)
 
 def subduction_case(name, start_time, subduction_time):
     """Both the Monterey and Farallon-Plate scenarios involve the same
@@ -79,57 +65,50 @@ def subduction_case(name, start_time, subduction_time):
     """
     print(name)
 
-    oceanic = Section([oceanic_mantle.to_layer(u(250,"km"))])
+    record = partial(save_info, name)
 
-    half_space = HalfSpaceSolver(oceanic)
+    oceanic = Section([
+        oceanic_crust.to_layer(u(7,"km")),
+        oceanic_mantle.to_layer(u(263,"km"))])
 
-    t = start_time-subduction_time
+    apply_adiabat = AdiabatSolver()
 
-    underplated_oceanic = half_space(t)
+    initial_section = apply_adiabat(oceanic)
 
-    T_lithosphere = u(1300,"degC")
+    record("initial", initial_section)
 
-    d = half_space.depth(t, T_lithosphere)
+    t = start_time - subduction_time
+    underplated_oceanic = finite_solve(initial_section, t)
 
+    record("before-subduction", underplated_oceanic)
+
+    # Find the base of the lithosphere
+    d = underplated_oceanic.depth(T_lithosphere)
     distance = 100e3
-
     echo("Depth of the base of the "
         "lithosphere at the time of "
         "subduction:{0:.2f}".format(d))
-
     forearc = forearc_section(
             distance = distance,
             Tm = T_lithosphere.into("degC"),
             l = d.into("m"))
-
     echo("Temperature at subduction interface "
          "at the time of underplating: {0}"\
           .format(forearc.profile[-1]))
 
-    final_section = stack_sections(
+    section = stack_sections(
         forearc,
         underplated_oceanic)
 
-    solver = FiniteSolver(
-        final_section,
-        constraints=solver_constraints)
+    record("after-subduction", section)
 
-    return solver(
-        subduction_time-present,
-        steps=steps)
+    final_section = finite_solve(section, subduction_time-present)
 
-monterey_plate = partial(
-    subduction_case,
-    "Monterey Plate",
-    u(28,"Myr"),
-    u(26,"Myr"))
-
-farallon_plate = partial(
-    subduction_case,
-    "Farallon Plate")
+    record("final",final_section)
 
 def underplating():
-    name = "Underplating"
+    name = "underplating"
+    record = partial(save_info, name)
 
     plot_opts = dict(
         range=(0,1500),
@@ -137,39 +116,30 @@ def underplating():
 
     start = u(20,"Myr")
 
-    forearc = Section([continental_crust.to_layer(u(30,"km"))],
-            uniform_temperature=u(400,"degC"))
+    interface = u(30,"km")
 
-    slab_window_upwelling = Section([
-        oceanic_mantle.to_layer(u(270,"km"))
-    ], uniform_temperature=u(1500,"degC"))
-    # This should be a mantle adiabat.
+    section = Section([
+        continental_crust.to_layer(interface),
+        oceanic_mantle.to_layer(u(300,"km")-interface)
+        ],
+        uniform_temperature=u(400,"degC"))
 
-    final_section = stack_sections(
-        forearc,
-        slab_window_upwelling)
+    apply_adiabat = AdiabatSolver(
+        start_depth=interface,
+        start_temp=u(1300,"degC"))
 
-    solver = FiniteSolver(
-        final_section,
-        constraints=solver_constraints)
+    section = apply_adiabat(section)
+    record("initial", section)
 
-    return solver(
-        duration=start-present,
-        steps=steps,
-        plot_options=plot_opts)
+    final_section = finite_solve(section,start-present)
+
+    record("final", final_section)
 
 def solve():
     # This does the computational heavy lifting
-    data = dict(
-        monterey=monterey_plate(),
-        farallon_70=farallon_plate(u(140, "Myr"),u(70,"Myr")),
-        farallon_80=farallon_plate(u(145, "Myr"),u(80,"Myr")),
-        farallon_60=farallon_plate(u(135, "Myr"),u(60,"Myr")),
-        underplating=underplating())
-
-    data = {k:list(v.into("degC")) for k,v in data.items()}
-
-    fn = results_dir("models.json")
-    with open(str(fn),"w") as f:
-        json.dump(data, f)
+    subduction_case("monterey-plate",u(28,"Myr"),u(26,"Myr"))
+    subduction_case("farallon-intermediate",u(140, "Myr"),u(70,"Myr"))
+    subduction_case("farallon-old",u(145, "Myr"),u(80,"Myr"))
+    subduction_case("farallon-young",u(135, "Myr"),u(60,"Myr"))
+    underplating()
 
