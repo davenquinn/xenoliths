@@ -38,10 +38,12 @@ class OxidesWheel extends Spine.Controller
         "alignment-baseline": "middle"
         "font-size": "1em"
         "font-weight": "600"
-        "fill ": "#888"
+        fill: "#888"
       .text @mode.toUpperCase()
 
-    @el.on "click", @toggleMode
+    @el
+      .css "cursor", "pointer"
+      .on "click", @toggleMode
 
     @mineral = @center.append "text"
       .attr
