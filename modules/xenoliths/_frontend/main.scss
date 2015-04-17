@@ -11,10 +11,10 @@ $FontAwesomePath: "/static/lib/font-awesome";
 @import "compass";
 @import "compass/utilities/general/clearfix";
 @import "styles/table";
-@import "styles/plots";
 @import "styles/lib/switch";
 @import "styles/lib/openlayers";
 
+@import "./controls/chart/style";
 @import "./controls/sidebar/style";
 @import "./controls/map/style";
 @import "./controls/filter/tags/style";
