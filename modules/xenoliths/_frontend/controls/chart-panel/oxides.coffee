@@ -2,17 +2,15 @@ $ = require "jquery"
 Spine = require "spine"
 d3 = require("d3")
 
-pie = d3.layout.pie()
-  .value (d)->d.oxide
-  .sort(null)
-
 class OxidesWheel extends Spine.Controller
   constructor: ->
     super
+    @mode = "oxides"
     @oxides = App.Options.oxides
     @createEventHandlers()
+    @render()
 
-  render: (data) ->
+  render: ->
     a = this
     width = $("#tabs").innerWidth()
     @parent = d3.select(@el[0])
@@ -30,7 +28,7 @@ class OxidesWheel extends Spine.Controller
     @center = @svg.append "g"
       .attr class: "center"
 
-    @center.append("text")
+    @typeLabel = @center.append("text")
       .attr
         class: "label"
         x: 0
@@ -41,7 +39,9 @@ class OxidesWheel extends Spine.Controller
         "font-size": "1em"
         "font-weight": "600"
         "fill ": "#888"
-      .text "OXIDES"
+      .text @mode.toUpperCase()
+
+    @el.on "click", @toggleMode
 
     @mineral = @center.append "text"
       .attr
@@ -94,24 +94,42 @@ class OxidesWheel extends Spine.Controller
     @overlay.style display: "none"
     @color = d3.scale.category20c()
 
-    arr = a.oxides.concat(["?"])
+    @pie = d3.layout.pie()
+      .value (d)=>d[@mode]
+      .sort(null)
 
     @arc = d3.svg.arc()
       .innerRadius(@r - 85)
       .outerRadius(@r)
 
-    @arcs = @svg.selectAll "path"
-      .data(@processData(data))
+    arc = @arc
+    @arcTween = (s) ->
+      i = d3.interpolate(@_current, s)
+      @_current = i(0)
+      (t) -> arc i(t)
 
+    @arcs = @svg.selectAll "path"
+
+  toggleMode: =>
+    @mode = if @mode == "molar" then "oxides" else "molar"
+    @update()
+    @typeLabel.text @mode.toUpperCase()
+    @total.attr
+      fill: if @mode == "molar" then "#aaa" else "black"
+
+  update: (data) =>
+    @data = data if data?
+    @arcs = @arcs.data @processData(@data)
+
+    arr = @oxides.concat(["?"])
     @arcs.enter()
-      .append("svg:path")
+      .append "path"
       .attr
-        "pointer-events": "all"
-        fill: (d, i) ->
+        fill: (d, i) =>
           if i == arr.length - 1
             return "#ffffff"
           else
-            return a.color i
+            return @color i
       .attr
         class: (d, i) -> arr[i]
         d: @arc
@@ -119,30 +137,20 @@ class OxidesWheel extends Spine.Controller
       .on "mouseout", @onMouseOut
       .each (d) -> @_current = d
 
+    @arcs
+      .transition()
+        .duration 300
+        .attrTween "d", @arcTween # redraw the arcs
+
+    @total.text @data.properties.oxides.Total.toFixed(2) + "%"
+    min = App.Options.minerals[@data.properties.mineral]
+    @mineral.text min.name.toUpperCase()
+    color = d3.hsl(min.color)
+    color.l = .3
+    @mineral.style "fill", color.toString()
+
   createEventHandlers: ->
     a = this
-    @update = (data) ->
-      console.log data
-      if typeof @total is "undefined"
-        @render data
-      else
-        a = this
-        @arcs = @arcs.data(@processData(data))
-        @arcs.transition()
-          .duration 300
-          .attrTween "d", a.arcTween # redraw the arcs
-
-      @total.text data.properties.oxides.Total.toFixed(2) + "%"
-      min = App.Options.minerals[data.properties.mineral]
-      @mineral.text min.name.toUpperCase()
-      color = d3.hsl(min.color)
-      color.l = .3
-      @mineral.style "fill", color.toString()
-
-    @arcTween = (s) ->
-      i = d3.interpolate(@_current, s)
-      @_current = i(0)
-      (t) -> a.arc i(t)
 
     @onMouseIn = (d, i) ->
       el = d3.select(this)
@@ -157,10 +165,10 @@ class OxidesWheel extends Spine.Controller
     @onMouseOut = (d, i) ->
       a.overlay.style "display", "none"
 
-  processData: (data) ->
+  processData: (data) =>
     p = data.properties
     data = @oxides.map (id)->
-      oxide: p.oxides[id] or 0
+      oxides: p.oxides[id] or 0
       molar: p.molar[id] or 0
       id: id
 
@@ -169,10 +177,10 @@ class OxidesWheel extends Spine.Controller
       ox = 100 - p.oxides.Total
 
     data.push
-      oxide: ox
+      oxides: ox
       molar: 0
       id: "?"
 
-    pie data
+    @pie data
 
 module.exports = OxidesWheel
