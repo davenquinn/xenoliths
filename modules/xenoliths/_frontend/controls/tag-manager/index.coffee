@@ -68,6 +68,7 @@ class TagManager extends Spine.Controller
     @tags
 
   removeTag: (event) ->
+    event.preventDefault()
     data = event.currentTarget.parentNode.__data__
     tag = data.name
     index = @tags.indexOf(data)
@@ -78,21 +79,21 @@ class TagManager extends Spine.Controller
       tags = d.properties.tags
       ind = tags.indexOf(tag)
       tags.splice ind, 1  unless ind is -1
-      elements.push [
-        d.properties.sample
-        d.properties.id
-      ]
-    App.JSON_RPC "remove_tag",
+      elements.push d.id
+    data =
       tag: tag
       points: elements
+    App.api "/point/tag"
+      .send "DELETE", data, (err, d)->
+        console.log("Success!") unless err?
 
     @ul.call @bindData, @processData(@data)
-    return
 
   addTagOnEnter: (e) ->
-    @addTag() if e.keyCode is 13
+    @addTag(e) if e.keyCode is 13
 
   addTag: (event) ->
+    event.preventDefault()
     arr = @$("form").serializeObject()
     @$("input[type=text]").val ""
     return false  if arr.tag is ""
@@ -102,16 +103,16 @@ class TagManager extends Spine.Controller
       d = @data[i]
       tags = d.properties.tags
       tags.push tag  if tags.indexOf(tag) is -1
-      elements.push [
-        d.properties.sample
-        d.properties.id
-      ]
-    App.JSON_RPC "add_tag",
+      elements.push d.id
+    data =
       tag: tag
       points: elements
+    console.log data
+    App.api "/point/tag"
+      .send "POST", data, (err,d)->
+        console.log("Success!") unless err?
 
     @ul.call @bindData, @processData(@data)
-    App.Data.pushTag tag
-    false
+    App.Data.Measurement.updateTags [tag]
 
 module.exports = TagManager
