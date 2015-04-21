@@ -32,5 +32,6 @@ def serialize(obj):
             cr_number = cr_number,
             date = obj.session.date.strftime("%m-%d-%Y"),
             tags = [tag.name for tag in obj.tags]),
+        id = obj.id,
         geometry=mapping(to_shape(obj.geometry)),
         location=mapping(to_shape(obj.location)))

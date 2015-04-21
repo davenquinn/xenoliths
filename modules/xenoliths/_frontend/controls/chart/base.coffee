@@ -19,8 +19,11 @@ class ChartBase extends Spine.Controller
     $(window).on "resize", @resize
 
   setupEventHandlers: =>
-    @listenTo Measurement, "hovered", =>
+    @listenTo Measurement, "hover:enter hover:exit", (el)=>
       @selection.classed "hovered", (d)->d.hovered
+      # Show last-hovered item as selected
+      if Measurement.selection.collection.length == 0
+        @selection.classed "selected", (d)-> d == el
 
     @listenTo Selection, "add remove empty", =>
       @selection.classed "selected", Measurement.selection.contains

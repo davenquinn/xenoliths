@@ -9,6 +9,11 @@ class App extends Spine.Controller
       o.data = JSON.stringify o.data
       o.contentType = "application/json"
     return $.ajax(o)
+  api: (url)->
+    d3.xhr "/api"+url
+      .header "X-Requested-With", "XMLHttpRequest"
+      .header "Content-Type", "application/json"
+      .responseType "json"
   Options: require "../options"
   Data:
     Measurement: require "./data"
