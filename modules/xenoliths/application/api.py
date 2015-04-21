@@ -1,11 +1,12 @@
 import os
-from flask import Blueprint, request, make_response, jsonify
+from flask import Blueprint, request,\
+    make_response, jsonify, current_app
 from json import dumps
 from sqlalchemy.orm import joinedload
 
 from . import db
 from ..core.models import Sample
-from ..microprobe.models import ProbeMeasurement, ProbeImage
+from ..microprobe.models import ProbeMeasurement, ProbeImage, Tag
 
 api = Blueprint('api', __name__)
 
@@ -39,15 +40,21 @@ def classification(sample):
 
 @api.route('/point/tag', methods=["POST","DELETE"])
 def tags():
+    current_app.logger.debug("tags endpoint reached")
     data = request.json
-    if request.method == "POST":
-        for point in data.points:
-            pt = ProbeMeasurement.query.get(id=point)
-            pt.tags.add(tag)
-    elif request.method == "DELETE":
-        for point in data.points:
-            pt = ProbeMeasurement.query.get(id=point)
-            pt.tags.remove(tag)
+
+    tag = data["tag"]
+    for point in data["points"]:
+        pt = ProbeMeasurement.query.get(point)
+        if request.method == "POST":
+            pt.add_tag(tag)
+        elif request.method == "DELETE":
+            pt.remove_tag(tag)
+    db.session.commit()
+
+    return jsonify(
+        status="success",
+        data=data["points"])
 
 @api.route('/modes')
 def modes():

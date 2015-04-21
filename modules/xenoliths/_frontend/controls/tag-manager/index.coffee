@@ -84,7 +84,7 @@ class TagManager extends Spine.Controller
       tag: tag
       points: elements
     App.api "/point/tag"
-      .send "DELETE", data, (err, d)->
+      .send "DELETE", JSON.stringify(data), (err, d)->
         console.log("Success!") unless err?
 
     @ul.call @bindData, @processData(@data)
@@ -109,7 +109,7 @@ class TagManager extends Spine.Controller
       points: elements
     console.log data
     App.api "/point/tag"
-      .send "POST", data, (err,d)->
+      .send "POST", JSON.stringify(data), (err,d)->
         console.log("Success!") unless err?
 
     @ul.call @bindData, @processData(@data)
