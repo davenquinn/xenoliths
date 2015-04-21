@@ -56,7 +56,10 @@ class Measurement extends Spine.Module
 
   @hovered: (d)=>
     d.hovered = not d.hovered
-    @trigger "hovered", d
+    if d.hovered
+      @trigger "hover:enter", d
+    else
+      @trigger "hover:exit", d
 
   constructor: (obj)->
     super

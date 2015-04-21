@@ -4,7 +4,7 @@ Measurement = require "../../app/data"
 class RawViewer extends Spine.Controller
   constructor: ->
     super
-    @listenTo Measurement, "hovered", @update
+    @listenTo Measurement, "hover:enter", @update
 
     if Measurement.selection.collection.length > 0
       @update Measurement.selection.first()
@@ -25,7 +25,6 @@ class RawViewer extends Spine.Controller
         cls = "boolean"
       else cls = "null"  if /null/.test(match)
       "<span class=\"" + cls + "\">" + match + "</span>"
-
 
   update: (data) =>
     return  if typeof (data) is "undefined"
