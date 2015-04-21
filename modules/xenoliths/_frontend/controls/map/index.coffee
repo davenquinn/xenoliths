@@ -33,6 +33,7 @@ class DataLayer extends ChartBase
 
     @svg = d3.select @el[0]
       .select "svg"
+      .attr class: "data-layer"
       .on "click", @onBackgroundClick
 
     @svg.call @joinData
@@ -41,7 +42,6 @@ class DataLayer extends ChartBase
   redraw: =>
     proj = @projection
     @selection.each (d)->
-      console.log d
       p = proj d.geometry.coordinates
       d3.select @
         .attr cx: p[0], cy: p[1]
