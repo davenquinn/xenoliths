@@ -99,6 +99,7 @@ class TagManager extends Spine.Controller
     return false  if arr.tag is ""
     tag = arr.tag.toLowerCase()
     elements = []
+    console.log @data
     for i of @data
       d = @data[i]
       tags = d.properties.tags
@@ -108,9 +109,9 @@ class TagManager extends Spine.Controller
       tag: tag
       points: elements
     console.log data
-    App.api "/point/tag"
-      .send "POST", JSON.stringify(data), (err,d)->
-        console.log("Success!") unless err?
+    #App.api "/point/tag"
+    #  .send "POST", JSON.stringify(data), (err,d)->
+    #    console.log("Success!") unless err?
 
     @ul.call @bindData, @processData(@data)
     App.Data.Measurement.updateTags [tag]

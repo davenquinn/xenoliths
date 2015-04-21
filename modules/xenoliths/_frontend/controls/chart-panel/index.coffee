@@ -32,7 +32,7 @@ class DataFrame extends Spine.Controller
     else
       @update Measurement.collection[0]
 
-    @listenTo Measurement, "hover:enter", (d) =>
+    @listenTo Measurement, "hover:enter hover:exit", (d) =>
       @lastSelected = d if d.selected()
       d = null if d == @_d
       @update d
