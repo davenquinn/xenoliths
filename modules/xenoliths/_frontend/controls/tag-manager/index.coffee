@@ -56,20 +56,18 @@ class TagManager extends Spine.Controller
     nitems = data.length
     arrays = data.map (d) -> d.properties.tags
     arr = [].concat.apply([], arrays)
-    ndata = arr.reduce((acc, curr) ->
-      if typeof acc[curr] is "undefined"
-        acc[curr] = 1
-      else
-        acc[curr] += 1
-      acc
-    , {})
+
+    rfunc = (acc, curr) ->
+      acc[curr] = 0 if not acc[curr]?
+      acc[curr] += 1
+      return acc
+    ndata = arr.reduce rfunc, {}
+
     @tags.length = 0
     for i of ndata
-      obj =
+      @tags.push
         name: i
         all: (if ndata[i] >= data.length then true else false)
-
-      @tags.push obj
     @tags
 
   removeTag: (event) ->
