@@ -5,11 +5,19 @@ Spine = require "spine"
 template = require("./template.html")
 Options = require("../../options")
 
+responseHandler = (cb)->
+  (err,r)->
+    if err?
+      console.log err,r
+    else
+      console.log r.response
+      cb r.response
+
 class TagManager extends Spine.Controller
   constructor: ->
     super
     @tags = []
-    @data = []
+    @collection = []
 
     @el.html template
     @ul = d3.select("#tag_field")
@@ -35,7 +43,6 @@ class TagManager extends Spine.Controller
   update: (data) ->
     @tags = @processData(data)
     @ul.call @bindData, @tags
-    return
 
   processData: (data) ->
 
@@ -45,11 +52,9 @@ class TagManager extends Spine.Controller
     if typeof (data) is "undefined"
       @tags.length = 0
       return @tags
-    @data = data
+    @collection = data
     nitems = data.length
-    arrays = data.map((item) ->
-      item.properties.tags
-    )
+    arrays = data.map (d) -> d.properties.tags
     arr = [].concat.apply([], arrays)
     ndata = arr.reduce((acc, curr) ->
       if typeof acc[curr] is "undefined"
@@ -71,23 +76,24 @@ class TagManager extends Spine.Controller
     event.preventDefault()
     data = event.currentTarget.parentNode.__data__
     tag = data.name
-    index = @tags.indexOf(data)
-    elements = []
-    @tags.splice index, 1
-    for i of @data
-      d = @data[i]
-      tags = d.properties.tags
-      ind = tags.indexOf(tag)
-      tags.splice ind, 1  unless ind is -1
-      elements.push d.id
+
     data =
       tag: tag
-      points: elements
-    App.api "/point/tag"
-      .send "DELETE", JSON.stringify(data), (err, d)->
-        console.log("Success!") unless err?
+      points: @collection.map (d)->d.id
 
-    @ul.call @bindData, @processData(@data)
+    cb = responseHandler (r)=>
+      index = @tags.indexOf(data)
+      @tags.splice index, 1
+
+      for d in @collection
+        tags = d.properties.tags
+        i = tags.indexOf r.tag
+        tags.splice i,1 unless i == -1
+
+      @ul.call @bindData, @tags
+
+    App.api "/point/tag"
+      .send "DELETE", JSON.stringify(data), cb
 
   addTagOnEnter: (e) ->
     @addTag(e) if e.keyCode is 13
@@ -98,22 +104,20 @@ class TagManager extends Spine.Controller
     @$("input[type=text]").val ""
     return false  if arr.tag is ""
     tag = arr.tag.toLowerCase()
-    elements = []
-    console.log @data
-    for i of @data
-      d = @data[i]
-      tags = d.properties.tags
-      tags.push tag  if tags.indexOf(tag) is -1
-      elements.push d.id
     data =
       tag: tag
-      points: elements
-    console.log data
-    #App.api "/point/tag"
-    #  .send "POST", JSON.stringify(data), (err,d)->
-    #    console.log("Success!") unless err?
+      points: @collection.map (d)->d.id
 
-    @ul.call @bindData, @processData(@data)
-    App.Data.Measurement.updateTags [tag]
+    cb = responseHandler (r)=>
+      for d in @collection
+        tags = d.properties.tags
+        tags.push tag if tags.indexOf(tag) is -1
+
+      @ul.call @bindData, @processData(@collection)
+      App.Data.Measurement.updateTags [tag]
+
+    App.api "/point/tag"
+      .send "POST", JSON.stringify(data), cb
+
 
 module.exports = TagManager

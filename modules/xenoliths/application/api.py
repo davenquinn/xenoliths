@@ -54,7 +54,8 @@ def tags():
 
     return jsonify(
         status="success",
-        data=data["points"])
+        points=data["points"],
+        tag=data["tag"])
 
 @api.route('/modes')
 def modes():
