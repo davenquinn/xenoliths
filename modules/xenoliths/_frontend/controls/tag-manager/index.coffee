@@ -15,7 +15,7 @@ class TagManager extends Spine.Controller
     @ul = d3.select("#tag_field")
 
   events:
-    "click .icon-remove": "removeTag"
+    "click span.remove": "removeTag"
     "click button": "addTag"
     "keypress input[type=text]": "addTagOnEnter"
 
