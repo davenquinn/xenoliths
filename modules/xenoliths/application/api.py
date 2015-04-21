@@ -3,6 +3,10 @@ from flask import Blueprint, request, make_response, jsonify
 from json import dumps
 from sqlalchemy.orm import joinedload
 
+from . import db
+from ..core.models import Sample
+from ..microprobe.models import ProbeMeasurement, ProbeImage
+
 api = Blueprint('api', __name__)
 
 @api.errorhandler(404)
@@ -11,8 +15,6 @@ def not_found(error):
 
 @api.route('/sample/classification/<sample>', methods=["POST","GET"])
 def classification(sample):
-    from . import db
-    from ..core.models import Sample
 
     sample = db.session.query(Sample).get(sample)
 
@@ -36,23 +38,19 @@ def classification(sample):
         return dumps(s)
 
 @api.route('/point/tag', methods=["POST","DELETE"])
-def tags(tag, points):
-    from ..microprobe.models import Point
+def tags():
+    data = request.json
     if request.method == "POST":
-        for point in points:
-            pt = Point.query.get(sample=point[0], n=point[1])
+        for point in data.points:
+            pt = ProbeMeasurement.query.get(id=point)
             pt.tags.add(tag)
-
     elif request.method == "DELETE":
-        for point in points:
-            pt = Point.query.get(sample=point[0], n=point[1])
+        for point in data.points:
+            pt = ProbeMeasurement.query.get(id=point)
             pt.tags.remove(tag)
 
 @api.route('/modes')
 def modes():
-    from . import db
-    from ..core.models import Sample
-
     def modes():
         samples = db.session.query(Sample).all()
         for s in samples:
@@ -75,8 +73,6 @@ def test():
 
 @api.route("/probe-data")
 def probe_data():
-    from . import db
-    from ..microprobe.models import ProbeMeasurement
 
     q = db.session.query(ProbeMeasurement)\
         .options(joinedload("data"))\
@@ -89,9 +85,6 @@ def probe_data():
 
 @api.route("/probe-image")
 def probe_images():
-    from . import db
-    from ..microprobe.models import ProbeImage
-
     q = db.session.query(ProbeImage).all()
     return jsonify(
         images=[im.serialize() for im in q])

@@ -10,11 +10,13 @@ db.init_app(app)
 migrate = Migrate(app, db)
 
 from ..microprobe.models import ProbeMeasurement
-from ..SIMS import sims
 from ..thermometry.routes import thermometry
+from ..SIMS import sims
+from .api import api
+
 app.register_blueprint(sims,url_prefix="/sims")
 app.register_blueprint(thermometry,url_prefix="/temp")
-
+app.register_blueprint(api,url_prefix="/api")
 
 @app.route("/")
 def root():
