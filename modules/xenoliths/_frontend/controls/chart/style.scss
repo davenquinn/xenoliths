@@ -2,7 +2,7 @@
 	background: #000;
 }
 
-#chart svg {
+#chart svg, svg.data-layer {
 	.tick line {
 		stroke: #eee;
 	}
