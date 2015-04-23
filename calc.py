@@ -138,8 +138,8 @@ def underplating():
 def solve():
     # This does the computational heavy lifting
     subduction_case("monterey-plate",u(28,"Myr"),u(26,"Myr"))
-    subduction_case("farallon-intermediate",u(140, "Myr"),u(70,"Myr"))
-    subduction_case("farallon-old",u(145, "Myr"),u(80,"Myr"))
-    subduction_case("farallon-young",u(135, "Myr"),u(60,"Myr"))
+    subduction_case("farallon-intermediate",u(110, "Myr"),u(70,"Myr"))
+    subduction_case("farallon-old",u(120, "Myr"),u(80,"Myr"))
+    subduction_case("farallon-young",u(100, "Myr"),u(60,"Myr"))
     underplating()
 
