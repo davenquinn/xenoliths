@@ -87,7 +87,6 @@ class Chart extends ChartBase
       .attr
         class: "label"
         transform: "rotate(-90)"
-        x: "-50%"
         dy: "-2em"
       .style "text-anchor", "middle"
       .text @axes.y
@@ -132,6 +131,9 @@ class Chart extends ChartBase
 
     @x.range [0,@size.width]
     @y.range [@size.height, 0]
+
+    @ax_y.select "text.label"
+      .attr x: -@size.height/2
 
     @clip.attr @size
     @background.attr @size
