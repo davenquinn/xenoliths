@@ -38,8 +38,22 @@ def get_quantity(quantity, queryset, **kwargs):
     else:
         return {o:n for o,n in data}
 
+def get_number(property, queryset):
+    """
+    Gets a calculated parameter (e.g. oxide total, mg_number, cr_number)
+    from the queryset. The parameter will not take into account errors
+    from uncertainties on individual measurements.
+    """
+    values = queryset.with_entities(
+        func.avg(property),func.stddev(property))
+    return ufloat(*values.all()[0])
+
 get_oxides = partial(get_quantity, ProbeDatum.weight_percent)
 get_molar = partial(get_quantity, ProbeDatum.molar_percent)
+
+get_mg_number = partial(get_number, ProbeMeasurement.mg_number)
+get_cr_number = partial(get_number, ProbeMeasurement.cr_number)
+get_oxide_total = partial(get_number, ProbeMeasurement.oxide_total)
 
 def get_cations(queryset, **kwargs):
     """
