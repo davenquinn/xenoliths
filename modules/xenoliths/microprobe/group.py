@@ -57,17 +57,20 @@ def average_composition(queryset, **kwargs):
     uncertainties = kwargs.pop("uncertainties",False)
     if uncertainties:
         e = ProbeDatum.error
-        sum_ = func.sum(func.pow(e*quantity/100,2))
+        sum_ = func.sum(func.pow(e*quantity,2))
         std = func.sqrt(sum_)/func.count("*")
         qvars.append(std.label("analytic_std"))
 
         std2 = func.stddev(quantity)
+
         qvars.append(std2.label("sample_std"))
 
-    data = db.session.query(*tuple(qvars))\
-                .filter(filt)\
-                .group_by(ProbeDatum._oxide)\
-                .all()
+    data = db.session.query(ProbeDatum)\
+        .join(ProbeMeasurement)\
+        .filter(filt)\
+        .with_entities(*tuple(qvars))\
+        .group_by(ProbeDatum._oxide)\
+        .all()
 
     if uncertainties:
         try:
