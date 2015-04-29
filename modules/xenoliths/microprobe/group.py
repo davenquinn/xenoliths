@@ -34,7 +34,10 @@ def get_quantity(quantity, queryset, **kwargs):
                 .all()
 
     if uncertainties:
-        return {o:ufloat(n,a+s) for o,n,a,s in data}
+        try:
+            return {o:ufloat(n,a+s) for o,n,a,s in data}
+        except TypeError:
+            return {o:ufloat(n,a) for o,n,a,s in data}
     else:
         return {o:n for o,n in data}
 
@@ -46,7 +49,9 @@ def get_number(property, queryset):
     """
     values = queryset.with_entities(
         func.avg(property),func.stddev(property))
-    return ufloat(*values.all()[0])
+    n,s = values.all()[0]
+    if s == None: s = 0
+    return ufloat(n,s)
 
 get_oxides = partial(get_quantity, ProbeDatum.weight_percent)
 get_molar = partial(get_quantity, ProbeDatum.molar_percent)
