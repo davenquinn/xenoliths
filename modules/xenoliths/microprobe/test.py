@@ -5,10 +5,11 @@ from uncertainties import ufloat, umath
 from uncertainties.unumpy import uarray
 import numpy as N
 
+from ..application import app, db, ProbeMeasurement
+from .group import get_oxides, get_molar, get_cations, iterate_cations
+
 def test_oxides():
-    from ..application import app, db, ProbeMeasurement
     with app.app_context():
-        from .group import get_oxides
         data = get_oxides(ProbeMeasurement.query, uncertainties=False)
         s = sum(data.values())
         d = db.session.query(func.sum(ProbeMeasurement.oxide_total)\
@@ -20,9 +21,7 @@ def test_molar():
     """
     Tests that molar percentages always sum to 100
     """
-    from ..application import app, ProbeMeasurement
     with app.app_context():
-        from .group import get_molar
         queryset = ProbeMeasurement.query\
             .filter(ProbeMeasurement.sample_id == "CK-4")\
             .filter(ProbeMeasurement.mineral == "opx")
@@ -36,9 +35,7 @@ def test_cations():
         are functionally the same as iteratively computed
         values.
     """
-    from ..application import app, ProbeMeasurement
     with app.app_context():
-        from .group import get_cations, iterate_cations
 
         queryset = ProbeMeasurement.query\
             .filter(ProbeMeasurement.id < 100)
@@ -70,8 +67,7 @@ def test_uncertainties():
     assert N.allclose(avg.s, avg2.s)
 
 def test_uncertainties_2():
-    """ Tests the method used to calculate uncertainties in
-        SQL
+    """ Tests the method used for  uncertainty calculated using SQL
         Note: this tests uncertainties in the calculation of
         a single measured value
     """
