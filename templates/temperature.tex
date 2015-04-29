@@ -2,8 +2,13 @@
 \hline
  Sample  & BKN & Ca-OPX & TA98 & $n_\textrm{opx}$ & $n_\textrm{cpx}$  \\
 \hline
-((* for s in samples *))
-  (((s.id))) & & & & & \\
-((* endfor *))
+<# for s in samples  #>
+  << s.id >> &
+  << s.bkn | un(0) >> &
+  << s.ca_opx_corr| un(0) >> &
+  << s.ta98| un(0) >> &
+  << s.n_opx >> &
+  << s.n_cpx >> \\
+<# endfor  #>
 \hline
 \end{tabular}
