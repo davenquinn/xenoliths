@@ -54,7 +54,34 @@ def get_number(property, queryset):
     return ufloat(n,s)
 
 get_oxides = partial(get_quantity, ProbeDatum.weight_percent)
+get_normalized_oxides = partial(get_quantity, ProbeDatum.weight_percent*100/ProbeMeasurement.oxide_total)
 get_molar = partial(get_quantity, ProbeDatum.molar_percent)
+
+def average_composition(queryset, **kwargs):
+    """
+    The average oxide composition of a queryset, calculated in
+    one of several ways (either wt%, molar%, or normalized wt% abundances).
+    Returns the same result as the partial functions above, but is a bit
+    more descriptive.
+
+    :param type: Options
+        - weight              Oxide weight % (default)
+        - normalized_weight   Oxide weight % (normalized to 100% abundances)
+        - molar               Oxide molar %
+    :param uncertainties:     Whether to include uncertainties (default FALSE)
+    """
+    mapping = dict(
+        weight=ProbeDatum.weight_percent,
+        normalized_weight=ProbeDatum.weight_percent*100/ProbeMeasurement.oxide_total,
+        molar=ProbeDatum.molar_percent)
+    try:
+        q = mapping[kwargs.pop("type","weight")]
+    except KeyError:
+        raise ArgumentError("Parameter `type` must be either"
+                "`weight`,`molar`, or `normalized_weight`")
+
+    return get_quantity(q,queryset, **kwargs)
+
 
 get_mg_number = partial(get_number, ProbeMeasurement.mg_number)
 get_cr_number = partial(get_number, ProbeMeasurement.cr_number)
