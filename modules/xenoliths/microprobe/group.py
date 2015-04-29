@@ -6,14 +6,50 @@ from uncertainties import ufloat
 import periodictable as pt
 from functools import partial
 
-def get_quantity(quantity, queryset, **kwargs):
+def get_number(property, queryset):
+    """
+    Gets a calculated parameter (e.g. oxide total, mg_number, cr_number)
+    from the queryset. The parameter will not take into account errors
+    from uncertainties on individual measurements.
+    """
+    values = queryset.with_entities(
+        func.avg(property),func.stddev(property))
+    n,s = values.all()[0]
+    if s == None: s = 0
+    return ufloat(n,s)
+
+def average_composition(queryset, **kwargs):
+    """
+    The average oxide composition of a queryset, calculated in
+    one of several ways (either wt%, molar%, or normalized wt% abundances).
+    Returns the same result as the partial functions above, but is a bit
+    more descriptive.
+
+    :param type: Options
+        - weight              Oxide weight % (default)
+        - normalized_weight   Oxide weight % (normalized to 100% abundances)
+        - molar               Oxide molar %
+    :param uncertainties:     Whether to include uncertainties (default FALSE)
+    """
+    mapping = dict(
+        weight=ProbeDatum.weight_percent,
+        normalized_weight=ProbeDatum.weight_percent*100/ProbeMeasurement.oxide_total,
+        molar=ProbeDatum.molar_percent)
+
+    type = kwargs.pop("type","weight")
+
+    try:
+        quantity = mapping[type]
+    except KeyError:
+        raise ArgumentError("Parameter `type` must be either"
+                "`weight`,`molar`, or `normalized_weight`")
+
     try:
         q = queryset.with_entities(ProbeMeasurement.id)
         filt = ProbeDatum.measurement_id.in_(q)
     except AttributeError:
         filt = ProbeDatum.measurement_id == queryset.id
 
-    mol = ProbeDatum.molar_percent
     average = func.avg(quantity)
     qvars = [ProbeDatum._oxide,
             average.label('avg')]
@@ -41,47 +77,9 @@ def get_quantity(quantity, queryset, **kwargs):
     else:
         return {o:n for o,n in data}
 
-def get_number(property, queryset):
-    """
-    Gets a calculated parameter (e.g. oxide total, mg_number, cr_number)
-    from the queryset. The parameter will not take into account errors
-    from uncertainties on individual measurements.
-    """
-    values = queryset.with_entities(
-        func.avg(property),func.stddev(property))
-    n,s = values.all()[0]
-    if s == None: s = 0
-    return ufloat(n,s)
-
-get_oxides = partial(get_quantity, ProbeDatum.weight_percent)
-get_normalized_oxides = partial(get_quantity, ProbeDatum.weight_percent*100/ProbeMeasurement.oxide_total)
-get_molar = partial(get_quantity, ProbeDatum.molar_percent)
-
-def average_composition(queryset, **kwargs):
-    """
-    The average oxide composition of a queryset, calculated in
-    one of several ways (either wt%, molar%, or normalized wt% abundances).
-    Returns the same result as the partial functions above, but is a bit
-    more descriptive.
-
-    :param type: Options
-        - weight              Oxide weight % (default)
-        - normalized_weight   Oxide weight % (normalized to 100% abundances)
-        - molar               Oxide molar %
-    :param uncertainties:     Whether to include uncertainties (default FALSE)
-    """
-    mapping = dict(
-        weight=ProbeDatum.weight_percent,
-        normalized_weight=ProbeDatum.weight_percent*100/ProbeMeasurement.oxide_total,
-        molar=ProbeDatum.molar_percent)
-    try:
-        q = mapping[kwargs.pop("type","weight")]
-    except KeyError:
-        raise ArgumentError("Parameter `type` must be either"
-                "`weight`,`molar`, or `normalized_weight`")
-
-    return get_quantity(q,queryset, **kwargs)
-
+get_oxides = partial(average_composition, type="weight")
+get_normalized_oxides = partial(average_composition, type="normalized_weight")
+get_molar = partial(average_composition, type="molar")
 
 get_mg_number = partial(get_number, ProbeMeasurement.mg_number)
 get_cr_number = partial(get_number, ProbeMeasurement.cr_number)
