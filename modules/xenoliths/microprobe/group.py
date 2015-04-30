@@ -3,6 +3,7 @@ from collections import defaultdict
 from sqlalchemy.sql import func
 from .models import ProbeDatum, ProbeMeasurement, db, FORMULAE
 from uncertainties import ufloat
+import numpy as N
 import periodictable as pt
 from functools import partial
 
@@ -96,17 +97,19 @@ def get_cations(queryset, **kwargs):
     """
     oxygen_basis = kwargs.pop("oxygen",6)
 
-    molar = {FORMULAE[ox]: v\
+    molar = {FORMULAE[ox]: v
             for ox,v in get_molar(queryset, **kwargs).items()}
-    f_oxygen = sum([ox.atoms[pt.O]*v for ox,v in molar.items()])
-    scalar = oxygen_basis/f_oxygen
 
     formula = defaultdict(int)
     for ox,v in molar.items():
         for i, n in ox.atoms.items():
-            if i == pt.O: continue
-            formula[str(i)] += n*v*scalar
-    return defaultdict(lambda: float("NaN"),formula)
+            formula[str(i)] += n*v
+
+    # Rescale cation abundances to the oxygen basis
+    ox = formula.pop("O")
+    scalar = oxygen_basis/ox
+
+    return {k:v*scalar for k,v in formula.items()}
 
 def iterate_cations(queryset, **kwargs):
     """
@@ -114,11 +117,21 @@ def iterate_cations(queryset, **kwargs):
     :param oxygen: oxygen basis for formula
     :param uncertainties: whether to use uncertainties in calculation
     """
-    nobs = queryset.count()
-    formula = defaultdict(int)
-    for obj in queryset.all():
-        cats = obj.get_cations(**kwargs)
-        for i,n in cats.iteritems():
-            formula[i] += n/nobs
-    return defaultdict(lambda: float("NaN"),formula)
+    oxygen = kwargs.pop("oxygen",6)
 
+    nobs = queryset.count()
+    formula = defaultdict(list)
+    for obj in queryset.all():
+        cats = obj.get_cations(oxygen=oxygen, **kwargs)
+        for k,n in cats.iteritems():
+            formula[k].append(n)
+    del formula["Total"]
+
+    output = dict()
+    for ox,ls in formula.items():
+        u = N.mean(ls)
+        if hasattr(u, "nominal_value"):
+            s_sample = N.std([l.n for l in ls])
+            u = ufloat(u.n,u.s+s_sample)
+        output[ox] = u
+    return output

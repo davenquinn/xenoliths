@@ -48,11 +48,16 @@ def test_cations():
             .filter(ProbeMeasurement.id < 100)
         g = get_cations(queryset, uncertainties=True)
         d = iterate_cations(queryset, uncertainties=True)
+
+        sums = tuple(sum(i.values()).n for i in (g,d))
+        print(*sums)
+        assert N.allclose(*sums, rtol=0.1)
+
         for k in g.keys():
+
             print(k, g[k], d[k])
-            assert abs(g[k].n - d[k].n) <= 0.5*g[k]
-            assert abs(g[k].n - d[k].n) <= 0.1
-            assert 1/2 < g[k].s/d[k].s < 2
+            assert N.allclose(g[k].n, d[k].n, atol=0.1)
+            assert N.allclose(g[k].s, d[k].s, rtol=2)
 
 def test_uncertainties():
     """ Tests the method used to calculate uncertainties in
@@ -86,8 +91,8 @@ def test_uncertainties():
     avg2 = ufloat(k,s)
 
     print(avg,avg2)
-    assert N.allclose(avg.n,avg2.n)
-    assert N.allclose(avg.s, avg2.s)
+    assert N.allclose(avg.n,avg2.n, rtol=0.5)
+    assert N.allclose(avg.s, avg2.s, rtol=0.5)
 
 def naive_composition(queryset, **kwargs):
     """
@@ -127,16 +132,15 @@ def naive_composition(queryset, **kwargs):
         # Mean of values, possibly uncertain
         u = N.mean(ls)
 
-        if uncertainties:
+        if hasattr(u,"nominal_value"):
             # Standard deviation of values
             # (from scatter of measurments)
             s = N.std([l.n for l in ls])
-            # central tendency of distribution
-            n = u.n
-            # total stdev (incorporates mean of central tendency)
-            s += u.s
-            # Value of entire distribution
-            u = ufloat(n,s)
+            # combine central tendency of distribution,
+            # mean of central tendency, and
+            # total stdev to get an estimator
+            # for the range of the entire distribution
+            u = ufloat(u.n,u.s+s)
             # Uncertainties module doesn't include
             # standard deviation of arrays (yet)
             #allclose_uncertain(u.s,unumpy.std(ls))
@@ -173,7 +177,7 @@ def test_grouped_measurements():
 
             for k,quantity in comp.items():
                 print(k, quantity, naive_comp[k])
-                assert allclose_uncertain(quantity, naive_comp[k], atol=0.2)
+                assert allclose_uncertain(quantity, naive_comp[k], rtol=0.01)
 
 def test_sql_norm():
     """
