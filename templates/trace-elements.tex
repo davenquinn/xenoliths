@@ -6,18 +6,18 @@
     <#- endfor #> & << s[type].n >> \\
   <#- endfor #>
 <#- endmacro #>
-\begin{tabular}{l << fstr >>}
+\begin{tabular}{l<< " r"*(ncols-1) >>}
 \hline
   Sample
   <#- for el in elements -#>
   & \ce{<< el >>}
   <#- endfor #> & $n$ \\
 \hline
-Orthopyroxene \\
+\multicolumn{<<ncols>>}{l}{Orthopyroxene} \\
 \hline
 << loop("opx") >>
 \hline
-Clinopyroxene \\
+\multicolumn{<<ncols>>}{l}{Clinopyroxene} \\
 \hline
 << loop("cpx") >>
 \hline

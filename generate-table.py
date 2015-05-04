@@ -40,9 +40,9 @@ def create_table():
     text = (tex_renderer
         .get_template("trace-elements.tex")
         .render(
+            ncols=len(elements)+2,
             elements=elements,
-            samples=data,
-            fstr="r "*(len(elements)+1)))
+            samples=data))
     write_file("build/trace-elements.tex",text)
 
 with app.app_context():
