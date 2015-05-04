@@ -16,6 +16,12 @@ minerals = dict(
     cpx="Clinopyroxene")
 
 def get_data():
+    """
+    Gets trace element data grouped by sample and
+    minerals. The data is formatted as a nested ordered
+    dictionary, for iterability. This data can be used
+    as-is or averaged, as appropriate.
+    """
     vals = [meas.sample_id,
             meas.mineral,
             datum.element]
