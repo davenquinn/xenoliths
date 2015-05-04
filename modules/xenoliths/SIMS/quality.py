@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import numpy as N
 from sqlalchemy import func
 from click import command, echo, style, secho
 from periodictable import elements
@@ -53,7 +54,8 @@ def get_data(exclude_bad=True):
         if m not in out[s]:
             out[s][m] = OrderedDict()
         # Add data
-        d = [uval(*i) for i in zip(u,th)]
+        # We make sure to standardize away negative values.
+        d = [uval(*i) for i in zip(N.abs(u),N.abs(th))]
         out[s][m][el] = d
     return out
 
