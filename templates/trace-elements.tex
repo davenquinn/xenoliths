@@ -1,0 +1,26 @@
+<# macro loop(type) -#>
+  <#- for s in samples #>
+    << s.id >>
+    <#- for el in elements -#>
+    & << s[type][el]|n >>
+    <#- endfor #> & << s[type].n >> \\
+  <#- endfor #>
+<#- endmacro #>
+\begin{tabular}{l << fstr >>}
+\hline
+  Sample
+  <#- for el in elements -#>
+  & \ce{<< el >>}
+  <#- endfor #> & $n$ \\
+\hline
+Orthopyroxene \\
+\hline
+<< loop("opx") >>
+\hline
+Clinopyroxene \\
+\hline
+<< loop("cpx") >>
+\hline
+\end{tabular}
+
+
