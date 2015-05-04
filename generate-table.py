@@ -1,7 +1,7 @@
 import numpy as N
 from xenoliths.application import app, db
 from xenoliths.core.models import Sample
-from xenoliths.SIMS.quality import get_data
+from xenoliths.SIMS.query import sims_data
 from paper.text import tex_renderer, write_file
 import periodictable as pt
 
@@ -17,8 +17,7 @@ def mineral_data(trace_elements):
     return data
 
 def averaged_trace_elements():
-    trace_elements = get_data()
-
+    trace_elements = sims_data()
     for sample_id, s_data in trace_elements.items():
         data = {k:mineral_data(v)
             for k,v in s_data.items()}
