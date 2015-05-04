@@ -29,11 +29,10 @@ def create_table():
 
     data = list(averaged_trace_elements())
 
-    atomic_number = lambda k: getattr(pt.elements,k).number
-
     data[0]["opx"]["Hf"] = "--" # Bad data
     data[0]["cpx"]["Zr"] = "--" # Bad data
 
+    atomic_number = lambda k: getattr(pt.elements,k).number
     elements = sorted([k
         for k in data[0]["cpx"].keys()
         if k != "n"], key=atomic_number)
