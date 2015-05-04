@@ -15,7 +15,7 @@ minerals = dict(
     opx="Orthopyroxene",
     cpx="Clinopyroxene")
 
-def get_data():
+def get_data(exclude_bad=True):
     """
     Gets trace element data grouped by sample and
     minerals. The data is formatted as a nested ordered
@@ -29,13 +29,20 @@ def get_data():
         func.array_agg(datum.norm_ppm),
         func.array_agg(datum.norm_std)]
 
-    data = db.session.query(datum)\
-        .filter(datum.element != 14)\
-        .join(meas)\
-        .with_entities(*qvars)\
-        .group_by(*vals)\
-        .order_by(*vals)\
-        .all()
+    if exclude_bad:
+        bad_data = datum.bad.isnot(True)
+    else:
+        # A meaningless filter
+        bad_data = True
+
+    data = (db.session.query(datum)
+        .filter(datum.element != 14)
+        .filter(bad_data)
+        .join(meas)
+        .with_entities(*qvars)
+        .group_by(*vals)
+        .order_by(*vals)
+        .all())
 
     out = OrderedDict()
     for s,m,e,u,th in data:
@@ -90,6 +97,6 @@ def check_quality():
     correspondence of trace-element data for areas
     within the same sample.""")
 
-    data = get_data()
+    data = get_data(exclude_bad=False)
 
     print_data(data)
