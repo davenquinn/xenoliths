@@ -28,7 +28,7 @@ module.exports = ->
     id = uuid.v1()
     c = (container)->
       container.append "defs"
-        .append "clipPath"
+        .append "svg:clipPath"
           .attr "id", id
           .append "rect"
             .call axisOutline

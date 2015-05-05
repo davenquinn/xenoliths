@@ -2,7 +2,7 @@ all: figure greyscale
 figure:
 	mkdir -p build
 	./generate-figure.py
-	rsvg-convert -f pdf -o build/cooling-scenarios.pdf build/cooling-scenarios.svg
+	cairosvg -o build/cooling-scenarios.pdf -d 100 build/cooling-scenarios.svg
 greyscale:
 	gs \
 	 -sOutputFile=build/cooling-scenarios.greyscale.pdf \

@@ -37,7 +37,7 @@ module.exports = (ax)->
       layerData.push { z: d, id: i }
 
     console.log layerData
-    sel = ax.node().append "rect"
+    sel = ax.node()
       .selectAll 'rect.layer'
         .data layerData
 

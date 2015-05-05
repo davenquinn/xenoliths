@@ -4,6 +4,8 @@ d3 = require 'd3'
 fs = require 'fs'
 pd = require 'pretty-data'
 
+serializeDocument = jsdom.serializeDocument
+
 buildData = require './data'
 setupScenarios = require './scenario'
 
@@ -32,8 +34,8 @@ func = (window)->
       xmlns: "http://www.w3.org/2000/svg"
     .call scenarios
 
-  d3.select body
-    .html()
+  a = serializeDocument(window.document.querySelector("body>svg"))
+  a.replace /clippath/g, "clipPath"
 
 jsdom.env
   html: "<html><body></body></html>"

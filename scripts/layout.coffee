@@ -72,7 +72,8 @@ scale = (layout)->
 
     s.selectAll "text"
       .attr
-        "font-family": "Helvetica Neue Light"
+        #"font-face": "Helvetica Neue"
+        #"font-weight": 200
         "font-size": 10
 
 
@@ -116,6 +117,8 @@ module.exports = (n_axes, ax_spacing)->
 
     yoffs = position.y+G.section.title+G.section.margin
     h = G.section.label
+
+    console.log h
 
     sel.enter()
       .append "text"
