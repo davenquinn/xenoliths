@@ -28,6 +28,8 @@ solver_constraints = (
     #u(48,"mW/m**2"))
     # Globally averaged mantle heat flux from Pollack, et al., 1977
 
+continental_crust.heat_generation = u(8,"mW/m^3")
+
 T_lithosphere = u(1300,"degC")
 
 plotter = Plotter(range=(0,1400))
@@ -55,7 +57,7 @@ def save_info(name, step, section):
     path = results_dir(name,fn)
 
     mkdirs(os.path.dirname(path))
-    echo("Saving profile to",path)
+    print("Saving profile to",path)
     with open(path,"w") as f:
         json.dump(out,f)
 
