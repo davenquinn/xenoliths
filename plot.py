@@ -1,8 +1,6 @@
 from __future__ import division
 
 import json
-import seaborn as sns
-sns.set_context("paper")
 from matplotlib import pyplot as P
 import numpy as N
 
