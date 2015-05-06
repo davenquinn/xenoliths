@@ -15,7 +15,6 @@ from geotherm.solvers import HalfSpaceSolver, FiniteSolver, RoydenSolver, Adiaba
 from geotherm.materials import oceanic_mantle, continental_crust, oceanic_crust
 from geotherm.plot import Plotter
 
-from .scenario import ModelScenario
 from .forearc import forearc_section
 from .util import mkdirs
 from . import results_dir
@@ -27,8 +26,6 @@ solver_constraints = (
     u(1500,"degC"))
     #u(48,"mW/m**2"))
     # Globally averaged mantle heat flux from Pollack, et al., 1977
-
-continental_crust.heat_generation = u(8,"mW/m^3")
 
 T_lithosphere = u(1300,"degC")
 
