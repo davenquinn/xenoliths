@@ -55,7 +55,7 @@ def save_info(name, step, section):
     path = results_dir(name,fn)
 
     mkdirs(os.path.dirname(path))
-
+    echo("Saving profile to",path)
     with open(path,"w") as f:
         json.dump(out,f)
 
@@ -143,3 +143,5 @@ def solve():
     subduction_case("farallon-young",u(100, "Myr"),u(60,"Myr"))
     underplating()
 
+def solve_gradient():
+    pass
