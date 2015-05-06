@@ -1,48 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from sqlalchemy import func
 from click import command, echo, style, secho
-from periodictable import elements
-from collections import OrderedDict
 
-from ..application import db
-from ..util import uval, nested
-from ..models import Sample
-from .models import SIMSMeasurement as meas
-from .models import SIMSDatum as datum
+from .query import sims_data
+from ..util import nested
 
 minerals = dict(
     opx="Orthopyroxene",
     cpx="Clinopyroxene")
-
-def get_data():
-    vals = [meas.sample_id,
-            meas.mineral,
-            datum.element]
-    qvars = vals+[
-        func.array_agg(datum.norm_ppm),
-        func.array_agg(datum.norm_std)]
-
-    data = db.session.query(datum)\
-        .filter(datum.element != 14)\
-        .join(meas)\
-        .with_entities(*qvars)\
-        .group_by(*vals)\
-        .order_by(*vals)\
-        .all()
-
-    out = OrderedDict()
-    for s,m,e,u,th in data:
-        # Create data structure
-        el = elements[e].symbol
-        if s not in out:
-            out[s] = {}
-        if m not in out[s]:
-            out[s][m] = OrderedDict()
-        # Add data
-        d = [uval(*i) for i in zip(u,th)]
-        out[s][m][el] = d
-    return out
 
 def test_meas(measurements, level=1):
     """ Tests agreement at the specificed
@@ -84,6 +49,6 @@ def check_quality():
     correspondence of trace-element data for areas
     within the same sample.""")
 
-    data = get_data()
+    data = sims_data(exclude_bad=False)
 
     print_data(data)

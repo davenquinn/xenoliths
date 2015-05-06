@@ -61,3 +61,15 @@ def init():
         nrm = list(directory.glob("*.nrm"))
         [import_measurement(mineral,*i) for i in zip(raw,nrm)]
         db.session.commit()
+
+@SIMSCommand.command()
+def normalize():
+    """
+    Fix common problems with SIMS data
+    """
+    for datum in SIMSDatum.query.all():
+        for i in ["norm_ppm","norm_std","raw_ppm","raw_std"]:
+            val = getattr(datum,i)
+            if val < 0:
+                setattr(datum,i, abs(val))
+    db.session.commit()

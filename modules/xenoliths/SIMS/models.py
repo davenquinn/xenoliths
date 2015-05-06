@@ -21,6 +21,7 @@ class SIMSDatum(BaseModel):
     norm_std = db.Column(db.Float)
     raw_ppm = db.Column(db.Float)
     raw_std = db.Column(db.Float)
+    bad = db.Column(db.Boolean, default=False)
 
     @hybrid_property
     def norm(self):

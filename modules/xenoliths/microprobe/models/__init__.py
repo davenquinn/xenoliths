@@ -9,6 +9,7 @@ from sqlalchemy.ext.hybrid import hybrid_property
 from flask.ext.sqlalchemy import BaseQuery
 from geoalchemy2.types import Geometry
 from slugify import slugify
+from collections import defaultdict
 
 from .image import ProbeImage
 from ..converter import Converter
@@ -165,25 +166,22 @@ class ProbeMeasurement(BaseModel):
         except ValueError:
             pass
 
-    def __get_atomic__(self):
-        formula = {}
+    def __get_atomic__(self, uncertainties=True):
+        formula = defaultdict(int)
         for d in self.data:
             for i, n in d.oxide.atoms.iteritems():
-                formula[str(i)] = formula.get(str(i),0)+n*d.molar_percent
+                v = n*d.molar_percent
+                if uncertainties:
+                    v = ufloat(v,v*d.error)
+                formula[str(i)] += v
         return formula
 
     def get_cations(self, oxygen=6, uncertainties=True):
-        formula = self.__get_atomic__()
+        formula = self.__get_atomic__(uncertainties)
         scalar = oxygen/formula["O"]
         for key, value in formula.iteritems():
             formula[key] = value*scalar
         del formula["O"]
-
-        if uncertainties and self.errors:
-            for key, cation in formula.iteritems():
-                err_pct = self.errors[key]
-                abs_err = err_pct/100.*cation
-                formula[key] = ufloat(cation, abs_err, key+"_probe")
 
         formula["Total"] = sum(formula.itervalues())
         return formula
