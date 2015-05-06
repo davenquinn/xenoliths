@@ -11,7 +11,7 @@ class BaseFiniteSolver(BaseSolver):
         constraints = (u(i,"degC") for i in (25,1500)),
         time_step = None,
         type = "implicit",
-        plotter = lambda t,sol: print(t.to("year"))
+        plotter = None
     )
     def __init__(self, section,**kwargs):
         super(BaseFiniteSolver, self).__init__(**kwargs)

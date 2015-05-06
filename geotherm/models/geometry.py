@@ -22,6 +22,9 @@ class Layer(BaseModel):
         self.cell_boundaries = N.arange(self.n_cells)*self.grid_spacing
         self.cell_centers = self.cell_boundaries+self.grid_spacing/2
 
+    def material_property(self, parameter):
+        return getattr(self.material, parameter)
+
 class Section(BaseModel):
     """
     A section of crust that contains several layers with individually-defined
@@ -53,6 +56,11 @@ class Section(BaseModel):
         ls = [func(layer,top) for (top,bottom), layer in self.iterlayers()]
         return u(N.concatenate(ls),"m")
 
+    def linear_geotherm(self, upper, lower):
+        pos = self.cell_centers/self.thickness
+        self.profile = (lower-upper)*pos+lower
+        return self
+
     def iterlayers(self):
         top = u(0,"km")
         for layer in self.layers:
@@ -67,7 +75,7 @@ class Section(BaseModel):
         i = 0
         arr = N.empty(self.n_cells)
         for layer in self.layers:
-            coeff = getattr(layer.material, parameter)
+            coeff = layer.material_property(parameter)
             arr[i:i+layer.n_cells] = coeff
             i += layer.n_cells
         return u(arr,coeff.units)

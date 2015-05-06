@@ -19,13 +19,17 @@ def test_half_space():
 
     t = u(50,"Myr")
 
-    layer = oceanic_mantle.to_layer(u(100,"km"))
+    layer = oceanic_mantle.to_layer(u(200,"km"))
     section = Section([layer], uniform_temperature=u(1500,"degC"))
     half_space = HalfSpaceSolver(section)
 
-    finite = FiniteSolver(section)
-    sol = finite.solution(t, steps=500)
-    hsol = half_space.solution(t)
+    c = (u(25,"degC"),u(1500,"degC"))
+    finite = FiniteSolver(section, constraints=c)
+    sol = finite(t, steps=50)
+    hsol = half_space(t)
 
-    print("Maximum error: ",abs(sol-hsol.profile).max())
-    assert N.allclose(sol, hsol.profile, atol=10)
+    f,h = tuple(i.profile for i in (sol, hsol))
+
+    print("Maximum error: ",abs(f-h).max())
+    assert N.allclose(f, h, atol=10)
+
