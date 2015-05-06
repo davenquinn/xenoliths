@@ -4,14 +4,20 @@ from geotherm.solvers import RoydenSolver
 from geotherm.materials import oceanic_mantle, continental_crust
 
 def forearc_section(**kwargs):
+    # Thickness of the forearc wedge
+    thickness = kwargs.pop("thickness", u(30, "km"))
+
+    # Distance from the subduction interface
     distance = kwargs.pop("distance",30000)
+
     defaults = dict(
             Al=oceanic_mantle.heat_generation.into("W/m**3"),
             Au=continental_crust.heat_generation.into("W/m**3"),
             Kl=oceanic_mantle.conductivity.into("W/m/K"),
             Ku=continental_crust.conductivity.into("W/m/K"),
-            a=u(50,"m/Myr").into("m/s"),
-            e=u(250,"m/Myr").into("m/s"),
+            # No subduction accretion or erosion
+            a=u(0,"m/Myr").into("m/s"),
+            e=u(0,"m/Myr").into("m/s"),
             zr=120e3)
 
     defaults.update(kwargs)
@@ -40,12 +46,10 @@ def forearc_section(**kwargs):
         ##   heat flow due to friction on fault (tau*v) (W/m2)
         #qfric=15.*1e-3)
 
-    thickness = u(30, "km")
-
     forearc = Section([continental_crust.to_layer(thickness)])
     temperatures = royden(distance,
             forearc.cell_centers.into("m"),
-            u(30, "km").into("m"))
+            thickness.into("m"))
 
     forearc.profile = u(temperatures, "degC")
     return forearc

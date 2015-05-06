@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import seaborn as sns
 import matplotlib.pyplot as P
 import periodictable as pt
 import numpy as N
