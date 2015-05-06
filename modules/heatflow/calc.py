@@ -34,7 +34,7 @@ plotter = Plotter(range=(0,1400))
 
 FiniteSolver.set_defaults(
     type="implicit",
-    time_step=u(200,"kyr"),
+    time_step=u(100,"kyr"),
     constraints=solver_constraints,
     plotter=plotter)
 
@@ -137,9 +137,16 @@ def underplating():
 
 def solve():
     # This does the computational heavy lifting
-    subduction_case("monterey-plate",u(28,"Myr"),u(26,"Myr"))
-    subduction_case("farallon-intermediate",u(140, "Myr"),u(70,"Myr"))
-    subduction_case("farallon-old",u(145, "Myr"),u(80,"Myr"))
-    subduction_case("farallon-young",u(135, "Myr"),u(60,"Myr"))
+    scenarios = [
+        (80,60),(70,50),(60,40),(50,30),(40,20),(30,10),(28,2)]
+
+    for sub_age,oc_age in scenarios:
+        subduction_case("forearc-{0}-{1}".format(sub_age,oc_age),
+            u(sub_age+oc_age,"Myr"), u(sub_age,"Myr"))
+
+    #subduction_case("monterey-plate",u(28,"Myr"),u(26,"Myr"))
+    #subduction_case("farallon-intermediate",u(140, "Myr"),u(70,"Myr"))
+    #subduction_case("farallon-old",u(145, "Myr"),u(80,"Myr"))
+    #subduction_case("farallon-young",u(135, "Myr"),u(60,"Myr"))
     underplating()
 
