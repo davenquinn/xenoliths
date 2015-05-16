@@ -10,12 +10,12 @@ import matplotlib
 matplotlib.use("TkAgg")
 
 from geotherm.units import u
-from geotherm.models.geometry import Section, Layer, stack_sections
+from geotherm.models.geometry import Section, Layer
 from geotherm.solvers import HalfSpaceSolver, FiniteSolver, RoydenSolver, AdiabatSolver
 from geotherm.materials import oceanic_mantle, continental_crust, oceanic_crust
 from geotherm.plot import Plotter
 
-from .forearc import forearc_section
+from .subduction import instant_subduction
 from .util import mkdirs
 from . import results_dir
 
@@ -26,8 +26,6 @@ solver_constraints = (
     u(1500,"degC"))
     #u(48,"mW/m**2"))
     # Globally averaged mantle heat flux from Pollack, et al., 1977
-
-T_lithosphere = u(1300,"degC")
 
 plotter = Plotter(range=(0,1400))
 
@@ -80,25 +78,7 @@ def subduction_case(name, start_time, subduction_time):
     underplated_oceanic = finite_solve(initial_section, t)
 
     record("before-subduction", underplated_oceanic)
-
-    # Find the base of the lithosphere
-    d = underplated_oceanic.depth(T_lithosphere)
-    distance = 100e3
-    echo("Depth of the base of the "
-        "lithosphere at the time of "
-        "subduction:{0:.2f}".format(d))
-    forearc = forearc_section(
-            distance = distance,
-            Tm = T_lithosphere.into("degC"),
-            l = d.into("m"))
-    echo("Temperature at subduction interface "
-         "at the time of underplating: {0}"\
-          .format(forearc.profile[-1]))
-
-    section = stack_sections(
-        forearc,
-        underplated_oceanic)
-
+    section = instant_subduction(underplated_oceanic)
     record("after-subduction", section)
 
     final_section = finite_solve(section, subduction_time-present)
