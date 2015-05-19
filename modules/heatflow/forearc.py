@@ -3,13 +3,7 @@ from geotherm.models.geometry import Section
 from geotherm.solvers import RoydenSolver
 from geotherm.materials import oceanic_mantle, continental_crust
 
-def forearc_section(**kwargs):
-    # Thickness of the forearc wedge
-    thickness = kwargs.pop("thickness", u(30, "km"))
-
-    # Distance from the subduction interface
-    distance = kwargs.pop("distance",30000)
-
+def forearc_solver(**kwargs):
     defaults = dict(
             Al=oceanic_mantle.heat_generation.into("W/m**3"),
             Au=continental_crust.heat_generation.into("W/m**3"),
@@ -33,7 +27,7 @@ def forearc_section(**kwargs):
         ##   heat conductivity in each plate  (W/m.K)
         #Kl=2.5, #lower plate
         #Ku=2.5, #upper plate
-        ##   depth to the base of the radiogenic layer (m)
+        ##   depth to the base of the radiogenic layer in foreland (m)
         #zr=30e3,
         ##   rate of accretion (m/s)
         #a=0,
@@ -45,11 +39,25 @@ def forearc_section(**kwargs):
         #alpha=1e-6,
         ##   heat flow due to friction on fault (tau*v) (W/m2)
         #qfric=15.*1e-3)
+    return royden
+
+def forearc_section(**kwargs):
+    # Thickness of the forearc wedge
+    thickness = kwargs.pop("thickness", u(30, "km"))
+
+    # Distance from the subduction interface
+    distance = kwargs.pop("distance",u(30,"km"))
+
+    # In case we have a royden solver we want to use
+    solver = kwargs.pop("solver",None)
+    if not solver:
+        solver = forearc_solver(**kwargs)
 
     forearc = Section([continental_crust.to_layer(thickness)])
-    temperatures = royden(distance,
+    temperatures = solver(distance.into("m"),
             forearc.cell_centers.into("m"),
             thickness.into("m"))
 
     forearc.profile = u(temperatures, "degC")
+
     return forearc
