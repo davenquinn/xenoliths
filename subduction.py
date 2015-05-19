@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+
+from __future__ import division
+import numpy as N
+from click import echo
+from geotherm.units import u
 from geotherm.models.geometry import stack_sections
 from .forearc import forearc_section
 
