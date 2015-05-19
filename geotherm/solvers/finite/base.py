@@ -8,10 +8,11 @@ import numpy as N
 
 class BaseFiniteSolver(BaseSolver):
     defaults = dict(
-        constraints = (u(i,"degC") for i in (25,1500)),
+        constraints = (u(i,"degC") for i in (0,1500)),
         time_step = None,
         type = "implicit",
-        plotter = None
+        plotter = None,
+        step_function = None
     )
     def __init__(self, section,**kwargs):
         super(BaseFiniteSolver, self).__init__(**kwargs)

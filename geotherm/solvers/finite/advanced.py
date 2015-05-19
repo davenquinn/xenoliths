@@ -21,15 +21,7 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
             value=self.initial_values)
 
         if self.constraints is not None:
-            ## This implements only temperature constraints
-            ## Will implement no-flux constraints if needed
-            faces = (self.mesh.facesLeft, self.mesh.facesRight)
-            for val, face in zip(self.constraints,faces):
-                try:
-                    self.var.constrain(val.into("K"), face) ## Constrain as temperature
-                except DimensionalityError:
-                    v = val.into("W/m**2")
-                    self.var.faceGrad.constrain([v], face) ## Constrain as flux
+            self.set_constraints(*self.constraints)
 
         if type == "explicit":
             # Use stable timesteps if we're running explicit finite differences
@@ -45,6 +37,19 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
             self.equation = sum(eqns)
         else:
             self.equation = self.create_equation(self.type)
+
+    def set_constraints(self, upper=None, lower=None):
+        # Constraint can be set to none if we don't want to change
+        constraints = (new if new is not None else old
+                for new,old in zip((upper,lower),self.constraints))
+        faces = (self.mesh.facesLeft, self.mesh.facesRight)
+
+        for val, face in zip(constraints,faces):
+            try:
+                self.var.constrain(val.into("K"), face) ## Constrain as temperature
+            except DimensionalityError:
+                v = val.into("W/m**2")
+                self.var.faceGrad.constrain([v], face) ## Constrain as flux
 
     def create_coefficient(self):
         """A spatially varying diffusion coefficient"""
@@ -99,6 +104,7 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         """
 
         plotter = kw.pop("plotter",self.plotter)
+        step_function = kw.pop("step_function",self.step_function)
         time_step = kw.pop("time_step", self.time_step)
 
         if steps and duration:
@@ -123,6 +129,11 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
                 sol = self.value()
                 if plotter is not None:
                     plotter(simulation_time, (self.section.cell_centers, sol))
+                if step_function is not None:
+                    step_function(self,
+                        simulation_time=simulation_time,
+                        step=step, steps=steps)
+
                 yield simulation_time, sol
                 dt = time_step.into("seconds")
                 self.equation.solve(
