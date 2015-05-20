@@ -13,7 +13,7 @@ T_lithosphere = u(1300,"degC")
 def instant_subduction(underplated_section, **kwargs):
     # Find the base of the lithosphere
     d = underplated_section.depth(T_lithosphere)
-    distance = 100e3
+    distance = u(100,"km")
     echo("Depth of the base of the "
         "lithosphere at the time of "
         "subduction:{0:.2f}".format(d))
