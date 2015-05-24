@@ -4,15 +4,15 @@ from geotherm.solvers import RoydenSolver
 from geotherm.materials import oceanic_mantle, continental_crust
 
 def forearc_solver(**kwargs):
-    defaults = dict(
-            Al=oceanic_mantle.heat_generation.into("W/m**3"),
-            Au=continental_crust.heat_generation.into("W/m**3"),
-            Kl=oceanic_mantle.conductivity.into("W/m/K"),
-            Ku=continental_crust.conductivity.into("W/m/K"),
-            # No subduction accretion or erosion
-            a=u(0,"m/Myr").into("m/s"),
-            e=u(0,"m/Myr").into("m/s"),
-            zr=120e3)
+    defaults = dict()
+            #Al=oceanic_mantle.heat_generation.into("W/m**3"),
+            #Au=continental_crust.heat_generation.into("W/m**3"),
+            #Kl=oceanic_mantle.conductivity.into("W/m/K"),
+            #Ku=continental_crust.conductivity.into("W/m/K"),
+            ## No subduction accretion or erosion
+            #a=u(0,"m/Myr").into("m/s"),
+            #e=u(0,"m/Myr").into("m/s"),
+            #zr=120e3)
 
     defaults.update(kwargs)
 

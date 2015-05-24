@@ -49,8 +49,7 @@ def stepped_subduction(underplated_section, **kwargs):
     # is in thermal equilibrium, and the lithospheric
     # depth is being maintained, which is likely a
     # reasonable approximation for the timescales involved.
-    lithosphere_depth = (underplated_section
-            .depth(T_lithosphere).into("m"))
+    lithosphere_depth = underplated_section.depth(T_lithosphere)
 
     echo("Depth of the base of the "
         "lithosphere at the time of "
@@ -69,7 +68,8 @@ def stepped_subduction(underplated_section, **kwargs):
     echo("Duration of subduction: {}".format(duration))
 
     royden = forearc_solver(
-        l=lithosphere_depth,
+        l=lithosphere_depth.into("m"),
+        v=velocity.into("m/s"),
         Tm =T_lithosphere.into("degC"))
 
     def on_step(solver, **kwargs):
@@ -78,20 +78,20 @@ def stepped_subduction(underplated_section, **kwargs):
         """
         step = kwargs.pop("step")
         steps = kwargs.pop("steps")
-        completion = step/steps
+        completion = (step+1)/steps
+        print(completion)
 
         sz_depth = depth*completion
 
         # Temperature at the subduction
         # interface
         T = royden(
-                distance*completion,
-                sz_depth, # Depth of interest
-                sz_depth) # Depth of subduction interface
+            (distance*completion).into("m"),
+            sz_depth.into("m"), # Depth of interest
+            sz_depth.into("m")) # Depth of subduction interface
 
         T = u(T,"degC")
 
-        #echo("{}: {}".format(sz_depth.to("km"),T)
         solver.set_constraints(upper=T)
 
     solver = FiniteSolver(underplated_section)
@@ -105,6 +105,12 @@ def stepped_subduction(underplated_section, **kwargs):
         thickness = depth,
         distance = distance,
         solver = royden)
+
+    echo("Temperature at subduction interface "
+         "at the time of underplating: {0} {1}"\
+          .format(
+              forearc.profile[-1],
+              underplated_section.profile[0]))
 
     s = stack_sections(forearc, underplated_section)
 
