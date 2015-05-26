@@ -60,9 +60,11 @@ def save_info(name, step, section, **kwargs):
     with open(path,"w") as f:
         json.dump(out,f)
 
-def subduction_case(name, start_time, subduction_time):
-    """Both the Monterey and Farallon-Plate scenarios involve the same
-    basic steps, just with different timing.
+def forearc_case(name, start_time, subduction_time):
+    """
+    All of the cases with a forearc geotherm look similar in
+    form, with the only differences being the timing of initial
+    emplacemnt on the ocean floor and subduction.
     """
     print(name)
 
@@ -133,7 +135,7 @@ def solve():
         (80,60),(70,50),(60,40),(50,30),(40,20),(30,10),(28,2)]
 
     for sub_age,oc_age in scenarios:
-        subduction_case("forearc-{0}-{1}".format(sub_age,oc_age),
+        forearc_case("forearc-{0}-{1}".format(sub_age,oc_age),
             u(sub_age+oc_age,"Myr"), u(sub_age,"Myr"))
 
     #subduction_case("monterey-plate",u(28,"Myr"),u(26,"Myr"))
