@@ -134,3 +134,17 @@ def underplating():
 
     record("final", final_section, t=present)
 
+def steady_state():
+    """
+    Steady-state case for 30 km of crust
+    atop 270 km of oceanic mantle
+    """
+    record = partial(save_info, "steady-state")
+
+    section = Section([
+        crust.to_layer(u(30,"km")),
+        oceanic_mantle.to_layer(u(270,"km"))])
+
+    solver = FiniteSolver(section)
+
+    record("steady-state",solver.steady_state())
