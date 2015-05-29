@@ -155,7 +155,8 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
             diff += h
 
         diff.solve(var = self.var)
-        return self.value()
+        return Section(self.section.layers,
+                profile=self.value())
 
     def solution(self, duration, **kwargs):
         sol = self.__solve__(duration=duration, **kwargs)
