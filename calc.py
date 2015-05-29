@@ -9,7 +9,7 @@ from functools import partial
 import matplotlib
 matplotlib.use("TkAgg")
 
-from geotherm.models.geometry import Section, Layer
+from geotherm.models.geometry import Section, stack_sections
 from geotherm.solvers import HalfSpaceSolver, FiniteSolver, RoydenSolver, AdiabatSolver
 from geotherm.materials import oceanic_mantle, continental_crust, oceanic_crust
 from geotherm.plot import Plotter
@@ -111,11 +111,17 @@ def underplating():
 
     interface = u(30,"km")
 
-    section = Section([
-        continental_crust.to_layer(interface),
-        oceanic_mantle.to_layer(u(300,"km")-interface)
-        ],
-        uniform_temperature=u(400,"degC"))
+    crust = continental_crust.to_layer(interface)
+    solver = FiniteSolver(crust,constraints=(
+        u(0,"degC"),u(600,"degC")))
+    # Assume arbitrarily that interface is at 600 degC
+
+    crust_section = Section(crust,
+        profile=solver.steady_state())
+
+    mantle = oceanic_mantle.to_layer(u(300,"km")-interface)
+
+    section = stack_sections(crust_section, mantle)
 
     apply_adiabat = AdiabatSolver(
         start_depth=interface,
