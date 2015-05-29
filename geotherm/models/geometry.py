@@ -22,10 +22,13 @@ class Layer(BaseModel):
         self.cell_boundaries = N.arange(self.n_cells)*self.grid_spacing
         self.cell_centers = self.cell_boundaries+self.grid_spacing/2
 
+    cell_sizes = property(lambda self:\
+            (self.cell_centers - self.cell_boundaries)*2)
+
     def material_property(self, parameter):
         return getattr(self.material, parameter)
 
-class Section(BaseModel):
+class Section(Layer):
     """
     A section of crust that contains several layers with individually-defined
     material models. Rudimentary support for unequal grid spacing (defined per-layer)
@@ -34,11 +37,14 @@ class Section(BaseModel):
             sum([i.thickness for i in self.layers]))
     n_cells = property(lambda self:\
             sum([i.n_cells for i in self.layers]))
-    cell_sizes = property(lambda self:\
-            (self.cell_centers - self.cell_boundaries)*2)
 
     def __init__(self, layers, **kwargs):
-        self.layers = layers
+        # Allow for single layers
+        try:
+            self.layers = [i for i in layers]
+        except TypeError:
+            self.layers = [layers]
+
         self.profile = kwargs.pop("profile", None)
         uniform_temperature = kwargs.pop("uniform_temperature", u(0,"degC"))
         if self.profile is None:

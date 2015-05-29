@@ -11,7 +11,13 @@ from ...models import Section
 class AdvancedFiniteSolver(BaseFiniteSolver):
     def __init__(self, section, **kwargs):
         BaseFiniteSolver.__init__(self,section, **kwargs)
+
+        if not hasattr(section,"layers"):
+            # We need to convert a layer to section
+            section = Section(section)
+
         self.section = section
+
         self.mesh = self.create_mesh()
 
         self.initial_values = self.section.profile.into("kelvin")
@@ -84,7 +90,8 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         diff = DiffusionTerm(coeff=self.diffusion_coefficient)
 
         h = self.radiogenic_heating()
-        if h is not None: diff += h
+        if h is not None:
+            diff += h
         return trans == diff
 
     def stable_timestep(self, padding=0):
@@ -126,25 +133,27 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
             h = self.radiogenic_heating()
             for step in bar:
                 simulation_time = step*time_step
-                sol = self.value()
                 if plotter is not None:
-                    plotter(simulation_time, (self.section.cell_centers, sol))
+                    plotter(simulation_time, (self.section.cell_centers, self.value()))
                 if step_function is not None:
                     step_function(self,
                         simulation_time=simulation_time,
                         step=step, steps=steps)
 
-                yield simulation_time, sol
                 dt = time_step.into("seconds")
                 self.equation.solve(
                     var=self.var,
                     dt=dt)
+                sol = self.value()
+                yield simulation_time, sol
 
     def steady_state(self):
         diff = F.DiffusionTerm(coeff=self.diffusion_coefficient)
         # Apply radiogenic heating if it exists
-        #h = self.radiogenic_heating()
-        #if h is not None: diff += h.divergence
+        h = self.radiogenic_heating()
+        if h is not None:
+            diff += h
+
         diff.solve(var = self.var)
         return self.value()
 
