@@ -13,6 +13,7 @@ from geotherm.models.geometry import Section, Layer
 from geotherm.solvers import HalfSpaceSolver, FiniteSolver, RoydenSolver, AdiabatSolver
 from geotherm.materials import oceanic_mantle, continental_crust, oceanic_crust
 from geotherm.plot import Plotter
+from geotherm.units import u
 
 from .subduction import instant_subduction, stepped_subduction
 from .util import mkdirs
@@ -22,7 +23,7 @@ present = u(1.65,"Myr") # K-Ar age for Crystal Knob xenoliths
 
 solver_constraints = (
     u(0,"degC"), # Surface temperature
-    u(1500,"degC"))
+    u(1400,"degC"))
     #u(48,"mW/m**2"))
     # Globally averaged mantle heat flux from Pollack, et al., 1977
 
