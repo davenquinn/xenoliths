@@ -86,9 +86,9 @@ def forearc_case(name, start_time, subduction_time):
     record("before-subduction", underplated_oceanic, t=subduction_time)
     elapsed_time, section = stepped_subduction(
             underplated_oceanic,
-            distance=u(100,"km"),
+            final_distance=u(100,"km"),
             velocity=u(100,"mm/yr"),
-            depth=u(30,"km"))
+            final_depth=u(30,"km"))
 
     echo("Subduction took {}".format(elapsed_time.to("Myr")))
 
@@ -98,6 +98,48 @@ def forearc_case(name, start_time, subduction_time):
             t-present)
 
     record("final",final_section,t=present)
+
+def farallon_case():
+    """
+    Similar to the forearc-geotherm case, but with the
+    temperature under the slab pinned to 700 degC at 10kb,
+    a constraint garnered from the Rand Schist
+    """
+    record = partial(save_info, "farallon")
+
+    start_time = u(140,"Myr")
+    subduction_time = u(80,"Myr")
+
+    oceanic = Section([
+        oceanic_crust.to_layer(u(7,"km")),
+        oceanic_mantle.to_layer(u(263,"km"))])
+
+    apply_adiabat = AdiabatSolver()
+
+    initial_section = apply_adiabat(oceanic)
+
+    record("initial", initial_section, t=start_time)
+
+    t = start_time - subduction_time
+    underplated_oceanic = finite_solve(initial_section, t)
+
+    record("before-subduction", underplated_oceanic, t=subduction_time)
+    elapsed_time, section = stepped_subduction(
+            underplated_oceanic,
+            final_distance=u(100,"km"),
+            velocity=u(100,"mm/yr"),
+            final_temperature=u(700,"degC"),
+            final_depth=u(30,"km"))
+
+    echo("Subduction took {}".format(elapsed_time.to("Myr")))
+
+    t = subduction_time-elapsed_time
+    record("after-subduction", section, t=t)
+    final_section = finite_solve(section,
+            t-present)
+
+    record("final",final_section,t=present)
+
 
 def underplating():
     name = "underplating"
