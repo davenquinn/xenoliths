@@ -53,7 +53,7 @@ def stepped_subduction(underplated_section, **kwargs):
     the surface along the subduction channel.
     """
 
-    distance = kwargs.pop("final_distance", None)
+    final_distance = kwargs.pop("final_distance", None)
     velocity = kwargs.pop("velocity", None)
     final_depth = kwargs.pop("final_depth", None)
 
@@ -80,7 +80,7 @@ def stepped_subduction(underplated_section, **kwargs):
     echo("Dip of subduction zone: {}".format(dip))
 
     # distance along subduction channel
-    sub_distance = N.sqrt(distance**2+depth**2)
+    sub_distance = N.sqrt(final_distance**2+final_depth**2)
 
     duration = (sub_distance/velocity).to("Myr")
 
@@ -102,7 +102,7 @@ def stepped_subduction(underplated_section, **kwargs):
         completion = (step+1)/steps
         print(completion)
 
-        sz_depth = depth*completion
+        sz_depth = final_depth*completion
 
         # Set temperature at the subduction
         # interface
@@ -116,6 +116,9 @@ def stepped_subduction(underplated_section, **kwargs):
             T = final_temperature.into("degC")*completion
 
         solver.set_constraints(upper=u(T,"degC"))
+
+    # Set up finite solving for underplated slab
+    solver = FiniteSolver(underplated_section)
 
     underplated_section = solver.final_section(
         duration=duration,
