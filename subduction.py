@@ -4,9 +4,10 @@ from __future__ import division
 import numpy as N
 from click import echo
 from geotherm.units import u
-from geotherm.models.geometry import stack_sections
+from geotherm.models.geometry import Section, stack_sections
 from .forearc import forearc_section, forearc_solver
 from geotherm.solvers import FiniteSolver
+from geotherm.materials import continental_crust
 
 # temperature of the base of the lithosphere
 T_lithosphere = u(1300,"degC")
@@ -31,14 +32,32 @@ def instant_subduction(underplated_section, **kwargs):
         underplated_section)
 
 def stepped_subduction(underplated_section, **kwargs):
-    """Method to subduct crust under a forearc
-    modeled by Leigh Royden's model.
     """
-    echo("Beginning to subduct slab")
+    Method to subduct crust under a forearc
+    with a geotherm modeled over a period of
+    time, and capture a snapshot of underplating.
 
-    distance = kwargs.pop("distance", None)
+    The `velocity` option defines a subduction velocity
+    that is used to move the subducting slab down the
+    channel.
+
+    If the `final_temperature` option is not set,
+    the procedure will infer the final temperature
+    of the subducted slab from a steady-state subduction
+    geometery, using the method of Royden (1992).
+
+    If the `final_temperature` option is set,
+    the procedure will target that temperature
+    at the final conditions of the interface,
+    with temperature increasing linearly from
+    the surface along the subduction channel.
+    """
+
+    distance = kwargs.pop("final_distance", None)
     velocity = kwargs.pop("velocity", None)
-    depth = kwargs.pop("depth", None)
+    final_depth = kwargs.pop("final_depth", None)
+
+    final_temperature = kwargs.pop("final_temperature", None)
 
     # Thickness of foreland lithosphere
     # at the time of subduction
@@ -57,7 +76,7 @@ def stepped_subduction(underplated_section, **kwargs):
 
     echo("Subduction velocity: {}".format(velocity))
 
-    dip = N.arctan(depth/distance).to("degrees")
+    dip = N.arctan(final_depth/final_distance).to("degrees")
     echo("Dip of subduction zone: {}".format(dip))
 
     # distance along subduction channel
@@ -66,6 +85,8 @@ def stepped_subduction(underplated_section, **kwargs):
     duration = (sub_distance/velocity).to("Myr")
 
     echo("Duration of subduction: {}".format(duration))
+
+    echo("Beginning to subduct slab")
 
     royden = forearc_solver(
         l=lithosphere_depth.into("m"),
@@ -83,28 +104,41 @@ def stepped_subduction(underplated_section, **kwargs):
 
         sz_depth = depth*completion
 
-        # Temperature at the subduction
+        # Set temperature at the subduction
         # interface
-        T = royden(
-            (distance*completion).into("m"),
-            sz_depth.into("m"), # Depth of interest
-            sz_depth.into("m")) # Depth of subduction interface
+        if final_temperature is None:
+            T = royden(
+                (final_distance*completion).into("m"),
+                sz_depth.into("m"), # Depth of interest
+                sz_depth.into("m")) # Depth of subduction interface
 
-        T = u(T,"degC")
+        else:
+            T = final_temperature.into("degC")*completion
 
-        solver.set_constraints(upper=T)
-
-    solver = FiniteSolver(underplated_section)
+        solver.set_constraints(upper=u(T,"degC"))
 
     underplated_section = solver.final_section(
         duration=duration,
         step_function=on_step,
         **kwargs)
 
-    forearc = forearc_section(
-        thickness = depth,
-        distance = distance,
-        solver = royden)
+    # Construct the forearc geotherm
+    forearc = Section(continental_crust
+            .to_layer(final_depth))
+
+    if final_temperature is None:
+        temperatures = royden(
+            final_distance.into("m"),
+            forearc.cell_centers.into("m"),
+            final_depth.into("m"))
+
+        forearc.profile = u(temperatures, "degC")
+
+    else:
+        solver = FiniteSolver(forearc,
+            constraints = (u(0,"degC"),
+                final_temperature))
+        forearc = solver.steady_state()
 
     echo("Temperature at subduction interface "
          "at the time of underplating: {0} {1}"\
