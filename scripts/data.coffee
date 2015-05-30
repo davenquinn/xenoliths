@@ -4,6 +4,7 @@ fs = require "fs"
 basename = (fn)->fn.substr 0, fn.lastIndexOf('.')
 getProfile = (fn)->
   # Gets the vertical profile, zipping for friendliness
+  console.log "Getting profile for", fn
   p = require fn
   return p.z.map (d,i)->{T: p.T[i], z: d*0.001}
 
