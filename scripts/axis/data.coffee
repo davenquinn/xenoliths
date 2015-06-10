@@ -60,8 +60,6 @@ module.exports = (ax)->
         class: "data"
         id: (d,i)->data.id[i]
         d: simplifiedLine 0.005
-        "stroke-opacity": (d,i)->
-          if i == 0 then 1 else 0.5
         "stroke-width": 2
         stroke: '#750000'
         fill: "transparent"

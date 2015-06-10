@@ -15,11 +15,11 @@ createAxes = (axes, data)->
 wide_layout = layout(4, ["large","small","large"])
 offs2 = wide_layout.height()+G.margin.outside+G.section.spacing.y
 params =
-  farallon:
+  forearc:
     layout: wide_layout
     x: G.margin.outside
     y: G.margin.outside
-  monterey:
+  farallon:
     layout: wide_layout
     x: G.margin.outside
     y: offs2
@@ -33,6 +33,8 @@ module.exports = (data)->
   data.forEach (d)->
     for k,o of params[d.name]
       d[k] = o
+
+  console.log data
 
   s = (el)->
     sel = el.selectAll 'g.scenario'

@@ -1,9 +1,12 @@
-- name: farallon
+- name: forearc
   id:
-    - farallon-intermediate
-    - farallon-young
-    - farallon-old
-  title: Farallon Plate
+    - forearc-80-60
+    - forearc-70-50
+    - forearc-60-40
+    - forearc-50-30
+    - forearc-40-20
+    - forearc-30-10
+  title: Emplacement under a forearc
   slices: &subduction
     - id: initial
       oc: 7
@@ -16,19 +19,19 @@
       cc: 30
       oc: 37
   labels:
-    - 110 Ma
-    - 70 Ma
-    - Subduction
+    - Emplacement at ridge
+    - Subduction and underplating
+    - ""
     - 1.6 Ma
-- name: monterey
-  id: monterey-plate
-  title: Monterey Plate
+- name: farallon
+  id: farallon
+  title: Shatsky-conjugate
   subtitle: Cool modern geotherm
   slices: *subduction
   labels:
-    - 28 Ma
-    - 26 Ma
-    - Subduction
+    - Emplacement at ridge
+    - Subduction and underplating
+    - ""
     - 1.6 Ma
 - name: underplating
   id: underplating
