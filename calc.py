@@ -71,17 +71,14 @@ def forearc_case(name, start_time, subduction_time):
     record = partial(save_info, name)
 
     oceanic = Section([
-        oceanic_crust.to_layer(u(7,"km")),
-        oceanic_mantle.to_layer(u(263,"km"))])
+        oceanic_mantle.to_layer(u(270,"km"))])
 
-    apply_adiabat = AdiabatSolver()
+    ocean_model = HalfSpaceSolver(oceanic)
 
-    initial_section = apply_adiabat(oceanic)
-
-    record("initial", initial_section, t=start_time)
+    record("initial", ocean_model(u(0,"s")), t=start_time)
 
     t = start_time - subduction_time
-    underplated_oceanic = finite_solve(initial_section, t)
+    underplated_oceanic = ocean_model(t)
 
     record("before-subduction", underplated_oceanic, t=subduction_time)
     elapsed_time, section = stepped_subduction(
@@ -111,17 +108,14 @@ def farallon_case():
     subduction_time = u(80,"Myr")
 
     oceanic = Section([
-        oceanic_crust.to_layer(u(7,"km")),
-        oceanic_mantle.to_layer(u(263,"km"))])
+        oceanic_mantle.to_layer(u(270,"km"))])
 
-    apply_adiabat = AdiabatSolver()
+    ocean_model = HalfSpaceSolver(oceanic)
 
-    initial_section = apply_adiabat(oceanic)
-
-    record("initial", initial_section, t=start_time)
+    record("initial", ocean_model(u(0,"s")), t=start_time)
 
     t = start_time - subduction_time
-    underplated_oceanic = finite_solve(initial_section, t)
+    underplated_oceanic = ocean_model(t)
 
     record("before-subduction", underplated_oceanic, t=subduction_time)
     elapsed_time, section = stepped_subduction(
@@ -158,10 +152,11 @@ def underplating():
         u(0,"degC"),u(600,"degC")))
     # Assume arbitrarily that interface is at 600 degC
 
-    crust_section = Section(crust,
+    crust_section = Section([crust],
         profile=solver.steady_state())
 
     mantle = oceanic_mantle.to_layer(u(300,"km")-interface)
+    mantle = Section(mantle)
 
     section = stack_sections(crust_section, mantle)
 
