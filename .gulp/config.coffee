@@ -1,4 +1,4 @@
-app = "modules/xenoliths"
+app = "xenoliths"
 
 module.exports =
     app: app

@@ -9,4 +9,4 @@ samples/data/backup/
 .sass-cache
 .DS_Store
 
-modules/Xenoliths.egg-info
+Xenoliths.egg-info

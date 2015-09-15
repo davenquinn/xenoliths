@@ -12,8 +12,5 @@ install_requires = [
 setup(
     name="Xenoliths",
     install_requires=install_requires,
-    packages=find_packages("modules"),
-    package_dir={
-        "":"modules"
-    }
+    packages=find_packages(),
 )
