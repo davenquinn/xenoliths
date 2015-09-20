@@ -4,9 +4,10 @@ from geotherm.units import u
 from .calc import underplating, forearc_case, farallon_case
 
 @click.command()
-@click.option('--debug/--no-debug', default=False)
+@click.option('--debug', default=False, is_flag=True)
+@click.option('--all', default=False, is_flag=True)
 @click.argument('scenarios', nargs=-1)
-def cli(scenarios, debug=False):
+def cli(scenarios, debug=False, all=False):
     """ Solve the basic heat flow models."""
     registry = {}
 
@@ -20,9 +21,14 @@ def cli(scenarios, debug=False):
     registry["underplating"] = underplating
     registry["farallon"] = farallon_case
 
-    # Run scenarios requested (or all if none requested)
-    if len(scenarios) == 0:
+    # Run scenarios requested
+    if all:
         scenarios = registry.keys()
+    if len(scenarios) == 0:
+        click.echo("Specify scenario names or --all")
+        click.echo("Possible scenarios:")
+        for i in registry:
+            click.echo("  "+i)
     for s in scenarios:
         registry[s]()
 
