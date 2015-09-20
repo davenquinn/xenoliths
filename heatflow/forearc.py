@@ -2,6 +2,33 @@ from geotherm.units import u
 from geotherm.models.geometry import Section
 from geotherm.solvers import RoydenSolver
 from geotherm.materials import oceanic_mantle, continental_crust
+from scipy.optimize import minimize_scalar
+
+def optimized_forearc(target,distance,depth, **kwargs):
+    """
+    Returns Royden model forearc geotherm
+    that is optimized to return a certain
+    temperature at the subduction interface.
+    """
+    opt = kwargs.pop('vary','Au')
+
+    solver = forearc_solver(**kwargs)
+
+    target = target.into("degC")
+    d = distance.into("m")
+    Z = depth.into("m")
+
+    def f(v):
+        solver.args[opt]=v
+        t = solver.royden(d, Z, Z)
+        a = abs(target-t)
+        return a
+
+    o = minimize_scalar(f,
+            bounds=(0,1e9),
+            method='bounded')
+    solver.args[opt] = o.x
+    return solver
 
 def forearc_solver(**kwargs):
     defaults = dict()

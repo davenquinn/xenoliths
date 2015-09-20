@@ -65,11 +65,10 @@ def save_info(name, step, section, **kwargs):
     with open(path,"w") as f:
         json.dump(out,f)
 
-def forearc_case(name, start_time, subduction_time):
+def pre_subduction(name, start_time, subduction_time):
     """
-    All of the cases with a forearc geotherm look similar in
-    form, with the only differences being the timing of initial
-    emplacemnt on the ocean floor and subduction.
+    Get an oceanic geotherm at emplacement and just before
+    subduction begins.
     """
     echo("Start age:  {0}".format(start_time))
     echo("Subduction: {0}".format(subduction_time))
@@ -89,6 +88,18 @@ def forearc_case(name, start_time, subduction_time):
     underplated_oceanic = ocean_model(t)
 
     record("before-subduction", underplated_oceanic, t=subduction_time)
+
+    return underplated_oceanic
+
+def forearc_case(name, start_time, subduction_time):
+    """
+    All of the cases with a forearc geotherm look similar in
+    form, with the only differences being the timing of initial
+    emplacemnt on the ocean floor and subduction.
+    """
+    record = partial(save_info, name)
+
+    underplated_oceanic = pre_subduction(name, start_time, subduction_time)
 
     elapsed_time, section = stepped_subduction(
             underplated_oceanic,
@@ -116,17 +127,11 @@ def farallon_case():
     start_time = u(140,"Myr")
     subduction_time = u(80,"Myr")
 
-    oceanic = Section([
-        oceanic_mantle.to_layer(u(270,"km"))])
+    underplated_oceanic = pre_subduction(
+        "farallon",
+        start_time,
+        subduction_time)
 
-    ocean_model = GDHSolver(oceanic, T_max=solver_constraints[1])
-
-    record("initial", ocean_model(u(0,"s")), t=start_time)
-
-    t = start_time - subduction_time
-    underplated_oceanic = ocean_model(t)
-
-    record("before-subduction", underplated_oceanic, t=subduction_time)
     elapsed_time, section = stepped_subduction(
             underplated_oceanic,
             final_distance=u(100,"km"),

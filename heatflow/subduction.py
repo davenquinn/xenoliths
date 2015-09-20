@@ -5,7 +5,7 @@ import numpy as N
 from click import echo
 from geotherm.units import u
 from geotherm.models.geometry import Section, stack_sections
-from .forearc import forearc_section, forearc_solver
+from .forearc import forearc_section, forearc_solver, optimized_forearc
 from geotherm.solvers import FiniteSolver
 from geotherm.materials import continental_crust
 
@@ -48,9 +48,9 @@ def stepped_subduction(underplated_section, **kwargs):
 
     If the `final_temperature` option is set,
     the procedure will target that temperature
-    at the final conditions of the interface,
-    with temperature increasing linearly from
-    the surface along the subduction channel.
+    at the final conditions of the interface.
+    In this case, the Royden model parameters
+    for this temperature will be found via optimization.
     """
 
     final_distance = kwargs.pop("final_distance", None)
@@ -88,10 +88,22 @@ def stepped_subduction(underplated_section, **kwargs):
 
     echo("Beginning to subduct slab")
 
-    royden = forearc_solver(
+    kwargs = dict(
         l=lithosphere_depth.into("m"),
         v=velocity.into("m/s"),
         Tm =T_lithosphere.into("degC"))
+
+    if final_temperature is None:
+        royden = forearc_solver(**kwargs)
+    else:
+        # Optimize on rate of accretion
+        royden = optimized_forearc(
+            final_temperature,
+            final_distance,
+            final_depth,
+            **kwargs)
+        echo("Modeled accretion rate: {0}"
+                .format(royden.args['a']))
 
     def on_step(solver, **kwargs):
         """ Function to change finite solver
