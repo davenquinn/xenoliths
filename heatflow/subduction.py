@@ -117,14 +117,10 @@ def stepped_subduction(underplated_section, **kwargs):
 
         # Set temperature at the subduction
         # interface
-        if final_temperature is None:
-            T = royden(
-                (final_distance*completion).into("m"),
-                sz_depth.into("m"), # Depth of interest
-                sz_depth.into("m")) # Depth of subduction interface
-
-        else:
-            T = final_temperature.into("degC")*completion
+        T = royden(
+            (final_distance*completion).into("m"),
+            sz_depth.into("m"), # Depth of interest
+            sz_depth.into("m")) # Depth of subduction interface
 
         solver.set_constraints(upper=u(T,"degC"))
 
