@@ -12,6 +12,8 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
     def __init__(self, section, **kwargs):
         BaseFiniteSolver.__init__(self,section, **kwargs)
 
+        self._excess = None
+
         if not hasattr(section,"layers"):
             # We need to convert a layer to section
             section = Section(section)
@@ -26,6 +28,8 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
             mesh=self.mesh,
             value=self.initial_values)
 
+        self.create_coefficient()
+
         if self.constraints is not None:
             self.set_constraints(*self.constraints)
 
@@ -35,8 +39,6 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
                 warn("For explicit finite differences, the "
                           "timestep is not user-adjustable")
             self.time_step = self.stable_timestep(0.05)
-
-        self.create_coefficient()
 
         if self.type == "crank-nicholson":
             eqns = [self.create_equation(i) for i in ("implicit","explicit")]
@@ -54,8 +56,8 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
             try:
                 self.var.constrain(val.into("K"), face) ## Constrain as temperature
             except DimensionalityError:
-                v = val.into("W/m**2")
-                self.var.faceGrad.constrain([v], face) ## Constrain as flux
+                v = val.into("K/s")
+                self.var.faceGrad.setValue(v, where=face)
 
     def create_coefficient(self):
         """A spatially varying diffusion coefficient"""
@@ -63,6 +65,23 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         arr = N.append(arr, arr[-1])
         assert len(arr) == len(self.mesh.faceCenters[0])
         self.diffusion_coefficient = F.FaceVariable(mesh=self.mesh, value=arr)
+
+    @property
+    def excess_heating(self):
+        return self._excess
+    @excess_heating.setter
+    def excess_heating(self, val):
+        """
+        Similar to radiogenic heat production, but not
+        based on the material properties of the forearc.
+        """
+        if val == 0:
+            v = None
+        else:
+            v = F.CellVariable(
+                mesh=self.mesh,
+                value=val.into('K/s'))
+        self._excess = v
 
     def radiogenic_heating(self):
         """Radiogenic heat production varying in space."""
@@ -77,21 +96,9 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
 
         return F.CellVariable(mesh=self.mesh, value=arr)
 
-    def create_equation(self, type="implicit"):
-        if type == "implicit":
-            DiffusionTerm = F.DiffusionTerm
-        elif type == "explicit":
-            DiffusionTerm = F.ExplicitDiffusionTerm
-        else:
-            m = "Must specify either explicit or implicit diffusion"
-            raise ArgumentError(m)
-
+    def create_equation(self, type='implicit'):
         trans = F.TransientTerm()
-        diff = DiffusionTerm(coeff=self.diffusion_coefficient)
-
-        h = self.radiogenic_heating()
-        if h is not None:
-            diff += h
+        diff = self.diffusion_term(type)
         return trans == diff
 
     def stable_timestep(self, padding=0):
@@ -147,14 +154,27 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
                 sol = self.value()
                 yield simulation_time, sol
 
-    def steady_state(self):
-        diff = F.DiffusionTerm(coeff=self.diffusion_coefficient)
+    def diffusion_term(self, type="implicit"):
+        if type == "implicit":
+            DiffusionTerm = F.DiffusionTerm
+        elif type == "explicit":
+            DiffusionTerm = F.ExplicitDiffusionTerm
+        else:
+            m = "Must specify either explicit or implicit diffusion"
+            raise ArgumentError(m)
+
+        diff = DiffusionTerm(coeff=self.diffusion_coefficient)
         # Apply radiogenic heating if it exists
         h = self.radiogenic_heating()
         if h is not None:
             diff += h
+        if self._excess is not None:
+            diff += self._excess
+        return diff
 
-        diff.solve(var = self.var)
+    def steady_state(self):
+        D = self.diffusion_term()
+        D.solve(var = self.var)
         return Section(self.section.layers,
                 profile=self.value())
 
