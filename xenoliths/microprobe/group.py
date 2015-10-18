@@ -89,6 +89,11 @@ get_mg_number = partial(get_number, ProbeMeasurement.mg_number)
 get_cr_number = partial(get_number, ProbeMeasurement.cr_number)
 get_oxide_total = partial(get_number, ProbeMeasurement.oxide_total)
 
+mg_number = get_mg_number
+cr_number = get_cr_number
+oxides = get_oxides
+oxide_total = get_oxide_total
+
 def get_cations(queryset, **kwargs):
     """
     Get cations using SQL query magic
