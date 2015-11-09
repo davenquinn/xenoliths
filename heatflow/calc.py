@@ -23,9 +23,12 @@ present = u(1.65,"Myr") # K-Ar age for Crystal Knob xenoliths
 
 solver_constraints = (
     u(0,"degC"), # Surface temperature
-    u(1400,"degC"))
+    u(1500,"degC"))
     #u(48,"mW/m**2"))
     # Globally averaged mantle heat flux from Pollack, et al., 1977
+
+interface_depth = u(30,'km')
+total_depth = u(500,'km')
 
 plotter = Plotter(range=(0,1400))
 
@@ -68,10 +71,12 @@ def forearc_case(name, start_time, subduction_time):
     """
     print(name)
 
+    interface = u(30,'km')
+
     record = partial(save_info, name)
 
     oceanic = Section([
-        oceanic_mantle.to_layer(u(270,"km"))])
+        oceanic_mantle.to_layer(total_depth-interface_depth)])
 
     ocean_model = HalfSpaceSolver(oceanic)
 
@@ -123,7 +128,7 @@ def farallon_case():
             final_distance=u(100,"km"),
             velocity=u(100,"mm/yr"),
             final_temperature=u(700,"degC"),
-            final_depth=u(30,"km"))
+            final_depth=interface_depth)
 
     echo("Subduction took {}".format(elapsed_time.to("Myr")))
 
@@ -145,9 +150,7 @@ def underplating():
 
     start = u(20,"Myr")
 
-    interface = u(30,"km")
-
-    crust = continental_crust.to_layer(interface)
+    crust = continental_crust.to_layer(interface_depth)
     solver = FiniteSolver(crust,constraints=(
         u(0,"degC"),u(600,"degC")))
     # Assume arbitrarily that interface is at 600 degC
@@ -155,7 +158,7 @@ def underplating():
     crust_section = Section([crust],
         profile=solver.steady_state())
 
-    mantle = oceanic_mantle.to_layer(u(300,"km")-interface)
+    mantle = oceanic_mantle.to_layer(total_depth-interface_depth)
     mantle = Section(mantle)
 
     section = stack_sections(crust_section, mantle)
@@ -180,7 +183,7 @@ def steady_state():
 
     section = Section([
         crust.to_layer(u(30,"km")),
-        oceanic_mantle.to_layer(u(270,"km"))])
+        oceanic_mantle.to_layer(total_depth-interface_depth)])
 
     solver = FiniteSolver(section)
 
