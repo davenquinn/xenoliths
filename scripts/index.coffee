@@ -1,7 +1,7 @@
 yaml = require "js-yaml"
 d3 = require 'd3'
 fs = require 'fs'
-savage = require 'svg-shim'
+svgist = require 'svgist'
 
 buildData = require './data'
 setupScenarios = require './scenario'
@@ -16,17 +16,11 @@ data = buildData dir, cfg
 
 func = (el)->
   height = 480
-  margin = 100
-  section_height = (height - 3*margin)/2
-
   scenarios = setupScenarios data
-
   d3.select el
-    .append "svg"
     .attr
       width: 650
       height: height
-      xmlns: "http://www.w3.org/2000/svg"
     .call scenarios
 
-savage func, filename: 'build/cooling-scenarios.svg'
+svgist func, filename: 'build/cooling-scenarios.svg'
