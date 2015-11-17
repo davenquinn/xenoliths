@@ -1,10 +1,7 @@
 yaml = require "js-yaml"
-jsdom = require 'jsdom'
 d3 = require 'd3'
 fs = require 'fs'
-pd = require 'pretty-data'
-
-serializeDocument = jsdom.serializeDocument
+savage = require 'svg-shim'
 
 buildData = require './data'
 setupScenarios = require './scenario'
@@ -17,16 +14,14 @@ data = buildData dir, cfg
 
 # Figure s at 100 ppi
 
-func = (window)->
-  body = window.document.querySelector("body")
-
+func = (el)->
   height = 480
   margin = 100
   section_height = (height - 3*margin)/2
 
   scenarios = setupScenarios data
 
-  global.svg = d3.select body
+  d3.select el
     .append "svg"
     .attr
       width: 650
@@ -34,14 +29,4 @@ func = (window)->
       xmlns: "http://www.w3.org/2000/svg"
     .call scenarios
 
-  a = serializeDocument(window.document.querySelector("body>svg"))
-  a.replace /clippath/g, "clipPath"
-
-jsdom.env
-  html: "<html><body></body></html>"
-  features:
-    QuerySelector: true
-  done: (err, window)->
-    output = func(window)
-    fs.writeFileSync "build/cooling-scenarios.svg", pd.pd.xml(output)
-
+savage func, filename: 'build/cooling-scenarios.svg'

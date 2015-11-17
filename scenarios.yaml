@@ -9,18 +9,14 @@
   title: Emplacement under a forearc
   slices: &subduction
     - id: initial
-      oc: 7
     - id: before-subduction
-      oc: 7
     - id: after-subduction
       cc: 30
-      oc: 37
     - id: final
       cc: 30
-      oc: 37
   labels:
-    - Emplacement at ridge
-    - Subduction and underplating
+    - Emplacement
+    - Subduction/underplating
     - ""
     - 1.6 Ma
 - name: farallon
@@ -29,8 +25,8 @@
   subtitle: Cool modern geotherm
   slices: *subduction
   labels:
-    - Emplacement at ridge
-    - Subduction and underplating
+    - Emplacement
+    - Subduction/underplating
     - ""
     - 1.6 Ma
 - name: underplating

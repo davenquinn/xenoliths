@@ -1,0 +1,77 @@
+3/usr/local/bin/makepp
+VERSION2.05.18.2darwin-thread-multi-2level
+LOAD140633496710128makefile140633503623648/users/daven/development/xenoliths/paper/includes/cooling-scenarios140633503623648
+TRY140633496710128
+USEdefault rule
+DEPEND140633496710128
+UP_TO_DATE140633496710128
+LOAD_INCL140633504825840makepp_builtin_rules.mk140633504821960/usr/local/cellar/makepp/2.0/share/makepp140633496710128
+LOAD_END140633496710128
+TRY140633504825072all140633503623648
+USEdefault rule
+DEPEND140633504825072140633504826320figure140633503623648140633504826608greyscale140633503623648
+TRY140633504826320
+USE/users/daven/development/xenoliths/paper/includes/cooling-scenarios/makefile:2
+SCAN_INFO140633504826320
+LEX_RULE140633504826320info not cached
+PARSEmkdir -p build140633503623648/users/daven/development/xenoliths/paper/includes/cooling-scenarios/makefile:2
+LOAD_DEFAULT140633504820088bin140633505043648/users/daven/environment/virtualenvs/xenoliths/gems
+LOAD_INCL140633504825840140633505059624makepp_default_makefile.mk140633504821960
+LOAD_END140633505059624
+LOAD_DEFAULT140633505104544bin140633505043120/users/daven/environment/virtualenvs/xenoliths
+LOAD_INCL140633504825840140633505059624
+LOAD_END140633505059624
+LOAD_DEFAULT140633504984976bin140633503586032/users/daven
+LOAD_INCL140633504825840140633505059624
+LOAD_END140633505059624
+LOAD_DEFAULT140633505240336bin140633505196992/users/daven/environment/dotfiles
+LOAD_INCL140633504825840140633505059624
+LOAD_END140633505059624
+TRY140633547396984mkdir140633547396480/usr/local/cellar/coreutils/8.23_1/libexec/gnubin
+LOAD_DEFAULT140633547396480
+LOAD_INCL140633504825840140633505059624
+LOAD_END140633505059624
+USEdefault rule
+DEPEND140633547396984
+UP_TO_DATE140633547396984
+PARSE./generate-figure.py140633503623648/users/daven/development/xenoliths/paper/includes/cooling-scenarios/makefile:2
+TRY140633505000520generate-figure.py140633503623648
+USEdefault rule
+DEPEND140633505000520
+UP_TO_DATE140633505000520
+PARSEcairosvg -o build/cooling-scenarios.pdf -d 100 build/cooling-scenarios.svg140633503623648/users/daven/development/xenoliths/paper/includes/cooling-scenarios/makefile:2
+TRY140633505167192cairosvg140633505104544
+USEdefault rule
+DEPEND140633505167192
+UP_TO_DATE140633505167192
+DEPEND140633504826320140633505167192140633505000520140633547396984
+BUILD_NONE140633504826320
+SUCCESS/users/daven/development/xenoliths/paper/includes/cooling-scenarios/makefile:2140633504826320
+*** warning: I attempted to build /users/daven/development/xenoliths/paper/includes/cooling-scenarios/figure,
+  but after successfully executing the commands, the target does not exist.
+  Perhaps it is a phony target?	 If so, the rule defining it should be modified
+  like this:
+    $(phony figure): dependencies
+	actions
+
+  or you could also declare it as phony like this:
+    .PHONY: figure
+TRY140633504826608
+USE/users/daven/development/xenoliths/paper/includes/cooling-scenarios/makefile:6
+SCAN_INFO140633504826608
+LEX_RULE140633504826608info not cached
+PARSEgs -sOutputFile=build/cooling-scenarios.greyscale.pdf -sDEVICE=pdfwrite -sColorConversionStrategy=Gray -dProcessColorModel=/DeviceGray -dCompatibilityLevel=1.4 -dNOPAUSE -dBATCH build/cooling-scenarios.pdf140633503623648/users/daven/development/xenoliths/paper/includes/cooling-scenarios/makefile:6
+TRY140633496759344gs140633496759128/usr/local/bin
+LOAD_DEFAULT140633496759128
+LOAD_INCL140633504825840140633505059624
+LOAD_END140633505059624
+USEdefault rule
+DEPEND140633496759344
+UP_TO_DATE140633496759344
+DEPEND140633504826608140633496759344
+BUILD_NONE140633504826608
+SUCCESS/users/daven/development/xenoliths/paper/includes/cooling-scenarios/makefile:6140633504826608
+*** warning: Target /users/daven/development/xenoliths/paper/includes/cooling-scenarios/greyscale is probably also phony.
+SUCCESSdefault rule140633504825072
+*** warning: There is no rule to build inexistent /users/daven/development/xenoliths/paper/includes/cooling-scenarios/all
+N_FILES030
