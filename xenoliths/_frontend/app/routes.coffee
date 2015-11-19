@@ -18,7 +18,7 @@ map_route = (p) ->
 classify_route = (p) ->
   new ClassifyPage
     el: page_element
-    sample: p.sample
+    sample: p.sample or null
 
 ternary_route = (p) ->
   system = p.system or "pyroxene"
