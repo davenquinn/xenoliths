@@ -17,9 +17,9 @@ with app.app_context():
 
 E = lambda s: getattr(pt.elements, s)
 
-fig, axes = P.subplots(1,2, figsize=(7.5,4))
+fig, ax = P.subplots(1, figsize=(5,5))
 
-axes = {k:ax for k,ax in zip(("cpx","opx"),axes)}
+minerals = ("cpx","opx")
 
 elements = [el for el in pt.elements
     if pt.La.number <= el.number <= pt.Lu.number]
@@ -30,7 +30,7 @@ symbols = [el.symbol for el in elements]
 for sample_id, meas in data.items():
     color = colors[sample_id]
 
-    for mineral, ax in axes.items():
+    for mineral in minerals:
         els, d = zip(*meas[mineral].items())
         x = [E(s).number for s in els]
         u = N.array([m.n for m in d])
@@ -41,14 +41,13 @@ for sample_id, meas in data.items():
             alpha=0.2)
         ax.plot(x,u, color=color)
 
-for mineral, ax in axes.items():
-    ax.set_yscale('log')
+ax.set_yscale('log')
 
-    ax.xaxis.set_ticks(ticks)
-    ax.xaxis.set_ticklabels(symbols)
-    ax.set_xlim([ticks[0]-0.5,ticks[-1]+0.5])
+ax.xaxis.set_ticks(ticks)
+ax.xaxis.set_ticklabels(symbols)
+ax.set_xlim([ticks[0]-0.5,ticks[-1]+0.5])
 
-    ax.set_ylabel("{} / CI chondrite".format(mineral))
+ax.set_ylabel("REE / CI chondrite")
 
 fig.savefig("build/trace-elements.pdf", bbox_inches="tight")
 
