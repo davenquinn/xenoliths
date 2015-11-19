@@ -35,6 +35,12 @@ for sample_id, meas in data.items():
         x = [E(s).number for s in els]
         u = N.array([m.n for m in d])
         s = N.array([m.s for m in d])
+
+        # Dirty hack to prevent weird error artifacts
+        s[s > u] /= 2
+        # Should maybe implement proper log errors
+        # (i.e. not asymmetric
+
         ax.fill_between(x,u-s,u+s,
             facecolor=color,
             edgecolor='none',
