@@ -8,7 +8,6 @@ from uncertainties import ufloat
 
 elements = sorted(pt.elements, key=lambda x: x.number)
 
-
 def setup_figure():
     fig = P.figure(figsize=(10,8))
     ax = fig.add_subplot(111)
@@ -16,13 +15,18 @@ def setup_figure():
     ax.set_xlabel(r"$ln(D)-A$")
     return fig, ax
 
-def regress(X,Y):
+def regress(X,Y, hree_only=False):
+    if hree_only:
+        X = X[5:]
+        Y = Y[5:]
+
     model = sm.RLM(Y,X, M=sm.robust.norms.TukeyBiweight())
     res = model.fit()
     kelvin = res.params[0]
     res.temperature = kelvin-273.15
     # Make sure that the regression goes through the origin
     assert N.allclose(res.fittedvalues/kelvin,X)
+    res.X = X
     return res
 
 def temperature(results, uncertainty=True):
@@ -43,7 +47,11 @@ def plot_DREE(ax, sample, annotate=True):
             n=T.n,
             s=T.s)
     ax.plot(X,Y, "o")
-    ax.plot(X,res.fittedvalues,"-")
+    ax.plot(res.X,res.fittedvalues,"-")
+
+    res = regress(X,Y,hree_only=True)
+    ax.plot(res.X,res.fittedvalues,"-",color="#aaaaaa")
+
     if not annotate:
         return ax
     for x,y,t in zip(X,Y,rare_earths):
@@ -51,7 +59,6 @@ def plot_DREE(ax, sample, annotate=True):
                 xytext=(5,5),
                 textcoords="offset points")
     return ax
-
 
 def all_DREE(samples):
     fig, ax = setup_figure()
@@ -70,9 +77,9 @@ def all_DREE(samples):
             continue
     return fig
 
-
-
 def ree_temperature(sample, **kwargs):
     uncertain = kwargs.pop("uncertainties", True)
+    hree_only = kwargs.pop("hree_only",False)
     X,Y = ree_pyroxene(sample, **kwargs)
-    return temperature(regress(X,Y), uncertain)
+    _ = regress(X,Y,hree_only)
+    return temperature(_, uncertain)
