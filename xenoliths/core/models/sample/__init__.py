@@ -8,6 +8,7 @@ class Sample(BaseModel):
     desc = db.Column(db.Text)
     classification = db.Column(ARRAY(db.String(8), dimensions=2))
     xenolith = db.Column(db.Boolean)
+    color = db.Column(db.String(64))
 
     point = db.relationship("ProbeMeasurement", backref="sample")
 
@@ -15,8 +16,4 @@ class Sample(BaseModel):
 
     def __repr__(self):
         return "Sample {0}".format(self.id)
-
-    @property
-    def color(self):
-        return current_app.config.get("COLORS")[self.id]
 
