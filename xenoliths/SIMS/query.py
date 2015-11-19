@@ -43,27 +43,35 @@ def sims_data(**kwargs):
             row['norm_ppm'],
             row['norm_std'])
     df['norm'] = df.apply(fn,axis=1)
+
+    fn = lambda x: elements[x['element']].symbol
+    df['symbol'] = df.apply(fn, axis=1)
     df = (df
         .drop('norm_ppm', axis=1)
         .drop('norm_std', axis=1))
 
-    g = df.groupby(['sample_id','mineral','element'])
-    if averaged:
-        df = g['norm'].agg(lambda r: N.mean(r.values))
+    g = df.groupby([
+        'sample_id',
+        'mineral',
+        'element',
+        'symbol'])
+    aggregated = lambda fn: (g['norm']
+        .agg(lambda r: fn(r.values))
+        .reset_index())
 
+    if averaged:
+        df = aggregated(N.mean)
     if dataframe:
         return df
-
     if not averaged:
-        df = g['norm'].agg(lambda r: tuple(r.values))
+        df = aggregated(tuple)
 
     out = OrderedDict()
-    for (s,m,e),n in df.iteritems():
+    for (s,m,e,sym),n in df.iteritems():
         # Create data structure
-        el = elements[e].symbol
         if s not in out:
             out[s] = {}
         if m not in out[s]:
             out[s][m] = OrderedDict()
-        out[s][m][el] = n
+        out[s][m][syme] = n
     return out
