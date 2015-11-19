@@ -21,8 +21,9 @@ fig, ax = P.subplots(1, figsize=(5,5))
 
 minerals = ("cpx","opx")
 
-elements = [el for el in pt.elements
-    if pt.La.number <= el.number <= pt.Lu.number]
+is_ree = lambda n: pt.La.number <= n <= pt.Lu.number
+
+elements = [el for el in pt.elements if is_ree(el.number)]
 
 ticks = [el.number for el in elements]
 symbols = [el.symbol for el in elements]
@@ -32,7 +33,10 @@ for sample_id, meas in data.items():
 
     for mineral in minerals:
         els, d = zip(*meas[mineral].items())
-        x = [E(s).number for s in els]
+        x = N.array([E(s).number for s in els])
+        valid = N.array([is_ree(i) for i in x])
+        x = x[valid]
+        d = N.array(d)[valid]
         u = N.array([m.n for m in d])
         s = N.array([m.s for m in d])
 
