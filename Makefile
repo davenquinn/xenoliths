@@ -1,6 +1,13 @@
-all:
-	python generate-table.py
+all: build/pyx-dree.pdf build/temperatures.tex
 
-data:
-	mkdir -p build
-	python get-data.py
+build:
+	mkdir -p $@
+
+build/temperatures.tex: generate-table.py | build
+	python $^
+
+build/pyx-dree.pdf: pyx-dree.py | build
+	python $^
+
+build/data.pickle: get-data.py | build
+	python $^
