@@ -6,7 +6,7 @@ from xenoliths.thermometry.rare_earth.plot import plot_DREE
 with app.app_context():
     fig, axs = subplots(2,3,
             figsize=(6.5,5),
-            sharey=True)
+            sharey=True, sharex=True)
     samples = (Sample.query
         .filter_by(xenolith=True)
         .order_by(Sample.id)
