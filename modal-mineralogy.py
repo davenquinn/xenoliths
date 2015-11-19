@@ -16,6 +16,12 @@ fn = path.join(data_dir,'literature','Mineral Modes.xlsx')
 df = P.read_excel(fn, index_col=0)
 df['al'] = None
 
+# Sort data so Luffi is at end
+df['order'] = df['source'].apply(lambda x: x == 'Luffi')
+df = (df
+    .sort('order')
+    .drop('order', axis=1))
+
 with app.app_context():
     samples = (Sample.query
         .filter_by(xenolith=True)
