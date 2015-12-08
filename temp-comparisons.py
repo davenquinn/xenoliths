@@ -84,7 +84,8 @@ for i,s in enumerate(data):
         if loc == 'rim':
             y -= 0.2
         else:
-            y += 0.2
+            y += 0.1
+            popts['s'] = 60
         y = [y]*len(x)
         ax.scatter(x,y, **popts)
 
