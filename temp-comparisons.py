@@ -27,20 +27,12 @@ try:
 except IOError:
     data = create_data()
 
-font = {'family' : 'Helvetica Neue',
-        'weight' : 'light',
-        'size'   : 10}
-
-matplotlib.rc('font', **font)
-
 thermometers = {
     "ta98":{"name": "TA98"},
-    "bkn":{"name": r"T$_{BKN}$"},
+    "bkn":{"name": "BKN"},
     "ca_opx":{"name": "Ca-in-Opx"},
-    "ca_opx_corr":{"name": "Ca-in-OPX (corrected)"} # Nimis and Grutter, 2010 
+    "ca_opx_corr":{"name": "Ca-Opx"} # Nimis and Grutter, 2010 
     }
-
-plots = ('bkn','ca_opx_corr')
 
 props = {
     "core": {
@@ -53,43 +45,77 @@ props = {
         "edgecolor": "black"
     }
 }
+
+def val(i):
+    s = r"T$_\mathregular{"+i+r"}$"
+    return s + u" (\u00b0C)"
+
+def scatter_options(sample, loc='core'):
+    base = dict(marker="o", s=20)
+    color = Color(sample['color'])
+    if loc == "core":
+        color.alpha = 0.5
+        return dict(color=color.rgb)
+    elif loc == "rim":
+        color.alpha = 0.2
+        f = Color("#ffffff")
+        f.alpha = 0
+        return dict(edgecolor=color.rgb, color=f.rgb, **base)
+
 annotate_props = dict(xytext=(5,-5), textcoords='offset points', ha='left', va='center')
 
-fig, axes = P.subplots(2,1,figsize=(4,6),sharex=True)
-fig.subplots_adjust(hspace=0.05)
+fig, axes = P.subplots(3,1,figsize=(4,9),sharex=True)
+fig.subplots_adjust(hspace=0)
 
-th1 = 'ta98'
-for th2,ax in zip(plots,axes):
-    names = [thermometers[th]["name"] for th in [th1,th2]]
-    ids = [th1,th2]
+# Violin plot
+def comparator(x):
+	"""Sorts data in ascending order"""
+	return N.array(x["core"]["ta98"]["sep"]).mean()
+
+data.sort(key=comparator)
+
+ax = axes[0]
+
+for i,s in enumerate(data):
+    for loc in ('core','rim'):
+        x = s[loc]["ta98"]["sep"]
+        popts = scatter_options(s,loc)
+        y = i
+        if loc == 'rim':
+            y -= 0.2
+        else:
+            y += 0.2
+        y = [y]*len(x)
+        ax.scatter(x,y, **popts)
+
+ax.set_ylim([-0.5,len(data)-0.5])
+ax.set_ylabel("Samples")
+ax.set_yticks(range(len(data)))
+ax.set_yticklabels([s['id'] for s in data])
+
+plots = ('bkn','ca_opx_corr')
+for thermometer,ax in zip(plots,axes[1:]):
+    ids = ('ta98',thermometer)
+    names = [thermometers[th]["name"] for th in ids]
 
     for sample in data:
         name = sample["id"]
 
         for a_loc in ["core", "rim"]:
             values = [sample[a_loc][i]["sep"] for i in ids]
-            color = Color(sample['color'])
-            if a_loc == "core":
-                color.alpha = 0.5
-                popts = dict(color=color.rgb)
-            elif a_loc == "rim":
-                color.alpha = 0.2
-                f = Color("#ffffff")
-                f.alpha = 0
-                popts = dict(edgecolor=color.rgb, color=f.rgb)
-            ax.scatter(values[0], values[1], marker="o", s=20, **popts)
+            popts = scatter_options(sample,a_loc)
+            ax.scatter(values[0], values[1], **popts)
 
-    ax.set_ylabel(u"{0} \u00b0C".format(names[1]))
+    ax.set_ylabel(val(names[1]))
     ax.autoscale(False)
     ax.set_xlim([900,1200])
-    if th2 == 'ca_opx_corr':
+    if thermometer == 'ca_opx_corr':
         ax.set_ylim([925,1225])
     else:
         ax.set_ylim([975,1275])
     ax.plot([0,1800],[0,1800],color="#cccccc", zorder=-20)
 
-ax.set_xlabel(u"{0} \u00b0C".format(names[0]))
+axes[-1].set_xlabel(val(names[0]))
 
 path = os.path.join("build", "thermometer-comparisons.pdf")
 fig.savefig(path, bbox_inches="tight")
-
