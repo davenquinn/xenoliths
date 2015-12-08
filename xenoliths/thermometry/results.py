@@ -5,6 +5,7 @@ from __future__ import division
 from flask import app
 
 import numpy as N
+import pandas as P
 
 from uncertainties import ufloat
 from functools import partial
@@ -47,7 +48,7 @@ def single_measurement(queryset, method=Taylor1998):
 
 def closest(a,b, distinct=None):
 
-    if not distinct:
+    if distinct is None:
         distinct = a
     distinct = distinct.c.id
 
@@ -61,8 +62,8 @@ def closest(a,b, distinct=None):
 
 def pyroxene_pairs(queryset, distinct=min):
     names = ("opx","cpx")
-    opx,cpx = (queryset\
-                .filter(ProbeMeasurement.mineral==a)\
+    opx,cpx = (queryset
+                .filter(ProbeMeasurement.mineral==a)
                 .subquery() for a in names)
     # Restrict number selected to minimum or maximum number of measurements
     # to avoid duplication
@@ -70,36 +71,12 @@ def pyroxene_pairs(queryset, distinct=min):
         distinct = distinct((opx,cpx),key=lambda d: d.count())
     q = closest(opx,cpx, distinct=distinct)
     res = db.session.execute(q).fetchall()
-    for pair in res:
-        yield tuple(ProbeMeasurement.query.get(i)\
-                for i in pair)
+    return tuple(
+        tuple(ProbeMeasurement.query.get(i) for i in pair)
+        for pair in res)
 
-def separate_measurements(queryset, method=Taylor1998, **kwargs):
-    pairs = pyroxene_pairs(queryset, **kwargs)
+def separate_measurements(pairs, method=Taylor1998):
     return [method(*a, uncertainties=False).temperature() for a in pairs]
-
-def text_output():
-    base_queryset = exclude_bad(ProbeMeasurement.query)
-    for sample in Sample.query.all():
-        sample_queryset = base_queryset\
-            .filter(ProbeMeasurement.sample==sample)
-        print sample.id
-        for typeid in ["core", "rim"]:
-            queryset = tagged(sample_queryset, typeid)
-            print queryset.count()
-            for tname, thermometer in thermometers.iteritems():
-                res = separate_measurements(queryset, method=thermometer)
-                if len(res) == 0: continue
-                T = N.array(res)
-                print "{1} - {0}".format(typeid, thermometer.name)
-                print "Separate: {0:7.2f}±{1:5.2f} ºC".format(T.mean(), T.std())
-                print "  N = {0} pairs".format(len(T))
-                print "  min: {0:7.2f}, max: {1:7.2f}".format(T.min(), T.max())
-
-                single = single_measurement(queryset, method=thermometer)
-                print "En-masse: {0:7.2f}ºC".format(single["val"])
-                print "  N = {0:2.0f} opx, {1:2.0f} cpx".format(single["n_opx"],single["n_cpx"])
-                print ""
 
 def core_temperatures(sample, method=Taylor1998):
     queryset = exclude_bad(ProbeMeasurement.query.filter_by(sample=sample))
@@ -127,8 +104,9 @@ def sample_temperatures(sample, **kwargs):
 
     def type_results(typeid="core"):
         queryset = tagged(sample_queryset, typeid)
+        pairs = pyroxene_pairs(queryset, **kwargs)
         for tname, thermometer in thermometers.iteritems():
-            sep = separate_measurements(queryset, method=thermometer, **kwargs)
+            sep = separate_measurements(pairs, method=thermometer)
             T = N.array(sep)
             yield tname, dict(
                 sep = T,
