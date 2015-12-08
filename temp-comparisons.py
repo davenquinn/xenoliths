@@ -5,13 +5,26 @@ import os
 
 import matplotlib.pyplot as P
 import numpy as N
+from pickle import dump, load
 
 from xenoliths import app
 from xenoliths.thermometry.results import xenoliths, sample_temperatures
 
-with app.app_context():
-    data = [sample_temperatures(s, distinct=False)
-       for s in xenoliths()]
+cache = "build/comparison-data.pickle"
+
+def create_data():
+    with app.app_context():
+        data = [sample_temperatures(s, distinct=False)
+           for s in xenoliths()]
+    with open(cache,"w") as f:
+        dump(data,f)
+    return data
+
+try:
+    with open(cache) as f:
+        data = load(f)
+except IOError:
+    data = create_data()
 
 thermometers = [
     {"id":"ta98","name": "TA98"},
@@ -19,7 +32,6 @@ thermometers = [
     {"id": "ca_opx", "name": "Ca-in-Opx"},
     {"id": "ca_opx_corr", "name": "Ca-in-OPX (Nimis and Grutter, 2010 correction)"}
     ]
-
 
 props = {
     "core": {
@@ -72,5 +84,4 @@ for th1 in thermometers:
     for th2 in thermometers:
         if th1 == th2: continue
         plot_separated(th1,th2)
-
 
