@@ -1,4 +1,4 @@
-all: build/pyx-dree.pdf build/temperatures.tex temp_comparisons
+all: build/pyx-dree.pdf build/temperatures.tex build/temp-comparisons.pdf build/ree-temperatures.pdf
 
 build:
 	mkdir -p $@
@@ -6,8 +6,10 @@ build:
 build/data.pickle: get-data.py | build
 	python $^
 
-.PHONY: temp_comparisons
-temp_comparisons: temp-comparisons.py | build/data.pickle
+build/temp-comparisons.pdf: temp-comparisons.py
+	python $^
+
+build/ree-temperatures.pdf: ree-temperatures.py | build/data.pickle
 	python $^
 
 build/temperatures.tex: generate-table.py | build/data.pickle
@@ -15,3 +17,4 @@ build/temperatures.tex: generate-table.py | build/data.pickle
 
 build/pyx-dree.pdf: pyx-dree.py | build
 	python $^
+

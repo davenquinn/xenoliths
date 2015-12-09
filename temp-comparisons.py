@@ -11,6 +11,8 @@ from chroma import Color
 from xenoliths import app
 from xenoliths.thermometry.results import xenoliths, sample_temperatures
 
+from helpers import label
+
 cache = "build/comparison-data.pickle"
 
 def create_data():
@@ -45,10 +47,6 @@ props = {
         "edgecolor": "black"
     }
 }
-
-def val(i):
-    s = r"T$_\mathregular{"+i+r"}$"
-    return s + u" (\u00b0C)"
 
 def scatter_options(sample, loc='core'):
     base = dict(marker="o", s=20)
@@ -107,7 +105,7 @@ for thermometer,ax in zip(plots,axes[1:]):
             popts = scatter_options(sample,a_loc)
             ax.scatter(values[0], values[1], **popts)
 
-    ax.set_ylabel(val(names[1]))
+    ax.set_ylabel(label(names[1]))
     ax.autoscale(False)
     ax.set_xlim([900,1200])
     if thermometer == 'ca_opx_corr':
@@ -116,7 +114,7 @@ for thermometer,ax in zip(plots,axes[1:]):
         ax.set_ylim([975,1275])
     ax.plot([0,1800],[0,1800],color="#cccccc", zorder=-20)
 
-axes[-1].set_xlabel(val(names[0]))
+axes[-1].set_xlabel(label(names[0]))
 
-path = os.path.join("build", "thermometer-comparisons.pdf")
+path = os.path.join("build", "temp-comparisons.pdf")
 fig.savefig(path, bbox_inches="tight")
