@@ -60,6 +60,9 @@ class HalfSpaceSolver(OceanicSolver):
         return self.depth(time,self.T_lithosphere)
 
 class GDHSolver(OceanicSolver):
+    defaults = dict(
+        T_max=u(1450,'degC'),
+        lithosphere_depth=u(95,'km'))
     def __init__(self, *args, **kwargs):
         self.order = kwargs.pop('order',50)
         OceanicSolver.__init__(self, *args,**kwargs)
@@ -78,9 +81,9 @@ class GDHSolver(OceanicSolver):
         t = time.into('Myr')
         depth = depth.into('km')
 
-        Ta = 1450
-        L = 95
-        K = 0.804e-6
+        Ta = self.T_max.into('degC')
+        L = self.lithosphere_depth.into('km')
+        K = self.material.diffusivity.into('m^2/s')
 
         t *= 3.15569e7
         def summation_term(n):

@@ -25,7 +25,7 @@ def gdh_temperature(time, depth, order=50, **kwargs):
 
     Ta = 1450
     L = 95
-    K = 0.804e-6
+    K = 8.04732999438e-07
 
     time *= 3.15569e7
     def summation_term(n):
@@ -61,7 +61,7 @@ def test_gdh_temperature():
     for time,depth in grid():
         v1 = gdh_temperature(time.into('Myr'),depth.into('km'))
         v2 = gdh_solver.temperature(time,depth).into('degC')
-        assert v1 == v2
+        assert N.allclose(v1,v2)
 
 def test_consistency():
     """
