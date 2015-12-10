@@ -82,6 +82,13 @@ class GDHSolver(OceanicSolver):
         a = n*N.pi
         aL = (a/self.lithosphere_depth)
         exp = -(aL**2)*self.material.diffusivity*time
-        taylor_expansion = 2 / a * N.sin(aL*depth) * N.exp(exp)
-        coeff = (depth/self.lithosphere_depth + N.sum(taylor_expansion, axis=0))
-        return u(self.T_max.into('degC') * coeff.into('dimensionless'),'degC')
+        def coefficient(depth):
+            taylor_expansion = 2/a *N.sin(aL*depth) * N.exp(exp)
+            return N.sum(taylor_expansion)
+
+        try:
+            coeff = coefficient(depth).into('dimensionless')
+        except ValueError:
+            coeff = N.array([coefficient(d) for d in depth])
+        coeff += (depth/self.lithosphere_depth).into('dimensionless')
+        return u(self.T_max.into('degC') * coeff,'degC')
