@@ -5,7 +5,7 @@ import numpy as N
 import IPython
 
 from .base import BaseFiniteSolver
-from ..half_space import HalfSpaceSolver
+from ..oceanic import HalfSpaceSolver
 from ...units import unit, u
 
 class SimpleFiniteSolver(BaseFiniteSolver):

@@ -1,8 +1,8 @@
 from __future__ import division, print_function
 from scipy.special import erf,erfc, erfcinv
-from .base import BaseSolver
-from ..models.geometry import Section, Layer
-from ..units import ensure_unit, unit, u
+from ..base import BaseSolver
+from ...models.geometry import Section, Layer
+from ...units import ensure_unit, unit, u
 
 class OceanicSolver(BaseSolver):
     def __init__(self, section, **kwargs):
