@@ -119,7 +119,7 @@ def farallon_case():
     oceanic = Section([
         oceanic_mantle.to_layer(u(270,"km"))])
 
-    ocean_model = HalfSpaceSolver(oceanic)
+    ocean_model = GDHSolver(oceanic, T_max=solver_constraints[1])
 
     record("initial", ocean_model(u(0,"s")), t=start_time)
 
