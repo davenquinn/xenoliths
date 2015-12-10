@@ -55,7 +55,8 @@ def save_info(name, step, section, **kwargs):
     path = results_dir(name,fn)
 
     mkdirs(os.path.dirname(path))
-    print("Saving profile to",path)
+    if kwargs.pop('verbose',False):
+        print("Saving profile to",path)
     with open(path,"w") as f:
         json.dump(out,f)
 
