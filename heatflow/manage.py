@@ -1,14 +1,16 @@
 import click
 from geotherm.units import u
 
-from .calc import underplating, forearc_case, farallon_case
+from .calc import underplating, forearc_case, farallon_case, FiniteSolver
 
 @click.command()
 @click.option('--debug', default=False, is_flag=True)
 @click.option('--all', default=False, is_flag=True)
+@click.option('-dt','--time-step',default=None,type=float)
 @click.argument('scenarios', nargs=-1)
-def cli(scenarios, debug=False, all=False):
+def cli(scenarios, debug=False, all=False, time_step=None):
     """ Solve the basic heat flow models."""
+
     registry = {}
 
     forearc_list = [
@@ -30,6 +32,12 @@ def cli(scenarios, debug=False, all=False):
         click.echo("Possible scenarios:")
         for i in registry:
             click.echo("  "+i)
+
+    if time_step is not None:
+        dt = u(time_step,'Myr')
+        click.echo("Target dt for finite solver: {}".format(dt))
+        FiniteSolver.set_defaults(time_step=dt)
+
     for s in scenarios:
         click.echo("Running scenario "+click.style(s,fg='green'))
         registry[s]()
