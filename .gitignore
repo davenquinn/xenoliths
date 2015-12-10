@@ -4,6 +4,7 @@ resources
 data
 archive
 .DS_Store
+.cache
 
 *.egg-info
 
