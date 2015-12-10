@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import division
 import numpy as N
+from itertools import product
 
 from . import HalfSpaceSolver, GDHSolver
 from ...models import Material
@@ -40,15 +41,41 @@ gdh_mantle = Material(
     specific_heat = u(1171,"J/kg/K"),
     density = u(3330,"kg/m**3"))
 
+# Time, depth grid
+def grid():
+    src = product(range(0,100,20),range(0,100,20))
+    for time, depth in src:
+        if time == depth == 0:
+            continue
+        yield u(time,'Myr'), u(depth,'km')
+
+layer = gdh_mantle.to_layer(u(100,'km'))
+gdh_solver = GDHSolver(layer, order=50)
+hs_solver = HalfSpaceSolver(layer,
+        T_surface=u(0,'degC'),
+        T_max=u(1450,'degC'))
+
 def test_gdh_temperature():
     assert gdh_temperature(0,0) == 0
 
-    layer = gdh_mantle.to_layer(u(100,'km'))
-    solver = GDHSolver(layer)
-
-    for time,depth in [(0,0),(20,50),(10,2)]:
-        v1 = gdh_temperature(time,depth)
-        v2 = solver._temperature(
-            u(time,'Myr'), u(depth,'km'))
+    for time,depth in grid():
+        v1 = gdh_temperature(time.into('Myr'),depth.into('km'))
+        v2 = gdh_solver.temperature(time,depth).into('degC')
         assert v1 == v2
+
+def test_consistency():
+    """
+    Test the relative consistency of the GDH and
+    half-space cooling models. GDH should predict
+    higher temperatures, but not inordinately so.
+    """
+    for time,depth in grid():
+        if time.into('s') == 0: continue
+        if depth.into('m') == 0: continue
+        gdh = gdh_solver.temperature(time,depth)
+        hs = hs_solver.temperature(time,depth)
+        assert gdh >= hs
+        assert N.allclose(gdh,hs,rtol=0.2)
+
+
 

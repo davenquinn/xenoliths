@@ -27,7 +27,7 @@ class OceanicSolver(BaseSolver):
         time = ensure_unit(time, unit.seconds)
         depth = ensure_unit(depth, unit.meters)
         t = self._temperature(time,depth)
-        return t.to(unit.degC)
+        return t
 
     def __call__(self,time):
         res = Section([Layer(self.layer.material, self.layer.thickness)])
@@ -39,6 +39,9 @@ class OceanicSolver(BaseSolver):
 
 class HalfSpaceSolver(OceanicSolver):
     """This class implements the Half-space cooling model for cooling oceanic crust."""
+    defaults = dict(
+        T_surface=u(0,'degC'),
+        T_max=u(1450,'degC'))
 
     def _temperature(self,time,depth):
         d = 2*self.material.length_scale(time)
@@ -85,8 +88,6 @@ class GDHSolver(OceanicSolver):
             return 2 / (n*N.pi) * N.sin(n*N.pi*depth/L) * N.exp(-ex*K*t)
 
         taylor_expansion = N.array([summation_term(i+1) for i in range(self.order)])
-        print(N.sum(taylor_expansion, axis=0).shape)
 
         sol = Ta * (depth/L + N.sum(taylor_expansion, axis=0))
-        print(sol.shape)
-        return sol
+        return u(sol,'degC')

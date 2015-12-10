@@ -20,10 +20,11 @@ def test_half_space():
     t = u(50,"Myr")
 
     layer = oceanic_mantle.to_layer(u(200,"km"))
-    section = Section([layer], uniform_temperature=u(1500,"degC"))
-    half_space = HalfSpaceSolver(section)
 
     c = (u(25,"degC"),u(1500,"degC"))
+    half_space = HalfSpaceSolver(layer, T_surface=c[0], T_max=c[1])
+
+    section = Section([layer], uniform_temperature=c[1])
     finite = FiniteSolver(section, constraints=c)
     sol = finite(t, steps=50)
     hsol = half_space(t)
