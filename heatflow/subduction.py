@@ -102,8 +102,8 @@ def stepped_subduction(underplated_section, **kwargs):
             final_distance,
             final_depth,
             **kwargs)
-        echo("Modeled accretion rate: {0}"
-                .format(royden.args['a']))
+        echo("Modeled friction along fault: {0}"
+                .format(royden.args['qfric']))
 
     def on_step(solver, **kwargs):
         """ Function to change finite solver
@@ -111,6 +111,9 @@ def stepped_subduction(underplated_section, **kwargs):
         """
         step = kwargs.pop("step")
         steps = kwargs.pop("steps")
+
+        # How complete we will be at the
+        # end of this step
         completion = (step+1)/steps
 
         sz_depth = final_depth*completion
@@ -136,19 +139,12 @@ def stepped_subduction(underplated_section, **kwargs):
     forearc = Section(continental_crust
             .to_layer(final_depth))
 
-    if final_temperature is None:
-        temperatures = royden(
-            final_distance.into("m"),
-            forearc.cell_centers.into("m"),
-            final_depth.into("m"))
+    temperatures = royden(
+        final_distance.into("m"),
+        forearc.cell_centers.into("m"),
+        final_depth.into("m"))
 
-        forearc.profile = u(temperatures, "degC")
-
-    else:
-        solver = FiniteSolver(forearc,
-            constraints = (u(0,"degC"),
-                final_temperature))
-        forearc = solver.steady_state()
+    forearc.profile = u(temperatures, "degC")
 
     echo("Temperature at subduction interface "
          "at the time of underplating: {0} {1}"\

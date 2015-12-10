@@ -36,7 +36,7 @@ plotter = Plotter(range=(0,1400))
 
 FiniteSolver.set_defaults(
     type="implicit",
-    time_step=u(1,"Myr"),
+    time_step=u(0.5,"Myr"),
     constraints=solver_constraints,
     plotter=plotter)
 

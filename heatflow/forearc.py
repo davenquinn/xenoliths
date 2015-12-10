@@ -10,13 +10,15 @@ def optimized_forearc(target,distance,depth, **kwargs):
     that is optimized to return a certain
     temperature at the subduction interface.
     """
-    opt = kwargs.pop('vary','Au')
+    opt = kwargs.pop('vary','qfric')
 
     solver = forearc_solver(**kwargs)
 
     target = target.into("degC")
     d = distance.into("m")
     Z = depth.into("m")
+
+    print "Optimizing {} to target".format(opt)
 
     def f(v):
         solver.args[opt]=v
@@ -28,6 +30,17 @@ def optimized_forearc(target,distance,depth, **kwargs):
             bounds=(0,1e9),
             method='bounded')
     solver.args[opt] = o.x
+
+    # Determine max temperature in forearc
+    def f(depth):
+        return -solver.royden(d,depth,Z)
+    o = minimize_scalar(f,
+            bounds=(0,Z),
+            method='bounded')
+    print "Maximum temperature above interface:"
+    print solver.royden(d,o.x,Z)
+    print "at depth ",o.x,"meters"
+
     return solver
 
 def forearc_solver(**kwargs):
