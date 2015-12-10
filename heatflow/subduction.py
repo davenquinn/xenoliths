@@ -127,6 +127,18 @@ def stepped_subduction(underplated_section, **kwargs):
 
         solver.set_constraints(upper=u(T,"degC"))
 
+        # Estimate heat flux at base of foreac
+        t = royden(
+            (final_distance*completion).into("m"),
+            sz_depth.into("m")-1, # Depth of interest
+            sz_depth.into("m")) # Depth of subduction interface
+
+        dT = u(T-t,'K/m')
+        k = u(royden.args['Ku'],'W/(m K)')
+        heat_flux = k*dT
+        #solver.set_constraints(upper=heat_flux)
+
+
     # Set up finite solving for underplated slab
     solver = FiniteSolver(underplated_section)
 
