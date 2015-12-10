@@ -63,6 +63,20 @@ def test_gdh_temperature():
         v2 = gdh_solver.temperature(time,depth).into('degC')
         assert N.allclose(v1,v2, atol=5, rtol=0.05)
 
+def test_array():
+    """
+    Passing an array of depths to the GDH
+    model is tricky due to its Taylor-expansion
+    design.
+    """
+    time = u(20,'Myr')
+    depths = u(N.array([10,20]),'km')
+
+    res = gdh_solver.temperature(time,depths)
+    for depth,v0 in zip(depths,res):
+        v1 = gdh_solver.temperature(time,depth)
+        assert N.allclose(v0,v1)
+
 def test_consistency():
     """
     Test the relative consistency of the GDH and
