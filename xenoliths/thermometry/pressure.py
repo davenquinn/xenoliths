@@ -39,7 +39,7 @@ class GeoThermometryResult(object):
 
 def pressure_measurements():
     base_queryset = tagged(exclude_bad(ProbeMeasurement.query),"core")
-    for sample in Sample.query.all():
+    for sample in Sample.query.filter_by(xenolith=True):
         queryset = base_queryset.filter(ProbeMeasurement.sample==sample)
         for grains in triplets(queryset):
             yield GeoThermometryResult(*grains)

@@ -25,5 +25,10 @@ class Ca_Olivine(object):
         ans = -T*log(self.D_Ca)-u(11982,633)+u(3.61,0.47)*T
         return ans/u(56.2,2.7)
 
-    def pressure(self, T):
-        return -self.low_temperature(T)/10
+    def pressure(self, T=None):
+        if T < 1275:
+            return -self.low_temperature(T)/10
+        else:
+            return -self.high_temperature(T)/10
+
+    __call__ = pressure
