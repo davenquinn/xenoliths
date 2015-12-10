@@ -3,7 +3,9 @@ from geotherm.models.geometry import Section
 from geotherm.solvers import RoydenSolver
 from scipy.optimize import minimize_scalar
 
-from .config import asthenosphere_temperature, oceanic_mantle, continental_crust
+from .config import (
+    asthenosphere_temperature,
+    oceanic_mantle, continental_crust)
 
 def optimized_forearc(target,distance,depth, **kwargs):
     """
@@ -11,7 +13,7 @@ def optimized_forearc(target,distance,depth, **kwargs):
     that is optimized to return a certain
     temperature at the subduction interface.
     """
-    opt = kwargs.pop('vary','qfric')
+    opt = kwargs.pop('vary','e')
 
     solver = forearc_solver(**kwargs)
 
@@ -28,7 +30,7 @@ def optimized_forearc(target,distance,depth, **kwargs):
         return a
 
     o = minimize_scalar(f,
-            bounds=(0,1e9),
+            bounds=(-1e9,1e9),
             method='bounded')
     solver.args[opt] = o.x
 
@@ -45,8 +47,19 @@ def optimized_forearc(target,distance,depth, **kwargs):
     return solver
 
 def forearc_solver(**kwargs):
+    m = oceanic_mantle
+    c = continental_crust
+
     defaults = dict(
-        Tm = asthenosphere_temperature.into("degC"))
+        Tm = asthenosphere_temperature.into("degC"),
+        Al=m.heat_generation.into('W/m**3'),
+        Au=c.heat_generation.into('W/m**3'),
+        Kl=m.conductivity.into('W/m/K'),
+        Ku=c.conductivity.into('W/m/K'),
+        zr=150e3,
+        a=1e-15, # No sub. accretion or erosion
+        #e=1.e-9,
+        alpha=m.diffusivity.into('m**2/s'))
     defaults.update(kwargs)
 
     royden = RoydenSolver(**defaults)
