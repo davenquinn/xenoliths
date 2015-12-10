@@ -78,10 +78,11 @@ def pyroxene_pairs(queryset, distinct=min):
 def separate_measurements(pairs, method=Taylor1998):
     return [method(*a, uncertainties=False).temperature() for a in pairs]
 
-def core_temperatures(sample, method=Taylor1998):
+def core_temperatures(sample, method=Taylor1998, **kwargs):
     queryset = exclude_bad(ProbeMeasurement.query.filter_by(sample=sample))
     queryset = tagged(queryset, "core")
-    return separate_measurements(queryset, method=method)
+    pairs = pyroxene_pairs(queryset,**kwargs)
+    return separate_measurements(pairs, method=method)
 
 def xenoliths():
     return Sample.query\

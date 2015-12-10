@@ -1,15 +1,9 @@
 import click
 
-from .results import text_output
 from .rare_earth import ree
 
 TemperatureCommand = click.Group(
     help="Command to manage thermometry.")
-
-@TemperatureCommand.command()
-def results():
-    echo("Temperature Results")
-    text_output()
 
 @TemperatureCommand.command()
 def prepare():
