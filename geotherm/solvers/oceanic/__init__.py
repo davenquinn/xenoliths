@@ -78,19 +78,13 @@ class GDHSolver(OceanicSolver):
 
         The GDH model tends to have thinner plate and higher temperatures than other models.
         """
-        t = time.into('Myr')
-        depth = depth.into('km')
 
-        Ta = self.T_max.into('degC')
-        L = self.lithosphere_depth.into('km')
-        K = self.material.diffusivity.into('m^2/s')
-
-        t *= 3.15569e7
         def summation_term(n):
-            ex = (n*N.pi/L)**2
-            return 2 / (n*N.pi) * N.sin(n*N.pi*depth/L) * N.exp(-ex*K*t)
+            a = n*N.pi
+            aL = (a/self.lithosphere_depth)
+            exp = -(aL**2)*self.material.diffusivity*time
+            return 2 / a * N.sin(aL*depth) * N.exp(exp)
 
         taylor_expansion = N.array([summation_term(i+1) for i in range(self.order)])
-
-        sol = Ta * (depth/L + N.sum(taylor_expansion, axis=0))
-        return u(sol,'degC')
+        coeff = (depth/self.lithosphere_depth + N.sum(taylor_expansion, axis=0))
+        return u(self.T_max.into('degC') * coeff,'degC')
