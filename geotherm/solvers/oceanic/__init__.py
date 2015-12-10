@@ -1,5 +1,6 @@
 from __future__ import division, print_function
 from scipy.special import erf,erfc, erfcinv
+
 from ..base import BaseSolver
 from ...models.geometry import Section, Layer
 from ...units import ensure_unit, unit, u
@@ -25,7 +26,6 @@ class OceanicSolver(BaseSolver):
         depth = ensure_unit(depth, unit.meters)
         t = self._temperature(time,depth)
         return t.to(unit.degC)
-
 
 class HalfSpaceSolver(OceanicSolver):
     """This class implements the Half-space cooling model for cooling oceanic crust."""
@@ -56,7 +56,16 @@ class HalfSpaceSolver(OceanicSolver):
 
 class GDHSolver(OceanicSolver):
     def temperature(self, depth, t, order=50):
-        """This equation is simplified to ignore horizontal heat conduction"""
+        """
+        An implementation of the "Global Depth and Heat" model of oceanic
+        lithosphere cooling from Stein and Stein [1992]. This is elaborated
+        in Fowler, Solid Earth, pp294-295
+
+        This is a plate cooling model for oceanic lithosphere (lithosphere is of constant thickness)
+        The base of the lithosphere is held at constant temperature T.
+
+        The GDH model tends to have thinner plate and higher temperatures than other models.
+        """
         Ta = self.T_max
         Ta, L, K = self.get_vars(("Ta","L","K"))
         t *= 3.15569e7
