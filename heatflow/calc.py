@@ -11,28 +11,22 @@ matplotlib.use("TkAgg")
 
 from geotherm.models.geometry import Section, stack_sections
 from geotherm.solvers import GDHSolver, HalfSpaceSolver, FiniteSolver, RoydenSolver, AdiabatSolver
-from geotherm.materials import oceanic_mantle, continental_crust, oceanic_crust
 from geotherm.plot import Plotter
 from geotherm.units import u
+
+from .config import (
+    oceanic_mantle,
+    continental_crust,
+    interface_depth,
+    total_depth,
+    solver_constraints,
+    present)
 
 from .subduction import instant_subduction, stepped_subduction
 from .util import mkdirs
 from . import results_dir
 
-present = u(1.65,"Myr") # K-Ar age for Crystal Knob xenoliths
-oceanic_mantle.conductivity = u(3.138,"W/m/K")
-
-solver_constraints = (
-    u(0,"degC"), # Surface temperature
-    u(1450,"degC"))
-    #u(48,"mW/m**2"))
-    # Globally averaged mantle heat flux from Pollack, et al., 1977
-
-interface_depth = u(30,'km')
-total_depth = u(500,'km')
-
 plotter = Plotter(range=(0,1400))
-
 
 FiniteSolver.set_defaults(
     type="implicit",
@@ -73,8 +67,6 @@ def pre_subduction(name, start_time, subduction_time):
     echo("Start age:  {0}".format(start_time))
     echo("Subduction: {0}".format(subduction_time))
 
-    interface = u(30,'km')
-
     record = partial(save_info, name)
 
     oceanic = Section([
@@ -101,18 +93,13 @@ def forearc_case(name, start_time, subduction_time):
 
     underplated_oceanic = pre_subduction(name, start_time, subduction_time)
 
-    elapsed_time, section = stepped_subduction(
-            underplated_oceanic,
-            final_distance=u(100,"km"),
-            velocity=u(100,"mm/yr"),
-            final_depth=u(30,"km"))
+    elapsed_time, section = stepped_subduction(underplated_oceanic)
 
     echo("Subduction took {}".format(elapsed_time.to("Myr")))
 
     t = subduction_time-elapsed_time
     record("after-subduction", section, t=t)
-    final_section = finite_solve(section,
-            t-present)
+    final_section = finite_solve(section,t-present)
 
     record("final",final_section,t=present)
 
@@ -134,10 +121,7 @@ def farallon_case():
 
     elapsed_time, section = stepped_subduction(
             underplated_oceanic,
-            final_distance=u(100,"km"),
-            velocity=u(100,"mm/yr"),
-            final_temperature=u(700,"degC"),
-            final_depth=interface_depth)
+            final_temperature=u(700,"degC"))
 
     echo("Subduction took {}".format(elapsed_time.to("Myr")))
 
@@ -191,7 +175,7 @@ def steady_state():
     record = partial(save_info, "steady-state")
 
     section = Section([
-        crust.to_layer(u(30,"km")),
+        crust.to_layer(interface_depth),
         oceanic_mantle.to_layer(total_depth-interface_depth)])
 
     solver = FiniteSolver(section)

@@ -1,8 +1,9 @@
 from geotherm.units import u
 from geotherm.models.geometry import Section
 from geotherm.solvers import RoydenSolver
-from geotherm.materials import oceanic_mantle, continental_crust
 from scipy.optimize import minimize_scalar
+
+from .config import asthenosphere_temperature, oceanic_mantle, continental_crust
 
 def optimized_forearc(target,distance,depth, **kwargs):
     """
@@ -44,7 +45,8 @@ def optimized_forearc(target,distance,depth, **kwargs):
     return solver
 
 def forearc_solver(**kwargs):
-    defaults = dict()
+    defaults = dict(
+        Tm = asthenosphere_temperature.into("degC"))
     defaults.update(kwargs)
 
     royden = RoydenSolver(**defaults)

@@ -6,30 +6,34 @@ from click import echo
 from geotherm.units import u
 from geotherm.models.geometry import Section, stack_sections
 from .forearc import forearc_section, forearc_solver, optimized_forearc
+from .config import (
+        asthenosphere_temperature,
+        interface_depth,
+        convergence_velocity,
+        underplating_distance)
 from geotherm.solvers import FiniteSolver
 from geotherm.materials import continental_crust
 
-# temperature of the base of the lithosphere
-T_lithosphere = u(1300,"degC")
-
-def instant_subduction(underplated_section, **kwargs):
+def lithosphere_depth(underplated_section):
     # Find the base of the lithosphere
-    d = underplated_section.depth(T_lithosphere)
-    distance = u(100,"km")
+    d = underplated_section.depth(asthenosphere_temperature)
     echo("Depth of the base of the "
         "lithosphere at the time of "
         "subduction:{0:.2f}".format(d))
+    return d
+
+def instant_subduction(underplated_section, **kwargs):
+    d = asthenosphere_depth(underplated_section)
     forearc = forearc_section(
-            distance = distance,
-            Tm = T_lithosphere.into("degC"),
+            distance = underplating_distance,
+            Tm = asthenosphere_temperature.into("degC"),
             l = d.into("m"))
     echo("Temperature at subduction interface "
          "at the time of underplating: {0}"\
           .format(forearc.profile[-1]))
 
     return stack_sections(
-        forearc,
-        underplated_section)
+        forearc, underplated_section)
 
 def stepped_subduction(underplated_section, **kwargs):
     """
@@ -53,9 +57,9 @@ def stepped_subduction(underplated_section, **kwargs):
     for this temperature will be found via optimization.
     """
 
-    final_distance = kwargs.pop("final_distance", None)
-    velocity = kwargs.pop("velocity", None)
-    final_depth = kwargs.pop("final_depth", None)
+    final_distance = kwargs.pop("final_distance", underplating_distance)
+    velocity = kwargs.pop("velocity", convergence_velocity)
+    final_depth = kwargs.pop("final_depth", interface_depth)
 
     final_temperature = kwargs.pop("final_temperature", None)
 
@@ -68,12 +72,6 @@ def stepped_subduction(underplated_section, **kwargs):
     # is in thermal equilibrium, and the lithospheric
     # depth is being maintained, which is likely a
     # reasonable approximation for the timescales involved.
-    lithosphere_depth = underplated_section.depth(T_lithosphere)
-
-    echo("Depth of the base of the "
-        "lithosphere at the time of "
-        "subduction:{0:.2f}".format(lithosphere_depth))
-
     echo("Subduction velocity: {}".format(velocity))
 
     dip = N.arctan(final_depth/final_distance).to("degrees")
@@ -89,9 +87,8 @@ def stepped_subduction(underplated_section, **kwargs):
     echo("Beginning to subduct slab")
 
     kwargs = dict(
-        l=lithosphere_depth.into("m"),
-        v=velocity.into("m/s"),
-        Tm =T_lithosphere.into("degC"))
+        l=lithosphere_depth(underplated_section).into("m"),
+        v=velocity.into("m/s"))
 
     if final_temperature is None:
         royden = forearc_solver(**kwargs)
