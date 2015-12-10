@@ -15,6 +15,8 @@ We will use the output of this model at time `n` to seed our underplated lithosp
 from __future__ import division
 import numpy as N
 
+from ..models import Material
+
 class PlateModel(object):
     """
     This is a generic plate model that implements the equations governing the model.
@@ -65,5 +67,9 @@ class GDH_Model(PlateModel):
     def __init__(self):
         super(GDH_Model, self).__init__(GDH_variables)
 
+gdh_mantle = Material
 
-
+class GDHSolver(OceanicSolver):
+    def __init__(self, section, **kwargs):
+        super(GDHSolver,self).__init__(**kwargs)
+        self.section = section

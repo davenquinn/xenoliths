@@ -4,10 +4,9 @@ from .base import BaseSolver
 from ..models.geometry import Section, Layer
 from ..units import ensure_unit, unit, u
 
-class HalfSpaceSolver(BaseSolver):
-    """This class implements the Half-space cooling model for cooling oceanic crust."""
+class OceanicSolver(BaseSolver):
     def __init__(self, section, **kwargs):
-        super(HalfSpaceSolver, self).__init__(**kwargs)
+        super(OceanicSolver, self).__init__(**kwargs)
         self.section = section
         try:
             layers = section.layers
@@ -20,11 +19,16 @@ class HalfSpaceSolver(BaseSolver):
             # We were provided with a single homogenous layer
             self.layer = section
         self.material = self.layer.material
+
     def temperature(self,time,depth):
         time = ensure_unit(time, unit.seconds)
         depth = ensure_unit(depth, unit.meters)
         t = self._temperature(time,depth)
         return t.to(unit.degC)
+
+
+class HalfSpaceSolver(OceanicSolver):
+    """This class implements the Half-space cooling model for cooling oceanic crust."""
 
     def _temperature(self,time,depth):
         d = 2*self.material.length_scale(time)
@@ -49,3 +53,20 @@ class HalfSpaceSolver(BaseSolver):
 
     def profile(self,time):
         return self._temperature(time,self.section.cell_centers)
+
+class GDHSolver(OceanicSolver):
+    def temperature(self, depth, t, order=50):
+        """This equation is simplified to ignore horizontal heat conduction"""
+        Ta = self.T_max
+        Ta, L, K = self.get_vars(("Ta","L","K"))
+        t *= 3.15569e7
+        def summation_term(n):
+            ex = (n*N.pi/L)**2
+            return 2 / (n*N.pi) * N.sin(n*N.pi*depth/L) * N.exp(-ex*K*t)
+
+        taylor_expansion = N.array([summation_term(i+1) for i in range(order)])
+        print(N.sum(taylor_expansion, axis=0).shape)
+
+        sol = Ta * (depth/L + N.sum(taylor_expansion, axis=0))
+        print(sol.shape)
+        return sol
