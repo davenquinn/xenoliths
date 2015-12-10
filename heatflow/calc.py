@@ -69,7 +69,8 @@ def forearc_case(name, start_time, subduction_time):
     form, with the only differences being the timing of initial
     emplacemnt on the ocean floor and subduction.
     """
-    print(name)
+    echo("Start age:  {0}".format(start_time))
+    echo("Subduction: {0}".format(subduction_time))
 
     interface = u(30,'km')
 
@@ -86,6 +87,7 @@ def forearc_case(name, start_time, subduction_time):
     underplated_oceanic = ocean_model(t)
 
     record("before-subduction", underplated_oceanic, t=subduction_time)
+
     elapsed_time, section = stepped_subduction(
             underplated_oceanic,
             final_distance=u(100,"km"),

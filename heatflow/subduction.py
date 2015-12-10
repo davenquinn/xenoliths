@@ -100,7 +100,6 @@ def stepped_subduction(underplated_section, **kwargs):
         step = kwargs.pop("step")
         steps = kwargs.pop("steps")
         completion = (step+1)/steps
-        print(completion)
 
         sz_depth = final_depth*completion
 

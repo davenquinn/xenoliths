@@ -15,6 +15,7 @@ def cli(scenarios, debug=False, all=False):
         (80,60),(70,50),(60,40),(50,30),(40,20),(30,10),(28,2)]
     for sub_age,oc_age in forearc_list:
         n = "forearc-{0}-{1}".format(sub_age,oc_age)
+        print n
         registry[n] = lambda: forearc_case(n,
             u(sub_age+oc_age,"Myr"), u(sub_age,"Myr"))
 
@@ -30,5 +31,7 @@ def cli(scenarios, debug=False, all=False):
         for i in registry:
             click.echo("  "+i)
     for s in scenarios:
+        click.echo("Running scenario "+click.style(s,fg='green'))
         registry[s]()
+        click.echo("")
 
