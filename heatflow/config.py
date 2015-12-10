@@ -13,6 +13,8 @@ underplating_distance = u(100,'km')
 
 # Set conductivity to value from GDH model
 oceanic_mantle.conductivity = u(3.138,"W/m/K")
+# Continental crust is mostly granitic here
+continental_crust.heat_generation = u(1,"uW/m**3")
 
 # Depths
 interface_depth = u(30,'km')
@@ -31,3 +33,6 @@ solver_constraints = (
 # Subduction velocity is just set at a reasonable value.
 # Should make this a function of time based on plate circuit.
 convergence_velocity = u(100,"mm/yr")
+
+# Farallon case
+#slab_retreat_velocity = u(5,'km/Myr')

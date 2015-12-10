@@ -5,7 +5,14 @@ from scipy.optimize import minimize_scalar
 
 from .config import (
     asthenosphere_temperature,
+    interface_depth,
     oceanic_mantle, continental_crust)
+
+class ScalableRoydenSolver(RoydenSolver):
+    def royden(self, *args):
+        s = self.args.get('scalar',1)
+        val = RoydenSolver.royden(self,*args)
+        return val*s
 
 def optimized_forearc(target,distance,depth, **kwargs):
     """
@@ -13,36 +20,39 @@ def optimized_forearc(target,distance,depth, **kwargs):
     that is optimized to return a certain
     temperature at the subduction interface.
     """
-    opt = kwargs.pop('vary','e')
+    opt = kwargs.pop('vary','qfric')
 
     solver = forearc_solver(**kwargs)
 
     target = target.into("degC")
     d = distance.into("m")
     Z = depth.into("m")
-
+    sz = interface_depth.into("m")
     print "Optimizing {} to target".format(opt)
 
     def f(v):
         solver.args[opt]=v
-        t = solver.royden(d, Z, Z)
+        t = solver.royden(d, Z, sz)
         a = abs(target-t)
         return a
 
     o = minimize_scalar(f,
-            bounds=(-1e9,1e9),
+            bounds=(0,1e9),
             method='bounded')
     solver.args[opt] = o.x
 
     # Determine max temperature in forearc
     def f(depth):
-        return -solver.royden(d,depth,Z)
+        return -solver.royden(d,depth,sz)
     o = minimize_scalar(f,
             bounds=(0,Z),
             method='bounded')
     print "Maximum temperature above interface:"
     print solver.royden(d,o.x,Z)
     print "at depth ",o.x,"meters"
+
+    print "Optimal value:"
+    print "  {} = {}".format(opt,solver.args[opt])
 
     return solver
 
@@ -57,12 +67,12 @@ def forearc_solver(**kwargs):
         Kl=m.conductivity.into('W/m/K'),
         Ku=c.conductivity.into('W/m/K'),
         zr=150e3,
-        a=1e-15, # No sub. accretion or erosion
+        #a=1e-15, # No sub. accretion or erosion
         #e=1.e-9,
         alpha=m.diffusivity.into('m**2/s'))
     defaults.update(kwargs)
 
-    royden = RoydenSolver(**defaults)
+    royden = ScalableRoydenSolver(**defaults)
     return royden
 
 def forearc_section(**kwargs):

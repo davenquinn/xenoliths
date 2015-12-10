@@ -86,7 +86,7 @@ def stepped_subduction(underplated_section, **kwargs):
 
     echo("Beginning to subduct slab")
 
-    kwargs = dict(
+    kwargs.update(
         l=lithosphere_depth(underplated_section).into("m"),
         v=velocity.into("m/s"))
 
