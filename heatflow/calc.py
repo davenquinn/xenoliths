@@ -10,7 +10,7 @@ import matplotlib
 matplotlib.use("TkAgg")
 
 from geotherm.models.geometry import Section, stack_sections
-from geotherm.solvers import HalfSpaceSolver, FiniteSolver, RoydenSolver, AdiabatSolver
+from geotherm.solvers import GDHSolver, HalfSpaceSolver, FiniteSolver, RoydenSolver, AdiabatSolver
 from geotherm.materials import oceanic_mantle, continental_crust, oceanic_crust
 from geotherm.plot import Plotter
 from geotherm.units import u
@@ -20,10 +20,11 @@ from .util import mkdirs
 from . import results_dir
 
 present = u(1.65,"Myr") # K-Ar age for Crystal Knob xenoliths
+oceanic_mantle.conductivity = u(3.138,"W/m/K")
 
 solver_constraints = (
     u(0,"degC"), # Surface temperature
-    u(1500,"degC"))
+    u(1450,"degC"))
     #u(48,"mW/m**2"))
     # Globally averaged mantle heat flux from Pollack, et al., 1977
 
@@ -31,6 +32,7 @@ interface_depth = u(30,'km')
 total_depth = u(500,'km')
 
 plotter = Plotter(range=(0,1400))
+
 
 FiniteSolver.set_defaults(
     type="implicit",
@@ -79,7 +81,7 @@ def forearc_case(name, start_time, subduction_time):
     oceanic = Section([
         oceanic_mantle.to_layer(total_depth-interface_depth)])
 
-    ocean_model = HalfSpaceSolver(oceanic)
+    ocean_model = GDHSolver(oceanic, T_max=solver_constraints[1])
 
     record("initial", ocean_model(u(0,"s")), t=start_time)
 
@@ -117,7 +119,7 @@ def farallon_case():
     oceanic = Section([
         oceanic_mantle.to_layer(u(270,"km"))])
 
-    ocean_model = HalfSpaceSolver(oceanic)
+    ocean_model = GDHSolver(oceanic, T_max=solver_constraints[1])
 
     record("initial", ocean_model(u(0,"s")), t=start_time)
 
