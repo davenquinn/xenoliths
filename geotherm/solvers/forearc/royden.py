@@ -57,7 +57,6 @@ class RoydenModel(object):
         """
         self.vfunc = N.vectorize(self.royden, excluded="self")
 
-
         self.args = {k: kwargs.pop(k,v)\
             for k,v in self.defaults.items()}
 
