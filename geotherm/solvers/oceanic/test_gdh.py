@@ -1,28 +1,26 @@
 # -*- coding: utf-8 -*-
-"""
-This module contains a naive implementation of GDH
-for testing purposes.
-
-GDH variables:
-L   95        ºC    Plate thickness
-Ta  1450      ºC    Asthenospheric temperature
-a   3.1e-5    1/ºC  Coefficient of thermal expansion
-km  3.138     W/m   Thermal conductivity
-cp  1.171     kJ/kg Specific heat
-K   0.804e-6  m^2/s Thermal diffusivity
-pm  3330      kg/m3 Mantle density
-pw  1000      kg/m3 Water density
-dr  2.6       km    Ridge depth
-"""
-
 from __future__ import division
 import numpy as N
 
+from . import HalfSpaceSolver, GDHSolver
 from ...models import Material
+from ...units import u
 
+def gdh_temperature(time, depth, order=50, **kwargs):
+    """
+    Naive implementation of GDH for testing purposes.
 
-def gdh_temperature(depth, time, order=50, **kwargs):
-    """This equation is simplified to ignore horizontal heat conduction"""
+    GDH variables:
+    L   95        ºC    Plate thickness
+    Ta  1450      ºC    Asthenospheric temperature
+    a   3.1e-5    1/ºC  Coefficient of thermal expansion
+    km  3.138     W/m/K Thermal conductivity
+    cp  1.171     kJ/kg Specific heat
+    K   0.804e-6  m^2/s Thermal diffusivity
+    pm  3330      kg/m3 Mantle density
+    pw  1000      kg/m3 Water density
+    dr  2.6       km    Ridge depth
+    """
 
     Ta = 1450
     L = 95
@@ -35,11 +33,22 @@ def gdh_temperature(depth, time, order=50, **kwargs):
 
     taylor_expansion = N.array([summation_term(i+1) for i in range(order)])
 
-    sol = Ta * (depth/L + N.sum(taylor_expansion, axis=0))
-    return sol
+    return Ta * (depth/L + N.sum(taylor_expansion, axis=0))
 
-gdh_mantle = Material
+gdh_mantle = Material(
+    conductivity = u(3.138,"W/m/K"),
+    specific_heat = u(1171,"J/kg/K"),
+    density = u(3330,"kg/m**3"))
 
 def test_gdh_temperature():
     assert gdh_temperature(0,0) == 0
-    assert False
+
+    layer = gdh_mantle.to_layer(u(100,'km'))
+    solver = GDHSolver(layer)
+
+    for time,depth in [(0,0),(20,50),(10,2)]:
+        v1 = gdh_temperature(time,depth)
+        v2 = solver._temperature(
+            u(time,'Myr'), u(depth,'km'))
+        assert v1 == v2
+
