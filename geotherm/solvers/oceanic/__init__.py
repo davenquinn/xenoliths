@@ -78,7 +78,7 @@ class GDHSolver(OceanicSolver):
 
         The GDH model tends to have thinner plate and higher temperatures than other models.
         """
-        coeff = (depth/self.lithosphere_depth).to('dimensionless')
+        coeff = (depth/self.lithosphere_depth)
         # Prepare Taylor expansion
         n = N.arange(self.order)+1
         try:
@@ -97,4 +97,5 @@ class GDHSolver(OceanicSolver):
         exp = -(aL**2)*self.material.diffusivity*time
         taylor_expansion = 2/a *N.sin(aL*depth) * N.exp(exp)
         coeff += N.sum(taylor_expansion, axis=n.ndim-1)
+        coeff = coeff.into('dimensionless')
         return u(self.T_max.into('degC') * coeff,'degC')
