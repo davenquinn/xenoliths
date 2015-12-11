@@ -68,8 +68,7 @@ def closest(a,b, distinct=None):
         order_by=[distinct.id, dist],
         use_labels=True)
 
-def pyroxene_pairs(queryset, distinct=min):
-    names = ("opx","cpx")
+def pyroxene_pairs(queryset, distinct=min,names=("opx","cpx")):
     opx,cpx = (queryset
                 .filter(ProbeMeasurement.mineral==a)
                 .subquery() for a in names)
