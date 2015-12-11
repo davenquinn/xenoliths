@@ -3,12 +3,18 @@ from .thermometers import BKN, Taylor1998
 from .barometers import Ca_Olivine
 from .results import pyroxene_pairs, closest
 from ..models import ProbeMeasurement,Sample
+from ..application import db
 from ..microprobe.models.query import tagged, exclude_bad
 
-def triplets(queryset):
-    olivines = queryset.filter(ProbeMeasurement.mineral=="ol")
-    for opx,cpx in pyroxene_pairs(queryset):
-        yield opx,cpx,closest(olivines, cpx)
+def triplets(queryset, distinct=min):
+    pairs = pyroxene_pairs(queryset)
+    olivine = queryset.filter(ProbeMeasurement.mineral=='ol').subquery()
+    for opx,cpx in pairs:
+        q = closest(olivine,cpx)
+        res = db.session.execute(q).first()
+        assert res[1] == cpx.id
+        ol = ProbeMeasurement.query.get(res[0])
+        yield opx,cpx,ol
 
 def geobaric_gradient(depth):
     return depth*.03 #GPa/km

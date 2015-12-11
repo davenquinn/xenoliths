@@ -47,17 +47,25 @@ def single_measurement(queryset, method=Taylor1998):
     }
 
 def closest(a,b, distinct=None):
+    def columns(i):
+        try:
+            return i.c
+        except AttributeError:
+            return i
+
+    a = columns(a)
+    b = columns(b)
 
     if distinct is None:
         distinct = a
-    distinct = distinct.c.id
+    distinct = columns(distinct)
 
-    dist = func.ST_Distance(a.c.geometry,b.c.geometry)
+    dist = func.ST_Distance(a.geometry,b.geometry)
     return select(
-        [a.c.id, b.c.id],
-        a.c.id != b.c.id,
-        distinct=distinct,
-        order_by=[distinct, dist],
+        [a.id, b.id],
+        a.id != b.id,
+        distinct=distinct.id,
+        order_by=[distinct.id, dist],
         use_labels=True)
 
 def pyroxene_pairs(queryset, distinct=min):
