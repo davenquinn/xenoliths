@@ -22,6 +22,7 @@ def classifications():
         if not s.classification:
             continue
         cls = N.array(s.classification)
+        cls[cls == 'un'] = 'na'
         yield dict(
             id=s.id,
             shape=cls.shape,

@@ -11,9 +11,30 @@ sz =
   width: 4*dpi
   height: 6*dpi
 
+minerals =
+  cpx:
+    name: "Clinopyroxene"
+    color: "#009245"
+  opx:
+    name: "Orthopyroxene"
+    color: "#8CC63F"
+  ol:
+    name: "Olivine"
+    color: "#D6E9FF"
+  sp:
+    name: "Spinel"
+    color: "#663300"
+  al:
+    name: "Alteration"
+    color: "#888888"
+  na:
+    name: "None"
+    color: "#ffffff"
 
 #Order down and then across
 ids = ["CK-2","CK-5","CK-7","CK-3","CK-4","CK-6"]
+
+margin = 5
 
 createView = (d,i)->
   w = sz.width/2
@@ -33,17 +54,28 @@ createView = (d,i)->
   width = d.shape[1]
   height = d.shape[0]
 
+  if d.id == 'CK-3'
+    width -= 10 
+
+  set = Math.max(width,height)
+  if set == width
+    dx = 0
+    dy = (set-height)/2
+  else
+    dx = (set-width)/2
+    dy = 0
+
   x = d3.scale.linear()
     .range([idx.x,idx.x+w])
-    .domain([0,width])
+    .domain([0-dx,set-dx])
   y = d3.scale.linear()
     .range([idx.y,idx.y+h])
-    .domain([0,height])
+    .domain([0-dy,set-dy])
   projection = d3.geo.path()
     .projection (d)->
       [x(d[0]),y(d[1])]
 
-  getColor = (d) -> if d.v is "un" then "" else options.minerals[d.v].color2
+  getColor = (d) -> if d.v is "un" then "" else minerals[d.v].color
 
   rectangles = el.selectAll("path")
     .data(cls)
