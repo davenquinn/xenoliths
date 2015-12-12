@@ -9,7 +9,7 @@ from xenoliths import app
 from xenoliths.thermometry.rare_earth.plot import ree_temperature
 from xenoliths.thermometry.results import xenoliths, core_temperatures
 
-from helpers import label
+from helpers import label, scatter_options
 
 matplotlib.rcParams.update({'font.size': 8})
 
@@ -33,12 +33,18 @@ fig, ax = P.subplots(figsize=(4,3))
 def plot(x,y):
     n = [i.n for i in y]
     nx = [i.mean() for i in x]
-    ax.errorbar(nx,n,
-        yerr=[i.s for i in y],
-        xerr=[i.std() for i in x],
-        linestyle="None",
-        color="#666666")
-    ax.scatter(nx,n, c=colors,zorder=5, s=20)
+    for i,(x_,yv) in enumerate(zip(x,y)):
+        y_ = [yv.n]*len(x_)
+        ax.errorbar(x_.mean(),yv.n,
+                yerr=yv.s,
+            linestyle="None",
+            color='#cccccc')
+        ax.plot(
+            [x_.min(),x_.max()],
+            [yv.n,yv.n],
+            color='#cccccc')
+        ax.scatter(x_,y_,zorder=5, s=20,
+            **scatter_options(colors[i]))
 
 plot(ta98,ree)
 ax.set_xlabel(label("TA98"))

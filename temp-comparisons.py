@@ -11,7 +11,7 @@ from chroma import Color
 from xenoliths import app
 from xenoliths.thermometry.results import xenoliths, sample_temperatures
 
-from helpers import label
+from helpers import label,scatter_options
 
 cache = "build/comparison-data.pickle"
 
@@ -48,18 +48,6 @@ props = {
     }
 }
 
-def scatter_options(sample, loc='core'):
-    base = dict(marker="o", s=20)
-    color = Color(sample['color'])
-    if loc == "core":
-        color.alpha = 0.5
-        return dict(color=color.rgb)
-    elif loc == "rim":
-        color.alpha = 0.2
-        f = Color("#ffffff")
-        f.alpha = 0
-        return dict(edgecolor=color.rgb, color=f.rgb, **base)
-
 annotate_props = dict(xytext=(5,-5), textcoords='offset points', ha='left', va='center')
 
 fig, axes = P.subplots(3,1,figsize=(4,9),sharex=True)
@@ -77,7 +65,7 @@ ax = axes[0]
 for i,s in enumerate(data):
     for loc in ('core','rim'):
         x = s[loc]["ta98"]["sep"]
-        popts = scatter_options(s,loc)
+        popts = scatter_options(s['color'],loc)
         y = i
         if loc == 'rim':
             y -= 0.2
@@ -102,7 +90,7 @@ for thermometer,ax in zip(plots,axes[1:]):
 
         for a_loc in ["core", "rim"]:
             values = [sample[a_loc][i]["sep"] for i in ids]
-            popts = scatter_options(sample,a_loc)
+            popts = scatter_options(sample['color'],a_loc)
             ax.scatter(values[0], values[1], **popts)
 
     ax.set_ylabel(label(names[1]))
