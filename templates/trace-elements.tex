@@ -13,13 +13,17 @@
   & \ce{<< el >>}
   <#- endfor #> & $n$ \\
 \hline
+\multicolumn{<<ncols>>}{l}{Clinopyroxene} \\
+\hline
+<< loop(cpx) >>
+\hline
 \multicolumn{<<ncols>>}{l}{Orthopyroxene} \\
 \hline
 << loop(opx) >>
 \hline
-\multicolumn{<<ncols>>}{l}{Clinopyroxene} \\
+\multicolumn{<<ncols>>}{l}{Whole-rock (recalculated)} \\
 \hline
-<< loop(cpx) >>
+<< loop(whole_rock) >>
 \hline
 \end{tabular}
 

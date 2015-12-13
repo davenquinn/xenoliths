@@ -3,16 +3,13 @@ import matplotlib.pyplot as P
 from pandas import read_sql
 from paper.query import sample_colors
 from xenoliths.application import app, db
-from xenoliths.SIMS.query import ree_only
+from xenoliths.SIMS.query import sims_data, element_data, ree_only
 from xenoliths.core.models import Sample
-
-from query import sims_data, element_data
 
 with app.app_context():
 
     data = ree_only(sims_data(whole_rock=True))
     colors = sample_colors()
-
 
 fig, ax = P.subplots(1, figsize=(5,5))
 
