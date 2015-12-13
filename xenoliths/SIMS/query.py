@@ -1,10 +1,11 @@
 import numpy as N
-from pandas import read_sql, MultiIndex, pivot_table
+from pandas import read_sql, MultiIndex, DataFrame, concat
 from sqlalchemy import func
 from periodictable import La,Lu,elements
 
 from ..application import db
 from ..util import uval
+from ..core.models import Sample
 from .models import SIMSMeasurement as meas
 from .models import SIMSDatum as datum
 
@@ -17,8 +18,7 @@ def sims_data(**kwargs):
     """
 
     exclude_bad = kwargs.pop('exclude_bad',True)
-    averaged = kwargs.pop('averaged',False)
-    dataframe = kwargs.pop('dataframe',False)
+    whole_rock = kwargs.pop('whole_rock',False)
 
     if exclude_bad:
         bad_data = datum.bad.isnot(True)
@@ -65,7 +65,29 @@ def sims_data(**kwargs):
     df.index = MultiIndex.from_arrays(
         [df.pop(i) for i in names])
     df.sortlevel(inplace=True)
-    return df
+
+    # Add recalculated whole-rock data if requested
+    if not whole_rock:
+        return df
+
+    xenoliths = (db.session.query(Sample)
+        .filter_by(xenolith=True))
+    modes = {s.id:s.modes() for s in xenoliths.all()}
+    modes = DataFrame.from_dict(modes, orient='index')
+    modes = modes.stack()
+    modes.name = 'mode'
+    ix = ['sample_id','mineral']
+    modes.index.names = ix
+
+    d1 = df.reset_index().join(modes,on=ix)
+    d1['average'] *= d1.pop('mode')
+    d1 = d1.groupby(['sample_id','element','symbol'])
+    d1 = d1.aggregate(dict(average=sum))
+    d1['mineral'] = 'whole_rock'
+    d1.set_index('mineral',append=True, inplace=True)
+    d1 = d1.reorder_levels(df.index.names)
+
+    return concat([df,d1])
 
 def ree_only(df):
     ix = df.index.names.index('element')
