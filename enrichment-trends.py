@@ -1,30 +1,27 @@
 import numpy as N
 import matplotlib.pyplot as P
 import periodictable as pt
+from paper.query import sample_colors
 from xenoliths.application import app
 from xenoliths.SIMS.query import sims_data
 from xenoliths.core.models import Sample
 
 with app.app_context():
 
-    df = sims_data(averaged=True, dataframe=True)
+    df = sims_data()
+    colors = sample_colors()
 
-    colors = {s.id: s.color
-        for s in Sample.query
-            .filter_by(xenolith=True)
-            .order_by(Sample.id)
-            .all()}
-
-df = (df
-        [df['mineral'] == 'cpx']
+df = df.reset_index()
+df = (df[df['mineral'] == 'cpx']
         .drop('mineral',axis=1)
         .drop('element',axis=1))
 
-tab = df.pivot(
+tab = df.pivot_table(
         columns='symbol',
-        index='sample_id')
-tab.columns = tab.columns.droplevel()
-tab['color'] = tab.index.map(colors.get)
+        index='sample_id',
+        values='average',
+        aggfunc=lambda x: x)
+tab = tab.join(colors)
 
 fig, ax = P.subplots(1, figsize=(5,5))
 

@@ -1,6 +1,7 @@
 import numpy as N
 import matplotlib.pyplot as P
-from pandas import read_sql, pivot_table
+from pandas import read_sql
+from paper.query import sample_colors
 from xenoliths.application import app, db
 from xenoliths.SIMS.query import sims_data, ree_only
 from xenoliths.core.models import Sample
@@ -8,17 +9,8 @@ from xenoliths.core.models import Sample
 with app.app_context():
 
     data = ree_only(sims_data())
+    colors = sample_colors()
 
-    colors = (db.session.query(Sample)
-        .filter_by(xenolith=True)
-        .order_by(Sample.id)
-        .with_entities(
-            Sample.id,
-            Sample.color))
-    colors = read_sql(
-        colors.statement,
-        db.session.bind, index_col='id')
-    colors.index.names = ['sample_id']
 
 fig, ax = P.subplots(1, figsize=(5,5))
 
