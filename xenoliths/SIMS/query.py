@@ -61,10 +61,10 @@ def sims_data(**kwargs):
     df['symbol'] = df.apply(fn, axis=1)
     df['average'] = df['norm'].apply(N.mean)
 
-    names = ('sample_id','mineral','symbol','element')
+    names = ('sample_id','mineral','element','symbol')
     df.index = MultiIndex.from_arrays(
         [df.pop(i) for i in names])
-
+    df.sortlevel(inplace=True)
     return df
 
 def ree_only(df):
