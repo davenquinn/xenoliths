@@ -6,6 +6,8 @@ from xenoliths.application import app, db
 from xenoliths.SIMS.query import sims_data, ree_only
 from xenoliths.core.models import Sample
 
+from query import element_data
+
 with app.app_context():
 
     data = ree_only(sims_data())
@@ -17,22 +19,13 @@ fig, ax = P.subplots(1, figsize=(5,5))
 all_cols = data.reset_index()
 ticks = all_cols['element'].unique()
 symbols = all_cols['symbol'].unique()
-
-ix = ['sample_id','mineral']
-n = all_cols.groupby(ix)['n'].max()
-plot_data = (all_cols.pivot_table(
-    rows=ix,
-    columns=['element'],
-    values=['average'],
-    aggfunc=lambda x: x)
-    .join(n)
-    .join(colors))
+plot_data = element_data(data).join(colors)
 
 for ix,row in plot_data.iterrows():
     color = row.pop('color')
     n = row.pop('n')
 
-    x = N.array([i[1] for i in row.index])
+    x = list(row.index)
     u = N.array([m.n for m in row])
     s = N.array([m.s for m in row])
 

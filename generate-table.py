@@ -5,40 +5,24 @@ from xenoliths.SIMS.query import sims_data
 from paper.text import tex_renderer, write_file
 import periodictable as pt
 
-def mineral_data(trace_elements):
-    # Check that there are the same amount of
-    # measurements for each element
-    n_meas = [len(d) for d in trace_elements.values()]
-    n_meas = max(n_meas)
-
-    data = {k:N.mean(v)
-            for k,v in trace_elements.items()}
-    data["n"] = n_meas
-    return data
-
-def averaged_trace_elements():
-    trace_elements = sims_data()
-    for sample_id, s_data in trace_elements.items():
-        data = {k:mineral_data(v)
-            for k,v in s_data.items()}
-        data["id"] = sample_id
-        yield data
+from query import element_data
 
 def create_table():
+    data = sims_data()
+    elements = data.index.get_level_values('symbol').unique()
 
-    data = list(averaged_trace_elements())
+    data = element_data(data, columns='symbol')
 
-    atomic_number = lambda k: getattr(pt.elements,k).number
-    elements = sorted([k
-        for k in data[0]["cpx"].keys()
-        if k != "n"], key=atomic_number)
+    d = data.reset_index()
+    min_data = {k: d[d['mineral'] == k].iterrows()
+            for k in ('opx','cpx')}
 
     text = (tex_renderer
         .get_template("trace-elements.tex")
         .render(
             ncols=len(elements)+2,
             elements=elements,
-            samples=data))
+            **min_data))
     write_file("build/trace-elements.tex",text)
 
 with app.app_context():

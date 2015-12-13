@@ -1,9 +1,9 @@
-<# macro loop(type) -#>
-  <#- for s in samples #>
-    << s.id >>
+<# macro loop(data) -#>
+  <#- for i,row in data #>
+    << row.sample_id >>
     <#- for el in elements -#>
-    & << s[type][el]|n >>
-    <#- endfor #> & << s[type].n >> \\
+    & << row[el]|n >>
+    <#- endfor #> & << row.n >> \\
   <#- endfor #>
 <#- endmacro #>
 \begin{tabular}{l<< " r"*(ncols-1) >>}
@@ -15,11 +15,11 @@
 \hline
 \multicolumn{<<ncols>>}{l}{Orthopyroxene} \\
 \hline
-<< loop("opx") >>
+<< loop(opx) >>
 \hline
 \multicolumn{<<ncols>>}{l}{Clinopyroxene} \\
 \hline
-<< loop("cpx") >>
+<< loop(cpx) >>
 \hline
 \end{tabular}
 
