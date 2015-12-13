@@ -1,55 +1,59 @@
 import numpy as N
 import matplotlib.pyplot as P
-import periodictable as pt
-from xenoliths.application import app
-from xenoliths.SIMS.query import sims_data
+from pandas import read_sql, pivot_table
+from xenoliths.application import app, db
+from xenoliths.SIMS.query import sims_data, ree_only
 from xenoliths.core.models import Sample
 
 with app.app_context():
 
-    data = sims_data(averaged=True)
+    data = ree_only(sims_data())
 
-    colors = {s.id: s.color
-        for s in Sample.query
-            .filter_by(xenolith=True)
-            .order_by(Sample.id)
-            .all()}
-
-E = lambda s: getattr(pt.elements, s)
+    colors = (db.session.query(Sample)
+        .filter_by(xenolith=True)
+        .order_by(Sample.id)
+        .with_entities(
+            Sample.id,
+            Sample.color))
+    colors = read_sql(
+        colors.statement,
+        db.session.bind, index_col='id')
+    colors.index.names = ['sample_id']
 
 fig, ax = P.subplots(1, figsize=(5,5))
 
-minerals = ("cpx","opx")
+all_cols = data.reset_index()
+ticks = all_cols['element'].unique()
+symbols = all_cols['symbol'].unique()
 
-is_ree = lambda n: pt.La.number <= n <= pt.Lu.number
+ix = ['sample_id','mineral']
+n = all_cols.groupby(ix)['n'].max()
+plot_data = (all_cols.pivot_table(
+    rows=ix,
+    columns=['element'],
+    values=['average'],
+    aggfunc=lambda x: x)
+    .join(n)
+    .join(colors))
 
-elements = [el for el in pt.elements if is_ree(el.number)]
+for ix,row in plot_data.iterrows():
+    color = row.pop('color')
+    n = row.pop('n')
 
-ticks = [el.number for el in elements]
-symbols = [el.symbol for el in elements]
+    x = N.array([i[1] for i in row.index])
+    u = N.array([m.n for m in row])
+    s = N.array([m.s for m in row])
 
-for sample_id, meas in data.items():
-    color = colors[sample_id]
+    # Dirty hack to prevent weird error artifacts
+    s[s > u] /= 2
+    # Should maybe implement proper log errors
+    # (i.e. not asymmetric
 
-    for mineral in minerals:
-        els, d = zip(*meas[mineral].items())
-        x = N.array([E(s).number for s in els])
-        valid = N.array([is_ree(i) for i in x])
-        x = x[valid]
-        d = N.array(d)[valid]
-        u = N.array([m.n for m in d])
-        s = N.array([m.s for m in d])
-
-        # Dirty hack to prevent weird error artifacts
-        s[s > u] /= 2
-        # Should maybe implement proper log errors
-        # (i.e. not asymmetric
-
-        ax.fill_between(x,u-s,u+s,
-            facecolor=color,
-            edgecolor='none',
-            alpha=0.2)
-        ax.plot(x,u, color=color)
+    ax.fill_between(x,u-s,u+s,
+        facecolor=color,
+        edgecolor='none',
+        alpha=0.2)
+    ax.plot(x,u, color=color)
 
 ax.set_yscale('log')
 
