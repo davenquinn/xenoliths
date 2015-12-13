@@ -1,8 +1,7 @@
 import numpy as N
-import pandas as P
+from pandas import read_sql, MultiIndex, pivot_table
 from sqlalchemy import func
-from periodictable import elements
-from collections import OrderedDict
+from periodictable import La,Lu,elements
 
 from ..application import db
 from ..util import uval
@@ -31,47 +30,45 @@ def sims_data(**kwargs):
         .filter(datum.element != 14)
         .filter(bad_data)
         .join(meas)
+        .group_by(
+            meas.sample_id,
+            meas.mineral,
+            datum.element)
         .with_entities(
             meas.sample_id,
             meas.mineral,
             datum.element,
-            datum.norm_ppm,
-            datum.norm_std))
+            func.array_agg(datum.norm_ppm)
+                .label('norm_ppm'),
+            func.array_agg(datum.norm_std)
+                .label('norm_std'),
+            func.count(datum.norm_ppm)
+                .label('n')))
 
-    df = P.read_sql(q.statement,q.session.bind)
-    fn = lambda row: uval(
-            row['norm_ppm'],
-            row['norm_std'])
-    df['norm'] = df.apply(fn,axis=1)
+    df = read_sql(q.statement,q.session.bind)
 
-    fn = lambda x: elements[x['element']].symbol
-    df['symbol'] = df.apply(fn, axis=1)
+    # Apply uncertainty
+    def uncertainty(row):
+        vals = zip(row['norm_ppm'],row['norm_std'])
+        return [uval(n,s) for n,s in vals]
+
+    df['norm'] = df.apply(uncertainty,axis=1)
     df = (df
         .drop('norm_ppm', axis=1)
         .drop('norm_std', axis=1))
 
-    g = df.groupby([
-        'sample_id',
-        'mineral',
-        'element',
-        'symbol'])
-    aggregated = lambda fn: (g['norm']
-        .agg(lambda r: fn(r.values))
-        .reset_index())
+    fn = lambda x: elements[x['element']].symbol
+    df['symbol'] = df.apply(fn, axis=1)
+    df['average'] = df['norm'].apply(N.mean)
 
-    if averaged:
-        df = aggregated(N.mean)
-    if dataframe:
-        return df
-    if not averaged:
-        df = aggregated(tuple)
+    names = ('sample_id','mineral','symbol','element')
+    df.index = MultiIndex.from_arrays(
+        [df.pop(i) for i in names])
 
-    out = OrderedDict()
-    for (s,m,e,sym),n in df.iteritems():
-        # Create data structure
-        if s not in out:
-            out[s] = {}
-        if m not in out[s]:
-            out[s][m] = OrderedDict()
-        out[s][m][syme] = n
-    return out
+    return df
+
+def ree_only(df):
+    ix = df.index.names.index('element')
+    is_ree = lambda n: La.number <= n[ix] <= Lu.number
+    return df[df.index.map(is_ree)]
+
