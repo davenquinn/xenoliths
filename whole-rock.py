@@ -6,6 +6,7 @@ from paper.query import xenolith_minerals
 from xenoliths.application import app, db
 from xenoliths.SIMS.quality import get_data
 from xenoliths.models import Sample
+from xenoliths.SIMS.query import sims_data
 
 with app.app_context():
 
@@ -13,7 +14,9 @@ with app.app_context():
         .filter_by(xenolith=True))
 
     trace_elements = get_data()
-    mineral_modes = xenolith_minerals("molar")
+    modes = [(s.id,s.modes()) for s in xenoliths.all()]
+
+
 
 def cpx_ol_partitioning():
     """
