@@ -94,3 +94,20 @@ def ree_only(df):
     is_ree = lambda n: La.number <= n[ix] <= Lu.number
     return df[df.index.map(is_ree)]
 
+def element_data(data,columns='element'):
+    """
+    Pivots data to return a table of elements by
+    mineral type and sample.
+    """
+    all_cols = data.reset_index()
+
+    ix = ['sample_id','mineral']
+    n = all_cols.groupby(ix)['n'].max()
+    df = all_cols.pivot_table(
+            index=ix,
+            columns=columns,
+            values=['average'],
+            aggfunc=lambda x: x)
+    df.columns = df.columns.get_level_values(1)
+    return df.join(n)
+
