@@ -45,12 +45,6 @@ createView = (d,i)->
     x: 0
     y: i*h
 
-  el = d3.select @
-    .attr idx
-    .attr
-      width: w
-      height: h
-
   cls = d.cls
   # Setup data
   width = d.shape[1]
@@ -78,6 +72,12 @@ createView = (d,i)->
       [x(d[0]),y(d[1])]
 
   getColor = (d) -> if d.v is "un" then "" else minerals[d.v].color
+
+  el = d3.select @
+    .attr idx
+    .attr
+      width: w
+      height: h
 
   rectangles = el.selectAll("path")
     .data(cls)
