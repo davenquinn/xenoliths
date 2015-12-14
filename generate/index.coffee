@@ -2,6 +2,8 @@ fs = require 'fs'
 d3 = require 'd3'
 svgist = require 'svgist'
 yaml = require "js-yaml"
+global.d3 = d3
+legend = require 'd3-svg-legend/no-extend'
 
 dpi = 72
 
@@ -29,9 +31,13 @@ minerals =
     name: "None"
     color: "#ffffff"
 
+colorScale = d3.scale.ordinal()
+  .domain (k for k,v of minerals)
+  .range (v.color for k,v of minerals)
+
 margin = 5
 
-columnWidth = sz.width/2-margin
+columnWidth = (sz.width-margin)/2
 # Tracks offset along figure axis
 offsetY = [margin,margin]
 
@@ -72,19 +78,18 @@ createView = (d,i)->
     .projection (d)->
       [x(d[0]),y(d[1])]
 
-  getColor = (d) -> if d.v is "un" then "" else minerals[d.v].color
-
   el = d3.select @
     .attr idx
     .attr
       width: w
       height: dy
 
-  el.append 'text'
+  text = el.append 'text'
     .attr
       x: idx.x
       y: idx.y+7
     .text d.id
+    .style 'font-weight','500'
 
   rectangles = el.selectAll("path")
     .data(d.cls)
@@ -93,9 +98,9 @@ createView = (d,i)->
         .attr
           d: projection
           stroke: "none"
-          fill: getColor
+          fill: (d)->colorScale(d.v)
 
-generate = (el)->
+generate = (el, window)->
 
   data = JSON.parse(fs.readFileSync('build/classes.json').toString())
   data = data.sort (a,b)->d3.ascending(a.id,b.id)
@@ -111,6 +116,41 @@ generate = (el)->
     .attr
       class: 'section'
     .each createView
+
+  i = 0
+  if offsetY[1] < offsetY[0]
+    i = 1
+  ofs = offsetY[i]
+  legend = svg.append 'g'
+    .attr
+      class: 'legend'
+      transform: "translate(0 #{offsetY[i]})"
+
+  minData = (v for k,v of minerals)
+  sel = legend.selectAll 'g.mineral'
+    .data minData.filter (d)->d.name != 'None'
+    .enter()
+
+  sel.append 'g'
+    .attr
+      class: 'mineral'
+    .each (d,i)->
+      y = 16*i
+      h = 12
+      sel = d3.select @
+      sel.append 'rect'
+        .attr
+          height: h
+          width: h
+          transform: "translate(0 #{y})"
+          fill: d.color
+      sel.append 'text'
+        .text d.name
+        .attr
+          'dominant-baseline': 'middle'
+          transform: "translate(16 #{y+h-2})"
+        .style
+          'font-size': 9
 
   svg.attr height: Math.max(offsetY[0],offsetY[1])
 
