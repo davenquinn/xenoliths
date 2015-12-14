@@ -39,16 +39,16 @@ ids = ("CK-#{i}" for i in range)
 margin = 5
 
 # Tracks offset along figure axis
-offsetY = 0
+offsetY = [0,0]
 
 createView = (d,i)->
   w = sz.width/2
   # Height will be calculated automatically
+  columnIndex = i%2
   idx =
-    x: 0
-    y: offsetY
+    x: columnIndex*w
+    y: offsetY[columnIndex]
 
-  cls = d.cls
   # Setup data
   width = d.shape[1]
   height = d.shape[0]
@@ -58,14 +58,14 @@ createView = (d,i)->
 
   dy = w*height/width
   # new offset
-  offsetY += dy
+  offsetY[columnIndex] += dy
 
   x = d3.scale.linear()
     .domain([0,width])
     .range([idx.x,idx.x+w])
   y = d3.scale.linear()
     .domain([0,height])
-    .range([idx.y,offsetY])
+    .range([idx.y,idx.y+dy])
 
   projection = d3.geo.path()
     .projection (d)->
@@ -80,7 +80,7 @@ createView = (d,i)->
       height: dy
 
   rectangles = el.selectAll("path")
-    .data(cls)
+    .data(d.cls)
       .enter()
         .append("path")
         .attr
@@ -91,9 +91,6 @@ createView = (d,i)->
 generate = (el)->
 
   data = JSON.parse(fs.readFileSync('build/classes.json').toString())
-  imagePaths = yaml.safeLoad fs.readFileSync('images.yaml')
-  data.forEach (d)->
-    d.imagePath = imagePaths[d.id]
   data = data.sort (a,b)->d3.ascending(a.id,b.id)
 
   svg = d3.select el
@@ -107,6 +104,8 @@ generate = (el)->
     .attr
       class: 'section'
     .each createView
+
+  svg.attr height: Math.max(offsetY[0],offsetY[1])
 
 svgist generate, filename: 'build/textures.svg'
 
