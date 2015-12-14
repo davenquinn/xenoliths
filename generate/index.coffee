@@ -38,12 +38,15 @@ ids = ("CK-#{i}" for i in range)
 
 margin = 5
 
+# Tracks offset along figure axis
+offsetY = 0
+
 createView = (d,i)->
   w = sz.width/2
-  h = sz.height/6
+  # Height will be calculated automatically
   idx =
     x: 0
-    y: i*h
+    y: offsetY
 
   cls = d.cls
   # Setup data
@@ -53,20 +56,17 @@ createView = (d,i)->
   if d.id == 'CK-3'
     width -= 10
 
-  set = Math.max(width,height)
-  if set == width
-    dx = 0
-    dy = (set-height)/2
-  else
-    dx = (set-width)/2
-    dy = 0
+  dy = w*height/width
+  # new offset
+  offsetY += dy
 
   x = d3.scale.linear()
+    .domain([0,width])
     .range([idx.x,idx.x+w])
-    .domain([0-dx,set-dx])
   y = d3.scale.linear()
-    .range([idx.y,idx.y+h])
-    .domain([0-dy,set-dy])
+    .domain([0,height])
+    .range([idx.y,offsetY])
+
   projection = d3.geo.path()
     .projection (d)->
       [x(d[0]),y(d[1])]
@@ -77,7 +77,7 @@ createView = (d,i)->
     .attr idx
     .attr
       width: w
-      height: h
+      height: dy
 
   rectangles = el.selectAll("path")
     .data(cls)
