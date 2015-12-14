@@ -12,7 +12,7 @@ with app.app_context():
     colors = sample_colors()
 
 fig, axes = P.subplots(3,1,
-        figsize=(5,10),
+        figsize=(5,12),
         sharex=True)
 fig.subplots_adjust(hspace=0.1)
 
