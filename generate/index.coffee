@@ -1,6 +1,7 @@
 fs = require 'fs'
 d3 = require 'd3'
 svgist = require 'svgist'
+yaml = require "js-yaml"
 
 dpi = 72
 basepath = '/Users/Daven/Development/Xenoliths/application/xenoliths/_frontend/'
@@ -9,7 +10,7 @@ options = appRequire 'options'
 
 sz =
   width: 4*dpi
-  height: 6*dpi
+  height: 8*dpi
 
 minerals =
   cpx:
@@ -32,16 +33,17 @@ minerals =
     color: "#ffffff"
 
 #Order down and then across
-ids = ["CK-2","CK-5","CK-7","CK-3","CK-4","CK-6"]
+range = [2..7]
+ids = ("CK-#{i}" for i in range)
 
 margin = 5
 
 createView = (d,i)->
   w = sz.width/2
-  h = sz.height/3
+  h = sz.height/6
   idx =
-    x: Math.floor((i/3)%2)*w
-    y: i%3*h
+    x: 0
+    y: i*h
 
   el = d3.select @
     .attr idx
@@ -55,7 +57,7 @@ createView = (d,i)->
   height = d.shape[0]
 
   if d.id == 'CK-3'
-    width -= 10 
+    width -= 10
 
   set = Math.max(width,height)
   if set == width
@@ -89,7 +91,10 @@ createView = (d,i)->
 generate = (el)->
 
   data = JSON.parse(fs.readFileSync('build/classes.json').toString())
-
+  imagePaths = yaml.safeLoad fs.readFileSync('images.yaml')
+  data.forEach (d)->
+    d.imagePath = imagePaths[d.id]
+  data = data.sort (a,b)->d3.ascending(a.id,b.id)
 
   svg = d3.select el
     .attr sz
