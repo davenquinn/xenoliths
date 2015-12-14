@@ -152,6 +152,21 @@ generate = (el, window)->
         .style
           'font-size': 9
 
+  sb = legend.append 'g'
+    .attr
+      class: 'scalebar'
+      transform: "rotate(-90 #{columnWidth},0) translate(#{columnWidth/2} 0)"
+  sb.append 'line'
+    .attr
+      x1: columnWidth/2
+      stroke: 'black'
+      'stroke-width': 3
+  sb.append 'text'
+    .text '1 cm'
+    .attr
+      'text-anchor': 'middle'
+      transform: "translate(#{columnWidth/4} -3)"
+
   svg.attr height: Math.max(offsetY[0],offsetY[1])
 
 svgist generate, filename: 'build/textures.svg'
