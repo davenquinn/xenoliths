@@ -4,9 +4,6 @@ svgist = require 'svgist'
 yaml = require "js-yaml"
 
 dpi = 72
-basepath = '/Users/Daven/Development/Xenoliths/application/xenoliths/_frontend/'
-appRequire = (d)->require basepath+d
-options = appRequire 'options'
 
 sz =
   width: 4*dpi
@@ -32,21 +29,22 @@ minerals =
     name: "None"
     color: "#ffffff"
 
-#Order down and then across
-range = [2..7]
-ids = ("CK-#{i}" for i in range)
-
 margin = 5
 
+columnWidth = sz.width/2-margin
 # Tracks offset along figure axis
-offsetY = [0,0]
+offsetY = [margin,margin]
 
 createView = (d,i)->
-  w = sz.width/2
+  w = columnWidth
   # Height will be calculated automatically
-  columnIndex = i%2
+  columnIndex = Math.floor(i/3)
+
+  # Text area height
+  headerHeight = 10
+
   idx =
-    x: columnIndex*w
+    x: columnIndex*(w+margin)
     y: offsetY[columnIndex]
 
   # Setup data
@@ -58,14 +56,17 @@ createView = (d,i)->
 
   dy = w*height/width
   # new offset
-  offsetY[columnIndex] += dy
+  offsetY[columnIndex] += headerHeight + dy + margin
 
+  ofs = idx.y + headerHeight
   x = d3.scale.linear()
     .domain([0,width])
     .range([idx.x,idx.x+w])
+    .clamp true
   y = d3.scale.linear()
     .domain([0,height])
-    .range([idx.y,idx.y+dy])
+    .range([ofs,ofs+dy])
+    .clamp true
 
   projection = d3.geo.path()
     .projection (d)->
@@ -78,6 +79,12 @@ createView = (d,i)->
     .attr
       width: w
       height: dy
+
+  el.append 'text'
+    .attr
+      x: idx.x
+      y: idx.y+7
+    .text d.id
 
   rectangles = el.selectAll("path")
     .data(d.cls)
