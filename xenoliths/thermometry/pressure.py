@@ -7,12 +7,12 @@ from ..application import db
 from ..microprobe.models.query import tagged, exclude_bad
 
 def triplets(queryset, distinct=None):
-    pairs = pyroxene_pairs(queryset,names=('ol','cpx'),distinct=max)
-    opxs = queryset.filter(ProbeMeasurement.mineral=='opx').subquery()
+    pairs = pyroxene_pairs(queryset,names=('ol','opx'),distinct=None)
+    cpxs = queryset.filter(ProbeMeasurement.mineral=='cpx').subquery()
     for ol,cpx in pairs:
-        q = closest(opxs,cpx)
+        q = closest(cpxs,opx,None)
         res = db.session.execute(q).first()
-        assert res[1] == cpx.id
+        assert res[1] == opx.id
         opx = ProbeMeasurement.query.get(res[0])
         yield opx,cpx,ol
 
