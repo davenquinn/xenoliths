@@ -8,7 +8,7 @@ color = require "color"
 
 xenolithTexture = textures.lines()
   .size 8
-  .stroke color("#b3c7b9").darken(0.2).hexString()
+  .stroke color("#91aa5f").hexString()
 
 module.exports = ->
 

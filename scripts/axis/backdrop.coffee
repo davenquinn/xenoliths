@@ -2,17 +2,17 @@ d3 = require "d3"
 
 style =
   cc:
-    fill: "#ffc3bd"
+    fill: "#f5a185"
     stroke: "black"
     "stroke-width": 1
   oc:
-    fill: "#aeb8ab"
+    fill: "#4f5a78"
     stroke: "#666"
     "stroke-width": 0.5
   ml:
-    fill: "#b3c7b9"
+    fill: "#c7d7aa"
   as:
-    fill: "#d1ddd5"
+    fill: "#c7d7aa"
 
 module.exports = (ax)->
   # Function that creates an axis backdrop
