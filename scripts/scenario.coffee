@@ -13,20 +13,25 @@ createAxes = (axes, data)->
 
 # Specify layouts to use for each scenario
 wide_layout = layout(3, ["small","large"])
-offs2 = wide_layout.height()+G.margin.outside+G.section.spacing.y
+interval = wide_layout.height()+G.section.spacing.y
+offs2 = G.margin.outside + interval
+offs3 = offs2 + interval
+
+small_layout = layout(2, ["large"])
+
 params =
   forearc:
     layout: wide_layout
     x: G.margin.outside
-    y: G.margin.outside
+    y: offs2
   farallon:
     layout: wide_layout
     x: G.margin.outside
-    y: offs2
+    y: G.margin.outside
   underplating:
-    layout: layout(2, ["large"])
-    x: wide_layout.width()+G.section.spacing.x+G.margin.outside
-    y: offs2
+    layout: small_layout
+    x: G.margin.outside+wide_layout.width()-small_layout.width()
+    y: offs3
 
 module.exports = (data)->
   # Builds Scenarios
@@ -53,5 +58,9 @@ module.exports = (data)->
           .labels d.labels
         d3.select(@).call lo
         createAxes lo.axes(), d.slices
+
+    el.attr
+      height: offs3 + interval + G.margin.outside
+      width: G.margin.outside*2 + wide_layout.width()
 
   return s

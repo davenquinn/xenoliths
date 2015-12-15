@@ -19,9 +19,6 @@ func = (el)->
   height = 480
   scenarios = setupScenarios data
   d3.select el
-    .attr
-      width: 650
-      height: height
     .call scenarios
 
 svgist func, filename: 'build/cooling-scenarios.svg'
