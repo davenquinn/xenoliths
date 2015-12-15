@@ -94,11 +94,11 @@ def setup():
     db.session.commit()
     write_json()
 
+@ProbeCommand.command()
 def recalculate():
     """Calculates derived parameters for already-imported data"""
     for meas in ProbeMeasurement.query.all():
         print(meas.id)
-        meas.compute_derived(db.session)
+        meas.compute_derived()
     db.session.commit()
 
-ProbeCommand.add_command(recalculate, name="recalculate")

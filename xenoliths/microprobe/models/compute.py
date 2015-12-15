@@ -66,7 +66,7 @@ def compute_mineral(point):
             mineral = "na"
 
     if mineral in ["opx", "cpx"]:
-        if not 3.985 < cation_total < 4.015:
+        if not 3.975 < cation_total < 4.025:
             mineral = "na"
 
     point.mineral = mineral
