@@ -12,7 +12,7 @@ createAxes = (axes, data)->
     ax.plot d
 
 # Specify layouts to use for each scenario
-wide_layout = layout(4, ["large","small","large"])
+wide_layout = layout(3, ["small","large"])
 offs2 = wide_layout.height()+G.margin.outside+G.section.spacing.y
 params =
   forearc:

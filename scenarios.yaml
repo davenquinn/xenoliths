@@ -1,3 +1,17 @@
+- name: farallon
+  id: farallon
+  title: A. Shatsky-conjugate
+  subtitle: Cool modern geotherm
+  slices: &subduction
+    - id: before-subduction
+    - id: after-subduction
+      cc: 30
+    - id: final
+      cc: 30
+  labels:
+    - Subduction/underplating
+    - ""
+    - 1.6 Ma
 - name: forearc
   id:
     - forearc-80-60
@@ -6,32 +20,15 @@
     - forearc-50-30
     - forearc-40-20
     - forearc-30-10
-  title: Emplacement under a forearc
-  slices: &subduction
-    - id: initial
-    - id: before-subduction
-    - id: after-subduction
-      cc: 30
-    - id: final
-      cc: 30
-  labels:
-    - Emplacement
-    - Subduction/underplating
-    - ""
-    - 1.6 Ma
-- name: farallon
-  id: farallon
-  title: Shatsky-conjugate
-  subtitle: Cool modern geotherm
   slices: *subduction
+  title: B. Emplacement under a forearc
   labels:
-    - Emplacement
     - Subduction/underplating
     - ""
     - 1.6 Ma
 - name: underplating
   id: underplating
-  title: Slab Window
+  title: C. Slab Window
   slices:
     - id: initial
       cc: 30

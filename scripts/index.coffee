@@ -13,6 +13,7 @@ cfg = JSON.parse(JSON.stringify(cfg))
 data = buildData dir, cfg
 
 # Figure s at 100 ppi
+ppi = 100
 
 func = (el)->
   height = 480
