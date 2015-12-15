@@ -34,8 +34,8 @@ def compute_transform(self, system="pyroxene"):
     molar = {i._oxide:i.molar_percent for i in self.data}
     return converter.transform(molar)
 
-def compute_formula(meas, oxygen=6):
-    formula = meas.__get_atomic__()
+def compute_formula(meas, oxygen=6, **kwargs):
+    formula = meas.__get_atomic__(**kwargs)
     scalar = oxygen/formula["O"]
     for key, value in formula.iteritems():
         formula[key] = value*scalar
@@ -56,7 +56,7 @@ def compute_mineral(point):
 
     ## Recompute formula based on oxygen basis of minerals
     ofu = oxygen_basis(mineral)
-    point.formula = compute_formula(point, ofu)
+    point.formula = compute_formula(point, ofu, uncertainties=False)
 
     cation_total = point.formula["Total"]-ofu
     if mineral == "ol":

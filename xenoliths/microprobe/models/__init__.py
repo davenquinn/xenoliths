@@ -150,7 +150,7 @@ class ProbeMeasurement(BaseModel):
             return "Unknown"
 
     def add_tag(self,name):
-        slug = slugify(name.strip())
+        slug = slugify(unicode(name.strip()))
         tag = Tag.get_or_create(name=slug)
         try:
             idx = self.tags.index(tag)
