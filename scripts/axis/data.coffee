@@ -1,21 +1,7 @@
 d3 = require "d3"
-simplify = require "simplify-js"
+simplifiedLine = require '../simplified-line'
 
 module.exports = (ax)->
-
-  simplifiedLine = (amount=1)->
-    line = d3.svg.line()
-      .x (d)->d.x
-      .y (d)->d.y
-
-    (data)->
-      d = data.map (d)->
-        {
-          x: ax.scale.temp d.T
-          y: ax.scale.depth d.z
-        }
-      l = simplify d,amount,true
-      line l
 
   el = null
   out = (data)->
@@ -59,7 +45,7 @@ module.exports = (ax)->
       .attr
         class: "data"
         id: (d,i)->data.id[i]
-        d: simplifiedLine 0.005
+        d: simplifiedLine ax.scale, 0.005
         "stroke-width": 2
         stroke: '#750000'
         fill: "transparent"

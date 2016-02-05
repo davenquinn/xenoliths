@@ -1,14 +1,10 @@
 d3 = require "d3"
-textures = require "textures"
 createBackdrop = require "./backdrop"
 plotData = require "./data"
 G = require "../geometry"
+textures = require '../textures'
 uuid = require "uuid"
 color = require "color"
-
-xenolithTexture = textures.lines()
-  .size 8
-  .stroke color("#91aa5f").hexString()
 
 module.exports = ->
 
@@ -35,14 +31,12 @@ module.exports = ->
     c.id = id
     return c
 
-
-
   ax = (container)->
     cp = clipPath()
 
     container
       .call cp
-      .call xenolithTexture
+      .call textures.xenoliths
 
     el = container.append "g"
       .attr
@@ -100,7 +94,7 @@ module.exports = ->
         width: max.x-min.x
         height: max.y-min.y
       .style
-        fill: xenolithTexture.url()
+        fill: textures.xenoliths.url()
 
   ax
 
