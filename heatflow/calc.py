@@ -146,7 +146,7 @@ def farallon_reheated():
     underplating_depth = u(90,'km')
     underplating_T = u(20,'Myr')
 
-    record = partial(save_info,'farallon_reheated')
+    record = partial(save_info,'farallon-reheated')
     section, t = farallon_setup(record)
     before_underplating = finite_solve(section, t-underplating_T)
 
@@ -209,4 +209,4 @@ def steady_state():
 
     solver = FiniteSolver(section)
 
-    record("present",solver.steady_state())
+    record("final",solver.steady_state())
