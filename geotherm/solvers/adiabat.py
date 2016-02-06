@@ -7,8 +7,7 @@ from ..units import u
 class AdiabatSolver(object):
     defaults = dict(
         start_temp=u(1300,"degC"),
-        start_depth=u(0,"m")
-    )
+        start_depth=u(0,"m"))
     def __init__(self, **kwargs):
         for k,v in self.defaults.items():
             setattr(self,k,kwargs.pop(k,v))
@@ -35,8 +34,9 @@ class AdiabatSolver(object):
         T = u(1600,"K")
 
         coeff = a*g*dz*T/Cp
-        integrated = u(N.cumsum(coeff.into("K")),coeff.units)
-        section.profile[idx] = integrated + self.start_temp.to("K")
+        integrated = u(N.cumsum(coeff.into('K')),coeff.units)
+        _ = integrated.into('K') + self.start_temp.into("K")
+        section.profile[idx] = u(_,'K').to('degC')
 
         return section
 
