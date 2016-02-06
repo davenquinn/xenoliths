@@ -104,14 +104,10 @@ def forearc_case(name, start_time, subduction_time):
 
     record("final",final_section,t=present)
 
-def farallon_case():
+def farallon_setup(record):
     """
-    Similar to the forearc-geotherm case, but with the
-    temperature under the slab pinned to 700 degC at 10kb,
-    a constraint garnered from the Rand Schist
+    Shared setup for Farallon and Farallon-reheated cases
     """
-    record = partial(save_info, "farallon")
-
     start_time = u(140,"Myr")
     subduction_time = u(80,"Myr")
 
@@ -128,11 +124,43 @@ def farallon_case():
 
     t = subduction_time-elapsed_time
     record("after-subduction", section, t=t)
+    return section, t
+
+def farallon_case():
+    """
+    Similar to the forearc-geotherm case, but with the
+    temperature under the slab pinned to 700 degC at 10kb,
+    a constraint garnered from the Rand Schist
+    """
+    record = partial(save_info, 'farallon')
+    section, t = farallon_setup(record)
     final_section = finite_solve(section,
             t-present)
-
     record("final",final_section,t=present)
 
+def farallon_reheated():
+    """
+    Deep (90 km) underplating
+    of mantle lithosphere at 1300 degC
+    """
+    underplating_depth = u(90,'km')
+    underplating_T = u(20,'Myr')
+
+    record = partial(save_info,'farallon_reheated')
+    section, t = farallon_setup(record)
+    before_underplating = finite_solve(section, t-underplating_T)
+
+    record("before-underplating", section, t=underplating_T)
+    apply_adiabat = AdiabatSolver(
+        start_depth=underplating_depth,
+        start_temp=u(1300,'degC'))
+
+    section = apply_adiabat(section)
+    record("after-underplating", section, t=underplating_T)
+
+    final_section = finite_solve(section,underplating_T-present)
+
+    record("final", final_section, t=present)
 
 def underplating():
     name = "underplating"

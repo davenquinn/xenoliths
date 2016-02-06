@@ -3,7 +3,11 @@ from functools import partial
 
 from geotherm.units import u
 
-from .calc import underplating, forearc_case, farallon_case, FiniteSolver
+from .calc import (
+    underplating, forearc_case,
+    farallon_case, farallon_reheated,
+    FiniteSolver
+)
 
 @click.command()
 @click.option('--debug', default=False, is_flag=True)
@@ -24,6 +28,7 @@ def cli(scenarios, debug=False, all=False, time_step=None):
 
     registry["underplating"] = underplating
     registry["farallon"] = farallon_case
+    registry["farallon-reheated"] = farallon_reheated
 
     # Run scenarios requested
     if all:
@@ -43,4 +48,3 @@ def cli(scenarios, debug=False, all=False, time_step=None):
         click.echo("Running scenario "+click.style(s,fg='green'))
         registry[s]()
         click.echo("")
-
