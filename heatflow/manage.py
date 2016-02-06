@@ -6,7 +6,7 @@ from geotherm.units import u
 from .calc import (
     underplating, forearc_case,
     farallon_case, farallon_reheated,
-    FiniteSolver
+    steady_state, FiniteSolver
 )
 
 @click.command()
@@ -26,9 +26,11 @@ def cli(scenarios, debug=False, all=False, time_step=None):
         args = (n,u(sub_age+oc_age,"Myr"), u(sub_age,"Myr"))
         registry[n] = partial(forearc_case,*args)
 
-    registry["underplating"] = underplating
-    registry["farallon"] = farallon_case
-    registry["farallon-reheated"] = farallon_reheated
+    registry = {
+        "underplating": underplating,
+        "farallon": farallon_case,
+        "farallon-reheated": farallon_reheated,
+        "steady-state": steady_state}
 
     # Run scenarios requested
     if all:

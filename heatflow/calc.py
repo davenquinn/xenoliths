@@ -204,9 +204,9 @@ def steady_state():
     record = partial(save_info, "steady-state")
 
     section = Section([
-        crust.to_layer(interface_depth),
+        continental_crust.to_layer(interface_depth),
         oceanic_mantle.to_layer(total_depth-interface_depth)])
 
     solver = FiniteSolver(section)
 
-    record("steady-state",solver.steady_state())
+    record("present",solver.steady_state())
