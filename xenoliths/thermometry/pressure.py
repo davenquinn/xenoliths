@@ -1,4 +1,6 @@
 from __future__ import division
+from sqlalchemy import func
+
 from .thermometers import BKN, Taylor1998
 from .barometers import Ca_Olivine
 from .results import pyroxene_pairs, closest
@@ -7,13 +9,19 @@ from ..application import db
 from ..microprobe.models.query import tagged, exclude_bad
 
 def triplets(queryset, distinct=None):
-    pairs = pyroxene_pairs(queryset,names=('ol','opx'),distinct=None)
-    cpxs = queryset.filter(ProbeMeasurement.mineral=='cpx').subquery()
-    for ol,cpx in pairs:
-        q = closest(cpxs,opx,None)
-        res = db.session.execute(q).first()
-        assert res[1] == opx.id
-        opx = ProbeMeasurement.query.get(res[0])
+    olivines = queryset.filter(
+            ProbeMeasurement.mineral=='ol')
+    for ol in olivines.all():
+        # Get closest clinopyroxene
+        opx = (queryset
+            .filter(ProbeMeasurement.mineral=='opx')
+            .order_by(ProbeMeasurement.geometry.ST_Distance(ol.geometry))
+            .first())
+        cpx = (queryset
+            .filter(ProbeMeasurement.mineral=='cpx')
+            .order_by(ProbeMeasurement.geometry.ST_Distance(ol.geometry))
+            .first())
+        print opx, cpx, ol
         yield opx,cpx,ol
 
 def geobaric_gradient(depth):
