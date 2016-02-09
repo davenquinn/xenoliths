@@ -38,7 +38,7 @@ module.exports = (ax)->
       label.attr dy: 8
 
     sel = el.selectAll "path.data"
-      .data data.profile
+      .data data.profile.filter (d)->d?
 
     sel.enter()
       .append "path"

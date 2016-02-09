@@ -23,8 +23,11 @@ module.exports = (dir,cfg)->
     scenario.slices.forEach (d)->
       d.profile = scenario.id.map (id)->
         filename = path.join dir, id, d.id
-        getProfile(filename).filter (a)-> a.z <= 91
+        try
+          return getProfile(filename).filter (a)-> a.z <= 91
+        catch err
+          return null
+
       d.ml = ml_depth d.profile[0]
       console.log d.ml
     return scenario
-

@@ -1,13 +1,18 @@
 - name: farallon
-  id: farallon
+  id:
+    - farallon
+    - farallon-reheated
   title: A. Shatsky-conjugate
   subtitle: Cool modern geotherm
   slices: &subduction
     - id: before-subduction
+      oc: 5
     - id: after-subduction
       cc: 30
+      oc: 35
     - id: final
       cc: 30
+      oc: 35
   labels:
     - Subduction/underplating
     - ""
@@ -37,4 +42,3 @@
   labels:
     - 20 Ma
     - 1.6 Ma
-
