@@ -1,7 +1,33 @@
+# -*- coding:utf-8 -*-
+
 from matplotlib.pyplot import subplots
 from xenoliths import app
 from xenoliths.models import Sample
-from xenoliths.thermometry.rare_earth.plot import plot_DREE
+from xenoliths.thermometry.rare_earth import (
+    ree_pyroxene, regress, temperature)
+
+def plot_DREE(ax, sample, annotate=True):
+    X,Y = ree_pyroxene(sample, 1.5) # Pressure in GPa
+    res = regress(X,Y)
+    T = temperature(res)
+
+    title = u"{id}: {n:.0f}±{s:.0f} °C"\
+        .format(
+            id=sample.id,
+            n=T.n,
+            s=T.s)
+    ax.plot(X,Y, "o")
+    ax.plot(res.X,res.fittedvalues,"-")
+
+    res = regress(X,Y,hree_only=True)
+    ax.plot(res.X,res.fittedvalues,"-",color="#aaaaaa")
+
+    if not annotate:
+        return ax
+    for x,y,t in zip(X,Y,rare_earths):
+        ax.annotate(t, (x,y),
+                xytext=(5,5),
+                textcoords="offset points")
 
 with app.app_context():
     fig, axs = subplots(2,3,
