@@ -29,7 +29,7 @@ sz =
 sets =
   Quinn:
     r: 4
-    fill: 'dodgerblue'
+    fill: (d)->d.color
   Luffi:
     r: 3
     fill: '#888'

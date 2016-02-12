@@ -31,6 +31,7 @@ with app.app_context():
 # Convert our data to dataframe
 d = P.DataFrame(data, idx)
 d = d.multiply(100)
+d['color'] = [s.color for s in samples]
 d['source'] = 'Quinn'
 d['type'] = 'point-counting'
 
