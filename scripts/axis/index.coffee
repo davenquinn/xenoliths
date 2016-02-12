@@ -3,6 +3,7 @@ createBackdrop = require "./backdrop"
 plotData = require "./data"
 G = require "../geometry"
 textures = require '../textures'
+xenolithsArea = require '../xenoliths-area'
 uuid = require "uuid"
 color = require "color"
 
@@ -80,21 +81,13 @@ module.exports = ->
 
   ax.backdrop = createBackdrop ax
   ax.plot = plotData ax
-  ax.xenolithArea = ->
-    min =
-      x: ax.scale.temp 900
-      y: ax.scale.depth 40
-    max =
-      x: ax.scale.temp 1100
-      y: ax.scale.depth 80
 
-    ax.node().append "rect"
-      .attr min
-      .attr
-        width: max.x-min.x
-        height: max.y-min.y
-      .style
-        fill: textures.xenoliths.url()
+  line = d3.svg.line()
+    .x (d)->ax.scale.temp(d[0])
+    .y (d)->ax.scale.depth(d[1])
+    .interpolate "basis"
+
+  ax.xenolithArea = ->
+    xenolithsArea ax.node(), line
 
   ax
-

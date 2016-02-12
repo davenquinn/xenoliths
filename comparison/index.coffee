@@ -4,6 +4,7 @@ fs = require 'fs'
 svgist = require 'svgist'
 path = require 'path'
 simplifiedLine = require '../scripts/simplified-line'
+xenolithsArea = require '../scripts/xenoliths-area'
 textures = require '../scripts/textures'
 
 # Create dataset from inputs
@@ -97,20 +98,11 @@ func = (el)->
       fill: 'transparent'
       d: simplifiedLine {temp: x, depth: y}, 0.005
 
-  _ = fs.readFileSync 'xenoliths-area.json'
-  data = JSON.parse _
-
   line = d3.svg.line()
     .x (d)->x(d[0])
     .y (d)->y(d[1])
     .interpolate 'basis'
+  xenolithsArea ax, line
 
-  coords = data.geometry.coordinates
-  coords.push coords[0]
-  ax.append 'path'
-    .datum coords
-    .attr
-      d: (d)-> line(d)+'Z'
-      fill: textures.xenoliths.url()
 
 svgist func, filename: 'build/comparison.svg'

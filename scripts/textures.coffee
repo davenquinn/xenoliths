@@ -3,5 +3,4 @@ color = require "color"
 
 c = color("#91aa5f").hexString()
 module.exports =
-  xenoliths: textures.lines().size(8).stroke(c)
-
+  xenoliths: textures.lines().size(4).stroke(c)

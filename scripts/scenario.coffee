@@ -39,8 +39,6 @@ module.exports = (data)->
     for k,o of params[d.name]
       d[k] = o
 
-  console.log data
-
   s = (el)->
     sel = el.selectAll 'g.scenario'
       .data data
