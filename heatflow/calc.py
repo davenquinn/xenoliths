@@ -61,16 +61,17 @@ def save_info(name, step, section, **kwargs):
         json.dump(out,f)
 
 def instrumented(name=None):
+    print(name)
     def decorator(f):
         @wraps(f)
         def wrapper(*args,**kwargs):
-            if name is None:
+            _ = name
+            if _ is None:
                 # We get name as first argument
                 # passed to wrapped function
                 args = list(args)
-                name = args.pop(0)
-                print(args)
-            recorder = partial(save_info,name)
+                _ = args.pop(0)
+            recorder = partial(save_info,_)
             return f(recorder,*args,**kwargs)
         return wrapper
     return decorator

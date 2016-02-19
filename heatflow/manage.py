@@ -18,7 +18,11 @@ from .calc import (
 def cli(scenarios, debug=False, all=False, implicit=False, time_step=None):
     """ Solve the basic heat flow models."""
 
-    registry = {}
+    registry = {
+        "underplating": underplating,
+        "farallon": farallon_case,
+        "farallon-reheated": farallon_reheated,
+        "steady-state": steady_state}
 
     forearc_list = [
         (80,60),(70,50),(60,40),(50,30),(40,20),(30,10),(28,2)]
@@ -26,12 +30,6 @@ def cli(scenarios, debug=False, all=False, implicit=False, time_step=None):
         n = "forearc-{0}-{1}".format(sub_age,oc_age)
         args = (n,u(sub_age+oc_age,"Myr"), u(sub_age,"Myr"))
         registry[n] = partial(forearc_case,*args)
-
-    registry = {
-        "underplating": underplating,
-        "farallon": farallon_case,
-        "farallon-reheated": farallon_reheated,
-        "steady-state": steady_state}
 
     # Run scenarios requested
     if all:
