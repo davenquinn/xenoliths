@@ -5,7 +5,7 @@ from __future__ import division, print_function
 import os, json
 from click import echo
 
-from functools import partial
+from functools import partial, wraps
 import matplotlib
 matplotlib.use("TkAgg")
 
@@ -60,6 +60,21 @@ def save_info(name, step, section, **kwargs):
     with open(path,"w") as f:
         json.dump(out,f)
 
+def instrumented(name=None):
+    def decorator(f):
+        @wraps(f)
+        def wrapper(*args,**kwargs):
+            if name is None:
+                # We get name as first argument
+                # passed to wrapped function
+                args = list(args)
+                name = args.pop(0)
+                print(args)
+            recorder = partial(save_info,name)
+            return f(recorder,*args,**kwargs)
+        return wrapper
+    return decorator
+
 def pre_subduction(record, start_time, subduction_time):
     """
     Get an oceanic geotherm at emplacement and just before
@@ -82,14 +97,13 @@ def pre_subduction(record, start_time, subduction_time):
 
     return underplated_oceanic
 
-def forearc_case(name, start_time, subduction_time):
+@instrumented()
+def forearc_case(record, start_time, subduction_time):
     """
     All of the cases with a forearc geotherm look similar in
     form, with the only differences being the timing of initial
     emplacemnt on the ocean floor and subduction.
     """
-    record = partial(save_info, name)
-
     underplated_oceanic = pre_subduction(record, start_time, subduction_time)
 
     elapsed_time, section = stepped_subduction(underplated_oceanic)
@@ -124,7 +138,8 @@ def farallon_setup(record):
     record("after-subduction", section, t=t)
     return section, t
 
-def farallon_case():
+@instrumented('farallon')
+def farallon_case(record):
     """
     Similar to the forearc-geotherm case, but with the
     temperature under the slab pinned to 700 degC at 10kb,
@@ -136,7 +151,8 @@ def farallon_case():
             t-present)
     record("final",final_section,t=present)
 
-def farallon_reheated(dT=None):
+@instrumented('farallon-reheated')
+def farallon_reheated(record, dT=None):
     """
     Deep (90 km) underplating
     of mantle lithosphere at 1450 (Tmax for GDHsolver) degC
@@ -144,7 +160,6 @@ def farallon_reheated(dT=None):
     underplating_depth = u(90,'km')
     underplating_T = u(20,'Myr')
 
-    record = partial(save_info,'farallon-reheated')
     section, t = farallon_setup(record)
     section = finite_solve(section, t-underplating_T)
 
@@ -176,13 +191,11 @@ def farallon_reheated(dT=None):
 
     record("final", final_section, t=present)
 
-def underplating():
-    name = "underplating"
-    record = partial(save_info, name)
+@instrumented('underplated')
+def underplating(record):
 
     plot_opts = dict(
-        range=(0,1500),
-        title=name)
+        range=(0,1500))
 
     start = u(20,"Myr")
 
@@ -209,13 +222,12 @@ def underplating():
 
     record("final", final_section, t=present)
 
-def steady_state():
+@instrumented('steady-state')
+def steady_state(record):
     """
     Steady-state case for 30 km of crust
     atop 270 km of oceanic mantle
     """
-    record = partial(save_info, "steady-state")
-
     section = Section([
         continental_crust.to_layer(interface_depth),
         oceanic_mantle.to_layer(total_depth-interface_depth)])
