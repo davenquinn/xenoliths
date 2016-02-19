@@ -36,3 +36,6 @@ convergence_velocity = u(100,"mm/yr")
 
 # Farallon case
 #slab_retreat_velocity = u(5,'km/Myr')
+
+# Database to store completed models
+DBNAME = "postgresql:///xenoliths_flask"

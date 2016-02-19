@@ -61,7 +61,6 @@ def save_info(name, step, section, **kwargs):
         json.dump(out,f)
 
 def instrumented(name=None):
-    print(name)
     def decorator(f):
         @wraps(f)
         def wrapper(*args,**kwargs):
