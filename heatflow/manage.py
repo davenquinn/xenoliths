@@ -12,9 +12,10 @@ from .calc import (
 @click.command()
 @click.option('--debug', default=False, is_flag=True)
 @click.option('--all', default=False, is_flag=True)
+@click.option('-i','--implicit',default=False, is_flag=True)
 @click.option('-dt','--time-step',default=None,type=float)
 @click.argument('scenarios', nargs=-1)
-def cli(scenarios, debug=False, all=False, time_step=None):
+def cli(scenarios, debug=False, all=False, implicit=False, time_step=None):
     """ Solve the basic heat flow models."""
 
     registry = {}
@@ -40,6 +41,9 @@ def cli(scenarios, debug=False, all=False, time_step=None):
         click.echo("Possible scenarios:")
         for i in registry:
             click.echo("  "+i)
+
+    FiniteSolver.set_defaults(type=
+        'implicit' if implicit else 'crank-nicholson')
 
     if time_step is not None:
         dt = u(time_step,'Myr')

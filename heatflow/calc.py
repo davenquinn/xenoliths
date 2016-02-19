@@ -60,15 +60,13 @@ def save_info(name, step, section, **kwargs):
     with open(path,"w") as f:
         json.dump(out,f)
 
-def pre_subduction(name, start_time, subduction_time):
+def pre_subduction(record, start_time, subduction_time):
     """
     Get an oceanic geotherm at emplacement and just before
     subduction begins.
     """
     echo("Start age:  {0}".format(start_time))
     echo("Subduction: {0}".format(subduction_time))
-
-    record = partial(save_info, name)
 
     oceanic = Section([
         oceanic_mantle.to_layer(total_depth-interface_depth)])
@@ -92,7 +90,7 @@ def forearc_case(name, start_time, subduction_time):
     """
     record = partial(save_info, name)
 
-    underplated_oceanic = pre_subduction(name, start_time, subduction_time)
+    underplated_oceanic = pre_subduction(record, start_time, subduction_time)
 
     elapsed_time, section = stepped_subduction(underplated_oceanic)
 
@@ -112,7 +110,7 @@ def farallon_setup(record):
     subduction_time = u(80,"Myr")
 
     underplated_oceanic = pre_subduction(
-        "farallon",
+        record,
         start_time,
         subduction_time)
 
@@ -138,24 +136,40 @@ def farallon_case():
             t-present)
     record("final",final_section,t=present)
 
-def farallon_reheated():
+def farallon_reheated(dT=None):
     """
     Deep (90 km) underplating
-    of mantle lithosphere at 1300 degC
+    of mantle lithosphere at 1450 (Tmax for GDHsolver) degC
     """
     underplating_depth = u(90,'km')
     underplating_T = u(20,'Myr')
 
     record = partial(save_info,'farallon-reheated')
     section, t = farallon_setup(record)
-    before_underplating = finite_solve(section, t-underplating_T)
+    section = finite_solve(section, t-underplating_T)
 
     record("before-underplating", section, t=underplating_T)
+
+    dT = u(2,'Myr')
+
+    temp = GDHSolver.defaults["T_max"]
+
+    if dT is not None:
+        # We're holding the temperature
+        # at the boundary for some length of time
+        top_section = section.get_slice(u(0,'km'),underplating_depth)
+        solver = FiniteSolver(top_section,
+            constraints=(u(0,'degC'),temp))
+        res = solver(dT).profile
+        section.profile[:len(res)] = res
+        underplating_T -= dT
+
     apply_adiabat = AdiabatSolver(
         start_depth=underplating_depth,
-        start_temp=u(1300,'degC'))
+        start_temp=temp)
 
     section = apply_adiabat(section)
+
     record("after-underplating", section, t=underplating_T)
 
     final_section = finite_solve(section,underplating_T-present)
@@ -177,17 +191,16 @@ def underplating():
         u(0,"degC"),u(600,"degC")))
     # Assume arbitrarily that interface is at 600 degC
 
-    crust_section = Section([crust],
-        profile=solver.steady_state())
+    crust_section = solver.steady_state()
 
     mantle = oceanic_mantle.to_layer(total_depth-interface_depth)
-    mantle = Section(mantle)
+    mantle = Section([mantle])
 
     section = stack_sections(crust_section, mantle)
 
     apply_adiabat = AdiabatSolver(
-        start_depth=interface,
-        start_temp=u(1300,"degC"))
+        start_depth=interface_depth,
+        start_temp=u(1450,"degC"))
 
     section = apply_adiabat(section)
     record("initial", section, t=start)
