@@ -3,14 +3,19 @@ from functools import partial
 
 from geotherm.units import u
 
-from .calc import underplating, forearc_case, farallon_case, FiniteSolver
+from .calc import (
+    underplating, forearc_case,
+    farallon_case, farallon_reheated,
+    steady_state, FiniteSolver
+)
 
 @click.command()
 @click.option('--debug', default=False, is_flag=True)
 @click.option('--all', default=False, is_flag=True)
+@click.option('-i','--implicit',default=False, is_flag=True)
 @click.option('-dt','--time-step',default=None,type=float)
 @click.argument('scenarios', nargs=-1)
-def cli(scenarios, debug=False, all=False, time_step=None):
+def cli(scenarios, debug=False, all=False, implicit=False, time_step=None):
     """ Solve the basic heat flow models."""
 
     registry = {}
@@ -22,8 +27,11 @@ def cli(scenarios, debug=False, all=False, time_step=None):
         args = (n,u(sub_age+oc_age,"Myr"), u(sub_age,"Myr"))
         registry[n] = partial(forearc_case,*args)
 
-    registry["underplating"] = underplating
-    registry["farallon"] = farallon_case
+    registry = {
+        "underplating": underplating,
+        "farallon": farallon_case,
+        "farallon-reheated": farallon_reheated,
+        "steady-state": steady_state}
 
     # Run scenarios requested
     if all:
@@ -34,6 +42,9 @@ def cli(scenarios, debug=False, all=False, time_step=None):
         for i in registry:
             click.echo("  "+i)
 
+    FiniteSolver.set_defaults(type=
+        'implicit' if implicit else 'crank-nicholson')
+
     if time_step is not None:
         dt = u(time_step,'Myr')
         click.echo("Target dt for finite solver: {}".format(dt))
@@ -43,4 +54,3 @@ def cli(scenarios, debug=False, all=False, time_step=None):
         click.echo("Running scenario "+click.style(s,fg='green'))
         registry[s]()
         click.echo("")
-
