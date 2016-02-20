@@ -13,15 +13,15 @@ class ModelRun(Base):
     """
     __tablename__ = 'model_run'
     id = Column(Integer, primary_key=True)
-    type = Column(String, nullable=False)
+    name = Column(String, nullable=False)
     plate_creation = Column(Numeric) # Ma
     subduction_start = Column(Numeric) # Ma
     run_time = Column(
             DateTime(timezone=True),
             server_default='now()')
 
-    profiles = relationship("ModelProfile", backref='model')
-    tracers = relationship("ModelTracer", backref='model')
+    profiles = relationship("ModelProfile", backref='run')
+    tracers = relationship("ModelTracer", backref='run')
 
 class __shared(object):
     @declared_attr
@@ -35,9 +35,11 @@ class __shared(object):
 
 class ModelProfile(Base, __shared):
     __tablename__ = 'model_profile'
-    profile = Column(
+    name = Column(String, nullable=False)
+    temperature = Column(
         ARRAY(Float, dimensions=1),
         nullable=False)
+    dz = Column(Float, nullable=False)
 
 class ModelTracer(Base, __shared):
     __tablename__ = 'model_tracer'

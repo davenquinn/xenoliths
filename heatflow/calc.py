@@ -2,10 +2,9 @@
 Solver for geothermal models related to the Crystal Knob xenoliths
 """
 from __future__ import division, print_function
-import os, json
 from click import echo
+from functools import partial
 
-from functools import partial, wraps
 import matplotlib
 matplotlib.use("TkAgg")
 
@@ -23,8 +22,7 @@ from .config import (
     present)
 
 from .subduction import instant_subduction, stepped_subduction
-from .util import mkdirs
-from . import results_dir
+from .database import instrumented
 
 plotter = Plotter(range=(0,1400))
 
@@ -41,39 +39,6 @@ def finite_solve(section, duration):
 
     solver = FiniteSolver(section, constraints=constraints)
     return solver(duration)
-
-def save_info(name, step, section, **kwargs):
-    if "t" in kwargs:
-        kwargs["t"] = kwargs["t"].into("Myr")
-
-    out = dict(
-        T=list(section.profile.into("degC")),
-        z=list(section.cell_centers.into("m")),
-        **kwargs)
-
-    fn = step+".json"
-    path = results_dir(name,fn)
-
-    mkdirs(os.path.dirname(path))
-    if kwargs.pop('verbose',False):
-        print("Saving profile to",path)
-    with open(path,"w") as f:
-        json.dump(out,f)
-
-def instrumented(name=None):
-    def decorator(f):
-        @wraps(f)
-        def wrapper(*args,**kwargs):
-            _ = name
-            if _ is None:
-                # We get name as first argument
-                # passed to wrapped function
-                args = list(args)
-                _ = args.pop(0)
-            recorder = partial(save_info,_)
-            return f(recorder,*args,**kwargs)
-        return wrapper
-    return decorator
 
 def pre_subduction(record, start_time, subduction_time):
     """
@@ -145,7 +110,6 @@ def farallon_case(record):
     temperature under the slab pinned to 700 degC at 10kb,
     a constraint garnered from the Rand Schist
     """
-    record = partial(save_info, 'farallon')
     section, t = farallon_setup(record)
     final_section = finite_solve(section,
             t-present)

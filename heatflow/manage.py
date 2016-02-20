@@ -3,7 +3,7 @@ from functools import partial
 
 from geotherm.units import u
 
-from .database import create_tables
+from .database import refresh_tables
 from .calc import (
     underplating, forearc_case,
     farallon_case, farallon_reheated,
@@ -16,12 +16,16 @@ from .calc import (
 @click.option('-i','--implicit',default=False, is_flag=True)
 @click.option('-dt','--time-step',default=None,type=float)
 @click.option('--create', default=False, is_flag=True)
+@click.option('--clean', default=False, is_flag=True)
 @click.argument('scenarios', nargs=-1)
-def cli(scenarios, debug=False, all=False, implicit=False, time_step=None, create=False):
+def cli(scenarios, debug=False, all=False,
+    implicit=False, time_step=None,
+    create=False, clean=True):
     """ Solve the basic heat flow models."""
 
     if create:
-        create_tables()
+        refresh_tables()
+        return
 
     registry = {
         "underplating": underplating,
