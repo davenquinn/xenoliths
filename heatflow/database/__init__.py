@@ -3,7 +3,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from functools import partial, wraps
 
-from .recorder import Recorder
 from ..config import DBNAME
 
 class Database(object):
@@ -33,21 +32,3 @@ def create_tables():
 def refresh_tables():
     drop_tables()
     create_tables()
-
-def instrumented(name=None):
-    def decorator(f):
-        @wraps(f)
-        def wrapper(*args,**kwargs):
-            _ = name
-            if _ is None:
-                # We get name as first argument
-                # passed to wrapped function
-                args = list(args)
-                _ = args.pop(0)
-            rec = Recorder(db, name=name)
-            try:
-                return f(rec,*args,**kwargs)
-            finally:
-                rec.session.commit()
-        return wrapper
-    return decorator
