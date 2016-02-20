@@ -20,8 +20,10 @@ class ModelRun(Base):
             DateTime(timezone=True),
             server_default='now()')
 
-    profiles = relationship("ModelProfile", backref='run')
-    tracers = relationship("ModelTracer", backref='run')
+    profiles = relationship("ModelProfile", backref='run',
+        cascade="delete, delete-orphan")
+    tracers = relationship("ModelTracer", backref='run',
+        cascade="delete, delete-orphan")
 
 class __shared(object):
     @declared_attr

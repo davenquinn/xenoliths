@@ -1,12 +1,10 @@
-import numpy as N
 from click import echo, secho, style
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from functools import partial, wraps
-from contextlib import contextmanager
 
+from .recorder import Recorder
 from ..config import DBNAME
-from .models import meta, ModelRun, ModelTracer, ModelProfile
 
 class Database(object):
     def __init__(self, dbname):
@@ -36,41 +34,6 @@ def refresh_tables():
     drop_tables()
     create_tables()
 
-class Recorder(object):
-    def __init__(self, **kwargs):
-        self.session = db.session()
-
-        kw = dict(name=kwargs.pop('name'))
-
-        self.run = (self.session
-            .query(ModelRun)
-            .filter_by(**kw)
-            .first())
-
-        if self.run is None:
-            self.run = ModelRun(**kw)
-            self.session.add(self.run)
-
-    def __call__(self, step_name, section, **kwargs):
-        if "t" in kwargs:
-            t = kwargs["t"].into("Myr")
-
-        self.log("Saving profile "+style(step_name, fg='cyan'))
-
-        # Check if all cells are the same size
-        z_ = section.cell_sizes.into('m')
-        dz = z_[0]
-        assert N.all(z_ == dz)
-        T = list(section.profile.into("degC"))
-
-        v = ModelProfile(
-            name=step_name, time=t, run=self.run,
-            temperature=T, dz=dz)
-        self.session.add(v)
-
-    def log(self,message):
-        echo(message)
-
 def instrumented(name=None):
     def decorator(f):
         @wraps(f)
@@ -81,7 +44,7 @@ def instrumented(name=None):
                 # passed to wrapped function
                 args = list(args)
                 _ = args.pop(0)
-            rec = Recorder(name=name)
+            rec = Recorder(db, name=name)
             try:
                 return f(rec,*args,**kwargs)
             finally:

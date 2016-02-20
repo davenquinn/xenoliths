@@ -21,10 +21,10 @@ from .config import (
     solver_constraints,
     present)
 
+from .model_base import ModelRunner
 from .subduction import instant_subduction, stepped_subduction
-from .database import instrumented
 
-plotter = Plotter(range=(0,1400))
+plotter = Plotter(range=(0,1500))
 
 FiniteSolver.set_defaults(
     type="implicit",
@@ -32,170 +32,189 @@ FiniteSolver.set_defaults(
     constraints=solver_constraints,
     plotter=plotter)
 
-def finite_solve(section, duration):
+def step_function(self, model, time, step, n_steps):
+    """
+    Step function for finite element solver that records model tracers
+    """
+    import IPython; IPython.embed()
+
+def finite_solve(section, duration, **kwargs):
     constraints = (u(0,"degC"), section.profile[-1])
     echo("Initializing finite solver with constraints "
             "{0} and {1}".format(*constraints))
 
-    solver = FiniteSolver(section, constraints=constraints)
+    solver = FiniteSolver(section, constraints=constraints, **kwargs)
     return solver(duration)
 
-def pre_subduction(record, start_time, subduction_time):
+class SubductionCase(ModelRunner):
     """
-    Get an oceanic geotherm at emplacement and just before
-    subduction begins.
+    Base model runner for all of the cases which involve
+    cooling of oceanic crust followed by subduction.
     """
-    echo("Start age:  {0}".format(start_time))
-    echo("Subduction: {0}".format(subduction_time))
+    def __init__(self, start_time, subduction_time):
+        self.start_time = start_time
+        self.subduction_time = subduction_time
 
-    oceanic = Section([
-        oceanic_mantle.to_layer(total_depth-interface_depth)])
+    def pre_subduction(self):
+        """
+        Get an oceanic geotherm at emplacement and just before
+        subduction begins.
+        """
+        echo("Start age:  {0}".format(self.start_time))
+        echo("Subduction: {0}".format(self.subduction_time))
 
-    ocean_model = GDHSolver(oceanic, T_max=solver_constraints[1])
+        oceanic = Section([
+            oceanic_mantle.to_layer(total_depth-interface_depth)])
 
-    record("initial", ocean_model(u(0,"s")), t=start_time)
+        ocean_model = GDHSolver(oceanic, T_max=solver_constraints[1])
 
-    t = start_time - subduction_time
-    underplated_oceanic = ocean_model(t)
+        self.record("initial", ocean_model(u(0,"s")), t=self.start_time)
 
-    record("before-subduction", underplated_oceanic, t=subduction_time)
+        t = self.start_time - self.subduction_time
+        underplated_oceanic = ocean_model(t)
 
-    return underplated_oceanic
+        self.record("before-subduction", underplated_oceanic, t=self.subduction_time)
 
-@instrumented()
-def forearc_case(record, start_time, subduction_time):
+        return underplated_oceanic
+
+class ForearcCase(SubductionCase):
     """
     All of the cases with a forearc geotherm look similar in
     form, with the only differences being the timing of initial
     emplacemnt on the ocean floor and subduction.
     """
-    underplated_oceanic = pre_subduction(record, start_time, subduction_time)
+    def __init__(self, sub_age, oc_age):
+        self.name = "forearc-{0}-{1}".format(sub_age,oc_age)
+        args = (u(sub_age+oc_age,"Myr"), u(sub_age,"Myr"))
+        SubductionCase.__init__(self, *args)
 
-    elapsed_time, section = stepped_subduction(underplated_oceanic)
+    def run(self):
+        underplated_oceanic = self.pre_subduction()
 
-    echo("Subduction took {}".format(elapsed_time.to("Myr")))
+        elapsed_time, section = stepped_subduction(underplated_oceanic)
 
-    t = subduction_time-elapsed_time
-    record("after-subduction", section, t=t)
-    final_section = finite_solve(section,t-present)
+        echo("Subduction took {}".format(elapsed_time.to("Myr")))
 
-    record("final",final_section,t=present)
+        t = subduction_time-elapsed_time
+        self.record("after-subduction", section, t=t)
+        final_section = finite_solve(section,t-present)
 
-def farallon_setup(record):
-    """
-    Shared setup for Farallon and Farallon-reheated cases
-    """
-    start_time = u(140,"Myr")
-    subduction_time = u(80,"Myr")
+        self.record("final",final_section,t=present)
 
-    underplated_oceanic = pre_subduction(
-        record,
-        start_time,
-        subduction_time)
-
-    elapsed_time, section = stepped_subduction(
-            underplated_oceanic,
-            final_temperature=u(700,"degC"))
-
-    echo("Subduction took {}".format(elapsed_time.to("Myr")))
-
-    t = subduction_time-elapsed_time
-    record("after-subduction", section, t=t)
-    return section, t
-
-@instrumented('farallon')
-def farallon_case(record):
+class Farallon(SubductionCase):
     """
     Similar to the forearc-geotherm case, but with the
     temperature under the slab pinned to 700 degC at 10kb,
     a constraint garnered from the Rand Schist
     """
-    section, t = farallon_setup(record)
-    final_section = finite_solve(section,
-            t-present)
-    record("final",final_section,t=present)
+    name = 'farallon'
+    def __init__(self):
+        self.start_time = u(140,"Myr")
+        self.subduction_time = u(80,"Myr")
 
-@instrumented('farallon-reheated')
-def farallon_reheated(record, dT=None):
+    def setup(self):
+        underplated_oceanic = self.pre_subduction()
+
+        elapsed_time, section = stepped_subduction(
+                underplated_oceanic,
+                final_temperature=u(700,"degC"))
+
+        echo("Subduction took {}".format(elapsed_time.to("Myr")))
+
+        t = self.subduction_time-elapsed_time
+        self.record("after-subduction", section, t=t)
+        return section, t
+
+    def run(self):
+        section, t = self.setup()
+        final_section = finite_solve(section,
+                t-present)
+        self.record("final",final_section,t=present)
+
+class FarallonReheated(Farallon):
     """
     Deep (90 km) underplating
     of mantle lithosphere at 1450 (Tmax for GDHsolver) degC
     """
-    underplating_depth = u(90,'km')
-    underplating_T = u(20,'Myr')
+    name = 'farallon-reheated'
 
-    section, t = farallon_setup(record)
-    section = finite_solve(section, t-underplating_T)
+    def run(self):
 
-    record("before-underplating", section, t=underplating_T)
+        underplating_depth = u(90,'km')
+        underplating_T = u(20,'Myr')
 
-    dT = u(2,'Myr')
+        section, t = self.setup()
+        section = finite_solve(section, t-underplating_T)
 
-    temp = GDHSolver.defaults["T_max"]
+        self.record("before-underplating", section, t=underplating_T)
 
-    if dT is not None:
-        # We're holding the temperature
-        # at the boundary for some length of time
-        top_section = section.get_slice(u(0,'km'),underplating_depth)
-        solver = FiniteSolver(top_section,
-            constraints=(u(0,'degC'),temp))
-        res = solver(dT).profile
-        section.profile[:len(res)] = res
-        underplating_T -= dT
+        dT = u(2,'Myr')
 
-    apply_adiabat = AdiabatSolver(
-        start_depth=underplating_depth,
-        start_temp=temp)
+        temp = GDHSolver.defaults["T_max"]
 
-    section = apply_adiabat(section)
+        if dT is not None:
+            # We're holding the temperature
+            # at the boundary for some length of time
+            top_section = section.get_slice(u(0,'km'),underplating_depth)
+            solver = FiniteSolver(top_section,
+                constraints=(u(0,'degC'),temp))
+            res = solver(dT).profile
+            section.profile[:len(res)] = res
+            underplating_T -= dT
 
-    record("after-underplating", section, t=underplating_T)
+        apply_adiabat = AdiabatSolver(
+            start_depth=underplating_depth,
+            start_temp=temp)
 
-    final_section = finite_solve(section,underplating_T-present)
+        section = apply_adiabat(section)
 
-    record("final", final_section, t=present)
+        self.record("after-underplating", section, t=underplating_T)
 
-@instrumented('underplated')
-def underplating(record):
+        final_section = finite_solve(section,underplating_T-present)
 
-    plot_opts = dict(
-        range=(0,1500))
+        self.record("final", final_section, t=present)
 
-    start = u(20,"Myr")
+class Underplated(ModelRunner):
+    name = 'underplated'
+    def run(self):
 
-    crust = continental_crust.to_layer(interface_depth)
-    solver = FiniteSolver(crust,constraints=(
-        u(0,"degC"),u(600,"degC")))
-    # Assume arbitrarily that interface is at 600 degC
+        plot_opts = dict(
+            range=(0,1500))
 
-    crust_section = solver.steady_state()
+        start = u(20,"Myr")
 
-    mantle = oceanic_mantle.to_layer(total_depth-interface_depth)
-    mantle = Section([mantle])
+        crust = continental_crust.to_layer(interface_depth)
+        solver = FiniteSolver(crust,constraints=(
+            u(0,"degC"),u(600,"degC")))
+        # Assume arbitrarily that interface is at 600 degC
 
-    section = stack_sections(crust_section, mantle)
+        crust_section = solver.steady_state()
 
-    apply_adiabat = AdiabatSolver(
-        start_depth=interface_depth,
-        start_temp=u(1450,"degC"))
+        mantle = oceanic_mantle.to_layer(total_depth-interface_depth)
+        mantle = Section([mantle])
 
-    section = apply_adiabat(section)
-    record("initial", section, t=start)
+        section = stack_sections(crust_section, mantle)
 
-    final_section = finite_solve(section,start-present)
+        apply_adiabat = AdiabatSolver(
+            start_depth=interface_depth,
+            start_temp=u(1450,"degC"))
 
-    record("final", final_section, t=present)
+        section = apply_adiabat(section)
+        self.record("initial", section, t=start)
 
-@instrumented('steady-state')
-def steady_state(record):
+        final_section = finite_solve(section,start-present)
+
+        self.record("final", final_section, t=present)
+
+class SteadyState(ModelRunner):
     """
     Steady-state case for 30 km of crust
     atop 270 km of oceanic mantle
     """
-    section = Section([
-        continental_crust.to_layer(interface_depth),
-        oceanic_mantle.to_layer(total_depth-interface_depth)])
-
-    solver = FiniteSolver(section)
-
-    record("final",solver.steady_state())
+    name = 'steady-state'
+    def run(self):
+        section = Section([
+            continental_crust.to_layer(interface_depth),
+            oceanic_mantle.to_layer(total_depth-interface_depth)])
+        solver = FiniteSolver(section)
+        self.record("final",solver.steady_state())
