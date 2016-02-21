@@ -15,7 +15,6 @@ module.exports = (ax)->
         "stroke-dasharray": "2,2"
         stroke: "#666666"
 
-
     x = ax.scale.temp 1300
     y = ax.scale.depth 90
     t = "translate(#{x},#{y})rotate(-90)"

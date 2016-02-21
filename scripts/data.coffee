@@ -1,12 +1,4 @@
-path = require "path"
-fs = require "fs"
-
-basename = (fn)->fn.substr 0, fn.lastIndexOf('.')
-getProfile = (fn)->
-  # Gets the vertical profile, zipping for friendliness
-  console.log "Getting profile for", fn
-  p = require fn
-  return p.z.map (d,i)->{T: p.T[i], z: d*0.001}
+q = require "../shared/query"
 
 ml_depth = (profile)->
   # Find depth of the mantle lithosphere
@@ -14,19 +6,33 @@ ml_depth = (profile)->
     return i.z if i.T >= 1300
   return 91 # If it's too deep
 
-module.exports = (dir,cfg)->
+getProfile = (scenario_id, slice_id)->
+  console.log scenario_id, slice_id
+  sql = "SELECT
+    	p.name,
+    	p.temperature,
+    	p.dz,
+    	p.time
+  	FROM
+  	thermal_modeling.model_profile p
+  	JOIN thermal_modeling.model_run r
+  		ON r.id = p.run_id
+  	WHERE r.name = %1::text
+      AND p.name = %2::text;"
+  q sql, [scenario_id, slice_id], (err, d)->
+    console.log d
+
+module.exports = (cfg)->
+  # Return configuration for all scenarios
   cfg.map (scenario)->
     # Builds each scenario from configuration
     unless scenario.id.constructor == Array
       scenario.id = [scenario.id]
 
     scenario.slices.forEach (d)->
-      d.profile = scenario.id.map (id)->
-        filename = path.join dir, id, d.id
-        try
-          return getProfile(filename).filter (a)-> a.z <= 91
-        catch err
-          return null
+      d.profile = scenario.id.map (scenario_id)->
+        getProfile(scenario_id, d.id)
+        return 1
 
       d.ml = ml_depth d.profile[0]
       console.log d.ml

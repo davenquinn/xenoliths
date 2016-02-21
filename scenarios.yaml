@@ -31,8 +31,8 @@
     - Subduction/underplating
     - ""
     - 1.6 Ma
-- name: underplating
-  id: underplating
+- name: underplated
+  id: underplated
   title: C. Slab Window
   slices:
     - id: initial

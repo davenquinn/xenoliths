@@ -7,17 +7,15 @@ buildData = require './data'
 setupScenarios = require './scenario'
 
 # Create dataset from inputs
-dir = fs.readFileSync('/dev/stdin').toString()
 cfg = yaml.safeLoad fs.readFileSync('scenarios.yaml')
 cfg = JSON.parse(JSON.stringify(cfg))
-data = buildData dir, cfg
 
 # Figure s at 100 ppi
 ppi = 100
 
 func = (el)->
   height = 480
-  scenarios = setupScenarios data
+  scenarios = setupScenarios cfg
   d3.select el
     .call scenarios
 

@@ -4,11 +4,11 @@ build:
 	mkdir -p $@
 
 comparison: | build
-	./generate-figure.py comparison
+	coffee comparison
 	cairosvg -o build/comparison.pdf -d 100 build/comparison.svg
 
 scenarios: | build
-	./generate-figure.py scripts
+	coffee scripts
 	cairosvg -o build/cooling-scenarios.pdf -d 100 build/cooling-scenarios.svg
 
 greyscale:

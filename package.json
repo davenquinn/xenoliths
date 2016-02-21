@@ -1,0 +1,23 @@
+{
+  "name": "cooling-scenarios",
+  "version": "1.0.0",
+  "description": "Figures for cooling scenarios",
+  "main": "index.js",
+  "author": "Daven Quinn",
+  "license": "ISC",
+  "dependencies": {
+    "color": "^0.11.1",
+    "d3": "^3.5.16",
+    "d3-queue": "^2.0.2",
+    "d3-svg-legend": "^1.7.0",
+    "js-yaml": "^3.5.3",
+    "jsdom": "3",
+    "lodash": "^3.6.0",
+    "node-uuid": "^1.4.7",
+    "pg": "^4.4.6",
+    "pretty-data": "^0.40.0",
+    "simplify-js": "^1.2.1",
+    "textures": "^1.0.3",
+    "uuid": "^2.0.1"
+  }
+}
