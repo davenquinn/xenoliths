@@ -8,9 +8,9 @@ from .database import db
 from .database.models import meta, ModelRun, ModelTracer, ModelProfile
 
 class ModelRunner(object):
+    trace_depths = u(40,'km'),u(80,'km')
     def __init__(self, **info):
         self.info = info
-        self.trace_depths = u(40,km),u(80,km)
 
     def run(self):
         pass
@@ -28,12 +28,13 @@ class ModelRunner(object):
         if dt is not None:
             t -= dt
         if model is not None:
-            self.section.profile = model.value()
+            v = model.value()
+            self.section.profile[:len(v)] = v
         for depth in self.trace_depths:
             self.trace(depth, t=t)
 
     def finite_solve(self, end_time, **kwargs):
-        constraints = (u(0,"degC"), u(1450,'degC'))#self.section.profile[-1])
+        constraints = (u(0,"degC"), self.section.profile[-1])
         echo("Initializing finite solver with constraints "
                 "{0} and {1}".format(*constraints))
 
@@ -99,8 +100,16 @@ class ModelRunner(object):
             temperature=T.into("degC"))
         self.session.add(v)
 
-    def log(self,message):
-        echo(message)
+    def log(self, message, data=None):
+        if data is None:
+            echo(message)
+            return
+
+        width = 30
+        start = message+": "
+        dt = width-len(start)
+        start += " "*dt
+        echo(start+style(str(data),fg='green'))
 
     def __call__(self, *args, **kwargs):
         self.setup_recorder()

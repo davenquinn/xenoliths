@@ -24,7 +24,7 @@ from .config import (
 from .model_base import ModelRunner
 from .subduction import instant_subduction, stepped_subduction
 
-plotter = Plotter(range=(0,1500))
+plotter = Plotter(range=(0,1600))
 
 FiniteSolver.set_defaults(
     type="implicit",
@@ -184,5 +184,5 @@ class SteadyState(ModelRunner):
             continental_crust.to_layer(interface_depth),
             oceanic_mantle.to_layer(total_depth-interface_depth)])
         solver = FiniteSolver(section)
-        self.set_state(self.t, solver.steady_state())
+        self.set_state(present, solver.steady_state())
         self.record("final")

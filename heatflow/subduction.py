@@ -141,7 +141,8 @@ def stepped_subduction(underplated_section, **kwargs):
 
 
     # Set up finite solving for underplated slab
-    solver = FiniteSolver(underplated_section)
+    solver = FiniteSolver(underplated_section,
+        constraints=(u(0,"degC"), underplated_section.profile[-1]))
 
     underplated_section = solver.final_section(
         duration=duration,
