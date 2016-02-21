@@ -1,6 +1,9 @@
 from geotherm.units import u
 from geotherm.materials import oceanic_mantle, continental_crust
 
+# Recorder constraints
+record_max_depth = u(100,'km')
+
 surface_temperature = u(0,'degC')
 # temperature of the base of the lithosphere
 # used in the Royden model finite solving
@@ -36,3 +39,6 @@ convergence_velocity = u(100,"mm/yr")
 
 # Farallon case
 #slab_retreat_velocity = u(5,'km/Myr')
+
+# Database to store completed models
+DBNAME = "postgresql:///xenoliths_flask"

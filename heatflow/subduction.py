@@ -62,6 +62,7 @@ def stepped_subduction(underplated_section, **kwargs):
     final_depth = kwargs.pop("final_depth", interface_depth)
 
     final_temperature = kwargs.pop("final_temperature", None)
+    step_function = kwargs.pop("step_function", None)
 
     # Thickness of foreland lithosphere
     # at the time of subduction
@@ -106,6 +107,9 @@ def stepped_subduction(underplated_section, **kwargs):
         """ Function to change finite solver
             boundary conditions at each step
         """
+        if step_function is not None:
+            step_function(solver, **kwargs)
+
         step = kwargs.pop("step")
         steps = kwargs.pop("steps")
 
@@ -137,7 +141,8 @@ def stepped_subduction(underplated_section, **kwargs):
 
 
     # Set up finite solving for underplated slab
-    solver = FiniteSolver(underplated_section)
+    solver = FiniteSolver(underplated_section,
+        constraints=(u(0,"degC"), underplated_section.profile[-1]))
 
     underplated_section = solver.final_section(
         duration=duration,
