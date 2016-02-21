@@ -33,9 +33,9 @@ class Section(Layer):
     A section of crust that contains several layers with individually-defined
     material models. Rudimentary support for unequal grid spacing (defined per-layer)
     """
-    thickness = property(lambda self:\
+    thickness = property(lambda self:
             sum([i.thickness for i in self.layers]))
-    n_cells = property(lambda self:\
+    n_cells = property(lambda self:
             sum([i.n_cells for i in self.layers]))
 
     def __init__(self, layers, **kwargs):

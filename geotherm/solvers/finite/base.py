@@ -46,7 +46,6 @@ class BaseFiniteSolver(BaseSolver):
         if plotter: plotter.initialize(self)
         return plotter
 
-
     def solve(self, steps=None, duration=None, **kwargs):
         plotter = kwargs.pop("plotter", None)
 

@@ -33,7 +33,7 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         if self.constraints is not None:
             self.set_constraints(*self.constraints)
 
-        if type == "explicit":
+        if self.type == "explicit":
             # Use stable timesteps if we're running explicit finite differences
             if self.time_step is not None:
                 warn("For explicit finite differences, the "
