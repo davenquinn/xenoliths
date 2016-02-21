@@ -26,7 +26,8 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         self.var = F.CellVariable(
             name="Temperature",
             mesh=self.mesh,
-            value=self.initial_values)
+            value=self.initial_values,
+            hasOld=(self.type=='crank-nicholson'))
 
         self.create_coefficient()
 
@@ -42,6 +43,7 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
 
         if self.type == "crank-nicholson":
             eqns = [self.create_equation(i) for i in ("implicit","explicit")]
+            self.__implicit_equation = eqns[0]
             self.equation = sum(eqns)
         else:
             self.equation = self.create_equation(self.type)
@@ -111,6 +113,14 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
     def value(self):
         return u(self.var.value,"K").to("degC")
 
+    def __do_step(self, dt):
+        if self.type == 'crank-nicholson':
+            self.var.updateOld()
+            self.equation.sweep(var=self.var,dt=dt)
+            self.__implicit_equation.sweep(var=self.var,dt=dt)
+        else:
+            self.equation.solve(var=self.var,dt=dt)
+
     def __solve__(self, steps=None, duration=None, **kw):
         """ A private method that implements solving given the keyword combinations
             defined in the `solve_implicit`, `solve_explicit`, and `solve_crank_nicholson`
@@ -148,9 +158,7 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
                         step=step, steps=steps)
 
                 dt = time_step.into("seconds")
-                self.equation.solve(
-                    var=self.var,
-                    dt=dt)
+                self.__do_step(dt)
                 sol = self.value()
                 yield simulation_time, sol
 

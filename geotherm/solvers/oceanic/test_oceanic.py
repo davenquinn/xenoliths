@@ -63,6 +63,11 @@ def test_gdh_temperature():
         v2 = gdh_solver.temperature(time,depth).into('degC')
         assert N.allclose(v1,v2, atol=5, rtol=0.05)
 
+def test_gdh_max_temperature():
+    section = gdh_solver(u(60,'Myr'))
+    T = section.profile.into('degC')
+    assert T.max() < 2000
+
 def test_array():
     """
     Passing an array of depths to the GDH
@@ -90,6 +95,3 @@ def test_consistency():
         hs = hs_solver.temperature(time,depth)
         assert gdh >= hs
         assert N.allclose(gdh,hs,rtol=0.2)
-
-
-

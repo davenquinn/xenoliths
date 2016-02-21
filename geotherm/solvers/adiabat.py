@@ -3,7 +3,6 @@ from __future__ import division
 import numpy as N
 from ..units import u
 
-
 class AdiabatSolver(object):
     defaults = dict(
         start_temp=u(1300,"degC"),
@@ -31,7 +30,7 @@ class AdiabatSolver(object):
         g = u(10,"m/s^2")
         a = section.material_property("thermal_expansivity")[idx]
         Cp = section.material_property("specific_heat")[idx]
-        T = u(1600,"K")
+        T = u(1450,"degC").to('K')
 
         coeff = a*g*dz*T/Cp
         integrated = u(N.cumsum(coeff.into('K')),coeff.units)
@@ -39,4 +38,3 @@ class AdiabatSolver(object):
         section.profile[idx] = u(_,'K').to('degC')
 
         return section
-

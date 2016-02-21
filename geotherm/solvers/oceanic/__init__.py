@@ -4,6 +4,7 @@ import numpy as N
 from scipy.special import erf,erfc, erfcinv
 
 from ..base import BaseSolver
+from ..adiabat import AdiabatSolver
 from ...models.geometry import Section, Layer
 from ...units import ensure_unit, unit, u
 
@@ -99,3 +100,19 @@ class GDHSolver(OceanicSolver):
         coeff += N.sum(taylor_expansion, axis=n.ndim-1)
         coeff = coeff.into('dimensionless')
         return u(self.T_max.into('degC') * coeff,'degC')
+
+    def profile(self,time):
+        c = self.section.cell_centers
+        profile = self.section.profile.to('degC')
+
+        idx = c < self.lithosphere_depth
+        T = self._temperature(time,c[idx])
+        profile[idx] = T
+        self.section.profile = profile
+
+        apply_adiabat = AdiabatSolver(
+            start_depth=self.lithosphere_depth,
+            start_temp=self.T_max)
+
+        self.section = apply_adiabat(self.section)
+        return self.section.profile
