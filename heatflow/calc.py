@@ -5,12 +5,8 @@ from __future__ import division, print_function
 from click import echo
 from functools import partial
 
-import matplotlib
-matplotlib.use("TkAgg")
-
 from geotherm.models.geometry import Section, stack_sections
-from geotherm.solvers import GDHSolver, HalfSpaceSolver, FiniteSolver, RoydenSolver, AdiabatSolver
-from geotherm.plot import Plotter
+from geotherm.solvers import GDHSolver, FiniteSolver, RoydenSolver, AdiabatSolver
 from geotherm.units import u
 
 from .config import (
@@ -22,51 +18,7 @@ from .config import (
     present)
 
 from .model_base import ModelRunner
-from .subduction import instant_subduction, stepped_subduction
-
-plotter = Plotter(range=(0,1600))
-
-FiniteSolver.set_defaults(
-    type="implicit",
-    time_step=u(0.5,"Myr"),
-    constraints=solver_constraints,
-    plotter=plotter)
-
-class SubductionCase(ModelRunner):
-    """
-    Base model runner for all of the cases which involve
-    cooling of oceanic crust followed by subduction.
-    """
-    def __init__(self, start_time, subduction_time):
-        self.start_time = start_time
-        self.subduction_time = subduction_time
-
-    def pre_subduction(self):
-        """
-        Get an oceanic geotherm at emplacement and just before
-        subduction begins.
-        """
-        echo("Start age:  {0}".format(self.start_time))
-        echo("Subduction: {0}".format(self.subduction_time))
-
-        oceanic = Section([
-            oceanic_mantle.to_layer(total_depth-interface_depth)])
-
-        ocean_model = GDHSolver(oceanic, T_max=solver_constraints[1])
-        t = u(0,"s")
-        self.set_state(self.start_time,ocean_model(t))
-        self.record("initial")
-
-        dt = self.t - self.subduction_time
-        self.set_state(self.subduction_time, ocean_model(dt))
-        self.record("before-subduction")
-
-    def stepped_subduction(self, **kwargs):
-        kwargs['step_function'] = self.step_function
-        elapsed_time, section = stepped_subduction(self.section, **kwargs)
-        echo("Subduction took {}".format(elapsed_time.to("Myr")))
-        self.set_state(self.t-elapsed_time, section)
-        self.record("after-subduction")
+from .subduction import SubductionCase
 
 class ForearcCase(SubductionCase):
     """

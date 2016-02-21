@@ -1,11 +1,25 @@
 import numpy as N
 from click import echo, secho, style
 from geotherm.solvers import FiniteSolver
+from geotherm.plot import Plotter
 from geotherm.units import u
+import matplotlib
+matplotlib.use("TkAgg")
 
-from .config import record_max_depth, present
+from .config import (
+    record_max_depth,
+    solver_constraints,
+    present)
 from .database import db
 from .database.models import meta, ModelRun, ModelTracer, ModelProfile
+
+plotter = Plotter(range=(0,1600))
+
+FiniteSolver.set_defaults(
+    type="implicit",
+    time_step=u(0.5,"Myr"),
+    constraints=solver_constraints,
+    plotter=plotter)
 
 class ModelRunner(object):
     trace_depths = u(40,'km'),u(80,'km')
@@ -34,14 +48,21 @@ class ModelRunner(object):
             self.trace(depth, t=t)
 
     def finite_solve(self, end_time, **kwargs):
-        constraints = (u(0,"degC"), self.section.profile[-1])
-        echo("Initializing finite solver with constraints "
-                "{0} and {1}".format(*constraints))
+        defaults = dict(
+            constraints = (u(0,"degC"), self.section.profile[-1]),
+            step_function = self.step_function)
 
+        for k,v in defaults.items():
+            if k not in kwargs:
+                kwargs[k] = v
+
+        self.log("Initializing finite solver")
+        self.log("Constraints")
+        labels = ('upper','lower')
+        for l,c in zip(labels,kwargs['constraints']):
+            self.log("    - "+l,c)
         duration = self.t - end_time
-        kwargs['step_function'] = self.step_function
-
-        solver = FiniteSolver(self.section, constraints=constraints, **kwargs)
+        solver = FiniteSolver(self.section, **kwargs)
         self.set_state(end_time,solver(duration))
 
     def solve_to_present(self):
@@ -70,7 +91,7 @@ class ModelRunner(object):
             run=self.__model, temperature=T, dz=self.dz)
         self.session.add(v)
 
-    def setup_recorder(self):
+    def __setup_recorder(self):
         self.session = db.session()
         kw = dict(name=self.name)
 
@@ -112,7 +133,7 @@ class ModelRunner(object):
         echo(start+style(str(data),fg='green'))
 
     def __call__(self, *args, **kwargs):
-        self.setup_recorder()
+        self.__setup_recorder()
         try:
             self.run(*args,**kwargs)
         finally:
