@@ -5,29 +5,12 @@ import os
 import matplotlib
 import matplotlib.pyplot as P
 import numpy as N
-from pickle import dump, load
 from chroma import Color
 
-from xenoliths import app
-from xenoliths.thermometry.results import xenoliths, sample_temperatures
-
 from helpers import label,scatter_options
+from data import load_data
 
-cache = "build/comparison-data.pickle"
-
-def create_data():
-    with app.app_context():
-        data = [sample_temperatures(s, distinct=min)
-           for s in xenoliths()]
-    with open(cache,"w") as f:
-        dump(data,f)
-    return data
-
-try:
-    with open(cache) as f:
-        data = load(f)
-except IOError:
-    data = create_data()
+data = load_data()
 
 thermometers = {
     "ta98":{"name": "TA98"},
