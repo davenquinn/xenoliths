@@ -1,17 +1,12 @@
-pg = require 'pg'
+Client = require 'pg-native'
+types = require 'pg-types'
+utils = require 'pg/lib/utils'
 
 conString = "postgres://localhost/xenoliths_flask"
 
-module.exports = ->
-  args = Array.apply(null, arguments)
-  callback = args.pop()
-  sql = args[0]
-  data = args[1]
+c = new Client types: types
 
-  pg.connect conString, (err, client, done) ->
-    if err
-      callback(err)
-      return
-    client.query sql, data, (err, result) ->
-      callback(err, result)
-      done()
+module.exports = (sql, data)->
+  c.connectSync conString
+  prepared = data.map utils.prepareValue
+  return c.querySync sql, prepared

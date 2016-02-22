@@ -27,7 +27,7 @@ possibleLayouts =
     y: offs3
 
 class Scenario
-  constructor: (@el, config)->
+  constructor: (@el, config, cb)->
     for k,v of config
       if k of @
         throw "@#{k} is already defined"
@@ -35,11 +35,11 @@ class Scenario
     unless @id.constructor == Array
       @id = [@id]
 
-    @__getData (slices)=>
-      @__setupLayout()
-      @__createAxes(slices)
+    @__getData()
+    @__setupLayout()
+    @__createAxes()
 
-  __getData: (cb)=>
+  __getData: =>
     sql = "SELECT
         r.name row_id,
       	p.name profile_id,
@@ -59,26 +59,18 @@ class Scenario
         return i.z if i.T >= 1300
       return 91 # If it's too deep
 
-    getSliceData = (slice, callback)=>
+    for slice in @slices
       data = [@id, slice.id]
-      query sql,data, (e,d)->
-        return callback(e) if e?
-        slice.profile = d.rows.map (r)->
-          a =
-            id: r.row_id,
-            profile: r.temperature.map (d,i)->
-              {T: d, z: i*r.dz/1000}
-          a.ml = ml_depth(a.profile)
-          # Temporary hack or something
-          return a.profile
-        callback(e,slice)
+      rows = query sql,data
 
-    q = queue()
-    for s in @slices
-      q.defer getSliceData, s
-    q.awaitAll (e,args...)=>
-      throw e if e?
-      cb(args[0])
+      slice.profile = rows.map (r)->
+        a =
+          id: r.row_id,
+          profile: r.temperature.map (d,i)->
+            {T: d, z: i*r.dz/1000}
+        a.ml = ml_depth(a.profile)
+        # Temporary hack or something
+        return a.profile
 
   __setupLayout: =>
     _ = possibleLayouts[@name]
@@ -88,10 +80,10 @@ class Scenario
       .title @title
     d3.select(@el).call @layout
 
-  __createAxes: (data)=>
+  __createAxes: =>
     axes = @layout.axes()
-    axes.forEach (ax,i)->
-      d = data[i]
+    axes.forEach (ax,i)=>
+      d = @slices[i]
       console.log d
       ax.backdrop d
       if i == axes.length-1
@@ -112,5 +104,3 @@ module.exports = (data)->
     el.attr
       height: offs3 + interval + G.margin.outside
       width: G.margin.outside*2 + wide_layout.width()
-
-  return s
