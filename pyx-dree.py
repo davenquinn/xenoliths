@@ -9,9 +9,11 @@ from xenoliths.models import Sample
 from xenoliths.thermometry.rare_earth import (
     ree_pyroxene, regress, temperature, rare_earths)
 
-Pr_ix = 4
 xv = N.arange(len(rare_earths))
-xv[Pr_ix:] += 1
+
+# Leave space for Praseodymium
+# Pr_ix = 4
+# xv[Pr_ix:] += 1
 
 def plot_uncertain(ax, x,y, **kwargs):
     u = N.array([m.n for m in y])
