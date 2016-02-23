@@ -6,88 +6,24 @@ textures = require '../textures'
 xenolithsArea = require '../xenoliths-area'
 uuid = require "uuid"
 color = require "color"
+axis = require "../../shared/axis"
 
 module.exports = ->
 
-  container = null
-  el = null
-  [x,y,w,h] = [0,0,G.axis.width,G.axis.height]
   max = {T: 1700,z: 90}
 
-  axisOutline = (el)->
-    el.attr
-      x: x
-      y: y
-      width: w
-      height: h
+  ax = axis()
+    .size G.axis
+    .position {x: 10, y: 10}
+    .margin 0
 
-  clipPath = ->
-    id = uuid.v1()
-    c = (container)->
-      container.append "defs"
-        .append "svg:clipPath"
-          .attr "id", id
-          .append "rect"
-            .call axisOutline
-    c.id = id
-    return c
-
-  ax = (container)->
-    cp = clipPath()
-
-    container
-      .call cp
-      .call textures.xenoliths
-
-    el = container.append "g"
-      .attr
-        class: "inside"
-        "clip-path": "url(##{cp.id})"
-
-    container.append "rect"
-      .call axisOutline
-      .attr
-        class: "neatline"
-        stroke: "black"
-        "stroke-width": 1
-        fill: "transparent"
-
-  t = d3.scale.linear()
-        .domain [0,max.T]
-  d = d3.scale.linear()
-        .domain [0,max.z]
-
-  ax.scale =
-    temp: t
-    depth: d
-  ax.line = d3.svg.line()
-    .x (d)->ax.scale.temp(d.T)
-    .y (d)->ax.scale.depth(d.z)
-    .interpolate "basis"
-
-  ax.node = -> el
-
-  ax.width = -> w
-  ax.height = -> h
-  ax.position = (p)->
-    # Takes an object with x and y coordinates
-    if p?
-      [x,y] = [p.x,p.y]
-      ax.scale.depth.range [y,y+h]
-      ax.scale.temp.range [x, x+w]
-      return ax
-    else
-      return {x:x,y:y}
-
-  ax.backdrop = createBackdrop ax
+  ax.scale.x.domain [0,max.T]
+  ax.scale.y.domain [max.z,0]
+  ax.backdrop = (layers)->
+    fn = createBackdrop ax
+    fn.call ax.node(), layers
   ax.plot = plotData ax
-
-  line = d3.svg.line()
-    .x (d)->ax.scale.temp(d[0])
-    .y (d)->ax.scale.depth(d[1])
-    .interpolate "basis"
-
   ax.xenolithArea = ->
-    xenolithsArea ax.node(), line
+    xenolithsArea d3.select(ax.node()), ax.line()
 
   ax

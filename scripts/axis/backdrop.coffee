@@ -37,16 +37,18 @@ module.exports = (ax)->
       layerData.push { z: d, id: i }
 
     console.log layerData
-    sel = ax.node()
+    sel = d3.select @
       .selectAll 'rect.layer'
         .data layerData
+
+    sz = ax.size()
 
     sel.enter().append "rect"
       .attr
         class: (d)->"layer #{d.id}"
         x: pos.x - margin
         y: pos.y - margin
-        width: ax.width()+2*margin
-        height: (d)->ax.scale.depth(d.z)- pos.y + margin
+        width: sz.width+2*margin
+        height: (d)->ax.scale.y(d.z)- pos.y + margin
       .each (d)->
         d3.select(@).attr style[d.id]

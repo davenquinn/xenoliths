@@ -1,22 +1,25 @@
 d3 = require "d3"
-simplifiedLine = require '../simplified-line'
+simplify = require 'simplify-js'
+
+ax = null
+el = null
 
 module.exports = (ax)->
-
-  el = null
   out = (data)->
-    el = ax.node()
+    line = ax.line(type:'object')
+
+    el = d3.select ax.node()
     el.append "path"
       .datum [0,90].map (d)->
-        {z:d, T:1300}
+        {x:1300,y:d}
       .attr
-        d: ax.line
+        d: line
         "stroke-width": 1
         "stroke-dasharray": "2,2"
         stroke: "#666666"
 
-    x = ax.scale.temp 1300
-    y = ax.scale.depth 90
+    x = ax.scale.x 1300
+    y = ax.scale.y 90
     t = "translate(#{x},#{y})rotate(-90)"
     label = el.append "text"
       .text "1300º C"
@@ -30,8 +33,8 @@ module.exports = (ax)->
 
     lowTempBase = ->
       for d in data.profile[0] by 10
-        if d.z >= 90
-          return d.T < 1300
+        if d.y >= 90
+          return d.x < 1300
 
     if lowTempBase()
       label.attr dy: 8
@@ -44,7 +47,7 @@ module.exports = (ax)->
       .attr
         class: "data"
         id: (d,i)->data.id[i]
-        d: simplifiedLine ax.scale, 0.005
+        d: (d)->line simplify(data,0.005,true)
         "stroke-width": 2
         stroke: '#750000'
         fill: "transparent"

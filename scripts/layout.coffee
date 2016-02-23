@@ -150,6 +150,7 @@ module.exports = (n_axes, ax_spacing)->
       pos =
         x: position.x+x
         y: position.y+topMargin
+      console.log pos
       return axis().position pos
 
     el.attr
