@@ -2,8 +2,6 @@ yaml = require "js-yaml"
 d3 = require 'd3'
 fs = require 'fs'
 savage = require 'savage-svg'
-
-buildData = require './data'
 setupScenarios = require './scenario'
 
 # Create dataset from inputs

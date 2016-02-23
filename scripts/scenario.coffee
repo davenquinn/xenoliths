@@ -28,6 +28,7 @@ possibleLayouts =
 
 class Scenario
   constructor: (@el, config, cb)->
+    console.log config
     for k,v of config
       if k of @
         throw "@#{k} is already defined"
@@ -68,9 +69,9 @@ class Scenario
           id: r.row_id,
           profile: r.temperature.map (d,i)->
             {T: d, z: i*r.dz/1000}
-        a.ml = ml_depth(a.profile)
         # Temporary hack or something
         return a.profile
+      slice.ml = ml_depth(slice.profile)
 
   __setupLayout: =>
     _ = possibleLayouts[@name]
@@ -84,7 +85,6 @@ class Scenario
     axes = @layout.axes()
     axes.forEach (ax,i)=>
       d = @slices[i]
-      console.log d
       ax.backdrop d
       if i == axes.length-1
         ax.xenolithArea()

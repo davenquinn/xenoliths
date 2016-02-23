@@ -14,8 +14,6 @@ $(SCENARIOS): scripts | build
 	coffee $^
 	cairosvg -o $@  -d 100 $(@:.pdf=.svg)
 
-
-
 INT = $(TIMELINE:.pdf=.svg)
 $(INT): timeline | build
 	coffee $^
