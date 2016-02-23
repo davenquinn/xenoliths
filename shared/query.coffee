@@ -8,5 +8,6 @@ c = new Client types: types
 
 module.exports = (sql, data)->
   c.connectSync conString
-  prepared = data.map utils.prepareValue
+  if data?
+    prepared = data.map utils.prepareValue
   return c.querySync sql, prepared

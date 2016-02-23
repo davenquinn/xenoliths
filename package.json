@@ -10,17 +10,19 @@
     "d3": "^3.5.16",
     "d3-queue": "^2.0.2",
     "d3-svg-legend": "^1.7.0",
+    "dimple-js": "^2.1.4",
     "js-yaml": "^3.5.3",
     "jsdom": "3",
-    "lodash": "^3.6.0",
     "node-uuid": "^1.4.7",
+    "nvd3": "^1.8.2",
     "pg": "^4.4.6",
     "pg-native": "^1.10.0",
     "pg-then": "^1.2.1",
     "pg-types": "^1.10.0",
-    "pretty-data": "^0.40.0",
+    "savage-svg": "git+https://github.com/davenquinn/savage-svg.git",
     "simplify-js": "^1.2.1",
     "textures": "^1.0.3",
+    "underscore": "^1.8.3",
     "uuid": "^2.0.1"
   }
 }

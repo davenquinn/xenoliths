@@ -1,7 +1,7 @@
 yaml = require "js-yaml"
 d3 = require 'd3'
 fs = require 'fs'
-svgist = require 'svgist'
+savage = require 'savage-svg'
 
 buildData = require './data'
 setupScenarios = require './scenario'
@@ -19,4 +19,4 @@ func = (el)->
   d3.select el
     .call scenarios
 
-svgist func, filename: 'build/cooling-scenarios.svg'
+savage func, filename: 'build/cooling-scenarios.svg'
