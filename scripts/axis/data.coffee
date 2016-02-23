@@ -8,7 +8,7 @@ module.exports = (ax)->
   out = (data)->
     line = ax.line(type:'object')
 
-    el = d3.select ax.node()
+    el = d3.select @
     el.append "path"
       .datum [0,90].map (d)->
         {x:1300,y:d}
@@ -47,7 +47,7 @@ module.exports = (ax)->
       .attr
         class: "data"
         id: (d,i)->data.id[i]
-        d: (d)->line simplify(data,0.005,true)
+        d: (d)->line simplify(d,0.005,true)
         "stroke-width": 2
         stroke: '#750000'
         fill: "transparent"

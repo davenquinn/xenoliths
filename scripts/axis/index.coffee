@@ -14,16 +14,20 @@ module.exports = ->
 
   ax = axis()
     .size G.axis
-    .position {x: 10, y: 10}
     .margin 0
+
 
   ax.scale.x.domain [0,max.T]
   ax.scale.y.domain [max.z,0]
   ax.backdrop = (layers)->
     fn = createBackdrop ax
-    fn.call ax.node(), layers
-  ax.plot = plotData ax
+    el = ax.plotArea()
+    fn.call el.node(), layers
+  ax.plot = (data)->
+    fn = plotData ax
+    el = ax.plotArea()
+    fn.call el.node(), data
   ax.xenolithArea = ->
-    xenolithsArea d3.select(ax.node()), ax.line()
+    xenolithsArea ax.plotArea(), ax.line()
 
   ax

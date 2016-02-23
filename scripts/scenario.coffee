@@ -68,7 +68,7 @@ class Scenario
         a =
           id: r.row_id,
           profile: r.temperature.map (d,i)->
-            {T: d, z: i*r.dz/1000}
+            {x: d, y: i*r.dz/1000}
         # Temporary hack or something
         return a.profile
       slice.ml = ml_depth(slice.profile)

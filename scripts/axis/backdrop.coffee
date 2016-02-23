@@ -18,6 +18,7 @@ module.exports = (ax)->
   # Function that creates an axis backdrop
   maxZ = 95
 
+
   (layers)->
     pos = ax.position()
     margin = 5
@@ -46,9 +47,9 @@ module.exports = (ax)->
     sel.enter().append "rect"
       .attr
         class: (d)->"layer #{d.id}"
-        x: pos.x - margin
-        y: pos.y - margin
-        width: sz.width+2*margin
-        height: (d)->ax.scale.y(d.z)- pos.y + margin
+        x: ax.scale.x(-50)
+        y: ax.scale.y(-5)
+        width: ax.scale.x(1900)
+        height: (d)->ax.scale.y(d.z+5)
       .each (d)->
         d3.select(@).attr style[d.id]

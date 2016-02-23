@@ -23,8 +23,8 @@ data = rows.map (d)->
 func = (el, window)->
 
   ax = axis()
-  ax.scaleX().domain([80,0])
-  ax.scaleY().domain([300,1400])
+  ax.scale.x.domain([80,0])
+  ax.scale.y.domain([300,1400])
 
   d3.select(el)
     .attr width: 500, height: 300

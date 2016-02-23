@@ -3,6 +3,7 @@ fs = require 'fs'
 textures = require './textures'
 
 module.exports = (el, lineGenerator)->
+  el.call textures.xenoliths
   _ = fs.readFileSync 'xenoliths-area.json'
   data = JSON.parse _
   coords = data.geometry.coordinates
