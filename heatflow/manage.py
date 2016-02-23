@@ -1,7 +1,8 @@
 import click
 from functools import partial
-
+import matplotlib
 from geotherm.units import u
+matplotlib.use("TkAgg")
 
 from .database import refresh_tables
 from .calc import (
@@ -46,6 +47,7 @@ def cli(scenarios, debug=False, all=False,
         click.echo("Possible scenarios:")
         for i in registry:
             click.echo("  "+i)
+        return
 
     FiniteSolver.set_defaults(type=
         'implicit' if implicit else 'crank-nicholson')

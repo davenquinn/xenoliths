@@ -3,8 +3,6 @@ from click import echo, secho, style
 from geotherm.solvers import FiniteSolver
 from geotherm.plot import Plotter
 from geotherm.units import u
-import matplotlib
-matplotlib.use("TkAgg")
 
 from .config import (
     record_max_depth,
@@ -13,13 +11,11 @@ from .config import (
 from .database import db
 from .database.models import meta, ModelRun, ModelTracer, ModelProfile
 
-plotter = Plotter(range=(0,1600))
-
 FiniteSolver.set_defaults(
     type="implicit",
     time_step=u(0.5,"Myr"),
     constraints=solver_constraints,
-    plotter=plotter)
+    plotter=Plotter(range=(0,1600)))
 
 class ModelRunner(object):
     trace_depths = u(40,'km'),u(80,'km')

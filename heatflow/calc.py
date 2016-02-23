@@ -6,19 +6,19 @@ from click import echo
 from functools import partial
 
 from geotherm.models.geometry import Section, stack_sections
-from geotherm.solvers import GDHSolver, FiniteSolver, RoydenSolver, AdiabatSolver
+from geotherm.solvers import FiniteSolver, AdiabatSolver
 from geotherm.units import u
 
+from .model_base import ModelRunner
+from .subduction import SubductionCase
 from .config import (
     oceanic_mantle,
     continental_crust,
     interface_depth,
     total_depth,
+    asthenosphere_temperature,
     solver_constraints,
     present)
-
-from .model_base import ModelRunner
-from .subduction import SubductionCase
 
 class ForearcCase(SubductionCase):
     """
@@ -73,8 +73,7 @@ class FarallonReheated(Farallon):
 
         dT = u(2,'Myr')
 
-        temp = GDHSolver.defaults["T_max"]
-
+        temp = asthenosphere_temperature
         if dT is not None:
             # We're holding the temperature
             # at the boundary for some length of time

@@ -5,6 +5,7 @@ from scipy.optimize import minimize_scalar
 
 from .config import (
     asthenosphere_temperature,
+    forearc_base_temperature,
     interface_depth,
     oceanic_mantle, continental_crust)
 
@@ -61,7 +62,7 @@ def forearc_solver(**kwargs):
     c = continental_crust
 
     defaults = dict(
-        Tm = asthenosphere_temperature.into("degC"),
+        Tm = forearc_base_temperature.into("degC"),
         Al=m.heat_generation.into('W/m**3'),
         Au=c.heat_generation.into('W/m**3'),
         Kl=m.conductivity.into('W/m/K'),

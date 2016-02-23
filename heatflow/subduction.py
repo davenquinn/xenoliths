@@ -12,6 +12,7 @@ from .config import (
         total_depth,
         solver_constraints,
         asthenosphere_temperature,
+        forearc_base_temperature,
         interface_depth,
         convergence_velocity,
         underplating_distance)
@@ -20,7 +21,7 @@ from geotherm.materials import continental_crust
 
 def lithosphere_depth(underplated_section):
     # Find the base of the lithosphere
-    d = underplated_section.depth(asthenosphere_temperature)
+    d = underplated_section.depth(forearc_base_temperature)
     echo("Depth of the base of the "
         "lithosphere at the time of "
         "subduction:{0:.2f}".format(d))
@@ -118,6 +119,8 @@ class SubductionCase(ModelRunner):
             l=lithosphere_depth(self.section).into("m"),
             v=velocity.into("m/s"))
 
+        self.log("Lithosphere depth", kwargs['l'])
+
         if final_temperature is None:
             royden = forearc_solver(**kwargs)
         else:
@@ -156,7 +159,10 @@ class SubductionCase(ModelRunner):
 
         # Set up finite solving for underplated slab
         kwargs['step_function'] = on_step
-        self.finite_solve(self.t-duration, **kwargs)
+        solver = FiniteSolver(self.section)
+        underplated = solver.final_section(
+            duration=duration,
+            **kwargs)
 
         # Construct the forearc geotherm
         forearc = Section(continental_crust
@@ -173,6 +179,6 @@ class SubductionCase(ModelRunner):
              "at the time of underplating", forearc.profile[-1])
         self.log("Subduction took",duration.to("Myr"))
 
-        self.section = stack_sections(forearc, self.section)
+        self.section = stack_sections(forearc, underplated)
         self.t -= duration
         self.record("after-subduction")

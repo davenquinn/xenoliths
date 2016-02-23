@@ -8,6 +8,9 @@ surface_temperature = u(0,'degC')
 # temperature of the base of the lithosphere
 # used in the Royden model finite solving
 asthenosphere_temperature = u(1450,"degC")
+# Consider mostly steady-state upper portion for
+# forearc cooling model
+forearc_base_temperature = u(800,"degC")
 
 # Distance backarc of subduction zone for our
 # final sections (influences Royden model evolution
