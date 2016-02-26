@@ -16,6 +16,7 @@ module.exports = ->
   node = null
   ax = null
   neatline = null
+  graticule = null
 
   x = d3.scale.linear()
   y = d3.scale.linear()
@@ -79,6 +80,8 @@ module.exports = ->
         transform: " translate(#{axTrans.x},#{axTrans.y})"
       .attr innerSize
 
+    graticule = axContainer.append 'g'
+
     ax = axContainer.append 'g'
       .attr 'clip-path': "url(##{clipID})"
 
@@ -91,7 +94,9 @@ module.exports = ->
 
   C.node = -> node
   C.plotArea = -> ax
+  C.plotArea.size = -> innerSize
   C.neatline = -> neatline
+  C.graticule = -> graticule
   C.line = line
   C.boundingBox = ->
       left: offset.x,

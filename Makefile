@@ -1,7 +1,4 @@
-SCENARIOS = build/cooling-scenarios.pdf
-TIMELINE = build/timeline.pdf
-
-all: $(SCENARIOS) $(TIMELINE)
+all: build/cooling-scenarios.pdf build/timeline.pdf
 
 build:
 	mkdir -p $@
@@ -10,15 +7,13 @@ comparison: | build
 	coffee comparison
 	cairosvg -o build/comparison.pdf -d 100 build/comparison.svg
 
-$(SCENARIOS): scripts | build
+build/cooling-scenarios.pdf: scripts | build
 	coffee $^
 	cairosvg -o $@  -d 100 $(@:.pdf=.svg)
 
-INT = $(TIMELINE:.pdf=.svg)
-$(INT): timeline | build
+build/timeline.pdf: timeline | build
 	coffee $^
-$(TIMELINE): $(INT)
-	cairosvg -o $@ $^
+	cairosvg -o $@ -d 100 $(@:.pdf=.svg)
 
 greyscale:
 	gs \
