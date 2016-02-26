@@ -83,6 +83,7 @@ def average(queryset, uncertainties=True, normalized=True):
     length = queryset.count()
     def reactor(d, n):
         for e in n.data:
+            if e.bad: continue
             d[e.element.symbol] += getattr(e,attr)/length
         return d
     data = reduce(reactor, queryset.all(), defaultdict(float))

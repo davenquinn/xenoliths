@@ -17,9 +17,15 @@ def setup_figure():
 
 def regress(X,Y, hree_only=False):
     if hree_only:
-        X = X[5:]
-        Y = Y[5:]
-
+        ix = rare_earths.index('Ho')
+        X = X[ix:]
+        Y = Y[ix:]
+    try:
+        float(X[0])
+    except TypeError:
+        # Get rid of uncertainties if they exist
+        f = N.vectorize(lambda i: i.nominal_value)
+        X = f(X)
     model = sm.RLM(Y,X, M=sm.robust.norms.TukeyBiweight())
     res = model.fit()
     kelvin = res.params[0]

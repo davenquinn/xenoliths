@@ -1,4 +1,4 @@
-from __future__ import division
+from __future__ import division, print_function
 import numpy as N
 
 from ...SIMS.models import SIMSMeasurement, average
@@ -8,10 +8,10 @@ from ...microprobe.models.query import tagged, exclude_bad
 from .pyx import pyroxene_form, BKN
 from ..thermometers import BKN as BKN_test
 
-from uncertainties.unumpy import log
+from uncertainties.unumpy import log, uarray
 
 big10 = "SiO2 TiO2 Al2O3 Cr2O3 FeO MnO MgO CaO Na2O K2O".split()
-rare_earths = "La Ce Pr Nd Sm Eu Gd Tb Dy Y Ho Er Tm Yb Lu".split()
+rare_earths = "La Ce Pr Nd Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Y".split()
 minerals = ("opx", "cpx")
 
 def prepare_data(sample):
@@ -49,10 +49,10 @@ def ree_pyroxene(sample, pressure=1.5):
     T_BKN = BKN(opx,cpx).temperature(pressure) # Two-pyroxene BKN temperature
     assert T_BKN - BKN_test(opx,cpx).temperature(1.5) < 0.0001
 
-    ree_opx = average(trace_elements.filter_by(mineral="opx"), uncertainties=False)#, normalized=False)
-    ree_cpx = average(trace_elements.filter_by(mineral="cpx"), uncertainties=False)#, normalized=False)
+    ree_opx = average(trace_elements.filter_by(mineral="opx"), uncertainties=True)#, normalized=False)
+    ree_cpx = average(trace_elements.filter_by(mineral="cpx"), uncertainties=True)#, normalized=False)
 
-    keys = "La Ce Pr Nd Sm Eu Gd Tb Dy Y Ho Er Tm Yb Lu".split()
+    keys = rare_earths
     ree_array = lambda x: N.array([x[k] for k in keys]) # function to array-ize dictionary
 
     ree_opx = ree_array(ree_opx)
@@ -75,8 +75,8 @@ def ree_pyroxene(sample, pressure=1.5):
     cpx_site = pyroxene_form(get_cations(cpx, uncertainties=False))
     opx_site = pyroxene_form(get_cations(opx, uncertainties=False))
 
-    #IR = La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Y, Ho, Er, Tm, Yb, Lu
-    IR = N.array([1.16, 1.143, 1.126, 1.109, 1.079, 1.066, 1.053, 1.04, 1.027, 1.019, 1.015, 1.004, 0.994, 0.985, 0.977])
+    #IR = La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Y
+    IR = N.array([1.16, 1.143, 1.126, 1.109, 1.079, 1.066, 1.053, 1.04, 1.027, 1.015, 1.004, 0.994, 0.985, 0.977, 1.019])
 
     A = (-5.37068370408382) - (-7.13615731281538)
     Ao = 3.56148426371104 * opx_site.m2.Ca + 3.54081780772732 * opx_site.four.Al
@@ -97,5 +97,5 @@ def ree_pyroxene(sample, pressure=1.5):
 
     #Calculate ln(D)-A
 
-    LnD_A = N.log(DREE)-A
+    LnD_A = log(DREE)-A
     return LnD_A, Br

@@ -1,7 +1,7 @@
 import numpy as N
 from pandas import read_sql, MultiIndex, DataFrame, concat
 from sqlalchemy import func
-from periodictable import La,Lu,elements
+from periodictable import La,Lu,Hf,elements
 
 from ..application import db
 from ..util import uval
@@ -94,20 +94,20 @@ def ree_only(df):
     is_ree = lambda n: La.number <= n[ix] <= Lu.number
     return df[df.index.map(is_ree)]
 
-def element_data(data,columns='element'):
+def element_data(data,columns='element', index=None):
     """
     Pivots data to return a table of elements by
     mineral type and sample.
     """
     all_cols = data.reset_index()
 
-    ix = ['sample_id','mineral']
-    n = all_cols.groupby(ix)['n'].max()
+    if not index:
+        index = ['sample_id','mineral']
+    n = all_cols.groupby(index)['n'].max()
     df = all_cols.pivot_table(
-            index=ix,
+            index=index,
             columns=columns,
             values=['average'],
             aggfunc=lambda x: x)
     df.columns = df.columns.get_level_values(1)
     return df.join(n)
-
