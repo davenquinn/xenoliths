@@ -1,7 +1,14 @@
 uuid = require 'uuid'
 d3 = require 'd3'
 
-module.exports = ->
+defaults =
+  neatline: true
+
+module.exports = (opts)->
+  for k,o of defaults
+    continue if k of opts
+    opts[k] = o
+
   C = null
   size =
     width: 500
