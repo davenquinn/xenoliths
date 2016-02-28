@@ -58,8 +58,8 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
             try:
                 self.var.constrain(val.into("K"), face) ## Constrain as temperature
             except DimensionalityError:
-                v = val.into("K/s")
-                self.var.faceGrad.setValue(v, where=face)
+                v = val.into("K/m")
+                self.var.faceGrad.constrain(v, where=face)
 
     def create_coefficient(self):
         """A spatially varying diffusion coefficient"""

@@ -3,6 +3,8 @@ from __future__ import division
 import numpy as N
 from ..units import u
 
+# Should update to have a single temperature at the surface.
+
 class AdiabatSolver(object):
     defaults = dict(
         start_temp=u(1300,"degC"),
@@ -30,7 +32,7 @@ class AdiabatSolver(object):
         g = u(10,"m/s^2")
         a = section.material_property("thermal_expansivity")[idx]
         Cp = section.material_property("specific_heat")[idx]
-        T = u(1450,"degC").to('K')
+        T = u(1350,"degC").to('K')
 
         coeff = a*g*dz*T/Cp
         integrated = u(N.cumsum(coeff.into('K')),coeff.units)
