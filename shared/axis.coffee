@@ -4,7 +4,7 @@ d3 = require 'd3'
 defaults =
   neatline: true
 
-module.exports = (opts)->
+module.exports = (opts={})->
   for k,o of defaults
     continue if k of opts
     opts[k] = o
@@ -106,10 +106,10 @@ module.exports = (opts)->
   C.graticule = -> graticule
   C.line = line
   C.boundingBox = ->
-      left: offset.x,
-      top: offset.y,
-      bottom: offset.y + size.height
-      right: offset.x + size.width
+    left: offset.x,
+    top: offset.y,
+    bottom: offset.y + size.height
+    right: offset.x + size.width
 
   C.size = (d)->
     # Getter/setter for plot size
