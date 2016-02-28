@@ -1,11 +1,13 @@
-all: build/cooling-scenarios.pdf build/timeline.pdf
+all: build/cooling-scenarios.pdf build/timeline.pdf build/comparison.pdf
 
 build:
 	mkdir -p $@
 
-comparison: | build
-	coffee comparison
-	cairosvg -o build/comparison.pdf -d 100 build/comparison.svg
+build/comparison.svg: comparison/index.coffee | build
+	coffee $^ $@
+
+build/comparison.pdf: build/comparison.svg
+	cairosvg -o $@ -d 72 $^
 
 build/cooling-scenarios.pdf: scripts | build
 	coffee $^

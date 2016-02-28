@@ -38,16 +38,11 @@ data = (query(sql, [d]) for d in names)
 limits = data.map (d)->[
   d3.min d, (d)->d.trange[0]
   d3.max d, (d)->d.trange[1]]
-axLims = limits.map (d)->[
-  Math.floor(d[0]/100)*100,
-  Math.ceil(d[1]/100)*100]
-axSize = axLims.map (d)->d[1]-d[0]
-
-console.log axLims
+axSize = limits.map (d)->d[1]-d[0]
 
 vscale = d3.scale.linear()
   .domain [0, d3.sum axSize]
-  .range [0,sz.height]
+  .range [0.25*dpi,sz.height-0.25*dpi]
 
 offsY = 0
 createAxis = (data,i)->
@@ -62,7 +57,7 @@ createAxis = (data,i)->
     .position x: 0, y: offsY
     .margin 0
   ax.scale.x.domain([80,0])
-  ax.scale.y.domain axLims[i]
+  ax.scale.y.domain limits[i]
   el.call ax
   offsY += axsize.height
 

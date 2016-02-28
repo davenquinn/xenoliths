@@ -3,6 +3,7 @@ layout = require './layout'
 G = require './geometry'
 query = require '../shared/query'
 queue = require('d3-queue').queue
+util = require '../shared/util'
 
 # Specify layouts to use for each scenario
 wide_layout = layout(3, ["small","large"])
@@ -64,13 +65,7 @@ class Scenario
       data = [@id, slice.id]
       rows = query sql,data
 
-      slice.profile = rows.map (r)->
-        a =
-          id: r.row_id,
-          profile: r.temperature.map (d,i)->
-            {x: d, y: i*r.dz/1000}
-        # Temporary hack or something
-        return a.profile
+      slice.profile = rows.map util.makeProfile
       slice.ml = ml_depth(slice.profile)
 
   __setupLayout: =>

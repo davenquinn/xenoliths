@@ -1,108 +1,57 @@
 yaml = require "js-yaml"
 d3 = require 'd3'
 fs = require 'fs'
-svgist = require 'svgist'
-path = require 'path'
-simplifiedLine = require '../scripts/simplified-line'
-xenolithsArea = require '../scripts/xenoliths-area'
-textures = require '../scripts/textures'
+savage = require 'savage-svg'
+simplify = require 'simplify-js'
 
-# Create dataset from inputs
-dir = fs.readFileSync('/dev/stdin').toString()
-cfg = yaml.safeLoad fs.readFileSync('scenarios.yaml')
-cfg = JSON.parse(JSON.stringify(cfg))
+query = require '../shared/query'
+util = require '../shared/util'
+axis = require '../shared/axis'
 
-getProfile = (fn)->
-  # Gets the vertical profile, zipping for friendliness
-  console.log "Getting profile for", fn
-  p = require fn
-  return p.z.map (d,i)->{T: p.T[i], z: d*0.001}
+sql = "SELECT
+    r.name row_id,
+    p.name profile_id,
+    p.temperature,
+    p.dz
+  FROM
+  thermal_modeling.model_profile p
+  JOIN thermal_modeling.model_run r
+    ON r.id = p.run_id
+  WHERE p.name = 'final'
+    AND r.name != 'forearc-28-2'"
 
-# Build data
-data = []
-for c in cfg
-  if not Array.isArray(c.id)
-    c.id = [c.id]
-  for id in c.id
-    d =
-      id: id
-      path: path.join dir, id, 'final.json'
-    data.push d
+rows = query(sql)
+for r in rows
+  r.profile = util.makeProfile r
 
-data.forEach (d)->
-  d.profile = getProfile d.path
-
-# Figure s at 100 ppi
-ppi = 100
+dpi = 72
+size =
+  width: 3.25*dpi
+  height: 4.5*dpi
 
 func = (el)->
-
-  size =
-    height: 4*ppi
-    width: 4.5*ppi
-  margin = 0.3*ppi
-
-  plotSize =
-    height: size.height-margin*2
-    width: size.width-margin*2
-
-  el = d3.select(el)
+  el = d3.select el
     .attr size
 
-  defs = el.append 'defs'
+  ax = axis()
+    .size size
+    .margin 0.25*dpi
 
-  defs.append 'rect'
-    .attr plotSize
-    .attr
-      id: 'plotArea'
-      x: 0
-      y: 0
+  ax.scale.x.domain [800,1300]
+  ax.scale.y.domain [90,30]
 
-  defs
-    .append 'clipPath'
-      .attr id: 'plotClip'
-      .append 'use'
-        .attr 'xlink:href': "#plotArea"
+  el.call ax
 
-  el.call textures.xenoliths
+  line = ax.line(type:'object')
 
-  g = el.append 'g'
-    .attr
-      transform: "translate(#{margin},#{margin})"
-    .attr plotSize
-
-  ax = g.append 'g'
-    .attr 'clip-path': 'url(#plotClip)'
-
-  g.append 'use'
-    .attr
-      'xlink:href': "#plotArea"
-      stroke: 'black'
-      fill: 'transparent'
-
-  y = d3.scale.linear()
-        .domain [40,90]
-        .range [0,plotSize.height]
-
-  x = d3.scale.linear()
-    .domain [900,1100]
-    .range [0,plotSize.width]
-
-  sel = ax.selectAll 'path'
-    .data data.map (d)-> d.profile
+  sel = ax.plotArea().selectAll 'path'
+    .data rows
 
   sel.enter()
     .append 'path'
     .attr
-      stroke: 'grey'
-      fill: 'transparent'
-      d: simplifiedLine {temp: x, depth: y}, 0.005
+      d: (d)-> line simplify(d.profile,0.005,true)
+      stroke: '#750000'
+      fill: 'none'
 
-  line = d3.svg.line()
-    .x (d)->x(d[0])
-    .y (d)->y(d[1])
-    .interpolate 'basis'
-  xenolithsArea ax, line
-
-
-svgist func, filename: 'build/comparison.svg'
+savage func, filename: process.argv[2]
