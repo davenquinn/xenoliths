@@ -2,7 +2,7 @@ d3 = require "d3"
 createBackdrop = require "./backdrop"
 plotData = require "./data"
 G = require "../geometry"
-xenolithsArea = require '../xenoliths-area'
+xenolithsArea = require '../../shared/xenoliths-area'
 uuid = require "uuid"
 color = require "color"
 axis = require "../../shared/axis"
@@ -66,6 +66,7 @@ module.exports = ->
     el = ax.plotArea()
     fn.call el.node(), data
   ax.xenolithArea = ->
-    xenolithsArea ax.plotArea(), ax.line()
+    xa = xenolithsArea()
+    xa ax.plotArea(), ax.line()
 
   ax

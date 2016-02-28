@@ -4,6 +4,7 @@ fs = require 'fs'
 savage = require 'savage-svg'
 simplify = require 'simplify-js'
 
+xenolithsArea = require '../shared/xenoliths-area'
 query = require '../shared/query'
 util = require '../shared/util'
 axis = require '../shared/axis'
@@ -37,12 +38,15 @@ func = (el)->
     .size size
     .margin 0.25*dpi
 
-  ax.scale.x.domain [800,1300]
+  ax.scale.x.domain [800,1200]
   ax.scale.y.domain [90,30]
 
   el.call ax
 
   line = ax.line(type:'object')
+
+  xa = xenolithsArea color: '#ccc', size: 6
+  xa ax.plotArea(), ax.line()
 
   sel = ax.plotArea().selectAll 'path'
     .data rows
