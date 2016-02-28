@@ -2,13 +2,14 @@
 Solver for geothermal models related to the Crystal Knob xenoliths
 """
 from __future__ import division, print_function
-from click import echo
+from click import echo, secho, style
 from functools import partial
 
 from geotherm.models.geometry import Section, stack_sections
 from geotherm.solvers import FiniteSolver, AdiabatSolver
 from geotherm.units import u
 
+from .database.models import StaticProfile
 from .model_base import ModelRunner
 from .subduction import SubductionCase
 from .config import (
@@ -129,10 +130,38 @@ class SteadyState(ModelRunner):
     atop 270 km of oceanic mantle
     """
     name = 'steady-state'
+
+    def __setup_recorder(self):
+        self.session = db.session()
+        n_deleted = self.session.query(StaticProfile).delete()
+        if n_deleted > 0:
+            secho("Deleting data from previous run", fg='red')
+        self.session.commit()
+
+    def record(self, section, flux):
+        T, dz = self.section_data(section)
+        v = StaticProfile(
+            heat_flow=flux,
+            temperature=T,
+            dz=dz)
+        self.session.add(v)
+
     def run(self):
         section = Section([
             continental_crust.to_layer(interface_depth),
             oceanic_mantle.to_layer(total_depth-interface_depth)])
-        solver = FiniteSolver(section)
-        self.set_state(present, solver.steady_state())
-        self.record("final")
+
+        for flux in (90,95,100,105,110):
+            q = u(flux,'uW/m^2')
+            k = continental_crust.conductivity
+            dT = -q/k
+
+            solver = FiniteSolver(section)
+            solver.set_constraints(dT)
+            section = solver.steady_state()
+            self.record(section,flux)
+            echo("Saving section for "
+                 +style(str(q), fg='green')
+                 +" surface heat flux")
+
+

@@ -70,6 +70,15 @@ class ModelRunner(object):
         self.step_function()
         self.record("final")
 
+    def section_data(self, section):
+        # Check if all cells are the same size
+        z_ = section.cell_sizes.into('m')
+        self.dz = z_[0]
+        self.n_cells = record_max_depth.into('m')/self.dz
+        assert N.all(z_ == self.dz)
+        T = list(section.profile[:self.n_cells].into("degC"))
+        return T, self.dz
+
     def record(self, step_name, section=None, **kwargs):
         t = kwargs.pop("t",self.t).into("Myr")
         if section is None:
@@ -77,17 +86,10 @@ class ModelRunner(object):
 
         self.log("Saving profile "+style(step_name, fg='cyan'))
 
-        # Check if all cells are the same size
-        z_ = section.cell_sizes.into('m')
-        self.dz = z_[0]
-        self.n_cells = record_max_depth.into('m')/self.dz
-
-        assert N.all(z_ == self.dz)
-        T = list(section.profile[:self.n_cells].into("degC"))
-
+        T, dz = self.section_data(section)
         v = ModelProfile(
             name=step_name, time=t,
-            run=self.__model, temperature=T, dz=self.dz)
+            run=self.__model, temperature=T, dz=dz)
         self.session.add(v)
 
     def __setup_recorder(self):
