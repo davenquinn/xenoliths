@@ -3,6 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from functools import partial, wraps
 
+from .models import meta
 from ..config import DBNAME
 
 class Database(object):

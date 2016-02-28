@@ -35,13 +35,22 @@ class __shared(object):
     def time(cls):
         return Column(Numeric, primary_key=True)
 
-class ModelProfile(Base, __shared):
-    __tablename__ = 'model_profile'
-    name = Column(String, nullable=False)
+class BaseProfile(Base):
+    __abstract__ = True
     temperature = Column(
         ARRAY(Float, dimensions=1),
         nullable=False)
     dz = Column(Float, nullable=False)
+
+class StaticProfile(BaseProfile):
+    __tablename__ = 'static_profile'
+    id = Column(Integer, primary_key=True)
+    # Modern heat flow
+    heat_flow = Column(Numeric)
+
+class ModelProfile(BaseProfile, __shared):
+    __tablename__ = 'model_profile'
+    name = Column(String, nullable=False)
 
 class ModelTracer(Base, __shared):
     __tablename__ = 'model_tracer'
