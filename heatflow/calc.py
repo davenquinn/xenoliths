@@ -44,8 +44,7 @@ class Farallon(SubductionCase):
     """
     name = 'farallon'
     def __init__(self):
-        self.start_time = u(140,"Myr")
-        self.subduction_time = u(80,"Myr")
+        SubductionCase.__init__(self,u(140,"Myr"),u(80,"Myr"))
 
     def setup(self):
         self.pre_subduction()
@@ -117,7 +116,7 @@ class Underplated(ModelRunner):
 
         apply_adiabat = AdiabatSolver(
             start_depth=interface_depth,
-            start_temp=u(1450,"degC"))
+            start_temp=u(1350,"degC"))
 
         self.t = start
         self.section = apply_adiabat(section)

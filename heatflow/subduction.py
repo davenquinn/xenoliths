@@ -35,6 +35,8 @@ class SubductionCase(ModelRunner):
     def __init__(self, start_time, subduction_time):
         self.start_time = start_time
         self.subduction_time = subduction_time
+        # Depths in the main section are less than present depths
+        self.depth_offset = interface_depth
 
     def pre_subduction(self):
         """
@@ -147,6 +149,8 @@ class SubductionCase(ModelRunner):
             completion = (step+1)/steps
 
             sz_depth = final_depth*completion
+            # Decrease depth offset
+            self.depth_offset = final_depth-sz_depth
 
             # Set temperature at the subduction
             # interface
@@ -181,4 +185,5 @@ class SubductionCase(ModelRunner):
 
         self.section = stack_sections(forearc, underplated)
         self.t -= duration
+        self.depth_offset = u(0,'km')
         self.record("after-subduction")

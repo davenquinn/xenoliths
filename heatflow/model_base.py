@@ -19,6 +19,9 @@ FiniteSolver.set_defaults(
 
 class ModelRunner(object):
     trace_depths = u(40,'km'),u(80,'km')
+    # Offset used for depth calculations for model tracers.
+    # Reset when geotherms are stacked.
+    depth_offset = None
     def __init__(self, **info):
         self.info = info
 
@@ -105,14 +108,22 @@ class ModelRunner(object):
 
     def trace(self, depth, t=None):
 
+        if self.depth_offset is None:
+            _depth = depth
+        else:
+            _depth = depth - self.depth_offset
+
+        assert _depth >= u(0,'km')
+
         if t is None: t = self.t
 
-        cell = depth.into('m')/self.dz
+        cell = _depth.into('m')/self.dz
         T = self.section.profile[cell]
 
         v = ModelTracer(
             run=self.__model,
             time=t.into("Myr"),
+            final_depth=_depth.into("km"),
             depth=depth.into("km"),
             temperature=T.into("degC"))
         self.session.add(v)

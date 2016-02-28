@@ -45,5 +45,9 @@ class ModelProfile(Base, __shared):
 
 class ModelTracer(Base, __shared):
     __tablename__ = 'model_tracer'
-    depth = Column(Numeric, primary_key=True)
+    # Handles cases where we have advection, as
+    # the depth may not be constant throughout the
+    # model run.
+    final_depth = Column(Numeric, primary_key=True)
+    depth = Column(Numeric,nullable=False)
     temperature = Column(Float, nullable=False)
