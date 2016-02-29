@@ -15,7 +15,6 @@ module.exports = ->
     .size G.axis
     .margin 0
 
-
   ax.scale.x.domain [0,max.T]
   ax.scale.y.domain [max.z,0]
   ax.backdrop = (layers)->

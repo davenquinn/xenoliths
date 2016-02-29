@@ -43,8 +43,8 @@ func = (el)->
     .size size
     .margin 0.25*dpi
 
-  ax.scale.x.domain [800,1200]
-  ax.scale.y.domain [90,30]
+  ax.scale.x.domain [0,1200]
+  ax.scale.y.domain [90,0]
 
   el.call ax
 
