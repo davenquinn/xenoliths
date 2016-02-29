@@ -5,6 +5,8 @@ import numpy as N
 import matplotlib as M
 from matplotlib import pyplot as P
 from scipy import interpolate
+from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes
+from mpl_toolkits.axes_grid1.inset_locator import mark_inset
 
 data = DataFrame.from_csv("isotope-data.tsv",sep='\t')
 
@@ -40,14 +42,14 @@ ax.annotate("Continental",
 ax.annotate("Primitive\nMantle", xy=(0.70425,1.9),**kw)
 
 kw['ha']='left'
-ax.annotate("Depleted Mantle", xy=(0.703,11.3),**kw)
+ax.annotate("Depleted Mantle", xy=(0.703,10.9),**kw)
 
-ax.text(0.7034,6.2, 'Mantle Array',
+ax.text(0.7031,4, 'Mantle Array',
         ha = 'center',
         va = 'center',
         color = '#bbbbbb',
         fontsize = 20,
-        rotation = -53)
+        rotation = -51)
 
 # Plot splines
 areas = {
@@ -56,18 +58,6 @@ areas = {
     'bulk-earth': '#dddddd',
     'mantle-array': '#eeeeee'
 }
-
-def spline_interpolate(coords, n=100):
-    nt = N.linspace(0, 1, n)
-    t = N.zeros(coords.shape)
-    t[1:] = N.sqrt((x[1:] - x[:-1])**2 + (y[1:] - y[:-1])**2)
-    t = N.cumsum(t)
-    t /= t[-1]
-    x = [i[0] for i in coords]
-    y = [i[1] for i in coords]
-    x2 = interpolate.spline(t, x, nt)
-    y2 = interpolate.spline(t, y, nt)
-    return [(x,y) for x,y in zip(x2,y2)]
 
 patches = []
 for k,color in areas.items():
@@ -86,6 +76,17 @@ for k,color in areas.items():
     ax.add_artist(patch)
 
 ax.patches = patches
+
+axins = zoomed_inset_axes(ax, 8, loc=1)
+axins.plot(x,y, 'ko')
+axins.set_ylim(10.2,11.2)
+axins.set_xlim(0.70225,0.7025)
+for a in (axins.xaxis,axins.yaxis):
+    #loc = P.MaxNLocator(4)
+    #a.set_major_locator(loc)
+    a.set_ticks([])
+
+mark_inset(ax, axins, loc1=2, loc2=3, fc="none", ec="0.5")
 
 fig.savefig(argv[1], bbox_inches="tight")
 
