@@ -60,6 +60,8 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
             except DimensionalityError:
                 v = val.into("K/m")
                 self.var.faceGrad.constrain(v, where=face)
+            except AttributeError:
+                pass
 
     def create_coefficient(self):
         """A spatially varying diffusion coefficient"""
