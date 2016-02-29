@@ -19,14 +19,35 @@ ax.set_xlabel(r'$^{87}$Sr/$^{86}$Sr')
 ax.set_ylabel(r"$\epsilon_{Nd}$")
 ax.set_ylim([-5,12])
 ax.set_xlim([0.7015,0.708])
-ax.annotate("Crystal Knob",
-        xy=(x.mean(),y.mean()), xycoords="data", textcoords="offset points", xytext=(15,-4))
+
 
 ax.axhline(y=0, color="#999999", linestyle="dotted")
 ax.axvline(x=.7045, color="#999999", linestyle="dotted")
 
 # Bulk earth from DePaolo and Wasserburg, 1976
-ax.annotate("Bulk Earth", xy=(.7045,0), xycoords="data", textcoords="offset points", xytext=(5,5))
+ax.annotate("Bulk Earth",
+        xy=(.7045,0),
+        xycoords="data",
+        textcoords="offset points",
+        xytext=(5,5),
+        fontsize=9)
+kw = dict(xycoords="data",
+    color="#888888",
+    ha='center',
+    va='center')
+ax.annotate("Continental",
+        xy=(0.7065,-4.4),**kw)
+ax.annotate("Primitive\nMantle", xy=(0.70425,1.9),**kw)
+
+kw['ha']='left'
+ax.annotate("Depleted Mantle", xy=(0.703,11.3),**kw)
+
+ax.text(0.7034,6.2, 'Mantle Array',
+        ha = 'center',
+        va = 'center',
+        color = '#bbbbbb',
+        fontsize = 20,
+        rotation = -53)
 
 # Plot splines
 areas = {
