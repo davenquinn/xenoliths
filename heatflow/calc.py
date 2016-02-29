@@ -6,9 +6,10 @@ from click import echo, secho, style
 from functools import partial
 
 from geotherm.models.geometry import Section, stack_sections
-from geotherm.solvers import FiniteSolver, AdiabatSolver
+from geotherm.solvers import FiniteSolver, AdiabatSolver, steady_state
 from geotherm.units import u
 
+from .database import db
 from .database.models import StaticProfile
 from .model_base import ModelRunner
 from .subduction import SubductionCase
@@ -79,7 +80,7 @@ class FarallonReheated(Farallon):
             # at the boundary for some length of time
             top_section = self.section.get_slice(u(0,'km'),underplating_depth)
             solver = FiniteSolver(top_section,
-                constraints=(u(0,'degC'),temp),
+                constraints=(u(0,'degC'),self.section.profile[-1]),
                 step_function=self.step_function)
             res = solver(dT).profile
             self.section.profile[:len(res)] = res
@@ -131,7 +132,7 @@ class SteadyState(ModelRunner):
     """
     name = 'steady-state'
 
-    def __setup_recorder(self):
+    def setup_recorder(self):
         self.session = db.session()
         n_deleted = self.session.query(StaticProfile).delete()
         if n_deleted > 0:
@@ -151,15 +152,10 @@ class SteadyState(ModelRunner):
             continental_crust.to_layer(interface_depth),
             oceanic_mantle.to_layer(total_depth-interface_depth)])
 
-        for flux in (90,95,100,105,110):
-            q = u(flux,'uW/m^2')
-            k = continental_crust.conductivity
-            dT = -q/k
-
-            solver = FiniteSolver(section)
-            solver.set_constraints(dT)
-            section = solver.steady_state()
-            self.record(section,flux)
+        for flux in (90,95,100):
+            q = u(flux,'mW/m^2')
+            s = steady_state(section,q)
+            self.record(s,flux)
             echo("Saving section for "
                  +style(str(q), fg='green')
                  +" surface heat flux")

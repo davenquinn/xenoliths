@@ -163,7 +163,9 @@ class SubductionCase(ModelRunner):
 
         # Set up finite solving for underplated slab
         kwargs['step_function'] = on_step
-        solver = FiniteSolver(self.section)
+        i = self.section.profile[-1]
+        solver = FiniteSolver(self.section,
+            constraints=(u(0,'degC'),i))
         underplated = solver.final_section(
             duration=duration,
             **kwargs)

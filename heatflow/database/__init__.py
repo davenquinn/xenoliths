@@ -8,16 +8,14 @@ from ..config import DBNAME
 
 class Database(object):
     def __init__(self, dbname):
+        self.meta = meta
         self.engine = create_engine(dbname)
+        conn = self.engine.connect()
+        self.session = sessionmaker(bind=conn)
 
     def execute(self, query):
         a = self.engine.connect()
         a.execute(query)
-
-    def session(self):
-        conn = self.engine.connect()
-        s = sessionmaker(bind=conn)
-        return s()
 
 db = Database(DBNAME)
 

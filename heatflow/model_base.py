@@ -92,7 +92,7 @@ class ModelRunner(object):
             run=self.__model, temperature=T, dz=dz)
         self.session.add(v)
 
-    def __setup_recorder(self):
+    def setup_recorder(self):
         self.session = db.session()
         kw = dict(name=self.name)
 
@@ -142,7 +142,7 @@ class ModelRunner(object):
         echo(start+style(str(data),fg='green'))
 
     def __call__(self, *args, **kwargs):
-        self.__setup_recorder()
+        self.setup_recorder()
         try:
             self.run(*args,**kwargs)
         finally:
