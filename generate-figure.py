@@ -1,48 +1,30 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from __future__ import division
-import IPython
-
+from pandas import DataFrame
+from sys import argv
 import numpy as N
-import matplotlib as M
-M.use("pgf")
-
 from matplotlib import pyplot as P
 
-pgf_with_pdflatex = {
-    "pgf.rcfonts": False,
-    "pgf.preamble": [
-    	r"\usetypescript[helvetica][uc]",
-		r"\setupbodyfont[helvetica]",
-         r"\usepackage{fontspec,xunicode,xltxtra,siunitx,mhchem}",
-         r"\setmainfont{Helvetica Neue}"
-    ]
-}
-M.rcParams.update(pgf_with_pdflatex)
+data = DataFrame.from_csv("isotope-data.tsv",sep='\t')
 
-names = [("Names", "S4")]+[(i, float) for i in "Sr_ratio Nd_ratio E_nd".split()]
-
-data = N.loadtxt("isotope-data.tsv",comments="#",dtype=names)
+x = data["87Sr/86Sr(0)"]
+y = data['Epsilon Nd']
 
 fig = P.figure()
 ax = fig.add_subplot(111)
-ax.plot(data["Sr_ratio"],data["E_nd"], "ko")
+ax.plot(x,y, "ko")
 
-ax.set_xlabel(r"$^\textrm{87}$Sr/$^\textrm {86}$Sr$")
-ax.set_ylabel(r"$\mathcal{E}_\ce{Nd}$")
+ax.set_xlabel(r'$^{87}$Sr/$^{86}$Sr')
+ax.set_ylabel(r"$\epsilon_{Nd}$")
 ax.set_ylim([-5,12])
 ax.set_xlim([0.7015,0.708])
-ax.annotate("Crystal Knob", xy=(data["Sr_ratio"].mean(),data["E_nd"].mean()), xycoords="data", textcoords="offset points", xytext=(15,-4))
+ax.annotate("Crystal Knob",
+        xy=(x.mean(),y.mean()), xycoords="data", textcoords="offset points", xytext=(15,-4))
 
 ax.axhline(y=0, color="#999999", linestyle="dotted")
 ax.axvline(x=.7045, color="#999999", linestyle="dotted")
 
-#ax.plot(.7045,0, color="none", markeredgecolor="#999999", marker="o", markersize=10)
-
 # Bulk earth from DePaolo and Wasserburg, 1976
 ax.annotate("Bulk Earth", xy=(.7045,0), xycoords="data", textcoords="offset points", xytext=(5,5))
 
-fig.suptitle("Paired Sm-Nd and Rb-Sr isotopes", fontsize=18)
-fig.savefig("isotopes.pdf", bbox_inches="tight")
+fig.savefig(argv[1], bbox_inches="tight")
 
