@@ -21,9 +21,14 @@ sql = "SELECT
   WHERE p.name = 'final'
     AND r.name != 'forearc-28-2'"
 
-rows = query(sql)
+staticGeotherms = "SELECT *
+  FROM thermal_modeling.static_profile"
+
+rows = query(sql).concat query(staticGeotherms)
 for r in rows
   r.profile = util.makeProfile r
+  n = r.row_id or r.heat_flow
+  console.log n, r.profile[50*100]
 
 dpi = 72
 size =
@@ -55,7 +60,11 @@ func = (el)->
     .append 'path'
     .attr
       d: (d)-> line simplify(d.profile,0.005,true)
-      stroke: '#750000'
+      stroke: (d)->
+        if 'heat_flow' of d
+          '#888888'
+        else
+          '#750000'
       fill: 'none'
 
 savage func, filename: process.argv[2]
