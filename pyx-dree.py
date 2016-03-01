@@ -15,6 +15,8 @@ from xenoliths.thermometry.rare_earth import (
 
 xv = N.arange(len(rare_earths))
 
+do_offsets = False
+
 with open('ree-disequilibrium.txt') as f:
     lines = (d.split() for d in f.readlines())
     for_removal = {d.pop(0):d for d in lines}
@@ -109,7 +111,13 @@ with app.app_context():
     ax = fig.add_subplot(gs[0])
     ax1 = fig.add_subplot(gs[1])
     ax1.invert_xaxis()
-    ax.set_ylim([700,2400])
+
+    if do_offsets:
+        _ = 2400
+    else:
+        _ = 1500
+
+    ax.set_ylim([800,_])
     ax1.set_ylim([900,1125])
 
     samples = (Sample.query
@@ -133,6 +141,8 @@ with app.app_context():
         if o is None:
             o = 200
         offs += o
+        if not do_offsets: offs = 0
+
         plot_DREE((ax,ax1), sample, annotate=False, offset=offs)
 
 
