@@ -4,6 +4,7 @@ from __future__ import print_function, division
 
 import numpy as N
 import seaborn.apionly as sns
+import matplotlib as M
 from matplotlib.gridspec import GridSpec
 from matplotlib.lines import Line2D
 from matplotlib.pyplot import figure, subplots_adjust
@@ -13,9 +14,15 @@ from xenoliths.models import Sample
 from xenoliths.thermometry.rare_earth import (
     ree_pyroxene, regress, temperature, rare_earths)
 
+from data import load_data, ree_data, sample_colors
+from helpers import scatter_options, label
+
 xv = N.arange(len(rare_earths))
 
 do_offsets = False
+
+font = {'size': 10}
+M.rc('font', **font)
 
 with open('ree-disequilibrium.txt') as f:
     lines = (d.split() for d in f.readlines())
@@ -36,7 +43,10 @@ def plot_uncertain(ax, x,y, **kwargs):
         alpha=0.2)
     ax.plot(x,u, color=color, **kwargs)
 
-fig = figure(figsize=(7.5,5))
+# Load data for non-REE temperatures.
+data = load_data()
+
+fig = figure(figsize=(7.5,4))
 transFigure = fig.transFigure.inverted()
 
 def line_between(ax1,ax2,T,T1,**kwargs):
@@ -58,14 +68,14 @@ def line_between(ax1,ax2,T,T1,**kwargs):
 def plot_DREE(axes, sample, annotate=True, uncertainties=True, offset=0):
     offs = offset
     ax,ax1 = axes
-    X,Y = ree_pyroxene(sample, 1.5) # Pressure in GPa
+    X,Y = sample.X, sample.Y
 
     to_remove = for_removal[sample.id]
     # Index of elements to remove from regression
     ix = N.in1d(rare_earths,to_remove)
-    res = regress(X[~ix],Y[~ix])
+    res = sample.res
     fitted_coeff = res.params[0]
-    T = temperature(res)
+    T = sample.temperature
 
     title = u"{id}: {n:.0f}±{s:.0f} °C"\
         .format(
@@ -95,7 +105,7 @@ def plot_DREE(axes, sample, annotate=True, uncertainties=True, offset=0):
         va='center', ha='right', color=sample.color)
 
     # Plot probability density function
-    s = res.bse[0]
+    s = res.bse[0] # B-hat standard estimator
     x = N.linspace(-3*s,3*s,100)
     P = norm.pdf(x,0,s)
     ax1.fill_betweenx(x+T.n,0,P,facecolor=sample.color, alpha=0.3, zorder=-10)
@@ -105,11 +115,14 @@ def plot_DREE(axes, sample, annotate=True, uncertainties=True, offset=0):
     line_between(ax,ax1,T.n+offs,T.n, **linekws)
 
 with app.app_context():
-    gs = GridSpec(1, 2, width_ratios=[6, 1])
+    gs = GridSpec(1, 3, width_ratios=[6, 1, 6])
     #gs.update(left=0.3, wspace=0.05)
 
     ax = fig.add_subplot(gs[0])
     ax1 = fig.add_subplot(gs[1])
+    # Axis for comparisons
+    comp_ax = fig.add_subplot(gs[2], sharey=ax1)
+
     ax1.invert_xaxis()
 
     if do_offsets:
@@ -131,6 +144,7 @@ with app.app_context():
 
         s.X,s.Y = ree_pyroxene(s, 1.5) # Pressure in GPa
         s.res = regress(s.X[~ix],s.Y[~ix])
+        s.temperature = temperature(s.res)
 
     d = sorted(samples, key=lambda s: s.res.params[0])
 
@@ -166,12 +180,22 @@ with app.app_context():
 
     ax1.yaxis.tick_right()
     ax1.xaxis.set_ticks([])
-    ax1.yaxis.set_ticks([950,1000,1050,1100])
     sns.despine(ax=ax1,left=True,bottom=True, right=False)
 
     ax1.text(1.05, 1, u"T (\u00b0C)",
         horizontalalignment='left',
         verticalalignment='top',
         transform=ax1.transAxes)
+
+    data = {d['id']: d for d in data}
+    # Comparison axis
+    for sample in samples:
+        temps = data[sample.id]
+        ta98 = temps['core']['ta98']['sep']
+        n = N.ones(ta98.shape)*sample.temperature.n
+        opts = scatter_options(sample.color,'core')
+        comp_ax.scatter(ta98,n, **opts)
+
+    comp_ax.yaxis.set_ticks([950,1000,1050,1100])
 
     fig.savefig("build/pyx-dree.pdf",bbox_inches="tight")
