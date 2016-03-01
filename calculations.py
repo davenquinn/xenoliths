@@ -8,7 +8,7 @@ import numpy as N
 # CHUR values from Faure, 2005 pp 199-200
 nd_chur_0 = 0.512638 # DePaolo and Wasserberg
 sm_nd_chur = 0.1967 # McCulloch and Wasserberg
-lam = -6.54e12
+lam = 6.54e-12
 
 def Epsilon_Nd(row):
     n = row['143Nd/144Nd(0)']
@@ -17,4 +17,4 @@ def Epsilon_Nd(row):
 
 def T_CHUR(row):
     _ = (row['143Nd/144Nd(0)']-nd_chur_0)/(row['147Sm/144Nd']-sm_nd_chur)
-    return 1/lam*N.log(1-_)
+    return 1/lam*N.log(_+1)*1e-9
