@@ -1,23 +1,21 @@
-\begin{tabular}{l r r r r r r r r r r r}
+\begin{tabular}{l r r r r r r r r r}
 \hline
- Sample & Sm & Nd & Sm/Nd &
+ Sample & Sm & Nd &
   ${^{147}Sm}/{^{144}Nd}$ &
   ${^{143}Nd}/{^{144}Nd}(0)$ &
   $\epsilon_{Nd}$ & Rb & Sr &
-  ${^{87}Rb}/{^{86}Sr}$ & Rb/Sr&
+  ${^{87}Rb}/{^{86}Sr}$ &
   ${^{87}Rb}/{^{86}Sr}(0)$ \\
 \hline
 <# for s in samples  #>
   << s['id'] >> &
   << s['Sm']| n(4) >> &
   << s['Nd']|n(4) >> &
-  << s['Sm/Nd']|n(5)>> &
   << s['147Sm/144Nd']|n(5) >> &
   << s['143Nd/144Nd(0)']|n(5) >> &
   << s['Epsilon Nd'] >> &
   << s['Rb']|n(4) >> &
   << s['Sr']|n(4) >> &
-  << s['Rb/Sr'] >> &
   << s['87Rb/86Sr'] >> &
   << s['87Sr/86Sr(0)']|n(5) >> \\
 <# endfor  #>
