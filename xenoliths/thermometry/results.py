@@ -36,10 +36,10 @@ thermometers = {
 
 #base_queryset = ProbeMeasurement.query.filter()
 
-def single_measurement(queryset, method=Taylor1998):
+def single_measurement(queryset, method=Taylor1998, **kwargs):
     opx = queryset.filter(ProbeMeasurement.mineral=="opx")
     cpx = queryset.filter(ProbeMeasurement.mineral=="cpx")
-    thermometer = method(opx,cpx, uncertainties=True)
+    thermometer = method(opx,cpx, **kwargs)
     return {
         "val": thermometer.temperature(),
         "n_opx": opx.count(),
@@ -82,8 +82,8 @@ def pyroxene_pairs(queryset, distinct=min,names=("opx","cpx")):
         tuple(ProbeMeasurement.query.get(i) for i in pair)
         for pair in res)
 
-def separate_measurements(pairs, method=Taylor1998):
-    return [method(*a, uncertainties=False).temperature() for a in pairs]
+def separate_measurements(pairs, method=Taylor1998, **kwargs):
+    return [method(*a, **kwargs).temperature() for a in pairs]
 
 def core_temperatures(sample, method=Taylor1998, **kwargs):
     queryset = exclude_bad(ProbeMeasurement.query.filter_by(sample=sample))
@@ -103,8 +103,9 @@ def core_pressures(sample):
     ol = queryset.filter(ProbeMeasurement.mineral=="ol")
     opx = queryset.filter(ProbeMeasurement.mineral=="opx")
     cpx = queryset.filter(ProbeMeasurement.mineral=="cpx")
-    T = BKN(opx, cpx).temperature()
-    return T,Ca_Olivine(ol, cpx).pressure(T)
+    bkn = BKN(opx, cpx)
+    T = bkn.temperature()
+    return T,Ca_Olivine(ol, cpx, bkn).pressure()
 
 def sample_temperatures(sample, **kwargs):
     base_queryset = exclude_bad(ProbeMeasurement.query)
@@ -112,13 +113,13 @@ def sample_temperatures(sample, **kwargs):
 
     def type_results(typeid="core"):
         queryset = tagged(sample_queryset, typeid)
-        pairs = pyroxene_pairs(queryset, **kwargs)
+        pairs = pyroxene_pairs(queryset, distinct=kwargs.pop('distinct',None))
         for tname, thermometer in thermometers.iteritems():
-            sep = separate_measurements(pairs, method=thermometer)
+            sep = separate_measurements(pairs, method=thermometer, **kwargs)
             T = N.array(sep)
             yield tname, dict(
                 sep = T,
-                single = single_measurement(queryset, method=thermometer))
+                single = single_measurement(queryset, method=thermometer, **kwargs))
     s = {i:{k:v for k,v in type_results(i)} for i in ("core","rim")}
     s["id"] = sample.id
     s["color"] = sample.color

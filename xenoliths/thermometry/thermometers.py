@@ -60,7 +60,6 @@ class Ca_OPX_Corr(Ca_OPX):
         Tor = super(Ca_OPX_Corr,self).temperature(pressure)
         return -628.7 + 2.0690*Tor - 4.530e-4 * Tor**2
 
-
 class BKN(TwoPyroxeneThermometer):
     name = "T_BKN"
     def __init__(self, *args, **kwargs):
@@ -151,4 +150,5 @@ class Taylor1998(TwoPyroxeneThermometer):
         ])
 
         T = (self.num(24787,826, "4")+self.num(678,87,"5")*pressure)/bottom
+
         return T-273.15
