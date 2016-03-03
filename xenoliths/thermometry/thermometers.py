@@ -29,6 +29,11 @@ class TwoPyroxeneThermometer(Thermometer):
             opx=cations(opx),
             cpx=cations(cpx))
 
+    def temperature(self):
+        pass
+
+    __call__ = temperature
+
 class Ca_OPX(Thermometer):
     name = "Ca in OPX"
     def __init__(self, opx, cpx=None, **kwargs):

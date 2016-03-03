@@ -41,14 +41,10 @@ class GeoThermometryResult(object):
 
         self.temperature = Taylor1998(opx,cpx, **kwargs).temperature(pressure=self.init_pressure_basis)
 
-        oldPressure = self.init_pressure_basis
-        newPressure = 0
-        while N.abs(newPressure - oldPressure) > 0.01:
-            self.bkn = BKN(opx,cpx, **kwargs).temperature(pressure=newPressure)
-            self.pressure = Ca_Olivine(ol,cpx, **kwargs).pressure(self.bkn)
-            oldPressure = newPressure
-            newPressure = self.pressure
-
+        bkn = BKN(opx,cpx, **kwargs)
+        barometer = Ca_Olivine(ol,cpx, bkn, **kwargs)
+        self.pressure = barometer()
+        self.bkn = bkn.temperature(pressure=self.pressure)
         self.depth = self.pressure/.03
 
 def mineral_data(queryset, mineral='opx',**kwargs):
