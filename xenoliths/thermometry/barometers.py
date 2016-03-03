@@ -1,12 +1,13 @@
 from __future__ import division
 from uncertainties import ufloat as u
 from uncertainties.umath import log
-from ..microprobe.group import get_cations
+from .thermometers import get_cations
 
 class Ca_Olivine(object):
     """From Kohler and Brey, 1990"""
     name = "Ca in Olivine"
     def __init__(self, ol, cpx, **kwargs):
+        self.uncertainties = kwargs.pop('uncertainties',True)
         self.breakout_errors = kwargs.pop("breakout_errors",False)
 
         self.cpx = get_cations(cpx, oxygen=6, **kwargs)
@@ -14,16 +15,22 @@ class Ca_Olivine(object):
 
         self.D_Ca = self.ol["Ca"]/self.cpx["Ca"]
 
+    def num(self,*args):
+        if self.uncertainties:
+            return u(*args)
+        else:
+            return args[0]
+
     def low_temperature(self, T):
         """Need to implement the high temperature version if we are planning
         to measure rocks above ~1275C
         """
-        ans = -T*log(self.D_Ca)-u(5792,493)-u(1.25,0.39)*T
-        return ans/u(42.5,2.2)
+        ans = -T*log(self.D_Ca)-self.num(5792,493)-self.num(1.25,0.39)*T
+        return ans/self.num(42.5,2.2)
 
     def high_temperature(self, T):
-        ans = -T*log(self.D_Ca)-u(11982,633)+u(3.61,0.47)*T
-        return ans/u(56.2,2.7)
+        ans = -T*log(self.D_Ca)-self.num(11982,633)+self.num(3.61,0.47)*T
+        return ans/self.num(56.2,2.7)
 
     def pressure(self, T):
         #if T < 1275:

@@ -3,7 +3,14 @@ from uncertainties import ufloat
 from uncertainties.umath import log
 from functools import partial
 from ..models import ProbeMeasurement
-from ..microprobe.group import get_cations
+from ..microprobe.group import get_cations as get_cations_base
+
+def get_cations(qs,**kwargs):
+    try:
+        qs['Si']
+    except TypeError:
+        qs = get_cations_base(qs,**kwargs)
+    return qs
 
 class Thermometer(object):
     def __init__(self):
