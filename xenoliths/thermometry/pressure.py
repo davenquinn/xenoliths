@@ -28,7 +28,7 @@ def geobaric_gradient(depth):
     return depth*.03 #GPa/km
 
 class GeoThermometryResult(object):
-    pressure_basis = 1.5
+    init_pressure_basis = 1.5
     def __init__(self,opx, cpx, ol=None):
         #assert opx.sample == cpx.sample
         self.sample = opx.sample
@@ -37,18 +37,9 @@ class GeoThermometryResult(object):
         self.ol = ol
 
         self.temperature = Taylor1998(opx,cpx).temperature(pressure=self.pressure_basis)
-        self.bkn = BKN(opx,cpx).temperature(pressure=self.pressure_basis)
+        self.bkn = BKN(opx,cpx).temperature(pressure=self.init_pressure_basis)
         self.pressure = Ca_Olivine(ol,cpx).pressure(self.bkn)
         self.depth = self.pressure/.03
-
-    # def grouped_pressure(self):
-        # if self.all_olivines is None:
-            # all_olivines = ProbeMeasurement.query.filter(
-                    # ProbeMeasurement.mineral=="ol",
-                    # ProbeMeasurement.sample==self.sample)
-            # all_olivines = exclude_bad(tagged(all_olivines,"core"))
-            # self.all_olivines = all_olivines
-        # return Ca_Olivine(self.all_olivines,self.cpx).pressure(self.bkn)
 
 def pressure_measurements(single=False,core=True):
     base_queryset = exclude_bad(ProbeMeasurement.query)
@@ -68,5 +59,4 @@ def pressure_measurements(single=False,core=True):
 
             for grains in list(triplets(queryset)):
                 res = GeoThermometryResult(*grains)
-                #res.all_olivines = all_olivines
                 yield res
