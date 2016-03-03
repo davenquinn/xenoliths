@@ -12,7 +12,7 @@ cache = "build/comparison-data.pickle"
 
 def create_data():
     with app.app_context():
-        data = [sample_temperatures(s, distinct=min)
+        data = [sample_temperatures(s, distinct=min, uncertainties=True)
            for s in xenoliths()]
     with open(cache,"w") as f:
         dump(data,f)

@@ -20,5 +20,8 @@ build/ree-temperatures.pdf: ree-temperatures.py | build/data.pickle
 build/temperatures.tex: generate-table.py | build/data.pickle
 	python $^
 
-build/pyx-dree.pdf: pyx-dree.py | build
-	python $^
+build/comparison-data.pickle: | build
+	rm -f $@
+
+build/pyx-dree.pdf: pyx-dree.py build/comparison-data.pickle | build
+	python $<

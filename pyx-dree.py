@@ -4,8 +4,10 @@ from __future__ import print_function, division
 
 import numpy as N
 import seaborn.apionly as sns
+from uncertainties import unumpy
 import matplotlib as M
 from chroma import Color
+import yaml
 from matplotlib.gridspec import GridSpec
 from matplotlib.lines import Line2D
 from matplotlib.pyplot import figure, subplots_adjust
@@ -18,12 +20,14 @@ from xenoliths.thermometry.rare_earth import (
 from data import load_data, ree_data, sample_colors
 from helpers import scatter_options, label
 
+with open('font-style.yaml') as f:
+    style_object = yaml.load(f)
+for k,v in style_object.items():
+    M.rc(k,**v)
+
 xv = N.arange(len(rare_earths))
 
 do_offsets = False
-
-font = {'size': 10}
-M.rc('font', **font)
 
 with open('ree-disequilibrium.txt') as f:
     lines = (d.split() for d in f.readlines())
@@ -177,11 +181,9 @@ with app.app_context():
 
     ax.xaxis.get_ticklabels()[-1].set_color('#888888')
     ax.yaxis.set_ticklabels([])
-    sns.despine(ax=ax)
 
     ax1.yaxis.tick_right()
     ax1.xaxis.set_ticks([])
-    sns.despine(ax=ax1,left=True,bottom=True, right=False)
 
     ax1.text(1.05, 1, u"T (\u00b0C)",
         horizontalalignment='left',
@@ -190,36 +192,38 @@ with app.app_context():
 
     data = {d['id']: d for d in data}
     # Comparison axis
+
     for sample in samples:
         temps = data[sample.id]
         ta98 = temps['core']['ta98']['sep']
 
+        n = 1e4
+
+        choice = N.random.choice(ta98,size=n)
+        x = unumpy.nominal_values(choice)
+        x += unumpy.std_devs(choice)*N.random.randn(n)
         # Plot probability density function
         res = sample.res
-        T = res.params[0]-273.15
+        _ = res.params[0]-273.15
         s = res.bse[0] # B-hat standard estimator
+        y = s*N.random.randn(n) + _
+        comp_ax.plot(x,y,
+            marker='.',
+            linestyle='none',
+            color=sample.color,
+            alpha=0.01,
+            rasterized=True)
 
-        x = ta98
-
-        # Peform the kernel density estimate
-        xx, yy = N.mgrid[x.min()-100:x.max()+100:1000j, -3*s:3*s:1000j]
-        yy += T
-
-        kernel = gaussian_kde(x)
-        kernel.covariance_factor=lambda: 0.9
-        kernel._compute_covariance()
-        P = norm.pdf(yy.ravel(),T,s)
-        v = kernel(xx.ravel())*P
-        f = N.reshape(v, xx.shape)
-
-        # Contourf plot
-        #cfset = comp_ax.contourf(xx, yy, f, cmap='Blues')
-        ## Or kernel density estimate plot instead of the contourf plot
-        #ax.imshow(np.rot90(f), cmap='Blues', extent=[xmin, xmax, ymin, ymax])
-        # Contour plot
-        cset = comp_ax.contour(xx, yy, f,colors=sample.color, alpha=0.5)
-
+        comp_ax.set_rasterization_zorder(-10)
 
     comp_ax.yaxis.set_ticks([950,1000,1050,1100])
 
-    fig.savefig("build/pyx-dree.pdf",bbox_inches="tight")
+    comp_ax.autoscale(False)
+    a = [0,2000]
+    comp_ax.plot(a,a, c="#cccccc", zorder=-20)
+
+
+    sns.despine(ax=ax)
+    sns.despine(ax=ax1,left=True,bottom=True, right=False)
+
+    fig.savefig("build/pyx-dree.pdf",bbox_inches="tight", dpi=300)
