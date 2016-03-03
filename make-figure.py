@@ -15,42 +15,31 @@ from max_stability import max_depth
 
 outfile = sys.argv[1]
 with app.app_context():
-    data = list(pressure_measurements())
+    data = pressure_measurements(uncertainties=False,core=True, n=10)
 
     spinel_cr = {k['id']: k['sp']['cr_number'].n
             for k in xenolith_minerals('molar')}
 
-    sample_data = defaultdict(list)
     fig, ax = subplots(figsize=(4,4))
-    for t in data:
+    for sample,res in data:
         #ax.scatter(t["T_ta98"], t["heatflow"]["z"], marker="o", s=10, alpha=0.4, color="#cccccc", zorder=-10)
+        temps = N.array([t.temperature for t in res])
         ax.scatter(
-            t.temperature,
-            t.depth.n,
+            temps,
+            [t.depth for t in res],
             marker="o",
             s=20,
             alpha=0.3,
-            color=t.sample.color)
+            color=sample.color)
 
         # Maximum depth based on spinel Cr content
-        d = max_depth(t.temperature,spinel_cr[t.sample.id]/100)
+        d = max_depth(temps,spinel_cr[sample.id]/100)
         ax.scatter(
-            t.temperature,
+            temps,
             d,
             marker=".",
             s=35,
-            color=t.sample.color)
-
-        sample_data[t.sample].append(t)
-
-    for k,data in sample_data.items():
-
-        temps = N.array([i.temperature for i in data])
-        depths = N.array([i.depth.n for i in data])
-        # ax.errorbar(temps.mean(),depths.mean(),
-                # xerr=temps.std()/N.sqrt(len(temps)),
-                # yerr=depths.std()/N.sqrt(len(depths)),
-                # color=k.color)
+            color=sample.color)
 
 ax.invert_yaxis()
 ax.set_xlabel(u"Temperature - TA98 (\u00b0C)")
