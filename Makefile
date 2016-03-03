@@ -1,10 +1,13 @@
-OUT=build/ca-opx-pressures.pdf
+OUT=build/ca-ol-pressures.pdf
 
 all: $(OUT)
 
 build:
 	mkdir -p $@
 
-$(OUT): make-figure.py | build
+build/data.pickle: get-data.py | build
+	python $^ $@
+
+$(OUT): make-figure.py build/data.pickle | build
 	python $^ $@
 
