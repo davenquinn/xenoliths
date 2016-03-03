@@ -58,7 +58,7 @@ def average_composition(queryset, **kwargs):
     uncertainties = kwargs.pop("uncertainties",False)
     if uncertainties:
         e = ProbeDatum.error
-        sum_ = func.sum(func.pow(e*quantity,2))
+        sum_ = func.sum(func.pow(e/100*quantity,2))
         std = func.sqrt(sum_)/func.count("*")
         qvars.append(std.label("analytic_std"))
 
