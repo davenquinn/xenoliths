@@ -5,10 +5,11 @@ from __future__ import print_function, division
 import numpy as N
 import seaborn.apionly as sns
 import matplotlib as M
+from chroma import Color
 from matplotlib.gridspec import GridSpec
 from matplotlib.lines import Line2D
 from matplotlib.pyplot import figure, subplots_adjust
-from scipy.stats import norm
+from scipy.stats import norm, gaussian_kde
 from xenoliths import app
 from xenoliths.models import Sample
 from xenoliths.thermometry.rare_earth import (
@@ -46,7 +47,7 @@ def plot_uncertain(ax, x,y, **kwargs):
 # Load data for non-REE temperatures.
 data = load_data()
 
-fig = figure(figsize=(7.5,4))
+fig = figure(figsize=(7.5,4), dpi=300)
 transFigure = fig.transFigure.inverted()
 
 def line_between(ax1,ax2,T,T1,**kwargs):
@@ -192,9 +193,32 @@ with app.app_context():
     for sample in samples:
         temps = data[sample.id]
         ta98 = temps['core']['ta98']['sep']
-        n = N.ones(ta98.shape)*sample.temperature.n
-        opts = scatter_options(sample.color,'core')
-        comp_ax.scatter(ta98,n, **opts)
+
+        # Plot probability density function
+        res = sample.res
+        T = res.params[0]-273.15
+        s = res.bse[0] # B-hat standard estimator
+
+        x = ta98
+
+        # Peform the kernel density estimate
+        xx, yy = N.mgrid[x.min()-100:x.max()+100:1000j, -3*s:3*s:1000j]
+        yy += T
+
+        kernel = gaussian_kde(x)
+        kernel.covariance_factor=lambda: 0.9
+        kernel._compute_covariance()
+        P = norm.pdf(yy.ravel(),T,s)
+        v = kernel(xx.ravel())*P
+        f = N.reshape(v, xx.shape)
+
+        # Contourf plot
+        #cfset = comp_ax.contourf(xx, yy, f, cmap='Blues')
+        ## Or kernel density estimate plot instead of the contourf plot
+        #ax.imshow(np.rot90(f), cmap='Blues', extent=[xmin, xmax, ymin, ymax])
+        # Contour plot
+        cset = comp_ax.contour(xx, yy, f,colors=sample.color, alpha=0.5)
+
 
     comp_ax.yaxis.set_ticks([950,1000,1050,1100])
 

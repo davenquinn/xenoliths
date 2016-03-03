@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 from __future__ import division, print_function
-from IPython import embed
 from matplotlib.pyplot import subplots
 
 from data import load_data, ree_data, sample_colors

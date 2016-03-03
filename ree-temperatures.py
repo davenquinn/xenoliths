@@ -30,7 +30,7 @@ with app.app_context():
     temps = tuple([N.array(core_temperatures(s,method=method))
         for s in samples] for method in methods)
 
-fig, axes = P.subplots(2,1,figsize=(4,6), sharex=True)
+fig, axes = P.subplots(3,1,figsize=(4,6), sharex=True)
 fig.subplots_adjust(hspace=0)
 
 def plot(ax, y, x):
