@@ -15,54 +15,53 @@ def allclose_uncertain(a,b, **kwargs):
     a = (N.allclose(a.n, b.n, **kwargs),N.allclose(a.s, b.s, **kwargs))
     return all(a)
 
+@app.with_context
 def test_oxides():
-    with app.app_context():
-        # Filter a single xenolith because some samples have
-        # different oxides measured
-        filter = ProbeMeasurement.sample_id == "CK-4"
+    # Filter a single xenolith because some samples have
+    # different oxides measured
+    filter = ProbeMeasurement.sample_id == "CK-4"
 
-        q = db.session.query(ProbeMeasurement).filter(filter)
-        data = get_oxides(q, uncertainties=False)
-        s = sum(data.values())
-        _ = func.sum(ProbeMeasurement.oxide_total)/func.count("*")
-        d = (q.with_entities(_)).scalar()
-        print(s,d)
-        assert N.allclose(s, d)
+    q = db.session.query(ProbeMeasurement).filter(filter)
+    data = get_oxides(q, uncertainties=False)
+    s = sum(data.values())
+    _ = func.sum(ProbeMeasurement.oxide_total)/func.count("*")
+    d = (q.with_entities(_)).scalar()
+    print(s,d)
+    assert N.allclose(s, d)
 
+@app.with_context
 def test_molar():
     """
     Tests that molar percentages always sum to 100
     """
-    with app.app_context():
-        queryset = ProbeMeasurement.query\
-            .filter(ProbeMeasurement.sample_id == "CK-4")\
-            .filter(ProbeMeasurement.mineral == "opx")
-        data = get_molar(queryset, uncertainties=False)
-        s = sum(data.values())
-        print(s)
-        assert N.allclose(s, 100)
+    queryset = ProbeMeasurement.query\
+        .filter(ProbeMeasurement.sample_id == "CK-4")\
+        .filter(ProbeMeasurement.mineral == "opx")
+    data = get_molar(queryset, uncertainties=False)
+    s = sum(data.values())
+    print(s)
+    assert N.allclose(s, 100)
 
+@app.with_context
 def test_cations():
     """ Tests that cation proportions computed using SQL
         are functionally the same as iteratively computed
         values.
     """
-    with app.app_context():
+    queryset = ProbeMeasurement.query\
+        .filter(ProbeMeasurement.id < 100)
+    g = get_cations(queryset, uncertainties=True)
+    d = iterate_cations(queryset, uncertainties=True)
 
-        queryset = ProbeMeasurement.query\
-            .filter(ProbeMeasurement.id < 100)
-        g = get_cations(queryset, uncertainties=True)
-        d = iterate_cations(queryset, uncertainties=True)
+    sums = tuple(sum(i.values()).n for i in (g,d))
+    print(*sums)
+    assert N.allclose(*sums, rtol=0.1)
 
-        sums = tuple(sum(i.values()).n for i in (g,d))
-        print(*sums)
-        assert N.allclose(*sums, rtol=0.1)
+    for k in g.keys():
 
-        for k in g.keys():
-
-            print(k, g[k], d[k])
-            assert N.allclose(g[k].n, d[k].n, atol=0.1)
-            assert N.allclose(g[k].s, d[k].s, rtol=2)
+        print(k, g[k], d[k])
+        assert N.allclose(g[k].n, d[k].n, atol=0.1)
+        assert N.allclose(g[k].s, d[k].s, rtol=2)
 
 def test_uncertainties():
     """ Tests the method used to calculate uncertainties in
@@ -157,6 +156,7 @@ def naive_composition(queryset, **kwargs):
     # Get out of defaultdict
     return output
 
+@app.with_context
 def test_grouped_measurements():
     """
     Test measurement of oxide parameters across
@@ -167,24 +167,23 @@ def test_grouped_measurements():
     """
     types = ["molar","weight","normalized_weight"]
 
-    with app.app_context():
-        # Pick an arbitrary queryset
-        queryset = ProbeMeasurement.query.filter(ProbeMeasurement.id <= 100)
+    # Pick an arbitrary queryset
+    queryset = ProbeMeasurement.query.filter(ProbeMeasurement.id <= 100)
 
-        for t in types:
-            print(t)
-            kwargs = dict(type=t,uncertainties=True)
-            comp = average_composition(queryset, **kwargs)
-            naive_comp = naive_composition(queryset, **kwargs)
+    for t in types:
+        print(t)
+        kwargs = dict(type=t,uncertainties=True)
+        comp = average_composition(queryset, **kwargs)
+        naive_comp = naive_composition(queryset, **kwargs)
 
-            if t != "weight":
-                for i in (comp,naive_comp):
-                    s = sum(i.values()).n
-                    assert N.allclose(s,100)
+        if t != "weight":
+            for i in (comp,naive_comp):
+                s = sum(i.values()).n
+                assert N.allclose(s,100)
 
-            for k,quantity in comp.items():
-                print(k, quantity, naive_comp[k])
-                assert allclose_uncertain(quantity, naive_comp[k], rtol=0.05)
+        for k,quantity in comp.items():
+            print(k, quantity, naive_comp[k])
+            assert allclose_uncertain(quantity, naive_comp[k], rtol=0.05)
 
 def test_sql_norm():
     """

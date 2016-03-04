@@ -2,6 +2,7 @@ import logging
 from os import path
 from flask import Flask, Blueprint
 from logging.handlers import RotatingFileHandler
+from functools import wraps
 
 from ..config import DATA_DIR, LOG_DIR
 
@@ -28,3 +29,10 @@ class Application(Flask):
         self.config.from_object("xenoliths.config")
         self.register_blueprint(data, url_prefix="/data")
         self.logger.addHandler(file_handler)
+
+    def with_context(self, f):
+        @wraps(f)
+        def wrapper(*args,**kwargs):
+            with self.app_context():
+                return f(*args,**kwargs)
+        return wrapper
