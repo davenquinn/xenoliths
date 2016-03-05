@@ -7,6 +7,8 @@ font:
     - Arial
     - sans-serif
   weight: light
+mathtext:
+  default: regular
 axes:
   labelsize: 8
   titlesize: 12

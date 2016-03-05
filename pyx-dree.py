@@ -8,6 +8,7 @@ from uncertainties import unumpy
 import matplotlib as M
 from chroma import Color
 import yaml
+from collections import defaultdict
 from matplotlib.gridspec import GridSpec
 from matplotlib.lines import Line2D
 from matplotlib.pyplot import figure, subplots_adjust
@@ -24,6 +25,10 @@ with open('font-style.yaml') as f:
     style_object = yaml.load(f)
 for k,v in style_object.items():
     M.rc(k,**v)
+
+label_offsets = defaultdict(int)
+label_offsets['CK-2'] = 4
+label_offsets['CK-5'] = -5
 
 xv = N.arange(len(rare_earths))
 
@@ -51,7 +56,8 @@ def plot_uncertain(ax, x,y, **kwargs):
 # Load data for non-REE temperatures.
 data = load_data()
 
-fig = figure(figsize=(7.5,4), dpi=300)
+aspect_ratio = (7.5,3)
+fig = figure(figsize=aspect_ratio, dpi=300)
 transFigure = fig.transFigure.inverted()
 
 def line_between(ax1,ax2,T,T1,**kwargs):
@@ -69,6 +75,7 @@ def line_between(ax1,ax2,T,T1,**kwargs):
 
     line = Line2D(x_,y_,transform=fig.transFigure, **kwargs)
     fig.lines.append(line)
+    return N.array([x_,y_]).transpose()
 
 def plot_DREE(axes, sample, annotate=True, uncertainties=True, offset=0):
     offs = offset
@@ -105,10 +112,6 @@ def plot_DREE(axes, sample, annotate=True, uncertainties=True, offset=0):
     ax.scatter(xv[ix],n[ix], color='#ffffff', **kws)
     ax.scatter(xv[~ix],n[~ix],color=sample.color,**kws)
 
-    ax.annotate(sample.id, (-0.5,T.n+offs), (-10, 0),
-        xycoords='data', textcoords='offset points',
-        va='center', ha='right', color=sample.color)
-
     # Plot probability density function
     s = res.bse[0] # B-hat standard estimator
     x = N.linspace(-3*s,3*s,100)
@@ -116,17 +119,35 @@ def plot_DREE(axes, sample, annotate=True, uncertainties=True, offset=0):
     ax1.fill_betweenx(x+T.n,0,P,facecolor=sample.color, alpha=0.3, zorder=-10)
     ax1.plot(P,x+T.n, color=sample.color)
 
-    linekws = dict(color=sample.color, linewidth=2, alpha=0.3)
-    line_between(ax,ax1,T.n+offs,T.n, **linekws)
+    linekws = dict(color=sample.color, linewidth=2, alpha=0.2)
+    coords = line_between(ax,ax1,T.n+offs,T.n, **linekws)
+
+    coords = coords[1:3]
+
+    c = N.array(aspect_ratio)*coords
+    tup  = c[1]-c[0]
+    angle = 90-N.degrees(N.arctan2(*tup))
+    center = coords.mean(axis=0)
+
+    ax.annotate(sample.id, center, (-3, label_offsets[sample.id]),
+        fontsize=10,
+        rotation=angle,
+        xycoords='figure fraction',
+        textcoords='offset points',
+        va='center', ha='center', color=sample.color,
+        zorder=20)
 
 with app.app_context():
-    gs = GridSpec(1, 3, width_ratios=[6, 1, 6])
-    #gs.update(left=0.3, wspace=0.05)
 
-    ax = fig.add_subplot(gs[0])
-    ax1 = fig.add_subplot(gs[1])
-    # Axis for comparisons
-    comp_ax = fig.add_subplot(gs[2], sharey=ax1)
+    gs_left = M.gridspec.GridSpec(1, 1)
+    gs_right = M.gridspec.GridSpec(1, 2, width_ratios=[1,6], wspace=0)
+    gs_left.update(right=0.55, bottom=0.1,top=0.99)
+    gs_right.update(left=0.6, bottom=0.1, top=0.99)
+
+    # add plots to the nested structure
+    ax = fig.add_subplot(gs_left[0])
+    ax1 = fig.add_subplot(gs_right[0])
+    comp_ax = fig.add_subplot(gs_right[1], sharey=ax1)
 
     ax1.invert_xaxis()
 
@@ -170,9 +191,11 @@ with app.app_context():
         verticalalignment='top',
         transform=ax.transAxes)
 
-    ax.text(0.05, 1, r"Equilibrium T$_\mathrm{REE}$",**kw)
-    ax.text(0.05, 0.95,u"100 \u00b0C increments, offset for clarity",
-        size='smaller', color='#888888', **kw)
+    if do_offsets:
+        ax.text(0.05, 1, r"Equilibrium T$_\mathrm{REE}$",**kw)
+        ax.text(0.05, 0.95,u"100 \u00b0C increments, offset for clarity",
+            size='smaller', color='#888888', **kw)
+        ax.yaxis.set_ticklabels([])
 
     ticks = xv
     ax.set_xlim([ticks[0]-0.5,ticks[-1]+0.5])
@@ -180,15 +203,7 @@ with app.app_context():
     ax.xaxis.set_ticklabels(rare_earths)
 
     ax.xaxis.get_ticklabels()[-1].set_color('#888888')
-    ax.yaxis.set_ticklabels([])
-
-    ax1.yaxis.tick_right()
     ax1.xaxis.set_ticks([])
-
-    ax1.text(1.05, 1, u"T (\u00b0C)",
-        horizontalalignment='left',
-        verticalalignment='top',
-        transform=ax1.transAxes)
 
     data = {d['id']: d for d in data}
     # Comparison axis
@@ -216,12 +231,21 @@ with app.app_context():
 
         comp_ax.set_rasterization_zorder(-10)
 
+    comp_ax.yaxis.tick_right()
+    comp_ax.yaxis.set_label_position("right")
+    comp_ax.set_xlabel(r"T$_{TA98}$"+u" (ºC)")
+    comp_ax.set_ylabel(r"T$_{REE}$"+u" (ºC)")
     comp_ax.yaxis.set_ticks([950,1000,1050,1100])
+    labels = comp_ax.get_yticklabels()+ax.get_yticklabels()
+    for label in labels:
+        label.set_rotation('vertical')
 
+    ax.set_ylabel(u"Equilibrium T (ºC)")
+
+    comp_ax.set_xlim([900,1100])
     comp_ax.autoscale(False)
     a = [0,2000]
     comp_ax.plot(a,a, c="#cccccc", zorder=-20)
-
 
     sns.despine(ax=ax)
     sns.despine(ax=ax1,left=True,bottom=True, right=False)
