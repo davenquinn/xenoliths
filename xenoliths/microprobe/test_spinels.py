@@ -1,4 +1,6 @@
 from __future__ import division, print_function
+
+import numpy as N
 from ..application import app, db
 from .models import ProbeDatum, ProbeMeasurement
 from .group import get_cations, get_molar
@@ -11,6 +13,9 @@ tetrahedral = lambda c: sum(
 octahedral = lambda c: sum(
     i for k,i in c.items()
     if k not in _tetrahedral)
+
+mg_number = lambda c: c['Mg']/(c['Mg']+c['Fe'])
+cr_number = lambda c: c['Cr']/(c['Cr']+c['Al'])
 
 def oxygens(cation):
     # Ignore silicon for oxygen calculation
@@ -39,25 +44,27 @@ def correct_spinel(obj):
     except TypeError:
         cat = get_cat(obj, oxygen=4, uncertainties=True)
 
-    cat['Fe(II)'] = cat.pop('Fe')
     cat['Fe(III)'] = 0
 
     for i in range(500):
         oct = octahedral(cat)
         excess_oct = oct-1
         if excess_oct > 0:
-            Fe = cat['Fe(II)']
+            Fe = cat['Fe']
             if excess_oct > Fe: excess_oct = Fe
             removable_iron = excess_oct*2/3
             cat['Fe(III)'] += removable_iron
-            cat['Fe(II)'] -= removable_iron
+            cat['Fe'] -= removable_iron
+        else:
+            # We can't do any more without cannibalizing
+            # the octahedral site.
+            break
 
         n_ox = sum(oxygens(k)*v for k,v in cat.items())
         cat = {k:v*4/n_ox for k,v in cat.items()}
         total = sum(cat.values())
         if abs(total - 3) < 0.00001:
             break
-    print(i)
     return cat
 
 @app.with_context
@@ -68,8 +75,9 @@ def test_spinel_compositions():
     """
     q = (db.session.query(ProbeMeasurement)
             .filter_by(mineral='sp')
-            .limit(1))
+            .limit(100))
     for spinel in q.all():
         cat = get_cations(spinel, oxygen=4, uncertainties=True)
         cat_corr = correct_spinel(cat)
-    assert False
+    assert N.allclose(cr_number(cat).n, cr_number(cat_corr).n)
+    assert mg_number(cat).n <= mg_number(cat_corr).n
