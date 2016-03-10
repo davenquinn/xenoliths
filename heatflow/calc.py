@@ -56,29 +56,15 @@ class Farallon(SubductionCase):
         self.setup()
         self.solve_to_present()
 
-class FarallonReheated(Farallon):
-    """
-    Deep (90 km) underplating
-    of mantle lithosphere at 1450 (Tmax for GDHsolver) degC
-    """
-    name = 'farallon-reheated'
-
-    def run(self):
-
-        underplating_depth = u(90,'km')
-        underplating_time = u(20,'Myr')
-
-        self.setup()
-        self.finite_solve(underplating_time)
-        self.record("before-underplating")
-
-        dT = u(2,'Myr')
+class UnderplatingMixin(object):
+    def do_underplating(self):
+        dT = self.underplating_duration
 
         temp = asthenosphere_temperature
         if dT is not None:
             # We're holding the temperature
             # at the boundary for some length of time
-            top_section = self.section.get_slice(u(0,'km'),underplating_depth)
+            top_section = self.section.get_slice(u(0,'km'),self.underplating_depth)
             solver = FiniteSolver(top_section,
                 constraints=(u(0,'degC'),self.section.profile[-1]),
                 step_function=self.step_function)
@@ -87,21 +73,46 @@ class FarallonReheated(Farallon):
             self.t -= dT
 
         apply_adiabat = AdiabatSolver(
-            start_depth=underplating_depth,
+            start_depth=self.underplating_depth,
             start_temp=temp)
 
         self.section = apply_adiabat(self.section)
         self.record("after-underplating")
+
+class FarallonReheated(Farallon, UnderplatingMixin):
+    """
+    Deep (90 km) underplating
+    of mantle lithosphere at 1450 (Tmax for GDHsolver) degC
+    """
+    def __init__(self, dT):
+        Farallon.__init__(self)
+        self.name = 'farallon-reheated-'+str(dT)
+        self.underplating_duration = u(dT,'Myr')
+        self.underplating_depth = u(85,'km')
+        self.underplating_time = u(24,'Myr')
+
+    def run(self):
+
+        self.setup()
+        self.finite_solve(self.underplating_time)
+        self.record("before-underplating")
+        self.do_underplating()
         self.solve_to_present()
 
-class Underplated(ModelRunner):
-    name = 'underplated'
+class Underplated(ModelRunner, UnderplatingMixin):
+    def __init__(self, dT):
+        ModelRunner.__init__(self)
+        self.name = 'underplated-'+str(dT)
+        self.underplating_duration = u(dT,'Myr')
+        self.underplating_depth = u(30,'km')
+        self.underplating_time = u(24,'Myr')
+
     def run(self):
 
         plot_opts = dict(
             range=(0,1500))
 
-        start = u(20,"Myr")
+        start = u(24,"Myr")
 
         crust = continental_crust.to_layer(interface_depth)
         solver = FiniteSolver(crust,
@@ -115,14 +126,14 @@ class Underplated(ModelRunner):
 
         # Set starting state
         section = stack_sections(crust_section, mantle)
-
         apply_adiabat = AdiabatSolver(
-            start_depth=interface_depth,
-            start_temp=u(1350,"degC"))
+            start_depth=self.underplating_depth,
+            start_temp=asthenosphere_temperature)
 
         self.t = start
         self.section = apply_adiabat(section)
         self.record("initial")
+        self.do_underplating()
         self.solve_to_present()
 
 class SteadyState(ModelRunner):

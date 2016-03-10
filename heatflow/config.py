@@ -19,8 +19,11 @@ underplating_distance = u(100,'km')
 
 # Set conductivity to value from GDH model
 oceanic_mantle.conductivity = u(3.138,"W/m/K")
-# Continental crust is mostly granitic here
-continental_crust.heat_generation = u(2,"uW/m**3")
+# Could be higher? u(3300,"W/m/K")
+# Continental crust is mostly granitic and metapelitic here
+continental_crust.heat_generation = u(1.5,"uW/m**3")
+# Continental crust conductivity is 2.7 W/m/K
+# but could be as low as 1.9 
 
 # Depths
 interface_depth = u(30,'km')

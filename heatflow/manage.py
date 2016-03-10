@@ -28,15 +28,20 @@ def cli(scenarios, debug=False, all=False,
         return
 
     registry = {
-        "underplating": Underplated(),
         "farallon": Farallon(),
-        "farallon-reheated": FarallonReheated(),
         "steady-state": SteadyState()}
 
     forearc_list = [
         (80,60),(70,50),(60,40),(50,30),(40,20),(30,10),(28,2)]
     for sub_age,oc_age in forearc_list:
         case = ForearcCase(sub_age,oc_age)
+        registry[case.name] = case
+
+    for dT in (0,2,4):
+        case =  FarallonReheated(dT)
+        registry[case.name] = case
+
+        case = Underplated(dT)
         registry[case.name] = case
 
     # Run scenarios requested
