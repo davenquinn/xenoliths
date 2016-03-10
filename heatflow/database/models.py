@@ -14,8 +14,13 @@ class ModelRun(Base):
     __tablename__ = 'model_run'
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
-    plate_creation = Column(Numeric) # Ma
-    subduction_start = Column(Numeric) # Ma
+    type = Column(String)
+    start_time = Column(Numeric) # Ma
+    subduction_time = Column(Numeric) # Ma
+    underplating_time = Column(Numeric) # Ma
+    underplating_duration = Column(Numeric) # Ma
+    underplating_depth = Column(Numeric) # km
+
     run_time = Column(
             DateTime(timezone=True),
             server_default='now()')

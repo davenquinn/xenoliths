@@ -28,8 +28,9 @@ class ForearcCase(SubductionCase):
     form, with the only differences being the timing of initial
     emplacemnt on the ocean floor and subduction.
     """
+    name_base = 'forearc'
     def __init__(self, sub_age, oc_age):
-        self.name = "forearc-{0}-{1}".format(sub_age,oc_age)
+        self.name = "{0}-{1}-{2}".format(self.name_base,sub_age,oc_age)
         args = (u(sub_age+oc_age,"Myr"), u(sub_age,"Myr"))
         SubductionCase.__init__(self, *args)
 
@@ -44,8 +45,9 @@ class Farallon(SubductionCase):
     temperature under the slab pinned to 700 degC at 10kb,
     a constraint garnered from the Rand Schist
     """
-    name = 'farallon'
+    name_base = 'farallon'
     def __init__(self):
+        self.name = self.name_base
         SubductionCase.__init__(self,u(140,"Myr"),u(80,"Myr"))
 
     def setup(self):
@@ -84,9 +86,10 @@ class FarallonReheated(Farallon, UnderplatingMixin):
     Deep (90 km) underplating
     of mantle lithosphere at 1450 (Tmax for GDHsolver) degC
     """
+    name_base = 'farallon-reheated'
     def __init__(self, dT):
         Farallon.__init__(self)
-        self.name = 'farallon-reheated-'+str(dT)
+        self.name = self.name_base+'-'+str(dT)
         self.underplating_duration = u(dT,'Myr')
         self.underplating_depth = u(85,'km')
         self.underplating_time = u(24,'Myr')
@@ -100,19 +103,19 @@ class FarallonReheated(Farallon, UnderplatingMixin):
         self.solve_to_present()
 
 class Underplated(ModelRunner, UnderplatingMixin):
+    name_base = 'underplated'
     def __init__(self, dT):
         ModelRunner.__init__(self)
-        self.name = 'underplated-'+str(dT)
+        self.name = self.name_base+'-'+str(dT)
         self.underplating_duration = u(dT,'Myr')
         self.underplating_depth = u(30,'km')
         self.underplating_time = u(24,'Myr')
+        self.start_time = self.underplating_time
 
     def run(self):
 
         plot_opts = dict(
             range=(0,1500))
-
-        start = u(24,"Myr")
 
         crust = continental_crust.to_layer(interface_depth)
         solver = FiniteSolver(crust,
@@ -130,7 +133,7 @@ class Underplated(ModelRunner, UnderplatingMixin):
             start_depth=self.underplating_depth,
             start_temp=asthenosphere_temperature)
 
-        self.t = start
+        self.t = self.start_time
         self.section = apply_adiabat(section)
         self.record("initial")
         self.do_underplating()

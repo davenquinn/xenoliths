@@ -33,6 +33,7 @@ class SubductionCase(ModelRunner):
     cooling of oceanic crust followed by subduction.
     """
     def __init__(self, start_time, subduction_time):
+        ModelRunner.__init__(self)
         self.start_time = start_time
         self.subduction_time = subduction_time
         # Depths in the main section are less than present depths

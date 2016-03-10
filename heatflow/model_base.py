@@ -22,8 +22,16 @@ class ModelRunner(object):
     # Offset used for depth calculations for model tracers.
     # Reset when geotherms are stacked.
     depth_offset = None
+    fields = (
+        "underplating_duration",
+        "underplating_depth",
+        "underplating_time",
+        "start_time",
+        "subduction_time")
+    name_base = None
     def __init__(self, **info):
-        self.info = info
+        for i in self.fields:
+            setattr(self,i,None)
 
     def run(self):
         pass
@@ -105,6 +113,13 @@ class ModelRunner(object):
             self.session.delete(model)
             self.session.commit()
 
+        vals = {k:getattr(self,k) for k in self.fields}
+        kw.update({k: v.into(
+                'km' if k == 'underplating_depth'
+                else 'Myr')
+            for k,v in vals.items()
+            if v is not None})
+        kw['type'] = self.name_base
         self.__model = ModelRun(**kw)
         self.session.add(self.__model)
 
