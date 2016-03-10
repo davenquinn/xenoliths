@@ -79,7 +79,8 @@ class UnderplatingMixin(object):
             start_temp=temp)
 
         self.section = apply_adiabat(self.section)
-        self.record("after-underplating")
+        if dT.into('s') > 0:
+            self.record("after-underplating")
 
 class FarallonReheated(Farallon, UnderplatingMixin):
     """
