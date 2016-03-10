@@ -4,6 +4,136 @@ d3 = require 'd3'
 defaults =
   neatline: true
 
+styleAxis = (g)->
+  g.selectAll 'path.domain'
+    .attr fill: 'none', stroke: 'black'
+  g.selectAll '.tick line'
+    .attr stroke: '#000000'
+
+xaxis = (ax)->
+  g = null
+  label = null
+  tickOffset = 10
+
+  _y = d3.svg.axis()
+
+  y = ->
+    g = d3.select(@)
+      .append("g")
+        .attr class: "x axis"
+
+    g.append "text"
+      .attr
+        class: 'label'
+        dy: "2.2em"
+      .style 'text-anchor': "middle"
+      .text label
+    g.call _y
+    g.call styleAxis
+    y.update()
+
+    # Suppress last tick label
+    sel = g.selectAll '.tick'
+    sel.filter (d,i)->i == sel.size()-1
+      .select 'text'
+        .text ''
+
+  y.update = ->
+    sz = ax.plotArea.size()
+
+    g.attr
+      transform: "translate(0,#{sz.height})"
+
+    g.select 'text.label'
+      .attr
+        transform: "translate(#{sz.width/2},0)"
+
+    g.selectAll ".tick text"
+      .attr
+        'text-anchor':"middle"
+        "font-size": 10
+
+    if ax.grid()
+      g.selectAll '.tick .grid'
+        .attr x1: sz.height
+
+  y.tickOffset = (d)->
+    console.log tickOffset
+    return tickOffset unless d?
+    tickOffset = d
+    return y
+
+  y.label = (d)->
+    return label unless d?
+    label = d
+    return y
+
+  for k,v of _y
+    y[k] = v
+
+  y.scale ax.scale.x
+  y.orient "bottom"
+
+  return y
+
+yaxis = (ax)->
+  g = null
+  label = null
+  tickOffset = 10
+
+  _y = d3.svg.axis()
+
+  y = ->
+    g = d3.select(@)
+      .append("g")
+        .attr class: "y axis"
+
+    g.append "text"
+      .attr
+        class: 'label'
+        dy: "-2em"
+      .style 'text-anchor': "middle"
+      .text label
+    g
+      .call _y
+      .call styleAxis
+
+    y.update()
+
+  y.update = ->
+    sz = ax.plotArea.size()
+    g.select 'text.label'
+      .attr
+        transform: "translate(0,#{sz.height/2})rotate(-90)"
+
+    g.selectAll ".tick text"
+      .attr
+        'text-anchor':"middle"
+        "font-size": 10
+
+    if ax.grid()
+      g.selectAll '.tick .grid'
+        .attr x1: sz.width
+
+  y.tickOffset = (d)->
+    console.log tickOffset
+    return tickOffset unless d?
+    tickOffset = d
+    return y
+
+  y.label = (d)->
+    return label unless d?
+    label = d
+    return y
+
+  for k,v of _y
+    y[k] = v
+
+  y.scale ax.scale.y
+  y.orient "left"
+
+  return y
+
 module.exports = (opts={})->
   for k,o of defaults
     continue if k of opts
@@ -20,10 +150,13 @@ module.exports = (opts={})->
   margin = 0
   innerSize = null
 
+  _grid = true
   node = null
   ax = null
   neatline = null
   graticule = null
+  _xax = null
+  _yax = null
 
   x = d3.scale.linear()
   y = d3.scale.linear()
@@ -53,11 +186,14 @@ module.exports = (opts={})->
 
     axTrans =
       x: offset.x + margin.left
-      y: offset.y + margin.right
+      y: offset.y + margin.top
 
     # Scale ranges
     C.scale.x.range([0,innerSize.width])
     C.scale.y.range([innerSize.height,0])
+
+    _xax.update() if _xax?
+    _yax.update() if _yax?
 
   C = (el)->
     node = el.node()
@@ -82,7 +218,7 @@ module.exports = (opts={})->
 
     #t1 = "translate(#{offset.x},#{offset.y})"
 
-    axContainer = el.append 'g'
+    axContainer = el .append 'g'
       .attr
         transform: " translate(#{axTrans.x},#{axTrans.y})"
       .attr innerSize
@@ -98,6 +234,28 @@ module.exports = (opts={})->
         class: 'neatline'
         stroke: 'black'
         fill: 'transparent'
+
+    if _xax?
+      _xax.call graticule.node()
+    if _yax?
+      _yax.call graticule.node()
+
+  C.axes =
+    x: ->
+      if not _xax?
+        _xax = xaxis C
+      _xax
+    y: ->
+      if not _yax?
+        _yax = yaxis C
+      _yax
+
+  C.grid = (g)->
+    if g?
+      _grid = g
+      return C
+    else
+      return _grid
 
   C.node = -> node
   C.plotArea = -> ax

@@ -24,7 +24,9 @@ sql = "SELECT
 staticGeotherms = "SELECT *
   FROM thermal_modeling.static_profile"
 
-rows = query(sql).concat query(staticGeotherms)
+rows = query(staticGeotherms)
+  .concat query(sql)
+
 for r in rows
   r.profile = util.makeProfile r
   n = r.row_id or r.heat_flow
@@ -41,10 +43,24 @@ func = (el)->
 
   ax = axis()
     .size size
-    .margin 0.25*dpi
+    .margin left: 0.5*dpi, bottom: 0.45*dpi, right: 0.05*dpi, top: 0.1*dpi
 
-  ax.scale.x.domain [0,1200]
-  ax.scale.y.domain [90,0]
+  ax.scale.x.domain [800,1200]
+  ax.scale.y.domain [90,30]
+
+  ax.axes.y()
+    .label "Depth (km)"
+    .tickOffset 7
+    .tickSize 5
+    .ticks 10
+    .tickFormat d3.format("i")
+
+  ax.axes.x()
+    .label "Temperature (ºC)"
+    .tickOffset 7
+    .tickSize 5
+    .ticks 5
+    .tickFormat d3.format("i")
 
   el.call ax
 
@@ -66,5 +82,9 @@ func = (el)->
         else
           '#750000'
       fill: 'none'
+
+  el.selectAll 'text'
+    .attr
+      'font-family': 'Helvetica Neue Light'
 
 savage func, filename: process.argv[2]
