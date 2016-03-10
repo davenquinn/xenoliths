@@ -63,7 +63,7 @@ class UnderplatingMixin(object):
         dT = self.underplating_duration
 
         temp = asthenosphere_temperature
-        if dT is not None:
+        if dT.into('s') > 0:
             # We're holding the temperature
             # at the boundary for some length of time
             top_section = self.section.get_slice(u(0,'km'),self.underplating_depth)
