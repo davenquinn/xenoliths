@@ -1,7 +1,7 @@
 global.d3 = require 'd3'
 require 'd3-ternary'
 fs = require 'fs'
-svgist = require 'svgist'
+savage = require 'savage-svg'
 
 # Get data from Python script
 _ = fs.readFileSync('/dev/stdin').toString()
@@ -78,5 +78,4 @@ createPlot = (el)->
             cx: c[0]
             cy: c[1]
 
-  #ternary.plot().call joinData
-svgist createPlot, filename: "output/ternary.svg"
+savage createPlot, filename: "output/ternary.svg"
