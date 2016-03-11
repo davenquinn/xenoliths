@@ -89,7 +89,7 @@ func = (el)->
         a = null
         if d.type == 'forearc'
           a = '4 1'
-        else if d.type == 'underplated'
+        if d.type == 'underplated'
           a = '2 1'
         a
       fill: 'none'

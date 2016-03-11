@@ -151,6 +151,8 @@ module.exports = (opts={})->
   innerSize = null
 
   _grid = true
+  _neatline = false
+  _clip = false
   node = null
   ax = null
   neatline = null
@@ -226,14 +228,17 @@ module.exports = (opts={})->
     graticule = axContainer.append 'g'
 
     ax = axContainer.append 'g'
-      .attr 'clip-path': "url(##{clipID})"
 
-    neatline = axContainer.append 'use'
-      .attr
-        'xlink:href': "#"+areaID
-        class: 'neatline'
-        stroke: 'black'
-        fill: 'transparent'
+    if _clip
+      ax.attr 'clip-path': "url(##{clipID})"
+
+    if _neatline
+      neatline = axContainer.append 'use'
+        .attr
+          'xlink:href': "#"+areaID
+          class: 'neatline'
+          stroke: 'black'
+          fill: 'transparent'
 
     if _xax?
       _xax.call graticule.node()
@@ -260,7 +265,15 @@ module.exports = (opts={})->
   C.node = -> node
   C.plotArea = -> ax
   C.plotArea.size = -> innerSize
-  C.neatline = -> neatline
+  C.neatline = (v)->
+    v = true unless v?
+    _neatline = v
+    _clip = v
+    return C
+  C.clip = (v)->
+    v = true unless v?
+    _clip = v
+    return C
   C.graticule = -> graticule
   C.line = line
   C.boundingBox = ->

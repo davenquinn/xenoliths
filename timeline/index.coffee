@@ -34,8 +34,8 @@ sql = "WITH a AS (#{subquery1}),
   "
 
 dpi = 72
-names = ['farallon','underplated','forearc']
-sz = width: dpi*6.5, height: dpi*3.5
+names = ['underplated','farallon','forearc']
+sz = width: dpi*6.5, height: dpi*3.0
 
 data = (query(sql, [d]) for d in names)
 limits = data.map (d)->[
@@ -43,19 +43,22 @@ limits = data.map (d)->[
   d3.max d, (d)->d.trange[1]]
 axSize = limits.map (d)->d[1]-d[0]
 
+marginTop = 0.05*dpi
+
 vscale = d3.scale.linear()
   .domain [0, d3.sum axSize]
-  .range [0.25*dpi,sz.height-0.25*dpi]
+  .range [marginTop,sz.height-2*marginTop]
 
-offsY = 0
+offsY = marginTop
+
 createAxis = (data,i)->
   el = d3.select @
 
   axsize =
     width: sz.width
-    height: vscale(axSize[i])
+    height: vscale(axSize[i])-vscale(0)
 
-  ax = axis neatline: false, clip: false
+  ax = axis()
     .size axsize
     .position x: 0, y: offsY
     .margin 0
