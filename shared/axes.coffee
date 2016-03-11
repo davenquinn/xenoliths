@@ -14,6 +14,8 @@ xaxis = (ax)->
   g = null
   label = null
   tickOffset = 10
+  labelSize = 10
+  labelOffset = 10
 
   _y = d3.svg.axis()
 
@@ -41,6 +43,7 @@ xaxis = (ax)->
     g.select 'text.label'
       .attr
         transform: "translate(#{sz.width/2},0)"
+        'font-size': labelSize
 
     g.selectAll ".tick text"
       .attr
@@ -101,7 +104,7 @@ yaxis = (ax)->
     sz = ax.plotArea.size()
     right = y.orient() == 'right'
     rot = 90
-    rot * -1 if not right
+    rot *= -1 if not right
 
     g.select 'text.label'
       .attr

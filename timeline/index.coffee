@@ -57,13 +57,13 @@ outerAxes = axes()
     right: 0.6*dpi
     left: 0.15*dpi
     top: 0.05*dpi
-    bottom: 0.3*dpi
+    bottom: 0.5*dpi
 outerAxes.scale.x
   .domain [80,0]
 outerAxes.scale.y
   .domain [0, d3.sum(axSize)+3*spacing]
 outerAxes.axes.x()
-  .label('Model time (Ma)')
+  .label('Time before present (Ma)')
 
 vscale = outerAxes.scale.y
 scaleDelta = (d)->vscale(0)-vscale(d)

@@ -52,7 +52,7 @@ func = (el)->
     .label "Depth (km)"
     .tickOffset 7
     .tickSize 5
-    .ticks 10
+    .ticks 5
     .tickFormat d3.format("i")
 
   ax.axes.x()
@@ -88,10 +88,10 @@ func = (el)->
         else
           modelColors(d).alpha(0.8).css()
       'stroke-width': (d)->
-        if d.type == 'farallon' or d.type == 'farallon-reheated'
-          1.5
+        if d.name in ['farallon-reheated-4','underplated-4','forearc-30-10']
+          2
         else
-          1
+          0.5
       'stroke-dasharray': (d)->
         a = null
         if d.type == 'forearc'
