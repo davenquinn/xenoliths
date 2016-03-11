@@ -58,7 +58,6 @@ xaxis = (ax)->
         .attr x1: sz.height
 
   y.tickOffset = (d)->
-    console.log tickOffset
     return tickOffset unless d?
     tickOffset = d
     return y
@@ -116,7 +115,6 @@ yaxis = (ax)->
         .attr x1: sz.width
 
   y.tickOffset = (d)->
-    console.log tickOffset
     return tickOffset unless d?
     tickOffset = d
     return y
@@ -215,8 +213,6 @@ module.exports = (opts={})->
         .attr id: clipID
         .append 'use'
           .attr 'xlink:href': "#"+areaID
-
-    console.log C.boundingBox(), innerSize, margin
 
     #t1 = "translate(#{offset.x},#{offset.y})"
 

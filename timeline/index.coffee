@@ -3,7 +3,7 @@ savage = require 'savage-svg'
 d3 = require 'd3'
 
 query = require '../shared/query'
-axis = require '../shared/axis'
+axes = require '../shared/axis'
 modelColors = require '../shared/colors'
 
 subquery1 = "SELECT
@@ -30,8 +30,7 @@ sql = "WITH a AS (#{subquery1}),
     l.temperature lower
   FROM u
   JOIN l ON u.id = l.id
-  JOIN thermal_modeling.model_run r ON u.id = r.id
-  "
+  JOIN thermal_modeling.model_run r ON u.id = r.id"
 
 dpi = 72
 names = ['underplated','farallon','forearc']
@@ -44,30 +43,41 @@ limits = data.map (d)->[
 axSize = limits.map (d)->d[1]-d[0]
 
 marginTop = 0.05*dpi
+offsY = 0
 
-vscale = d3.scale.linear()
+outerAxes = axes()
+  .size sz
+  .margin
+    right: 0
+    left: 0
+    top: 0.05*dpi
+    bottom: 0.05*dpi
+outerAxes.scale.x
+  .domain [80,0]
+outerAxes.scale.y
   .domain [0, d3.sum axSize]
-  .range [marginTop,sz.height-2*marginTop]
 
-offsY = marginTop
+vscale = outerAxes.scale.y
 
-createAxis = (data,i)->
+createAxes = (data,i)->
   el = d3.select @
 
   axsize =
     width: sz.width
-    height: vscale(axSize[i])-vscale(0)
+    height: vscale(0)-vscale(axSize[i])
 
-  ax = axis()
+  console.log limits[i],axsize
+
+  ax = axes()
     .size axsize
     .position x: 0, y: offsY
     .margin 0
-  ax.scale.x.domain([80,0])
+  ax.scale.x = outerAxes.scale.x
   ax.scale.y.domain limits[i]
   el.call ax
   offsY += axsize.height
 
-  gen = ax.line()
+  gen = ax.line().interpolate('basis')
   line = (key)->
     (d)-> gen _.zip(d.time, d[key])
 
@@ -106,13 +116,17 @@ createAxis = (data,i)->
 
 func = (el, window)->
 
-  sel = d3.select(el)
+  g = d3.select(el)
     .attr sz
+    .append 'g'
 
-  sel.selectAll 'g.axis'
+  g.call outerAxes
+
+  outerAxes.plotArea()
+    .selectAll 'g.axes'
     .data data
     .enter().append 'g'
-      .attr class: 'axis'
-      .each createAxis
+      .attr class: 'axes'
+      .each createAxes
 
 savage func, filename: 'build/timeline.svg'

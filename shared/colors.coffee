@@ -19,7 +19,6 @@ modelColors = (d)->
     arg = d.subduction_time
   else
     arg = d.underplating_duration
-  console.log arg
   scale(arg)
 
 module.exports = modelColors
