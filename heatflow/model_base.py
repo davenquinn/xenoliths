@@ -30,6 +30,7 @@ class ModelRunner(object):
         "subduction_time")
     name_base = None
     def __init__(self, **info):
+        self._top_depth = u(0,'km')
         for i in self.fields:
             setattr(self,i,None)
 
@@ -134,14 +135,16 @@ class ModelRunner(object):
 
         if t is None: t = self.t
 
-        cell = _depth.into('m')/self.dz
+        # Because we are dealing with
+        # final section only
+        cell = (_depth-self._top_depth).into('m')/self.dz
         T = self.section.profile[cell]
 
         v = ModelTracer(
             run=self.__model,
             time=t.into("Myr"),
-            final_depth=_depth.into("km"),
-            depth=depth.into("km"),
+            final_depth=depth.into("km"),
+            depth=_depth.into("km"),
             temperature=T.into("degC"))
         self.session.add(v)
 

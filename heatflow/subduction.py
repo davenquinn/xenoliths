@@ -152,6 +152,7 @@ class SubductionCase(ModelRunner):
             sz_depth = final_depth*completion
             # Decrease depth offset
             self.depth_offset = final_depth-sz_depth
+            self._top_depth = sz_depth
 
             # Set temperature at the subduction
             # interface
@@ -188,5 +189,6 @@ class SubductionCase(ModelRunner):
 
         self.section = stack_sections(forearc, underplated)
         self.t -= duration
+        self._top_depth = u(0,'km')
         self.depth_offset = u(0,'km')
         self.record("after-subduction")

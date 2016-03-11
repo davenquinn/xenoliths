@@ -92,7 +92,7 @@ class FarallonReheated(Farallon, UnderplatingMixin):
         Farallon.__init__(self)
         self.name = self.name_base+'-'+str(dT)
         self.underplating_duration = u(dT,'Myr')
-        self.underplating_depth = u(85,'km')
+        self.underplating_depth = u(90,'km')
         self.underplating_time = u(24,'Myr')
 
     def run(self):
