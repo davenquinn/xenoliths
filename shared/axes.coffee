@@ -72,7 +72,10 @@ xaxis = (ax)->
 yaxis = (ax)->
   g = null
   label = null
+  labelSize = 10
+  labelOffset = 20
   tickOffset = 10
+  _despined = false
 
   _y = d3.svg.axis()
 
@@ -84,20 +87,26 @@ yaxis = (ax)->
     g.append "text"
       .attr
         class: 'label'
-        dy: "-2em"
+        dy: -labelOffset
       .style 'text-anchor': "middle"
       .text label
-    g
-      .call _y
-      .call styleAxis
+    if not _despined
+      g
+        .call _y
+        .call styleAxis
 
     y.update()
 
   y.update = ->
     sz = ax.plotArea.size()
+    right = y.orient() == 'right'
+    rot = 90
+    rot * -1 if not right
+
     g.select 'text.label'
       .attr
-        transform: "translate(0,#{sz.height/2})rotate(-90)"
+        transform: "translate(0,#{sz.height/2})rotate(#{rot})"
+        'font-size': labelSize
 
     g.selectAll ".tick text"
       .attr
@@ -108,6 +117,9 @@ yaxis = (ax)->
       g.selectAll '.tick .grid'
         .attr x1: sz.width
 
+    if right
+      g.attr transform: "translate(#{sz.width},0)"
+
   y.tickOffset = (d)->
     return tickOffset unless d?
     tickOffset = d
@@ -116,6 +128,15 @@ yaxis = (ax)->
   y.label = (d)->
     return label unless d?
     label = d
+    return y
+
+  y.labelOffset = (d)->
+    return labelOffset unless d?
+    labelOffset = d
+    return y
+
+  y.despine = ->
+    _despined = true
     return y
 
   for k,v of _y

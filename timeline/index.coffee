@@ -32,6 +32,12 @@ sql = "WITH a AS (#{subquery1}),
   JOIN l ON u.id = l.id
   JOIN thermal_modeling.model_run r ON u.id = r.id"
 
+titles = [
+  "Slab window"
+  "Farallon"
+  "Forearc"
+]
+
 dpi = 72
 names = ['underplated','farallon','forearc']
 sz = width: dpi*6.5, height: dpi*3.0
@@ -42,31 +48,38 @@ limits = data.map (d)->[
   d3.max d, (d)->d.trange[1]]
 axSize = limits.map (d)->d[1]-d[0]
 
-marginTop = 0.05*dpi
+spacing = 100
 offsY = 0
 
 outerAxes = axes()
   .size sz
   .margin
-    right: 0.1*dpi
-    left: 0.1*dpi
+    right: 0.6*dpi
+    left: 0.15*dpi
     top: 0.05*dpi
     bottom: 0.3*dpi
 outerAxes.scale.x
   .domain [80,0]
 outerAxes.scale.y
-  .domain [0, d3.sum axSize]
+  .domain [0, d3.sum(axSize)+3*spacing]
 outerAxes.axes.x()
   .label('Model time (Ma)')
 
 vscale = outerAxes.scale.y
+scaleDelta = (d)->vscale(0)-vscale(d)
+
+outerAxes.axes.y()
+  .label 'Temperature (ºC)'
+  .labelOffset 33
+  .despine()
+  .orient 'right'
 
 createAxes = (data,i)->
   el = d3.select @
 
   axsize =
-    width: sz.width
-    height: vscale(0)-vscale(axSize[i])
+    width: outerAxes.plotArea.size().width
+    height: scaleDelta(axSize[i])
 
   console.log limits[i],axsize
 
@@ -76,8 +89,16 @@ createAxes = (data,i)->
     .margin 0
   ax.scale.x = outerAxes.scale.x
   ax.scale.y.domain limits[i]
+
+  ax.axes.y()
+    .tickOffset 5
+    .tickSize 3
+    .ticks Math.floor(axSize[i]/200)
+    .tickFormat d3.format("i")
+    .orient 'right'
+
   el.call ax
-  offsY += axsize.height
+  offsY += axsize.height + scaleDelta(spacing)
 
   gen = ax.line().interpolate('basis')
   line = (key)->
@@ -115,6 +136,14 @@ createAxes = (data,i)->
       stroke: (d)->modelColors(d).alpha(0.8).css()
       fill: 'transparent'
       d: line('lower')
+
+  # Add title
+  ax.plotArea().append 'text'
+    .text titles[i]
+    .attr
+      'font-size': 10
+      dy: 10
+      x: if i == 0 then 3*dpi else 0
 
 func = (el, window)->
 

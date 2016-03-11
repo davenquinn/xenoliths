@@ -66,14 +66,13 @@ func = (el)->
   # Suppress last tick label
   sel = el.select('.axis.x')
     .selectAll '.tick'
-
   sel.filter (d,i)->i == sel.size()-1
     .select 'text'
       .text ''
 
   line = ax.line(type:'object')
 
-  xa = xenolithsArea color: '#ccc', size: 6
+  xa = xenolithsArea color: '#eee', size: 8
   xa ax.plotArea(), ax.line()
 
   sel = ax.plotArea().selectAll 'path'
