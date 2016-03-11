@@ -4,13 +4,14 @@ fs = require 'fs'
 savage = require 'savage-svg'
 simplify = require 'simplify-js'
 
+modelColors = require '../shared/colors'
 xenolithsArea = require '../shared/xenoliths-area'
 query = require '../shared/query'
 util = require '../shared/util'
 axis = require '../shared/axis'
 
 sql = "SELECT
-    r.name row_id,
+    r.*,
     p.name profile_id,
     p.temperature,
     p.dz
@@ -29,8 +30,6 @@ rows = query(staticGeotherms)
 
 for r in rows
   r.profile = util.makeProfile r
-  n = r.row_id or r.heat_flow
-  console.log n, r.profile[50*100]
 
 dpi = 72
 size =
@@ -80,7 +79,19 @@ func = (el)->
         if 'heat_flow' of d
           '#888888'
         else
-          '#750000'
+          modelColors(d).alpha(0.8).css()
+      'stroke-width': (d)->
+        if d.type == 'farallon' or d.type == 'farallon-reheated'
+          1.5
+        else
+          1
+      'stroke-dasharray': (d)->
+        a = null
+        if d.type == 'forearc'
+          a = '4 1'
+        else if d.type == 'underplated'
+          a = '2 1'
+        a
       fill: 'none'
 
   el.selectAll 'text'

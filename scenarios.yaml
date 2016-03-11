@@ -1,7 +1,9 @@
 - name: farallon
   id:
     - farallon
-    - farallon-reheated
+    - farallon-reheated-0
+    - farallon-reheated-2
+    - farallon-reheated-4
   title: A. Shatsky-conjugate
   subtitle: Cool modern geotherm
   slices: &subduction
@@ -32,7 +34,10 @@
     - ""
     - 1.6 Ma
 - name: underplated
-  id: underplated
+  id:
+    - underplated-0
+    - underplated-2
+    - underplated-4
   title: C. Slab Window
   slices:
     - id: initial

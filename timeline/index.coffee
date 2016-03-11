@@ -4,6 +4,7 @@ d3 = require 'd3'
 
 query = require '../shared/query'
 axis = require '../shared/axis'
+modelColors = require '../shared/colors'
 
 subquery1 = "SELECT
   min(t.temperature) AS min_temp,
@@ -11,10 +12,10 @@ subquery1 = "SELECT
   array_agg(t.temperature ORDER BY t.time DESC) AS temperature,
   array_agg(t.time ORDER BY t.time DESC) AS time,
   t.final_depth AS depth,
-  r.name AS run
+  t.run_id AS id
   FROM thermal_modeling.model_tracer t
   JOIN thermal_modeling.model_run r ON t.run_id = r.id
-  WHERE r.name LIKE $1::text || '%'
+  WHERE r.type LIKE $1::text || '%'
     AND r.name != 'forearc-28-2'
   GROUP BY t.run_id, r.name, t.final_depth"
 
@@ -22,12 +23,14 @@ sql = "WITH a AS (#{subquery1}),
   u AS (SELECT * FROM a WHERE a.depth = 40),
   l AS (SELECT * FROM a WHERE a.depth = 80)
   SELECT
-    u.run,
+    r.*,
     u.time,
     array[u.min_temp,l.max_temp] trange,
     u.temperature upper,
     l.temperature lower
-  FROM u JOIN l ON u.run = l.run
+  FROM u
+  JOIN l ON u.id = l.id
+  JOIN thermal_modeling.model_run r ON u.id = r.id
   "
 
 dpi = 72
@@ -80,19 +83,21 @@ createAxis = (data,i)->
 
   enter.append 'path'
     .attr
-      fill: 'rgba(100,100,100,0.2)'
+      fill: (d)->modelColors(d).alpha(0.2).css()
       d: area
 
   enter.append 'path'
     .attr
-      stroke: 'grey'
+      class: 'tracer'
+      stroke: (d)->modelColors(d).alpha(0.8).css()
       fill: 'transparent'
       d: line('upper')
       "stroke-dasharray": '5,1'
 
   enter.append 'path'
     .attr
-      stroke: 'grey'
+      class: 'tracer'
+      stroke: (d)->modelColors(d).alpha(0.8).css()
       fill: 'transparent'
       d: line('lower')
 
