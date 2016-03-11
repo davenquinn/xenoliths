@@ -5,15 +5,16 @@ G = require "../geometry"
 xenolithsArea = require '../../shared/xenoliths-area'
 uuid = require "uuid"
 color = require "color"
-axis = require "../../shared/axis"
+axes = require "../../shared/axes"
 
 module.exports = ->
 
   max = {T: 1500,z: 90}
 
-  ax = axis()
+  ax = axes()
     .size G.axis
     .margin 0
+    .neatline()
 
   ax.scale.x.domain [0,max.T]
   ax.scale.y.domain [max.z,0]

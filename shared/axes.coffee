@@ -32,12 +32,6 @@ xaxis = (ax)->
     g.call styleAxis
     y.update()
 
-    # Suppress last tick label
-    sel = g.selectAll '.tick'
-    sel.filter (d,i)->i == sel.size()-1
-      .select 'text'
-        .text ''
-
   y.update = ->
     sz = ax.plotArea.size()
 

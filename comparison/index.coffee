@@ -8,7 +8,7 @@ modelColors = require '../shared/colors'
 xenolithsArea = require '../shared/xenoliths-area'
 query = require '../shared/query'
 util = require '../shared/util'
-axis = require '../shared/axis'
+axes = require '../shared/axes'
 
 sql = "SELECT
     r.*,
@@ -40,7 +40,8 @@ func = (el)->
   el = d3.select el
     .attr size
 
-  ax = axis()
+  ax = axes()
+    .neatline()
     .size size
     .margin left: 0.5*dpi, bottom: 0.45*dpi, right: 0.05*dpi, top: 0.1*dpi
 
@@ -60,8 +61,15 @@ func = (el)->
     .tickSize 5
     .ticks 5
     .tickFormat d3.format("i")
-
   el.call ax
+
+  # Suppress last tick label
+  sel = el.select('.axis.x')
+    .selectAll '.tick'
+
+  sel.filter (d,i)->i == sel.size()-1
+    .select 'text'
+      .text ''
 
   line = ax.line(type:'object')
 

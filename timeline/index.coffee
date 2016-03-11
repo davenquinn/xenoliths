@@ -3,7 +3,7 @@ savage = require 'savage-svg'
 d3 = require 'd3'
 
 query = require '../shared/query'
-axes = require '../shared/axis'
+axes = require '../shared/axes'
 modelColors = require '../shared/colors'
 
 subquery1 = "SELECT
@@ -48,14 +48,16 @@ offsY = 0
 outerAxes = axes()
   .size sz
   .margin
-    right: 0
-    left: 0
+    right: 0.1*dpi
+    left: 0.1*dpi
     top: 0.05*dpi
-    bottom: 0.05*dpi
+    bottom: 0.3*dpi
 outerAxes.scale.x
   .domain [80,0]
 outerAxes.scale.y
   .domain [0, d3.sum axSize]
+outerAxes.axes.x()
+  .label('Model time (Ma)')
 
 vscale = outerAxes.scale.y
 
