@@ -1,5 +1,5 @@
 global.d3 = require 'd3'
-require 'd3-ternary'
+require './d3-ternary/src/ternary'
 fs = require 'fs'
 savage = require 'savage-svg'
 
@@ -11,11 +11,22 @@ graticule = d3.ternary.graticule()
   .majorInterval 0.2
   .minorInterval 0.05
 
+scalebar = d3.ternary.scalebars()
+  .labels ["Olivine","Orthopyroxene","Clinopyroxene"]
+scalebar.axes[0].tickValues (i/10 for i in [5..9])
+scalebar.axes[1].tickValues (i/10 for i in [1..5])
+scalebar.axes[2].tickValues (i/10 for i in [1..5])
+
 ternary = d3.ternary.plot()
-  .call d3.ternary.scalebars()
-  .call d3.ternary.vertexLabels(["Ol","Opx","Cpx"])
+  .clip(true)
+  .call scalebar
+  .call d3.ternary.vertexLabels(["Ol",'Opx₅₅','Cpx₅₅'])
   .call d3.ternary.neatline()
   .call graticule
+
+ternary.scales[0].domain [0.4,1]
+ternary.scales[1].domain [0,0.6]
+ternary.scales[2].domain [0.6,0]
 
 joinData = (el)->
   selection = el
@@ -54,11 +65,11 @@ createPlot = (el)->
 
   svg.selectAll '.graticule path'
     .attr
-      stroke: '#aaaaaa'
+      stroke: '#cccccc'
       'stroke-width': ->
         maj = d3.select @
           .classed 'major'
-        if maj then 1 else 0.5
+        if maj then 2 else 0.4
 
   ternary.plot()
     .selectAll 'circle'
