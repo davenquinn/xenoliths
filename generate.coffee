@@ -8,14 +8,15 @@ _ = fs.readFileSync('/dev/stdin').toString()
 data = JSON.parse(_)
 
 graticule = d3.ternary.graticule()
-  .majorInterval 0.2
+  .majorInterval 0.1
   .minorInterval 0.05
 
 scalebar = d3.ternary.scalebars()
-  .labels ["Olivine","Orthopyroxene","Clinopyroxene"]
+  .labels ["Olivine","",""]
 scalebar.axes[0].tickValues (i/10 for i in [5..9])
-scalebar.axes[1].tickValues (i/10 for i in [1..5])
-scalebar.axes[2].tickValues (i/10 for i in [1..5])
+scalebar.axes[1].tickValues []
+scalebar.axes[2].tickValues []
+
 
 ternary = d3.ternary.plot()
   .clip(true)
@@ -69,7 +70,7 @@ createPlot = (el)->
       'stroke-width': ->
         maj = d3.select @
           .classed 'major'
-        if maj then 2 else 0.4
+        if maj then 0.5 else 0.25
 
   ternary.plot()
     .selectAll 'circle'
