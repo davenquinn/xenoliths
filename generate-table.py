@@ -1,5 +1,10 @@
+import numpy as N
+from uncertainties import ufloat
+from collections import OrderedDict
 from pickle import load
 from paper.text import tex_renderer, write_file
+from xenoliths import app
+from data import ree_data
 
 with open("build/data.pickle") as f:
     data = load(f)
@@ -7,23 +12,27 @@ with open("build/data.pickle") as f:
 template = tex_renderer.get_template("temperature.tex")
 
 def table_data(s):
+    s = OrderedDict(s.items())
 
-    _ = {"id": s["id"]}
-    d = s["core"]
+    for k in ('core','rim'):
+        d = s[k]
 
-    # Get number of grains
-    for i in ("n_opx","n_cpx"):
-        arr = [v["single"][i] for v in d.values()]
-        # They should be the same for all thermometers
-        assert all(x == arr[0] for x in arr)
-        _[i] = arr[0]
+        n_opx = d['bkn']["single"].get('n_opx')
+        n_cpx = d['bkn']["single"].get('n_cpx')
 
-    _.update({k: v["single"]["val"]
-        for k,v in d.items()})
+        # Go through thermometers
+        for k_,v in d.items():
+            arr = N.array(v['sep'])
+            d[k_] = dict(n=arr.mean(),s=arr.std())
+        d['n_cpx'] = n_cpx
+        d['n_opx'] = n_opx
 
-    _["id"] = s["id"]
-    return _
+    ree = ree_data(s['id']).temperature
+    s['core']['ree'] = dict(n=ree.n,s=ree.s)
 
-text = template.render(
-        samples=[table_data(s) for s in data])
-write_file("build/temperatures.tex", text)
+    return s
+
+with app.app_context():
+    text = template.render(
+            samples=[table_data(i) for i in data])
+    write_file("build/temperatures.tex", text)

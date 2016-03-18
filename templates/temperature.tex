@@ -1,14 +1,36 @@
-\begin{tabular}{l r r r r r}
+<# macro temp(obj) -#>
+  << obj.n|n(0) >> & << obj.s|n(0)>>
+<#- endmacro #>
+<# macro un() -#>
+\mu & \sigma
+<#- endmacro #>
+<# macro tloop(k, s) -#>
+  & << k >> &
+    << temp(s.ta98) >> &
+    << temp(s.bkn) >> &
+    << temp(s.ca_opx_corr) >> &
+    << s.n_opx|n(0) >> &
+    << s.n_cpx|n(0) >> &
+    <# if k == 'core' #>
+    << temp(s.ree) >>
+    <# else #> &
+    <# endif #>
+   \\
+<#- endmacro #>
+\begin{tabular}{l r r r r r r r r r r r r}
 \hline
- Sample  & BKN & Ca-OPX & TA98 & $n_\textrm{opx}$ & $n_\textrm{cpx}$  \\
+Sample & & 
+\multicolumn{2}{c}{TA98} &
+\multicolumn{2}{c}{BKN} &
+\multicolumn{2}{c}{Ca-Opx} &
+$n_\textrm{opx}$ & $n_\textrm{cpx}$ &
+\multicolumn{2}{c}{REE} \\
+& & << un() >> & << un() >> & << un() >> & & & <<un()>> \\
 \hline
 <# for s in samples  #>
-  << s.id >> &
-  << s.bkn | un(0) >> &
-  << s.ca_opx_corr| un(0) >> &
-  << s.ta98| un(0) >> &
-  << s.n_opx >> &
-  << s.n_cpx >> \\
+  \multirow{ 2}{*}{<< s.id >>}
+  << tloop('core',s.core) >>
+  << tloop('rim',s.rim) >>
 <# endfor  #>
 \hline
 \end{tabular}

@@ -13,7 +13,7 @@ from matplotlib.gridspec import GridSpec
 from matplotlib.lines import Line2D
 from matplotlib.pyplot import figure, subplots_adjust
 from scipy.stats import norm, gaussian_kde
-from xenoliths import app
+from xenoliths import app, db
 from xenoliths.models import Sample
 from xenoliths.thermometry.rare_earth import (
     ree_pyroxene, regress, temperature, rare_earths)
@@ -33,10 +33,6 @@ label_offsets['CK-5'] = -5
 xv = N.arange(len(rare_earths))
 
 do_offsets = False
-
-with open('ree-disequilibrium.txt') as f:
-    lines = (d.split() for d in f.readlines())
-    for_removal = {d.pop(0):d for d in lines}
 
 # Leave space for Praseodymium
 Pr_ix = 4
@@ -82,9 +78,8 @@ def plot_DREE(axes, sample, annotate=True, uncertainties=True, offset=0):
     ax,ax1 = axes
     X,Y = sample.X, sample.Y
 
-    to_remove = for_removal[sample.id]
     # Index of elements to remove from regression
-    ix = N.in1d(rare_earths,to_remove)
+    ix = N.in1d(rare_earths,sample.to_remove)
     res = sample.res
     fitted_coeff = res.params[0]
     T = sample.temperature
@@ -159,18 +154,11 @@ with app.app_context():
     ax.set_ylim([800,_])
     ax1.set_ylim([900,1125])
 
-    samples = (Sample.query
-        .filter_by(xenolith=True)
+    sample_ids = (db.session.query(Sample.id)
+        .filter(Sample.xenolith==True)
         .order_by(Sample.id)
         .all())
-    for s in samples:
-        to_remove = for_removal[s.id]
-        # Index of elements to remove from regression
-        ix = N.in1d(rare_earths,to_remove)
-
-        s.X,s.Y = ree_pyroxene(s, 1.5) # Pressure in GPa
-        s.res = regress(s.X[~ix],s.Y[~ix])
-        s.temperature = temperature(s.res)
+    samples = [ree_data(id) for id, in sample_ids]
 
     d = sorted(samples, key=lambda s: s.res.params[0])
 
