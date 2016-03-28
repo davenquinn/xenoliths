@@ -20,7 +20,7 @@ def oxygens(cation):
     else:
         return 1
 
-def correct_spinel(obj):
+def correct_spinel(obj, **kwargs):
     """
     We compute the ideal cation composition of a spinel
     to derive Fe(II)/Fe(III) ratio, for the eventual
@@ -36,7 +36,7 @@ def correct_spinel(obj):
         obj['Fe']
         cat = obj
     except TypeError:
-        cat = get_cations(obj, oxygen=4, uncertainties=True)
+        cat = get_cations(obj, oxygen=4, **kwargs)
 
     cat['Fe(III)'] = 0
 

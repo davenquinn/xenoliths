@@ -93,10 +93,10 @@ class Taylor1998(TwoPyroxeneThermometer):
     # system, based calibration with their empirical results. Including
     # these in the error analysis may be desirable, but they are disabled
     # by default for consistency with other thermometers.
-    calibration_errors = False
 
     def __init__(self, *args, **kwargs):
         self.breakout_errors = kwargs.pop("breakout_errors", False)
+        self.calibration_errors = kwargs.pop("calibration_errors", False)
         super(Taylor1998, self).__init__(*args,**kwargs)
 
     def Al_octahedral(self, type):

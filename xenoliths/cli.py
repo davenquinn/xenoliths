@@ -4,14 +4,12 @@ from werkzeug.contrib.profiler import ProfilerMiddleware
 
 from .application import app, db
 from .microprobe.manage import ProbeCommand
-from .thermometry.manage import TemperatureCommand
 from .database.manage import DBCommand
 from .SIMS import SIMSCommand
 from IPython import embed
 
 commands = {
     "SIMS": SIMSCommand,
-    "temperature": TemperatureCommand,
     "probe": ProbeCommand,
     "db": DBCommand}
 
