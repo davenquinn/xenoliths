@@ -1,6 +1,6 @@
 fs = require 'fs'
 d3 = require 'd3'
-svgist = require 'svgist'
+savage = require 'savage-svg'
 yaml = require "js-yaml"
 global.d3 = d3
 legend = require 'd3-svg-legend/no-extend'
@@ -169,5 +169,5 @@ generate = (el, window)->
 
   svg.attr height: Math.max(offsetY[0],offsetY[1])
 
-svgist generate, filename: 'build/textures.svg'
+savage generate, filename: 'build/textures.svg'
 

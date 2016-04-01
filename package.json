@@ -1,0 +1,18 @@
+{
+  "name": "textures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "d3": "^3.5.16",
+    "d3-svg-legend": "^1.9.0",
+    "js-yaml": "^3.5.5",
+    "savage-svg": "github:davenquinn/savage-svg",
+    "yaml": "^0.3.0"
+  }
+}
