@@ -5,7 +5,6 @@
 \mu & \sigma
 <#- endmacro #>
 <# macro tloop(k, s) -#>
-  & << k >> &
     << temp(s.ta98) >> &
     << temp(s.bkn) >> &
     << temp(s.ca_opx_corr) >> &
@@ -17,20 +16,25 @@
     <# endif #>
    \\
 <#- endmacro #>
-\begin{tabular}{l r r r r r r r r r r r r}
+\begin{tabular}{l r r r r r r r r r r r}
 \hline
-Sample & & 
+Sample &
 \multicolumn{2}{c}{TA98} &
 \multicolumn{2}{c}{BKN} &
-\multicolumn{2}{c}{Ca-Opx} &
-$n_\textrm{opx}$ & $n_\textrm{cpx}$ &
+\multicolumn{2}{c}{Ca-Opx} & & &
 \multicolumn{2}{c}{REE} \\
-& & << un() >> & << un() >> & << un() >> & & & <<un()>> \\
+& << un() >> & << un() >> & << un() >> & $n_\textrm{opx}$ & $n_\textrm{cpx}$ & <<un()>> \\
+\hline
+Core \\
 \hline
 <# for s in samples  #>
-  \multirow{ 2}{*}{<< s.id >>}
-  << tloop('core',s.core) >>
-  << tloop('rim',s.rim) >>
+  << s.id >> & << tloop('core',s.core) >>
+<# endfor  #>
+\hline
+Rim \\
+\hline
+<# for s in samples  #>
+  << s.id >> & << tloop('rim',s.rim) >>
 <# endfor  #>
 \hline
 \end{tabular}
