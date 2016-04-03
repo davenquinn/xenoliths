@@ -6,25 +6,39 @@ query = require '../shared/query'
 axes = require '../shared/axes'
 modelColors = require '../shared/colors'
 
+ff = 'font-family': 'Helvetica Neue Light'
+
 subquery1 = "SELECT
+  array_agg(p.time ORDER BY p.time DESC) AS profile_time,
+  p.run_id AS id
+  FROM thermal_modeling.model_profile p
+  JOIN thermal_modeling.model_run r ON p.run_id = r.id
+  GROUP BY p.run_id"
+
+subquery2 = "SELECT
   min(t.temperature) AS min_temp,
   max(t.temperature) AS max_temp,
   array_agg(t.temperature ORDER BY t.time DESC) AS temperature,
   array_agg(t.time ORDER BY t.time DESC) AS time,
+  array_agg(t.time = ANY(a.profile_time) ORDER BY t.time DESC) AS profile_time,
   t.final_depth AS depth,
   t.run_id AS id
   FROM thermal_modeling.model_tracer t
   JOIN thermal_modeling.model_run r ON t.run_id = r.id
+  JOIN a ON a.id = r.id
   WHERE r.type LIKE $1::text || '%'
     AND r.name != 'forearc-28-2'
-  GROUP BY t.run_id, r.name, t.final_depth"
+  GROUP BY t.run_id, r.name, t.final_depth, a.profile_time"
 
-sql = "WITH a AS (#{subquery1}),
-  u AS (SELECT * FROM a WHERE a.depth = 40),
-  l AS (SELECT * FROM a WHERE a.depth = 80)
+sql = "WITH
+  a AS (#{subquery1}),
+  b AS (#{subquery2}),
+  u AS (SELECT * FROM b WHERE b.depth = 40),
+  l AS (SELECT * FROM b WHERE b.depth = 75)
   SELECT
     r.*,
     u.time,
+    u.profile_time profile,
     array[u.min_temp,l.max_temp] trange,
     u.temperature upper,
     l.temperature lower
@@ -41,6 +55,8 @@ titles = [
 dpi = 72
 names = ['underplated','farallon','forearc']
 sz = width: dpi*6.5, height: dpi*3.0
+
+console.log sql
 
 data = (query(sql, [d]) for d in names)
 limits = data.map (d)->[
@@ -74,7 +90,30 @@ outerAxes.axes.y()
   .despine()
   .orient 'right'
 
+createProfileDividers = (lineGenerator, color)->
+  (d)->
+    profiles = d.profile.map (a,i)->
+      profile: a
+      trange: [d.lower[i],d.upper[i]]
+      time: d.time[i]
+
+    profiles = profiles.filter (a)->a.profile
+
+    sel = d3.select @
+      .selectAll 'path'
+      .data profiles
+
+    sel.enter()
+      .append 'path'
+      .attr
+        stroke: modelColors(d).alpha(0.5).css()
+        d: (d)->
+          console.log d
+          t = d.trange.map (a)->[d.time,a]
+          lineGenerator(t)
+
 createAxes = (data,i)->
+
   el = d3.select @
 
   axsize =
@@ -137,6 +176,10 @@ createAxes = (data,i)->
       fill: 'transparent'
       d: line('lower')
 
+  enter.append 'g'
+    .attr class: 'profile'
+    .each createProfileDividers(gen)
+
   # Add title
   ax.plotArea().append 'text'
     .text titles[i]
@@ -144,6 +187,9 @@ createAxes = (data,i)->
       'font-size': 10
       dy: 10
       x: if i == 0 then 3*dpi else 0
+
+#  ax.node().selectAll 'text'
+#    .attr ff
 
 func = (el, window)->
 

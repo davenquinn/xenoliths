@@ -15,7 +15,7 @@ build/cooling-scenarios.pdf: scripts | build
 
 build/timeline.pdf: timeline | build
 	coffee $^
-	cairosvg -o $@ -d 100 $(@:.pdf=.svg)
+	cairosvg -o $@ -d 72 $(@:.pdf=.svg)
 
 greyscale:
 	gs \
