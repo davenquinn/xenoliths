@@ -5,53 +5,60 @@ import json
 import numpy as N
 import sys
 from chroma import Color
-from matplotlib.pyplot import subplots
+from matplotlib.pyplot import subplots, style
 from collections import defaultdict
+from paper import plot_style
 
-from xenoliths import app
-from xenoliths.thermometry.pressure import pressure_measurements
+from xenoliths import app, db
+from xenoliths.thermometry.pressure import pressure_measurements, geobaric_gradient
 from paper.query import xenolith_minerals
 from max_stability import max_depth
 from pickle import load
+from chroma import Color
 
 datafile = sys.argv[1]
 outfile = sys.argv[2]
 with open(datafile) as f:
     data = load(f)
 
+q = "SELECT dz, heat_flow, temperature FROM thermal_modeling.static_profile"
+
 with app.app_context():
     spinel_cr = {k['id']: k['sp']['cr_number'].n
             for k in xenolith_minerals('molar')}
+    profiles = db.session.execute(q).fetchall()
 
 fig, ax = subplots(figsize=(4,4))
 for res in data:
-    #ax.scatter(t["T_ta98"], t["heatflow"]["z"], marker="o", s=10, alpha=0.4, color="#cccccc", zorder=-10)
     T = res['temperature']
-    ax.scatter(
+    ax.plot(
         T,
         res['depth'],
-        marker="o",
-        s=20,
-        alpha=0.3,
+        ".",
+        alpha=0.5,
         color=res['sample_color'])
 
     # Maximum depth based on spinel Cr content
     id = res['sample_id']
     d = max_depth(T,spinel_cr[id]/100)
-    ax.scatter(
+    dz = 0.15/0.03 # GPa / # G
+    ax.fill_between(
+        T,d+dz,d-dz,
+        color=res['sample_color'],
+        alpha=0.2)
+    ax.plot(
         T,d,
-        marker=".",
-        s=35,
         color=res['sample_color'])
 
 ax.invert_yaxis()
 ax.set_xlabel(u"Temperature - TA98 (\u00b0C)")
 ax.set_ylabel(u"Depth (km)")
-ax.set_ylim([110,40])
-#ax.autoscale(False)
-# y = N.linspace(0,150,150)
-# m = HeatFlowModel(q_0=:90)
-# T = N.array(map(m.temperature, y))
-# ax.plot(T,y,color="#cccccc", zorder=-20)
+ax.set_ylim([90,30])
+
+ax.autoscale(False)
+for dz, profile, T in profiles:
+    assert T[0] != 0
+    cells = N.arange(len(T))*dz+dz/2
+    ax.plot(T,cells/1000,color="#cccccc", zorder=-20)
 
 fig.savefig(outfile, bbox_inches="tight")
