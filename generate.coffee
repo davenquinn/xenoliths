@@ -2,6 +2,8 @@ global.d3 = require 'd3'
 require './d3-ternary/src/ternary'
 fs = require 'fs'
 savage = require 'savage-svg'
+createFields = require './fields'
+createArrows = require './arrows'
 
 # Get data from Python script
 _ = fs.readFileSync('/dev/stdin').toString()
@@ -17,11 +19,10 @@ scalebar.axes[0].tickValues (i/10 for i in [5..9])
 scalebar.axes[1].tickValues []
 scalebar.axes[2].tickValues []
 
-
 ternary = d3.ternary.plot()
   .clip(true)
   .call scalebar
-  .call d3.ternary.vertexLabels(["Ol",'Opx₅₅','Cpx₅₅'])
+  .call d3.ternary.vertexLabels(["Ol",'Opx','Cpx'])
   .call d3.ternary.neatline()
   .call graticule
 
@@ -40,7 +41,7 @@ sz =
 
 sets =
   Quinn:
-    r: 4
+    r: 5
     fill: (d)->d.color
   Luffi:
     r: 3
@@ -72,6 +73,9 @@ createPlot = (el)->
           .classed 'major'
         if maj then 0.5 else 0.25
 
+  createArrows ternary
+  createFields ternary
+
   ternary.plot()
     .selectAll 'circle'
     .data(data)
@@ -89,5 +93,16 @@ createPlot = (el)->
           .attr
             cx: c[0]
             cy: c[1]
+
+  svg.selectAll '.vertex-label'
+    .filter (d,i)-> i != 0
+    .each (d,i)->
+      el = d3.select(@)
+      r = -30+60*i
+      t = el.attr 'transform'
+      el.attr
+        transform: t+"rotate(#{r})"
+        dx: 8 - 16*i
+        dy: 15
 
 savage createPlot, filename: "output/ternary.svg"

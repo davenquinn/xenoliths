@@ -1,0 +1,38 @@
+-
+  name: Dunite
+  vertices:
+    - [100, 0, 0]
+    - [90, 10, 0]
+    - [90, 0, 10]
+  label:
+    dx: 50
+-
+  name: Harzburgite
+  vertices:
+    - [90,0,10]
+    - [90,5,5]
+    - [40,5,55]
+    - [40,0,60]
+  label:
+    dx: -100
+    dy: 5
+    rotate: -60
+-
+  name: Wehrlite
+  vertices:
+    - [90,10,0]
+    - [90,5,5]
+    - [40,55,5]
+    - [40,60,0]
+  label:
+    dx: 100
+    dy: 5
+    rotate: 60
+-
+  name: Lherzolite
+  vertices:
+    - [90,5,5]
+    - [40,55,5]
+    - [40,5,55]
+  label:
+    dy: 85
