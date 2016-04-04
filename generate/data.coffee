@@ -1,7 +1,9 @@
 util = require './util'
+chroma = require 'chroma-js'
 
-color = (d)->d.color
-
+color = (d)->
+  c = chroma(d.color)
+    .css()
 sets =
   Quinn:
     r: 5
@@ -53,13 +55,24 @@ module.exports = (ternary, data)->
           c = loc d
           "translate(#{c[0]},#{c[1]})"
 
-  g.append 'text'
-    .text (d)->d.id
+  inner = g.append 'g'
+    .attr transform: (d)->
+      o = offset(d)
+      "translate(#{o[0]},#{o[1]+textSize/2})"
+
+
+
+  inner.append 'rect'
     .attr
-      fill: color
-      transform: (d)->
-        o = offset(d)
-        "translate(#{o[0]},#{o[1]+textSize/2})"
+      fill: 'white'
+      x: -2
+      y: -textSize-2
+      width: 40
+      height: textSize+4
+
+  inner.append 'text'
+    .text (d)->d.id
+    .attr fill: color
 
   g.append 'line'
     .attr

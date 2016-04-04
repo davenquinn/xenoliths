@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chroma-js": "^1.1.1",
     "d3": "^3.5.16",
     "js-yaml": "^3.5.5",
     "savage-svg": "github:davenquinn/savage-svg"
