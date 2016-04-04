@@ -1,7 +1,6 @@
-fs = require 'fs'
-yaml = require 'js-yaml'
+util = require './util'
 
-fields = yaml.safeLoad fs.readFileSync('peridotite-fields.yaml', 'utf8')
+fields = util.loadYaml 'peridotite-fields.yaml'
 
 module.exports = (ternary)->
   sel = ternary.plot()

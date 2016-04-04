@@ -4,6 +4,7 @@ fs = require 'fs'
 savage = require 'savage-svg'
 createFields = require './fields'
 createArrows = require './arrows'
+plotData = require './data'
 
 # Get data from Python script
 _ = fs.readFileSync('/dev/stdin').toString()
@@ -45,7 +46,7 @@ sets =
     fill: (d)->d.color
   Luffi:
     r: 3
-    fill: '#888'
+    fill: '#666'
   other:
     r: 3
     fill: '#aaa'
@@ -75,25 +76,9 @@ createPlot = (el)->
 
   createArrows ternary
   createFields ternary
+  plotData ternary, data
 
-  ternary.plot()
-    .selectAll 'circle'
-    .data(data)
-    .enter()
-      .append 'circle'
-      .attr
-        class: (d)->"data #{d.source}"
-        r: 2
-      .each (d)->
-        v = [d.ol,d.cpx,d.opx]
-        c = ternary.point v
-
-        d3.select @
-          .attr sets[d.source] or sets.other
-          .attr
-            cx: c[0]
-            cy: c[1]
-
+  # Modify vertex labels to tilt differently
   svg.selectAll '.vertex-label'
     .filter (d,i)-> i != 0
     .each (d,i)->
