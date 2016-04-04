@@ -9,15 +9,39 @@ sets =
     r: 5
     fill: color
   Luffi:
+    name: 'Dish Hill'
     r: 3
     fill: '#666'
   other:
+    name: 'Abyssal'
     r: 3
     fill: '#aaa'
+
+createLegend = (el)->
+  sel = el.selectAll 'g'
+    .data [sets.other,sets.Luffi]
+
+  g = sel.enter()
+    .append 'g'
+    .attr transform: (d,i)->"translate(0,#{i*18})"
+
+  g.append 'circle'
+    .attr cy: -5
+    .each (d)-> d3.select(@).attr d
+
+  g.append 'text'
+    .text (d)->d.name
+    .attr x: 10
 
 labelOffsets = util.loadYaml 'label-offsets.yaml'
 
 module.exports = (ternary, data)->
+
+  ternary.node()
+    .append 'g'
+    .attr class: 'legend'
+    .call createLegend
+
   loc = (d)->
     v = [d.ol,d.cpx,d.opx]
     ternary.point v
@@ -59,8 +83,6 @@ module.exports = (ternary, data)->
     .attr transform: (d)->
       o = offset(d)
       "translate(#{o[0]},#{o[1]+textSize/2})"
-
-
 
   inner.append 'rect'
     .attr
