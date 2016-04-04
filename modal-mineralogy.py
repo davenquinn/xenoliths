@@ -38,6 +38,6 @@ d['type'] = 'point-counting'
 df = P.concat([df,d])
 df['id'] = df.index
 data = df.to_json(None,'records')
-script = path.join(here,"generate.coffee")
+script = path.join(here,"generate")
 p = Popen(['coffee', script],stdin=PIPE)
 p.communicate(input=data)

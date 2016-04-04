@@ -1,5 +1,5 @@
 global.d3 = require 'd3'
-require './d3-ternary/src/ternary'
+require '../d3-ternary/src/ternary'
 fs = require 'fs'
 savage = require 'savage-svg'
 createFields = require './fields'
