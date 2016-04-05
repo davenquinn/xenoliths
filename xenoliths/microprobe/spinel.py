@@ -46,9 +46,9 @@ def correct_spinel(obj, **kwargs):
         if excess_oct > 0:
             Fe = cat['Fe']
             if excess_oct > Fe: excess_oct = Fe
-            removable_iron = excess_oct*2/3
+            removable_iron = excess_oct
             cat['Fe(III)'] += removable_iron
-            cat['Fe'] -= removable_iron
+            cat['Fe'] -= excess_oct
         else:
             # We can't do any more without cannibalizing
             # the octahedral site.

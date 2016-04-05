@@ -7,10 +7,7 @@ import numpy as N
 import IPython
 import matplotlib as M
 import matplotlib.pyplot as P
-import seaborn as S
 import pandas
-
-S.set(style="whitegrid")
 
 colors = {
 	"CK-2": "#456AA0",

@@ -3,9 +3,15 @@ from __future__ import division
 import numpy as N
 from flask import current_app
 
+def get_shape(image_shape, n_cells=5000):
+  # Gets the shape of an array that fits an image
+  aspect_ratio = image_height / image_width
+  y = N.sqrt(n_cells / aspect_ratio)
+  return (round(y),round(y * aspect_ratio))
+
 def modes(sample, completion=False):
     minerals, densities = tuple(current_app.config.get(i)\
-        for i in ("MINERALS","MINERAL_DENSITIES"))
+                                for i in ("MINERALS","MINERAL_DENSITIES"))
 
     arr = N.array(sample.classification)
     T = arr.size

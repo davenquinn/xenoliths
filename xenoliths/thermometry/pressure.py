@@ -3,14 +3,18 @@ from sqlalchemy import func
 from itertools import product
 from click import progressbar
 import numpy as N
+from geotherm.units import u
+from heatflow.config import (
+    continental_crust,
+    oceanic_mantle, interface_depth)
 
-from .thermometers import BKN, Taylor1998
+from .thermometers import BKN, Taylor1998, Ca_OPX_Corr
 from .barometers import Ca_Olivine
 from .results import pyroxene_pairs, closest
 from ..models import ProbeMeasurement,Sample
 from ..application import db
 from ..microprobe.group import get_cations
-from ..microprobe.models.query import tagged, exclude_bad
+from ..microprobe.models.query import tagged, exclude_bad, exclude_tagged
 
 def triplets(queryset, distinct=None, all_possible=False, limit=1):
     olivines = queryset.filter(
@@ -28,8 +32,24 @@ def triplets(queryset, distinct=None, all_possible=False, limit=1):
         for o,c in zip(opx,cpx):
             yield o,c,ol
 
-def geobaric_gradient(depth):
+def simple_geobaric_gradient(depth):
     return depth*.03 #GPa/km
+
+def geobaric_gradient(pressure):
+    rho0 = continental_crust.density
+    g = u(9.8,'m/s^2')
+    P = u(pressure,'GPa')
+
+    rho1 = oceanic_mantle.density
+    d0 = interface_depth
+
+    a0 = P/g/rho0
+    if a0 < d0:
+        return a0.into('km')
+
+    a = P/g - rho0*d0 + rho1*d0
+    a/=rho1
+    return a.into('km')
 
 class GeoThermometryResult(object):
     init_pressure_basis = 1.5
@@ -39,13 +59,16 @@ class GeoThermometryResult(object):
         self.cpx = cpx
         self.ol = ol
 
-        self.temperature = Taylor1998(opx,cpx, **kwargs).temperature(pressure=self.init_pressure_basis)
+        ta98 = Taylor1998(opx,cpx, **kwargs)
+
+        self.init_temperature = ta98.temperature(pressure=self.init_pressure_basis)
 
         bkn = BKN(opx,cpx, **kwargs)
-        barometer = Ca_Olivine(ol,cpx, bkn, **kwargs)
+        barometer = Ca_Olivine(ol,cpx,bkn, **kwargs)
         self.pressure = barometer()
         self.bkn = bkn.temperature(pressure=self.pressure)
-        self.depth = self.pressure/.03
+        self.temperature = ta98.temperature(pressure=self.pressure)
+        self.depth = geobaric_gradient(self.pressure)
 
 def mineral_data(queryset, mineral='opx',**kwargs):
     mn = ProbeMeasurement.mineral==mineral
@@ -57,6 +80,9 @@ def mineral_data(queryset, mineral='opx',**kwargs):
 
 def pressure_measurements(core=True, all_possible=False,**kwargs):
     base_queryset = exclude_bad(ProbeMeasurement.query)
+
+    # Exclude Ca-in-olivine measurements that are higher than clustered data
+    base_queryset = exclude_tagged(base_queryset,"high-ca")
     if core:
         base_queryset = tagged(base_queryset,"core")
 

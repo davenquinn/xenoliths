@@ -1,23 +1,19 @@
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-
-from sys import argv
-
-a  = float(argv[1])
-
-from IPython import embed
+from __future__ import division
 import numpy as N
 from geotherm.units import u
+from heatflow.config import (
+    continental_crust,
+    oceanic_mantle, interface_depth)
 
 def geobaric_gradient(pressure):
     return pressure/.03 # km
 
-def geobaric_gradient2(pressure):
-    rho0 = u(2.8,'g/cm^3')
+def geobaric_gradient(pressure):
+    rho0 = continental_crust.density
     g = u(9.8,'m/s^2')
     P = u(pressure,'GPa')
 
-    rho1 = u(3.3,'g/cm^3')
+    rho1 = oceanic_mantle.density
     d0 = u(30,'km')
 
     a0 = P/g/rho0
@@ -28,5 +24,3 @@ def geobaric_gradient2(pressure):
     a/=rho1
     return a.to('km')
 
-print geobaric_gradient(a)
-print geobaric_gradient2(a)

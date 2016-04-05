@@ -2,7 +2,7 @@ from __future__ import division
 import numpy as N
 from uncertainties import ufloat as u
 from uncertainties.umath import log
-from .thermometers import get_cations
+from ..microprobe.group import get_molar
 
 class Ca_Olivine(object):
     """From Kohler and Brey, 1990"""
@@ -12,11 +12,10 @@ class Ca_Olivine(object):
         self.uncertainties = kwargs.pop('uncertainties',True)
         self.breakout_errors = kwargs.pop("breakout_errors",False)
 
-        self.cpx = get_cations(cpx, oxygen=6, **kwargs)
-        self.ol = get_cations(ol, oxygen=4, **kwargs)
+        self.cpx = get_molar(cpx, **kwargs)
+        self.ol = get_molar(ol, **kwargs)
         self.thermometer = thermometer
-
-        self.D_Ca = self.ol["Ca"]/self.cpx["Ca"]
+        self.D_Ca = self.ol["CaO"]/self.cpx["CaO"]*7/10
 
     def num(self,*args):
         if self.uncertainties:
@@ -36,18 +35,26 @@ class Ca_Olivine(object):
         return ans/self.num(56.2,2.7)
 
     def pressure(self, input_pressure=1.5):
-        T = self.thermometer.temperature(input_pressure) #+273.15
+        T = self.thermometer.temperature(input_pressure)+273.15
+        return self._pressure(T,input_pressure)
+
+    def _pressure(self,T,input_pressure):
         if T <= 1275.25 + 2.827*input_pressure*10:
-            return -self.low_temperature(T)/10
+            return self.low_temperature(T)/10
         else:
-            return -self.high_temperature(T)/10
+            return self.high_temperature(T)/10
 
     def iterative_pressure(self):
         oldPressure = self.init_pressure_basis
         newPressure = 0
-        while N.abs(newPressure - oldPressure) > 0.001:
-            oldPressure = newPressure
+        i = 0
+        while i < 500:
             newPressure = self.pressure(oldPressure)
+            if N.abs(newPressure - oldPressure) > 0.001:
+                oldPressure = newPressure
+            else:
+                break
+            i+=1
         return newPressure
 
-    __call__ = iterative_pressure
+    __call__ = pressure
