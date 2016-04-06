@@ -6,7 +6,7 @@ from operator import attrgetter
 from pickle import dump
 
 def pressure_data():
-    data = pressure_measurements(uncertainties=False,core=True, n=10)
+    data = pressure_measurements(uncertainties=False, n=10)
     for sample, res in data:
         res = sorted(res,key=attrgetter('temperature'))
         yield dict(
