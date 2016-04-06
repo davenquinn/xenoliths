@@ -24,7 +24,7 @@ sql = "SELECT
 
 staticGeotherms = "SELECT dz, heat_flow, temperature FROM thermal_modeling.static_profile"
 
-selectedGeotherms = ['farallon-reheated-6','underplated-6','forearc-30-10']
+selectedGeotherms = ['farallon-reheated-6','underplated-6','forearc-30-10','farallon']
 
 rows = query(sql)
 #.concat query(staticGeotherms)
@@ -93,12 +93,16 @@ func = (el)->
         if 'heat_flow' of d
           '#888888'
         else
-          modelColors(d).alpha(0.8).css()
+          c = modelColors(d)
+          if d.name in selectedGeotherms
+            return c.alpha(0.8).css()
+          else
+            return c.alpha(0.2).css()
       'stroke-width': (d)->
         if d.name in selectedGeotherms
           2
         else
-          0.5
+          1
       'stroke-dasharray': (d)->
         a = null
         if d.type == 'forearc'
