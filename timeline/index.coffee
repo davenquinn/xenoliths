@@ -9,6 +9,7 @@ query = require '../shared/query'
 axes = require '../shared/axes'
 plotArea = require './plot-area'
 ageLabels = require './age-labels'
+legend = require './legend'
 
 ff = 'font-family': 'Helvetica Neue Light'
 
@@ -43,8 +44,8 @@ outerAxes = axes()
   .margin
     right: 0.6*dpi
     left: 0.15*dpi
-    top: 0.1*dpi
-    bottom: 0.5*dpi
+    top: 0.32*dpi
+    bottom: 0.4*dpi
 outerAxes.scale.x
   .domain [80,0]
 
@@ -115,11 +116,10 @@ createAxes = (data,i)->
   el.call ax
   offsY += axsize.height + scaleDelta(spacing)
 
-  ar =  ax.plotArea()
+  plt =  ax.plotArea()
+  bkg = plt.append 'g'
 
-  bkg = ar.append 'g'
-
-  sel = ar
+  sel = plt
     .selectAll 'g.model-run'
     .data data
 
@@ -133,11 +133,10 @@ createAxes = (data,i)->
   #  .each createProfileDividers(ax.line())
 
   # Add title
-  ax.plotArea().append 'text'
+  plt.append 'text'
     .text data.title
     .attr
       'font-size': 10
-      dy: 10
       x: if i == 0 then 3*dpi else 0
 
   if data.id == 'forearc'
@@ -148,8 +147,55 @@ createAxes = (data,i)->
     sel
       .filter (d,c)->c==0
       .each ageLabels(ax)
-    #console.log sel
-    #sel.call createAgeLabels(ax)
+
+  s = d3.scale.linear()
+    .domain [0,6]
+    .range [ax.scale.x(24),ax.scale.x(24-6)]
+
+
+  uScale = d3.svg.axis()
+    .scale s
+    .ticks(4)
+    .tickSize -3
+    .orient 'top'
+
+  if data.id != 'forearc'
+    g = plt.append 'g'
+
+    g.attr
+        class: 'u-scale'
+        transform: 'translate(0,-5)'
+      .call uScale
+
+    c = '#888888'
+    g.select '.domain'
+      .attr
+        fill: 'transparent'
+        stroke: c
+    g.selectAll '.tick line'
+      .attr
+        stroke: c
+    g.selectAll '.tick text'
+      .attr fill: c
+    g.append 'text'
+      .text 'Myr'
+      .attr
+        x: s(6)+5
+        y: -3
+
+    k = if data.id == 'farallon' then 80 else 30
+    g.append 'text'
+      .text "Asthenosphere held at #{k} km"
+      .attr
+        x: s(0)
+        y: -11
+        'font-family': 'Helvetica Neue Italic'
+
+    g.selectAll 'text'
+      .attr
+        fill: c
+        'font-size': 7
+
 
   d3.select ax.node()
     .selectAll '.tick text'
@@ -166,11 +212,13 @@ func = (el, window)->
   g.selectAll '.tick text'
     .attr 'font-size': 8
 
-  outerAxes.plotArea()
-    .selectAll 'g.axes'
+  plt = outerAxes.plotArea()
+  plt.selectAll 'g.axes'
     .data data
     .enter().append 'g'
       .attr class: 'axes'
       .each createAxes
+
+  plt.call legend
 
 savage func, filename: 'build/timeline.svg'
