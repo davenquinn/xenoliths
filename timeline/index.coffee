@@ -26,10 +26,13 @@ fn = path.join __dirname,'query.sql'
 sql = fs.readFileSync fn
 
 data = (query(sql, [d]) for d in names)
-limits = data.map (d)->[
-  d3.min d, (d)->d.trange[0]
-  d3.max d, (d)->d.trange[1]]
-axSize = limits.map (d)->d[1]-d[0]
+data.forEach (d,i)->
+  d.id = names[i]
+  d.title = titles[i]
+  d.limits = [
+    d3.min d, (a)->a.trange[0]
+    d3.max d, (a)->a.trange[1]]
+  d.axSize = d.limits[1]-d.limits[0]
 
 spacing = 350
 spacingBottom = 100
@@ -44,8 +47,9 @@ outerAxes = axes()
     bottom: 0.5*dpi
 outerAxes.scale.x
   .domain [80,0]
+
 outerAxes.scale.y
-  .domain [0, d3.sum(axSize)+2*spacing+spacingBottom]
+  .domain [0, d3.sum(data,(d)->d.axSize)+2*spacing+spacingBottom]
 outerAxes.axes.x()
   .label 'Time before present (Ma)'
   .labelOffset 25
@@ -90,21 +94,21 @@ createAxes = (data,i)->
 
   axsize =
     width: outerAxes.plotArea.size().width
-    height: scaleDelta(axSize[i])
+    height: scaleDelta(data.axSize)
 
-  console.log limits[i],axsize
+  console.log data.limits,axsize
 
   ax = axes()
     .size axsize
     .position x: 0, y: offsY
     .margin 0
   ax.scale.x = outerAxes.scale.x
-  ax.scale.y.domain limits[i]
+  ax.scale.y.domain data.limits
 
   ax.axes.y()
     .tickOffset 5
     .tickSize 3
-    .ticks Math.floor(axSize[i]/200)
+    .ticks Math.floor(data.axSize/200)
     .tickFormat d3.format("i")
     .orient 'right'
 
@@ -130,18 +134,17 @@ createAxes = (data,i)->
 
   # Add title
   ax.plotArea().append 'text'
-    .text titles[i]
+    .text data.title
     .attr
       'font-size': 10
       dy: 10
       x: if i == 0 then 3*dpi else 0
 
-
-  if titles[i] == 'Forearc'
+  if data.id == 'forearc'
     labels = ageLabels(ax)
     bkg.call labels.connectingLine(data)
     enter.each labels
-  if titles[i] == 'Farallon'
+  if data.id == 'farallon'
     sel
       .filter (d,c)->c==0
       .each ageLabels(ax)
