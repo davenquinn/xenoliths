@@ -6,6 +6,7 @@ import numpy as N
 import matplotlib as M
 
 from matplotlib import pyplot as P
+from paper import plot_style
 from scipy import interpolate
 from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes
 from mpl_toolkits.axes_grid1.inset_locator import mark_inset
@@ -29,7 +30,7 @@ with open('plot-data/annotations.yaml') as f:
 x = data["87Sr/86Sr(0)"]
 y = data['Epsilon Nd']
 
-fig = P.figure()
+fig = P.figure(figsize=(7,5))
 ax = fig.add_subplot(111)
 
 ax.plot(x,y,'ko')
