@@ -8,7 +8,7 @@ modelColors = require '../shared/colors'
 query = require '../shared/query'
 axes = require '../shared/axes'
 plotArea = require './plot-area'
-createAgeLabels = require './age-labels'
+ageLabels = require './age-labels'
 
 ff = 'font-family': 'Helvetica Neue Light'
 
@@ -80,6 +80,8 @@ createProfileDividers = (lineGenerator, color)->
           lineGenerator(t)
 
 createAxes = (data,i)->
+  # Sort the dataset for predictability
+  data.sort (a,b)->a.time[0] < b.time[0]
 
   el = d3.select @
 
@@ -113,9 +115,9 @@ createAxes = (data,i)->
   enter = sel.enter()
   enter.call plotArea(ax)
 
-  enter.append 'g'
-    .attr class: 'profile'
-    .each createProfileDividers(ax.line())
+  #enter.append 'g'
+  #  .attr class: 'profile'
+  #  .each createProfileDividers(ax.line())
 
   # Add title
   ax.plotArea().append 'text'
@@ -125,16 +127,20 @@ createAxes = (data,i)->
       dy: 10
       x: if i == 0 then 3*dpi else 0
 
+
   if titles[i] == 'Forearc'
-    enter.call createAgeLabels(ax)
+    labels = ageLabels(ax)
+    ax.plotArea().call labels.connectingLine(data)
+    enter.call labels
   if titles[i] == 'Farallon'
     sel = enter
       .filter (d,c)->c==0
     #console.log sel
     #sel.call createAgeLabels(ax)
 
-#  ax.node().selectAll 'text'
-#    .attr ff
+  d3.select ax.node()
+    .selectAll '.tick text'
+    .attr 'font-size': 7
 
 func = (el, window)->
 
