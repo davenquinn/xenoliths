@@ -14,9 +14,9 @@ legend = require './legend'
 ff = 'font-family': 'Helvetica Neue Light'
 
 titles = [
-  "Slab window"
-  "Forearc"
-  "Farallon"
+  "A. Slab window"
+  "B. Stalled slab"
+  "C. Late Cretaceous rollback"
 ]
 
 dpi = 72

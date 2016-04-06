@@ -15,7 +15,7 @@ xaxis = (ax)->
   label = null
   tickOffset = 10
   labelSize = 10
-  labelOffset = 10
+  labelOffset = 22
 
   _y = d3.svg.axis()
 

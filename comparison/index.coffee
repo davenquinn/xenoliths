@@ -24,8 +24,11 @@ sql = "SELECT
 
 staticGeotherms = "SELECT dz, heat_flow, temperature FROM thermal_modeling.static_profile"
 
-rows = query(staticGeotherms)
-  .concat query(sql)
+selectedGeotherms = ['farallon-reheated-6','underplated-6','forearc-30-10']
+
+rows = query(sql)
+#.concat query(staticGeotherms)
+console.log rows.length
 
 for r in rows
   r.profile = util.makeProfile r
@@ -74,12 +77,17 @@ func = (el)->
   xa = xenolithsArea color: '#eee', size: 8
   xa ax.plotArea(), ax.line()
 
-  sel = ax.plotArea().selectAll 'path'
+  console.log rows.length
+  sel = ax.plotArea().selectAll 'g.data'
     .data rows
 
-  sel.enter()
-    .append 'path'
+  g = sel.enter()
+    .append 'g'
+    .attr class: 'data'
+
+  g.append 'path'
     .attr
+      id: (d)-> d.name
       d: (d)-> line simplify(d.profile,0.005,true)
       stroke: (d)->
         if 'heat_flow' of d
@@ -87,7 +95,7 @@ func = (el)->
         else
           modelColors(d).alpha(0.8).css()
       'stroke-width': (d)->
-        if d.name in ['farallon-reheated-4','underplated-4','forearc-30-10']
+        if d.name in selectedGeotherms
           2
         else
           0.5
@@ -100,8 +108,20 @@ func = (el)->
         a
       fill: 'none'
 
-  el.selectAll 'text'
+  g.each (d,i)->
+    return if d.name not in selectedGeotherms
+
+    d3.select @
+      .append 'text'
+      .append 'textPath'
+      .attr
+        'xlink:href': d.name
+        'text-anchor': 'middle'
+        startOffset: '90%'
+      .text d.name
+
+  el.selectAll '.tick text'
     .attr
-      'font-family': 'Helvetica Neue Light'
+      'font-size': 8
 
 savage func, filename: process.argv[2]

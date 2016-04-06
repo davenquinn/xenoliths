@@ -3,7 +3,7 @@ d3 = require 'd3'
 
 fontProperties =
   'font-size': 7
-  'font-family': 'Helvetica Neue Light Italic'
+  'font-family': 'Helvetica Neue Italic'
 
 module.exports = (ax)->
   loc = (a)->
@@ -25,10 +25,10 @@ module.exports = (ax)->
 
     g.append 'rect'
       .attr
-        width: 22
+        width: 25
         height: 8
         y: -10
-        x: -1
+        x: -2
         fill: 'white'
 
     g.append 'text'
