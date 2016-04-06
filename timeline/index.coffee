@@ -90,6 +90,22 @@ outerAxes.axes.y()
   .despine()
   .orient 'right'
 
+createAgeLabels = (ax)->
+  (el)->
+    el.append 'text'
+      .attr
+        class: 'oc-age'
+        x: (d)->ax.scale.x(d.time[0])
+        y: (d)->ax.scale.y(d.lower[0])
+        dy: -2
+        dx: -10
+        'font-size': 6
+        'font-family': 'Helvetica Neue Light Italic'
+      .text (d)->
+        n = d.start_time - d.subduction_time
+        "#{n} Myr"
+
+
 createProfileDividers = (lineGenerator, color)->
   (d)->
     profiles = d.profile.map (a,i)->
@@ -187,6 +203,14 @@ createAxes = (data,i)->
       'font-size': 10
       dy: 10
       x: if i == 0 then 3*dpi else 0
+
+  if titles[i] == 'Forearc'
+    enter.call createAgeLabels(ax)
+  if titles[i] == 'Farallon'
+    sel = enter
+      .filter (d,c)->c==0
+    console.log sel
+    sel.call createAgeLabels(ax)
 
 #  ax.node().selectAll 'text'
 #    .attr ff

@@ -22,8 +22,7 @@ sql = "SELECT
   WHERE p.name = 'final'
     AND r.name != 'forearc-28-2'"
 
-staticGeotherms = "SELECT *
-  FROM thermal_modeling.static_profile"
+staticGeotherms = "SELECT dz, heat_flow, temperature FROM thermal_modeling.static_profile"
 
 rows = query(staticGeotherms)
   .concat query(sql)
