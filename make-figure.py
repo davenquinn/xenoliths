@@ -46,7 +46,7 @@ for res in data:
         T,
         depth,
         ".",
-        alpha=0.2,
+        alpha=0.1,
         color=c)
 
     # Maximum depth based on spinel Cr content
@@ -99,13 +99,21 @@ kws = dict(
 ax.annotate('Plagioclase',va='bottom',**kws)
 ax.annotate('Spinel',va='top',**kws)
 
-kws.update(rotation=0,xy=(920,88))
+kws.update(rotation=-18,xy=(1125,85))
 ax.annotate('Garnet',**kws)
 
 ax.autoscale(False)
-for dz, profile, T in profiles:
-    assert T[0] != 0
+c = "#cccccc"
+for dz, heat_flow, T in profiles:
     cells = N.arange(len(T))*dz+dz/2
-    ax.plot(T,cells/1000,color="#cccccc", zorder=-20)
+    Z = cells/1000
+    ax.plot(T,Z,color=c, zorder=-20)
+    for i,v in enumerate(T):
+        if v > 1120: break
+    d = Z[i]
+
+    a = N.arctan2(-d+Z[i-1],v-T[i-1])
+    ax.text(v,d-0.9,"{0} ".format(heat_flow)+r"$mW/m^2$",rotation=5.5*N.degrees(a),
+            va='center',ha='center',color='#aaaaaa',size=7)
 
 fig.savefig(outfile, bbox_inches="tight")
