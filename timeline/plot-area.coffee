@@ -17,24 +17,28 @@ module.exports = (ax)->
   area = (d)->
     agen _.zip(d.time, d['lower'], d['upper'])
 
-  (enter)->
-    enter.append 'path'
+  (d)->
+    el = d3.select @
+    el.append 'path'
+      .datum d
       .attr
-        fill: (d)->modelColors(d).alpha(0.2).css()
+        fill: modelColors(d).alpha(0.2).css()
         d: area
 
-    enter.append 'path'
+    el.append 'path'
+      .datum d
       .attr
         class: 'tracer'
-        stroke: (d)->modelColors(d).alpha(0.8).css()
+        stroke: modelColors(d).alpha(0.8).css()
         fill: 'transparent'
         d: line('upper')
         "stroke-dasharray": '5,1'
 
-    enter.append 'path'
+    el.append 'path'
+      .datum d
       .attr
         class: 'tracer'
-        stroke: (d)->modelColors(d).alpha(0.8).css()
+        stroke: modelColors(d).alpha(0.8).css()
         fill: 'transparent'
         d: line('lower')
 

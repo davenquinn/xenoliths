@@ -14,13 +14,13 @@ ff = 'font-family': 'Helvetica Neue Light'
 
 titles = [
   "Slab window"
-  "Farallon"
   "Forearc"
+  "Farallon"
 ]
 
 dpi = 72
-names = ['underplated','farallon','forearc']
-sz = width: dpi*6.5, height: dpi*3.0
+names = ['underplated','forearc','farallon']
+sz = width: dpi*6.5, height: dpi*4
 
 fn = path.join __dirname,'query.sql'
 sql = fs.readFileSync fn
@@ -31,7 +31,8 @@ limits = data.map (d)->[
   d3.max d, (d)->d.trange[1]]
 axSize = limits.map (d)->d[1]-d[0]
 
-spacing = 100
+spacing = 350
+spacingBottom = 100
 offsY = 0
 
 outerAxes = axes()
@@ -39,21 +40,23 @@ outerAxes = axes()
   .margin
     right: 0.6*dpi
     left: 0.15*dpi
-    top: 0.05*dpi
+    top: 0.1*dpi
     bottom: 0.5*dpi
 outerAxes.scale.x
   .domain [80,0]
 outerAxes.scale.y
-  .domain [0, d3.sum(axSize)+3*spacing]
+  .domain [0, d3.sum(axSize)+2*spacing+spacingBottom]
 outerAxes.axes.x()
   .label 'Time before present (Ma)'
+  .labelOffset 25
+  .tickSize 4
 
 vscale = outerAxes.scale.y
 scaleDelta = (d)->vscale(0)-vscale(d)
 
 outerAxes.axes.y()
   .label 'Temperature (ºC)'
-  .labelOffset 33
+  .labelOffset 30
   .despine()
   .orient 'right'
 
@@ -108,12 +111,18 @@ createAxes = (data,i)->
   el.call ax
   offsY += axsize.height + scaleDelta(spacing)
 
-  sel = ax.plotArea()
-    .selectAll 'path'
+  ar =  ax.plotArea()
+
+  bkg = ar.append 'g'
+
+  sel = ar
+    .selectAll 'g.model-run'
     .data data
 
   enter = sel.enter()
-  enter.call plotArea(ax)
+    .append 'g'
+      .attr class: 'model-run'
+      .each plotArea(ax)
 
   #enter.append 'g'
   #  .attr class: 'profile'
@@ -130,11 +139,12 @@ createAxes = (data,i)->
 
   if titles[i] == 'Forearc'
     labels = ageLabels(ax)
-    ax.plotArea().call labels.connectingLine(data)
-    enter.call labels
+    bkg.call labels.connectingLine(data)
+    enter.each labels
   if titles[i] == 'Farallon'
-    sel = enter
+    sel
       .filter (d,c)->c==0
+      .each ageLabels(ax)
     #console.log sel
     #sel.call createAgeLabels(ax)
 
@@ -149,6 +159,9 @@ func = (el, window)->
     .append 'g'
 
   g.call outerAxes
+
+  g.selectAll '.tick text'
+    .attr 'font-size': 8
 
   outerAxes.plotArea()
     .selectAll 'g.axes'

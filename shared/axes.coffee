@@ -27,7 +27,6 @@ xaxis = (ax)->
     g.append "text"
       .attr
         class: 'label'
-        dy: "2.2em"
       .style 'text-anchor': "middle"
       .text label
     g.call _y
@@ -44,6 +43,7 @@ xaxis = (ax)->
       .attr
         transform: "translate(#{sz.width/2},0)"
         'font-size': labelSize
+        dy: labelOffset
 
     g.selectAll ".tick text"
       .attr
@@ -62,6 +62,11 @@ xaxis = (ax)->
   y.label = (d)->
     return label unless d?
     label = d
+    return y
+
+  y.labelOffset = (d)->
+    return labelOffset unless d?
+    labelOffset = d
     return y
 
   for k,v of _y

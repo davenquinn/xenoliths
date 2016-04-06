@@ -2,25 +2,26 @@ d3 = require 'd3'
 
 
 fontProperties =
-  'font-size': 6
+  'font-size': 7
   'font-family': 'Helvetica Neue Light Italic'
 
 module.exports = (ax)->
-  loc = (d)->
+  loc = (a)->
     {
-      x: ax.scale.x(d.time[0])
-      y: ax.scale.y(d.lower[0])
+      x: ax.scale.x(a.time[0])
+      y: ax.scale.y(a.lower[0])
     }
 
-  L = (el)->
+  L = (d,i)->
+    l = loc(d)
+    l.x -= 10 if i != 0
+    n = d.start_time - d.subduction_time
 
-    g = el.append 'g'
+    g = d3.select(@)
+      .append 'g'
       .attr
         class: 'sub-label'
-        transform: (d,i)->
-          l = loc(d)
-          l.x -= 10 if i != 0
-          "translate(#{l.x} #{l.y})"
+        transform: "translate(#{l.x} #{l.y})"
 
     g.append 'rect'
       .attr
@@ -35,9 +36,7 @@ module.exports = (ax)->
         class: 'oc-age'
         y: -4
       .attr fontProperties
-      .text (d)->
-        n = d.start_time - d.subduction_time
-        "#{n} Myr"
+      .text "#{n} Myr"
 
   L.connectingLine = (data)->
     data = data
