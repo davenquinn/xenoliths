@@ -169,6 +169,7 @@ module.exports = (n_axes, ax_spacing)->
         .each (func)->
           d3.select(@).call func
 
+    console.log "Creating title and labels"
     createTitle()
     createLabels()
 

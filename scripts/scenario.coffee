@@ -21,11 +21,11 @@ possibleLayouts =
   farallon:
     layout: wide_layout
     x: G.margin.outside
-    y: G.margin.outside
+    y: offs3
   underplated:
     layout: small_layout
     x: G.margin.outside+wide_layout.width()-small_layout.width()
-    y: offs3
+    y: G.margin.outside
 
 class Scenario
   constructor: (@el, config, cb)->
@@ -43,7 +43,10 @@ class Scenario
 
   __getData: =>
     sql = "SELECT
-        r.name row_id,
+        r.name,
+        r.type,
+        r.subduction_time,
+        r.underplating_duration,
       	p.name profile_id,
       	p.temperature,
       	p.dz,
@@ -66,6 +69,7 @@ class Scenario
       rows = query sql,data
 
       slice.profile = rows.map util.makeProfile
+      slice.rows = rows
       slice.ml = ml_depth(slice.profile)
 
   __setupLayout: =>
@@ -74,6 +78,7 @@ class Scenario
     @layout = _.layout
       .position pos
       .title @title
+      .labels @labels
     d3.select(@el).call @layout
 
   __createAxes: =>

@@ -1,18 +1,25 @@
 d3 = require "d3"
+chroma = require 'chroma-js'
+
+c = (d)->
+  chroma(d)
+    .set('hsl.l',.85)
+    .set('hsl.s',.4)
+    .css()
 
 style =
   cc:
-    fill: "#f5a185"
-    stroke: "black"
+    fill: c("#f5a185")
+    stroke: "#666666"
     "stroke-width": 1
   oc:
-    fill: "#4f5a78"
+    fill: c("#4f5a78")
     stroke: "#666"
     "stroke-width": 0.5
   ml:
-    fill: "#c7d7aa"
+    fill: c("#c7d7aa")
   as:
-    fill: "#c7d7aa"
+    fill: c("#c7d7aa")
 
 module.exports = (ax)->
   # Function that creates an axis backdrop

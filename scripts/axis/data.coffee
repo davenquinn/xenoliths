@@ -1,5 +1,6 @@
 d3 = require "d3"
 simplify = require 'simplify-js'
+modelColors = require '../../shared/colors'
 
 ax = null
 el = null
@@ -17,10 +18,11 @@ module.exports = (ax)->
       .append "path"
       .attr
         class: "data"
-        id: (d,i)->data.id[i]
+        id: (d,i)->
+          d.id
         d: (d)->line simplify(d,0.005,true)
         "stroke-width": 2
-        stroke: '#750000'
+        stroke: (d,i)->modelColors data.rows[i]
         fill: "transparent"
 
   return out
