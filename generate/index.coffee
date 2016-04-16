@@ -71,12 +71,12 @@ createPlot = (el)->
   svg.selectAll '.vertex-label'
     .filter (d,i)-> i != 0
     .each (d,i)->
-      r = if i == 1 then -30 else 30
+      r = if i == 1 then 30 else -30
       el = d3.select(@)
       t = el.attr 'transform'
       el.attr
         transform: t+"rotate(#{r})"
-        dx: if i == 1 then 8 else -8
+        dx: if i == 1 then -8 else 8
         dy: 15
 
 savage createPlot, filename: "output/ternary.svg"
