@@ -1,29 +1,11 @@
 
-module.exports = (t)->
-  w = t.width()
-  h = t.height()
-
-  defs = t.node().select "defs"
-  defs.append "marker"
-    .attr
-      id: "arrow"
-      viewBox:"-6 -6 12 12"
-      refX:-2
-      refY:0
-      markerWidth: 5
-      markerHeight: 5
-      markerUnits: "strokeWidth"
-      orient:"auto"
-    .append "polygon"
-      .attr
-        points: "-5,5 5,0 -5,-5"
-        stroke: '#000'
-        fill: 'black'
-        'stroke-width': '1px'
+module.exports = (ternary)->
+  w = ternary.width()
+  h = ternary.height()
 
   data = [[0,h,120],[w,h,60]]
 
-  sel = t.node().selectAll 'g.arrow'
+  sel = ternary.node().selectAll 'g.arrow'
     .data data
 
   g = sel.enter()
