@@ -5,7 +5,7 @@ G = require "../geometry"
 xenolithsArea = require '../../shared/xenoliths-area'
 uuid = require "uuid"
 color = require "color"
-axes = require "../../shared/axes"
+axes = require "../../d3-plot-area/src"
 
 module.exports = ->
 

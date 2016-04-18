@@ -26,5 +26,8 @@
     "textures": "^1.0.3",
     "underscore": "^1.8.3",
     "uuid": "^2.0.1"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.10.0"
   }
 }

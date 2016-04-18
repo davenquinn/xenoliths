@@ -6,7 +6,7 @@ path = require 'path'
 
 modelColors = require '../shared/colors'
 query = require '../shared/query'
-axes = require '../shared/axes'
+axes = require '../d3-plot-area/src'
 plotArea = require './plot-area'
 ageLabels = require './age-labels'
 legend = require './legend'

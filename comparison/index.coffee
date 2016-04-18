@@ -8,7 +8,7 @@ modelColors = require '../shared/colors'
 xenolithsArea = require '../shared/xenoliths-area'
 query = require '../shared/query'
 util = require '../shared/util'
-axes = require '../shared/axes'
+axes = require '../d3-plot-area/src'
 
 sql = "SELECT
     r.*,
