@@ -127,13 +127,16 @@ class SubductionCase(ModelRunner):
         if final_temperature is None:
             royden = forearc_solver(**kwargs)
         else:
+            kwargs['vary'] = "Au"
             # Optimize on rate of accretion
             royden = optimized_forearc(
                 final_temperature,
                 final_distance,
-                final_depth,
+                # Optimize temperature above subduction
+                # interface
+                final_depth-u(5,'km'),
                 **kwargs)
-            self.log("Modeled friction along fault",royden.args['qfric'])
+            self.log("Modeled upper-plate heat generation",royden.args['Au'])
 
         def on_step(solver, **kwargs):
             """
