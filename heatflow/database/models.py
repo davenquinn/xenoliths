@@ -36,9 +36,6 @@ class __shared(object):
         return Column(Integer,
             ForeignKey(ModelRun.id, ondelete='CASCADE'),
             primary_key=True)
-    @declared_attr
-    def time(cls):
-        return Column(Numeric, primary_key=True)
 
 class BaseProfile(Base):
     __abstract__ = True
@@ -55,13 +52,15 @@ class StaticProfile(BaseProfile):
 
 class ModelProfile(BaseProfile, __shared):
     __tablename__ = 'model_profile'
-    name = Column(String, nullable=False)
+    name = Column(String, primary_key=True)
+    time = Column(Numeric)
 
 class ModelTracer(Base, __shared):
     __tablename__ = 'model_tracer'
     # Handles cases where we have advection, as
     # the depth may not be constant throughout the
-    # model run.
+    # model run
+    time = Column(Numeric, primary_key=True)
     final_depth = Column(Numeric, primary_key=True)
     depth = Column(Numeric,nullable=False)
     temperature = Column(Float, nullable=False)

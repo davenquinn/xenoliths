@@ -48,7 +48,10 @@ class Farallon(SubductionCase):
     name_base = 'farallon'
     def __init__(self):
         self.name = self.name_base
-        SubductionCase.__init__(self,u(140,"Myr"),u(80,"Myr"))
+        SubductionCase.__init__(self,u(130,"Myr"),u(75,"Myr"))
+        # Solve to imaginary model division to make
+        # model outputs align with farallon-reheated case
+        self.fake_underplating_time = u(24,'Myr')
 
     def setup(self):
         self.pre_subduction()
@@ -56,13 +59,29 @@ class Farallon(SubductionCase):
 
     def run(self):
         self.setup()
+
+        # Pause at 24 Ma to record a fake timestep
+        self.finite_solve(self.fake_underplating_time)
+        __recs = ('before-underplating','underplating-started','after-underplating')
+        for i in __recs:
+            self.record(i)
+
         self.solve_to_present()
 
 class UnderplatingMixin(object):
     def do_underplating(self):
+        self.record("before-underplating")
+
         dT = self.underplating_duration
 
         temp = asthenosphere_temperature
+
+        apply_adiabat = AdiabatSolver(
+            start_depth=self.underplating_depth,
+            start_temp=temp)
+
+        self.record("underplating-started", apply_adiabat(self.section))
+
         if dT.into('s') > 0:
             # We're holding the temperature
             # at the boundary for some length of time
@@ -74,13 +93,8 @@ class UnderplatingMixin(object):
             self.section.profile[:len(res)] = res
             self.t -= dT
 
-        apply_adiabat = AdiabatSolver(
-            start_depth=self.underplating_depth,
-            start_temp=temp)
-
         self.section = apply_adiabat(self.section)
-        if dT.into('s') > 0:
-            self.record("after-underplating")
+        self.record("after-underplating")
 
 class FarallonReheated(Farallon, UnderplatingMixin):
     """
@@ -92,14 +106,12 @@ class FarallonReheated(Farallon, UnderplatingMixin):
         Farallon.__init__(self)
         self.name = self.name_base+'-'+str(dT)
         self.underplating_duration = u(dT,'Myr')
-        self.underplating_depth = u(90,'km')
+        self.underplating_depth = u(80,'km')
         self.underplating_time = u(24,'Myr')
 
     def run(self):
-
         self.setup()
         self.finite_solve(self.underplating_time)
-        self.record("before-underplating")
         self.do_underplating()
         self.solve_to_present()
 

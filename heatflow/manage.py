@@ -37,7 +37,7 @@ def cli(scenarios, debug=False, all=False,
         case = ForearcCase(sub_age,oc_age)
         registry[case.name] = case
 
-    for dT in (0,2,4):
+    for dT in (0,2,4,6):
         case =  FarallonReheated(dT)
         registry[case.name] = case
 

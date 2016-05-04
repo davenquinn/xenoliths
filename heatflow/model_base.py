@@ -18,7 +18,7 @@ FiniteSolver.set_defaults(
     plotter=Plotter(range=(0,1600)))
 
 class ModelRunner(object):
-    trace_depths = u(40,'km'),u(80,'km')
+    trace_depths = u(40,'km'),u(75,'km')
     # Offset used for depth calculations for model tracers.
     # Reset when geotherms are stacked.
     depth_offset = None
