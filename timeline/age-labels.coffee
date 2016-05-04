@@ -25,7 +25,7 @@ module.exports = (ax)->
 
     g.append 'rect'
       .attr
-        width: 25
+        width: 26
         height: 8
         y: -10
         x: -2
@@ -43,7 +43,7 @@ module.exports = (ax)->
       .map (d)->[d.time[0],d.lower[0]]
     data.sort()
     v = data[0]
-    data.unshift [v[0]-2,v[1]]
+    #data.unshift [v[0]-2,v[1]]
 
     (el)->
 
@@ -54,18 +54,23 @@ module.exports = (ax)->
           d: ax.line()
           stroke: 'black'
           'stroke-width': 0.5
-          'stroke-dasharray': '1 0.5'
+          'stroke-dasharray': '1 1'
           fill: 'transparent'
           transform: 'translate(5 -6)'
 
-      v = data[0]
+      _l = {}
+      console.log ax.scales
+      for k,scale of ax.scale
+        n = if k == 'x' then 0 else 1
+        val = d3.mean(data,(i)->i[n])
+        _l[k] = scale val
+
       el.append "text"
         .text "Age of oceanic crust"
         .attr
-          x: ax.scale.x v[0]
-          y: ax.scale.y v[1]
-          dx: 8
-          dy: -3.5
+          dy: -10
+          transform: "translate(#{_l.x} #{_l.y}) rotate(-7)"
+          'text-anchor': 'middle'
         .attr fontProperties
 
   return L
