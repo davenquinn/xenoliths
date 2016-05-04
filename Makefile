@@ -10,7 +10,7 @@ build/comparison.pdf: build/comparison.svg
 	sed -i -- 's/textpath/textPath/g' $^
 	cairosvg -o $@ -d 72 $^
 
-build/cooling-scenarios.pdf: scripts | build
+build/cooling-scenarios.pdf: time-slices | build
 	coffee $^
 	cairosvg -o $@  -d 100 $(@:.pdf=.svg)
 
