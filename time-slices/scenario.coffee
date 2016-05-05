@@ -6,16 +6,16 @@ queue = require('d3-queue').queue
 util = require '../shared/util'
 
 # Specify layouts to use for each scenario
-wide_layout = layout(3, ["small","large"])
+wide_layout = layout(5, ["small","large","small","large"])
 interval = wide_layout.height()+G.section.spacing.y
 offs2 = G.margin.outside + interval
 offs3 = offs2 + interval
 
-small_layout = layout(2, ["large"])
+small_layout = layout(3, ["small","large"])
 
 possibleLayouts =
   forearc:
-    layout: wide_layout
+    layout: small_layout
     x: G.margin.outside
     y: offs2
   farallon:
@@ -24,7 +24,7 @@ possibleLayouts =
     y: offs3
   underplated:
     layout: small_layout
-    x: G.margin.outside+wide_layout.width()-small_layout.width()
+    x: G.margin.outside
     y: G.margin.outside
 
 class Scenario

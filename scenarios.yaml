@@ -3,14 +3,18 @@
     - underplated-0
     - underplated-2
     - underplated-4
+    - underplated-6
   title: A. Slab window
   slices:
     - id: initial
       cc: 30
+    - id: after-underplating
+      cc: 30
     - id: final
       cc: 30
   labels:
-    - 24 Ma
+    - Underplating (24 Ma)
+    - ""
     - 1.6 Ma
 - name: forearc
   id:
@@ -31,7 +35,7 @@
       oc: 35
   title: B. Stalled slab
   labels:
-    - Subduction/underplating
+    - Subduction
     - ""
     - 1.6 Ma
 - name: farallon
@@ -40,10 +44,27 @@
     - farallon-reheated-0
     - farallon-reheated-2
     - farallon-reheated-4
+    - farallon-reheated-6
   title: C. Late Cretaceous rollback
   subtitle: Cool modern geotherm
-  slices: *subduction
+  slices:
+    - id: before-subduction
+      oc: 5
+    - id: after-subduction
+      cc: 30
+      oc: 35
+    - id: underplating-started
+      cc: 30
+      oc: 35
+    - id: after-underplating
+      cc: 30
+      oc: 35
+    - id: final
+      cc: 30
+      oc: 35
   labels:
-    - Subduction/underplating
+    - Subduction
+    - ""
+    - Underplating
     - ""
     - 1.6 Ma

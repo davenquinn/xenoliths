@@ -22,7 +22,7 @@ module.exports = (ax)->
     el.append 'path'
       .datum d
       .attr
-        fill: modelColors(d).alpha(0.2).css()
+        fill: modelColors(d).alpha(0.08).css()
         d: area
 
     el.append 'path'
