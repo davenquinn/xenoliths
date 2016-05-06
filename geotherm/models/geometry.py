@@ -102,7 +102,18 @@ class Section(Layer):
         test = self.profile > temperature
         return self.cell_centers[test][0]
 
-    def get_slice(self, top, bottom):
+    def divide(self, depth):
+        """
+        Return two sections split at a depth.
+        """
+        args = ((None,depth),(depth,None))
+        return tuple(self.get_slice(*a) for a in args)
+
+    def get_slice(self, top=None, bottom=None):
+        if top is None:
+            top = u(0,'m')
+        if bottom is None:
+            bottom = self.thickness
         def layers():
             for bounds, layer in self.iterlayers():
                 thickness = layer.thickness

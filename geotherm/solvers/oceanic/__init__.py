@@ -12,6 +12,10 @@ class OceanicSolver(BaseSolver):
     def __init__(self, section, **kwargs):
         super(OceanicSolver, self).__init__(**kwargs)
         self.section = section
+        if not hasattr(section,"layers"):
+            # We need to convert a layer to section
+            self.section = Section(self.section)
+
         try:
             layers = section.layers
             assert len(layers) == 1
@@ -110,9 +114,10 @@ class GDHSolver(OceanicSolver):
         profile[idx] = T
         self.section.profile = profile
 
-        apply_adiabat = AdiabatSolver(
+        adiabat = AdiabatSolver(
+            self.section,
             start_depth=self.lithosphere_depth,
             start_temp=self.T_max)
 
-        self.section = apply_adiabat(self.section)
+        self.section = adiabat()
         return self.section.profile

@@ -7,6 +7,9 @@ from .forearc import RoydenModel as RoydenSolver
 from .adiabat import AdiabatSolver
 
 def steady_state(section, surface_heatflow, surface_temperature=None):
+    """
+    Iterative solver for steady-state geotherm
+    """
 
     if surface_temperature is None:
         surface_temperature = u(0,'degC')
@@ -20,7 +23,7 @@ def steady_state(section, surface_heatflow, surface_temperature=None):
         a = layer.material_property('heat_generation')
         k = layer.material_property('conductivity')
 
-        T = lambda y: T_top + q_top*y/k - a*y**2/(2*k)
+        T = lambda y: T_top + q_top*y/k + a*y**2/(2*k)
 
         n = layer.n_cells
         section.profile[ix:ix+n] = T(layer.cell_centers)

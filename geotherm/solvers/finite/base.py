@@ -8,7 +8,7 @@ import numpy as N
 
 class BaseFiniteSolver(BaseSolver):
     defaults = dict(
-        constraints = (u(i,"degC") for i in (0,1500)),
+        constraints = (None,None),
         time_step = None,
         type = "implicit",
         plotter = None,

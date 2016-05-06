@@ -29,6 +29,7 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
             value=self.initial_values,
             hasOld=(self.type=='crank-nicholson'))
 
+        self._exterior_flux = 0
         self.create_coefficient()
 
         if self.constraints is not None:
@@ -48,20 +49,36 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         else:
             self.equation = self.create_equation(self.type)
 
-    def set_constraints(self, upper=None, lower=None):
+    def constrain(self, upper=None, lower=None):
         # Constraint can be set to none if we don't want to change
         constraints = (new if new is not None else old
                 for new,old in zip((upper,lower),self.constraints))
         faces = (self.mesh.facesLeft, self.mesh.facesRight)
+        indexes = [0,-1]
 
-        for val, face in zip(constraints,faces):
+        self._exterior_flux = 0
+
+        for val, index, face in zip(constraints,indexes,faces):
+            if val is None:
+                continue
             try:
                 self.var.constrain(val.into("K"), face) ## Constrain as temperature
             except DimensionalityError:
-                v = val.into("K/m")
-                self.var.faceGrad.constrain(v, where=face)
+                # Fixed flux boundary condition
+                # flux density
+                v = val.into("W/m^2")
+
+                flux = F.FaceVariable(
+                    self.mesh,'exterior_flux',
+                    value=v)
+
+                self._exterior_flux += (self.mesh.exteriorFaces[index]*flux).divergence
+
             except AttributeError:
                 pass
+
+    # Legacy callable
+    set_constraints = constrain
 
     def create_coefficient(self):
         """A spatially varying diffusion coefficient"""
@@ -178,8 +195,8 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         h = self.radiogenic_heating()
         if h is not None:
             diff += h
-        if self._excess is not None:
-            diff += self._excess
+        # Add exterior fluxes
+        #diff += self._exterior_flux
         return diff
 
     def steady_state(self):
