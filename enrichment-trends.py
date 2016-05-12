@@ -1,6 +1,7 @@
 import numpy as N
 import matplotlib.pyplot as P
 import periodictable as pt
+from paper import plot_style
 from paper.query import sample_colors
 from xenoliths.application import app
 from xenoliths.SIMS.query import sims_data

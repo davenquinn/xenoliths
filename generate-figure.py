@@ -1,32 +1,31 @@
 import numpy as N
 import matplotlib.pyplot as P
 from pandas import read_sql
+from paper import plot_style
 from paper.query import sample_colors
+from matplotlib.ticker import ScalarFormatter
 from xenoliths.application import app, db
 from xenoliths.SIMS.query import sims_data, element_data, ree_only
 from xenoliths.core.models import Sample
 
 with app.app_context():
 
-    data = ree_only(sims_data(whole_rock=True))
+    data = ree_only(sims_data())
     colors = sample_colors()
-
-fig, axes = P.subplots(3,1,
-        figsize=(5,12),
-        sharex=True)
-fig.subplots_adjust(hspace=0.1)
 
 all_cols = data.reset_index()
 ticks = all_cols['element'].unique()
 symbols = all_cols['symbol'].unique()
 plot_data = element_data(data).join(colors)
 
-minerals = ('cpx','opx','whole_rock')
+fig, ax = P.subplots(1,1,figsize=(5,5))
+
+minerals = ('cpx','opx')
 labels = ('cpx',
           'opx',
           'Whole rock')
 
-for ax,mineral in zip(axes,minerals):
+for mineral in minerals:
     _ = lambda x: x[1] == mineral
     min_data = plot_data[plot_data.index.map(_)]
     for ix,row in min_data.iterrows():
@@ -51,8 +50,12 @@ for ax,mineral in zip(axes,minerals):
     ax.set_yscale('log')
     ax.set_xlim([ticks[0]-0.5,ticks[-1]+0.5])
 
-for ax,label in zip(axes,labels):
-    ax.set_ylabel(label+" / CI chondrite")
+    kw = dict(color='#888888',fontsize=10)
+    ax.text(x[0],20,"Clinopyroxene",**kw)
+    ax.text(x[0],.3,"Orthopyroxene",**kw)
+
+    ax.yaxis.set_ticklabels(["{:g}".format(v) for v in ax.yaxis.get_ticklocs()])
+    ax.set_ylabel("Pyroxene REE / CI chondrite")
 
 ax.xaxis.set_ticks(ticks)
 ax.xaxis.set_ticklabels(symbols)
