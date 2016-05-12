@@ -17,9 +17,9 @@ style =
     stroke: "#666"
     "stroke-width": 0.5
   ml:
-    fill: c("#c7d7aa")
+    fill: c("#c7d7aa", .65, .85)
   as:
-    fill: c("#c7d7aa", .4, .95)
+    fill: c("#c7d7aa",.5,.95)
 
 profileDepths = (profiles, temperature)->
   profiles.map (profile)->
@@ -36,16 +36,6 @@ module.exports = (ax)->
     pos = ax.position()
     margin = 5
 
-    # Set up data
-    if not layers.ml?
-      layers.ml = 95
-    if layers.ml < 90
-      layers.as = maxZ
-    if layers.cc? and layers.ml < layers.cc
-       delete layers.ml
-    if layers.oc? and layers.ml < layers.oc
-       delete layers.ml
-
     layerData = []
     # cc
     for i in ["cc","oc"]
@@ -55,16 +45,23 @@ module.exports = (ax)->
 
     # Deal with mantle lithosphere, putting it at
     # 1350ºC
-    depths = profileDepths(layers.profile, 1350)
+    depths = profileDepths(layers.profile, 1300)
       .sort()
     allSame = depths.every (d)->d == depths[0]
     if allSame
       layerData.push {z: depths[0], id: 'ml'}
     else
       console.log depths
+      scale = chroma.scale([style.ml.fill,style.as.fill])
+        .domain([0,depths.length])
+      depths.forEach (d,i)->
+        layerData.push {z: d, style: {fill: scale(i)}}
 
     if depths[depths.length-1] < 90
       layerData.push {z: maxZ, id: 'as'}
+
+    for d in layerData
+      d.style = style[d.id] unless d.style?
 
     console.log layerData
     sel = d3.select @
@@ -81,4 +78,4 @@ module.exports = (ax)->
         width: ax.scale.x(1900)
         height: (d)->ax.scale.y(d.z+5)
       .each (d)->
-        d3.select(@).attr style[d.id]
+        d3.select(@).attr d.style
