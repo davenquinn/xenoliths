@@ -9,19 +9,21 @@ util = require '../shared/util'
 wide_layout = layout(5, ["small","large","small","large"])
 interval = wide_layout.height()+G.section.spacing.y
 offs2 = G.margin.outside + interval
-offs3 = offs2 + interval
 
 small_layout = layout(3, ["small","large"])
+
+forearcOffset = G.margin.outside+small_layout.width()+G.section.spacing.x
+totalWidth = forearcOffset + small_layout.width()
 
 possibleLayouts =
   forearc:
     layout: small_layout
-    x: G.margin.outside
-    y: offs2
+    x: forearcOffset
+    y: G.margin.outside
   farallon:
     layout: wide_layout
     x: G.margin.outside
-    y: offs3
+    y: offs2
   underplated:
     layout: small_layout
     x: G.margin.outside
@@ -91,7 +93,7 @@ class Scenario
       ax.plot d
 
 module.exports = (data)->
-  # Builds Scenarios
+    # Builds Scenarios
   s = (el)->
     sel = el.selectAll 'g.scenario'
       .data data
@@ -102,5 +104,5 @@ module.exports = (data)->
           new Scenario @,d
 
     el.attr
-      height: offs3 + interval + G.margin.outside
-      width: G.margin.outside*2 + wide_layout.width()
+      height: offs2 + interval + G.margin.outside
+      width: totalWidth

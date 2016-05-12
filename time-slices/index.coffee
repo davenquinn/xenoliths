@@ -12,7 +12,6 @@ cfg = JSON.parse(JSON.stringify(cfg))
 ppi = 100
 
 func = (el)->
-  height = 480
   scenarios = setupScenarios cfg
   d3.select el
     .call scenarios
