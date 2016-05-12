@@ -7,22 +7,22 @@ uuid = require "uuid"
 color = require "color"
 axes = require "../../d3-plot-area/src"
 
-module.exports = ->
-
-  max = {T: 1500,z: 90}
+module.exports = (o={})->
+  o.max ?= {T: 1500,z: 90}
 
   ax = axes()
     .size G.axis
     .margin 0
     .neatline()
 
-  ax.scale.x.domain [0,max.T]
-  ax.scale.y.domain [max.z,0]
+  ax.scale.x.domain [0,o.max.T]
+  ax.scale.y.domain [o.max.z,0]
   ax.backdrop = (data)->
     fn = createBackdrop ax
     el = ax.plotArea()
     fn.call el.node(), data
 
+  ax.labels = ->
     textProps =
       'font-size': 8
       dy:'1.2em'

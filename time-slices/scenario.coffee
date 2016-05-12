@@ -88,6 +88,7 @@ class Scenario
     axes.forEach (ax,i)=>
       d = @slices[i]
       ax.backdrop d
+      ax.labels()
       if i == axes.length-1
         ax.xenolithArea()
       ax.plot d

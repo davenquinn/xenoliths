@@ -45,8 +45,12 @@ module.exports = (ax)->
 
     # Deal with mantle lithosphere, putting it at
     # 1350ºC
-    depths = profileDepths(layers.profile, 1300)
-      .sort()
+    try
+      depths = profileDepths(layers.profile, 1300)
+        .sort()
+    catch err
+      depths = [layers.ml]
+
     allSame = depths.every (d)->d == depths[0]
     if allSame
       layerData.push {z: depths[0], id: 'ml'}
