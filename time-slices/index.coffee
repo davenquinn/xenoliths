@@ -17,4 +17,4 @@ func = (el)->
   d3.select el
     .call scenarios
 
-savage func, filename: 'build/cooling-scenarios.svg'
+savage func, filename: process.argv[2]

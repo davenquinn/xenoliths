@@ -1,4 +1,6 @@
-all: build/cooling-scenarios.pdf build/timeline.pdf build/comparison.pdf
+cs=build/cooling-scenarios.pdf
+
+all: $(cs) build/timeline.pdf build/comparison.pdf
 
 build:
 	mkdir -p $@
@@ -10,9 +12,12 @@ build/comparison.pdf: build/comparison.svg
 	sed -i -- 's/textpath/textPath/g' $^
 	cairosvg -o $@ -d 72 $^
 
-build/cooling-scenarios.pdf: time-slices | build
-	coffee $^
-	cairosvg -o $@  -d 100 $(@:.pdf=.svg)
+_cs=$(cs:.pdf=.svg)
+$(_cs): time-slices | build
+	coffee $^ $@
+
+$(cs): $(_cs)
+	cairosvg -o $@  -d 100 $^
 
 build/timeline.pdf: timeline | build
 	coffee $^
