@@ -21,6 +21,7 @@ ALPHAMELTS_MODE          isobaric
 ALPHAMELTS_METASTABLE_ISOGRAD true
 !ALPHAMELTS_PTPATH_FILE	ptpath.txt
 
+! We use a polybaric path since we are modeling adiabatic decompression
 ! need to set DELTAP for polybaric paths; DELTAT for isobaric paths
 ALPHAMELTS_DELTAP        100
 ALPHAMELTS_DELTAT        -1
