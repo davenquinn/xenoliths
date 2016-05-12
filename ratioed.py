@@ -2,10 +2,13 @@ import numpy as N
 import matplotlib.pyplot as P
 from pandas import read_sql
 from paper.query import sample_colors
+from paper import plot_style
 from xenoliths.application import app, db
 from xenoliths.SIMS.query import sims_data, element_data, ree_only
 from xenoliths.core.models import Sample
 from sys import argv
+
+from shared import mineral_data
 
 with app.app_context():
     data = ree_only(sims_data())
@@ -17,15 +20,8 @@ all_cols = data.reset_index()
 ticks = all_cols['element'].unique()
 symbols = all_cols['symbol'].unique()
 
-def mineral_data(mineral):
-    px_data = data[
-        data.index.map(lambda x: x[1] == mineral)]
-    #del px_data['n']
-    px_data.index = px_data.index.droplevel(1)
-    return px_data
-
-opx = mineral_data('opx')
-data = mineral_data('cpx')
+opx = mineral_data(data, 'opx')
+data = mineral_data(data, 'cpx')
 data['average'] = data['average']/opx['average']
 
 data = element_data(data, index='sample_id').join(colors)

@@ -8,6 +8,8 @@ from xenoliths.application import app, db
 from xenoliths.SIMS.query import sims_data, element_data, ree_only
 from xenoliths.core.models import Sample
 
+from shared import mineral_data
+
 with app.app_context():
 
     data = ree_only(sims_data())
@@ -26,8 +28,7 @@ labels = ('cpx',
           'Whole rock')
 
 for mineral in minerals:
-    _ = lambda x: x[1] == mineral
-    min_data = plot_data[plot_data.index.map(_)]
+    min_data = mineral_data(plot_data,mineral)
     for ix,row in min_data.iterrows():
         color = row.pop('color')
         n = row.pop('n')
