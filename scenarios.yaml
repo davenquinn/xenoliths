@@ -8,10 +8,13 @@
   slices:
     - id: initial
       cc: 30
+      as: 90
     - id: after-underplating
       cc: 30
+      as: 90
     - id: final
       cc: 30
+      as: 90
   labels:
     - Underplating (24 Ma)
     - ""
@@ -56,12 +59,15 @@
     - id: underplating-started
       cc: 30
       oc: 35
+      ml: 80
     - id: after-underplating
       cc: 30
       oc: 35
+      ml: 80
     - id: final
       cc: 30
       oc: 35
+      ml: 80
   labels:
     - Subduction
     - ""

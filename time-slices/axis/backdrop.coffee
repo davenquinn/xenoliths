@@ -1,10 +1,10 @@
 d3 = require "d3"
 chroma = require 'chroma-js'
 
-c = (d)->
+c = (d, s=.4, l=.85)->
   chroma(d)
-    .set('hsl.l',.85)
-    .set('hsl.s',.4)
+    .set('hsl.l',l)
+    .set('hsl.s',s)
     .css()
 
 style =
@@ -19,7 +19,13 @@ style =
   ml:
     fill: c("#c7d7aa")
   as:
-    fill: c("#c7d7aa")
+    fill: c("#c7d7aa", .4, .95)
+
+profileDepths = (profiles, temperature)->
+  profiles.map (profile)->
+    for loc in profile
+      break if loc.x > temperature
+    return loc.y
 
 module.exports = (ax)->
   # Function that creates an axis backdrop
@@ -31,6 +37,8 @@ module.exports = (ax)->
     margin = 5
 
     # Set up data
+    if not layers.ml?
+      layers.ml = 95
     if layers.ml < 90
       layers.as = maxZ
     if layers.cc? and layers.ml < layers.cc
@@ -39,15 +47,29 @@ module.exports = (ax)->
        delete layers.ml
 
     layerData = []
-    for i in ["as","ml","oc","cc"]
+    # cc
+    for i in ["cc","oc"]
       d = layers[i]
       continue unless d?
       layerData.push { z: d, id: i }
 
+    # Deal with mantle lithosphere, putting it at
+    # 1350ºC
+    depths = profileDepths(layers.profile, 1350)
+      .sort()
+    allSame = depths.every (d)->d == depths[0]
+    if allSame
+      layerData.push {z: depths[0], id: 'ml'}
+    else
+      console.log depths
+
+    if depths[depths.length-1] < 90
+      layerData.push {z: maxZ, id: 'as'}
+
     console.log layerData
     sel = d3.select @
       .selectAll 'rect.layer'
-        .data layerData
+        .data layerData.reverse()
 
     sz = ax.size()
 

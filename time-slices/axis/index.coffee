@@ -18,10 +18,10 @@ module.exports = ->
 
   ax.scale.x.domain [0,max.T]
   ax.scale.y.domain [max.z,0]
-  ax.backdrop = (layers)->
+  ax.backdrop = (data)->
     fn = createBackdrop ax
     el = ax.plotArea()
-    fn.call el.node(), layers
+    fn.call el.node(), data
 
     textProps =
       'font-size': 8
