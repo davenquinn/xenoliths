@@ -1,0 +1,17 @@
+{
+  "name": "thermometry",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "coffee-script": "^1.10.0",
+    "d3": "^3.5.17",
+    "d3-plot-area": "github:davenquinn/d3-plot-area",
+    "savage-svg": "github:davenquinn/savage-svg"
+  }
+}
