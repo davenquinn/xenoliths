@@ -2,12 +2,21 @@ axis = require "./axis"
 
 module.exports = (el)->
   opts =
-    max: {z: 4, T: 1}
-    size: {height: 200, width: 200}
+    max: {z: 5, T: 1}
+    size: {height: 120, width: 40}
   ax = axis(opts)
   el.call(ax)
 
-  data = ['cc','oc','ml','as'].map (d,i)->
-    {z: i+1,id:d}
-  ax.backdrop data
+  labels = [
+    'Forearc crust'
+    'Oceanic crust'
+    'Mantle lithosphere'
+    'Asthenosphere'
+  ]
+
+  ax.backdrop
+    cc: 1
+    oc: 2
+    ml: 3
+    as: 4
 

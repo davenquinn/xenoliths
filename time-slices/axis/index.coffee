@@ -9,9 +9,10 @@ axes = require "../../d3-plot-area/src"
 
 module.exports = (o={})->
   o.max ?= {T: 1500,z: 90}
+  o.size ?= G.axis
 
   ax = axes()
-    .size G.axis
+    .size o.size
     .margin 0
     .neatline()
 

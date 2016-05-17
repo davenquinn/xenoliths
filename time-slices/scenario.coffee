@@ -1,37 +1,10 @@
 d3 = require "d3"
-layout = require './layout'
-G = require './geometry'
 query = require '../shared/query'
 queue = require('d3-queue').queue
 util = require '../shared/util'
 
-# Specify layouts to use for each scenario
-wide_layout = layout(5, ["small","large","small","large"])
-interval = wide_layout.height()+G.section.spacing.y
-offs2 = G.margin.outside + interval
-
-small_layout = layout(3, ["small","large"])
-
-forearcOffset = G.margin.outside+small_layout.width()+G.section.spacing.x
-totalWidth = forearcOffset + small_layout.width()
-
-possibleLayouts =
-  forearc:
-    layout: small_layout
-    x: forearcOffset
-    y: G.margin.outside
-  farallon:
-    layout: wide_layout
-    x: G.margin.outside
-    y: offs2
-  underplated:
-    layout: small_layout
-    x: G.margin.outside
-    y: G.margin.outside
-
 class Scenario
   constructor: (@el, config, cb)->
-    console.log config
     for k,v of config
       if k of @
         throw "@#{k} is already defined"
@@ -75,10 +48,8 @@ class Scenario
       slice.ml = ml_depth(slice.profile)
 
   __setupLayout: =>
-    _ = possibleLayouts[@name]
-    pos = {x:_.x,y:_.y}
-    @layout = _.layout
-      .position pos
+    @layout
+      .position @position
       .title @title
       .labels @labels
     d3.select(@el).call @layout
@@ -93,17 +64,4 @@ class Scenario
         ax.xenolithArea()
       ax.plot d
 
-module.exports = (data)->
-    # Builds Scenarios
-  s = (el)->
-    sel = el.selectAll 'g.scenario'
-      .data data
-      .enter()
-        .append "g"
-        .attr class: 'scenario'
-        .each (d)->
-          new Scenario @,d
-
-    el.attr
-      height: offs2 + interval + G.margin.outside
-      width: totalWidth
+module.exports = Scenario
