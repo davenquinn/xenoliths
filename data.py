@@ -10,6 +10,8 @@ from xenoliths.thermometry.rare_earth.plot import ree_temperature
 from xenoliths.thermometry.results import xenoliths
 from xenoliths.thermometry.rare_earth import (
     ree_pyroxene, regress, temperature, rare_earths)
+from collections import OrderedDict
+
 
 cache = "build/comparison-data.pickle"
 
@@ -69,3 +71,28 @@ def ree_data(sample_id):
         s.temperature = temperature(s.res)
         return s
 
+def __table_data(s):
+    s = OrderedDict(s.items())
+
+    for k in ('core','rim'):
+        d = s[k]
+
+        n_opx = d['bkn']["single"].get('n_opx')
+        n_cpx = d['bkn']["single"].get('n_cpx')
+
+        # Go through thermometers
+        for k_,v in d.items():
+            arr = N.array(v['sep'])
+            d[k_] = dict(n=arr.mean(),s=arr.std())
+        d['n_cpx'] = n_cpx
+        d['n_opx'] = n_opx
+
+    ree = ree_data(s['id']).temperature
+    s['core']['ree'] = dict(n=ree.n,s=ree.s)
+
+    return s
+
+def summary_data():
+    with open("build/data.pickle") as f:
+        data = load(f)
+    return [__table_data(i) for i in data]
