@@ -41,7 +41,8 @@ layouts =
       x: G.margin.outside
       y: G.margin.outside
 
-func = (el)->
+func = (el, window)->
+  global.window = window
   el = d3.select el
 
   cfg.forEach (c)->
