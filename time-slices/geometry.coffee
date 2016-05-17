@@ -2,6 +2,7 @@ module.exports =
   axis:
     height: 195
     width: 85
+    topMargin: 16
     spacing:
       x:
         small: 5

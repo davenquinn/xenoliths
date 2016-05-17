@@ -49,18 +49,20 @@ func = (el)->
       c[k] = v
   console.log cfg
 
+  scenarios = []
   # Set up scenarios from configuration
   sel = el.selectAll 'g.scenario'
     .data cfg
     .enter()
       .append "g"
       .attr class: 'scenario'
-      .each (d)->new Scenario @,d
+      .each (d)->scenarios.push new Scenario(@,d)
 
+  ly = scenarios[2].layout
   g = el.append 'g'
     .attr
       class: 'legend'
-      transform: "translate(520,280)"
+      transform: "translate(#{ly.width()+G.section.spacing.x},#{offs2+ly.topMargin()})"
     .call legend
 
   el.attr
