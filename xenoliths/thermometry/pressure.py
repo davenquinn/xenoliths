@@ -8,7 +8,7 @@ from heatflow.config import (
     continental_crust,
     oceanic_mantle, interface_depth)
 
-from .thermometers import BKN, Taylor1998, Ca_OPX_Corr
+from .thermometers import BKN, Taylor1998, Ca_OPX_Corr, Ca_OPX
 from .barometers import Ca_Olivine
 from .results import pyroxene_pairs, closest
 from ..models import ProbeMeasurement,Sample
@@ -33,7 +33,7 @@ def triplets(queryset, distinct=None, all_possible=False, limit=1):
             yield o,c,ol
 
 def simple_geobaric_gradient(depth):
-    return depth*.03 #GPa/km
+    return depth/.03 #GPa/km
 
 def geobaric_gradient(pressure):
     rho0 = continental_crust.density
@@ -63,12 +63,15 @@ class GeoThermometryResult(object):
 
         self.init_temperature = ta98.temperature(pressure=self.init_pressure_basis)
 
-        bkn = BKN(opx,cpx, **kwargs)
+        bkn = BKN(opx,cpx, uncertainties=True)
         barometer = Ca_Olivine(ol,cpx,bkn, **kwargs)
-        self.pressure = barometer()
-        self.bkn = bkn.temperature(pressure=self.pressure)
+        self.pressure,self.bkn = barometer()
         self.temperature = ta98.temperature(pressure=self.pressure)
-        self.depth = geobaric_gradient(self.pressure)
+        try:
+            self.depth = geobaric_gradient(self.pressure)
+        except ValueError:
+            self.depth = N.array([geobaric_gradient(i)
+                for i in self.pressure])
 
 def mineral_data(queryset, mineral='opx',**kwargs):
     mn = ProbeMeasurement.mineral==mineral
