@@ -76,24 +76,38 @@ class UnderplatingMixin(object):
 
         temp = asthenosphere_temperature
 
-        apply_adiabat = AdiabatSolver(
+        adiabat = AdiabatSolver(
+            self.section,
             start_depth=self.underplating_depth,
             start_temp=temp)
+        # Apply adiabat to section
+        self.section = adiabat()
 
-        self.record("underplating-started", apply_adiabat(self.section))
+        self.record("underplating-started", self.section)
 
         if dT.into('s') > 0:
             # We're holding the temperature
             # at the boundary for some length of time
-            top_section = self.section.get_slice(u(0,'km'),self.underplating_depth)
-            solver = FiniteSolver(top_section,
-                constraints=(u(0,'degC'),self.section.profile[-1]),
+            top, bottom = self.section.divide(self.underplating_depth)
+
+            solver = FiniteSolver(top,
+                constraints=(u(0,'degC'),temp),
                 step_function=self.step_function)
+
+            dTdz = adiabat.gradient[0]
+            k = bottom.material_property('conductivity')[0]
+            flux = -k*dTdz
+
+            solver.set_constraints(lower=flux)
             res = solver(dT).profile
             self.section.profile[:len(res)] = res
             self.t -= dT
 
-        self.section = apply_adiabat(self.section)
+        self.record("underplating-ended")
+        # Record a later timestep
+        dT =  u(6,'Myr') - dT
+        if dT > u(0,'s'):
+            self.finite_solve(self.t-dT)
         self.record("after-underplating")
 
 class FarallonReheated(Farallon, UnderplatingMixin):
@@ -142,12 +156,13 @@ class Underplated(ModelRunner, UnderplatingMixin):
 
         # Set starting state
         section = stack_sections(crust_section, mantle)
-        apply_adiabat = AdiabatSolver(
+        adiabat = AdiabatSolver(
+            section,
             start_depth=self.underplating_depth,
             start_temp=asthenosphere_temperature)
 
         self.t = self.start_time
-        self.section = apply_adiabat(section)
+        self.section = adiabat()
         self.record("initial")
         self.do_underplating()
         self.solve_to_present()
