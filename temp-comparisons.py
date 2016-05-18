@@ -55,8 +55,13 @@ for i,s in enumerate(data):
         else:
             y += 0.1
             popts['s'] = 60
+        try:
+            float(y)
+        except TypeError:
+            y = y.nominal_value
         y = [y]*len(x)
-        ax.scatter(x,y, **popts)
+        v = [i.nominal_value for i in x]
+        ax.scatter(v,y, **popts)
 
 ax.set_ylim([-0.5,len(data)-0.5])
 ax.set_ylabel("Samples")
@@ -74,7 +79,9 @@ for thermometer,ax in zip(plots,axes[1:]):
         for a_loc in ["core", "rim"]:
             values = [sample[a_loc][i]["sep"] for i in ids]
             popts = scatter_options(sample['color'],a_loc)
-            ax.scatter(values[0], values[1], **popts)
+            ax.scatter(
+                [i.n for i in values[0]],
+                [i.n for i in values[1]], **popts)
 
     ax.set_ylabel(label(names[1]))
     ax.autoscale(False)

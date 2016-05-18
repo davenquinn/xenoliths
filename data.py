@@ -34,19 +34,6 @@ def load_data():
         data = create_data()
     return data
 
-def ree_data():
-
-    with app.app_context():
-        samples = xenoliths()
-
-        return [ree_temperature(s,
-                pressure=1.5,
-                uncertainties=True,
-                # Use only HREEs for CK-4 because this
-                # exhibits extreme disequilibrium
-                hree_only=(s.id == 'CK-4'))
-                for s in samples]
-
 def sample_colors():
     with app.app_context():
         samples = xenoliths()

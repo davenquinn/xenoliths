@@ -1,6 +1,6 @@
 CK-2 Eu
-CK-3 La Lu Eu
+CK-3 La Eu
 CK-4 La Ce Pr Nd Sm Eu Gd Tb Y
-CK-5 Ce Pr Nd
+CK-5 Ce Pr Nd Eu
 CK-6
 CK-7 La Ce Pr

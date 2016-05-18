@@ -2,15 +2,12 @@ summary=build/temp-summary.pdf
 
 all: build/pyx-dree.pdf build/temperatures.tex \
 	build/temp-comparisons.pdf build/ree-temperatures.pdf \
-	build/comparison-full.pdf $(summary)
+	$(summary)
 
 build:
 	mkdir -p $@
 
 build/data.pickle: get-data.py | build
-	python $^
-
-build/comparison-full.pdf: comparison.py | build
 	python $^
 
 build/temp-comparisons.pdf: temp-comparisons.py
