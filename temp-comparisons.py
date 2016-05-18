@@ -7,6 +7,7 @@ import matplotlib.pyplot as P
 import numpy as N
 from chroma import Color
 
+from paper import plot_style
 from helpers import label,scatter_options
 from data import load_data
 
@@ -33,7 +34,7 @@ props = {
 
 annotate_props = dict(xytext=(5,-5), textcoords='offset points', ha='left', va='center')
 
-fig, axes = P.subplots(3,1,figsize=(4,9),sharex=True)
+fig, axes = P.subplots(3,1,figsize=(3.5,7.5),sharex=True)
 fig.subplots_adjust(hspace=0)
 
 # Violin plot
@@ -60,7 +61,7 @@ for i,s in enumerate(data):
         except TypeError:
             y = y.nominal_value
         y = [y]*len(x)
-        v = [i.nominal_value for i in x]
+        v = [a.nominal_value for a in x]
         ax.scatter(v,y, **popts)
 
 ax.set_ylim([-0.5,len(data)-0.5])
