@@ -46,7 +46,7 @@ def test_steady_state():
     _ = continental_crust.to_layer(u(3000,'m'))
     section = Section([_])
 
-    heatflow = u(100,'mW/m^2')
+    heatflow = u(15,'mW/m^2')
     surface_temperature = u(0,'degC')
 
     m = continental_crust
@@ -62,7 +62,16 @@ def test_steady_state():
         return T0.to('K') + q*x/k + a/(2*k)*x**2
 
     p = simple_heat_flow(section.cell_centers)
+    dx = section.cell_sizes[0]
     test_profile = p.into('degC')
+
+    grad = (-q/k).into('K/m')
+    # Divergence
+    div = (-a/k).into('K/m^2')
+
+    a_ = -N.gradient(N.gradient(test_profile, dx), dx)
+    assert all(a_ < 0)
+    assert N.allclose(a_.min(),div)
 
     res = steady_state(section,heatflow, surface_temperature)
     profile = res.profile.into('degC')
@@ -73,14 +82,11 @@ def test_steady_state():
     solver.constrain(surface_temperature, None)
     solver.constrain(heatflow, None)
 
-    # Concavity
-    con = -a/k
-
     res2 = solver.steady_state()
     # Make sure it's nonlinear and has constant 2nd derivative
     arr = solver.var.faceGrad.divergence.value
     assert N.allclose(sum(arr-arr[0]),0)
-    assert N.allclose(arr.mean(), con.into('K/m^2'))
+    assert N.allclose(arr.mean(), div)
 
     # Test simple finite element model
     mesh = F.Grid1D(
@@ -93,11 +99,12 @@ def test_steady_state():
     A = F.FaceVariable(mesh=mesh, value=m.diffusivity.into("m**2/s"))
     rad_heat = F.CellVariable(mesh=mesh, value=(a/Cp/rho).into("K/s"))
 
-    D = F.DiffusionTerm(coeff=A) + rad_heat
-    D.solve(var=T)
+
+    D = F.DiffusionTerm(coeff=A) + F.ImplicitSourceTerm(coeff=rad_heat)
+    sol = D.solve(var=T)
     val = T.faceGrad.divergence.value
     arr = T.value-273.15
-    assert N.allclose(val.mean(), con.into('K/m^2'))
+    #assert N.allclose(val.mean(), div)
     assert N.allclose(test_profile, arr)
 
     P = res2.profile.into('degC')

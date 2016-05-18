@@ -196,7 +196,7 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         if h is not None:
             diff += h
         # Add exterior fluxes
-        #diff += self._exterior_flux
+        diff += self._exterior_flux
         return diff
 
     def steady_state(self):
