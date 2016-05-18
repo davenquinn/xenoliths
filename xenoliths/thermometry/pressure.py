@@ -63,10 +63,10 @@ class GeoThermometryResult(object):
 
         self.init_temperature = ta98.temperature(pressure=self.init_pressure_basis)
 
-        bkn = BKN(opx,cpx, uncertainties=True)
-        barometer = Ca_Olivine(ol,cpx,bkn, **kwargs)
-        self.pressure,self.bkn = barometer()
-        self.temperature = ta98.temperature(pressure=self.pressure)
+        thermometer = Taylor1998(opx,cpx, uncertainties=True)
+        barometer = Ca_Olivine(ol,cpx,thermometer, **kwargs)
+        self.pressure,self.temperature = barometer(iterative=True)
+        self.ta98 = ta98.temperature(pressure=self.pressure)
         try:
             self.depth = geobaric_gradient(self.pressure)
         except ValueError:

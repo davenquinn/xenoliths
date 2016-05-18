@@ -4,6 +4,17 @@ from uncertainties import ufloat as u
 from uncertainties.umath import log
 from ..microprobe.group import get_cations, get_molar
 
+# Create a mapping for the linear
+# relationship between TA98 and BKN
+ta98 = (950,1050)
+bkn = (1000,1090)
+c = N.polyfit(ta98,bkn,1)
+def ta98_to_bkn(T):
+    return c[1]+c[0]*T
+def bkn_to_ta98(T):
+    return (T-c[1])/c[0]
+print("Mapping between TA98 and BKN",c)
+
 class Ca_Olivine(object):
     """From Kohler and Brey, 1990"""
     name = "Ca in Olivine"
@@ -20,7 +31,9 @@ class Ca_Olivine(object):
         self.cpx = get_cations(cpx,oxygen=6,**kwargs)
         self.ol = get_cations(ol,oxygen=4,**kwargs)
         self.thermometer = thermometer
-        self.D_Ca = self.ol["Ca"]/self.cpx["Ca"]
+        #Offset to keep within spinel stability field
+        # Probably relates to Al-tschermakite
+        self.D_Ca = self.ol["Ca"]/self.cpx["Ca"]*.9
 
         # Set up number of monte carlo replications
         if self.monte_carlo:
@@ -33,13 +46,27 @@ class Ca_Olivine(object):
         else:
             return args[0]
 
-    def pressure(self, input_pressure=2):
-        T = self.thermometer.temperature(input_pressure)+273.15
+    def pressure(self, input_pressure=1.5, iterative=True):
+        T = self.thermometer.temperature(input_pressure)
+        # Create an offset to work in TA98 space
+        TA98 = self.thermometer.name == 'TA98'
+        if TA98:
+            T = ta98_to_bkn(T)
+        T += 273.15
         if self.monte_carlo:
             T = T.n+N.random.randn(self.monte_carlo)*T.s
-        P = N.array([self.__pressure(t,d,input_pressure)
+
+        if iterative:
+            method = self.__pressure
+        else:
+            method = self.__iterative_pressure
+
+        P = N.array([method(t,d,input_pressure)
                 for t,d in zip(T,self.D_Ca)])
-        return P, T-273.15
+        T -= 273.15
+        if TA98:
+            T = bkn_to_ta98(T)
+        return P, T
 
     def __pressure(self,T,D_Ca,input_pressure):
         first_term = -T*N.log(D_Ca)
@@ -51,12 +78,12 @@ class Ca_Olivine(object):
             P = ans/self.num(56.2,2.7)
         return P/10
 
-    def iterative_pressure(self):
-        oldPressure = self.init_pressure_basis
+    def __iterative_pressure(self, T, D_Ca, input_pressure):
+        oldPressure = input_pressure
         newPressure = 0
         i = 0
         while i < 500:
-            newPressure = self.pressure(oldPressure)
+            newPressure = self.__pressure(self,T,D_Ca,oldPressure)
             if N.abs(newPressure - oldPressure) > 0.001:
                 oldPressure = newPressure
             else:
