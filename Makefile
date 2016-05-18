@@ -1,6 +1,8 @@
+summary=build/temp-summary.pdf
+
 all: build/pyx-dree.pdf build/temperatures.tex \
 	build/temp-comparisons.pdf build/ree-temperatures.pdf \
-	build/comparison-full.pdf
+	build/comparison-full.pdf $(summary)
 
 build:
 	mkdir -p $@
@@ -25,3 +27,9 @@ build/comparison-data.pickle: | build
 
 build/pyx-dree.pdf: pyx-dree.py build/comparison-data.pickle | build
 	python $<
+
+svg=$(summary:.pdf=.svg)
+$(svg): summary
+	python summary-data.py | coffee $^ $@
+$(summary): $(svg)
+	cairosvg -o $@ -d 72 $^
