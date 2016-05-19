@@ -10,6 +10,7 @@ axes = require '../d3-plot-area/src'
 plotArea = require './plot-area'
 ageLabels = require './age-labels'
 legend = require './legend'
+underplatingScale = require './underplating-scale'
 
 ff = 'font-family': 'Helvetica Neue Light'
 
@@ -147,53 +148,12 @@ createAxes = (data,i)->
       .filter (d,c)->c==0
       .each ageLabels(ax)
 
-  s = d3.scale.linear()
-    .domain [0,6]
-    .range [ax.scale.x(24),ax.scale.x(24-6)]
-
-
-  uScale = d3.svg.axis()
-    .scale s
-    .ticks(4)
-    .tickSize -3
-    .orient 'top'
 
   if data.id != 'forearc'
-    g = plt.append 'g'
-
-    g.attr
-        class: 'u-scale'
-        transform: 'translate(0,-5)'
-      .call uScale
-
-    c = '#888888'
-    g.select '.domain'
-      .attr
-        fill: 'transparent'
-        stroke: c
-    g.selectAll '.tick line'
-      .attr
-        stroke: c
-    g.selectAll '.tick text'
-      .attr fill: c
-    g.append 'text'
-      .text 'Myr'
-      .attr
-        x: s(6)+5
-        y: -3
-
     k = if data.id == 'farallon' then 80 else 30
-    g.append 'text'
-      .text "Asthenosphere held at #{k} km"
-      .attr
-        x: s(0)
-        y: -11
-        'font-family': 'Helvetica Neue Italic'
-
-    g.selectAll 'text'
-      .attr
-        fill: c
-        'font-size': 7
+    s = underplatingScale(ax)
+      .label "Asthenosphere held at #{k} km"
+    plt.append('g').call s
 
   d3.select ax.node()
     .selectAll '.tick text'
