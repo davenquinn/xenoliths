@@ -4,13 +4,13 @@ scales =
   farallon: -> chroma('darkblue')
   'farallon-reheated': chroma
     .scale ['darkblue','purple']
-    .domain [-2,4]
+    .domain [-2,6]
   forearc: chroma
     .scale ['teal','limegreen']
     .domain [70,30]
   underplated: chroma
     .scale ['orange','red']
-    .domain [0,4]
+    .domain [0,6]
 
 modelColors = (d)->
   t = d.type
@@ -20,5 +20,7 @@ modelColors = (d)->
   else
     arg = d.underplating_duration
   scale(arg)
+
+modelColors.scales = scales
 
 module.exports = modelColors

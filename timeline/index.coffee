@@ -83,7 +83,6 @@ createProfileDividers = (lineGenerator, color)->
       .attr
         stroke: modelColors(d).alpha(0.5).css()
         d: (d)->
-          console.log d
           t = d.trange.map (a)->[d.time,a]
           lineGenerator(t)
 
@@ -196,10 +195,23 @@ createAxes = (data,i)->
         fill: c
         'font-size': 7
 
-
   d3.select ax.node()
     .selectAll '.tick text'
     .attr 'font-size': 7
+
+  if i == 1
+    plt.append 'text'
+      .text 'Monterey Plate'
+      .attr
+        class: 'annotation'
+        fill: modelColors.scales.forearc(30)
+        'font-size': 6
+        'font-family': 'Helvetica Neue Italic'
+        'text-anchor': 'middle'
+        transform: (d)->
+          x = ax.scale.x(10)
+          y = ax.scale.y(1200)
+          "translate(#{x},#{y}) rotate(4)"
 
 func = (el, window)->
 

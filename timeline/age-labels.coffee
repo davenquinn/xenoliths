@@ -21,6 +21,7 @@ module.exports = (ax)->
       .append 'g'
       .attr
         class: 'sub-label'
+        fill: '#888'
         transform: "translate(#{l.x} #{l.y})"
 
     g.append 'rect'
@@ -52,7 +53,7 @@ module.exports = (ax)->
         .attr
           class: 'label-line'
           d: ax.line()
-          stroke: 'black'
+          stroke: '#888'
           'stroke-width': 0.5
           'stroke-dasharray': '1 1'
           fill: 'transparent'
@@ -66,11 +67,12 @@ module.exports = (ax)->
         _l[k] = scale val
 
       el.append "text"
-        .text "Age of oceanic crust"
+        .text "Age of initial oceanic lithosphere"
         .attr
           dy: -10
           transform: "translate(#{_l.x} #{_l.y}) rotate(-7)"
           'text-anchor': 'middle'
+          fill: '#888'
         .attr fontProperties
 
   return L
