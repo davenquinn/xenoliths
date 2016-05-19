@@ -10,22 +10,15 @@ query = require '../shared/query'
 util = require '../shared/util'
 axes = require '../d3-plot-area/src'
 
-sql = "SELECT
-    r.*,
-    p.name profile_id,
-    p.temperature,
-    p.dz
-  FROM
-  thermal_modeling.model_profile p
-  JOIN thermal_modeling.model_run r
-    ON r.id = p.run_id
-  WHERE p.name = 'final'
-    AND r.name != 'forearc-28-2'"
+# Setup labels
+_ = fs.readFileSync __dirname+'/labels.yaml'
+labelData = yaml.load _
+
+selectedGeotherms = (k for k,v of labelData)
 
 staticGeotherms = "SELECT dz, heat_flow, temperature FROM thermal_modeling.static_profile"
 
-selectedGeotherms = ['farallon-reheated-6','underplated-6','forearc-30-10','farallon']
-
+sql = fs.readFileSync __dirname+'/query.sql'
 rows = query(sql)
 #.concat query(staticGeotherms)
 console.log rows.length
@@ -85,10 +78,15 @@ func = (el)->
     .append 'g'
     .attr class: 'data'
 
-  g.append 'path'
+  g.append 'defs'
+    .append 'path'
+      .attr
+        id: (d)-> d.name
+        d: (d)-> line simplify(d.profile,0.005,true)
+
+  g.append 'use'
     .attr
-      id: (d)-> d.name
-      d: (d)-> line simplify(d.profile,0.005,true)
+      'xlink:href': (d)-> '#'+d.name
       stroke: (d)->
         if 'heat_flow' of d
           '#888888'
@@ -113,16 +111,22 @@ func = (el)->
       fill: 'none'
 
   g.each (d,i)->
-    return if d.name not in selectedGeotherms
+    return unless d.name of labelData
+
+    data = labelData[d.name]
 
     d3.select @
       .append 'text'
+      .attr
+        'font-family': 'Helvetica Neue'
       .append 'textPath'
       .attr
-        'xlink:href': d.name
-        'text-anchor': 'middle'
-        startOffset: '90%'
-      .text d.name
+        'xlink:href': '#'+d.name
+        fill: modelColors(d)
+        'font-size': 10
+        startOffset: data.offset or '50%'
+        dy: -2
+      .text data.text.replace(' ','_')
 
   el.selectAll '.tick text'
     .attr

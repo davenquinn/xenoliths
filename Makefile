@@ -9,8 +9,6 @@ build/comparison.svg: comparison/index.coffee | build
 	coffee $^ $@
 
 build/comparison.pdf: build/comparison.svg
-	sed -i -- 's/textpath/textPath/g' $^
-	sed -i -- 's/textarea/textArea/g' $^
 	cairosvg -o $@ -d 72 $^
 
 _cs=$(cs:.pdf=.svg)
