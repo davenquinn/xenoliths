@@ -111,6 +111,7 @@ createAxes = (data,i)->
     .tickSize 3
     .ticks Math.floor(data.axSize/200)
     .tickFormat d3.format("i")
+    .outerTickSize 0
     .orient 'right'
 
   el.call ax
