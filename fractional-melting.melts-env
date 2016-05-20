@@ -18,11 +18,11 @@ ALPHAMELTS_CELSIUS_OUTPUT   true
 
 ! isothermal, isobaric, isentropic, isenthalpic, isochoric, geothermal or PTPath
 ALPHAMELTS_MODE isentropic
-ALPHAMELTS_PTPATH_FILE	output/ptpath.txt
+!ALPHAMELTS_PTPATH_FILE	output/ptpath.txt
 
 ! We use a polybaric path since we are modeling adiabatic decompression
 ! need to set DELTAP for polybaric paths; DELTAT for isobaric paths
-ALPHAMELTS_DELTAP -200
+ALPHAMELTS_DELTAP -100
 ALPHAMELTS_DELTAT 0
 ALPHAMELTS_MAXP 35000
 ALPHAMELTS_MINP 1
@@ -34,7 +34,7 @@ ALPHAMELTS_MINT 900
 ALPHAMELTS_CONTINUOUS_MELTING true
 ALPHAMELTS_MINPHI 0.005
 ! this one turns on fractional crystallization for all solids
-! We're melting not crystallizing
+! We're melting not cr1ystallizing
 ! use 'Fractionate:' in the melts file instead for selective fractionation
 !ALPHAMELTS_FRACTIONATE_SOLIDS	true
 !ALPHAMELTS_MASSIN        0.001
@@ -49,7 +49,7 @@ ALPHAMELTS_DO_TRACE            true
 ! Normalize to Witt-Eichsen and Seck, 2005 DMM
 ALPHAMELTS_TRACE_NORMALIZATION 2
 ALPHAMELTS_TRACE_INPUT_FILE literature/Lee_trace.melts-settings
-ALPHAMELTS_TRACE_OUTPUT_FILE trace.out
+!ALPHAMELTS_TRACE_OUTPUT_FILE trace.out
 !ALPHAMELTS_TRACE_DEFAULT_DPTX true
 !ALPHAMELTS_TRACE_INPUT_FILE   yourtraceinfile.txt
 !ALPHAMELTS_TRACE_USELIQFEMG   true
