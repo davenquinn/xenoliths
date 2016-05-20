@@ -127,7 +127,6 @@ class SubductionCase(ModelRunner):
         if final_temperature is None:
             royden = forearc_solver(**kwargs)
         else:
-            kwargs['vary'] = "Au"
             # Optimize on rate of accretion
             royden = optimized_forearc(
                 final_temperature,
@@ -136,7 +135,7 @@ class SubductionCase(ModelRunner):
                 # interface
                 final_depth-u(5,'km'),
                 **kwargs)
-            self.log("Modeled upper-plate heat generation",royden.args['Au'])
+            self.log("Modeled upper-plate heat generation",royden.args[kwargs['vary']])
 
         def on_step(solver, **kwargs):
             """

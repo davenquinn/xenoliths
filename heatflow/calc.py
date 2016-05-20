@@ -55,7 +55,9 @@ class Farallon(SubductionCase):
 
     def setup(self):
         self.pre_subduction()
-        self.stepped_subduction(final_temperature=u(700,"degC"))
+        self.stepped_subduction(
+            final_temperature=u(715,"degC"),
+            vary='Au')
 
     def run(self):
         self.setup()
