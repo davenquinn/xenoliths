@@ -70,5 +70,27 @@ func = (el, window)->
     height: offs2 + interval + G.margin.outside
     width: totalWidth
 
+  # Add P-T constraints
+  ax = ly.axes()[1]
+  g = ax.plotArea().append 'g'
+
+  g.datum {T: 715, z: 23}
+  g.attr
+    class: 'constraint'
+    transform: (d)->
+      "translate(#{ax.scale.x(d.T)},#{ax.scale.y(d.z)})"
+  g.append 'circle'
+    .attr
+      r: 3
+      fill: '#444'
+  g.append 'text'
+    .text 'Sta. Lucia'
+    .attr
+      fill: '#444'
+      x: 5
+      dy: 4
+      'font-size': 8
+      'font-family': 'Helvetica Neue'
+
 
 savage func, filename: process.argv[2]
