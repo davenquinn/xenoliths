@@ -1,12 +1,16 @@
-all: fractional-melting | output
+scenario=fractional-melting
+figure=output/$(scenario).pdf
+
+all: $(figure) | output
 
 output:
 	mkdir -p $@
 
-output/fractional-melting.tbl: fractional-melting.melts-env
-	cd $(dir @) ;\
-	run_alphamelts.command -f ../$^ -b ../$(notdir @).bat -o $(notdir @).tbl
+table=$(figure:.pdf=.tbl)
+$(table): $(scenario).melts-env
+	cd $(dir $@) ;\
+	run_alphamelts.command -f ../$^ -b ../$(scenario).bat -o $(notdir $@);\
+	rm -f *.txt
 
-.PHONY: fractional-melting
-fractional-melting: fractional-melting.py output/fractional-melting.tbl
-	python $^
+$(figure): $(scenario).py $(table)
+	python $^ $@
