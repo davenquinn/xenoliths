@@ -3,7 +3,7 @@ from __future__ import division
 from sys import argv
 from xenoliths import app
 from xenoliths.SIMS.query import sims_data, element_data
-from depletion_model import get_tables
+from depletion_model import get_tables, get_melts_data
 from IPython import embed
 
 def process_data():
@@ -17,6 +17,7 @@ def process_data():
 with app.app_context():
     data = process_data()
 
-depletion = get_tables(argv[1])
+Sun_PM = get_melts_data('literature/Sun_McDonough_PM.melts')
 
+depletion = get_tables(argv[1])
 embed()
