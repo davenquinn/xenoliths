@@ -5,14 +5,14 @@ from paper import plot_style
 from paper.query import sample_colors
 from matplotlib.ticker import ScalarFormatter
 from xenoliths.application import app, db
-from xenoliths.SIMS.query import sims_data, element_data, ree_only
+from xenoliths.SIMS.query import sims_data, element_data
 from xenoliths.core.models import Sample
 
 from shared import mineral_data
 
 with app.app_context():
 
-    data = ree_only(sims_data())
+    data = sims_data(ree_only=True)
     colors = sample_colors()
 
 all_cols = data.reset_index()
