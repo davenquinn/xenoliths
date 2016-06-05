@@ -11,7 +11,7 @@ from matplotlib.backends.backend_pdf import FigureCanvas
 from colour import Color
 from depletion_model import get_tables
 
-data = {k:v for k,v in get_tables(argv[1])}
+data = get_tables(argv[1])
 
 # Plot results of fractional melting
 

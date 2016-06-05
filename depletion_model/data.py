@@ -12,7 +12,7 @@ def prepare_dataframe(text):
     return title, df
 
 digit = re.compile('^\d')
-def get_tables(filename):
+def __get_tables(filename):
     """
     Process lines in results file into separate tables
     """
@@ -32,3 +32,6 @@ def get_tables(filename):
             agg += line
         if len(agg):
             yield prepare_dataframe(agg)
+
+def get_tables(fn):
+    return {k:v for k,v in __get_tables(fn)}
