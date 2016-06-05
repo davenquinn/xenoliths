@@ -78,6 +78,9 @@ def sims_data(**kwargs):
         [df.pop(i) for i in names])
     df.sortlevel(inplace=True)
 
+    if kwargs.pop('ree_only',True):
+        df = ree_only(df)
+
     # Add recalculated whole-rock data if requested
     if not whole_rock:
         return df
@@ -98,11 +101,7 @@ def sims_data(**kwargs):
     d1['mineral'] = 'whole_rock'
     d1.set_index('mineral',append=True, inplace=True)
     d1 = d1.reorder_levels(df.index.names)
-
-    res =  concat([df,d1])
-    if kwargs.pop('ree_only',True):
-        res = ree_only(res)
-    return res
+    return concat([df,d1])
 
 def ree_only(df):
     ix = df.index.names.index('element')
