@@ -20,6 +20,7 @@ def sims_data(**kwargs):
       exclude_bad: Exclude bad items (True)
       whole_rock: Return recalculated whole-rock data (False)
       raw: Return raw data not normalized to CI chondrite (False)
+      ree_only: Return only rare-earth element data (False)
     """
 
     exclude_bad = kwargs.pop('exclude_bad',True)
@@ -98,7 +99,10 @@ def sims_data(**kwargs):
     d1.set_index('mineral',append=True, inplace=True)
     d1 = d1.reorder_levels(df.index.names)
 
-    return concat([df,d1])
+    res =  concat([df,d1])
+    if kwargs.pop('ree_only',True):
+        res = ree_only(res)
+    return res
 
 def ree_only(df):
     ix = df.index.names.index('element')
