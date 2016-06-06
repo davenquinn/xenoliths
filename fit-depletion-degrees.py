@@ -3,6 +3,7 @@ from __future__ import division, print_function
 from sys import argv
 import numpy as N
 from xenoliths import app
+from pandas import DataFrame
 from xenoliths.SIMS.query import sims_data, element_data
 from depletion_model import get_tables, get_melts_data
 from depletion_model.util import element
@@ -38,24 +39,34 @@ def drop_unused(df):
     cols = [i for i in df.columns
         if not Tb <= element(i) <= Lu
             or i == 'Tm'] #Technetium is not in anything
-    df.drop(cols,axis=1,inplace=True)
+    return df.drop(cols,axis=1)
 
 # Prepare trace elements for fitting
-# Ignore uncertainties for fitting and copy dataset
-fit = data.applymap(lambda x: x.nominal_value)
 
-iters = trace.set_index(['mass','Pressure','Temperature'])
-drop_unused(iters)
-drop_unused(fit)
+iters = trace.drop(
+    ['mass','Pressure','Temperature'], axis=1)
+iters = drop_unused(iters)
+fit = drop_unused(data)
+
+# Ignore uncertainties for fitting
+fit = fit.applymap(lambda x: x.nominal_value)
 
 # Linearize data for minimization
 fit = N.log(fit)
 iters = N.log(iters)
 
-for i,row in fit.iterrows():
+def __best_fit(row):
     residuals = row-iters
     sse = (residuals**2).sum(axis=1)
     ix = sse.idxmin()
-    print(row.name,ix, sse[ix])
 
+    series = trace.loc[ix]
+    series['sse'] = sse.loc[ix]
+    series['sample'] = row.name
+    return series
+
+# Find best-fitting simulation step for each sample
+serie = [__best_fit(row)
+        for i,row in fit.iterrows()]
+depleted = DataFrame(serie)
 embed()
