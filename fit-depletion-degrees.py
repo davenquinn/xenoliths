@@ -5,8 +5,9 @@ import numpy as N
 from xenoliths import app
 from pandas import DataFrame
 from xenoliths.SIMS.query import sims_data, element_data
-from depletion_model import get_tables, get_melts_data
-from depletion_model.util import element
+from depletion_model import get_tables, get_melts_data, ree_plot
+from depletion_model.util import element, ree_data
+from xenoliths.core import sample_colors
 from IPython import embed
 
 def process_data():
@@ -21,6 +22,7 @@ def process_data():
 
 with app.app_context():
     data = process_data()
+    colors = sample_colors()
 
 # Create primitive-mantle normalized dataset
 Sun_PM = get_melts_data('literature/Sun_McDonough_PM.melts')
@@ -68,8 +70,29 @@ def __best_fit(row):
 # Find best-fitting simulation step for each sample
 serie = [__best_fit(row)
         for i,row in fit.iterrows()]
-depleted = DataFrame(serie)
+depleted = DataFrame(serie).set_index('sample')
 
+vals = map(element,data.columns)
+d = ree_data(depleted)
+with ree_plot(argv[2]) as ax:
+    for i,row in d.iterrows():
+        c = colors.ix[row.name][0]
 
+        # Plot real data
+        series = data.ix[row.name]
+        u = series.map(lambda x: x.n)
+        s = series.map(lambda x: x.s)
+        ax.fill_between(vals,u-s,u+s,
+            facecolor=c,
+            edgecolor='none',
+            alpha=0.2)
+        ax.plot(vals,u, color=c)
+
+        # Plot calculated best fit
+        ax.plot(d.columns,row, color=c, linestyle='--')
+
+    ax.xaxis.set_ticks(vals)
+    ax.xaxis.set_ticklabels(data.columns)
+    ax.set_ylim(1e-3,1e1)
 
 embed()
