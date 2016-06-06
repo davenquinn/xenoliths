@@ -32,6 +32,7 @@ class MeltsDataset(object):
             StringIO(x),
             names=['Element','Value'],
             header=None,
+            index_col=0,
             delim_whitespace=True)
 
         self.trace = get_df(trace)
