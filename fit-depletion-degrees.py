@@ -69,4 +69,7 @@ def __best_fit(row):
 serie = [__best_fit(row)
         for i,row in fit.iterrows()]
 depleted = DataFrame(serie)
+
+
+
 embed()

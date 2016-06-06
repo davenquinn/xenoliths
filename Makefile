@@ -12,6 +12,9 @@ $(table): $(scenario).melts-env
 	run_alphamelts.command -f ../$^ -b ../$(scenario).bat -o $(notdir $@);\
 	rm -f *.txt
 
+$(figure): clinopyroxene-depletion.py $(table)
+	python $^ $@
+
 scenario=clinopyroxene-depletion
 figure=output/$(scenario).pdf
 $(figure): $(scenario).py $(table)
