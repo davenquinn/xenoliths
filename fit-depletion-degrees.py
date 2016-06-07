@@ -10,10 +10,13 @@ from depletion_model.util import element, ree_data
 from xenoliths.core import sample_colors
 from IPython import embed
 
+# Whole-rock or CPX fitting
+mode = 'whole_rock'
+
 def process_data():
     df = sims_data(ree_only=True, raw=True, whole_rock=True)
     df = element_data(df)
-    val = df.index.get_level_values('mineral')=='whole_rock'
+    val = df.index.get_level_values('mineral')==mode
     df = df.loc[val]
     df.index = df.index.droplevel(1)
     df.drop('n', axis=1, inplace=True)
@@ -31,7 +34,8 @@ data /= PM_trace
 data.dropna(axis=1,how='all',inplace=True)
 
 depletion = get_tables(argv[1])
-trace = depletion['Solid Trace']
+v = 'Solid Trace' if mode=='whole_rock' else 'clinopyroxene_0 trace'
+trace = depletion[v]
 
 # Fit data against trace element depletion curve
 
@@ -64,13 +68,19 @@ def __best_fit(row):
 
     series = trace.loc[ix]
     series['sse'] = sse.loc[ix]
-    series['sample'] = row.name
+    series['sample_id'] = row.name
     return series
 
 # Find best-fitting simulation step for each sample
 serie = [__best_fit(row)
         for i,row in fit.iterrows()]
-depleted = DataFrame(serie).set_index('sample')
+depleted = DataFrame(serie).set_index('sample_id')
+
+# Get difference
+enrichment = ree_data(data+(data-depleted))
+enrichment = enrichment.applymap(lambda x: x.nominal_value)
+enrichment[enrichment < 0] = 1e-5
+enrichment.sort(axis=1,inplace=True)
 
 vals = map(element,data.columns)
 d = ree_data(depleted)
@@ -91,8 +101,13 @@ with ree_plot(argv[2]) as ax:
         # Plot calculated best fit
         ax.plot(d.columns,row, color=c, linestyle='--')
 
+        v = enrichment.ix[row.name]
+        ax.plot(d.columns,v, color=c, linewidth=0.5)
+
     ax.xaxis.set_ticks(vals)
     ax.xaxis.set_ticklabels(data.columns)
     ax.set_ylim(1e-3,1e1)
+
+# Project results back into clinopyroxene space
 
 embed()

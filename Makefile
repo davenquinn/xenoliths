@@ -1,5 +1,5 @@
-scenario=fractional-melting
-figure=output/$(scenario).pdf
+scenario:=fractional-melting
+figure:=output/$(scenario).pdf
 
 all: $(figure) output/depletion-degrees.pdf | output
 
@@ -7,9 +7,9 @@ output:
 	mkdir -p $@
 
 table:=$(figure:.pdf=.tbl)
-$(table): $(scenario).melts-env
+$(table): fractional-melting.melts-env
 	cd $(dir $@) ;\
-	run_alphamelts.command -f ../$^ -b ../$(scenario).bat -o $(notdir $@);\
+	run_alphamelts.command -f ../$^ -b ../fractional-melting.bat -o $(notdir $@);\
 	rm -f *.txt
 
 $(figure): clinopyroxene-depletion.py $(table)
