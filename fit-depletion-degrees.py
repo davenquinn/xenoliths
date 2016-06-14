@@ -3,7 +3,7 @@ from __future__ import division, print_function
 from sys import argv
 import numpy as N
 from xenoliths import app
-from pandas import DataFrame
+from pandas import DataFrame, read_table
 from xenoliths.SIMS.query import sims_data, element_data
 from depletion_model import get_tables, get_melts_data, ree_plot
 from depletion_model.util import element, ree_data
@@ -94,6 +94,12 @@ enrichment.sort(axis=1,inplace=True)
 NMORB = get_melts_data('literature/NMORB_trace.melts')
 NMORB_trace = ree_data(NMORB.trace.transpose()/PM_trace)
 
+# Alkali basalt
+alkali = read_table('literature/Farmer_1995-Alkali-basalt.txt',
+                    comment="#", index_col=0)
+alkali /= PM_trace
+alkali_trace = ree_data(alkali)
+
 vals = map(element,data.columns)
 d = ree_data(depleted)
 with ree_plot(argv[2]) as ax:
@@ -118,11 +124,17 @@ with ree_plot(argv[2]) as ax:
 
     # Plot NMORB
     ax.plot(NMORB_trace.columns, NMORB_trace.ix[0,:],
-            color='#666666', linewidth=1.5, zorder=-5)
+            color='#888888', linewidth=1.5, zorder=-5)
+
+    ax.fill_between(
+        alkali_trace.columns,
+        alkali_trace.min(),
+        alkali_trace.max(),
+        facecolor='#dddddd',
+        edgecolor='none',
+        zorder=-10)
 
     ax.xaxis.set_ticks(vals)
     ax.xaxis.set_ticklabels(data.columns)
 
-# Project results back into clinopyroxene space
-
-embed()
+# Project results back into clinopyroxene space?
