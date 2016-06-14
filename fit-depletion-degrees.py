@@ -86,9 +86,15 @@ Dree = DataFrame(params).set_index(depleted.index)
 
 # Get difference
 delta = (data-depleted)
+delta[delta > 0] = 0
 enrichment = ree_data((data+delta)/Dree)
 enrichment = enrichment.applymap(lambda x: x.nominal_value)
-enrichment.sort(axis=1,inplace=True)
+
+# Normalize to mean HREE *(in log space)
+hree = N.exp(N.log(enrichment[[66,67,68,70,71]]).mean(axis=1))
+# Amount of enriched liquid that is needed to reset values
+bias = hree/6
+enrichment = enrichment.div(bias,axis=0)
 
 # Add NMORB
 NMORB = get_melts_data('literature/NMORB_trace.melts')
