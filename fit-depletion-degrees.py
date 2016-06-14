@@ -86,7 +86,6 @@ Dree = DataFrame(params).set_index(depleted.index)
 
 # Get difference
 delta = (data-depleted)
-delta[delta > 0] = 0
 enrichment = ree_data((data+delta)/Dree)
 enrichment = enrichment.applymap(lambda x: x.nominal_value)
 
@@ -140,6 +139,7 @@ with ree_plot(argv[2]) as ax:
         edgecolor='none',
         zorder=-10)
 
+    ax.set_ylim(.001,100)
     ax.xaxis.set_ticks(vals)
     ax.xaxis.set_ticklabels(data.columns)
 
