@@ -27,5 +27,5 @@ def ree_data(df):
     df = df.drop(cols, axis=1)
     # Convert to numeric representation of elements
     df.columns = map(element, df.columns)
-    return df
+    return df[df.columns.sort_values()]
 

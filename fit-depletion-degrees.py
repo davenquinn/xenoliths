@@ -43,8 +43,8 @@ trace = depletion[v]
 Tb, Lu = element('Tb'), element('Lu')
 def drop_unused(df):
     cols = [i for i in df.columns
-        if not Tb <= element(i) <= Lu
-            or i == 'Tm'] #Technetium is not in anything
+        if not Tb <= element(i) <= Lu]
+         #   or i == 'Tm'] #Technetium is not in anything
     return df.drop(cols,axis=1)
 
 # Prepare trace elements for fitting
@@ -67,6 +67,7 @@ def __best_fit(row):
     ix = sse.idxmin()
 
     series = trace.loc[ix]
+    series['step_index'] = ix
     series['sse'] = sse.loc[ix]
     series['sample_id'] = row.name
     return series
@@ -76,11 +77,22 @@ serie = [__best_fit(row)
         for i,row in fit.iterrows()]
 depleted = DataFrame(serie).set_index('sample_id')
 
+# Get mineral-melt partition coefficients for ending conditions
+# Could also just use computed values
+coeffs = depletion['Partition Coefficients']
+params = [coeffs.loc[int(row['step_index'])]
+            for i,row in depleted.iterrows()]
+Dree = DataFrame(params).set_index(depleted.index)
+
 # Get difference
-enrichment = ree_data(data+(data-depleted))
+delta = (data-depleted)
+enrichment = ree_data((data+delta)/Dree)
 enrichment = enrichment.applymap(lambda x: x.nominal_value)
-enrichment[enrichment < 0] = 1e-5
 enrichment.sort(axis=1,inplace=True)
+
+# Add NMORB
+NMORB = get_melts_data('literature/NMORB_trace.melts')
+NMORB_trace = ree_data(NMORB.trace.transpose()/PM_trace)
 
 vals = map(element,data.columns)
 d = ree_data(depleted)
@@ -104,9 +116,12 @@ with ree_plot(argv[2]) as ax:
         v = enrichment.ix[row.name]
         ax.plot(d.columns,v, color=c, linewidth=0.5)
 
+    # Plot NMORB
+    ax.plot(NMORB_trace.columns, NMORB_trace.ix[0,:],
+            color='#666666', linewidth=1.5, zorder=-5)
+
     ax.xaxis.set_ticks(vals)
     ax.xaxis.set_ticklabels(data.columns)
-    ax.set_ylim(1e-3,1e1)
 
 # Project results back into clinopyroxene space
 
