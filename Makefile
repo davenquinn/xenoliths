@@ -1,8 +1,10 @@
 scenario:=fractional-melting
 figure:=output/$(scenario).pdf
+latex=output/depletion-degrees.tex
+
 
 all: $(figure) output/depletion-model.pdf \
-							 output/depletion-degrees.tex | output
+							 $(latex) | output
 output:
 	mkdir -p $@
 
@@ -23,5 +25,6 @@ $(figure): $(scenario).py $(table)
 output/depletion-model.pdf: make-model-plot.py $(table)
 	python $^ $@
 
-output/depletion-degrees.tex: depletion-degrees.py $(table)
+$(latex): depletion-degrees.py $(table)
 	python $^ $@
+
