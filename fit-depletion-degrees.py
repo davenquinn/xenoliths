@@ -8,7 +8,7 @@ from xenoliths.SIMS.query import sims_data, element_data
 from depletion_model import get_tables, get_melts_data, ree_plot
 from depletion_model.util import element, ree_data
 from xenoliths.core import sample_colors
-from IPython import embed
+from paper import plot_style
 
 # Whole-rock or CPX fitting
 mode = 'whole_rock'
@@ -140,6 +140,9 @@ with ree_plot(argv[2]) as ax:
         zorder=-10)
 
     ax.set_ylim(.001,100)
+    ax.set_xlim(element('La')-0.3,element('Lu')+0.3)
+    ax.yaxis.set_ticklabels(["{:g}".format(v) for v in ax.yaxis.get_ticklocs()])
+    ax.set_ylabel("REE / Primitive Mantle")
     ax.xaxis.set_ticks(vals)
     ax.xaxis.set_ticklabels(data.columns)
 
