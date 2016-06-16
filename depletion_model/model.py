@@ -25,9 +25,18 @@ class DepletionModel(object):
     def fit(self, table_id, data, criterion):
         """
         Fit depletion data to a dataset based
-        on a criterion.
+        on a criterion. Criterion can be a callable
+        that returns a boolean, or a single component
+        name (ex: Al2O3)
+
+        Theoretically we could automatically decide
+        which table to fit on based on oxide name(s)
         """
         trace = self.tables[table_id]
+
+        if not hasattr(criterion, '__call__'):
+            val = criterion
+            criterion = lambda i: i == val
 
         def drop_unused(df):
             cols = [i for i in df.columns

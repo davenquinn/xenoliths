@@ -6,13 +6,13 @@ from __future__ import division, print_function
 
 from sys import argv
 from colour import Color
-from depletion_model import get_tables, ree_plot
+from depletion_model import DepletionModel, ree_plot
 
-data = get_tables(argv[1])
+model = DepletionModel(argv[1])
 
 # Plot results of fractional melting
 
-d = data['clinopyroxene_0 trace'].ix[:,3:]
+d = model.tables['clinopyroxene_0 trace'].ix[:,3:]
 
 cscale = Color('blue').range_to('red',len(d))
 
