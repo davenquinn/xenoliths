@@ -64,3 +64,12 @@ class DepletionModel(object):
                 for i,row in fit.iterrows()]
         return DataFrame(serie).set_index('sample_id')
 
+    def fit_HREE(self,data):
+        """
+        A special case of fitting targeted at
+        heavy rare-earth elements.
+        """
+        Tb, Lu = element('Tb'), element('Lu')
+        func = lambda i: Tb <= element(i) <= Lu
+        return self.fit('Solid Trace', data, func)
+

@@ -35,11 +35,7 @@ data /= PM_trace
 data.dropna(axis=1,how='all',inplace=True)
 
 model = DepletionModel(argv[1], log_fit=True)
-
-# Fit HREEs
-Tb, Lu = element('Tb'), element('Lu')
-func = lambda i: Tb <= element(i) <= Lu
-depleted = model.fit('Solid Trace', data, func)
+depleted = model.fit_HREE(data)
 
 # Get mineral-melt partition coefficients for ending conditions
 # Could also just use computed values
