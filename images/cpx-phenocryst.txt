@@ -1,0 +1,25 @@
+Image Title=CK-1 loc 6
+Associated Sample=Un    3  * CK-1 location 1
+
+TakeOff= 40.0000
+Kilovolts= 15.0000
+Beam Current= 25.0000
+Beam Size= .000000
+Image Number=       8
+Channel Name=BSE
+Image X Pixels=    1024
+Image Y Pixels=    1024
+A/D Averages/Pixel (1-1000)=       8
+Stage Xmin= 77.2216
+Stage Xmax= 76.8256
+Stage Ymin= 75.2597
+Stage Ymax= 74.8637
+Image Zmin=       0
+Image Zmax=    2040
+Magnification= 250.000
+Stage Z1= 11.0490
+Stage Z2= 11.0490
+Stage Z3= 11.0490
+Stage Z4= 11.0490
+Horizontal Field Width (um) = 395.996
+Vertical Field Height (um) = 395.996
