@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 from sys import argv
 from PIL import Image
-from IPython import embed
 import matplotlib
+from paper import plot_style
+
+#matplotlib.rcParams.update({'font.size': 8})
 from matplotlib import pyplot as plt
 from matplotlib.cm import get_cmap
 from matplotlib_scalebar.scalebar import ScaleBar
@@ -13,18 +15,15 @@ from geoalchemy2.shape import to_shape
 import numpy as N
 from pandas import read_table
 from affine import Affine
-from paper import plot_style
-from seaborn.apionly import despine
 from xenoliths.microprobe.models \
         import ProbeMeasurement, ProbeSession
+
 
 img = Image.open('images/cpx-phenocryst.png')
 
 im_data = read_table('images/cpx-phenocryst.txt',
             sep="=", index_col=0, header=None)
-fig, (ax,ax2) = plt.subplots(2,1,
-                figsize=(4.25,6), dpi=300,
-                gridspec_kw = dict(height_ratios=[5, 1]))
+fig, ax = plt.subplots(1,1,figsize=(6,4.5), dpi=300)
 
 ax.imshow(img)
 
@@ -57,24 +56,15 @@ ax.plot(x,y,color='black')
 scatter = ax.scatter(x,y,
    c=[m.mg_number for m in measurements],
    cmap=cmap, vmin=70,vmax=90,s=20,zorder=10)
-fig.colorbar(scatter, ax=ax)
+cbar = fig.colorbar(scatter, ax=ax, orientation='horizontal', label='Mg #',fraction=0.04, pad=0.02)
 ax.set_xlim(0,img.size[1])
 ax.set_ylim(img.size[0],0)
 ax.set_axis_off()
 ax.set_frame_on(False)
 ax.xaxis.set_ticks([])
 ax.yaxis.set_ticks([])
-#ax.set_position([0,0,1,0.8])
 
-scalebar = ScaleBar(1/(scale*1000)) # 1 pixel = 0.2 meter
+scalebar = ScaleBar(1/(scale*1000), border_pad=0.3) # 1 pixel = 0.2 meter
 ax.add_artist(scalebar)
 
-# ax2.plot(distances, [m.mg_number for m in measurements])
-# ax2.set_ylabel('Mg #')
-# ax2.set_xlabel(u"Distance along transect (μm)")
-# ax2.set_xlim(-10,325)
-# despine(ax=ax2)
-
-fig.subplots_adjust(wspace=0.1)
-fig.tight_layout()
-fig.savefig(argv[1])
+fig.savefig(argv[1], bbox_inches='tight', pad_inches=0)
