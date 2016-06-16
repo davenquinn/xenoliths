@@ -2,7 +2,7 @@ from __future__ import division,print_function
 import numpy as N
 from uncertainties import ufloat as u
 from uncertainties.umath import log
-from ..microprobe.group import get_cations, get_molar
+from ..microprobe.group import get_cations, get_molar, get_oxides
 
 # Create a mapping for the linear
 # relationship between TA98 and BKN
@@ -28,6 +28,9 @@ class Ca_Olivine(object):
         if self.monte_carlo:
             kwargs['uncertainties'] = True
 
+        # Not really sure if this should be oxide or molar
+        # %wt. They don't really matter too much for cpx
+        # it seems.
         self.cpx = get_molar(cpx,oxygen=6,**kwargs)
         self.ol = get_molar(ol,oxygen=4,**kwargs)
         self.thermometer = thermometer

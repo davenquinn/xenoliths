@@ -9,6 +9,7 @@ class TestBarometer(Ca_Olivine):
     breakout_errors=False
     monte_carlo=False
     def __init__(self, data):
+        # This conforms to O'Reilly testing data at least.
         self.D_Ca = data['Ol_CaO']/data["Cpx_CaO"]*7/10*.988
         print self.D_Ca,data["D"]
         assert N.allclose(self.D_Ca,data["D"], rtol=0.03)
