@@ -7,6 +7,7 @@ from .barometers import Ca_Olivine
 class TestBarometer(Ca_Olivine):
     uncertainties=False
     breakout_errors=False
+    monte_carlo=False
     def __init__(self, data):
         self.D_Ca = data['Ol_CaO']/data["Cpx_CaO"]*7/10*.988
         print self.D_Ca,data["D"]
@@ -15,7 +16,7 @@ class TestBarometer(Ca_Olivine):
         self.P = data["P"]
 
     def pressure(self, input_pressure=1.5):
-        return self._pressure(self.T,input_pressure)
+        return self._pressure(self.T,self.D_Ca,input_pressure)
 
 def get_data():
     keys = ("Cpx_CaO","Ol_CaO","D","T","P")
@@ -35,8 +36,8 @@ def ca_olivine(data):
     """
     b = TestBarometer(data)
     p = data["P"]/10
-    print b.pressure(),p
-    N.allclose(b.pressure(),p,rtol=.05)
+    P = b.pressure()
+    assert N.allclose(P,p,rtol=.05)
 
 def test_ca_ol():
     """

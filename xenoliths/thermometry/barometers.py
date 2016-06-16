@@ -28,12 +28,12 @@ class Ca_Olivine(object):
         if self.monte_carlo:
             kwargs['uncertainties'] = True
 
-        self.cpx = get_cations(cpx,oxygen=6,**kwargs)
-        self.ol = get_cations(ol,oxygen=4,**kwargs)
+        self.cpx = get_molar(cpx,oxygen=6,**kwargs)
+        self.ol = get_molar(ol,oxygen=4,**kwargs)
         self.thermometer = thermometer
         #Offset to keep within spinel stability field
         # Probably relates to Al-tschermakite
-        self.D_Ca = self.ol["Ca"]/self.cpx["Ca"]*.9
+        self.D_Ca = self.ol["CaO"]/self.cpx["CaO"]*7/10*.988
 
         # Set up number of monte carlo replications
         if self.monte_carlo:
@@ -77,6 +77,9 @@ class Ca_Olivine(object):
             ans = first_term-self.num(11982,633)+self.num(3.61,0.47)*T
             P = ans/self.num(56.2,2.7)
         return P/10
+
+    # from superclass
+    _pressure = __pressure
 
     def __iterative_pressure(self, T, D_Ca, input_pressure):
         oldPressure = input_pressure
