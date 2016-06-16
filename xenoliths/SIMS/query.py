@@ -15,16 +15,28 @@ def sims_data(**kwargs):
     minerals. The data is formatted as a nested ordered
     dictionary, for iterability. This data can be used
     as-is or averaged, as appropriate.
+
+    kwargs:
+      exclude_bad: Exclude bad items (True)
+      whole_rock: Return recalculated whole-rock data (False)
+      raw: Return raw data not normalized to CI chondrite (False)
+      ree_only: Return only rare-earth element data (False)
     """
 
     exclude_bad = kwargs.pop('exclude_bad',True)
     whole_rock = kwargs.pop('whole_rock',False)
+    raw = kwargs.pop('raw',False)
 
     if exclude_bad:
         bad_data = datum.bad.isnot(True)
     else:
         # A meaningless filter
         bad_data = True
+
+    if raw:
+        ppm, std = (datum.raw_ppm, datum.raw_std)
+    else:
+        ppm, std = (datum.norm_ppm, datum.norm_std)
 
     q = (db.session.query(datum)
         .filter(datum.element != 14)
@@ -38,24 +50,24 @@ def sims_data(**kwargs):
             meas.sample_id,
             meas.mineral,
             datum.element,
-            func.array_agg(datum.norm_ppm)
-                .label('norm_ppm'),
-            func.array_agg(datum.norm_std)
-                .label('norm_std'),
-            func.count(datum.norm_ppm)
+            func.array_agg(ppm)
+                .label('ppm'),
+            func.array_agg(std)
+                .label('std'),
+            func.count(ppm)
                 .label('n')))
 
     df = read_sql(q.statement,q.session.bind)
 
     # Apply uncertainty
     def uncertainty(row):
-        vals = zip(row['norm_ppm'],row['norm_std'])
+        vals = zip(row['ppm'],row['std'])
         return [uval(n,s) for n,s in vals]
 
     df['norm'] = df.apply(uncertainty,axis=1)
     df = (df
-        .drop('norm_ppm', axis=1)
-        .drop('norm_std', axis=1))
+        .drop('ppm', axis=1)
+        .drop('std', axis=1))
 
     fn = lambda x: elements[x['element']].symbol
     df['symbol'] = df.apply(fn, axis=1)
@@ -65,6 +77,9 @@ def sims_data(**kwargs):
     df.index = MultiIndex.from_arrays(
         [df.pop(i) for i in names])
     df.sortlevel(inplace=True)
+
+    if kwargs.pop('ree_only',True):
+        df = ree_only(df)
 
     # Add recalculated whole-rock data if requested
     if not whole_rock:
@@ -86,7 +101,6 @@ def sims_data(**kwargs):
     d1['mineral'] = 'whole_rock'
     d1.set_index('mineral',append=True, inplace=True)
     d1 = d1.reorder_levels(df.index.names)
-
     return concat([df,d1])
 
 def ree_only(df):
