@@ -5,8 +5,9 @@ import numpy as N
 from xenoliths import app
 from pandas import DataFrame, read_table
 from xenoliths.SIMS.query import sims_data, element_data
-from depletion_model import get_tables, get_melts_data, ree_plot
+from depletion_model import get_melts_data, ree_plot
 from depletion_model.util import element, ree_data
+from depletion_model import DepletionModel
 from xenoliths.core import sample_colors
 from paper import plot_style
 
@@ -33,58 +34,22 @@ PM_trace = Sun_PM.trace.ix[:,0]
 data /= PM_trace
 data.dropna(axis=1,how='all',inplace=True)
 
-depletion = get_tables(argv[1])
-v = 'Solid Trace' if mode=='whole_rock' else 'clinopyroxene_0 trace'
-trace = depletion[v]
+model = DepletionModel(argv[1], log_fit=True)
 
-# Fit data against trace element depletion curve
-
-# Only use HREE
+# Fit HREEs
 Tb, Lu = element('Tb'), element('Lu')
-def drop_unused(df):
-    cols = [i for i in df.columns
-        if not Tb <= element(i) <= Lu]
-         #   or i == 'Tm'] #Technetium is not in anything
-    return df.drop(cols,axis=1)
-
-# Prepare trace elements for fitting
-
-iters = trace.drop(
-    ['mass','Pressure','Temperature'], axis=1)
-iters = drop_unused(iters)
-fit = drop_unused(data)
-
-# Ignore uncertainties for fitting
-fit = fit.applymap(lambda x: x.nominal_value)
-
-# Linearize data for minimization
-fit = N.log(fit)
-iters = N.log(iters)
-
-def __best_fit(row):
-    residuals = row-iters
-    sse = (residuals**2).sum(axis=1)
-    ix = sse.idxmin()
-
-    series = trace.loc[ix]
-    series['step_index'] = ix
-    series['sse'] = sse.loc[ix]
-    series['sample_id'] = row.name
-    return series
-
-# Find best-fitting simulation step for each sample
-serie = [__best_fit(row)
-        for i,row in fit.iterrows()]
-depleted = DataFrame(serie).set_index('sample_id')
+func = lambda i: Tb <= element(i) <= Lu
+depleted = model.fit('Solid Trace', data, func)
 
 # Get mineral-melt partition coefficients for ending conditions
 # Could also just use computed values
-coeffs = depletion['Partition Coefficients']
+coeffs = model.tables['Partition Coefficients']
 params = [coeffs.loc[int(row['step_index'])]
             for i,row in depleted.iterrows()]
 Dree = DataFrame(params).set_index(depleted.index)
 
-# Get difference
+# Re-enrichment model
+# Currently, enrichment is modeled as a fully batch process
 delta = (data-depleted)
 enrichment = ree_data((data+delta)/Dree)
 enrichment = enrichment.applymap(lambda x: x.nominal_value)
@@ -146,4 +111,6 @@ with ree_plot(argv[2]) as ax:
     ax.xaxis.set_ticks(vals)
     ax.xaxis.set_ticklabels(data.columns)
 
-# Project results back into clinopyroxene space?
+# Get depletion degrees using various methods
+from IPython import embed
+embed()
