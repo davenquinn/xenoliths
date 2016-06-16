@@ -4,6 +4,7 @@ from PIL import Image
 from IPython import embed
 import matplotlib
 from matplotlib import pyplot as plt
+from matplotlib.cm import get_cmap
 from matplotlib_scalebar.scalebar import ScaleBar
 from xenoliths import app, db
 from shapely.geometry import LineString
@@ -29,8 +30,8 @@ ax.imshow(img)
 
 pos = lambda loc: float(im_data.ix['Stage '+loc])
 # Find affine transform
-s = img.size[1]/(pos('Xmin')-pos('Xmax'))
-a = Affine.scale(-s,s)
+scale = img.size[1]/(pos('Xmin')-pos('Xmax'))
+a = Affine.scale(-scale,scale)
 a *= Affine.translation(-pos('Xmin'),-pos('Ymax'))
 
 with app.app_context():
@@ -50,7 +51,13 @@ distances = [line.project(p)*1000 for p in locations]
 projected_line = LineString([a*p.coords[0] for p in locations])
 x,y = projected_line.xy
 
-ax.plot(x,y,marker='.',markersize=5)
+cmap = get_cmap('hot_r')
+
+ax.plot(x,y,color='black')
+scatter = ax.scatter(x,y,
+   c=[m.mg_number for m in measurements],
+   cmap=cmap, vmin=70,vmax=90,s=20,zorder=10)
+fig.colorbar(scatter, ax=ax)
 ax.set_xlim(0,img.size[1])
 ax.set_ylim(img.size[0],0)
 ax.set_axis_off()
@@ -59,14 +66,14 @@ ax.xaxis.set_ticks([])
 ax.yaxis.set_ticks([])
 #ax.set_position([0,0,1,0.8])
 
-scalebar = ScaleBar(1/(s*1000)) # 1 pixel = 0.2 meter
+scalebar = ScaleBar(1/(scale*1000)) # 1 pixel = 0.2 meter
 ax.add_artist(scalebar)
 
-ax2.plot(distances, [m.mg_number for m in measurements])
-ax2.set_ylabel('Mg #')
-ax2.set_xlabel(u"Distance along transect (μm)")
-ax2.set_xlim(-10,325)
-despine(ax=ax2)
+# ax2.plot(distances, [m.mg_number for m in measurements])
+# ax2.set_ylabel('Mg #')
+# ax2.set_xlabel(u"Distance along transect (μm)")
+# ax2.set_xlim(-10,325)
+# despine(ax=ax2)
 
 fig.subplots_adjust(wspace=0.1)
 fig.tight_layout()
