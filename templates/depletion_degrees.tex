@@ -5,11 +5,11 @@
   F_\ce{MgO} (\%) &
   F_\ce{Al2O3} (\%) \\
 \midrule
-<#- for s in samples  -#>
-  << s.id >> &
-  << s.ree| n(4) >> &
-  << s.MgO |n(4) >> &
-  << s.Al2O3 |n(4) >> \\
+<#- for s in samples  #>
+  << s.sample_id >> &
+  << s.ree| n(1) >> &
+  << s.MgO |n(1) >> &
+  << s.Al2O3 |n(1) >> \\
 <#- endfor -#>
 \bottomrule
 \end{tabular}
