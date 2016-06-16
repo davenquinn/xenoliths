@@ -6,12 +6,11 @@ from operator import attrgetter
 from pickle import dump
 
 def pressure_data():
-    data = pressure_measurements(uncertainties=False, n=10)
+    data = pressure_measurements(uncertainties=False, n=4, monte_carlo=200)
     for sample, res in data:
-        res = sorted(res,key=attrgetter('temperature'))
         yield dict(
-            temperature=N.array([t.temperature for t in res]),
-            depth=N.array([t.depth for t in res]),
+            temperature=N.array([t.temperature for t in res]).flatten(),
+            depth=N.array([t.depth for t in res]).flatten(),
             sample_id=sample.id,
             sample_color=sample.color)
 

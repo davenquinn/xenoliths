@@ -31,7 +31,7 @@ with app.app_context():
             for k in xenolith_minerals('molar')}
     profiles = db.session.execute(q).fetchall()
 
-fig = figure(figsize=(4,5.5))
+fig = figure(figsize=(4,5.5), dpi=300)
 
 gs = M.gridspec.GridSpec(1, 2, width_ratios=[4,1], wspace=0)
 
@@ -46,11 +46,13 @@ for res in data:
         T,
         depth,
         ".",
-        alpha=0.1,
-        color=c)
+        alpha=0.01,
+        color=c,
+        rasterized=True)
 
     # Maximum depth based on spinel Cr content
     id = res['sample_id']
+    T = N.sort(res['temperature'][::100])
     d = max_depth(T,spinel_cr[id]/100)
     dz = 0.15/0.03 # GPa / # G
     ax.fill_between(
@@ -64,7 +66,7 @@ for res in data:
     for s in (1,-1):
         ax.plot(T,d+s*dz,':',color=c,linewidth=1,dashes=(1,2),alpha=0.8)
 
-    kernel = gaussian_kde(depth, 0.4)
+    kernel = gaussian_kde(depth, 0.1)
     Z = N.linspace(depth.min()-10,depth.max()+10,200)
     v = kernel(Z)
     ax1.fill_betweenx(Z,0,v,facecolor=c, alpha=0.05)
@@ -76,7 +78,7 @@ for res in data:
 ax.invert_yaxis()
 ax.set_xlabel(u"Temperature - TA98 (\u00b0C)")
 ax.set_ylabel(u"Depth (km)")
-ax.set_ylim([90,20])
+ax.set_ylim([90,10])
 ax.set_xlim([900,1150])
 
 ax.yaxis.set_ticks_position('left')
@@ -99,7 +101,7 @@ kws = dict(
 ax.annotate('Plagioclase',va='bottom',**kws)
 ax.annotate('Spinel',va='top',**kws)
 
-kws.update(rotation=-18,xy=(1125,85))
+kws.update(rotation=-8,xy=(950,85))
 ax.annotate('Garnet',**kws)
 
 ax.autoscale(False)
@@ -116,4 +118,4 @@ for dz, heat_flow, T in profiles:
     ax.text(v,d-0.9,"{0} ".format(heat_flow)+r"$mW/m^2$",rotation=5.5*N.degrees(a),
             va='center',ha='center',color='#aaaaaa',size=7)
 
-fig.savefig(outfile, bbox_inches="tight")
+fig.savefig(outfile, bbox_inches="tight", dpi=300)
