@@ -10,7 +10,7 @@ def element(id):
     except KeyError:
         return getattr(elements, id).number
 
-def ree_data(df):
+def ree_only(df):
     La, Lu, Tm = element('La'), element('Lu'), element('Tm')
 
     def __should_delete(col):

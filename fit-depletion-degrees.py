@@ -4,37 +4,21 @@ from sys import argv
 import numpy as N
 from xenoliths import app
 from pandas import DataFrame, read_table
-from xenoliths.SIMS.query import sims_data, element_data
-from depletion_model import get_melts_data, ree_plot
-from depletion_model.util import element, ree_data
+from depletion_model import get_melts_data, ree_plot, sample_ree
+from depletion_model.util import element, ree_only
 from depletion_model import DepletionModel
 from xenoliths.core import sample_colors
 from paper import plot_style
 
-# Whole-rock or CPX fitting
-mode = 'whole_rock'
-
-def process_data():
-    df = sims_data(ree_only=True, raw=True, whole_rock=True)
-    df = element_data(df)
-    val = df.index.get_level_values('mineral')==mode
-    df = df.loc[val]
-    df.index = df.index.droplevel(1)
-    df.drop('n', axis=1, inplace=True)
-    df.columns = [element(i) for i in df.columns]
-    return df
-
 with app.app_context():
-    data = process_data()
+    data = sample_ree(normalized=True)
     colors = sample_colors()
 
 # Create primitive-mantle normalized dataset
 Sun_PM = get_melts_data('literature/Sun_McDonough_PM.melts')
 PM_trace = Sun_PM.trace.ix[:,0]
-data /= PM_trace
-data.dropna(axis=1,how='all',inplace=True)
 
-model = DepletionModel(argv[1], log_fit=True)
+model = DepletionModel(argv[1])
 depleted = model.fit_HREE(data)
 
 # Get mineral-melt partition coefficients for ending conditions
@@ -47,7 +31,7 @@ Dree = DataFrame(params).set_index(depleted.index)
 # Re-enrichment model
 # Currently, enrichment is modeled as a fully batch process
 delta = (data-depleted)
-enrichment = ree_data((data+delta)/Dree)
+enrichment = ree_only((data+delta)/Dree)
 enrichment = enrichment.applymap(lambda x: x.nominal_value)
 
 # Normalize to mean HREE *(in log space)
@@ -58,16 +42,16 @@ enrichment = enrichment.div(bias,axis=0)
 
 # Add NMORB
 NMORB = get_melts_data('literature/NMORB_trace.melts')
-NMORB_trace = ree_data(NMORB.trace.transpose()/PM_trace)
+NMORB_trace = ree_only(NMORB.trace.transpose()/PM_trace)
 
 # Alkali basalt
 alkali = read_table('literature/Farmer_1995-Alkali-basalt.txt',
                     comment="#", index_col=0)
 alkali /= PM_trace
-alkali_trace = ree_data(alkali)
+alkali_trace = ree_only(alkali)
 
 vals = map(element,data.columns)
-d = ree_data(depleted)
+d = ree_only(depleted)
 with ree_plot(argv[2]) as ax:
     for i,row in d.iterrows():
         c = colors.ix[row.name][0]
@@ -100,13 +84,10 @@ with ree_plot(argv[2]) as ax:
         edgecolor='none',
         zorder=-10)
 
-    ax.set_ylim(.001,100)
+    ax.set_ylim(.01,100)
     ax.set_xlim(element('La')-0.3,element('Lu')+0.3)
     ax.yaxis.set_ticklabels(["{:g}".format(v) for v in ax.yaxis.get_ticklocs()])
     ax.set_ylabel("REE / Primitive Mantle")
     ax.xaxis.set_ticks(vals)
     ax.xaxis.set_ticklabels(data.columns)
 
-# Get depletion degrees using various methods
-from IPython import embed
-embed()
