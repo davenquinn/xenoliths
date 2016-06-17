@@ -3,12 +3,13 @@ from __future__ import division, print_function
 from sys import argv
 import numpy as N
 from xenoliths import app
-from pandas import DataFrame, read_table
+from pandas import DataFrame, read_table, concat
 from depletion_model import get_melts_data, ree_plot, sample_ree
 from depletion_model.util import element, ree_only
 from depletion_model import DepletionModel
 from xenoliths.core import sample_colors
 from paper import plot_style
+from matplotlib import pyplot as plt
 
 with app.app_context():
     data = sample_ree(normalized=True)
@@ -31,14 +32,15 @@ Dree = DataFrame(params).set_index(depleted.index)
 # Re-enrichment model
 # Currently, enrichment is modeled as a fully batch process
 delta = (data-depleted)
+# Don't know if I should divide by DREE
 enrichment = ree_only((data+delta)/Dree)
 enrichment = enrichment.applymap(lambda x: x.nominal_value)
 
 # Normalize to mean HREE *(in log space)
 hree = N.exp(N.log(enrichment[[66,67,68,70,71]]).mean(axis=1))
 # Amount of enriched liquid that is needed to reset values
-bias = hree/6
-enrichment = enrichment.div(bias,axis=0)
+bias = 6/hree
+enrichment = enrichment.mul(bias,axis=0)
 
 # Add NMORB
 NMORB = get_melts_data('literature/NMORB_trace.melts')

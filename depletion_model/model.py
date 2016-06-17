@@ -62,7 +62,7 @@ class DepletionModel(object):
             sse = (residuals**2).sum(axis=1)
             ix = sse.idxmin()
 
-            series = trace.loc[ix]
+            series = trace.loc[ix].copy()
             series['step_index'] = ix
             series['sse'] = sse.loc[ix]
             series['sample_id'] = row.name
