@@ -91,3 +91,16 @@ with ree_plot(argv[2]) as ax:
     ax.xaxis.set_ticks(vals)
     ax.xaxis.set_ticklabels(data.columns)
 
+s = 100-depleted.mass
+s.name = 'Depletion'
+bias.name = 'Enrichment'
+df = concat([s,bias,colors],axis=1)
+fig, ax = plt.subplots(figsize=(4.25,3.75))
+ax.scatter(df.Depletion,df.Enrichment,color=df.color,s=20)
+for i,row in df.iterrows():
+    ax.annotate(i,xy=(row.Depletion,row.Enrichment),
+        color=row.color,xytext=(5,0),textcoords='offset points')
+ax.set_xlabel(r'HREE depletion degrees (%)')
+ax.set_ylabel(r'Proxy for re-enrichment')
+
+fig.savefig('output/ree-trends.pdf',bbox_inches='tight')
