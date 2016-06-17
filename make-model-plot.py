@@ -66,13 +66,19 @@ with ree_plot(argv[2]) as ax:
             facecolor=c,
             edgecolor='none',
             alpha=0.2)
-        ax.plot(vals,u, color=c)
+
+        def plot(name,x,y,**kwargs):
+            if i == 'CK-2':
+                kwargs['label'] = name
+            p = ax.plot(x,y,color=c,**kwargs)
+
+        plot('Measured whole-rock',vals,u)
 
         # Plot calculated best fit
-        ax.plot(d.columns,row, color=c, linestyle='--')
+        plot("Modeled depleted", d.columns,row, linestyle='--')
 
         v = enrichment.ix[row.name]
-        ax.plot(d.columns,v, color=c, linewidth=0.5)
+        plot("Enriching fluid",d.columns,v, linestyle=':')
 
     # Plot NMORB
     ax.plot(NMORB_trace.columns, NMORB_trace.ix[0,:],
@@ -93,6 +99,14 @@ with ree_plot(argv[2]) as ax:
     ax.xaxis.set_ticks(vals)
     ax.xaxis.set_ticklabels(data.columns)
 
+    ax.text(element('Nd'),21,"Alkali basalt",
+        rotation=-25,color='#888888')
+    ax.text(element('La'),5,"NMORB",
+        rotation=15,color='#888888')
+    legend = ax.legend(loc="upper right")
+    fr = legend.get_frame()
+    fr.set_lw(0.5)
+
 s = 100-depleted.mass
 s.name = 'Depletion'
 bias.name = 'Enrichment'
@@ -100,9 +114,12 @@ df = concat([s,bias,colors],axis=1)
 fig, ax = plt.subplots(figsize=(4.25,3.75))
 ax.scatter(df.Depletion,df.Enrichment,color=df.color,s=20)
 for i,row in df.iterrows():
+    y = 0
+    if i in ['CK-4','CK-6']:
+        y -= 6
     ax.annotate(i,xy=(row.Depletion,row.Enrichment),
-        color=row.color,xytext=(5,0),textcoords='offset points')
+        color=row.color,xytext=(5,y),textcoords='offset points')
 ax.set_xlabel(r'HREE depletion degrees (%)')
-ax.set_ylabel(r'Proxy for re-enrichment')
+ax.set_ylabel(r'Mass ratio: re-enriching fluid/sample')
 
 fig.savefig('output/ree-trends.pdf',bbox_inches='tight')
