@@ -2,6 +2,7 @@ from __future__ import division, print_function
 
 from sys import argv
 import numpy as N
+import click
 from xenoliths import app
 from pandas import DataFrame, read_table, concat
 from depletion_model import get_melts_data, ree_plot, sample_ree
@@ -89,23 +90,6 @@ def run_model():
         legend = ax.legend(loc="upper right")
         fr = legend.get_frame()
         fr.set_lw(0.5)
-
-    s = 100-depleted.mass
-    s.name = 'Depletion'
-    multiplier.name = 'Enrichment'
-    df = concat([s,multiplier,colors],axis=1)
-    fig, ax = plt.subplots(figsize=(4.25,3.75))
-    ax.scatter(df.Depletion,df.Enrichment,color=df.color,s=20)
-    for i,row in df.iterrows():
-        y = 0
-        if i in ['CK-4','CK-6']:
-            y -= 6
-        ax.annotate(i,xy=(row.Depletion,row.Enrichment),
-            color=row.color,xytext=(5,y),textcoords='offset points')
-    ax.set_xlabel(r'HREE depletion degrees (%)')
-    ax.set_ylabel(r'Mass ratio: re-enriching fluid/sample')
-
-    fig.savefig('output/ree-trends.pdf',bbox_inches='tight')
 
 if __name__ == '__main__':
     run_model()
