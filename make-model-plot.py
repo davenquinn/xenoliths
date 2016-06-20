@@ -12,7 +12,10 @@ from xenoliths.core import sample_colors
 from paper import plot_style
 from matplotlib import pyplot as plt
 
-def run_model():
+@click.command()
+@click.argument("src", type=click.Path(exists=True))
+@click.argument("dst", type=click.Path())
+def run_model(src,dst):
 
     with app.app_context():
         data = sample_ree(normalized=True)
@@ -22,7 +25,7 @@ def run_model():
     Sun_PM = get_melts_data('literature/Sun_McDonough_PM.melts')
     PM_trace = Sun_PM.trace.ix[:,0]
 
-    model = DepletionModel(argv[1])
+    model = DepletionModel(src)
     depleted = model.fit_HREE(data)
     enrichment, multiplier = model.enrichment(data,depleted)
 
@@ -38,7 +41,7 @@ def run_model():
 
     vals = map(element,data.columns)
     d = ree_only(depleted)
-    with ree_plot(argv[2]) as ax:
+    with ree_plot(dst) as ax:
         for i,row in d.iterrows():
             c = colors.ix[row.name][0]
 
