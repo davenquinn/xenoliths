@@ -23,26 +23,7 @@ def run_model():
 
     model = DepletionModel(argv[1])
     depleted = model.fit_HREE(data)
-
-    # Get mineral-melt partition coefficients for ending conditions
-    # Could also just use computed values
-    coeffs = model.tables['Partition Coefficients']
-    params = [coeffs.loc[int(row['step_index'])]
-                for i,row in depleted.iterrows()]
-    Dree = DataFrame(params).set_index(depleted.index)
-
-    # Re-enrichment model
-    # Currently, enrichment is modeled as a fully batch process
-    delta = (data-depleted)
-    # Don't know if I should divide by DREE
-    enrichment = ree_only((data+delta)/Dree)
-    enrichment = enrichment.applymap(lambda x: x.nominal_value)
-
-    # Normalize to mean HREE *(in log space)
-    hree = N.exp(N.log(enrichment[[66,67,68,70,71]]).mean(axis=1))
-    # Amount of enriched liquid that is needed to reset values
-    bias = 6/hree
-    enrichment = enrichment.mul(bias,axis=0)
+    enrichment, multiplier = model.enrichment(data,depleted)
 
     # Add NMORB
     NMORB = get_melts_data('literature/NMORB_trace.melts')
@@ -111,8 +92,8 @@ def run_model():
 
     s = 100-depleted.mass
     s.name = 'Depletion'
-    bias.name = 'Enrichment'
-    df = concat([s,bias,colors],axis=1)
+    multiplier.name = 'Enrichment'
+    df = concat([s,multiplier,colors],axis=1)
     fig, ax = plt.subplots(figsize=(4.25,3.75))
     ax.scatter(df.Depletion,df.Enrichment,color=df.color,s=20)
     for i,row in df.iterrows():

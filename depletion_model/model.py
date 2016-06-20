@@ -1,7 +1,7 @@
 import numpy as N
 from pandas import DataFrame
 from .data import get_tables
-from .util import element
+from .util import element, ree_only
 
 class DepletionModel(object):
     """
@@ -81,4 +81,26 @@ class DepletionModel(object):
         Tb, Lu = element('Tb'), element('Lu')
         func = lambda i: Tb <= element(i) <= Lu
         return self.fit('Solid Trace', data, func)
+
+    def enrichment(self,data,depleted):
+        # Get mineral-melt partition coefficients for ending conditions
+        # Could also just use computed values
+        coeffs = self.tables['Partition Coefficients']
+        params = [coeffs.loc[int(row['step_index'])]
+                    for i,row in depleted.iterrows()]
+        Dree = DataFrame(params).set_index(depleted.index)
+
+        # Re-enrichment model
+        # Currently, enrichment is modeled as a fully batch process
+        delta = (data-depleted)
+        # Don't know if I should divide by DREE
+        enrichment = ree_only((data+delta)/Dree)
+        enrichment = enrichment.applymap(lambda x: x.nominal_value)
+
+        # Normalize to mean HREE *(in log space)
+        hree = N.exp(N.log(enrichment[[66,67,68,70,71]]).mean(axis=1))
+        # Amount of enriched liquid that is needed to reset values
+        multiplier = 6/hree
+        enrichment = enrichment.mul(multiplier,axis=0)
+        return enrichment, multiplier
 
