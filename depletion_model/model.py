@@ -17,7 +17,6 @@ class DepletionModel(object):
                mode  'whole_rock'* or 'clinopyroxene'
             log_fit   False (fit logarithmically or linearly)
         """
-        mode = kwargs.pop('mode','whole_rock')
         self.log_fit = kwargs.pop('log_fit',False)
 
         self.tables = get_tables(model_filename)
@@ -73,14 +72,15 @@ class DepletionModel(object):
                 for i,row in fit.iterrows()]
         return DataFrame(serie).set_index('sample_id')
 
-    def fit_HREE(self,data):
+    def fit_HREE(self,data, **kwargs):
         """
         A special case of fitting targeted at
         heavy rare-earth elements.
         """
+        table = kwargs.pop('table','Solid Trace')
         Tb, Lu = element('Tb'), element('Lu')
         func = lambda i: Tb <= element(i) <= Lu
-        return self.fit('Solid Trace', data, func)
+        return self.fit(table, data, func)
 
     def enrichment(self,data,depleted):
         # Get mineral-melt partition coefficients for ending conditions

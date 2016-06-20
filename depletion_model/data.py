@@ -39,14 +39,14 @@ def __get_tables(filename):
 def get_tables(fn):
     return {k:v for k,v in __get_tables(fn)}
 
-def sample_ree(normalized=True):
+def sample_ree(normalized=True, **kwargs):
     """
     Get REE data from database
     """
     # Whole-rock or CPX fitting
-    mode = 'whole_rock'
+    mode = kwargs.pop('mode','whole_rock')
 
-    df = sims_data(ree_only=True, raw=True, whole_rock=True)
+    df = sims_data(ree_only=True, raw=True, whole_rock=True, **kwargs)
     df = element_data(df)
     val = df.index.get_level_values('mineral')==mode
     df = df.loc[val]

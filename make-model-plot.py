@@ -15,19 +15,27 @@ from matplotlib import pyplot as plt
 @click.command()
 @click.argument("src", type=click.Path(exists=True))
 @click.argument("dst", type=click.Path())
-def run_model(src,dst):
+@click.option("--clinopyroxene",is_flag=True,default=False)
+def run_model(src,dst,clinopyroxene=False):
 
     with app.app_context():
-        data = sample_ree(normalized=True)
+        data = sample_ree(
+            normalized=True,
+            mode='cpx' if clinopyroxene else 'whole_rock')
         colors = sample_colors()
+
+    model = DepletionModel(src)
+
+    if clinopyroxene:
+        depleted = model.fit_HREE(data, table='clinopyroxene_0 trace')
+    else:
+        depleted = model.fit_HREE(data)
+
+    enrichment, multiplier = model.enrichment(data,depleted)
 
     # Create primitive-mantle normalized dataset
     Sun_PM = get_melts_data('literature/Sun_McDonough_PM.melts')
     PM_trace = Sun_PM.trace.ix[:,0]
-
-    model = DepletionModel(src)
-    depleted = model.fit_HREE(data)
-    enrichment, multiplier = model.enrichment(data,depleted)
 
     # Add NMORB
     NMORB = get_melts_data('literature/NMORB_trace.melts')
@@ -59,7 +67,11 @@ def run_model(src,dst):
                     kwargs['label'] = name
                 p = ax.plot(x,y,color=c,**kwargs)
 
-            plot('Measured whole-rock',vals,u)
+            if clinopyroxene:
+                s = 'clinopyroxene'
+            else:
+                s = 'whole-rock'
+            plot('Measured '+s,vals,u)
 
             # Plot calculated best fit
             plot("Modeled depleted", d.columns,row, linestyle='--')
@@ -82,7 +94,7 @@ def run_model(src,dst):
         ax.set_ylim(.01,100)
         ax.set_xlim(element('La')-0.3,element('Lu')+0.3)
         ax.yaxis.set_ticklabels(["{:g}".format(v) for v in ax.yaxis.get_ticklocs()])
-        ax.set_ylabel("REE / Primitive Mantle")
+        ax.set_ylabel(s.capitalize()+" REE / Primitive Mantle")
         ax.xaxis.set_ticks(vals)
         ax.xaxis.set_ticklabels(data.columns)
 

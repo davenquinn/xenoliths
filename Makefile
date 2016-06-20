@@ -4,7 +4,7 @@ latex=output/depletion_degrees.tex
 
 
 all: output/depletion-model.pdf \
-			$(latex) output/ree-trends.pdf | output
+			$(latex) output/ree-trends.pdf output/depletion-model-cpx.pdf | output
 output:
 	mkdir -p $@
 
@@ -16,6 +16,9 @@ $(table): fractional-melting.melts-env
 
 output/depletion-model.pdf: make-model-plot.py $(table)
 	python $^ $@
+
+output/depletion-model-cpx.pdf: make-model-plot.py $(table)
+	python $< --clinopyroxene $(word 2,$^) $@
 
 output/ree-trends.pdf: ree-trends.py $(table)
 	python $^ $@
