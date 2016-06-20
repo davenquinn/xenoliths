@@ -1,6 +1,6 @@
 scenario:=fractional-melting
 figure:=output/$(scenario).pdf
-latex=output/depletion-degrees.tex
+latex=output/depletion_degrees.tex
 
 
 all: $(figure) output/depletion-model.pdf \
