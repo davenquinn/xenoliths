@@ -92,9 +92,9 @@ class DepletionModel(object):
 
         # Re-enrichment model
         # Currently, enrichment is modeled as a fully batch process
-        delta = (data-depleted)
+        delta = (data/depleted)
         # Don't know if I should divide by DREE
-        enrichment = ree_only((data+delta)/Dree)
+        enrichment = ree_only((data*delta)/Dree)
         enrichment = enrichment.applymap(lambda x: x.nominal_value)
 
         # Normalize to mean HREE *(in log space)

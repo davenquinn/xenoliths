@@ -24,8 +24,9 @@ def run_model():
 
     s = 100-depleted.mass
     s.name = 'Depletion'
-    multiplier.name = 'Enrichment'
-    df = concat([s,multiplier,colors],axis=1)
+    v = multiplier
+    v.name = 'Enrichment'
+    df = concat([s,v,colors],axis=1)
     fig, ax = plt.subplots(figsize=(4.25,3.75))
     ax.scatter(df.Depletion,df.Enrichment,color=df.color,s=20)
     for i,row in df.iterrows():
