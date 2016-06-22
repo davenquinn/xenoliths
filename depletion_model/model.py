@@ -92,15 +92,25 @@ class DepletionModel(object):
 
         # Re-enrichment model
         # Currently, enrichment is modeled as a fully batch process
+
+        # Divide data by best-fitting depletion, yielding
+        # factor by which LREE is increased relative to
+        # depletion-only scenario
         delta = (data/depleted)
-        # Don't know if I should divide by DREE
+        # Don't know if I should use partiton coefficients
+        # (are we adding melt or in equilibrium with melt)?
+        # This is totally batch right now
         enrichment = ree_only((data*delta)/Dree)
+
+        # Drop analytical errors
         enrichment = enrichment.applymap(lambda x: x.nominal_value)
 
-        # Normalize to mean HREE *(in log space)
+        # Normalize to mean HREE (averaging in log space)
         hree = N.exp(N.log(enrichment[[66,67,68,70,71]]).mean(axis=1))
-        # Amount of enriched liquid that is needed to reset values
+        # Amount of enriching agent that is needed to bring HREE to 6
         multiplier = 6/hree
+
         enrichment = enrichment.mul(multiplier,axis=0)
+        # Save multiplier for use as "amount of enrichment" for new figure
         return enrichment, multiplier
 
