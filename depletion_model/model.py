@@ -89,6 +89,9 @@ class DepletionModel(object):
         params = [coeffs.loc[int(row['step_index'])]
                     for i,row in depleted.iterrows()]
         Dree = DataFrame(params).set_index(depleted.index)
+        # Drop analytical errors
+        data = data.applymap(lambda x: x.nominal_value)
+
 
         # Re-enrichment model
         # Currently, enrichment is modeled as a fully batch process
@@ -96,14 +99,12 @@ class DepletionModel(object):
         # Divide data by best-fitting depletion, yielding
         # factor by which LREE is increased relative to
         # depletion-only scenario
-        delta = (data/depleted)
-        # Don't know if I should use partiton coefficients
-        # (are we adding melt or in equilibrium with melt)?
-        # This is totally batch right now
-        enrichment = ree_only((data*delta)/Dree)
+        delta = data-depleted
 
-        # Drop analytical errors
-        enrichment = enrichment.applymap(lambda x: x.nominal_value)
+        delta[delta < 0] = 0
+        # Don't use partiton coefficients because we want to
+        # model melt assimilation rather than equilibration
+        enrichment = ree_only(data+delta)
 
         # Normalize to mean HREE (averaging in log space)
         hree = N.exp(N.log(enrichment[[66,67,68,70,71]]).mean(axis=1))
