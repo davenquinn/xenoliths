@@ -52,12 +52,14 @@ class Farallon(SubductionCase):
         # Solve to imaginary model division to make
         # model outputs align with farallon-reheated case
         self.fake_underplating_time = u(24,'Myr')
+        self.variable_term = 'qfric'
 
     def setup(self):
         self.pre_subduction()
         self.stepped_subduction(
             final_temperature=u(715,"degC"),
-            vary='Au')
+            optimization_depth=u(25,'km'),
+            vary=self.variable_term)
 
     def run(self):
         self.setup()
@@ -124,6 +126,7 @@ class FarallonReheated(Farallon, UnderplatingMixin):
         self.underplating_duration = u(dT,'Myr')
         self.underplating_depth = u(80,'km')
         self.underplating_time = u(24,'Myr')
+        self.variable_term = 'qfric'
 
     def run(self):
         self.setup()

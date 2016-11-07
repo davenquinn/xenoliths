@@ -96,6 +96,7 @@ class SubductionCase(ModelRunner):
         final_depth = kwargs.pop("final_depth", interface_depth)
 
         final_temperature = kwargs.pop("final_temperature", None)
+        optimization_depth = kwargs.pop("optimization_depth",final_depth)
 
         # Thickness of foreland lithosphere
         # at the time of subduction
@@ -133,7 +134,7 @@ class SubductionCase(ModelRunner):
                 final_distance,
                 # Optimize temperature above subduction
                 # interface
-                final_depth-u(5,'km'),
+                optimization_depth,
                 **kwargs)
             self.log("Modeled upper-plate heat generation",royden.args[kwargs['vary']])
 

@@ -70,6 +70,7 @@ def forearc_solver(**kwargs):
         zr=150e3,
         #a=1e-15, # No sub. accretion or erosion
         #e=1.e-9,
+        qfric=0,
         alpha=m.diffusivity.into('m**2/s'))
     defaults.update(kwargs)
 
