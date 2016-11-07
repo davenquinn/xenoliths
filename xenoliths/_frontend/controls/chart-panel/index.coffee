@@ -50,7 +50,7 @@ class DataFrame extends Spine.Controller
 
     @tags.update coll or [data]
     return  unless data?
-    id = data.properties.id
+    id = data.id
     sample = data.properties.sample
     @$(".id").html id
     @$(".sample").html sample
