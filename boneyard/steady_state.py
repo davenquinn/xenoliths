@@ -10,7 +10,8 @@ class HeatFlowModel(object):
     """
     Heat flow equations are taken from Turcotte and Schubert, 2002
     Geodynamics (eqn 4-31, p274)
-    T = T_0 + q_m*y/k + (q_0 − q_m)*h_r (1 − exp(−y/h_r )) / k
+    T = T_0 + q_m*y/k + (q_0 − q_m)*h_r (1 − exp(−y/h_t
+    )) / k
 
     q_m: lower boundary condition (heat flux from asthenosphere)
     q_0: upper boundary condition (heat flux at surface)
