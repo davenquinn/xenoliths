@@ -1,0 +1,12 @@
+data/*
+raw_data/
+node_modules/
+notebooks/
+
+samples/data/backup/
+*.pyc
+.sass-cache
+.DS_Store
+.cache
+
+Xenoliths.egg-info

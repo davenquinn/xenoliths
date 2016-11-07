@@ -1,0 +1,44 @@
+#map {
+	background: #000;
+}
+
+#chart svg, svg.data-layer {
+	.tick line {
+		stroke: #eee;
+	}
+  rect.background {
+    stroke: black;
+    stroke-width: 2px;
+  }
+	.dot {
+		fill-opacity: 1.0;
+		&.selected {
+			&:hover{
+				stroke: #333;
+			}
+			stroke: #555;
+			stroke-width: 2px;
+		}
+		&.hovered {
+			stroke-width: 3px;
+			stroke: #222;
+    }
+	}
+
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #fff;
+}
+
+.tick text {
+  font-size: 1.2em;
+}
+
+.label, .value {
+	display: block;
+}
+.label {
+	font-size: 1.1em;
+}

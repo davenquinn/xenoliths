@@ -1,0 +1,45 @@
+{
+  "name": "Xenoliths",
+  "version": "0.0.0",
+  "description": "Application to manage xenoliths data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^1.3.3",
+    "browserify": "^5.9.1",
+    "chalk": "^0.5.1",
+    "coffee-script": "^1.7.1",
+    "coffeeify": "^0.7.0",
+    "d3-ternary": "git+https://github.com/davenquinn/d3-ternary.git",
+    "gulp": "^3.8.7",
+    "gulp-autoprefixer": "0.0.8",
+    "gulp-compass": "^1.2.0",
+    "gulp-cssmin": "^0.1.6",
+    "gulp-notify": "^1.4.2",
+    "gulp-plumber": "^0.6.4",
+    "gulp-util": "^3.0.0",
+    "hbsfy": "^2.0.0",
+    "pretty-hrtime": "^0.2.1",
+    "spine": "^1.3.2",
+    "underscore": "^1.6.0",
+    "vinyl-source-stream": "^0.1.1",
+    "watchify": "^1.0.1"
+  },
+  "dependencies": {
+    "backbone": "^1.1.2",
+    "bootstrap-sass": "^3.2.0",
+    "bootstrap-switch": "^3.0.2",
+    "d3": "^3.4.11",
+    "dragdealer": "^0.9.7",
+    "font-awesome": "^4.1.0",
+    "jquery": "^2.1.1",
+    "leaflet": "^0.7.3",
+    "space-pen": "^3.3.0",
+    "spine": "^1.3.2",
+    "spine-route": "^1.0.1"
+  }
+}

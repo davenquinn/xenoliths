@@ -1,0 +1,182 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+
+$FontAwesomePath: "/static/lib/font-awesome";
+@import "font-awesome/scss/font-awesome";
+@import 'bootstrap-sass/assets/stylesheets/bootstrap';
+@import "styles/drag";
+@import "compass";
+@import "compass/utilities/general/clearfix";
+@import "styles/table";
+@import "styles/lib/switch";
+@import "styles/lib/openlayers";
+
+@import "./controls/chart/style";
+@import "./controls/sidebar/style";
+@import "./controls/map/style";
+@import "./controls/filter/tags/style";
+@import "./controls/ternary/style";
+
+$max-width: 100%;
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	font-family: "Helvetica Neue Light", Helvetica, Arial, sans-serif;
+	height: 100vh;
+  width: 100%;
+	margin: 0;
+  display: flex;
+  flex-direction: row;
+  overflow: auto; // Disable elastic scrolling
+}
+
+#header {
+	padding: 10px 20px;
+	h1 {
+		margin: 0 0 0 0;
+		font-size: 1.2em;
+	}
+}
+
+#wrap {
+	margin: 20px auto;
+	max-width: 1100px;
+}
+
+ul.links {
+	list-style: none;
+	padding-left: 0;
+	font-size: 1.4em;
+}
+
+#main {
+	height: 100vh;
+  flex-grow: 1;
+	&>div{
+		height: 100%;
+	}
+}
+
+@mixin label {
+	display: block;
+	color: #666;
+	font-weight: 600;
+	font-size: .6em;
+	text-transform: uppercase;
+	padding-left: 0;
+	text-align: left;
+	margin-top: 0;
+}
+
+h3.label {
+	font-size: 13px !important;
+	@include label;
+	background-color: none;
+	background: none;
+	margin-bottom: 4px;
+}
+#selection_type {
+	margin-bottom: 10px;
+}
+
+#tag_manager {
+	.form-control {
+		width: 80%;
+	}
+}
+
+#tag_field {
+	list-style: none;
+	@include clearfix;
+	padding-left: 0;
+	li {
+		@include border-radius(3px);
+		font-size: 14px !important;
+		padding: 2px 4px 1px 4px;
+		margin-right: 3px;
+		margin-bottom: 3px;
+		float: left;
+		i {
+			margin-left: 5px;
+		}
+		&.some {
+			background-color: #cccccc;
+		}
+		&.all {
+			background-color: #87b4f8;
+		}
+	}
+}
+
+.navbar {
+	margin-bottom: 10px;
+  .active a {
+    background-color: #f6f6f6;
+  }
+}
+
+#tabs {
+	#data {
+		ul.info {
+			padding-left: 0;
+			list-style: none;
+			@include clearfix;
+			li {
+				margin-left: 0;
+				line-height: 24px;
+				font-size: 22px;
+				clear: both;
+				display: block;
+				float: left;
+				clear: none;
+				min-width: 60px;
+				span {
+					&.label {
+						@include label;
+					}
+					background-color: inherit;
+					background: inherit;
+				}
+				a {
+					font-size: .8em;
+					line-height: 40px;
+					margin-left: 20px;
+				}
+			}
+		}
+	}
+}
+
+#oxides {
+	margin-bottom: -15px;
+	margin-top: -10px;
+}
+
+#tag_manager {
+	#tag_field {
+		li {
+			cursor: pointer;
+		}
+		min-height: 26px;
+		margin-bottom: 5px;
+	}
+	h3 {
+		margin-top: 0;
+	}
+}
+
+.clearfix {
+	@include clearfix;
+}
+
+.slider { height: 10px;}
+.dragger {
+  height: 10px;
+  width: 10px;
+  background-color: black; }

@@ -1,0 +1,22 @@
+<hr></hr>
+<p>
+  <h5>Mode</h5>
+  <div class="toggle mode"></div>
+</p>
+<p>
+	<h5>Opacity</h5>
+	<div id="opacity" class="dragdealer">
+		<div class="handle red-bar">{{ opacity }} %</div>
+	</div>
+</p>
+<p>
+	<label for="mineral">Mineral</label>
+	<select name="mineral" class="form-control">
+		{{#each minerals}}
+	  		<option value="{{@key}}">{{name}}</option>
+	  	{{/each}}
+	</select>
+</p>
+<p>
+	<button type="button" id="save" class="btn-success btn">Save</button>
+</p>

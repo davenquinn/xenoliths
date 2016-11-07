@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block body %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Sample</th>
+            <th>Name</th>
+            {% for c in columns %}
+            <th>{{ c }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for o in objects %}
+        <tr>
+            <td style="border-right-color: {{ o.sample.color }}; border-right-width: 8px;">{{ o.sample.id }}</td>
+            <td>{{ o.name }}</td>
+            {% for d in o.data %}
+            <td>{{ d.norm.n }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
