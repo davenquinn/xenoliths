@@ -1326,6 +1326,10 @@ scenarios appears to be minimal. <!-- is this enough? -->
 
 <!-- @Groome2006: ridge subduction modeling -->
 
+[[cross_sections]]
+
+[[neogene_sections]]
+
 ### Limitations of the model
 
 This model framework has several simplifications.

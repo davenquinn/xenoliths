@@ -1,3 +1,0 @@
-[submodule "scripts/bib-filter"]
-	path = deps/bib-filter
-	url = git://github.com/davenquinn/bib-filter.git
