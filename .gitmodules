@@ -1,0 +1,6 @@
+[submodule "modules/bib-filter"]
+	path = modules/bib-filter
+	url = git://github.com/davenquinn/bib-filter.git
+[submodule "modules/figurator"]
+	path = modules/figurator
+	url = git://github.com/davenquinn/figurator.git

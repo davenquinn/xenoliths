@@ -1,0 +1,21 @@
+\begin{tabular}{l r r r r r r}
+\hline
+  Sample
+  & \ce{Fe^{2+}}
+  & \ce{Fe^{3+}}
+  & \ce{Fe^{3+}}/$\Sigma$ Fe
+  & Mg\#\tnote{b}
+  & Mg\#\tnote{c}
+  & $n$ \\
+\hline
+<#- for row in data #>
+  << row.sample_id >> &
+  << row.Fe|n(2) >> &
+  << row['Fe(III)']|n(2) >> &
+  << row.fe_ratio|n(2) >> &
+  << row.mg_number_raw|n(1) >> &
+  << row.mg_number_corr|n(1) >> &
+  << row.n >> \\
+<#- endfor #>
+\hline
+\end{tabular}

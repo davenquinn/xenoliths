@@ -1,0 +1,40 @@
+<# macro loop(type) -#>
+  <#- for s in samples #>
+    << s.id >>
+    <#- for ox in oxides -#>
+    & << s[type].weight[ox]|n >>
+    <#- endfor -#>
+    & << s[type].oxide_total|n >>
+    & << s[type].count >>
+    & << s[type].mg_number|n >> &
+    <#- if type != "ol" -#>
+      << s[type].cr_number|n >>
+    <#- else -#>
+      --
+    <#- endif -#> \\
+  <#- endfor #>
+<#- endmacro #>
+\begin{tabular}{l<< " r"*(ncols-1) >>}
+\hline
+  Sample
+  <#- for ox in oxides -#>
+  & \ce{<< ox >>}
+  <#- endfor #> & Total & $n$ & Mg\# & Cr\# \\
+\hline
+\multicolumn{<<ncols>>}{l}{Olivine} \\
+\hline
+<< loop("ol") >>
+\hline
+\multicolumn{<<ncols>>}{l}{Orthopyroxene} \\
+\hline
+<< loop("opx") >>
+\hline
+\multicolumn{<<ncols>>}{l}{Clinopyroxene} \\
+\hline
+<< loop("cpx") >>
+\hline
+\multicolumn{<<ncols>>}{l}{Spinel} \\
+\hline
+<< loop("sp") >>
+\hline
+\end{tabular}

@@ -1,0 +1,125 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{pslatex}
+\usepackage{textcomp}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{titlesec, titling}
+\usepackage[font=singlespacing]{caption}
+\usepackage[utf8]{inputenc}
+\usepackage[version=3]{mhchem}
+\usepackage{wrapfig, fancyhdr, fontspec}
+\usepackage[affil-it]{authblk}
+
+%\usepackage{multicol}
+
+% Place floats at the end of the file
+\usepackage[nomarkers]{endfloat}
+
+\newfontfamily\HNLight[
+   Ligatures=TeX,
+   Scale=0.9,
+   BoldFont={Helvetica Neue Light},
+   UprightFont={Helvetica Neue Thin},
+   ItalicFont={Helvetica Neue Thin Italic}
+  ]{Helvetica Neue Thin}
+
+\newfontfamily\HN[
+   Ligatures=TeX,
+   Scale=0.9,
+   BoldFont={Helvetica Neue Medium},
+   UprightFont={Helvetica Neue},
+   ItalicFont={Helvetica Neue Italic}
+  ]{Helvetica Neue}
+
+\newfontfamily\Gotham[
+   Ligatures=TeX,
+   Scale=0.9,
+   BoldFont={Gotham Bold},
+   UprightFont={Gotham Book},
+   ItalicFont={Gotham Light Italic}
+  ]{Gotham Book}
+
+\newfontfamily\GothamLight[
+   Ligatures=TeX,
+   Scale=0.9,
+   BoldFont={Gotham Book},
+   UprightFont={Gotham Light},
+   ItalicFont={Gotham Light Italic}
+  ]{Gotham Light}
+
+\newfontfamily\Chaparral[
+   Ligatures=TeX,
+   Scale=0.9,
+   BoldFont={Chaparral Pro Bold},
+   UprightFont={Chaparral Pro},
+   ItalicFont={Chaparral Pro Italic}
+  ]{Chaparral Pro}
+
+\setmainfont{Chaparral Pro}
+\setcounter{secnumdepth}{2}
+
+%\usepackage{floatrow}
+%\DeclareFloatFont{HN}{\HN}% "scriptsize" is defined by floatrow, "tiny" not
+%\floatsetup[table]{font=HN}
+
+\titleformat{\section}{\Gotham\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\Gotham\normalsize\bfseries}{\thesubsection}{3pt}{}
+\titleformat{\subsubsection}{\Gotham\small\bfseries}{\thesubsubsection}{3pt}{}
+\renewcommand\maketitlehooka{\Gotham\large\bfseries}
+\renewcommand\maketitlehookb{\HNLight}
+\renewcommand\maketitlehookc{\HNLight}
+\renewcommand\abstractname{\Gotham\large\bfseries{Abstract}}
+\renewcommand\Authfont{\HNLight}
+\renewcommand\Affilfont{\HNLight}
+
+
+\sisetup{input-ignore={,},input-decimal-markers={.}}
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit\annum{a}
+\DeclareSIUnit\ton{ton}
+\newcommand\degr{\textdegree{}}
+\newcommand\tild{\texttildelow{}}
+\newcommand{\flow}[1]{\SI{#1}{\cubic\meter\per\second}}
+\newcommand{\figref}[1]{[Figure \ref{fig:#1}]}
+\newcommand{\tabref}[1]{[Table \ref{tab:#1}]}
+\newcommand{\appref}[1]{[see Appendix \ref{app:#1}]}
+\newcommand{\m}[1]{\SI{#1}{\meter}}
+\newcommand{\km}[1]{\SI{#1}{\kilo\meter}}
+\newcommand{\cm}[1]{\SI{#1}{\centi\meter}}
+\newcommand{\D}[1]{$D_{#1}$}
+\newcommand{\TBKN}[1]{T\ensuremath{_{\textrm{BKN}}}}
+\newcommand{\celsius}{\textdegree{}C}
+\newcommand{\percentwt}{\%\ensuremath{_{\textrm{wt}}}}
+\newcommand{\squeezeup}{\vspace{-1mm}}
+
+\title{Probing the origin of the sub-Salinia mantle lithosphere using spinel lherzolite xenoliths from Crystal Knob, Santa Lucia Range, California}
+\author{Daven Quinn, Jason Saleeby, Mihai Ducea, Peter Luffi}
+
+% Todo: Linear velocity vector diagram
+\setlength{\columnsep}{.5in}
+%\setcounter{secnumdepth}{-1}
+\setlength{\bibsep}{0.1cm}
+
+
+\begin{document}
+	\maketitle
+\doublespacing
+
+\begin{abstract}
+\input{build/abstract.tex}
+\end{abstract}
+\input{build/body_draft.tex}
+
+
+\pagebreak
+
+\begin{singlespace}
+\bibliography{source/references.bib}
+\bibliographystyle{source/lib/agu08}
+\end{singlespace}
+
+\end{document}

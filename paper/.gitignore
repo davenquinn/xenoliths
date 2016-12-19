@@ -1,0 +1,10 @@
+build/
+output/
+includes/figures/generated
+node_modules/
+collected/
+
+.DS_Store
+*.log
+*.pyc
+*.egg-info

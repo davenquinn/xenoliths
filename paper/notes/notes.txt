@@ -1,0 +1,73 @@
+Samples are cool relative to geotherms interpreted in Goes et al.
+
+This conjunction of potential processes holds an opportunity to extend the evolving understanding of the subcontinental lithosphere of southern California westward to the continental margin. 
+
+
+1. Monterey plate
+
+	- Possible (Monterey plate is definitely there)
+	- Far back from subduction interface
+
+2. Farallon plate
+
+	- This would conform with findings of Luffi et al
+
+3. Slab window
+
+	- Possible depending on depth of Monterey slab breakoff
+	- Included more for completeness
+
+There are some potential differences in degree of partial melting between peridotites initially emplaced  cases
+
+## Viability of depth constraints
+
+In the Mojave, the identification of underplated oceanic lithosphere as derived from the Farallon plate was based on geochemical repetition signifying overthrust mantle lithosphere nappes.
+
+## Control on past geotherms
+
+The fertile phase chemistry and Nd-enriched/87Sr depleted makeup of the Crystal Knob xenolith suite is consistent with that of Farallon mantle lithosphere.   
+
+Without better depth constraints, distingushing between these scenarios is hard.
+
+
+
+
+
+These options imply differences in thermal history
+
+- Thermal modeling
+
+The high-velocity Isabella anomaly has been correlated with epierogenic geomorphic signatures of surface downflexure in the Central Valley []
+
+
+
+
+
+
+
+The current depth constraints are not sufficient to tell between the models
+
+
+The location of the Crystal Knob neck near the Nacimiento fault places it at the boundary of several geologic provinces. 
+
+
+ In particular 
+
+ The partially subducted slab is visible in offshore seismic tomography [@Trehu1991] but the depth at which it broke is debated [@Wijk2001]. 
+The study area is ~\tild\SI{80}{\kilo\meter} west of the subduction interface.
+
+
+
+Regional makeup - Salinian block - used to be offshore of Mojave
+
+
+
+5. Several hypotheses about how this mantle got here
+
+- Farallon plate (seen further inland)
+- Monterey plate 
+- upwelling asthenosphere from slab window
+- Continental mantle wedge (unlikely)
+
+These imply different thermal scenarios as well as rock compositions (mantle wedge)
+Xenoliths give us the best chance yet of answering this question

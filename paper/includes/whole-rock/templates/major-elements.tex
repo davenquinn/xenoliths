@@ -1,0 +1,18 @@
+\begin{tabular}{l r r r r r r r r r r r r}
+\hline
+  Sample
+  <#- for ox in oxides -#>
+  & \ce{<< ox >>}
+  <#- endfor #> & Mg\# & Cr\# \\
+\hline
+<#- for s in samples #>
+  << s.id >>
+  <#- for ox in oxides -#>
+  & << s[ox]|n >>
+  <#- endfor #>
+  & << s.mg_number|n >>
+  & << s.cr_number|n >> \\
+<#- endfor #>
+\hline
+\end{tabular}
+

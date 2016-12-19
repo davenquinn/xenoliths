@@ -1,0 +1,23 @@
+{
+  "name": "crystal-knob",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "color": "^0.8.0",
+    "d3": "^3.5.5",
+    "d3-svg-legend": "^1.7.0",
+    "d3-ternary": "git+https://github.com/davenquinn/d3-ternary.git",
+    "js-yaml": "^3.2.7",
+    "jsdom": "3",
+    "lodash": "^3.6.0",
+    "pretty-data": "^0.40.0",
+    "simplify-js": "^1.2.1",
+    "uuid": "^2.0.1"
+  }
+}

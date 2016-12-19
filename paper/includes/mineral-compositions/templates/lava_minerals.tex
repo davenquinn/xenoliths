@@ -1,0 +1,19 @@
+\begin{tabular}{l<< " r"*(ncols-1) >>}
+\hline
+  Mineral & Type
+  <#- for ox in oxides -#>
+  & \ce{<< ox >>}
+  <#- endfor #> & Total & Mg\# & Cr\# \\
+\hline
+<#- for s in samples #>
+  << s.mineral >> & << s.type >>
+  <#- for ox in oxides -#>
+  & << s[ox]|n >>
+  <#- endfor -#>
+  & << s.oxide_total|n >>
+  & << s.mg_number|n >>
+  & << s.cr_number|n >> \\
+<#- endfor #>
+\hline
+\end{tabular}
+

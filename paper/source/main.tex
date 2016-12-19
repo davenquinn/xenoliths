@@ -1,0 +1,104 @@
+\documentclass[gc]{/Users/Daven/Development/Xenoliths/paper/source/lib/AGUTeX}
+\usepackage{graphicx}
+\setkeys{Gin}{draft=false}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage[version=3]{mhchem}
+\usepackage{textcomp}
+\usepackage{tablefootnote}
+\newcommand{\squeezeup}{\vspace{0mm}}
+\usepackage[flushleft]{threeparttable}
+\usepackage{adjustbox}
+\usepackage{multirow}
+
+\sisetup{input-ignore={,},input-decimal-markers={.}}
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit\annum{a}
+\DeclareSIUnit\ton{ton}
+\newcommand\degr{}
+\newcommand{\figref}[1]{[Figure \ref{fig:#1}]}
+\newcommand{\figp}[1]{Figure \ref{fig:#1}}
+\newcommand{\tabp}[1]{Table \ref{tab:#1}}
+\newcommand{\tabref}[1]{[Table \ref{tab:#1}]}
+\newcommand{\appref}[1]{[see Appendix \ref{app:#1}]}
+\newcommand{\m}[1]{\SI{#1}{\meter}}
+\newcommand{\km}[1]{\SI{#1}{\kilo\meter}}
+\newcommand{\cm}[1]{\SI{#1}{\centi\meter}}
+\newcommand{\D}[1]{$D_{#1}$}
+\newcommand{\TBKN}[1]{T\ensuremath{_{\textrm{BKN}}}}
+\newcommand{\celsius}{$^{\circ}$C}
+\newcommand{\percentwt}{\%\ensuremath{_{\textrm{wt}}}}
+%\newcommand{\tild}{\raisebox{0.5ex}{\texttildelow}}
+\newcommand{\tilde}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}
+% Author names in capital letters:
+\authorrunninghead{QUINN ET AL.}
+
+% Shorter version of title entered in capital letters:
+\titlerunninghead{SALINIAN XENOLITHS}
+
+\begin{document}
+
+%% ------------------------------------------------------------------------ %%
+%
+%  TITLE
+%
+%% ------------------------------------------------------------------------ %%
+
+
+\title{Probing the origin of the sub-Salinia mantle lithosphere using spinel lherzolite xenoliths from Crystal Knob, Santa Lucia Range, California
+}
+%
+% e.g., \title{Terrestrial ring current:
+% Origin, formation, and decay $\alpha\beta\Gamma\Delta$}
+% You may use \\ to break the title over several lines.
+
+%% ------------------------------------------------------------------------ %%
+%
+%  AUTHORS AND AFFILIATIONS
+%
+%% ------------------------------------------------------------------------ %%
+
+
+%Use \author{\altaffilmark{}} and \altaffiltext{}
+
+% \altaffilmark will produce footnote;
+% matching altaffiltext will appear at bottom of page.
+% May use \\ to start a new line.
+
+\authors{D. P. Quinn, \altaffilmark{1}
+J. Saleeby, \altaffilmark{1} M. Ducea, \altaffilmark{2,3}
+and P. Luffi\altaffilmark{3}}
+
+\altaffiltext{1}{Department of Geological and Planetary Sciences, California Institute of Technology, Pasadena, California, USA.}
+
+\altaffiltext{2}{Department of Geosciences, University of Arizona, Tuscon, Arizona, USA.}
+
+\altaffiltext{3}{Facultatea de Geologie-Geofizica, Universitatea Bucuresti, Bucharest, Romania.}
+
+%% ------------------------------------------------------------------------ %%
+%
+%  ABSTRACT
+%
+%% ------------------------------------------------------------------------ %%
+
+% >> Do NOT include any \begin...\end commands within
+% >> the body of the abstract.
+
+\begin{abstract}
+\input{build/abstract.tex}
+\end{abstract}
+
+
+\begin{article}
+
+\input{build/body.tex}
+
+\bibliography{/users/daven/resources/papers/bibtex/library}
+\bibliographystyle{/users/daven/resources/papers/bibtex/styles/agu08}
+
+\end{article}
+
+
+
+
+\end{document}

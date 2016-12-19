@@ -1,0 +1,50 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+Script to collect figures and tables referenced in an YAML file.
+File will have a filename corresponding to the key in the YAML file,
+and will be placed in an 'includes' subfolder of the working directory.
+"""
+from __future__ import print_function
+import yaml
+from os import path, symlink
+from click import echo,style
+from shutil import copyfile
+
+green = lambda x: style(x,fg='green')
+cyan = lambda x: style(x, fg='cyan')
+
+search_dirs = [
+  '../graphics',
+  'includes',
+  '../analysis'
+]
+destination = 'collected'
+
+# Set method to localize file objects
+copy = True
+localize = copyfile if copy else link
+
+with open('text/includes.yaml') as f:
+    cfg = yaml.load(f)
+
+for key, spec in cfg.items():
+    fn = None
+    loc = spec.get('location',None)
+    if loc is None:
+        echo("Skipping "+green(key)+": no filename defined")
+        continue
+    for dir in search_dirs:
+        _ = path.join(dir,loc)
+        if path.isfile(_):
+            fn = _
+            break
+    if fn is None:
+        echo("No file found for figure "+green(key))
+        continue
+    newfn = path.join(destination,key+path.splitext(fn)[1])
+    localize(fn,newfn)
+    echo(cyan(fn)+" → "+cyan(newfn))
+
+
+
