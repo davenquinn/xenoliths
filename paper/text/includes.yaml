@@ -1,9 +1,9 @@
-field_photo:
-  location: figures/xenolith-photo.pdf
+- id: field_photo
+  file: figures/xenolith-photo.pdf
   caption: Source of Crystal Knob xenoliths
 
-context:
-  location: maps/map-fullpage.pdf
+- id: context
+  file: maps/map-single.pdf
   two_column: true
   caption: >
     Map of southern California showing the geologic setting
@@ -24,8 +24,8 @@ context:
     of key mid-Miocene hypabyssal intrusives (the Morro Rock--Islay Hills complex [@Stanley2000]
     and the Cambria Felsite [@Ernst1974])
 
-reconstruction:
-  location: maps/reconstruction/reconstruction-single.pdf
+- id: reconstruction
+  file: maps/reconstruction.pdf
   caption: >
     Tectonic reconstruction of the California margin at 19 Ma showing tectonic
     provinces of Salinia restored for offset along the San Andreas system.
@@ -34,39 +34,39 @@ reconstruction:
     of Salinian lithologic features is after @Schott1998,@Schott2001,@Chapman2012,@Dickinson2005.
     Reconstruction of the evolving slab window and microplate detachment after @Wilson2005.
 
-cpx_profile:
-  location: cpx-profile/output/cpx-profile.pdf
+- id: cpx_profile
+  file: cpx-profile/output/cpx-profile.pdf
   caption: Profile showing Mg\# measured across clinopyroxene grain.
 # Textures
-textures:
-  location: textures/build/textures.pdf
+- id: textures
+  file: textures/build/textures.pdf
   caption: >
     Mineral classification images of each sample (1" round thin-section)
     created atop coregistered electron backscatter optical imagery and
     showing textural variation within Crystal Knob suite.
 
-step_heating:
-  location: basalt-age/Crystal-Knob-basalt.pdf
+- id: step_heating
+  file: basalt-age/Crystal-Knob-basalt.pdf
   caption: >
     Step-heating results for Ar/Ar dating of Crystal Knob host basalt.
 
 # Major elements
-major_elements:
-  location: major-elements/build/fe-mg.pdf
+- id: major_elements
+  file: major-elements/build/fe-mg.pdf
   caption: >
     FeO vs. MgO for electron microprobe measurements of grain
     cores, showing range in major-element depletion between
     samples. Dotted lines show Mg\# levels.
 
-spinel_cr:
-  location: major-elements/build/spinel-composition.pdf
+- id: spinel_cr
+  file: major-elements/build/spinel-composition.pdf
   caption: >
     Cr# vs. Mg# for spinels, showing two groups of
     samples with low and high Cr content.
 
-spinel_correction:
+- id: spinel_correction
   type: table
-  location: major-elements/build/corrected-spinels.tex
+  file: major-elements/build/corrected-spinels.tex
   caption: "Spinel ferric iron content\\tnote{a}"
   notes:
     a: estimated from cation site balance
@@ -75,17 +75,17 @@ spinel_correction:
 
 ## Major element tables
 
-whole_rock_major:
+- id: whole_rock_major
   type: table
-  location: whole-rock/build/major-elements.tex
+  file: whole-rock/build/major-elements.tex
   two_column: true
   caption: >
     Major element composition (oxide %$_{wt}$, normalized to 100%)
     of xenolith samples recalculated from modal mineralogy.
 
 # Modal mineralogy
-modes:
-  location: modal-mineralogy/output/ternary.pdf
+- id: modes
+  file: modal-mineralogy/output/ternary.pdf
   caption: >
     Modal composition of Crystal Knob perodotites. Abyssal
     [@Asimow1999; @Baker1999] and Dish Hill [@Luffi2009] peridotite
@@ -93,18 +93,18 @@ modes:
 # Potentially add a depletion trend arrow?
 
 # Trace Elements
-spider:
-  location: trace-elements/build/trace-elements.pdf
+- id: spider
+  file: trace-elements/build/trace-elements.pdf
   caption: Clinopyroxene and orthopyroxene rare-earth element abundances.
-enrichment_trends:
-  location: trace-elements/build/enrichment.pdf
+- id: enrichment_trends
+  file: trace-elements/build/enrichment.pdf
   caption: Enrichment trends for trace elements.
-whole_rock_trace:
-  location: trace-elements/build/whole-rock.pdf
+- id: whole_rock_trace
+  file: trace-elements/build/whole-rock.pdf
   caption: >
     Trace element abundances recalculated from whole-rock major elements.
-ree_model:
-  location: depletion-model/output/depletion-model.pdf
+- id: ree_model
+  file: depletion-model/output/depletion-model.pdf
   caption: >
     Recalculated whole-rock trace elements for xenolith samples
     [Table \ref{tab:whole_rock_trace}] presented with best-fitting
@@ -117,38 +117,38 @@ ree_model:
     @Farmer1995. These fields are presented for comparison with
     the modeled composition of the enriching fluids.
 # Presumably this supersedes `enrichment trends` figure.
-ree_trends:
-  location: depletion-model/output/ree-trends.pdf
+- id: ree_trends
+  file: depletion-model/output/ree-trends.pdf
   caption: >
     REE depletion and re-enrichment trends for xenolith
     samples, calculated using the model shown in
     Figure \ref{fig:ree_model}.
 
-depletion_degrees:
+- id: depletion_degrees
   type: table
-  location: depletion-model/output/depletion_degrees.tex
+  file: depletion-model/output/depletion_degrees.tex
   caption: Depletion degrees estimated for various methods
 
 # Perhaps should add a trace-element figure that estimates whole-rock depletion
 # from dataset of @Warren2016
 # Can use partition coefficients from @WittEickschen2005
-cpx_literature_comparison:
-  location: trace-elements/build/literature-comparison.pdf
+- id: cpx_literature_comparison
+  file: trace-elements/build/literature-comparison.pdf
   caption: >
     Clinopyroxene trace elements for Crystal Knob compared to abyssal peridotite
     data compiled by @Warren2016. The Crystal Knob samples show mild to moderate
     depletion in HREEs but samples CK-3, CK-4, and CK-6 show re-enrichment of LREEs.
 
-trace_elements:
+- id: trace_elements
   type: table
-  location: trace-elements/build/trace-elements.tex
+  file: trace-elements/build/trace-elements.tex
   two_column: true
   caption: >
     Trace element abundances (ppm)
 
 # Pyroxene thermometry
-ree_temperatures:
-  location: thermometry/build/pyx-dree.pdf
+- id: ree_temperatures
+  file: thermometry/build/pyx-dree.pdf
   two_column: true
   caption: >
     **A**: Per-element equilibrium temperature for
@@ -164,13 +164,13 @@ ree_temperatures:
     kernel density estimate of TA98 temperatures and associated
     errors.
 
-temp_comparisons:
-  location: thermometry/build/temp-comparisons.pdf
+- id: temp_comparisons
+  file: thermometry/build/temp-comparisons.pdf
   caption: >
     Comparison of results from pyroxene major-element thermometers.
 
-temp_summary:
-  location: thermometry/build/temp-summary.pdf
+- id: temp_summary
+  file: thermometry/build/temp-summary.pdf
   caption: >
     Summary of temperature data showing the two temperature cohorts
     of the dataset.
@@ -181,8 +181,8 @@ temp_summary:
 # Hugh St.O'Neill 1981
 
 # Modeling
-model_results:
-  location: cooling-scenarios/build/cooling-scenarios.pdf
+- id: model_results
+  file: cooling-scenarios/build/cooling-scenarios.pdf
   two_column: true
   caption: >
     Temperature-depth profiles through the crust and upper mantle
@@ -197,9 +197,9 @@ model_results:
     the late Cretaceous [Figure \ref{fig:cross_sections}] and reheated by
     a pulse of heat from below during the Miocene slab window [Figure \ref{fig:neogene_sections}]
 
-model_tracers:
+- id: model_tracers
   two_column: true
-  location: cooling-scenarios/build/timeline.pdf
+  file: cooling-scenarios/build/timeline.pdf
   caption: >
     Temperature-time tracers for each modeled scenario shown in Figure \ref{fig:model_results}
     following the evolution of particles
@@ -238,22 +238,22 @@ model_tracers:
     material at 80 km depth for a period of 0 to 6 Myr, corresponding to a deeper version of the underplating
     in **A**. A version with no underplating is also shown.
 
-model_comparison:
-  location: cooling-scenarios/build/comparison.pdf
+- id: model_comparison
+  file: cooling-scenarios/build/comparison.pdf
   caption: >
     Comparisons of "modern" (1.65 Ma) sub-Salinia geotherms for each of the modeled scenarios.
     The profiles corresponding with a young underplated slab (Monterey-plate equivalent),
     wholesale mantle-lithosphere replacement by the slab window, and
     a Cretaceous Farallon slab both with and without deep slab-window reheating are shown.
 
-cross_sections:
-  location: cross-section/cross-section.pdf
+- id: cross_sections
+  file: cross-section/cross-section.pdf
   caption: >
     Cross sections showing the evolution of southern California during
     subduction of a large oceanic plateau during the late Cretaceous.
 
-depth:
-  location: depth-constraints/build/ca-ol-pressures.pdf
+- id: depth
+  file: depth-constraints/build/ca-ol-pressures.pdf
   caption: >
     Depths from Ca-in-olivine geobarometry plotted against
     TA98 temperature. 90, 95, and 100 mW/m^2
@@ -263,13 +263,13 @@ depth:
     0.15 GPa. This data suggests that the samples were sourced from
     ~50--80 km depth.
 
-isotopes:
-  location: isotopes/build/isotope-data.pdf
+- id: isotopes
+  file: isotopes/build/isotope-data.pdf
   caption: Paired Sm-Nd and Rb-Sr isotopes.
 
-thermometry:
+- id: thermometry
   type: table
-  location: thermometry/build/temperatures.tex
+  file: thermometry/build/temperatures.tex
   caption: >
     Results of two-pyroxene thermometers
   notes:
@@ -278,30 +278,30 @@ thermometry:
       thermometers, $\sigma$ consists of errors between samples. For REE thermometer,
       it is regression error.
 
-minerals:
+- id: minerals
   type: table
-  location: mineral-compositions/build/minerals.tex
+  file: mineral-compositions/build/minerals.tex
   two_column: true
   caption: >
     Average composition\tnote{a} of xenolith mineral components
   notes:
     a: oxide weight percent
 
-lava_minerals:
+- id: lava_minerals
   type: table
   two_column: true
-  location: mineral-compositions/build/lava_minerals.tex
+  file: mineral-compositions/build/lava_minerals.tex
   caption: Representative compositions\tnote{a} of minerals in the host lava
   notes:
     a: oxide weight percent
 
-model_setups:
+- id: model_setups
   type: table
-  location: model-setups.tex
+  file: model-setups.tex
   caption: Material properties used in modeling
 
-neogene_sections:
-  location: cross-section/neogene-cross-sections.pdf
+- id: neogene_sections
+  file: cross-section/neogene-cross-sections.pdf
   caption: >
     Schematic cross-sections showing potential scenarios for modification of the
     marginal mantle lithosphere at the end of subduction in the early Miocene.
@@ -314,15 +314,15 @@ neogene_sections:
     and dextral strike-slip translation beneath te continental margin, replacing
     marginal continental mantle lithosphere \figp{monterey_plate}.
 
-isotopes_table:
-  location: isotopes/build/isotope-data.tex
+- id: isotopes_table
+  file: isotopes/build/isotope-data.tex
   two_column: true
   type: table
   caption: >
     Radiogenic isotope measurements
 
-monterey_plate:
-  location: translating-slab/translating-slab.png
+- id: monterey_plate
+  file: translating-slab/translating-slab.png
   caption: >
     Schematic representation of the Monterey plate dangling slab scenario
     for the origin of the sub-Salinian mantle lithosphere as envisioned

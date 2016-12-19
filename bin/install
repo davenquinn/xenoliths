@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+project_dir=${0:h:h}
+
+# Install python modules
+pymodules=(application modules/bib-filter \
+          modules/figurator paper)
+
+for m in $pymodules; do
+  print -P "Installing %F{green}%B${m}%b%f"
+  pip install -e $project_dir/$m
+  echo ""
+done

@@ -1,19 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+# Generates a list of figures and descriptions that can
+# be piped to pandoc and/or latex
 from __future__ import print_function
-import yaml
 from sys import argv
+from figurator import process_includes, load_spec
+import re
 
-with open(argv[1]) as f:
-    cfg = yaml.load(f)
+spec = load_spec(argv[1], captions=argv[2])
+__ = process_includes(spec, collect_dir='collected-figures', starred_floats=False)
 
-print("# Figures\n")
-
-for i,(key, spec) in enumerate(cfg.items()):
-    if spec.pop('type','Figure') == 'Table':
-        continue
-    st = u"**Figure {0}:** ".format(i+1)
-    st += spec['caption']
-    print(st+'\n')
-print("# References")
+for cfg, item in zip(spec,__):
+    print(item)

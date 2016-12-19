@@ -9,6 +9,7 @@ import numpy as N
 from collections import OrderedDict
 from jinja2 import Environment, FileSystemLoader
 from .units import filter_SI_units
+from figurator import process_includes, load_spec
 
 def pandoc_processor(text):
     return pypandoc.convert(text, 'latex',
@@ -95,6 +96,13 @@ replacements = [
 
 def process_text(directory):
 
+    specfile = path.join(directory,"includes.yaml")
+    captions = path.join(directory,"figure-captions.md")
+    spec = load_spec(specfile, captions=captions)
+    includes = process_includes(
+            spec,
+            collect_dir='collected')
+
     body_renderer = Environment(
         block_start_string = '[[*',
         block_end_string = '*]]',
@@ -103,35 +111,10 @@ def process_text(directory):
         comment_start_string = '[[=',
         comment_end_string = '=]]',
         loader = FileSystemLoader(directory))
-    body_renderer.filters["figure"] = make_figure
-    body_renderer.filters["table"] = make_table
+    body_renderer.filters["figure"] = lambda x: x
+    body_renderer.filters["table"] = lambda x: x
 
-    with open(path.join(directory,"includes.yaml")) as f:
-        includes = yaml.safe_load(f)
-    def update(label,item):
-        loc = item.pop('location',None)
-        if loc:
-            ex = path.splitext(loc)[1]
-            loc = path.join(dir,label+ex)
-        item['location'] = loc
-        _ = dict(
-            scale=None,
-            label=label,
-            type='figure',
-            two_column=False,
-            width='20pc',
-            sideways=False,
-            caption="")
-        _.update(**item)
-        star = "*" if _["two_column"] else ""
-
-        if _['two_column']:
-            _['width'] = '42pc'
-
-        _["env"] = _["type"] + star
-        return _
-    items = {l: update(l,d)
-            for l,d in includes.items()}
+    items = {l:d for l,d in includes}
 
     tpl = body_renderer.get_template("body.md")
     text = tpl.render(**items)

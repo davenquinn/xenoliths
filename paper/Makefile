@@ -62,12 +62,12 @@ draft: text citations
 	mv build/draft.pdf output/draft.pdf
 
 $(BIBFILE): build/main.aux $(LIBRARY)
-	scripts/bib-filter/bib-filter --clean --aux $^ $@
+	bib-filter --clean --aux $^ $@
 
-build/figures.md: text/includes.yaml
-	scripts/inline-figures $^ > $@
+#build/figures.md: text/includes.yaml
+	#scripts/inline-figures $^ > $@
 
-$(doc): text/abstract.md text/body.md build/figures.md
+$(doc): text/abstract.md text/body.md
 	pandoc -t docx --bibliography=$(BIBFILE) --csl=$(BIBSTYLE) -o $@ $^
 
 $(remote): $(out)
