@@ -1,0 +1,48 @@
+#!/usr/bin/env zsh
+
+# collect includes
+bin/collect-figures
+
+build_dir='build'
+
+infile=text/body.md
+body="$build_dir/draft_body.tex"
+bibfile="source/references.bib"
+texfile="$build_dir/draft.tex"
+auxfile="${texfile:r}.aux"
+
+function run-latex {
+  xelatex -interaction=nonstopmode -output-directory $build_dir $1
+}
+
+# build_dir
+mkdir -p $build_dir
+
+# Process body text
+paper create-body text $body
+# Process abstract
+pandoc -t latex --natbib -o build/abstract.tex text/abstract.md
+
+cp tex/draft.tex $texfile
+
+if [[ ! -f $auxfile ]]; then
+  run-latex $texfile
+  bibtex $auxfile
+fi
+
+# Filter bibliography
+LIBRARY="/Users/Daven/Resources/Papers/BibTeX/library.bib"
+bib-filter --clean --aux $auxfile $LIBRARY $bibfile
+# rebuild citations
+bibtex $auxfile
+
+FN=build/figure-list.tex
+# Making figure list
+rm -f $FN
+figure-list --captions text/figure-captions.md \
+  --collect-dir collected \
+  text/includes.yaml > $FN
+
+run-latex $texfile
+
+mv build/draft.pdf output/draft.pdf

@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+dir=${0:h:h}
+cd $dir
+
+# Collect figures
+bin/collect-figures
+
+body='build/body.tex'
+
+# Process body text
+paper create-body --inline-figures text $body
+# Process abstract
+pandoc -t latex --natbib -o build/abstract.tex text/abstract.md
+
+auxfile=build/main.aux
+# build citations
+bibtex $auxfile
+# Filter bibliography
+LIBRARY=/Users/Daven/Resources/Papers/bibtex/library.bib
+bib-filter --clean --aux $auxfile $LIBRARY
+# rebuild citations
+bibtex $auxfile
+
+xelatex \
+    -interaction=nonstopmode \
+    -output-directory build "source/main.tex"
+
+mv build/main.pdf output/Quinn-2016-xenoliths.pdf

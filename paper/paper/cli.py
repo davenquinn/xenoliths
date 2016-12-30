@@ -18,8 +18,9 @@ def figures(all):
 @cli.command(name="create-body")
 @click.argument('directory',click.Path())
 @click.argument('outfile',click.Path())
-def create_body(directory, outfile):
-    write_file(outfile,process_text(directory))
+@click.option('--inline-figures', is_flag=True, default=False)
+def create_body(directory, outfile, inline_figures=True):
+    write_file(outfile,process_text(directory, inline_figures=inline_figures))
 
 @cli.command(name='standalone-table')
 @click.option('--landscape',is_flag=True, default=False)

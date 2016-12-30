@@ -27,24 +27,19 @@
 \usepackage[flushleft]{threeparttable}
 \usepackage[justification=justified,singlelinecheck=false,skip=0pt]{caption}
 
-\input{../paper/tex/includes/fonts.tex}
+\input{tex/includes/fonts.tex}
 
 % biblatex options
 %\renewcommand{\bibfont}{\small}	% Change the font size of the bibliography
 %\renewcommand{\bibsection}{\subsubsection*{\refname}}
 %\newcommand{\tild}{\texttildelow}
 % Image width
-\setkeys{Gin}{width=4in,height=5in,keepaspectratio}
+%\setkeys{Gin}{width=4in,height=5in,keepaspectratio}
 
 \setlist[itemize]{leftmargin=*}
 \setlist{nolistsep}
 
-\newcommand{\figp}[1]{[Figure \ref{fig:#1}]}
-\newcommand{\figt}[1]{Figure \ref{fig:#1}}
-\newcommand{\tabref}[1]{[Table \ref{tab:#1}]}
-\newcommand{\appref}[1]{[see Appendix \ref{app:#1}]}
-\newcommand{\km}[1]{\SI{#1}{\kilo\meter}}
-
+\input{tex/includes/defs.tex}
 %\usepackage[super]{natbib}
 %\usepackage{natbib}
 
@@ -65,7 +60,7 @@
 
 \begin{document}
 
-\begin{spacing}{0.8}\noindent\Gotham\Large\textbf{Xenoliths}\end{spacing}
+\begin{spacing}{0.8}\noindent\Gotham\Large\textbf{Xenolith}\end{spacing}
 
 {\noindent\GothamLight\normalsize\textbf{Daven Quinn}}\\
 
@@ -73,7 +68,7 @@
 \input{draft_body.tex}
 \end{spacing}
 
-\bibliographystyle{source/lib/agu08}
+\bibliographystyle{/users/daven/resources/papers/bibtex/styles/agu08}
 \bibliography{source/references}
 
 \pagebreak
@@ -85,5 +80,4 @@
 \input{figure-list.tex}
 
 \end{document}
-
 

@@ -535,6 +535,7 @@ The relative immobility of REEs allows assessment
 of equilibrium temperatures over longer timescales than those queried
 with two-pyroxene cation exchange thermometry.
 
+
 - Calculate a per-element equilibrium temperature
 - Best fitting line from zero through the data cloud gives sample
   equilibrium temperature
@@ -634,6 +635,9 @@ ranging from 35 to 52 km.
 The low and high-temperature cohorts remain separable, with high-temperature
 samples generally showing deeper equilibrium depths.
 
+To convert between depth and pressure, we assume a constant geobaric
+gradient of 30 km/GPa.
+
 <!-- This paragraph needs more -->
 The Cr\# of the hotter samples expands the stability field of
 spinel against garnet to deeper depths. Several studies have attempted to estimate
@@ -654,7 +658,8 @@ Discussion
 ## Petrology
 
 The peridotite samples from Crystal Knob show a range of depletion in
-major and trace elements. They are isotopically depleted, with an εNd of
+major and trace elements. They are isotopically depleted, with an
+$\epsilon_\mathrm{Nd}$ of
 +10, and \ce{^{87}Sr}/\ce{^{86}Sr} of .7029. <!-- (Daven, the Nd and Sr
 data in Table 4 are given as measured. In the table you should also show
 the time corrected Nd and Sr isotopic ratios and epslon Nd  value for a
@@ -769,7 +774,7 @@ amounts of interaction with the enriched fluid are required to explain
 the observed level of re-enrichment, with the most seen by samples CK-3
 and CK-4 \figp{ree_trends}.
 
-Primary depletion degrees of the xenolith samples are estimated finding
+Primary depletion degrees of the xenolith samples are estimated by finding
 the model compositions which best fit the whole-rock HREE, MgO, and
 \ce{Al2O3} composition of each sample. Results are summarized
 in Table \ref{tab:depletion degrees} and are superficially similar to
@@ -1062,7 +1067,7 @@ arc, and retrogressed to ~715ºC, peak temperatures recorded in shallowly
 subducted metaclastic rocks of the Sierra de Salinas schist, exposed in
 the principal Salinia window into the subduction channel schists [@Kidder2006].
 
-In Figures \ref{fig:cross_sections}c and d we adopt the focused slab rollback and mantle
+In Figure \ref{fig:cross_sections}C and D we adopt the focused slab rollback and mantle
 lithosphere underplating models of @Saleeby2003 and @Luffi2009,
 for the dynamic response of normal thickness oceanic lithosphere
 following the crustal thickened oceanic plateau down the subduction
@@ -1109,8 +1114,8 @@ constrained, and likely to vary geographically as a function of
 thickness and thermal variations in the pre-existing lithospheric lid,
 as well its state of stress and structural coherency. Though volcanism
 in the central California Coast Ranges has been tied to slab window
-opening, its volume has not been consistent with other episodes of
-shallow asthenospheric upwelling in the Cordillera, particularly in the
+opening, its volume has not been consistent with volcanism associated other episodes of
+shallow asthenospheric upwelling in the Cordillera particularly in the
 forearc region of coastal central California [@Humphreys1995] <!-- not
 familiar with this ref, please double check for its applicability-->.
 This is readily explained if the slab window opened beneath a tiered
@@ -1207,6 +1212,8 @@ work, for their data is very useful.
 - Model the relaxation of the geotherm during subduction and underplating
 
 ### Setups
+
+
 
 - Global Depth and Heat model for oceanic crust
 - Forearc geotherm model [@Royden1993]
@@ -1500,9 +1507,9 @@ Hosgri fault [@Dickinson2005; @Hardebeck2012] indicate that it
 was likely active during the eruption of the Crystal Knob neck.
 Integration of theoretical and observational data on intra-continental
 transform faults [@Platt2011; @Titus2007] indicate
-that at lower crustal-upper mantle levels Hosgri fault shear could be
-distributed across 10’s of kilometers normal to the fault surface
-\figref{neogene_sections}. Eruption of small-volume basaltic flows of Plio-Pleistocene age,
+that at lower crustal--upper mantle levels Hosgri fault shear could be
+distributed across 10s of kilometers normal to the fault surface [Figure \ref{neogene_sections}].
+Eruption of small-volume basaltic flows of Plio-Pleistocene age,
 some with lower crust and upper mantle xenoliths also occurred ~150 km
 north of Crystal Knob along the San Andreas-Calaveras fault bifurcation
 zone [@Jove1998; @Titus2007]. Xenoliths recovered
@@ -1538,6 +1545,9 @@ Conclusion
 - Farallon heated from below seems to work well
     - Provides a thermal buffer for low-heatflow coast range and can
       potentially help explain the Coast Range Thermal Anomaly
+
+Thermal relaxation of a young stalled slab is largely similar to
+a deep slab window, thermally buffered by old lithosphere.
 
 An initial petrologic study of the Crystal Knob peridotite xenoliths has
 been conducted, and thermobarometry has been applied to examine the

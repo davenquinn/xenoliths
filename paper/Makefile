@@ -25,7 +25,10 @@ build:
 output:
 	mkdir -p $@
 
-build/body.tex: text/body.md text/includes.yaml $(wildcard collected/*.tex)
+includes=build/.includes
+citations=build/.citations
+
+build/body.tex: text/body.md $(includes) $(wildcard collected/*.tex)
 	paper create-body text $@
 
 build/abstract.tex: text/abstract.md
@@ -36,25 +39,26 @@ text=build/body.tex build/abstract.tex
 build/main.aux: $(text)
 source/main.tex: $(text)
 
-citations: build/main.aux $(BIBFILE)
+$(citations): build/main.aux $(BIBFILE)
 	echo "Updating Bibliograpy"
 	-bibtex $<
 	-bibtex $(AUXFILE_D)
+	touch $@
 
 collected:
 	mkdir -p $@
 
-.PHONY: includes
-includes: text/includes.yaml | collected
+$(includes): text/includes.yaml | collected
 	scripts/collect-figures
+	touch $@
 
 XELATEX = -xelatex -interaction=nonstopmode -output-directory build
 
-$(out): source/main.tex citations includes
+$(out): source/main.tex $(citations) $(includes)
 	$(XELATEX) $<
 	mv build/main.pdf $@
 
-draft: text citations
+draft: text $(citations)
 	cp build/body.tex build/body_draft.tex
 	sed -i 's/{table\*}/{table}/g' build/body_draft.tex
 	sed -i 's/{figure\*}/{figure}/g' build/body_draft.tex
@@ -63,9 +67,6 @@ draft: text citations
 
 $(BIBFILE): build/main.aux $(LIBRARY)
 	bib-filter --clean --aux $^ $@
-
-#build/figures.md: text/includes.yaml
-	#scripts/inline-figures $^ > $@
 
 $(doc): text/abstract.md text/body.md
 	pandoc -t docx --bibliography=$(BIBFILE) --csl=$(BIBSTYLE) -o $@ $^
