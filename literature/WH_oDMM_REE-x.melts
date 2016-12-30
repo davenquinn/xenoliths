@@ -1,4 +1,4 @@
-Title: Depleted MORB Mantle of Workmann & Hart 2005 no NiO(0.24), K2O(0.06), P2O5(0.019)
+Title: Depleted MORB Mantle of Workmann & Hart 2005
 Initial Composition: SiO2 44.71
 Initial Composition: Al2O3 3.98
 Initial Composition: Fe2O3 0.191
@@ -9,7 +9,9 @@ Initial Composition: CaO 3.17
 Initial Composition: Na2O 0.28
 Initial Composition: Cr2O3 0.57
 Initial Composition: TiO2 0.13
-Initial Composition: K2O 0
+Initial Composition: NiO 0.24
+Initial Composition: P2O5 0.019
+Initial Composition: K2O 0.06
 Initial Composition: H2O 0
 Initial Mass: 100
 Initial Trace: La 0.192
@@ -25,7 +27,8 @@ Initial Trace: Ho 0.115
 Initial Trace: Er 0.348
 Initial Trace: Yb 0.365
 Initial Trace: Lu 0.058
-Initial Temperature: 1500.0
-Initial Pressure: 30000
-Log FO2 Path: FMQ
+Initial Temperature: 1545.0
+Initial Pressure: 35000
+Log fO2 Path: NONE
+Log fO2 Delta: 0.0
 
