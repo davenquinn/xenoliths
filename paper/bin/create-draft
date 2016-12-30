@@ -27,9 +27,9 @@ cp tex/draft.tex $texfile
 
 if [[ ! -f $auxfile ]]; then
   run-latex $texfile
-  bibtex $auxfile
 fi
 
+bibtex $auxfile
 # Filter bibliography
 LIBRARY="/Users/Daven/Resources/Papers/BibTeX/library.bib"
 bib-filter --clean --aux $auxfile $LIBRARY $bibfile

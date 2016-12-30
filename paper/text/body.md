@@ -317,8 +317,8 @@ across the thin section. This channel is bounded by resorbed boundaries
 of the major phases (olivine and orthopyroxene) and hosts
 microcrystalline clinopyroxene, 10 µm euhedral spinels,
 and minor amphibole. Near this melt channel, thin streamers of
-intergranular fills show compositions enriched in Na and Ti. These
-intergranular fills are present (but less extensive) in sample CK-3, and
+intergranular fill show compositions enriched in Na and Ti. These
+fills are present (but less extensive) in sample CK-3, and
 generally absent in other samples. Samples other than CK-3 and CK-4
 largely do not show melt infiltration along grain boundaries, instead
 having major phases in contact (though most are fractured along these surfaces).
@@ -459,7 +459,7 @@ seen in the Crystal Knob dataset.
 [[thermometry|table]]
 
 Core and rim measurements are separated to assess within-sample
-temperature evolution and potential late-stage heating. Analytical errors (caused by
+temperature disequilibrium and late-stage (e.g. eruptive) heating. Analytical errors (caused by
 uncertainty in microprobe data) are small, on the order of 5ºC (1$\sigma$).
 Other sources of error include the calibration of the thermometer
 and potential bias from within-sample disequilibrium. @Taylor1998
@@ -482,7 +482,7 @@ approximation of measurement precision.
 TA98 and BKN temperatures have a strong linear relationship, with BKN
 temperature estimates higher by up to 50ºC.
 The disparity decreases
-towards higher temperatures and corresponds well to the relationship between
+towards higher temperatures and conforms to the relationship between
 the two thermometers found by @Nimis2010.
 This relationship can be expressed as
 $\textrm{T}_\textrm{BKN} = 0.9~\textrm{T}_\textrm{TA98} + 145$ for temperatures
@@ -577,7 +577,7 @@ elements heavier than Ho retaining an equilibrium signature.
 [[depth|figure]]
 
 Peridotite barometers are based on the decreasing Al content of
-orthopyroxene with depth [@Nickel1985;@Brey1990;@Nimis2000]. However, in
+orthopyroxene with depth [@Nickel1985; @Brey1990; @Nimis2000]. However, in
 the absence of garnet, the reaction is purely thermometric, with nearly
 vertical isopleths in P-T space [@Herzberg1978; @Gasparik2000]. With no
 reliable geobarometers for spinel peridotites, several less robust
@@ -625,7 +625,7 @@ xenoliths using the @Kohler1990 Ca-in-olivine
 barometer. This barometer is explicitly calibrated for spinel
 peridotites but widely disregarded based on poor resolution,
 vulnerability to late-stage diffusion, and dependence on low Ca
-concentrations in olivine [@Medaris1999;@OReilly1997].
+concentrations in olivine [@Medaris1999; @OReilly1997].
 This technique yields a broad distribution in model depths,
 largely coincident with the spinel stability field \figref{depth}.
 The low-temperature samples in particular have significant scatter
@@ -641,7 +641,7 @@ gradient of 30 km/GPa.
 <!-- This paragraph needs more -->
 The Cr\# of the hotter samples expands the stability field of
 spinel against garnet to deeper depths. Several studies have attempted to estimate
-the magnitude of this effect [@Klemme2000;@Klemme2004;@ONeill1981].
+the magnitude of this effect [@Klemme2000; @Klemme2004; @ONeill1981].
 Figure \ref{depth} shows the depth increases estimated by the
 simplified method given in  @ONeill1981, showing that potential depths increase by up to
 10 km. If these deeper depths are valid, the outlined
@@ -744,21 +744,24 @@ in *alphaMELTS* [@Smith2005b] to illuminate the probable depletion and
 re-enrichment paths of the Crystal Knob sample.
 A generic model of peridotite depletion is constructed, in which
 a parcel of material starting at a mantle
-potential temperature of 1545ºC at 3.5 GPa
-and a primitive-mantle composition [@Sun1989] is
-tracked along an isentropic fractional melting path
-(with a melt porosity of 1%) .
+potential temperature of 1470ºC at 3.0 GPa
+and a depleted MORB mantle composition [@Workman2005] is
+tracked along an isentropic fractional melting path with a melt porosity of 1%.
 These starting parameters were chosen to provide the best correspondence
 with the overall experimental dataset.
-The model step along this adiabatic path that best matches the HREE (Tb--Lu)
-composition of the sample (using least-squares error minimization) is used as an
-estimate of its likely depletion level, since HREEs are not likely to be
-easily modified by late re-enrichment due to their low diffusion rates. The difference
-between the sample composition and the best-fitting depleted
-profile is taken as the contribution from a batch interaction with an
-enriching fluid. The presented composition of the enriching fluid
-assumes mineral-melt partition coefficients from @Lee2007 and are
-normalized to an average HREE concentration of 6$\times$primitive mantle.
+
+The HREE (Er--Lu) composition of Crystal Knob xenolith samples are fit
+to model step along this adiabatic path using least-squares error
+minimization.
+Since HREEs are not likely to be
+easily modified by late re-enrichment due to their low diffusion rates,
+the best-fitting model step is used as an estimate of single-stage
+depletion of the samples during decompression melting. 
+
+The difference between the sample composition and this fitted depleted
+profile is taken as the contribution from batch addition of an
+enriching fluid. The REE concentrations of the enriching agent are then
+normalized to an average of 12$\times$primitive mantle.
 The normalization factor employed to shift the composition of enriching
 fluids to this value is shown in Figure \ref{fig:ree_trends} and corresponds
 roughly to the amount of LREE added during re-enrichment.
