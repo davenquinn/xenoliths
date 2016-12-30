@@ -77,7 +77,7 @@ def run_model(src,dst,clinopyroxene=False):
             plot("Modeled depleted", d.columns,row, linestyle='--')
 
             v = enrichment.ix[row.name]
-            plot("Enriching fluid",d.columns,v, linestyle=':')
+            plot("Enriching fluid (assimilated)",d.columns,v, linestyle=':')
 
         # Plot NMORB
         ax.plot(NMORB_trace.columns, NMORB_trace.ix[0,:],
@@ -91,7 +91,7 @@ def run_model(src,dst,clinopyroxene=False):
             edgecolor='none',
             zorder=-10)
 
-        ax.set_ylim(.01,100)
+        ax.set_ylim(.01,200)
         ax.set_xlim(element('La')-0.3,element('Lu')+0.3)
         ax.yaxis.set_ticklabels(["{:g}".format(v) for v in ax.yaxis.get_ticklocs()])
         ax.set_ylabel(s.capitalize()+" REE / Primitive Mantle")

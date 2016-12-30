@@ -25,7 +25,7 @@ ALPHAMELTS_MODE isentropic
 ALPHAMELTS_DELTAP -10
 ALPHAMELTS_DELTAT 0
 ALPHAMELTS_MAXP 40000
-ALPHAMELTS_MINP 5000
+ALPHAMELTS_MINP 1000
 ALPHAMELTS_MAXT 1700
 ALPHAMELTS_MINT 900
 
@@ -47,10 +47,10 @@ ALPHAMELTS_FRACTIONATE_WATER      true
 ! the next six options refer to the trace element engine
 ALPHAMELTS_DO_TRACE            true
 ! Not sure if I should use variable partition coefficients
-ALPHAMELTS_TRACE_VARIABLE_D false
+!ALPHAMELTS_TRACE_VARIABLE_D true
 ! Normalize to Sun and McDonough primitive mantle
 ALPHAMELTS_TRACE_NORMALIZATION 1
-ALPHAMELTS_TRACE_INPUT_FILE literature/Lee_Yao_trace.melts-settings
+ALPHAMELTS_TRACE_INPUT_FILE ../literature/Lee_Yao_trace.melts-settings
 !ALPHAMELTS_TRACE_OUTPUT_FILE trace.out
 !ALPHAMELTS_TRACE_DEFAULT_DPTX true
 !ALPHAMELTS_TRACE_INPUT_FILE   yourtraceinfile.txt

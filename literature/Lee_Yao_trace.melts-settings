@@ -1,5 +1,3 @@
-! Ortho and clinopyroxene partition coefficients for REEs are set based on Yao et al, 2012
-! values at 1300 ºC (Table 4)
 Set D: clinopyroxene La 0.0466
 Set D: clinopyroxene Ce 0.0733
 Set D: clinopyroxene Pr 0.1093
@@ -28,8 +26,6 @@ Set D: orthopyroxene Er 0.0714
 Set D: orthopyroxene Tm 0.0819
 Set D: orthopyroxene Yb 0.0913
 Set D: orthopyroxene Lu 0.0995
-! Olivine and spinel partition coefficients (and Ni coefficients
-! for pyroxenes) are set based on Lee et al, 2007
 Set D: clinopyroxene Ni 1.200000
 Set D: orthopyroxene Ni 2.600000
 Set D: olivine La 0.000001

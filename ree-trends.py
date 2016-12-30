@@ -24,20 +24,22 @@ def run_model():
 
     s = 100-depleted.mass
     s.name = 'Depletion'
-    v = multiplier
+    v = 1/multiplier
     v.name = 'Enrichment'
     df = concat([s,v,colors],axis=1)
-    fig, ax = plt.subplots(figsize=(4.25,3.75))
+    fig, ax = plt.subplots(figsize=(4,3.5))
     ax.scatter(df.Depletion,df.Enrichment,color=df.color,s=20)
     for i,row in df.iterrows():
         y = 0
-        if i in ['CK-4','CK-6']:
+        if i in ['CK-3','CK-6']:
             y -= 6
         ax.annotate(i,xy=(row.Depletion,row.Enrichment),
             color=row.color,xytext=(5,y),textcoords='offset points')
     ax.set_xlabel(r'HREE depletion degrees (%)')
     ax.set_ylabel(r'Mass ratio: re-enriching fluid/sample')
 
+    ax.set_xlim([0,20])
+    ax.set_ylim([0,0.012])
     fig.savefig('output/ree-trends.pdf',bbox_inches='tight')
 
 if __name__ == '__main__':

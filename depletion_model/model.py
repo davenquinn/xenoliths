@@ -78,7 +78,7 @@ class DepletionModel(object):
         heavy rare-earth elements.
         """
         table = kwargs.pop('table','Solid Trace')
-        Tb, Lu = element('Tb'), element('Lu')
+        Tb, Lu = element('Er'), element('Lu')
         func = lambda i: Tb <= element(i) <= Lu
         return self.fit(table, data, func)
 
@@ -101,15 +101,18 @@ class DepletionModel(object):
         # depletion-only scenario
         delta = data-depleted
 
-        delta[delta < 0] = 0
+        delta[delta < 0] = N.nan
         # Don't use partiton coefficients because we want to
         # model melt assimilation rather than equilibration
-        enrichment = ree_only(data+delta)
+        enrichment = ree_only(delta)
 
         # Normalize to mean HREE (averaging in log space)
         hree = N.exp(N.log(enrichment[[66,67,68,70,71]]).mean(axis=1))
+        # normalize to average of everything
+        avg = N.exp(N.log(enrichment).mean(axis=1))
         # Amount of enriching agent that is needed to bring HREE to 6
-        multiplier = 6/hree
+        multiplier = 12/avg
+        #multiplier = 1
 
         enrichment = enrichment.mul(multiplier,axis=0)
         # Save multiplier for use as "amount of enrichment" for new figure
