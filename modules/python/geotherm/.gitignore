@@ -1,0 +1,11 @@
+*.pyc
+*.sublime-*
+resources
+data
+archive
+.DS_Store
+.cache
+
+*.egg-info
+
+notebooks/.ipynb_checkpoints
