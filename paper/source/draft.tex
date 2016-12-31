@@ -27,7 +27,7 @@
 \usepackage[flushleft]{threeparttable}
 \usepackage[justification=justified,singlelinecheck=false,skip=0pt]{caption}
 
-\input{tex/includes/fonts.tex}
+\input{source/includes/fonts.tex}
 
 % biblatex options
 %\renewcommand{\bibfont}{\small}	% Change the font size of the bibliography
@@ -39,7 +39,7 @@
 \setlist[itemize]{leftmargin=*}
 \setlist{nolistsep}
 
-\input{tex/includes/defs.tex}
+\input{source/includes/defs.tex}
 %\usepackage[super]{natbib}
 %\usepackage{natbib}
 
@@ -51,7 +51,7 @@
 % Font substitutions for math
 \usepackage[Latin,Greek]{ucharclasses}
 \newfontfamily\substitutefont{CMU Serif}
-\setTransitionsForGreek{\begingroup\substitutefont}{\endgroup}
+\setTransitionsForGreek{\substitutefont}{}
 
 \renewcommand{\maketitlehooka}{\Gotham}
 \titleformat{\section}{\Gotham\large\bfseries}{\thesection}{1em}{}
@@ -67,7 +67,7 @@
 {\noindent\GothamLight\normalsize\textbf{Daven Quinn}}\\
 
 \begin{spacing}{1.2}
-\input{draft_body.tex}
+\input{build/draft_body.tex}
 \end{spacing}
 
 \bibliographystyle{/users/daven/resources/papers/bibtex/styles/agu08}
@@ -79,7 +79,7 @@
 
 \setcounter{secnumdepth}{-1}
 
-\input{figure-list.tex}
+\input{build/figure-list.tex}
 
 \end{document}
 
