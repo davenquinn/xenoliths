@@ -1,0 +1,30 @@
+<# macro loop(data) -#>
+  <#- for i,row in data #>
+    << row.sample_id >>
+    <#- for el in elements -#>
+    & << row[el]|n >>
+    <#- endfor #> & << row.n >> \\
+  <#- endfor #>
+<#- endmacro #>
+\begin{tabular}{l<< " r"*(ncols-1) >>}
+\hline
+  Sample
+  <#- for el in elements -#>
+  & \ce{<< el >>}
+  <#- endfor #> & $n$ \\
+\hline
+\multicolumn{<<ncols>>}{l}{Clinopyroxene} \\
+\hline
+<< loop(cpx) >>
+\hline
+\multicolumn{<<ncols>>}{l}{Orthopyroxene} \\
+\hline
+<< loop(opx) >>
+\hline
+\multicolumn{<<ncols>>}{l}{Whole-rock (recalculated)} \\
+\hline
+<< loop(whole_rock) >>
+\hline
+\end{tabular}
+
+
