@@ -1,0 +1,9 @@
+Mineral,formula,source,deltaG_f,deltaH_f,S_0,V_0(298)
+Forsterite,Mg2SiO4,AndersonV2,-2055.1,-2174,95.14,
+Enstatite,MgSiO3,AndersonV2,-1462.09,-1549,67.74,
+Periclase,MgO,AndersonV2,-569.43,,26.94,
+Corundum,Al2O3,AndersonV2,-1582.3,,50.92,
+Quartz,SiO2,AndersonV2,-856.64,,41.84,
+Pyrope,Mg3Al2Si3O12,Klemme04,,-6282.9,266.4,11.318
+Enstatite,Mg2Si2O6,Klemme04,,-3089.4,132.5,6.262
+Forsterite,Mg2SiO4,Klemme04,,-2171.87,94.01,4.366
