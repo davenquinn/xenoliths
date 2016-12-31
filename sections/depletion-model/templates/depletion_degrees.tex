@@ -1,0 +1,16 @@
+\begin{tabular}{l r r r}
+\toprule
+ Sample &
+  F_\textrm{HREE} (\%) &
+  F_\ce{MgO} (\%) &
+  F_\ce{Al2O3} (\%) \\
+\midrule
+<#- for s in samples  #>
+  << s.sample_id >> &
+  << s.ree| n(1) >> &
+  << s.MgO |n(1) >> &
+  << s.Al2O3 |n(1) >> \\
+<#- endfor -#>
+\bottomrule
+\end{tabular}
+
