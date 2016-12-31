@@ -10,6 +10,6 @@
 [submodule "d3-plot-area"]
 	path = graphics/cooling-scenarios/d3-plot-area
   url = git://github.com/davenquinn/d3-plot-area.git
-[submodule "d3-ternary"]
-	path = graphics/modal-mineralogy/d3-ternary
-	url = git://github.com/davenquinn/d3-ternary.git
+[submodule "graphics/modal-mineralogy"]
+	path = graphics/modal-mineralogy
+	url = git://github.com/davenquinn/crystal-knob-modal-mineralogy.git
