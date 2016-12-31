@@ -1,0 +1,3 @@
+[submodule "d3-ternary"]
+	path = d3-ternary
+	url = git://github.com/davenquinn/d3-ternary.git
