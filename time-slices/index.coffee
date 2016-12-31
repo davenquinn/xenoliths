@@ -74,7 +74,7 @@ func = (el, window)->
   ax = ly.axes()[1]
   g = ax.plotArea().append 'g'
 
-  g.datum {T: 715, z: 23}
+  g.datum {T: 715, z: 25}
   g.attr
     class: 'constraint'
     transform: (d)->
