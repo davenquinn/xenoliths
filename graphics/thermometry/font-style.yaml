@@ -1,0 +1,15 @@
+font:
+  size: 8
+  family: [sans-serif]
+  sans-serif:
+    - Helvetica Neue
+    - Helvetica
+    - Arial
+    - sans-serif
+  weight: light
+mathtext:
+  default: regular
+axes:
+  labelsize: 8
+  titlesize: 12
+

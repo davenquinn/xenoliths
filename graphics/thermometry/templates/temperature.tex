@@ -1,0 +1,40 @@
+<# macro temp(obj) -#>
+  << obj.n|n(0) >> & << obj.s|n(0)>>
+<#- endmacro #>
+<# macro un() -#>
+\mu & \sigma
+<#- endmacro #>
+<# macro tloop(k, s) -#>
+    << temp(s.ta98) >> &
+    << temp(s.bkn) >> &
+    << temp(s.ca_opx_corr) >> &
+    << s.n_opx|n(0) >> &
+    << s.n_cpx|n(0) >> &
+    <# if k == 'core' #>
+    << temp(s.ree) >>
+    <# else #> &
+    <# endif #>
+   \\
+<#- endmacro #>
+\begin{tabular}{l r r r r r r r r r r r}
+\hline
+Sample &
+\multicolumn{2}{c}{TA98} &
+\multicolumn{2}{c}{BKN} &
+\multicolumn{2}{c}{Ca-Opx} & & &
+\multicolumn{2}{c}{REE} \\
+& << un() >> & << un() >> & << un() >> & $n_\textrm{opx}$ & $n_\textrm{cpx}$ & <<un()>> \\
+\hline
+Core \\
+\hline
+<# for s in samples  #>
+  << s.id >> & << tloop('core',s.core) >>
+<# endfor  #>
+\hline
+Rim \\
+\hline
+<# for s in samples  #>
+  << s.id >> & << tloop('rim',s.rim) >>
+<# endfor  #>
+\hline
+\end{tabular}
