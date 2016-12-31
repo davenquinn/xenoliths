@@ -6,4 +6,10 @@
 	url = git://github.com/davenquinn/figurator.git
 [submodule "modules/pdf-printer"]
 	path = modules/node/pdf-printer
-	url = git://github.com/davenquinn/pdf-printer.git
+  url = git://github.com/davenquinn/pdf-printer.git
+[submodule "d3-plot-area"]
+	path = graphics/cooling-scenarios/d3-plot-area
+  url = git://github.com/davenquinn/d3-plot-area.git
+[submodule "d3-ternary"]
+	path = graphics/modal-mineralogy/d3-ternary
+	url = git://github.com/davenquinn/d3-ternary.git
