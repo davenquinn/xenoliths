@@ -7,9 +7,9 @@
 [submodule "modules/pdf-printer"]
 	path = modules/node/pdf-printer
   url = git://github.com/davenquinn/pdf-printer.git
-[submodule "d3-plot-area"]
-	path = graphics/cooling-scenarios/d3-plot-area
+[submodule "sections/cooling-scenarios/d3-plot-area"]
+	path = sections/cooling-scenarios/d3-plot-area
   url = git://github.com/davenquinn/d3-plot-area.git
-[submodule "graphics/modal-mineralogy"]
-	path = graphics/modal-mineralogy
+[submodule "sections/modal-mineralogy"]
+	path = sections/modal-mineralogy
 	url = git://github.com/davenquinn/crystal-knob-modal-mineralogy.git
