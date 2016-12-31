@@ -3,8 +3,8 @@
 project_dir=${0:h:h}
 
 # Install python modules
-pymodules=(application modules/bib-filter \
-          modules/figurator paper)
+pymodules=(application modules/python/bib-filter \
+          modules/python/figurator paper)
 
 for m in $pymodules; do
   print -P "Installing %F{green}%B${m}%b%f"

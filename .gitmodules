@@ -1,6 +1,9 @@
 [submodule "modules/bib-filter"]
-	path = modules/bib-filter
+	path = modules/python/bib-filter
 	url = git://github.com/davenquinn/bib-filter.git
 [submodule "modules/figurator"]
-	path = modules/figurator
+	path = modules/python/figurator
 	url = git://github.com/davenquinn/figurator.git
+[submodule "modules/pdf-printer"]
+	path = modules/node/pdf-printer
+	url = git://github.com/davenquinn/pdf-printer.git
