@@ -5,6 +5,11 @@
   file: maps/map-single.pdf
   two_column: true
 
+- id: sample_petrography
+  type: table
+  file: sample-petrography.tex
+  caption: Summary of petrographic data
+
 - id: reconstruction
   file: maps/reconstruction.pdf
 

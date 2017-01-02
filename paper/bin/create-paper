@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-dir=${0:h:h}
+dir=$PROJECT_DIR/versioned/paper
 cd $dir
 
 # Collect figures

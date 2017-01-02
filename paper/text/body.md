@@ -232,6 +232,8 @@ Figure \ref{fig:modes}. <!--Should make a table about this-->
 
 [[textures|figure]]
 
+[[sample_petrography|table]]
+
 <!-- ## Electron microprobe --> Major-element mineral compositions were
 analyzed for each thin section on a five-spectrometer JEOL JXA-8200
 electron-probe microanalyzer at the California Institute of Technology.
