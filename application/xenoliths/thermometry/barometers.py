@@ -4,17 +4,6 @@ from uncertainties import ufloat as u
 from uncertainties.umath import log
 from ..microprobe.group import get_cations, get_molar, get_oxides
 
-# Create a mapping for the linear
-# relationship between TA98 and BKN
-ta98 = (950,1050)
-bkn = (1000,1090)
-c = N.polyfit(ta98,bkn,1)
-def ta98_to_bkn(T):
-    return c[1]+c[0]*T
-def bkn_to_ta98(T):
-    return (T-c[1])/c[0]
-print("Mapping between TA98 and BKN",c)
-
 class Ca_Olivine(object):
     """From Kohler and Brey, 1990"""
     name = "Ca in Olivine"

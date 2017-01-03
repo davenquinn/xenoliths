@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+from __future__ import division, print_function
+import numpy as N
+
+# Create a mapping for the linear
+# relationship between TA98 and BKN
+ta98 = (950,1050)
+bkn = (1000,1090)
+c = N.polyfit(ta98,bkn,1)
+def ta98_to_bkn(T):
+    return c[1]+c[0]*T
+def bkn_to_ta98(T):
+    return (T-c[1])/c[0]
+print("Mapping between TA98 and BKN",c)
