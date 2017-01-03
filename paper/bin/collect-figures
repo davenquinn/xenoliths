@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
-dir=${0:h:h}
-
-search_dirs=(../../graphics includes ../../analysis)
-
+dir=$PROJECT_DIR/versioned/paper
 cd $dir
+
+search_dirs=(../sections includes ../../analysis)
+
 collect-figures --copy text/includes.yaml collected ${search_dirs}
 

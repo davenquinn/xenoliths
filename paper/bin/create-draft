@@ -23,7 +23,7 @@ paper create-body text $body
 # Process abstract
 pandoc -t latex --natbib -o build/abstract.tex text/abstract.md
 
-cp tex/draft.tex $texfile
+cp source/draft.tex $texfile
 
 if [[ ! -f $auxfile ]]; then
   run-latex $texfile

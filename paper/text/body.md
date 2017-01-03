@@ -168,9 +168,9 @@ regional findings on other xenolith locations as well as geophysical data and
 modeling in order to pursue the origin of the upper mantle beneath the Crystal
 Knob eruption site.
 
-[[context|figure]]
+<!--[[context]]-->
 
-[[field_photo|figure]]
+<!--[[field_photo]]-->
 
 The Crystal Knob neck (35.806º N, 121.174º W) is a mid-Pleistocene
 olivine--plagioclase phyric basalt which erupted along the margin of the
@@ -184,6 +184,7 @@ subordinate to the dunites. As discussed below, the peridotites lack textural
 features suggestive of igneous cumulate origin, and in conjunction with the
 compositional data presented below we interpret the peridotites as mantle
 lithosphere in origin.
+<!--[[sample_petrography]]-->
 
 #### Host Lava
 
@@ -230,7 +231,9 @@ to weight percents using representative densities for spinel-facies
 peridotites. <!--Maybe show these densities? --> Results are shown in
 Figure \ref{fig:modes}. <!--Should make a table about this-->
 
-[[textures|figure]]
+<!--[[textures]]-->
+
+<!--[[sample_petrography]]-->
 
 <!-- ## Electron microprobe --> Major-element mineral compositions were
 analyzed for each thin section on a five-spectrometer JEOL JXA-8200
@@ -285,7 +288,7 @@ Sector instrument. Results are presented in Table \ref{tab:isotopes}.
 
 # Results
 
-[[modes|figure]]
+<!--[[modes]]-->
 
 ## Petrography
 
@@ -364,9 +367,9 @@ These features suggest a history of melt fractionation.
 
 ## Major elements
 
-[[minerals|table]]
-[[lava_minerals|table]]
-[[major_elements|figure]]
+<!--[[minerals]]-->
+<!--[[lava_minerals]]-->
+<!--[[major_elements]]-->
 
 For electron microprobe data, error includes both analytical and sampling errors.
 Mg\# (molar Mg/(Mg+Fe) $\cdot$ 100) ranges from 87 to 91. Within each
@@ -384,16 +387,16 @@ balance: excess Fe is removed from the octahedral site and added to the tetrahed
 until $\Sigma \textrm{cations} = 3$ with a 4-oxygen basis. This correction results
 in spinel Mg\# between 75 and 81, slightly higher than the uncorrected value.
 
-[[whole_rock_major|table]]
+<!--[[whole_rock_major]]-->
 
-[[spinel_cr|figure]]
+<!--[[spinel_cr]]-->
 
-[[step_heating|figure]]
-[[cpx_profile|figure]]
+<!--[[step_heating]]-->
+<!--[[cpx_profile]]-->
 
 ## Trace Elements
 
-[[spider|figure]]
+<!--[[spider]]-->
 
 Clinopyroxene, orthopyroxene, and recalculated whole-rock rare-earth element show several modes of
 variation between samples, corresponding to different amounts of
@@ -422,14 +425,14 @@ or proximal to, a magma chamber at depth to allow LREE
 refertilization.
 
 
-[[cpx_literature_comparison|figure]]
+<!--[[cpx_literature_comparison]]-->
 
-[[trace_elements|table]]
-[[spinel_correction|table]]
+<!--[[trace_elements]]-->
+<!--[[spinel_correction]]-->
 
 ## Rb-Sr and Sm-Nd isotopes
 
-[[isotopes|figure]]
+<!--[[isotopes]]-->
 
 Rb-Sr and Sm-Nd radiogenic isotope data for clinopyroxene separates show
 these samples to be derived from the depleted convecting mantle. All
@@ -441,7 +444,7 @@ lithosphere or Mesozoic mantle wedge source and suggests an origin in the
 asthenospheric or underplated oceanic mantle
 [@DePaolo1976b;@McCulloch1978].
 
-[[isotopes_table|table]]
+<!--[[isotopes_table]]-->
 
 ## Thermometry
 
@@ -456,7 +459,7 @@ use in the absence of clinopyroxene.
 Together, these thermometers can query the full range of major-element compositions
 seen in the Crystal Knob dataset.
 
-[[thermometry|table]]
+<!--[[thermometry]]-->
 
 Core and rim measurements are separated to assess within-sample
 temperature disequilibrium and late-stage (e.g. eruptive) heating. Analytical errors (caused by
@@ -524,8 +527,8 @@ the studied xenoliths. Throughout this paper, the samples are color-coded, with
 blue-green corresponding to the low-temperature array, and red-yellow representing
 the high-temperature samples.
 
-[[temp_comparisons|figure]]
-[[temp_summary|figure]]
+<!--[[temp_comparisons]]-->
+<!--[[temp_summary]]-->
 
 ### REE-in-pyroxene thermometry
 
@@ -574,7 +577,7 @@ elements heavier than Ho retaining an equilibrium signature.
 
 ### Depth constraints
 
-[[depth|figure]]
+<!--[[depth]]-->
 
 Peridotite barometers are based on the decreasing Al content of
 orthopyroxene with depth [@Nickel1985; @Brey1990; @Nimis2000]. However, in
@@ -591,7 +594,7 @@ which is composition-dependent and poorly constrained for natural systems,
 but thought to lie over the 50-80 km depth interval
 [@ONeill1981; @Kinzler1997; @Gasparik2000; @Klemme2004].
 
-[[ree_temperatures|figure]]
+<!--[[ree_temperatures]]-->
 
 Projection of TA98 temperatures onto a geotherm using a surface heat
 flux [@Turcotte2002] of 90 mW/m^2, corresponding to measured heat flows
@@ -793,10 +796,10 @@ has much higher iron than the other samples. This makes
 it seem likely that it was re-enriched from a more evolved source than
 the baseline primitive mantle.
 
-[[ree_model|figure]]
-[[ree_trends|figure]]
+<!--[[ree_model]]-->
+<!--[[ree_trends]]-->
 
-[[depletion_degrees|table]]
+<!--[[depletion_degrees]]-->
 
 The overall pattern of trace elements suggests that the xenolith samples are residues of progressive
 fractional melting of primitive mantle to form abyssal peridotites [@Johnson1990].
@@ -1019,7 +1022,7 @@ this time period across the region of the reconstructed slab window
 [@Hurst1982; @Sharma1991; @Cole1995; @Wilson2005].
 However, this phase of slab window opening and related volcanism
 cannot account for the eruption of the ca. 1.7 Ma Crystal Knob volcanic
-neck, which we return to below. 
+neck, which we return to below.
 
 ## Underplated Farallon Plate mantle nappes
 
@@ -1082,7 +1085,7 @@ accelerated rollback is accomplished by duplex formation from Farallon
 plate mantle nappes. We suspect that mantle nappe detachment was
 controlled primarily by the temperature control on the brittle-plastic
 transition in olivine. For ca. 40-50 m.y. old oceanic lithosphere
-entering the subduction zone (Figsures \ref{fig:cross_sections}c and d),
+entering the subduction zone (Figures \ref{fig:cross_sections}c and d),
 an estimated ~700-800 ºC
 control on this transition [@Warren2006; @Burgmann2008; @Mei2010] occurs
 at ~25-40 km depth in the slab [@Doin1996]. We also suspect that the retreat of the slab as it
@@ -1167,7 +1170,7 @@ which, according to @Erkan2008, is too hot to correspond to the
 modern regional geotherm. <!-- (Daven, are they referring to the region
 under CRTA, or the cooler Great Valley and Sierra Nevada) -->
 
-[[reconstruction|figure]]
+<!--[[reconstruction]]-->
 
 ## Thermal modeling
 
@@ -1234,7 +1237,7 @@ be tested by comparison of their implied geothermal structure with xenolith
 geothermometry. However, this analysis is a crude approximation due to a lack of well-constrained geobarometers for spinel
 peridotites.
 
-[[model_setups|table]]
+<!--[[model_setups]]-->
 
 ## Model setup
 
@@ -1285,7 +1288,7 @@ separately within the model framework.
 Increasing the thermal conductivity of the model domain substantially
 flattens the modeled geotherms.
 
-[[model_tracers|figure]]
+<!--[[model_tracers]]-->
 
 ### Supra-subduction geotherm
 
@@ -1301,9 +1304,9 @@ subduction accretion are taken to be 0. <!-- Accretion rates of 0.2-3.6
 km/Myr favored by Kidder,2013 based on Sierra de Pelona schist. -->
 
 The coastal California accretionary crust is represented homogenously as a material with a
-thermal conductivity of \SI{2.5}{W/m/K}, specific heat capacity of
-\SI{1000}{J/kg/K}, density of \SI{2800}{kg/m^3} and a radiogenic heat
-flux of \SI{1}{uW/m^3}, values that are close to average for the
+thermal conductivity of 2.5 W/m/K, specific heat capacity of
+1000 J/kg/K, density of 2800 kg/m^3 and a radiogenic heat
+flux of 1 uW/m^3, values that are close to average for the
 continental crust [@Fowler2005] and those used by @Kidder2013 to model
 the thermal conditions along the Late Cretaceous shallow subduction
 megathrust segment.
@@ -1336,9 +1339,9 @@ scenarios appears to be minimal. <!-- is this enough? -->
 
 <!-- @Groome2006: ridge subduction modeling -->
 
-[[cross_sections]]
+<!--[[cross_sections]]-->
 
-[[neogene_sections]]
+<!--[[neogene_sections]]-->
 
 ### Limitations of the model
 
@@ -1372,7 +1375,7 @@ Farallon and forearc scenarios can be treated as maximum temperatures because of
 the influence of the overriding slab. <!-- (not sure what you are
 talking about here. What is “forearc scenarios”) -->
 
-[[model_results|figure]]
+<!--[[model_results]]-->
 
 
 ### Model results
@@ -1424,7 +1427,7 @@ fully explain anomalous heat flows in the Coast ranges.
 Model-predicted heat flows lower than measured values could be explained
 by added heat flux from shear heating [@Thatcher1998] or erosion [@Mancktelow1997;@England1990]
 
-[[model_comparison|figure]]
+<!--[[model_comparison]]-->
 
 Estimating erosion is beyond the scope of this study, but pulses of recent erosion
 in the Coast Ranges are <!-- see Ducea et al. (2003) for rapid late
