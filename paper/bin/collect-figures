@@ -4,5 +4,5 @@ cd $dir
 
 search_dirs=(../sections includes ../../analysis)
 
-collect-figures --copy text/includes.yaml collected ${search_dirs}
+figures collect --copy text/includes.yaml collected ${search_dirs}
 

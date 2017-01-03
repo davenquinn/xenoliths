@@ -4,7 +4,7 @@ import codecs
 
 from .util import run
 from .figures import cmds
-from .text import process_text, write_file
+from .text import process_text
 
 @click.group()
 def cli():
@@ -15,15 +15,11 @@ def cli():
 def figures(all):
     pass
 
-@cli.command(name="create-body")
-@click.argument('infile',click.Path())
-@click.argument('outfile',click.Path())
-@click.option('--inline-figures', default=None, type=click.Path())
-@click.option('--figure-captions', default=None, type=click.Path())
-def create_body(infile, outfile, inline_figures=False, figure_captions=False):
-    write_file(outfile,process_text(infile,
-                    inline_figures=inline_figures,
-                    figure_captions=figure_captions))
+@cli.command(name="markdown-to-latex")
+def markdown_to_latex():
+    stdin = click.get_text_stream('stdin')
+    stdout = click.get_text_stream('stdout')
+    process_text(stdin, stdout)
 
 @cli.command(name='standalone-table')
 @click.option('--landscape',is_flag=True, default=False)

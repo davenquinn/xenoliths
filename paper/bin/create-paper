@@ -8,12 +8,15 @@ bin/collect-figures
 body='build/body.tex'
 
 # Process body text
-paper create-body \
-  --inline-figures text/includes.yaml \
-  --figure-captions text/figure-captions.md \
-  text/body.md $body
+cat text/body.md \
+| figures inline text/includes.yaml \
+  --captions text/figure-captions.md \
+  --collect-dir collected \
+| paper markdown-to-latex > $body
 # Process abstract
-paper create-body text/abstract.md build/abstract.tex
+cat text/abstract.md \
+| paper markdown-to-latex \
+> build/abstract.tex
 
 auxfile=build/main.aux
 # build citations
@@ -25,7 +28,7 @@ bib-filter --clean --aux $auxfile $LIBRARY
 bibtex $auxfile
 
 xelatex \
-    -interaction=nonstopmode \
-    -output-directory build "source/main.tex"
+  -interaction=nonstopmode \
+  -output-directory build "source/main.tex"
 
 mv build/main.pdf output/Quinn-2016-xenoliths.pdf

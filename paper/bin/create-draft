@@ -21,9 +21,9 @@ function run-latex {
 mkdir -p $build_dir
 
 # Process body text
-paper create-body text/body.md $body
+cat text/body.md | paper markdown-to-latex > $body
 # Process abstract
-paper create-body text/abstract.md build/abstract.tex
+cat text/abstract.md | paper markdown-to-latex > build/abstract.tex
 
 cp source/draft.tex $texfile
 
