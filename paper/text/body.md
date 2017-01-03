@@ -184,7 +184,6 @@ subordinate to the dunites. As discussed below, the peridotites lack textural
 features suggestive of igneous cumulate origin, and in conjunction with the
 compositional data presented below we interpret the peridotites as mantle
 lithosphere in origin.
-<!--[[sample_petrography]]-->
 
 #### Host Lava
 
