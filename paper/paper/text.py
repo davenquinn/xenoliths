@@ -7,9 +7,9 @@ from pandas import isnull
 from os import path
 import numpy as N
 from collections import OrderedDict
-from jinja2 import Environment, FileSystemLoader
 from .units import filter_SI_units
 from figurator import process_includes, load_spec
+import re
 
 def pandoc_processor(text):
     return pypandoc.convert(text, 'latex',
@@ -25,34 +25,33 @@ replacements = [
     ("~","\~")
 ]
 
-def process_text(directory, inline_figures=True):
+pattern = re.compile("<!--\[\[(.+)\]\]-->")
 
-    specfile = path.join(directory,"includes.yaml")
-    captions = path.join(directory,"figure-captions.md")
-    spec = load_spec(specfile, captions=captions)
+def inline_includes(text, spec):
     includes = process_includes(
             spec,
             collect_dir='collected')
-
-    body_renderer = Environment(
-        block_start_string = '[[*',
-        block_end_string = '*]]',
-        variable_start_string = '[[',
-        variable_end_string = ']]',
-        comment_start_string = '[[=',
-        comment_end_string = '=]]',
-        loader = FileSystemLoader(directory))
-    if inline_figures:
-        fn = lambda x: x
-    else:
-        fn = lambda x: ""
-    body_renderer.filters["figure"] = fn
-    body_renderer.filters["table"] = fn
-
     items = {l:d for l,d in includes}
+    def fn(matchobj):
+        try:
+            return items[matchobj.group(1)]
+        except KeyError:
+            # Don't replace if we can't find include
+            return matchobj.group(0)
+    return pattern.sub(fn,text)
 
-    tpl = body_renderer.get_template("body.md")
-    text = tpl.render(**items)
+def process_text(filename,**kwargs):
+
+    specfile=kwargs.pop('inline_figures',None)
+    captions=kwargs.pop('figure_captions',None)
+
+    with codecs.open(filename,'r', encoding='utf-8') as f:
+        text = f.read()
+
+    if specfile is not None:
+        spec = load_spec(specfile, captions=captions)
+        text = inline_includes(text, spec)
+
     for t in replacements:
         text = text.replace(*t)
 

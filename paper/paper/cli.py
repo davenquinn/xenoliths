@@ -16,11 +16,14 @@ def figures(all):
     pass
 
 @cli.command(name="create-body")
-@click.argument('directory',click.Path())
+@click.argument('infile',click.Path())
 @click.argument('outfile',click.Path())
-@click.option('--inline-figures', is_flag=True, default=False)
-def create_body(directory, outfile, inline_figures=True):
-    write_file(outfile,process_text(directory, inline_figures=inline_figures))
+@click.option('--inline-figures', default=None, type=click.Path())
+@click.option('--figure-captions', default=None, type=click.Path())
+def create_body(infile, outfile, inline_figures=False, figure_captions=False):
+    write_file(outfile,process_text(infile,
+                    inline_figures=inline_figures,
+                    figure_captions=figure_captions))
 
 @cli.command(name='standalone-table')
 @click.option('--landscape',is_flag=True, default=False)
