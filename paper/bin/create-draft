@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
+dir=$PROJECT_DIR/versioned/paper
+cd $dir
 
 # collect includes
 bin/collect-figures
@@ -19,9 +21,9 @@ function run-latex {
 mkdir -p $build_dir
 
 # Process body text
-paper create-body text $body
+paper create-body text/body.md $body
 # Process abstract
-pandoc -t latex --natbib -o build/abstract.tex text/abstract.md
+paper create-body text/abstract.md build/abstract.tex
 
 cp source/draft.tex $texfile
 
