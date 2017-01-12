@@ -1327,14 +1327,21 @@ forearc wedge is modeled as stepwise advection beneath a linearly thickening
 forearc wedge conforming to the @Royden1993a thermal model using
 the parameters outlined above.
 For all cases, the final depth of the underplated subduction interface
-is taken to be 30 km (corresponding to
-a "flat-slab" regime), and the distance landward of the subduction zone
+is taken to be 30 km, and the distance landward of the subduction zone
 is taken to be 100 km.
 No effort is made to differentiate 'flat-slab' and baseline subduction
-geometries. Increasing the slab dip angle will have the effect of
-speeding the equilibration of the geotherm, but interface temperatures
-will be lower. The overall effect on the evolution of the thermal
+geometries. Though increasing the slab dip angle will result in a cooler subduction interface at a given depth, the
+overall effect on the evolution of the thermal
 scenarios appears to be minimal. <!-- is this enough? -->
+
+In the Farallon-plate scenario, the temperature is pegged at 715ºC at
+25 km depth, a temperature constraint that is established based garnet-biotite
+thermometry of exhumed granites of the Sierra de Salinas.
+Figure \ref{model_results}C panel 2 correctly captures the inverted metamorphic
+gradient found by @Kidder2006, validating this approach to calculating the
+forearc geotherm.
+
+
 
 <!-- @Groome2006: ridge subduction modeling -->
 

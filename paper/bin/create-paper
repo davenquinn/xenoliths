@@ -8,7 +8,7 @@ bin/collect-figures
 body='build/body.tex'
 
 # Process body text
-cat text/body.md \
+cat text/body/*.md \
 | figures inline text/includes.yaml \
   --captions text/figure-captions.md \
   --collect-dir collected \
