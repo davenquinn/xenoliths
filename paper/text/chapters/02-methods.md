@@ -51,8 +51,7 @@ from the upper mantle directly underlying the Crystal
 Knob volcanic pipe at ca. 1.7 Ma,
 or mid-Pleistocene time.
 
-Methods
-=======
+## Petrography
 
 Polished thin sections of 250 µm thickness were
 prepared for six peridotite xenolith samples
@@ -60,11 +59,14 @@ prepared for six peridotite xenolith samples
 xenolith samples were bound with epoxy prior to sectioning.
 Large-format rectangular thin sections were prepared for two lava samples dominated
 by dunite cumulate fragments (CK-D1 and CK-D2).
-
 The samples were evaluated under a petrographic microscope to determine
-their textural and mineralogic variation. Electron backscatter intensity
-images were collected using a ZEISS 1550 VP field emission SEM. For each
-peridotite sample, modal mineralogy was estimated by classifying mineralogy on a
+their textural and mineralogic variation.
+
+
+Electron backscatter intensity
+images of each thin section were collected using a ZEISS 1550 VP field
+emission SEM <!-- should include these in supplementary material -->.
+For each peridotite sample, modal mineralogy was estimated by classifying mineralogy on a
 \~5000 pixel grid atop coregistered optical scans and electron
 backscatter mosaics `[Figure textures]`. Volumetric modes were converted
 to %wt using representative densities for spinel-facies
