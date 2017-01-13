@@ -1,4 +1,4 @@
-# Crystal Knob
+# Crystal Knob lava
 
 The Crystal Knob volcanic neck (35.806º N, 121.174º W) is a mid-Pleistocene
 olivine--plagioclase phyric basalt which erupted along the margin of the
@@ -13,7 +13,7 @@ features suggestive of igneous cumulate origin, and in conjunction with the
 compositional data presented below we interpret the peridotites as mantle
 lithosphere in origin.
 
-Samples were collected from the Crystal Knob volcanic neck with an
+Samples were collected from the Crystal Knob lava with an
 emphasis on volumetrically minor polyphase peridotite xenoliths. Samples
 were 5-10 cm diameter friable peridotites with medium (200 µm -- 1 mm)
 grains. Several samples of the host basalt and dunite cumulates were
