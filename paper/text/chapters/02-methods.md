@@ -14,7 +14,8 @@ compositional data presented below we interpret the peridotites as mantle
 lithosphere in origin.
 
 Samples were collected from the Crystal Knob lava with an
-emphasis on volumetrically minor polyphase peridotite xenoliths. Samples
+emphasis on volumetrically minor polyphase peridotite xenoliths.
+Xenolith samples
 were 5-10 cm diameter friable peridotites with medium (200 µm -- 1 mm)
 grains. Several samples of the host basalt and dunite cumulates were
 collected as well.
