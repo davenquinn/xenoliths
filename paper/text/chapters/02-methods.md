@@ -56,9 +56,7 @@ collected as well.
 Polished thin sections of 250 µm thickness were
 prepared for six peridotite xenolith samples
 (CK-2 through CK-7) and the basaltic host lava (CK-1). The
-xenolith samples were cut from 5-10 cm diameter friable peridotites
-with medium (200 µm -- 1 mm) grains, and were bound with epoxy prior to
-sectioning.
+xenolith samples were bound with epoxy prior to sectioning.
 Large-format rectangular thin sections were prepared for two lava samples dominated
 by dunite cumulate fragments (CK-D1 and CK-D2).
 
