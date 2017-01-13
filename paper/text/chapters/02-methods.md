@@ -13,6 +13,12 @@ features suggestive of igneous cumulate origin, and in conjunction with the
 compositional data presented below we interpret the peridotites as mantle
 lithosphere in origin.
 
+Samples were collected from the Crystal Knob volcanic neck with an
+emphasis on volumetrically minor polyphase peridotite xenoliths. Samples
+were 5-10 cm diameter friable peridotites with medium (200 µm -- 1 mm)
+grains. Several samples of the host basalt and dunite cumulates were
+collected as well.
+
 ## Eruptive age
 
 The ages of host lavas for mantle xenolith suites are critical for the
@@ -46,12 +52,6 @@ or mid-Pleistocene time.
 
 Methods
 =======
-
-Samples were collected from the Crystal Knob volcanic neck with an
-emphasis on volumetrically minor polyphase peridotite xenoliths. Samples
-were 5-10 cm diameter friable peridotites with medium (200 µm -- 1 mm)
-grains. Several samples of the host basalt and dunite cumulates were
-collected as well.
 
 Polished thin sections of 250 µm thickness were
 prepared for six peridotite xenolith samples
