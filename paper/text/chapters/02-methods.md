@@ -89,8 +89,14 @@ six peridotite samples, concentrated in 3-4 locations of interest per
 sample. <!-- 403 measurements of dunites and the basalt host were also taken,
 but are not reported in this study. -->
 Areas with orthopyroxene and clinopyroxene in contact were emphasized to
-aid in thermometry. Whole-rock major-element abundances are
-reconstructed from mineral composition and estimated modes.
+aid in thermometry. Minerals were classified from the analytical data
+using a nearest-neighbor fitting algorithm between pure endmember
+phases. Poor-quality measurements with low totals were automatically
+flagged using a scheme based on that of @Taylor1998, and mixed phases
+along grain boundaries were manually discarded.
+
+Whole-rock major-element abundances are
+reconstructed from averaged mineral composition and estimated modes.
 Representative mineral and recalculated whole-rock compositions are
 tabulated in `Table minerals`.
 
