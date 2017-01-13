@@ -78,7 +78,7 @@ Figure \ref{fig:modes}. <!--Should make a table about this-->
 
 <!--[[sample_petrography]]-->
 
-<!-- ## Electron microprobe --> Major-element mineral compositions were
+<!-- ## Electron microprobe --> Major-element compositions were
 analyzed for each polished thin section on a five-spectrometer JEOL JXA-8200
 electron-probe microanalyzer at the California Institute of Technology.
 Abundances were counted in wavelength-dispersive mode using a probe
