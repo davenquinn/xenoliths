@@ -1,70 +1,76 @@
 _ = require 'underscore'
-savage = require 'savage-svg'
 d3 = require 'd3'
 fs = require 'fs'
 path = require 'path'
+Promise = require 'bluebird'
+require './main.styl'
 
 modelColors = require '../shared/colors'
-query = require '../shared/query'
+{db, storedProcedure} = require '../shared/database'
 axes = require '../d3-plot-area/src'
 plotArea = require './plot-area'
 ageLabels = require './age-labels'
 legend = require './legend'
 underplatingScale = require './underplating-scale'
+yaml = require 'js-yaml'
+fs = require 'fs'
 
 ff = 'font-family': 'Helvetica Neue Light'
 
-titles = [
-  "A. Slab window"
-  "B. Stalled slab"
-  "C. Late Cretaceous rollback"
-]
+_ = fs.readFileSync "#{__dirname}/../scenarios.yaml"
+scenarios = yaml.safeLoad _
 
-dpi = 72
-names = ['underplated','forearc','farallon']
+dpi = 96
 sz = width: dpi*6.5, height: dpi*4
 
 fn = path.join __dirname,'query.sql'
-sql = fs.readFileSync fn
+sql = storedProcedure fn
 
-data = (query(sql, [d]) for d in names)
-data.forEach (d,i)->
-  d.id = names[i]
-  d.title = titles[i]
-  d.limits = [
-    d3.min d, (a)->a.trange[0]
-    d3.max d, (a)->a.trange[1]]
-  d.axSize = d.limits[1]-d.limits[0]
+getData = (scenario)->
+  db.query(sql, [scenario.name])
+    .then (d)->
+      d.id = scenario.name
+      d.title = scenario.title
+      d.limits = [
+        d3.min d, (a)->a.trange[0]
+        d3.max d, (a)->a.trange[1]]
+      d.axSize = d.limits[1]-d.limits[0]
+      console.log d
+      return d
 
 spacing = 350
 spacingBottom = 100
 offsY = 0
 
-outerAxes = axes()
-  .size sz
-  .margin
-    right: 0.6*dpi
-    left: 0.15*dpi
-    top: 0.32*dpi
-    bottom: 0.4*dpi
-outerAxes.scale.x
-  .domain [80,0]
+__makeOuterAxes = (data)->
+  outerAxes = axes()
+    .size sz
+    .margin
+      right: 0.6*dpi
+      left: 0.15*dpi
+      top: 0.32*dpi
+      bottom: 0.4*dpi
+  outerAxes.scale.x
+    .domain [80,0]
 
-outerAxes.scale.y
-  .domain [0, d3.sum(data,(d)->d.axSize)+2*spacing+spacingBottom]
-outerAxes.axes.x()
-  .label 'Time before present (Ma)'
-  .labelOffset 25
-  .tickSize 4
+  outerAxes.scale.y
+    .domain [0, d3.sum(data,(d)->d.axSize)+2*spacing+spacingBottom]
+  outerAxes.axes.x()
+    .label 'Time before present (Ma)'
+    .labelOffset 25
+    .tickSize 4
 
-vscale = outerAxes.scale.y
-scaleDelta = (d)->vscale(0)-vscale(d)
+  outerAxes.axes.y()
+    .label 'Temperature (ºC)'
+    .labelOffset 30
+    .despine()
+    .orient 'right'
 
-outerAxes.axes.y()
-  .label 'Temperature (ºC)'
-  .labelOffset 30
-  .despine()
-  .orient 'right'
+  vscale = outerAxes.scale.y
+  scaleDelta = (d)->vscale(0)-vscale(d)
+
+  outerAxes.scaleDelta = scaleDelta
+  outerAxes
 
 createProfileDividers = (lineGenerator, color)->
   (d)->
@@ -87,111 +93,120 @@ createProfileDividers = (lineGenerator, color)->
           t = d.trange.map (a)->[d.time,a]
           lineGenerator(t)
 
-createAxes = (data,i)->
-  # Sort the dataset for predictability
-  data.sort (a,b)->a.time[0] < b.time[0]
+createAxes = (outerAxes)->
+  (data, i)->
+    # Sort the dataset for predictability
+    data.sort (a,b)->a.time[0] < b.time[0]
 
-  el = d3.select @
+    el = d3.select @
 
-  axsize =
-    width: outerAxes.plotArea.size().width
-    height: scaleDelta(data.axSize)
+    axsize =
+      width: outerAxes.plotArea.size().width
+      height: outerAxes.scaleDelta(data.axSize)
 
-  console.log data.limits,axsize
+    console.log data.limits,axsize
 
-  ax = axes()
-    .size axsize
-    .position x: 0, y: offsY
-    .margin 0
-  ax.scale.x = outerAxes.scale.x
-  ax.scale.y.domain data.limits
+    ax = axes()
+      .size axsize
+      .position x: 0, y: offsY
+      .margin 0
+    ax.scale.x = outerAxes.scale.x
+    ax.scale.y.domain data.limits
 
-  ax.axes.y()
-    .tickOffset 5
-    .tickSize 3
-    .ticks Math.floor(data.axSize/200)
-    .tickFormat d3.format("i")
-    .outerTickSize 0
-    .orient 'right'
+    ax.axes.y()
+      .tickOffset 5
+      .tickSize 3
+      .ticks Math.floor(data.axSize/200)
+      .tickFormat d3.format("i")
+      .outerTickSize 0
+      .orient 'right'
 
-  el.call ax
-  offsY += axsize.height + scaleDelta(spacing)
+    el.call ax
+    offsY += axsize.height + outerAxes.scaleDelta(spacing)
 
-  plt =  ax.plotArea()
-  bkg = plt.append 'g'
+    plt =  ax.plotArea()
+    bkg = plt.append 'g'
 
-  sel = plt
-    .selectAll 'g.model-run'
-    .data data
+    sel = plt
+      .selectAll 'g.model-run'
+      .data data
 
-  enter = sel.enter()
-    .append 'g'
-      .attr class: 'model-run'
-      .each plotArea(ax)
+    enter = sel.enter()
+      .append 'g'
+        .attr class: 'model-run'
+        .each plotArea(ax)
 
-  #enter.append 'g'
-  #  .attr class: 'profile'
-  #  .each createProfileDividers(ax.line())
+    #enter.append 'g'
+    #  .attr class: 'profile'
+    #  .each createProfileDividers(ax.line())
 
-  # Add title
-  plt.append 'text'
-    .text data.title
-    .attr
-      'font-size': 10
-      x: if i == 0 then 3*dpi else 0
-
-  if data.id == 'forearc'
-    labels = ageLabels(ax)
-    bkg.call labels.connectingLine(data)
-    enter.each labels
-  if data.id == 'farallon'
-    sel
-      .filter (d,c)->c==0
-      .each ageLabels(ax)
-
-
-  if data.id != 'forearc'
-    k = if data.id == 'farallon' then 80 else 30
-    s = underplatingScale(ax)
-      .label "Asthenosphere held at #{k} km"
-    plt.append('g').call s
-
-  d3.select ax.node()
-    .selectAll '.tick text'
-    .attr 'font-size': 7
-
-  if i == 1
+    # Add title
     plt.append 'text'
-      .text 'Monterey Plate'
+      .text data.title
       .attr
-        class: 'annotation'
-        fill: modelColors.scales.forearc(30)
-        'font-size': 6
-        'font-family': 'Helvetica Neue Italic'
-        'text-anchor': 'middle'
-        transform: (d)->
-          x = ax.scale.x(10)
-          y = ax.scale.y(1200)
-          "translate(#{x},#{y}) rotate(4)"
+        'font-size': 10
+        x: if i == 0 then 3*dpi else 0
 
-func = (el, window)->
+    if data.id == 'forearc'
+      labels = ageLabels(ax)
+      bkg.call labels.connectingLine(data)
+      enter.each labels
+    if data.id == 'farallon'
+      sel
+        .filter (d,c)->c==0
+        .each ageLabels(ax)
 
-  g = d3.select(el)
-    .attr sz
-    .append 'g'
 
-  g.call outerAxes
+    if data.id != 'forearc'
+      k = if data.id == 'farallon' then 80 else 30
+      s = underplatingScale(ax)
+        .label "Asthenosphere held at #{k} km"
+      plt.append('g').call s
 
-  g.selectAll '.tick text'
-    .attr 'font-size': 8
+    d3.select ax.node()
+      .selectAll '.tick text'
+      .attr 'font-size': 7
 
-  plt = outerAxes.plotArea()
-  plt.selectAll 'g.axes'
-    .data data
-    .enter().append 'g'
-      .attr class: 'axes'
-      .each createAxes
+    if i == 1
+      plt.append 'text'
+        .text 'Monterey Plate'
+        .attr
+          class: 'annotation'
+          fill: modelColors.scales.forearc(30)
+          'font-size': 6
+          'font-family': 'Helvetica Neue Italic'
+          'text-anchor': 'middle'
+          transform: (d)->
+            x = ax.scale.x(10)
+            y = ax.scale.y(1200)
+            "translate(#{x},#{y}) rotate(4)"
 
-  plt.call legend
+setupElement = (el, data)->
+    console.log data
+    g = el
+      .attr sz
+      .append 'g'
 
-savage func, filename: 'build/timeline.svg'
+    outerAxes = __makeOuterAxes(data)
+    g.call outerAxes
+
+    g.selectAll '.tick text'
+      .attr 'font-size': 8
+
+    plt = outerAxes.plotArea()
+    plt.selectAll 'g.axes'
+      .data data
+      .enter().append 'g'
+        .attr class: 'axes'
+        .each createAxes(outerAxes)
+
+    plt.call legend
+
+func = (el_, callback)->
+  el = d3.select(el_).append 'svg'
+  Promise.map scenarios, getData, concurrency: 1
+    .tap console.log
+    .then (data)->setupElement(el, data)
+    #  .tap callback
+
+module.exports = func

@@ -1,6 +1,6 @@
 from __future__ import division
 from pandas import DataFrame
-from paper.text import tex_renderer, write_file
+from figurator import tex_renderer, write_file
 from uncertainties import ufloat
 from calculations import T_CHUR
 from sys import argv

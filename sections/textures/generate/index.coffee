@@ -1,6 +1,5 @@
 fs = require 'fs'
 d3 = require 'd3'
-savage = require 'savage-svg'
 yaml = require "js-yaml"
 global.d3 = d3
 legend = require 'd3-svg-legend/no-extend'
@@ -100,9 +99,9 @@ createView = (d,i)->
           stroke: "none"
           fill: (d)->colorScale(d.v)
 
-generate = (el, window)->
+generate = (el, callback)->
 
-  data = JSON.parse(fs.readFileSync('build/classes.json').toString())
+  data = JSON.parse(fs.readFileSync("#{__dirname}/../build/classes.json").toString())
   data = data.sort (a,b)->d3.ascending(a.id,b.id)
 
   svg = d3.select el
@@ -169,5 +168,7 @@ generate = (el, window)->
 
   svg.attr height: Math.max(offsetY[0],offsetY[1])
 
-savage generate, filename: 'build/textures.svg'
+  callback()
+
+module.exports = generate
 

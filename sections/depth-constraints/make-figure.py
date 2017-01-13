@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -- coding: utf-8 --
+from __future__ import print_function
 
 import json
 import numpy as N
@@ -58,13 +59,15 @@ for res in data:
     ax.fill_between(
         T,d+dz,d-dz,
         color=c,
-        alpha=0.05,
+        alpha=0.1,
         linewidth=0)
     ax.plot(
-        T,d,
-        color=c)
+        T,d,':',
+        color=c,
+        linewidth=1.5,
+        dashes=(3,1),alpha=0.8)
     for s in (1,-1):
-        ax.plot(T,d+s*dz,':',color=c,linewidth=1,dashes=(1,2),alpha=0.8)
+        ax.plot(T,d+s*dz,color=c,linewidth=0.4,alpha=0.5)
 
     kernel = gaussian_kde(depth, 0.1)
     Z = N.linspace(depth.min()-10,depth.max()+10,200)
@@ -72,8 +75,15 @@ for res in data:
     ax1.fill_betweenx(Z,0,v,facecolor=c, alpha=0.05)
     ax1.plot(v,Z,color=c, alpha=0.5, linewidth=1.5)
 
-    ax1.annotate("Ca-in-olivine", xy=(.5,.35),
-        xycoords='axes fraction',rotation=-90,color='#aaaaaa',size=10)
+loc = (.6,.30)
+ax1.annotate(r"Ca-in-olivine", xy=loc,
+    weight='bold',
+    xycoords='axes fraction',rotation=-90,color='#aaaaaa',size=10)
+ax1.annotate(r"kernel density", xy=loc,
+    textcoords='offset points', xytext=(-10,0),
+    style='italic',
+    xycoords='axes fraction',rotation=-90,color='#aaaaaa',size=10)
+
 
 ax.invert_yaxis()
 ax.set_xlabel(u"Temperature - TA98 (\u00b0C)")
@@ -91,12 +101,14 @@ for label in ax1.get_yticklabels():
 # Plot Plagioclase in
 # rough, from Green and Ringwood,1970
 x,y = [700,1200],[21,27]
-ax.plot(x,y,':',color="#aaaaaa")
+ax.plot(x,y,':',color="#aaaaaa", dashes=(2,1), linewidth=1.5)
 kws = dict(
     xy=(1100,26),
     color='#aaaaaa',
     rotation=-4,
     ha='center',
+    weight='bold',
+    style='italic',
     size=8)
 ax.annotate('Plagioclase',va='bottom',**kws)
 ax.annotate('Spinel',va='top',**kws)
@@ -105,17 +117,57 @@ kws.update(rotation=-8,xy=(950,85))
 ax.annotate('Garnet',**kws)
 
 ax.autoscale(False)
-c = "#cccccc"
+c = "#eeeeee"
 for dz, heat_flow, T in profiles:
     cells = N.arange(len(T))*dz+dz/2
     Z = cells/1000
-    ax.plot(T,Z,color=c, zorder=-20)
+
+    lwx=1
+    if heat_flow == 95:
+        lwx = 2
+    ax.plot(T,Z,color=c, zorder=-20, linewidth=0.75*lwx)
     for i,v in enumerate(T):
-        if v > 1120: break
+        if v > 1145: break
     d = Z[i]
 
+    #+r"$mW/m^2$"
     a = N.arctan2(-d+Z[i-1],v-T[i-1])
-    ax.text(v,d-0.9,"{0} ".format(heat_flow)+r"$mW/m^2$",rotation=5.5*N.degrees(a),
-            va='center',ha='center',color='#aaaaaa',size=7)
+    r = 5.5*N.degrees(a)
+    kwargs=dict(
+        rotation=r,
+        size=7,
+        bbox=dict(pad=1,color='#ffffff'),
+        va='center',ha='right',
+        color='#bbbbbb')
+
+    ax.text(v,d-0.1,heat_flow,
+            **kwargs)
+    if heat_flow == 120:
+        ax.text(v,d-3.5,r"$q_0$ ($mW/m^2$)",
+                style='italic',
+                **kwargs)
+
+## Insert xenoliths area
+from matplotlib.path import Path
+from scipy import interpolate
+
+
+with open('../cooling-scenarios/xenoliths-area.json') as f:
+    d = json.load(f)
+coords = d['geometry']['coordinates']
+coords.append(coords[0])
+
+codes = ([Path.MOVETO]
+         + [Path.LINETO]*(len(coords)-2)
+         + [Path.CLOSEPOLY])
+
+path = Path(coords, codes)
+patch = M.patches.PathPatch(path,
+        facecolor='#fcfcfc',
+        edgecolor='#eeeeee',
+        zorder = -40)
+ax.add_artist(patch)
+ax.patches = [patch]
+
 
 fig.savefig(outfile, bbox_inches="tight", dpi=300)

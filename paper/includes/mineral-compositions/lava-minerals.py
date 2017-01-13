@@ -4,8 +4,8 @@ from sys import argv
 from xenoliths import app
 from xenoliths.microprobe.models import ProbeMeasurement, ProbeSession
 from paper.query import xenolith_minerals
-from paper.text import tex_renderer, write_file
 from paper.query import not_bad
+from figurator import tex_renderer, write_file
 from pandas import read_csv, DataFrame
 from sqlalchemy import or_
 from IPython import embed

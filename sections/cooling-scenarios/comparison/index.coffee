@@ -6,7 +6,7 @@ simplify = require 'simplify-js'
 
 modelColors = require '../shared/colors'
 xenolithsArea = require '../shared/xenoliths-area'
-query = require '../shared/query'
+{query} = require '../shared/database'
 util = require '../shared/util'
 axes = require '../d3-plot-area/src'
 

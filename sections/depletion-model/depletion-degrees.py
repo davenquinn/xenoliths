@@ -8,7 +8,7 @@ from depletion_model.util import element, ree_only
 from depletion_model import DepletionModel
 from paper.query import whole_rock_major_elements
 from pandas import concat
-from paper.text import tex_renderer, write_file
+from figurator import tex_renderer, write_file
 
 with app.app_context():
     ree_data = sample_ree(normalized=True)

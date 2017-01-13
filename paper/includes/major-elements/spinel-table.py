@@ -3,7 +3,7 @@ from sys import argv
 from query import spinel_data
 from collections import defaultdict
 from xenoliths.microprobe.spinel import correct_spinel
-from paper.text import tex_renderer, write_file
+from figurator import tex_renderer, write_file
 from xenoliths import app
 
 with app.app_context():

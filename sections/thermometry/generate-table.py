@@ -1,6 +1,6 @@
 import numpy as N
 from uncertainties import ufloat
-from paper.text import tex_renderer, write_file
+from figurator import tex_renderer, write_file
 from xenoliths import app
 from data import ree_data, summary_data
 

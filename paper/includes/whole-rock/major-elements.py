@@ -2,7 +2,7 @@ from __future__ import print_function, division
 import numpy as N
 from xenoliths import app
 
-from paper.text import tex_renderer, write_file
+from figurator import tex_renderer, write_file
 from paper.query import whole_rock_major_elements
 
 def major_elements():

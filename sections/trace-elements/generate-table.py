@@ -2,7 +2,7 @@ import numpy as N
 from xenoliths.application import app, db
 from xenoliths.core.models import Sample
 from xenoliths.SIMS.query import sims_data, element_data
-from paper.text import tex_renderer, write_file
+from figurator import tex_renderer, write_file
 import periodictable as pt
 
 def create_table():

@@ -6,7 +6,7 @@ from click import echo, secho, style
 from functools import partial
 
 from geotherm.models.geometry import Section, stack_sections
-from geotherm.solvers import FiniteSolver, AdiabatSolver, steady_state
+from geotherm.solvers import FiniteSolver, AdiabatSolver, steady_state_mantle
 from geotherm.units import u
 
 from .database import db
@@ -199,9 +199,15 @@ class SteadyState(ModelRunner):
             continental_crust.to_layer(interface_depth),
             oceanic_mantle.to_layer(total_depth-interface_depth)])
 
-        for flux in (90,95,100):
+        for flux in ((i+12)*5 for i in range(13)):
             q = u(flux,'mW/m^2')
-            s = steady_state(section,q)
+            # Use steady-state model that assumes
+            # a reasonable reduced heat flux from
+            # the mantle, rather than that which
+            # sums radiogenic heat.
+            s = steady_state_mantle(section,q,
+                    characteristic_scale=u(8,'km'),
+                    heatflow_mantle_proportion=0.6)
             self.record(s,flux)
             echo("Saving section for "
                  +style(str(q), fg='green')

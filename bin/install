@@ -2,6 +2,8 @@
 
 project_dir=${0:h:h}
 
+cd $project_dir
+
 # Install python modules
 pymodules=(application modules/python/* paper)
 
@@ -10,3 +12,5 @@ for m in $pymodules; do
   pip install -e $project_dir/$m
   echo ""
 done
+
+(cd modules/node/pdf-printer && npm link)

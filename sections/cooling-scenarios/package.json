@@ -6,6 +6,7 @@
   "author": "Daven Quinn",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.4.7",
     "chroma-js": "^1.1.1",
     "color": "^0.11.1",
     "d3": "^3.5.16",
@@ -15,20 +16,16 @@
     "d3plus": "^1.9.3",
     "dimple-js": "^2.1.4",
     "js-yaml": "^3.5.3",
-    "jsdom": "3",
     "node-uuid": "^1.4.7",
     "nvd3": "^1.8.2",
-    "pg": "^4.4.6",
-    "pg-native": "^1.10.0",
-    "pg-then": "^1.2.1",
-    "pg-types": "^1.10.0",
-    "savage-svg": "git+https://github.com/davenquinn/savage-svg.git",
+    "pg-promise": "^5.5.0",
     "simplify-js": "^1.2.1",
     "textures": "^1.0.3",
     "underscore": "^1.8.3",
     "uuid": "^2.0.1"
   },
   "devDependencies": {
-    "coffee-script": "^1.10.0"
+    "coffee-script": "^1.10.0",
+    "electron-rebuild": "^1.5.6"
   }
 }

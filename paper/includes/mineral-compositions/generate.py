@@ -2,7 +2,7 @@
 
 from xenoliths import app
 from paper.query import xenolith_minerals
-from paper.text import tex_renderer, write_file
+from figurator import tex_renderer, write_file
 
 def mineral_compositions():
     """
