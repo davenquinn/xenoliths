@@ -75,7 +75,7 @@ region of long-lived subduction accretion proximal to the plate edge.
 The tectonic setting of the sub-Crystal Knob mantle lithosphere is best posed
 by the restoration of its host crustal rocks to a pre-San Andreas transform
 offset position, outboard of the northern reaches of the southern California
-batholith (Figures \ref{fig:context} and \ref{fig:reconstruction}, detailed below).
+batholith (`Figures context and reconstruction`, detailed below).
 The southern California batholith
 is the southern continuation of the Sierra Nevada batholith across the Garlock
 fault. In this restored position the crystalline nappes that constitute Salinia
