@@ -49,6 +49,8 @@ from the upper mantle directly underlying the Crystal
 Knob volcanic pipe at ca. 1.7 Ma,
 or mid-Pleistocene time.
 
+<!--[[step_heating]]-->
+
 <!-- ## SIMS -->
 Trace element concentrations were acquired for pyroxene grains
 in each xenolith sample,
