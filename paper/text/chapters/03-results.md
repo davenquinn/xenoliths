@@ -57,7 +57,7 @@ The groundmass is dominated by altered glass and microcrystalline
 plagioclase lathes.
 Though dominantly black, it is mottled with slightly greenish grey color domains at ~500 mm scale, which likely correspond to different levels of alteration.
 These domains are cross-cut by elongate narrow (~1 mm) flow shear bands of
-finer-grained material with fewer vesicles and phenocrysts.
+finer-grained material with few vesicles and phenocrysts.
 
 Samples CK-D1 and CK-D2 are dominated
 by dunite and peridotite fragments up to 2 cm in diameter. The
