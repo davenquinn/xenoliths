@@ -26,7 +26,7 @@ The ages of host lavas for mantle xenolith suites are critical for the
 application of their petrogenesis to tectonic and geodynamic processes
 (for example, see @Ducea1998b).
 The age of the Crystal Knob host lava was determined
-using the $^{40}$Ar/$^{39}$Ar radioisotope technique on in situ <!--?--> 
+using the $^{40}$Ar/$^{39}$Ar radioisotope technique on *in situ* <!--?--> 
 plagioclase phenocrysts. A billet
 of the host lava (sample CK-1) was provided to the USGS Geochronology
 Laboratory in Denver, Colorado. Plagioclase feldspar grains
