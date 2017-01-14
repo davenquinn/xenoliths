@@ -66,7 +66,8 @@ their textural and mineralogic variation.
 Electron backscatter intensity
 images of each thin section were collected using a ZEISS 1550 VP field
 emission SEM at the California Institute of Technology. These were
-coregistered with optical scans and electron-microprobe analyses <!-- should include these in supplementary material -->.
+coregistered with optical scans and electron-microprobe analyses <!--
+TODO: should include these in supplementary material -->.
 For each peridotite sample, modal mineralogy was estimated by classifying mineralogy on a
 \~5000 pixel grid atop coregistered optical scans and electron
 backscatter mosaics `[Figure textures]`. Volumetric modes were converted
