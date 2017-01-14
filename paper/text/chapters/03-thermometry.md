@@ -126,3 +126,34 @@ elements heavier than Ho retaining an equilibrium signature.
 
 <!-- (more descriptive text here?) -->
 
+#### Discussion
+
+Rare-earth exchange thermometry shows the same two groupings of
+temperatures. Temperatures measured for the low-temperature cohort are
+most comparable to the TA98 results. Given that the TA98 method has been
+found to perform best among the pyroxene-exchange thermometers by
+@Nimis2010, it seems likely that both the TA98 and REE temperatures show
+long-term equilibrium with no significant thermal perturbations. For the
+high-temperature cohort, particularly samples CK-4 and CK-6, the REE
+method shows significantly higher equilibration temperatures than the
+TA98 method. Rare-earths in pyroxene diffuse several orders of magnitude
+slower than major elements [@Liang2013], so early thermal events can
+leave an imprint on the distribution of rare-earths for much longer than
+with major elements. It is likely that these higher temperatures are a
+signature of a fossil heating event primarily affecting the deepest
+samples. This is accompanied by major REE disequilibrium in sample CK-4,
+which also contains the most intergranular melt channels.
+
+Sample CK-4 records a significantly higher temperature for LREE than the
+other samples and its HREE equilibration temperatures. This signifies
+that LREEs were equilibrated at a much higher temperature than the
+HREEs. This pronounced within-sample disequilibrium could be the result
+of metasomatic processes, which is bolstered by the fact that CK-4 has
+the only significant melt-infiltration textures in the sample set. It is
+likely, therefore, that CK-4 was subjected to a short, transient heating
+event that was not fully equilibrated in HREE. Further, since this
+transient heating is not reflected in major-element temperatures, it is
+likely that the sample was heated transiently and equilibrated at a
+lower temperature for a significant period of time. Also, given low CPX modes,
+rare-earths added during refertilization may not be completely
+homogenized throughout the sample.
