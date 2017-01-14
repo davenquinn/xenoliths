@@ -23,11 +23,10 @@ tectonic and petrogenetic development of the overlying crust.
 
 The Crystal Knob xenolith locality samples a highly strategic lithospheric
 column through the Late Cretaceous convergent margin belt of the SW North
-American Cordillera. This regionally extensive belt is characterized by a large
-volume continental magmatic arc [@Ducea2015] <!-- is this the best ref -->
-whose generation was
+American Cordillera. This regionally extensive belt is characterized by
+a large-volume continental magmatic arc whose generation was
 driven by the eastward subduction of the Farallon oceanic plate beneath western
-North America [@Seton2012]. The Franciscan complex represents the
+North America [@Bateman1992]. The Franciscan complex represents the
 crustal level accretionary complex of this subduction zone, and is widely
 recognized for its tectonic inclusion of Farallon plate oceanic basement and
 pelagic sediment fragments, as well as upper plate magmatic arc derived
@@ -171,18 +170,4 @@ Knob eruption site.
 <!--[[context]]-->
 
 <!--[[field_photo]]-->
-
-The Crystal Knob neck (35.806º N, 121.174º W) is a mid-Pleistocene
-olivine--plagioclase phyric basalt which erupted along the margin of the
-Franciscan assemblage 500 m west of the Nacimiento Fault in the Santa Lucia
-Mountains of central California [@Seiders1989]. The basaltic plug is ~80
-m in diameter at the surface and has entrained abundant dunite and sparse
-spinel peridotite xenoliths \figp{field_photo}. The dunites are cumulates, and
-texturally they grade into single grain xenocrysts, or the apparent
-phenocrysts, for the host lava. The spinel peridotites are volumetrically
-subordinate to the dunites. As discussed below, the peridotites lack textural
-features suggestive of igneous cumulate origin, and in conjunction with the
-compositional data presented below we interpret the peridotites as mantle
-lithosphere in origin.
-
 
