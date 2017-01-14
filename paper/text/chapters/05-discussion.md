@@ -185,7 +185,7 @@ eastern and southern Sierra Nevada batholith
 [@Zandt2004; @Frassetto2011; @Gilbert2012; @Saleeby2012; @Jones2014; @Levandowski2015].
 In addition to the structural continuity that these studies show between the seismic
 anomaly and the residual mantle lithosphere that is still in place
-beneath the Great Valley and Sierra Nevada (Fig. 3), these studies show
+beneath the Great Valley and Sierra Nevada `[Figure context]`, these studies show
 that the volume of the Isabella anomaly far exceeds a reasonable volume
 estimate for the attenuated terminus of a hypothetical translated
 Monterey slab. These studies also provide mechanisms for lower crustal
@@ -200,7 +200,7 @@ plate motions are closely correlated to transrotational rifting in the
 southern California Borderland and the linked clockwise rotation of
 western Transverse Ranges bedrock panels [Fig. 3; @Bohannon1995; @Wilson2005].
 This is in line with the Monterey slab’s limited down-dip extent as bounded by the Monterey-Farallon slab window
-segment shown on Figure 18. If the hypothetical Monterey “dangling slab”
+segment shown on Figure 18. If the hypothetical Monterey "dangling slab"
 were of proper proportion to form the Isabella anomaly, then why were
 its effects on surface geology restricted to the Borderland and
 Transverse Ranges? Epeirogenic transients that correlate to the
@@ -212,8 +212,8 @@ speed anomaly in terms of position and volume (Fig. 3), and also have a
 firm geodynamic basis as such [@Burkett2009].
 
 According to the @Wilson2005 reconstruction of the
-Pacific-Farallon slab window and adjacent Monterey plate (Fig. 18), the
-Crystal Knob eruption site was located above a slab window in the early
+Pacific-Farallon slab window and adjacent Monterey plate `[Figure reconstruction]`,
+the Crystal Knob eruption site was located above a slab window in the early
 Neogene, proximal to the northeastern boundary transform edge of the
 Monterey plate. Diffuse volcanism, some clearly derived from
 decompression partial melting of convecting mantle, is widespread for
@@ -226,18 +226,18 @@ neck, which we return to below.
 ## Underplated Farallon Plate mantle nappes
 
 The reconstruction of the Crystal Knob eruption site to its pre-San
-Andreas position (Fig. 18) poses a highly viable alternative for the
+Andreas position `[Figure reconstruction]` poses a highly viable alternative for the
 development of the site’s underlying mantle lithosphere. This is
 particularly viable in light of the neck having erupted through the
 Nacimiento belt of the Franciscan complex, immediately adjacent to the
-current outer limit of Salinia crystalline nappes (Fig. 1).  Accretion
+current outer limit of Salinia crystalline nappes `[Figure context]`.  Accretion
 of the Nacimiento belt occurred in the Late Cretaceous beneath the outer
 reaches of the Salinia nappe sequence [@Hall2013; @Chapman2016a].
 In their core area the Salinia nappes rode westwards on slightly older, higher metamorphic grade, Franciscan rocks that are
 shown on Figures 1 and 18 as windows into subduction channel schists
 [@Barth2003; @Kidder2006; @Ducea2009]. As
 discussed earlier, the southernmost Sierra Nevada-western Mojave
-“autochthon” for the Salinia nappes is likewise detached from its
+"autochthon" for the Salinia nappes is likewise detached from its
 original mantle wedge underpinnings, and shingled into crystalline
 nappes that lie on underplated high-grade subduction channel schists as
 well [@Saleeby2003; @Chapman2010; @Chapman2012; @Chapman2016b]. Tectonic
@@ -254,8 +254,9 @@ it stands to reason that upper mantle duplex accretion progressed
 westwards from the Mojave region to beneath the Salinia
 nappes as well as the Nacimiento belt of the Franciscan.
 
-In Figure \ref{fig:cross_sections} we present a model for Farallon plate mantle lithosphere
-having tectonically underplated the Mojave-Salinia-Nacimiento segment of
+In `Figure cross_sections` we present a model for the tectonic
+underplating of the Farallon plate mantle lithosphere beneath
+the Mojave-Salinia-Nacimiento segment of
 the SW Cordilleran convergent margin in the Late Cretaceous [after @Saleeby2003; @Luffi2009].
 This is shown to have occurred in conjunction with shallow flat subduction of the Shatsky Rise conjugate
 LIP [after @Saleeby2003; @Liu2010]. The approximate age of
@@ -272,14 +273,14 @@ arc, and retrogressed to ~715ºC, peak temperatures recorded in shallowly
 subducted metaclastic rocks of the Sierra de Salinas schist, exposed in
 the principal Salinia window into the subduction channel schists [@Kidder2006].
 
-In Figure \ref{fig:cross_sections}C and D we adopt the focused slab rollback and mantle
+In `Figure cross_sections`c and d we adopt the focused slab rollback and mantle
 lithosphere underplating models of @Saleeby2003 and @Luffi2009,
 for the dynamic response of normal thickness oceanic lithosphere
 following the crustal thickened oceanic plateau down the subduction
 zone. Principal crustal responses are shown as large magnitude
 trench-directed extension coupled to regional extrusion of the
 underplated subduction channel schists, which was driven by suction
-forces of the retreating slab. In the Figure \ref{fig:cross_sections}c to d transition,
+forces of the retreating slab. In the `Figure cross_sections`c to d transition,
 accelerated rollback is accomplished by duplex formation from Farallon
 plate mantle nappes. We suspect that mantle nappe detachment was
 controlled primarily by the temperature control on the brittle-plastic
@@ -309,8 +310,8 @@ lithosphere.
 
 ## Thermal considerations
 
-Regardless of the generalized lithospheric structure depicted in Figure
-17, kinematic reconstructions of the impingement of the Pacific-Farallon
+Regardless of the generalized lithospheric structure depicted in
+`Figure neogene_cross_sections`, kinematic reconstructions of the impingement of the Pacific-Farallon
 spreading center with the SW Cordilleran subducting trench require a
 slab window beneath the Crystal Knob eruption site in the early Neogene
 [@Atwater1998; @Wilson2005]. The depth of
@@ -319,16 +320,18 @@ constrained, and likely to vary geographically as a function of
 thickness and thermal variations in the pre-existing lithospheric lid,
 as well its state of stress and structural coherency. Though volcanism
 in the central California Coast Ranges has been tied to slab window
-opening, its volume has not been consistent with volcanism associated other episodes of
-shallow asthenospheric upwelling in the Cordillera particularly in the
-forearc region of coastal central California [@Humphreys1995] <!-- not
+opening it has been volumetrically insignificant when compared to that
+generated by other
+coeval examples of shallow asthenospheric upwelling in the Cordillera
+such as the high-flux volcanism generated in the Basin and Range
+province in the Eocene--Miocene [@Humphreys1995] <!-- not
 familiar with this ref, please double check for its applicability-->.
 This is readily explained if the slab window opened beneath a tiered
 duplex of underplated Farallon mantle nappes, roofed by a duplex of
 underplated Farallon oceanic crust (lower crustal mafic layer), in turn
 roofed by the Nacimiento Franciscan and Salinia nappes. Our estimate of
 a 50-80 km depth interval over which the Crystal Knob lavas sampled the
-underlying mantle lithosphere (Fig. 14), coupled with a general lack of
+underlying mantle lithosphere `[Figure depth]`, coupled with a general lack of
 significant late Cenozoic extensional faulting in the immediate region
 implies a strong thermo-mechanical lid that likely suppressed the ascent
 of voluminous asthenosphere derived magmas that were hypothetically
