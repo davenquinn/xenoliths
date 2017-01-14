@@ -47,11 +47,10 @@ harzburgite CK-3 contains 2 mm orthopyroxene
 porphyroblasts. All samples are Type I peridotites in the @Frey1978
 classification system.
 
-Petrographic study of the host lava and cumulate samples reveals
-residues from multiple stages of melt fractionation. The host lava (CK-1)
+The host lava (CK-1)
 is an alkali basalt with abundant plagioclase and
 olivine phenocrysts, and less-abundant clinopyroxene and orthopyroxene.
-CK-1 includes vesicles, abundant phenocrysts and xenocrysts of olivine, as well as
+CK-1 includes vesicles, abundant phenocrysts olivine, as well as
 small (<1 cm) dunite and multiphase peridotite fragments.
 The groundmass is dominated by altered glass and microcrystalline
 plagioclase lathes.
@@ -60,6 +59,8 @@ at ~500 mm scale, which likely correspond to different levels of alteration.
 These domains are cross-cut by elongate narrow (~1 mm) flow shear bands of
 finer-grained material with few vesicles and phenocrysts.
 
+Petrographic study of cumulate fragments within the Crystal Knob
+basalt reveals residues from multiple stages of melt fractionation.
 Samples CK-D1 and CK-D2 are dominated
 by dunite and peridotite fragments up to 2 cm in diameter. The
 peridotite fragments show textures similar to those in samples CK-2 to CK-7.
@@ -74,7 +75,7 @@ The dunite cumulates in these samples are texturally representative of
 the vast majority of xenoliths Crystal Knob basalt.
 
 Overall, the Crystal Knob basalt contains fragments (both single-crystal
-and lithic aggregates) corresponding to the mantle source, and cumulates
+and lithic aggregates) corresponding to the mantle source and cumulates
 from several stages of fractionation that were recycled into the magma.
 <!-- This suggests evolution in several
 deep magma chambers with entrainment of the wall rock
