@@ -161,7 +161,7 @@ neck and the origin of its upper mantle underpinnings could also owe their origi
 asthenosphere ascended into a slab window.
 
 Below we employ petrologic and
-geochemical investigations on the Crystal Knob suite, in conjunction with
+geochemical investigations of the Crystal Knob suite, in conjunction with
 regional findings on other xenolith locations as well as geophysical data and
 modeling in order to pursue the origin of the upper mantle beneath the Crystal
 Knob eruption site.
