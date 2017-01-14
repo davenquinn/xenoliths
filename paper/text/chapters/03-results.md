@@ -51,10 +51,13 @@ Petrographic study of the host lava and cumulate samples reveals
 residues from multiple stages of melt fractionation. The host lava (CK-1)
 is an alkali basalt with abundant plagioclase and
 olivine phenocrysts, and less-abundant clinopyroxene and orthopyroxene.
+CK-1 includes vesicles, abundant phenocrysts and xenocrysts of olivine, as well as
+small (<1 cm) dunite and multiphase peridotite fragments.
 The groundmass is dominated by altered glass and microcrystalline
 plagioclase lathes.
-CK-1 includes abundant phenocrysts and xenocrysts of olivine, as well as small (<1 cm)
-dunite and multiphase peridotite fragments.
+Though dominantly black, it is mottled with slightly greenish grey color domains at ~500 mm scale, which likely correspond to different levels of alteration.
+These domains are cross-cut by elongate narrow (~1 mm) flow shear bands of
+finer-grained material with fewer vesicles and phenocrysts.
 
 Samples CK-D1 and CK-D2 are dominated
 by dunite and peridotite fragments up to 2cm in size. The
