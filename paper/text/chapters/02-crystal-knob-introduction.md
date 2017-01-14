@@ -62,8 +62,8 @@ their textural and mineralogic variation.
 
 ### Host lava
 
-The host lava (CK-1) is an alkali basalt with sparse vesicles and abundant phenocrysts of plagioclase and
-olivine, and less common clinopyroxene and orthopyroxene.
+The host lava (CK-1) is an alkali basalt with sparse vesicles and abundant
+phenocrysts of feldspar, clinopyroxene, and olivine.
 The sample also contain dunite and multiphase peridotite fragments
 ranging from aggregates of a few grains to ~5 cm diameter.
 
@@ -104,8 +104,6 @@ represent interactions with the melt throughout their history -->
 
 <!--[[sample_petrography]]-->
 
-### Xenoliths
-
 <!-- (Daven, we should have a table that lists all samples, and gives a
 petrographic overview) -->
 
@@ -135,24 +133,6 @@ that are strongly intergrown with orthopyroxene. <!-- check this
 statement -->
 Sample CK-7 shows abundant exsolution lamellae and graphic recrystallization of
 orthopyroxene and clinopyroxene.
-
-
-Major-element compositions were
-analyzed for each polished thin section on a five-spectrometer JEOL JXA-8200
-electron-probe microanalyzer at the California Institute of Technology.
-Abundances were counted in wavelength-dispersive mode using a probe
-current of 15 kV. The instrument was calibrated using natural and
-synthetic standards; matrix corrections were made using the CITZAF
-[@Armstrong1988] algorithm. 1714 measurements were performed across the
-six peridotite samples, concentrated in 3-4 locations of interest per
-sample. 403 measurements of basaltic host and entrained dunites were also taken.
-
-Areas with orthopyroxene and clinopyroxene in contact were emphasized to
-aid in thermometry. Minerals were classified from the analytical data
-using a nearest-neighbor fitting algorithm between pure endmember
-phases. Poor-quality measurements with low totals were automatically
-flagged using a scheme based on that of @Taylor1998, and mixed phases
-along grain boundaries were manually discarded.
 
 Whole-rock major-element abundances are
 reconstructed from averaged mineral composition and estimated modes.
