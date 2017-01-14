@@ -1,4 +1,4 @@
-# Crystal Knob lava
+# Crystal Knob xenolith locality
 
 The Crystal Knob volcanic neck (35.806º N, 121.174º W) is a mid-Pleistocene
 olivine--plagioclase phyric basalt which erupted along the margin of the
@@ -60,22 +60,82 @@ by dunite cumulate fragments (CK-D1 and CK-D2).
 The samples were evaluated under a petrographic microscope to determine
 their textural and mineralogic variation.
 
+### Host lava
 
-Electron backscatter intensity
-images of each thin section were collected using a ZEISS 1550 VP field
-emission SEM at the California Institute of Technology. These were
-coregistered with optical scans and electron-microprobe analyses <!--
-TODO: should include these in supplementary material -->.
-For each peridotite sample, modal mineralogy was estimated by classifying mineralogy on a
-\~5000 pixel grid atop coregistered optical scans and electron
-backscatter mosaics `[Figure textures]`. Volumetric modes were converted
-to %wt using representative densities for spinel-facies
-peridotite. <!--TODO: Maybe show these densities? --> Results are shown in
-`Figure modes`. <!--Should make a table about this-->
+The host lava (CK-1) is an alkali basalt with sparse vesicles and abundant phenocrysts of plagioclase and
+olivine, and less common clinopyroxene and orthopyroxene.
+The sample also contain dunite and multiphase peridotite fragments
+ranging from aggregates of a few grains to ~5 cm diameter.
+
+The groundmass is dominated by altered glass and microcrystalline
+plagioclase lathes.
+Though dominantly black, it is mottled with slightly greenish grey color domains
+at ~500 mm scale, which likely correspond to different levels of alteration.
+These domains are cross-cut by elongate narrow (~1 mm) flow shear bands of
+finer-grained material with sparse vesicles and phenocrysts.
+
+Petrographic study of cumulate fragments within the Crystal Knob
+basalt reveals residues from multiple stages of melt fractionation.
+Samples CK-D1 and CK-D2 are dominated
+by dunite and peridotite fragments up to 2 cm in diameter. The
+peridotite fragments show textures similar to those in samples CK-2 to CK-7.
+The dunites fragments are cumulate textured and finer-grained than the peridotites,
+with characteristic grain sizes ranging from 50--200 µm for different fragments.
+Intergranular melt inclusions <!-- now altered to ??? -->
+are evident between olivine grains. Some cumulate material surrounds large (up to
+2 mm) grains of olivine, spinel, and pyroxene (or multigrain aggregates of
+these phases). CK-D1 notably contains a large spinel grain with a
+pitted rim embedded in dunite.
+The dunite cumulates in these samples are texturally representative of
+the vast majority of xenoliths Crystal Knob basalt.
+
+Overall, the Crystal Knob basalt contains fragments (both single-crystal
+and lithic aggregates) corresponding to the mantle source and cumulates
+from several stages of fractionation that were recycled into the magma.
+<!-- This suggests evolution in several
+deep magma chambers with entrainment of the wall rock
+
+Taken together, these samples appear to
+represent interactions with the melt throughout their history -->
+
+### Peridotite xenoliths
 
 <!--[[textures]]-->
 
 <!--[[sample_petrography]]-->
+
+### Xenoliths
+
+<!-- (Daven, we should have a table that lists all samples, and gives a
+petrographic overview) -->
+
+The peridotite samples (CK-2 through CK-7) were texturally classified using
+the scheme of @Pike1977. All samples display an allotriomorphic granular
+texture with anisotropy largely absent. There are
+no significant petrographically observed plastic deformation features
+(e.g. kink domains in olivine grains) in any of the samples. However,
+samples CK-2 and CK-5 exhibit a weak shape-preferred alignment in elongate
+spinels.
+
+Minor late-stage alteration products are seen in all peridotite samples.
+This includes variably Fe-rich grain boundaries of major phases and Ti
+enrichment in pyroxene rims (<10 µm from the grain
+edge). Sample CK-4 contains an alteration channel which cuts linearly
+across the thin section. This channel is bounded by resorbed boundaries
+of the major phases (olivine and orthopyroxene) and hosts
+microcrystalline clinopyroxene, 10 µm euhedral spinels,
+and minor amphibole. Near this melt channel, thin streamers of
+intergranular fill show compositions enriched in Na and Ti. These
+fills are present (but less extensive) in sample CK-3, and
+generally absent in other samples. Samples other than CK-3 and CK-4
+largely do not show melt infiltration along grain boundaries, instead
+having major phases in contact (though most are fractured along these surfaces).
+All samples, but most notably CK-3 and CK-4, have clinopyroxene grains
+that are strongly intergrown with orthopyroxene. <!-- check this
+statement -->
+Sample CK-7 shows abundant exsolution lamellae and graphic recrystallization of
+orthopyroxene and clinopyroxene.
+
 
 Major-element compositions were
 analyzed for each polished thin section on a five-spectrometer JEOL JXA-8200
@@ -85,8 +145,8 @@ current of 15 kV. The instrument was calibrated using natural and
 synthetic standards; matrix corrections were made using the CITZAF
 [@Armstrong1988] algorithm. 1714 measurements were performed across the
 six peridotite samples, concentrated in 3-4 locations of interest per
-sample. <!-- 403 measurements of dunites and the basalt host were also taken,
-but are not reported in this study. -->
+sample. 403 measurements of basaltic host and entrained dunites were also taken.
+
 Areas with orthopyroxene and clinopyroxene in contact were emphasized to
 aid in thermometry. Minerals were classified from the analytical data
 using a nearest-neighbor fitting algorithm between pure endmember
