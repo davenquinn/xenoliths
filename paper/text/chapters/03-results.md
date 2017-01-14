@@ -60,7 +60,7 @@ These domains are cross-cut by elongate narrow (~1 mm) flow shear bands of
 finer-grained material with fewer vesicles and phenocrysts.
 
 Samples CK-D1 and CK-D2 are dominated
-by dunite and peridotite fragments up to 2cm in size. The
+by dunite and peridotite fragments up to 2 cm in diameter. The
 peridotite fragments show textures similar to those in samples CK-2 to CK-7.
 The dunites fragments are cumulate textured and finer-grained than the peridotites,
 with characteristic grain sizes ranging from 50--200 µm for different fragments.
