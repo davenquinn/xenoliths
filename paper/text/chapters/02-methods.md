@@ -71,8 +71,8 @@ For each peridotite sample, modal mineralogy was estimated by classifying minera
 \~5000 pixel grid atop coregistered optical scans and electron
 backscatter mosaics `[Figure textures]`. Volumetric modes were converted
 to %wt using representative densities for spinel-facies
-peridotite. <!--Maybe show these densities? --> Results are shown in
-Figure \ref{fig:modes}. <!--Should make a table about this-->
+peridotite. <!--TODO: Maybe show these densities? --> Results are shown in
+`Figure modes`. <!--Should make a table about this-->
 
 <!--[[textures]]-->
 
