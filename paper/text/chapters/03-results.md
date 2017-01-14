@@ -48,10 +48,10 @@ porphyroblasts. All samples are Type I peridotites in the @Frey1978
 classification system.
 
 The host lava (CK-1)
-is an alkali basalt with abundant plagioclase and
-olivine phenocrysts, and less-abundant clinopyroxene and orthopyroxene.
-CK-1 includes vesicles, abundant phenocrysts olivine, as well as
-small (<1 cm) dunite and multiphase peridotite fragments.
+is an alkali basalt with vesicles and abundant phenocrysts of plagioclase and
+olivine, and less common clinopyroxene and orthopyroxene.
+The sample also contain dunite and multiphase peridotite fragments
+ranging from aggregates of a few grains to ~5 cm diameter.
 The groundmass is dominated by altered glass and microcrystalline
 plagioclase lathes.
 Though dominantly black, it is mottled with slightly greenish grey color domains
