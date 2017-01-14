@@ -55,7 +55,8 @@ CK-1 includes vesicles, abundant phenocrysts and xenocrysts of olivine, as well 
 small (<1 cm) dunite and multiphase peridotite fragments.
 The groundmass is dominated by altered glass and microcrystalline
 plagioclase lathes.
-Though dominantly black, it is mottled with slightly greenish grey color domains at ~500 mm scale, which likely correspond to different levels of alteration.
+Though dominantly black, it is mottled with slightly greenish grey color domains
+at ~500 mm scale, which likely correspond to different levels of alteration.
 These domains are cross-cut by elongate narrow (~1 mm) flow shear bands of
 finer-grained material with few vesicles and phenocrysts.
 
