@@ -2,22 +2,6 @@
 Discussion
 ==========
 
-## Petrology
-
-The peridotite samples from Crystal Knob show a range of depletion in
-major and trace elements. They are isotopically depleted, with an
-$\epsilon_\mathrm{Nd}$ of
-+10, and \ce{^{87}Sr}/\ce{^{86}Sr} of .7029. <!-- (Daven, the Nd and Sr
-data in Table 4 are given as measured. In the table you should also show
-the time corrected Nd and Sr isotopic ratios and epslon Nd  value for a
-correction of 1.65 Ma. You should then refer to these time corrected
-numbers in the text and show these values on the Figure 10 Eps Nd-Sr
-plot. The corrections will be small, but since we have dated the host it
-would be best to use the time corrected values for time of entrainment.
---> This corresponds to the depleted asthenosphere, or convecting upper mantle of Hoffman (2004), with a
-mantle upwelling source that has seen no contribution from the western
-North American crust or continental lithosphere more generally.
-
 Pyroxene-exchange geothermometry shows that the peridotite samples form
 two groups in temperature with centroids separated by roughly 60ºC.
 These temperatures seem to correspond to the samples being sourced along

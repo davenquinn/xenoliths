@@ -51,38 +51,3 @@ or mid-Pleistocene time.
 
 <!--[[step_heating]]-->
 
-<!-- ## SIMS -->
-Trace element concentrations were acquired for pyroxene grains
-in each xenolith sample,
-using a Cameca IMS-7f-GEO magnetic-sector secondary ion mass
-spectrometer (SIMS) at the California Institute of Technology. Two to
-three each of orthopyroxene and clinopyroxene grains were targeted per
-xenolith sample. Measurements were acquired with 9 kV beam flux and a
-100 µm spot size. The USGS glass standard NIST 610 was used as an
-external standard for all elements [@Gao2002]<!-- this ref is for
-LA-ICP-MS -->. Minimal variation in measured concentration was observed
-at grain and sample scale, though clinopyroxene in CK-6 and
-orthopyroxene in CK-7 show differences outside of analytical error in
-Ba, La, and Ce (potentially attributable to concentrations near SIMS
-detection limits). Other measurements are largely concordant and results
-are presented as within-sample averages. Whole-rock trace element
-abundances are estimated using measured concentrations in clinopyroxene
-and orthopyroxene and mineral modes. Olivine is ignored in calculations
-because rare-earth elements (REEs) are 2-3 orders of magnitude less
-compatible than in clinopyroxene [@WittEickschen2005;@Luffi2009].
-Results for measured pyroxene and recalculated whole-rock trace elements
-are shown in `Table trace_elements`.
-
-<!--## Isotopes-->
-Portions of each peridotite sample were crushed using
-a shatterbox at the California Institute of Technology. Clinopyroxene
-grains (150--300 µm, 35-45 g per sample and free of visible
-inclusions and alteration) were picked by hand under a binocular
-microscope. These clinopyroxene separates were analyzed for strontium
-and neodymium isotopes at the University of Arizona, Tuscon. The samples were
-spiked with mixed $^{147}$Sm-$^{150}$Nd tracers [@Wasserburg1981]. <!--
-Maybe some more info from Mihai? --> Samarium was analyzed using a
-static routine on a 54 VG Sector multicollector thermal ionization mass
-spectrometer (TIMS), and neodymium was measured as an oxide on a 354 VG
-Sector instrument. Results are presented in `Table isotopes`.
-
