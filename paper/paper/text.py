@@ -15,4 +15,5 @@ def process_text(stdin, stdout):
     for t in replacements:
         text = text.replace(*t)
     text = filter_SI_units(text)
-    stdout.write(pandoc_processor(text))
+    stdout.write(pandoc_processor(text,
+            citation_backend='natbib'))

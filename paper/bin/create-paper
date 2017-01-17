@@ -7,11 +7,13 @@ bin/collect-figures
 
 body='build/body.tex'
 
+mkdir -p build
 # Process body text
-cat text/body/*.md \
+cat text/chapters/*.md \
 | figures inline text/includes.yaml \
   --captions text/figure-captions.md \
   --collect-dir collected \
+  --natbib \
 | paper markdown-to-latex > $body
 # Process abstract
 cat text/abstract.md \
