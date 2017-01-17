@@ -17,7 +17,8 @@ module.exports = (opts={})->
   (el, lineGenerator)->
     lineGenerator.interpolate(opts.interpolate)
     el.call tx
-    _ = fs.readFileSync 'xenoliths-area.json'
+    pth = path.join __dirname, 'xenoliths-area.json'
+    _ = fs.readFileSync pth
     data = JSON.parse _
     coords = data.geometry.coordinates
     el.append 'path'

@@ -24,10 +24,10 @@ def steady_state(section, surface_heatflow, surface_temperature=None):
         a = layer.material_property('heat_generation')
         k = layer.material_property('conductivity')
 
-        def temperature(layer, depth):
+        def temperature(depth):
             T = T_top
             T -= a/(2*k)*depth**2
-            T += q_top/k*depth
+            T += q_top*depth/k
             return T
 
         n = layer.n_cells

@@ -8,21 +8,18 @@
   "dependencies": {
     "bluebird": "^3.4.7",
     "chroma-js": "^1.1.1",
-    "color": "^0.11.1",
-    "d3": "^3.5.16",
+    "d3": "^4.4.1",
     "d3-legend": "^1.0.0",
     "d3-queue": "^2.0.2",
     "d3-svg-legend": "^1.7.0",
-    "d3plus": "^1.9.3",
-    "dimple-js": "^2.1.4",
     "js-yaml": "^3.5.3",
     "node-uuid": "^1.4.7",
-    "nvd3": "^1.8.2",
     "pg-promise": "^5.5.0",
     "simplify-js": "^1.2.1",
     "textures": "^1.0.3",
     "underscore": "^1.8.3",
-    "uuid": "^2.0.1"
+    "uuid": "^2.0.1",
+    "xenoliths-area": "file:../../modules/node/xenoliths-area"
   },
   "devDependencies": {
     "coffee-script": "^1.10.0",

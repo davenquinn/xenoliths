@@ -1,0 +1,16 @@
+{
+  "name": "xenoliths-area",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "d3": "4",
+    "textures": "*",
+    "color": "*"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -172,6 +172,10 @@ class Underplated(ModelRunner, UnderplatingMixin):
         self.do_underplating()
         self.solve_to_present()
 
+steady_state_section = Section([
+    continental_crust.to_layer(interface_depth),
+    oceanic_mantle.to_layer(total_depth-interface_depth)])
+
 class SteadyState(ModelRunner):
     """
     Steady-state case for 30 km of crust
@@ -195,9 +199,7 @@ class SteadyState(ModelRunner):
         self.session.add(v)
 
     def run(self):
-        section = Section([
-            continental_crust.to_layer(interface_depth),
-            oceanic_mantle.to_layer(total_depth-interface_depth)])
+        section = steady_state_section
 
         for flux in ((i+12)*5 for i in range(13)):
             q = u(flux,'mW/m^2')

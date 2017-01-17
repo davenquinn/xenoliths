@@ -23,7 +23,7 @@ oceanic_mantle.conductivity = u(3.138,"W/m/K")
 # Continental crust is mostl granitic and metapelitic here
 continental_crust.heat_generation = u(1,"uW/m**3")
 # Continental crust conductivity is 2.7 W/m/K
-# but could be as low as 1.9 
+# but could be as low as 1.9
 
 # Depths
 interface_depth = u(30,'km')

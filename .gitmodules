@@ -8,7 +8,7 @@
 	path = modules/node/pdf-printer
   url = git://github.com/davenquinn/pdf-printer.git
 [submodule "sections/cooling-scenarios/d3-plot-area"]
-	path = sections/cooling-scenarios/d3-plot-area
+	path = modules/node/d3-plot-area
   url = git://github.com/davenquinn/d3-plot-area.git
 [submodule "sections/modal-mineralogy"]
 	path = sections/modal-mineralogy

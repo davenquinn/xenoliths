@@ -1,37 +1,36 @@
 yaml = require "js-yaml"
 d3 = require 'd3'
 fs = require 'fs'
-savage = require 'savage-svg'
 simplify = require 'simplify-js'
+xenolithsArea = require 'xenoliths-area'
 
 modelColors = require '../shared/colors'
-xenolithsArea = require '../shared/xenoliths-area'
-{query} = require '../shared/database'
+{db, storedProcedure} = require '../shared/database'
 util = require '../shared/util'
 axes = require '../d3-plot-area/src'
 
-# Setup labels
-_ = fs.readFileSync __dirname+'/labels.yaml'
-labelData = yaml.load _
-
-selectedGeotherms = (k for k,v of labelData)
-
 staticGeotherms = "SELECT dz, heat_flow, temperature FROM thermal_modeling.static_profile"
 
-sql = fs.readFileSync __dirname+'/query.sql'
-rows = query(sql)
-#.concat query(staticGeotherms)
-console.log rows.length
+module.exports = (el, callback)->
 
-for r in rows
-  r.profile = util.makeProfile r
+  sql = storedProcedure __dirname+'/query.sql'
+  rows = db.query(sql)
+  #.concat query(staticGeotherms)
+  console.log rows.length
 
-dpi = 72
-size =
-  width: 3.25*dpi
-  height: 4.5*dpi
+  for r in rows
+    r.profile = util.makeProfile r
 
-func = (el)->
+  dpi = 72
+  size =
+    width: 3.25*dpi
+    height: 4.5*dpi
+
+  # Setup labels
+  _ = fs.readFileSync __dirname+'/labels.yaml'
+  labelData = yaml.load _
+  selectedGeotherms = (k for k,v of labelData)
+
   el = d3.select el
     .attr size
 
@@ -132,4 +131,5 @@ func = (el)->
     .attr
       'font-size': 8
 
-savage func, filename: process.argv[2]
+  callback()
+
