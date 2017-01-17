@@ -123,7 +123,7 @@ for dz, heat_flow, T in profiles:
     Z = cells/1000
 
     lwx=1
-    if heat_flow == 95:
+    if heat_flow == 90:
         lwx = 2
     ax.plot(T,Z,color=c, zorder=-20, linewidth=0.75*lwx)
     for i,v in enumerate(T):
