@@ -1,6 +1,6 @@
 module.exports = (el)->
   g = el.append 'g'
-    .attr
+    .attrs
       class: 'legend'
 
   c = '#444'
@@ -8,7 +8,7 @@ module.exports = (el)->
 
   g.append 'text'
     .text "Model tracers"
-    .attr
+    .attrs
       'font-size': 8
       'font-weight': 'bold'
       fill: c
@@ -17,12 +17,12 @@ module.exports = (el)->
     .data data
     .enter()
       .append 'g'
-      .attr
+      .attrs
         class: 'item'
         transform: (d,i)->"translate(0,#{12*(i+1)})"
 
   it.append 'line'
-    .attr
+    .attrs
       stroke: c
       'stroke-dasharray': (d)->d.da
       x2: 17
@@ -31,7 +31,7 @@ module.exports = (el)->
 
   it.append 'text'
     .text (d)->"#{d.n} km depth"
-    .attr
+    .attrs
       fill: c
       x: 20
       'font-size': 8

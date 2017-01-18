@@ -1,51 +1,51 @@
 d3 = require 'd3'
+require 'd3-selection-multi'
 
 module.exports = (ax)->
 
-  s = d3.scale.linear()
+  s = d3.scaleLinear()
     .domain [0,6]
     .range [ax.scale.x(24),ax.scale.x(24-6)]
 
-  uScale = d3.svg.axis()
+  uScale = d3.axisTop()
     .scale s
     .ticks(4)
     .tickSize -3
-    .orient 'top'
 
   labelText = null
 
   F = (el)->
-    el.attr
+    el.attrs
         class: 'u-scale'
         transform: 'translate(0,-5)'
       .call uScale
 
     c = '#888888'
     el.select '.domain'
-      .attr
+      .attrs
         fill: 'transparent'
         stroke: c
     el.selectAll '.tick line'
-      .attr
+      .attrs
         stroke: c
     el.selectAll '.tick text'
-      .attr fill: c
+      .attrs fill: c
     el.append 'text'
       .text 'Myr'
-      .attr
+      .attrs
         x: s(6)+5
         y: -3
 
     if labelText
       el.append 'text'
         .text labelText
-        .attr
+        .attrs
           x: s(0)
           y: -11
           'font-family': 'Helvetica Neue Italic'
 
     el.selectAll 'text'
-      .attr
+      .attrs
         fill: c
         'font-size': 7
 

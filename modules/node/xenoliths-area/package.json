@@ -9,7 +9,7 @@
   "peerDependencies": {
     "d3": "4",
     "textures": "*",
-    "color": "*"
+    "chroma-js": "*"
   },
   "author": "",
   "license": "ISC"

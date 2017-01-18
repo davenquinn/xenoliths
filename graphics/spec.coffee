@@ -1,5 +1,6 @@
 {Printer} = require 'pdf-printer'
-printer = new Printer buildDir: "#{__dirname}/build"
+printer = new Printer
+  buildDir: "#{__dirname}/build"
 
 printer
   #.task 'textures.pdf', '../sections/textures/generate'

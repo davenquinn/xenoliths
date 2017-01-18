@@ -1,21 +1,20 @@
 d3 = require 'd3'
 fs = require 'fs'
 textures = require 'textures'
-color = require "color"
+chroma = require "chroma-js"
 
 defaults =
   color: "#91aa5f"
-  interpolate: "basis"
   size: 4
 
 module.exports = (opts={})->
   for k,v of defaults
     opts[k] = opts[k] or v
 
-  c = color(opts.color).hexString()
+  c = chroma(opts.color).css()
   tx = textures.lines().size(opts.size).stroke(c)
   (el, lineGenerator)->
-    lineGenerator.interpolate(opts.interpolate)
+    lineGenerator.curve(d3.curveBasisClosed())
     el.call tx
     pth = path.join __dirname, 'xenoliths-area.json'
     _ = fs.readFileSync pth
@@ -23,6 +22,5 @@ module.exports = (opts={})->
     coords = data.geometry.coordinates
     el.append 'path'
       .datum coords
-      .attr
-        d: (d)->lineGenerator(d)+'Z'
-        fill: tx.url()
+      .attr 'd', (d)->lineGenerator(d)
+      .attr 'fill', tx.url()

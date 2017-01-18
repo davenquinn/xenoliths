@@ -1,5 +1,5 @@
 d3 = require 'd3'
-
+require 'd3-selection-multi'
 
 fontProperties =
   'font-size': 7
@@ -19,13 +19,13 @@ module.exports = (ax)->
 
     g = d3.select(@)
       .append 'g'
-      .attr
+      .attrs
         class: 'sub-label'
         fill: '#888'
         transform: "translate(#{l.x} #{l.y})"
 
     g.append 'rect'
-      .attr
+      .attrs
         width: 26
         height: 8
         y: -10
@@ -33,10 +33,10 @@ module.exports = (ax)->
         fill: 'white'
 
     g.append 'text'
-      .attr
+      .attrs
         class: 'oc-age'
         y: -4
-      .attr fontProperties
+      .attrs fontProperties
       .text "#{n} Myr"
 
   L.connectingLine = (data)->
@@ -50,7 +50,7 @@ module.exports = (ax)->
 
       el.append "path"
         .datum data
-        .attr
+        .attrs
           class: 'label-line'
           d: ax.line()
           stroke: '#888'
@@ -68,12 +68,12 @@ module.exports = (ax)->
 
       el.append "text"
         .text "Age of initial oceanic lithosphere"
-        .attr
+        .attrs
           dy: -10
           transform: "translate(#{_l.x} #{_l.y}) rotate(-7)"
           'text-anchor': 'middle'
           fill: '#888'
-        .attr fontProperties
+        .attrs fontProperties
 
   return L
 

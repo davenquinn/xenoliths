@@ -1,5 +1,6 @@
 _ = require 'underscore'
 d3 = require 'd3'
+require 'd3-selection-multi'
 fs = require 'fs'
 path = require 'path'
 Promise = require 'bluebird'
@@ -7,7 +8,7 @@ require './main.styl'
 
 modelColors = require '../shared/colors'
 {db, storedProcedure} = require '../shared/database'
-axes = require '../d3-plot-area/src'
+axes = require 'd3-plot-area/src'
 plotArea = require './plot-area'
 ageLabels = require './age-labels'
 legend = require './legend'
@@ -46,7 +47,7 @@ __makeOuterAxes = (data)->
   outerAxes = axes()
     .size sz
     .margin
-      right: 0.6*dpi
+      right: 0.4*dpi
       left: 0.15*dpi
       top: 0.32*dpi
       bottom: 0.4*dpi
@@ -60,11 +61,10 @@ __makeOuterAxes = (data)->
     .labelOffset 25
     .tickSize 4
 
-  outerAxes.axes.y()
+  outerAxes.axes.y('right')
     .label 'Temperature (ºC)'
     .labelOffset 30
     .despine()
-    .orient 'right'
 
   vscale = outerAxes.scale.y
   scaleDelta = (d)->vscale(0)-vscale(d)
@@ -104,8 +104,6 @@ createAxes = (outerAxes)->
       width: outerAxes.plotArea.size().width
       height: outerAxes.scaleDelta(data.axSize)
 
-    console.log data.limits,axsize
-
     ax = axes()
       .size axsize
       .position x: 0, y: offsY
@@ -113,13 +111,12 @@ createAxes = (outerAxes)->
     ax.scale.x = outerAxes.scale.x
     ax.scale.y.domain data.limits
 
-    ax.axes.y()
-      .tickOffset 5
+    ax.axes.y('right')
+      .tickPadding 5
       .tickSize 3
       .ticks Math.floor(data.axSize/200)
       .tickFormat d3.format("i")
-      .outerTickSize 0
-      .orient 'right'
+      .tickSizeOuter 0
 
     el.call ax
     offsY += axsize.height + outerAxes.scaleDelta(spacing)
@@ -133,17 +130,17 @@ createAxes = (outerAxes)->
 
     enter = sel.enter()
       .append 'g'
-        .attr class: 'model-run'
+        .attrs class: 'model-run'
         .each plotArea(ax)
 
     #enter.append 'g'
-    #  .attr class: 'profile'
+    #  .attrs class: 'profile'
     #  .each createProfileDividers(ax.line())
 
     # Add title
     plt.append 'text'
       .text data.title
-      .attr
+      .attrs
         'font-size': 10
         x: if i == 0 then 3*dpi else 0
 
@@ -165,12 +162,12 @@ createAxes = (outerAxes)->
 
     d3.select ax.node()
       .selectAll '.tick text'
-      .attr 'font-size': 7
+      .attrs 'font-size': 7
 
     if i == 1
       plt.append 'text'
         .text 'Monterey Plate'
-        .attr
+        .attrs
           class: 'annotation'
           fill: modelColors.scales.forearc(30)
           'font-size': 6
@@ -184,20 +181,20 @@ createAxes = (outerAxes)->
 setupElement = (el, data)->
     console.log data
     g = el
-      .attr sz
+      .attrs sz
       .append 'g'
 
     outerAxes = __makeOuterAxes(data)
     g.call outerAxes
 
     g.selectAll '.tick text'
-      .attr 'font-size': 8
+      .attrs 'font-size': 8
 
     plt = outerAxes.plotArea()
     plt.selectAll 'g.axes'
       .data data
       .enter().append 'g'
-        .attr class: 'axes'
+        .attrs class: 'axes'
         .each createAxes(outerAxes)
 
     plt.call legend
@@ -207,6 +204,6 @@ func = (el_, callback)->
   Promise.map scenarios, getData, concurrency: 1
     .tap console.log
     .then (data)->setupElement(el, data)
-    #  .tap callback
+    .tap callback
 
 module.exports = func
