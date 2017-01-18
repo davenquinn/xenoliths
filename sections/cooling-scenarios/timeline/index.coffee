@@ -87,7 +87,7 @@ createProfileDividers = (lineGenerator, color)->
 
     sel.enter()
       .append 'path'
-      .attr
+      .attrs
         stroke: modelColors(d).alpha(0.5).css()
         d: (d)->
           t = d.trange.map (a)->[d.time,a]

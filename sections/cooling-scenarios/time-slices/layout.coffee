@@ -1,6 +1,8 @@
 d3 = require "d3"
+require 'd3-selection-multi'
+uuid = require 'uuid'
+
 axis = require "./axis"
-uuid = require 'node-uuid'
 G = require './geometry'
 
 section = 40
@@ -21,14 +23,14 @@ scale = (layout)->
 
     s = pos.y+layout.topMargin()
 
-    el.attr class: "scale"
+    el.attrs class: "scale"
 
-    yscale = d3.scale.linear()
+    yscale = d3.scaleLinear()
       .domain [0,90]
       .range [s,s+G.axis.height]
 
     s = el.append "g"
-      .attr class: "scale"
+      .attrs class: "scale"
 
     tl = G.section.horiz.labels
 
@@ -36,7 +38,7 @@ scale = (layout)->
       .data [0..9].map (d)->d*10
       .enter()
         .append 'line'
-          .attr
+          .attrs
             x1: pos.x + tl
             x2: pos.x + layout.width()
             y1: yscale
@@ -56,7 +58,7 @@ scale = (layout)->
       .enter()
         .append "text"
         .text (d)->d
-        .attr
+        .attrs
           x: x
           y: yscale
           "text-anchor": "end"
@@ -65,13 +67,13 @@ scale = (layout)->
 
     l = s.append "text"
       .text "km"
-      .attr
+      .attrs
           transform: "translate(#{x},#{yscale(45)})rotate(-90)"
           "text-anchor": "middle"
           dy: dv
 
     s.selectAll "text"
-      .attr
+      .attrs
         #"font-face": "Helvetica Neue"
         #"font-weight": 200
         "font-size": 10
@@ -122,7 +124,7 @@ module.exports = (n_axes, ax_spacing)->
 
     sel.enter()
       .append "text"
-      .attr
+      .attrs
         class: "axis-title"
         x: (d)->position.x+d
         y: yoffs+h
@@ -135,7 +137,7 @@ module.exports = (n_axes, ax_spacing)->
     return unless title?
     el.append "text"
       .text title
-      .attr
+      .attrs
         class: title
         x: position.x + labels_ + ticks
         y: position.y+h
@@ -152,7 +154,7 @@ module.exports = (n_axes, ax_spacing)->
         y: position.y+topMargin
       return axis().position pos
 
-    el.attr
+    el.attrs
       width: width
       height: height
       x: position.x
@@ -163,7 +165,7 @@ module.exports = (n_axes, ax_spacing)->
 
     sel.enter()
       .append "g"
-        .attr
+        .attrs
           class: "axis"
           height: G.axis.height
         .each (func)->

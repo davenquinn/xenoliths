@@ -1,7 +1,9 @@
 d3 = require "d3"
-query = require '../shared/query'
-queue = require('d3-queue').queue
+require 'd3-selection-multi'
+{db, storedProcedure} = require '../shared/database'
 util = require '../shared/util'
+
+sql = storedProcedure "#{__dirname}/model-slice.sql"
 
 class Scenario
   constructor: (@el, config, cb)->
@@ -17,23 +19,6 @@ class Scenario
     @__createAxes()
 
   __getData: =>
-    sql = "SELECT
-        r.name,
-        r.type,
-        r.subduction_time,
-        r.underplating_duration,
-      	p.name profile_id,
-      	p.temperature,
-      	p.dz,
-      	p.time
-    	FROM
-    	thermal_modeling.model_profile p
-    	JOIN thermal_modeling.model_run r
-    		ON r.id = p.run_id
-    	WHERE r.name = ANY($1::text[])
-        AND p.name = $2::text
-      ORDER BY p.time DESC"
-
     ml_depth = (profile)->
       for i in profile
         return i.z if i.T >= 1300
@@ -41,7 +26,7 @@ class Scenario
 
     for slice in @slices
       data = [@id, slice.id]
-      rows = query sql,data
+      rows = db.query sql,data
 
       slice.profile = rows.map util.makeProfile
       slice.rows = rows

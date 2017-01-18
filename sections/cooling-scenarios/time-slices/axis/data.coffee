@@ -16,7 +16,7 @@ module.exports = (ax)->
 
     sel.enter()
       .append "path"
-      .attr
+      .attrs
         class: "data"
         id: (d,i)->
           d.id

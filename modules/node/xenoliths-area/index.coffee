@@ -1,4 +1,5 @@
-d3 = require 'd3'
+{curveBasisClosed} = require 'd3-shape'
+path = require 'path'
 fs = require 'fs'
 textures = require 'textures'
 chroma = require "chroma-js"
@@ -14,7 +15,7 @@ module.exports = (opts={})->
   c = chroma(opts.color).css()
   tx = textures.lines().size(opts.size).stroke(c)
   (el, lineGenerator)->
-    lineGenerator.curve(d3.curveBasisClosed())
+    lineGenerator.curve(curveBasisClosed)
     el.call tx
     pth = path.join __dirname, 'xenoliths-area.json'
     _ = fs.readFileSync pth

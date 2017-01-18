@@ -1,14 +1,14 @@
 yaml = require "js-yaml"
 d3 = require 'd3'
+require 'd3-selection-multi'
 fs = require 'fs'
-savage = require 'savage-svg'
 Scenario = require './scenario'
 legend = require './legend'
 layout = require './layout'
 G = require './geometry'
 
 # Create dataset from inputs
-cfg = yaml.safeLoad fs.readFileSync('scenarios.yaml')
+cfg = yaml.safeLoad fs.readFileSync("#{__dirname}/../scenarios.yaml")
 cfg = JSON.parse(JSON.stringify(cfg))
 
 # Figure s at 100 ppi
@@ -41,9 +41,9 @@ layouts =
       x: G.margin.outside
       y: G.margin.outside
 
-func = (el, window)->
-  global.window = window
-  el = d3.select el
+module.exports = (el_, callback)->
+  el = d3.select el_
+    .append 'svg'
 
   cfg.forEach (c)->
     for k,v of layouts[c.name]
@@ -56,17 +56,17 @@ func = (el, window)->
     .data cfg
     .enter()
       .append "g"
-      .attr class: 'scenario'
+      .attrs class: 'scenario'
       .each (d)->scenarios.push new Scenario(@,d)
 
   ly = scenarios[2].layout
   g = el.append 'g'
-    .attr
+    .attrs
       class: 'legend'
       transform: "translate(#{ly.width()+G.section.spacing.x},#{offs2+ly.topMargin()})"
     .call legend
 
-  el.attr
+  el.attrs
     height: offs2 + interval + G.margin.outside
     width: totalWidth
 
@@ -75,22 +75,22 @@ func = (el, window)->
   g = ax.plotArea().append 'g'
 
   g.datum {T: 715, z: 25}
-  g.attr
+  g.attrs
     class: 'constraint'
     transform: (d)->
       "translate(#{ax.scale.x(d.T)},#{ax.scale.y(d.z)})"
   g.append 'circle'
-    .attr
+    .attrs
       r: 3
       fill: '#444'
   g.append 'text'
     .text 'Sta. Lucia'
-    .attr
+    .attrs
       fill: '#444'
       x: 5
       dy: 4
       'font-size': 8
       'font-family': 'Helvetica Neue'
 
+  callback()
 
-savage func, filename: process.argv[2]

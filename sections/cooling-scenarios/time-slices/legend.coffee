@@ -39,7 +39,7 @@ module.exports = (el)->
   sel.enter()
     .append 'text'
     .text (d)->d.text
-    .attr
+    .attrs
       x: (d)->d.x
       y: (d)->d.y
       'font-size': 10

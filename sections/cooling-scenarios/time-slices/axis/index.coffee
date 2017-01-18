@@ -1,11 +1,12 @@
 d3 = require "d3"
+require "d3-selection-multi"
+uuid = require "uuid"
+
 createBackdrop = require "./backdrop"
 plotData = require "./data"
 G = require "../geometry"
-xenolithsArea = require '../../shared/xenoliths-area'
-uuid = require "uuid"
-color = require "color"
-axes = require "../../d3-plot-area/src"
+xenolithsArea = require 'xenoliths-area'
+axes = require "d3-plot-area/src"
 
 module.exports = (o={})->
   o.max ?= {T: 1500,z: 90}
@@ -34,7 +35,7 @@ module.exports = (o={})->
     sz = ax.plotArea.size()
     xax = ax.graticule()
       .append 'g'
-      .attr
+      .attrs
         class: 'xaxis'
         transform: "translate(0,#{sz.height})"
     data = [0,500,1000,1500]
@@ -45,22 +46,22 @@ module.exports = (o={})->
         .each (d,i)->
           el = d3.select @
           _ = ax.scale.x(d)
-          el.attr transform: "translate(#{_},0)"
+          el.attrs transform: "translate(#{_},0)"
 
           el.append 'line'
-            .attr
+            .attrs
               stroke: '#888888'
               width: 3
               y2: 2
 
           t = el.append 'text'
             .text d
-            .attr textProps
+            .attrs textProps
 
           if i == 0
-            t.attr 'text-anchor': 'start'
+            t.attrs 'text-anchor': 'start'
           if i == data.length-1
-            t.text('ºC').attr 'text-anchor': 'end'
+            t.text('ºC').attrs 'text-anchor': 'end'
 
   ax.plot = (data)->
     fn = plotData ax

@@ -75,11 +75,11 @@ module.exports = (ax)->
     sz = ax.size()
 
     sel.enter().append "rect"
-      .attr
+      .attrs
         class: (d)->"layer #{d.id}"
         x: ax.scale.x(-50)
         y: ax.scale.y(-5)
         width: ax.scale.x(1900)
         height: (d)->ax.scale.y(d.z+5)
       .each (d)->
-        d3.select(@).attr d.style
+        d3.select(@).attrs d.style

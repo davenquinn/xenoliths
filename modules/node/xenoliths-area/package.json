@@ -6,11 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "peerDependencies": {
-    "d3": "4",
-    "textures": "*",
-    "chroma-js": "*"
-  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chroma-js": "^1.2.1",
+    "d3-path": "^1.0.3",
+    "d3-shape": "^1.0.4",
+    "textures": "^1.0.4"
+  }
 }
