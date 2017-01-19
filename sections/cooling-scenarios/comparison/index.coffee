@@ -1,20 +1,17 @@
 yaml = require "js-yaml"
 d3 = require 'd3'
+require 'd3-selection-multi'
 fs = require 'fs'
 simplify = require 'simplify-js'
 xenolithsArea = require 'xenoliths-area'
+axes = require 'd3-plot-area/src'
 
 modelColors = require '../shared/colors'
 {db, storedProcedure} = require '../shared/database'
 util = require '../shared/util'
-axes = require '../d3-plot-area/src'
 
-staticGeotherms = "SELECT dz, heat_flow, temperature FROM thermal_modeling.static_profile"
+setupElement = (el_, rows, callback)->
 
-module.exports = (el, callback)->
-
-  sql = storedProcedure __dirname+'/query.sql'
-  rows = db.query(sql)
   #.concat query(staticGeotherms)
   console.log rows.length
 
@@ -31,8 +28,9 @@ module.exports = (el, callback)->
   labelData = yaml.load _
   selectedGeotherms = (k for k,v of labelData)
 
-  el = d3.select el
-    .attr size
+  el = d3.select el_
+    .append 'svg'
+      .attrs size
 
   ax = axes()
     .neatline()
@@ -44,14 +42,14 @@ module.exports = (el, callback)->
 
   ax.axes.y()
     .label "Depth (km)"
-    .tickOffset 7
+    .tickPadding 7
     .tickSize 5
     .ticks 5
     .tickFormat d3.format("i")
 
   ax.axes.x()
     .label "Temperature (ºC)"
-    .tickOffset 7
+    .tickPadding 7
     .tickSize 5
     .ticks 5
     .tickFormat d3.format("i")
@@ -75,16 +73,16 @@ module.exports = (el, callback)->
 
   g = sel.enter()
     .append 'g'
-    .attr class: 'data'
+    .attrs class: 'data'
 
   g.append 'defs'
     .append 'path'
-      .attr
+      .attrs
         id: (d)-> d.name
         d: (d)-> line simplify(d.profile,0.005,true)
 
   g.append 'use'
-    .attr
+    .attrs
       'xlink:href': (d)-> '#'+d.name
       stroke: (d)->
         if 'heat_flow' of d
@@ -116,20 +114,27 @@ module.exports = (el, callback)->
 
     d3.select @
       .append 'text'
-      .attr
+      .attrs
         'font-family': 'Helvetica Neue'
       .append 'textPath'
-      .attr
+      .attrs
         'xlink:href': '#'+d.name
         fill: modelColors(d)
         'font-size': 10
         startOffset: data.offset or '50%'
         dy: -2
-      .text data.text.replace(' ','_')
+      .text data.text
 
   el.selectAll '.tick text'
-    .attr
+    .attrs
       'font-size': 8
 
   callback()
+
+sql = storedProcedure __dirname+'/get-models.sql'
+
+
+module.exports = (el, cb)->
+  db.query(sql)
+    .then (d)->setupElement el, d, cb
 

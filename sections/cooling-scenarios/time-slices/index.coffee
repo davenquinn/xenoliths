@@ -9,6 +9,7 @@ G = require './geometry'
 {db, storedProcedure} = require '../shared/database'
 {makeProfile, lithosphereDepth} = require '../shared/util'
 Promise = require 'bluebird'
+require './main.styl'
 
 sql = storedProcedure "#{__dirname}/model-slice.sql"
 
@@ -46,6 +47,8 @@ layouts =
     position:
       x: G.margin.outside
       y: G.margin.outside
+
+alpha = "ABCDEFG"
 
 plotScenarios = (el, scenarios)->
   # Set up scenarios from configuration
@@ -97,24 +100,28 @@ plotScenarios = (el, scenarios)->
     .attrs
       r: 3
       fill: '#444'
-  g.append 'text'
-    .text 'Sta. Lucia'
+  g.append 'foreignObject'
     .attrs
-      fill: '#444'
       x: 5
-      dy: 4
-      'font-size': 8
-      'font-family': 'Helvetica Neue'
+      y: -10
+    .append 'xhtml:div'
+      .text 'Santa Lucia'
+      .attrs class: 'santa-lucia-label'
 
 module.exports = (el_, callback)->
   el = d3.select el_
     .append 'svg'
 
-  scenarios = cfg.map (c)->
+  scenarios = cfg.map (c,i)->
     # Integrate layouts
     l = layouts[c.name]
     c.layout = l.layout
     c.position = l.position
+
+    c.title = "<b>#{alpha[i]}</b>
+        <span class='title'>#{c.title}</span>"
+    if c.subtitle?
+      c.title += " <span class='subtitle'>#{c.subtitle}</span>"
 
     unless c.id.constructor == Array
       c.id = [c.id]

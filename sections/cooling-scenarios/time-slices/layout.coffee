@@ -72,13 +72,6 @@ scale = (layout)->
           "text-anchor": "middle"
           dy: dv
 
-    s.selectAll "text"
-      .attrs
-        "font-face": "Helvetica Neue"
-        "font-weight": 200
-        "font-size": 10
-
-
 module.exports = (n_axes, ax_spacing)->
   ax_spacing = ax_spacing.map (d)->G.axis.spacing.x[d]
   # Axis group
@@ -133,13 +126,16 @@ module.exports = (n_axes, ax_spacing)->
   createTitle = ->
     h = G.section.title
     return unless title?
-    el.append "text"
-      .text title
+    el.append "foreignObject"
       .attrs
-        class: title
-        x: position.x + labels_ + ticks
-        y: position.y+h
-        "font-size": h
+        x: position.x
+        y: position.y
+        width: 400
+      .append "xhtml:div"
+        .html title
+        .attrs
+          class: 'section-title'
+          "font-size": h
 
   g = (a)->
     el = a

@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 
-cd "$PROJECT_DIR/versioned/graphics"
-node_modules/.bin/pdf-printer $@ -- spec.coffee
+g="$PROJECT_DIR/versioned/graphics"
+$g/node_modules/.bin/pdf-printer $@ -- $g/spec.coffee

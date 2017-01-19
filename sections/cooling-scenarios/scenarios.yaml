@@ -4,7 +4,7 @@
     - underplated-2
     - underplated-4
     - underplated-6
-  title: A. Slab window
+  title: Shallow slab window
   slices:
     - id: initial
       cc: 30
@@ -36,7 +36,7 @@
     - id: final
       cc: 30
       oc: 35
-  title: B. Stalled slab
+  title: Stalled slab
   labels:
     - Subduction
     - ""
@@ -48,8 +48,8 @@
     - farallon-reheated-2
     - farallon-reheated-4
     - farallon-reheated-6
-  title: C. Late Cretaceous rollback
-  subtitle: Cool modern geotherm
+  title: Farallon-plate slab
+  subtitle: ± deep slab window
   slices:
     - id: before-subduction
       oc: 5
