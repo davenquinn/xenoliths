@@ -1,7 +1,7 @@
 d3 = require "d3"
 require 'd3-selection-multi'
 {db, storedProcedure} = require '../shared/database'
-util = require '../shared/util'
+{makeProfile} = require '../shared/util'
 Promise = require 'bluebird'
 
 sql = storedProcedure "#{__dirname}/model-slice.sql"
@@ -17,8 +17,6 @@ class Scenario
       if k of @
         throw "@#{k} is already defined"
       @[k] = v
-    unless @id.constructor == Array
-      @id = [@id]
 
     @__getData()
       .tap @__setupLayout
@@ -31,7 +29,7 @@ class Scenario
       db.query sql,data
         .then (rows)->
           console.log "Getting data", rows
-          slice.profile = rows.map util.makeProfile
+          slice.profile = rows.map makeProfile
           slice.rows = rows
           slice.ml = ml_depth(slice.profile)
           return slice

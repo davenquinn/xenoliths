@@ -1,11 +1,16 @@
+_ = require "underscore"
 yaml = require "js-yaml"
 d3 = require 'd3'
 require 'd3-selection-multi'
 fs = require 'fs'
-Scenario = require './scenario'
 legend = require './legend'
 layout = require './layout'
 G = require './geometry'
+{db, storedProcedure} = require '../shared/database'
+{makeProfile, lithosphereDepth} = require '../shared/util'
+Promise = require 'bluebird'
+
+sql = storedProcedure "#{__dirname}/model-slice.sql"
 
 # Create dataset from inputs
 cfg = yaml.safeLoad fs.readFileSync("#{__dirname}/../scenarios.yaml")
@@ -19,14 +24,15 @@ wide_layout = layout(5, ["small","large","small","large"])
 interval = wide_layout.height()+G.section.spacing.y
 offs2 = G.margin.outside + interval
 
-small_layout = layout(3, ["small","large"])
+small_layout = -> layout(3, ["small","large"])
+sm = small_layout()
 
-forearcOffset = G.margin.outside+small_layout.width()+G.section.spacing.x
-totalWidth = forearcOffset + small_layout.width()
+forearcOffset = G.margin.outside+sm.width()+G.section.spacing.x
+totalWidth = forearcOffset + sm.width()
 
 layouts =
   forearc:
-    layout: small_layout
+    layout: small_layout()
     position:
       x: forearcOffset
       y: G.margin.outside
@@ -36,28 +42,36 @@ layouts =
       x: G.margin.outside
       y: offs2
   underplated:
-    layout: small_layout
+    layout: small_layout()
     position:
       x: G.margin.outside
       y: G.margin.outside
 
-module.exports = (el_, callback)->
-  el = d3.select el_
-    .append 'svg'
-
-  cfg.forEach (c)->
-    for k,v of layouts[c.name]
-      c[k] = v
-  console.log cfg
-
-  scenarios = []
+plotScenarios = (el, scenarios)->
   # Set up scenarios from configuration
+  scenarios.forEach (s)->
+    s.layout
+      .position s.position
+      .title s.title
+      .labels s.labels
+
   sel = el.selectAll 'g.scenario'
-    .data cfg
+    .data scenarios
     .enter()
       .append "g"
       .attrs class: 'scenario'
-      .each (d)->scenarios.push new Scenario(@,d)
+
+  sel.each (da)->
+    d3.select(@).call da.layout
+    console.log da.layout.title()
+    axes = da.layout.axes()
+    axes.forEach (ax,i)=>
+      slice = da.slices[i]
+      ax.backdrop slice
+      ax.labels()
+      if i == axes.length-1
+        ax.xenolithArea()
+      ax.plot slice
 
   ly = scenarios[2].layout
   g = el.append 'g'
@@ -92,5 +106,35 @@ module.exports = (el_, callback)->
       'font-size': 8
       'font-family': 'Helvetica Neue'
 
-  callback()
+module.exports = (el_, callback)->
+  el = d3.select el_
+    .append 'svg'
+
+  scenarios = cfg.map (c)->
+    # Integrate layouts
+    l = layouts[c.name]
+    c.layout = l.layout
+    c.position = l.position
+
+    unless c.id.constructor == Array
+      c.id = [c.id]
+    return c
+
+  getSlices = (s)->
+    getSlice = (slice)->
+      data = [s.id, slice.id]
+      db.query sql,data
+        .then (rows)->
+          slice.profile = rows.map makeProfile
+          slice.rows = rows
+          slice.ml = lithosphereDepth(slice.profile)
+          return slice
+    Promise.map s.slices, getSlice, concurrency:1
+      .then (slices)->
+        s.slices = slices
+        return s
+
+  p = Promise.map scenarios, getSlices, concurrency: 1
+    .then (scenarios)-> plotScenarios(el,scenarios)
+    .then callback
 

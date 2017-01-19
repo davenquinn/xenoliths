@@ -74,8 +74,8 @@ scale = (layout)->
 
     s.selectAll "text"
       .attrs
-        #"font-face": "Helvetica Neue"
-        #"font-weight": 200
+        "font-face": "Helvetica Neue"
+        "font-weight": 200
         "font-size": 10
 
 
@@ -119,8 +119,6 @@ module.exports = (n_axes, ax_spacing)->
 
     yoffs = position.y+G.section.title+G.section.margin
     h = G.section.label
-
-    console.log h
 
     sel.enter()
       .append "text"
@@ -171,7 +169,6 @@ module.exports = (n_axes, ax_spacing)->
         .each (func)->
           d3.select(@).call func
 
-    console.log "Creating title and labels"
     createTitle()
     createLabels()
 

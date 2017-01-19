@@ -31,7 +31,6 @@ module.exports = (ax)->
   # Function that creates an axis backdrop
   maxZ = 95
 
-
   (layers)->
     pos = ax.position()
     margin = 5
@@ -55,7 +54,6 @@ module.exports = (ax)->
     if allSame
       layerData.push {z: depths[0], id: 'ml'}
     else
-      console.log depths
       scale = chroma.scale([style.ml.fill,style.as.fill])
         .domain([0,depths.length])
       depths.forEach (d,i)->
@@ -67,7 +65,6 @@ module.exports = (ax)->
     for d in layerData
       d.style = style[d.id] unless d.style?
 
-    console.log layerData
     sel = d3.select @
       .selectAll 'rect.layer'
         .data layerData.reverse()
