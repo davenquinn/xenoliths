@@ -9,9 +9,11 @@
     - id: initial
       cc: 30
       as: 90
+      age: 24 Ma
     - id: after-underplating
       cc: 30
       as: 90
+      age: 18 Ma
     - id: final
       cc: 30
       as: 90
@@ -30,7 +32,9 @@
   slices: &subduction
     - id: before-subduction
       oc: 5
+      age: T<sub>s</sub>
     - id: after-subduction
+      age: T<sub>s</sub> - 1 myr
       cc: 30
       oc: 35
     - id: final
@@ -53,17 +57,21 @@
   slices:
     - id: before-subduction
       oc: 5
+      age: 75 Ma
     - id: after-subduction
       cc: 30
       oc: 35
+      age: 74 Ma
     - id: underplating-started
       cc: 30
       oc: 35
       ml: 80
+      age: 24 Ma
     - id: after-underplating
       cc: 30
       oc: 35
       ml: 80
+      age: 18 Ma
     - id: final
       cc: 30
       oc: 35

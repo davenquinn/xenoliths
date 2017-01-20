@@ -23,7 +23,7 @@ scale = (layout)->
 
     s = pos.y+layout.topMargin()
 
-    el.attrs class: "scale"
+    el.attrs class: "scale yaxis"
 
     yscale = d3.scaleLinear()
       .domain [0,90]
@@ -47,8 +47,6 @@ scale = (layout)->
             "stroke-width": 1
 
     positions = [0,90]
-    #text_anchors = ["end","middle","end"]
-    #rotation = [0,90,0]
     x = pos.x + G.section.horiz.labels
     dv = "-0.5em"
     anchors = ["0.8em",0]
@@ -82,8 +80,8 @@ module.exports = (n_axes, ax_spacing)->
   offs = []
 
   s = G.section
-  topMargin = s.title+s.label+s.margin*2
-  height = topMargin + G.axis.height
+  topMargin = s.margin
+  height = topMargin + G.axis.height + 12
 
   if not ax_spacing?
     ax_spacing = []
@@ -124,20 +122,6 @@ module.exports = (n_axes, ax_spacing)->
         fill: "#555"
       .text (d,i)->labels[i]
 
-  createTitle = ->
-    h = G.section.title
-    return unless title?
-    el.append "foreignObject"
-      .attrs
-        x: position.x
-        y: position.y
-        width: 400
-      .append "xhtml:div"
-        .html title
-        .attrs
-          class: 'section-title'
-          "font-size": h
-
   g = (a)->
     el = a
     el.append "g"
@@ -166,8 +150,7 @@ module.exports = (n_axes, ax_spacing)->
         .each (func)->
           d3.select(@).call func
 
-    createTitle()
-    createLabels()
+    #createLabels()
 
   g.node = -> el
   g.axes = -> axes

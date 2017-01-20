@@ -89,7 +89,6 @@ setupElement = (rows)->
       .attrs
         'xlink:href': '#'+d.name
         fill: modelColors(d)
-        dy: 10
         startOffset: data.offset or '10px'
       .text data.text
 

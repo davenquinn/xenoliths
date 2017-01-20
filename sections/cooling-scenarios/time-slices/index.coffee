@@ -5,9 +5,10 @@ require 'd3-selection-multi'
 fs = require 'fs'
 legend = require './legend'
 layout = require './layout'
+labels = require './labels'
 G = require './geometry'
 {db, storedProcedure} = require '../shared/database'
-{makeProfile, lithosphereDepth} = require '../shared/util'
+{makeProfile, lithosphereDepth, textPath} = require '../shared/util'
 Promise = require 'bluebird'
 require './main.styl'
 
@@ -21,8 +22,9 @@ cfg = JSON.parse(JSON.stringify(cfg))
 ppi = 100
 
 # Create layouts
-wide_layout = layout(5, ["small","large","small","large"])
-interval = wide_layout.height()+G.section.spacing.y
+wide_layout = -> layout(5, ["small","large","small","large"])
+wl = wide_layout()
+interval = wl.height()+G.section.spacing.y
 offs2 = G.margin.outside + interval
 
 small_layout = -> layout(3, ["small","large"])
@@ -38,7 +40,7 @@ layouts =
       x: forearcOffset
       y: G.margin.outside
   farallon:
-    layout: wide_layout
+    layout: wide_layout()
     position:
       x: G.margin.outside
       y: offs2
@@ -52,21 +54,22 @@ alpha = "ABCDEFG"
 
 plotScenarios = (el, scenarios)->
   # Set up scenarios from configuration
-  scenarios.forEach (s)->
-    s.layout
-      .position s.position
-      .title s.title
-      .labels s.labels
-
-  sel = el.selectAll 'g.scenario'
+  sel = el.selectAll 'div.scenario'
     .data scenarios
     .enter()
-      .append "g"
-      .attrs class: 'scenario'
+      .append "div"
+      .attrs class: (d)->"scenario #{d.name}"
 
   sel.each (da)->
-    d3.select(@).call da.layout
-    console.log da.layout.title()
+    e = d3.select(@)
+    e.append 'h1'
+      .html da.title
+
+    label_container = e.append 'div'
+
+    da.svg = e.append 'svg'
+    da.svg.call da.layout
+
     axes = da.layout.axes()
     axes.forEach (ax,i)=>
       slice = da.slices[i]
@@ -75,42 +78,23 @@ plotScenarios = (el, scenarios)->
       if i == axes.length-1
         ax.xenolithArea()
       ax.plot slice
+    label_container.call labels.createAgeLabels(axes, da.slices)
 
-  ly = scenarios[2].layout
-  g = el.append 'g'
-    .attrs
-      class: 'legend'
-      transform: "translate(#{ly.width()+G.section.spacing.x},#{offs2+ly.topMargin()})"
+  g = el.append 'div'
+    .attrs class: 'legend'
     .call legend
 
   el.attrs
     height: offs2 + interval + G.margin.outside
     width: totalWidth
 
-  # Add P-T constraints
-  ax = ly.axes()[1]
-  g = ax.plotArea().append 'g'
-
-  g.datum {T: 715, z: 25}
-  g.attrs
-    class: 'constraint'
-    transform: (d)->
-      "translate(#{ax.scale.x(d.T)},#{ax.scale.y(d.z)})"
-  g.append 'circle'
-    .attrs
-      r: 3
-      fill: '#444'
-  g.append 'foreignObject'
-    .attrs
-      x: 5
-      y: -10
-    .append 'xhtml:div'
-      .text 'Santa Lucia'
-      .attrs class: 'santa-lucia-label'
+  el.select '.scenario.forearc'
+    .call labels.profileLabels
+  labels.santaLuciaConstraint(scenarios[2])
 
 module.exports = (el_, callback)->
   el = d3.select el_
-    .append 'svg'
+    .append 'div'
 
   scenarios = cfg.map (c,i)->
     # Integrate layouts
@@ -132,9 +116,11 @@ module.exports = (el_, callback)->
       data = [s.id, slice.id]
       db.query sql,data
         .then (rows)->
-          slice.profile = rows.map makeProfile
-          slice.rows = rows
-          slice.ml = lithosphereDepth(slice.profile)
+          slice.rows = rows.map (d)->
+            d.profile = makeProfile(d)
+            return d
+          profiles = slice.rows.map (d)->d.profile
+          slice.ml = lithosphereDepth(profiles)
           return slice
     Promise.map s.slices, getSlice, concurrency:1
       .then (slices)->
