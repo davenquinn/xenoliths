@@ -62,25 +62,19 @@ setupElement = (rows)->
           line simplify(d.profile,0.005,true)
 
   g.append 'use'
+    .classed 'selected', (d)->d.index==0
     .attrs
       'xlink:href': (d)-> '#'+d.name
-      stroke: (d)->
-        if 'heat_flow' of d
-          '#888888'
-        else
-          c = modelColors(d)
-          if d.name in selectedGeotherms
-            return c.alpha(0.8).css()
-          else
-            return c.alpha(0.2).css()
+      stroke: modelColors
+        #c = modelColors(d)
+        #if d.index == 0
+          #return c.alpha(0.8).css()
+        #else
+          #return c.alpha(0.2).css()
       'stroke-dasharray': (d,i)->
-        console.log d
-        a = null
-        if d.type == 'forearc'
-          a = '4 1'
-        if d.type == 'underplated'
-          a = '2 1'
-        a
+        if d.index == 0
+          return 'none'
+        return "#{d.index*0.4+1} #{d.index+1}"
       fill: 'none'
 
   g.each (d,i)->
@@ -113,21 +107,21 @@ setupStaticGeotherms = (rows)->
   sel = g.selectAll 'g.static-curve'
     .data rows
 
-  g = sel.enter()
+  e = sel.enter()
     .append 'g'
     .attrs class: 'static-curve'
-  g.append 'defs'
+  e.append 'defs'
     .append 'path'
       .attrs
         id: (d)-> d.heat_flow
         d: (d)->
           profile = filterX makeProfile(d)
           line simplify(profile,0.005,true)
-  g.append 'use'
+  e.append 'use'
     .attrs
       'xlink:href': (d)-> '#'+d.heat_flow
 
-  g.each (d,i)->
+  e.each (d,i)->
     d3.select @
       .append 'text'
       .attrs
@@ -137,7 +131,19 @@ setupStaticGeotherms = (rows)->
         filter: 'url(#solid)'
         'xlink:href': '#'+d.heat_flow
         startOffset: d.offset or '98%'
-      .text d.heat_flow#" mW/m²"
+      .text d.heat_flow
+
+  loc = e.selectAll('text').nodes()[0].getBBox()
+  console.log loc
+
+  g.append 'foreignObject'
+    .attrs
+      class: 'heatflow-label'
+      width: 80
+      height: 50
+      transform: "translate(#{loc.x} #{loc.y-15}) rotate(22) translate(-60)"
+    .append 'xhtml:div'
+      .html "q<sub>0</sub> (mW/m<sup>2</sup>)"
 
 module.exports = (el_, cb)->
   el = d3.select el_
@@ -185,5 +191,13 @@ module.exports = (el_, cb)->
   db.query(staticGeotherms)
     .then setupStaticGeotherms
     .then -> db.query(sql)
+    .then (data)->
+      ix = {}
+      for row in data
+        ix[row.type] ?= 0
+        row.index = ix[row.type]+0
+        ix[row.type]+= 1
+      data
     .then setupElement
+    .then cb
 

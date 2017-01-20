@@ -1,0 +1,48 @@
+
+.static-curve
+  use
+    stroke-width: 1.5
+    stroke: #eeeeee
+    fill: none
+  text
+    fill: #555
+    font-family: Gotham
+    font-weight: 300
+    font-size: 8
+    text-anchor: end
+
+.heatflow-label
+  font-size: 8px
+  font-family: Gotham
+  div
+    text-align: right
+    color: #555
+    font-style: italic
+
+.model-curve
+  use
+    fill: none
+    stroke-width: 1.5
+    stroke-opacity: 0.7
+    &.selected
+      stroke-width: 2
+      stroke-opacity: 1
+  text
+    font-family: 'Helvetica Neue'
+    dy: 10
+  textPath
+    font-size: 10
+
+.axis
+  text
+    font-family: Gotham
+    font-weight: 300
+    fill: black
+  &.x .label
+    baseline-shift: -10px
+  &.y .label
+    baseline-shift: 8px
+
+.neatline
+  stroke-width: 1px
+
