@@ -119,6 +119,7 @@ module.exports = (n_axes, ax_spacing)->
         class: "axis-title"
         x: (d)->position.x+d
         y: yoffs+h
+      .styles
         "font-size": h
         fill: "#555"
       .text (d,i)->labels[i]
