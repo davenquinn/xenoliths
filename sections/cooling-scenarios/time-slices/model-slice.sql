@@ -2,6 +2,7 @@ SELECT
   r.name,
   r.type,
   r.subduction_time,
+  r.start_time,
   r.underplating_duration,
   p.name profile_id,
   p.temperature,
