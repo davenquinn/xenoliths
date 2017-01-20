@@ -25,11 +25,6 @@ module.exports = (o={})->
     fn.call el.node(), data
 
   ax.labels = ->
-    textProps =
-      'font-size': 8
-      dy:'1.2em'
-      'text-anchor': 'middle'
-      fill: '#666666'
 
     # Setup labels
     sz = ax.plotArea.size()
@@ -56,12 +51,8 @@ module.exports = (o={})->
 
           t = el.append 'text'
             .text d
-            .attrs textProps
-
-          if i == 0
-            t.attrs 'text-anchor': 'start'
           if i == data.length-1
-            t.text('ºC').attrs 'text-anchor': 'end'
+            t.text('ºC').styles 'text-anchor': 'end'
 
   ax.plot = (data)->
     fn = plotData ax
