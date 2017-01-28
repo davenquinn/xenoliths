@@ -224,3 +224,4 @@ by added heat flux from shear heating [@Thatcher1998] or erosion [@Mancktelow199
 Estimating erosion is beyond the scope of this study, but pulses of recent erosion
 in the Coast Ranges are <!-- see Ducea et al. (2003) for rapid late
 Cenozoic uplift of the Santa Lucia’s -->
+

@@ -3,9 +3,9 @@ setupWidths = (data)->
   data.map (d)->
     sz = d.ax.node().getBBox()
     v = sz.x-it+2
-    it += v+sz.width
+    it += v+85
     d.loc =
-      width: sz.width
+      width: 85
       'margin-left': v
     return d
 

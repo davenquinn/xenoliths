@@ -1,7 +1,12 @@
-\sisetup{input-ignore={,},input-decimal-markers={.}}
+% SI units setup
+% detect fonts, etc
+\sisetup{detect-all,%
+  input-ignore={,},%
+  input-decimal-markers={.}}
 \DeclareSIUnit\year{yr}
 \DeclareSIUnit\annum{a}
 \DeclareSIUnit\ton{ton}
+
 \newcommand\degr{}
 \newcommand{\figref}[1]{[Figure \ref{fig:#1}]}
 \newcommand{\figp}[1]{Figure \ref{fig:#1}}

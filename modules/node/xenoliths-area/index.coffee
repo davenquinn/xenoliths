@@ -14,7 +14,7 @@ module.exports = (opts={})->
 
   c = chroma(opts.color).css()
   tx = textures.lines().size(opts.size).stroke(c)
-  (el, lineGenerator)->
+  fn = (el, lineGenerator)->
     lineGenerator.curve(curveBasisClosed)
     el.call tx
     pth = path.join __dirname, 'xenoliths-area.json'
@@ -25,3 +25,5 @@ module.exports = (opts={})->
       .datum coords
       .attr 'd', (d)->lineGenerator(d)
       .attr 'fill', tx.url()
+  fn.texture = tx
+  fn

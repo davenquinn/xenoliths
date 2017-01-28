@@ -36,11 +36,11 @@ filterY = (data)->
     return true
 
 makeProfile = (d)->
-  util.makeProfile d
+  filterX filterY(util.makeProfile(d, false))
 
 setupElement = (rows)->
   for r in rows
-    r.profile = filterX filterY(makeProfile(r))
+    r.profile = makeProfile(r)
 
   # Setup labels
   _ = fs.readFileSync __dirname+'/labels.yaml'

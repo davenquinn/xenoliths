@@ -5,10 +5,12 @@ uuid = require 'uuid'
 
 module.exports =
   # Builds the temperature profile from dz
-  makeProfile: (row)->
+  makeProfile: (row, simp=true)->
     profile = row.temperature.map (d,i)->
       {x: d, y: i*row.dz/1000}
-    simplify(profile,0.005,true)
+    if simp
+      profile=simplify(profile,0.005,true)
+    return profile
   lithosphereDepth: (profile)->
     # Depth to the top of the mantle lithosphere
     for i in profile

@@ -32,9 +32,9 @@
   slices: &subduction
     - id: before-subduction
       oc: 5
-      age: T<sub>s</sub>
+      age: T<sub>sub</sub>
     - id: after-subduction
-      age: T<sub>s</sub> - 1 myr
+      age: T<sub>sub</sub> + 1 myr
       cc: 30
       oc: 35
     - id: final

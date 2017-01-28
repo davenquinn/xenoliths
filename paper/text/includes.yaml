@@ -10,6 +10,9 @@
   file: sample-petrography.tex
   caption: Summary of petrographic data
 
+- id: microscope-images
+  file: microscope-images/microscope-images.pdf
+
 - id: reconstruction
   file: maps/reconstruction.pdf
 
@@ -22,6 +25,10 @@
 
 - id: step_heating
   file: basalt-age/Crystal-Knob-basalt.pdf
+
+# We need to create this table
+- id: step_heating_table
+  file: basalt-age/build/step-heating.tex
 
 # Major elements
 - id: major_elements

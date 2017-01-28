@@ -20,6 +20,14 @@ on the Rinconada fault within the Salinian block. Panel *B* shows the location
 of key mid-Miocene hypabyssal intrusives (the Morro Rock--Islay Hills complex [@Stanley2000]
 and the Cambria Felsite [@Ernst1974])
 
+#microscope-images
+Optical petrographic images (2.5 mm wide field of view) showing characteristic textures
+found in the Crystal Knob sample set. **A** shows sample CK-D2, with the edge of a cumulate xenolith
+composed of equant olivine (ol) grains at ~200 µm characteristic scale, set against
+a host lava groundmass containing <100 µm phenocrysts of olivine, pyroxene, and plagioclase feldspar.
+**B** shows the spinel lherzolite sample CK-4 with >2 mm olivine, orthopyroxene (opx), clinopyroxene (cpx),
+and spinel (sp).
+
 #reconstruction
 Tectonic reconstruction of the California margin at 19 Ma showing tectonic
 provinces of Salinia restored for offset along the San Andreas system.

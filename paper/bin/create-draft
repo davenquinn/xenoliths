@@ -17,33 +17,38 @@ function run-latex {
   xelatex -interaction=nonstopmode -output-directory $build_dir $1
 }
 
-# build_dir
-mkdir -p $build_dir
+mkdir -p build
 
+rm -f $body build/abstract.tex build/figure-list.tex
 # Process body text
-cat text/body.md | paper markdown-to-latex > $body
+cat text/chapters/*.md \
+| figures expand-refs \
+| paper markdown-to-latex \
+> $body
 # Process abstract
-cat text/abstract.md | paper markdown-to-latex > build/abstract.tex
-
-cp source/draft.tex $texfile
+cat text/abstract.md \
+| paper markdown-to-latex \
+> build/abstract.tex
 
 if [[ ! -f $auxfile ]]; then
   run-latex $texfile
 fi
 
-bibtex $auxfile
+# Making figure list
+figures list \
+  text/includes.yaml \
+  --captions text/figure-captions.md \
+  --order-by $auxfile \
+  --collect-dir collected \
+> build/figure-list.tex
+
+cp source/draft.tex $texfile
+
 # Filter bibliography
 LIBRARY="/Users/Daven/Resources/Papers/BibTeX/library.bib"
 bib-filter --clean --aux $auxfile $LIBRARY $bibfile
 # rebuild citations
 bibtex $auxfile
-
-FN=build/figure-list.tex
-# Making figure list
-rm -f $FN
-figure-list --captions text/figure-captions.md \
-  --collect-dir collected \
-  text/includes.yaml > $FN
 
 run-latex $texfile
 

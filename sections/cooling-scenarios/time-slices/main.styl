@@ -1,5 +1,50 @@
-div.scenario
+#main
+  *
+    box-sizing: border-box
+
+h1, h2, h3
+  margin-top: 0
+  margin-bottom: 0.2em
+
+margin=0.2em
+#main>div
+  margin-top: -0.5em
+  margin-left: -margin
+
+div.scenario, div.legend
   margin-top: 0.5em
+  margin-left: margin
+  float: left
+
+xenoliths=rgb(145, 170, 95)
+div.legend
+  width: 85px
+  margin-top: 60px
+  margin-left: 1em
+  h1
+    padding-left: 0
+    font-size: 0.8em
+  .legend-main
+    position: relative
+  .label
+    position: absolute
+    font-size: 9px
+    width: 50px
+    left: 35px
+    margin-top: 0.5em
+    &.ck-source
+      left: 40px
+      width: 40px
+      font-size: 8
+      font-style: italic
+      color: xenoliths
+  svg.overlay
+    position: absolute
+    top: 0
+    left: 0
+    .leader
+      stroke: xenoliths
+      stroke-width: 1.5px
 
 text
   font-family: Gotham, sans-serif
@@ -36,7 +81,6 @@ head()
   font-weight: 300
   display: inline-block
   margin-bottom: 0.2em
-  margin-top: 0.5em
 
 .axis-labels
   h2
@@ -47,9 +91,9 @@ head()
 
 .age-labels
   h3
-    font-size: 12
-    font-style: italic
+    font-size: 10
     head()
+    margin-bottom: -0.1em
 
 .axis .data textPath
   stroke: none
@@ -61,3 +105,7 @@ head()
     font-style: italic
     font-weight: 300
 
+sub
+  vertical-align: bottom
+  position: relative
+  top: 0.3em

@@ -140,3 +140,4 @@ uncertainties inherent in spinel peridotite barometry may prove
 crippling. Regardless, the completed work and continuing petrologic
 analysis of the host basalt and cumulates will lead to an improved
 understanding of the coastal California mantle lithosphere.
+

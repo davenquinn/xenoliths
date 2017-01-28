@@ -9,12 +9,38 @@ import numpy as N
 nd_chur_0 = 0.512638 # DePaolo and Wasserberg
 sm_nd_chur = 0.1967 # McCulloch and Wasserberg
 lam = 6.54e-12
+lam_sr = 1.39e-11
 
-def Epsilon_Nd(row):
-    n = row['143Nd/144Nd(0)']
+def Epsilon_Nd(row,T=0):
+    if T == 0:
+        n = row['143Nd/144Nd(0)']
+        nd_chur = nd_chur_0
+    else:
+        n = sample_nd_ratio(row,T)
+        nd_chur = correct_nd_ratio(nd_chur_0,sm_nd_chur,T)
     sample = ufloat(n,n*row['std err%']/100)
-    return (sample/nd_chur_0 - 1)*1e4
+    return (sample/nd_chur - 1)*1e4
 
-def T_CHUR(row):
-    _ = (row['143Nd/144Nd(0)']-nd_chur_0)/(row['147Sm/144Nd']-sm_nd_chur)
+def correct_nd_ratio(nd_ratio_0, sm_nd, time):
+    corr = sm_nd*(N.exp(lam*time)-1)
+    return nd_ratio_0 - corr
+
+def sample_nd_ratio(row, time):
+    """
+    Corrects 143Nd/144Nd ratio to a time in the past.
+    Uses method from McCulloch and Wasserburg
+    """
+    return correct_nd_ratio(
+        row['143Nd/144Nd(0)'],
+        row['147Sm/144Nd'],time)
+
+def T_CHUR(row, T=0):
+    if T == 0:
+        ratio = row['143Nd/144Nd(0)']
+        nd_chur = nd_chur_0
+    else:
+        ratio = sample_nd_ratio(row, T)
+        nd_chur = correct_nd_ratio(nd_chur_0,sm_nd_chur,T)
+    _ = (ratio-nd_chur)/(row['147Sm/144Nd']-sm_nd_chur)
+    # Time expressed in Ga
     return 1/lam*N.log(_+1)*1e-9
