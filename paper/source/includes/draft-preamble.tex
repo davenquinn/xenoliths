@@ -1,0 +1,58 @@
+\usepackage[paper=letterpaper, margin=1in, nohead, pdftex]{geometry}
+\usepackage{fontspec}
+\usepackage{textcomp}
+\usepackage{ifthen}
+\usepackage[small,compact]{titlesec}
+\usepackage{graphicx}			% Nice graphics, optional
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{ifthen}
+\usepackage{float}
+\usepackage[norule,bottom]{footmisc}
+\usepackage{paralist}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{array,booktabs,tabularx}
+\usepackage{setspace}
+\usepackage{natbib}
+\usepackage{textcomp}
+\usepackage{tablefootnote}
+\usepackage[flushleft]{threeparttable}
+\usepackage[justification=justified,singlelinecheck=false,skip=0pt]{caption}
+%% FONTS %%
+
+\input{source/includes/fonts.tex}
+
+\defaultfontfeatures{Ligatures=TeX}
+\setsansfont{Gotham Book}
+\setmainfont{Chaparral Pro}
+\usepackage{unicode-math}
+
+% Font substitutions for math
+\usepackage[Latin,Greek]{ucharclasses}
+\newfontfamily\substitutefont{CMU Serif}
+\setTransitionsForGreek{\substitutefont}{}
+
+% Figure list
+\usepackage{adjustbox}
+
+% biblatex options
+%\renewcommand{\bibfont}{\small}	% Change the font size of the bibliography
+%\renewcommand{\bibsection}{\subsubsection*{\refname}}
+%\newcommand{\tild}{\texttildelow}
+% Image width
+%\setkeys{Gin}{width=4in,height=5in,keepaspectratio}
+
+\setlist[itemize]{leftmargin=*}
+\setlist{nolistsep}
+
+\input{source/includes/defs.tex}
+%\usepackage[super]{natbib}
+%\usepackage{natbib}
+
+

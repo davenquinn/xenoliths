@@ -2,7 +2,7 @@
 dir=$PROJECT_DIR/versioned/paper
 cd $dir
 
-search_dirs=(../sections includes ../../analysis)
+search_dirs=(../sections includes ../../analysis ../graphics/build)
 
 figures collect --copy text/includes.yaml collected ${search_dirs}
 

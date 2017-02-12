@@ -44,7 +44,6 @@ module.exports = (ax)->
       .map (d)->[d.time[0],d.lower[0]]
     data.sort()
     v = data[0]
-    #data.unshift [v[0]-2,v[1]]
 
     (el)->
 

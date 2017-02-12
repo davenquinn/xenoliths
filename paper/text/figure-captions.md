@@ -95,18 +95,20 @@ data compiled by @Warren2016. The Crystal Knob samples show mild to moderate
 depletion in HREEs but samples CK-3, CK-4, and CK-6 show re-enrichment of LREEs.
 
 #ree_temperatures
-**A**: Per-element equilibrium temperature for
-REE thermometry of xenolith samples. Equivalent to
-$T_i = B (ln(D_i)-A)^{-1} - 273.15$ for $i$ in REE
-elements. Thin horizontal lines represent a robust regression
-(using a Tukey Biweight norm) of $B_i$ against $ln(D_i)-A_i$ to find best-fitting temperature
-across all REE. Data points not corresponding to a dominantly
-horizontal line signify disequilibrium between Opx
-and Cpx. Open circles are not included in the fit due
-to clear disequlibria. **B**: Fitted rare-earth element
-temperatures and Gaussian error bounds plotted against
-kernel density estimate of TA98 temperatures and associated
-errors.
+**A**: Per-element equilibrium temperatures for
+REE thermometry of xenolith samples.
+Horizontal lines represent a projection of the best-fitting
+line representing the equilibrium temperature for each sample.
+Data points far from the
+horizontal line signify disequilibrium between pyroxene phases,
+and those outliers plotted with open circles are excluded from the fit.
+**B**: Best-fitting REE temperatures for each sample
+with Gaussian error bounds, plotted against a 
+kernel density distribution of TA98 temperatures.
+Joint error distributions are created using a Monte Carlo approach
+for both error distributions. This approach shows significant disequilibrium in
+Eu and across LREE for sample CK-4. The samples can be grouped into two
+temperature cohorts, with all samples, especially the low-temperature group, agreeing well with the TA98 thermometer.
 
 #temp_comparisons
 Comparison of results from pyroxene major-element thermometers.

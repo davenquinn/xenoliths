@@ -58,12 +58,12 @@ __makeOuterAxes = (data)->
     .domain [0, d3.sum(data,(d)->d.axSize)+2*spacing+spacingBottom]
   outerAxes.axes.x()
     .label 'Time before present (Ma)'
-    .labelOffset 25
+    .labelOffset 20
     .tickSize 4
 
   outerAxes.axes.y('right')
-    .label 'Temperature (ºC)'
-    .labelOffset 30
+    .label 'Temperature (°C)'
+    .labelOffset 25
     .despine()
 
   vscale = outerAxes.scale.y
@@ -168,11 +168,8 @@ createAxes = (outerAxes)->
       plt.append 'text'
         .text 'Monterey Plate'
         .attrs
-          class: 'annotation'
+          class: 'annotation monterey-plate'
           fill: modelColors.scales.forearc(30)
-          'font-size': 6
-          'font-family': 'Helvetica Neue Italic'
-          'text-anchor': 'middle'
           transform: (d)->
             x = ax.scale.x(10)
             y = ax.scale.y(1200)
@@ -202,8 +199,7 @@ setupElement = (el, data)->
 func = (el_, callback)->
   el = d3.select(el_).append 'svg'
   Promise.map scenarios, getData, concurrency: 1
-    .tap console.log
     .then (data)->setupElement(el, data)
-    .tap callback
+    .finally callback
 
 module.exports = func

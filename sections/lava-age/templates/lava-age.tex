@@ -1,0 +1,46 @@
+<#- set fs = "\\footnotesize\\centering" -#>
+<# macro el(num, el='Ar') -#>
+\ce{^{<<num>>}<<el>>}
+<#- endmacro #>
+<# macro ratio(num, star='') -#>
+<< el(num) >><<star>>/<< el(39) >>
+<#- endmacro #>
+\renewcommand{\multicell}[2][c]{%
+\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\begin{tabular}{l r r r r r r r r r r r}
+\toprule
+  Laser &
+  <#- for i in [36,37,38,40] #>
+  << ratio(i) >> &
+  <# endfor -#>
+  << el(39) >> &
+  << el(39) >> &
+  \ce{Ca}/\ce{K} &
+  << ratio(40,"*") >> &
+  << el(40) >>* &
+  Age \\
+  <<fs>> \si{W} &
+  & & & &
+  <<fs>>$\times 10^{-14}$ \si{mol} &
+  <<fs>>\% & & &
+  <<fs>>\% &
+  <<fs>>\si{Ma}
+  \\
+\midrule
+<#- for ix, r in data  #>
+  << ix|n(1) >> &
+  << r[0]|n(4) >> &
+  << r[1]|n(4) >> &
+  << r[2]|n(5) >> &
+  << r[3]|n(5) >> &
+  << r[4] >> &
+  << r[5]|n(2) >> &
+  << r[6]|n(4) >> &
+  << r[7]|n(4) >> &
+  << r[8]|n(5) >> &
+  << r[9]|n(5) >> \\
+<#- endfor  #>
+\bottomrule
+\end{tabular}
+
+

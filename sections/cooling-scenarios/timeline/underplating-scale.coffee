@@ -33,7 +33,8 @@ module.exports = (ax)->
     el.append 'text'
       .text 'Myr'
       .attrs
-        x: s(6)+5
+        class: 'myr-label'
+        x: s(6)+12
         y: -3
 
     if labelText
@@ -42,12 +43,6 @@ module.exports = (ax)->
         .attrs
           x: s(0)
           y: -11
-          'font-family': 'Helvetica Neue Italic'
-
-    el.selectAll 'text'
-      .attrs
-        fill: c
-        'font-size': 7
 
   F.label = (d)->
     labelText = d

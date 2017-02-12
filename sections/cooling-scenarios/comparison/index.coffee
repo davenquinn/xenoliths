@@ -168,7 +168,7 @@ module.exports = (el_, cb)->
     .tickFormat d3.format("i")
 
   ax.axes.x()
-    .label "Temperature (ºC)"
+    .label "Temperature (°C)"
     .tickPadding 7
     .tickSize 5
     .ticks 5
@@ -198,5 +198,5 @@ module.exports = (el_, cb)->
         ix[row.type]+= 1
       data
     .then setupElement
-    .then cb
+    .finally cb
 

@@ -804,12 +804,12 @@ FUNCTION {format.note}
   if$
 }
 
+% Don't change title case
 FUNCTION {format.title}
-{ title
-  duplicate$ empty$ 'skip$
-    { "t" change.case$ }
+{ title empty$
+    { "" }
+    { title }
   if$
-  "title" bibinfo.check
 }
 FUNCTION {format.full.names}
 {'s :=

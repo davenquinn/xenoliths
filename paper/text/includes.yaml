@@ -28,7 +28,9 @@
 
 # We need to create this table
 - id: step_heating_table
-  file: basalt-age/build/step-heating.tex
+  file: lava-age/build/step-heating-table.tex
+  type: table
+  two_column: true
 
 # Major elements
 - id: major_elements
@@ -40,7 +42,7 @@
 - id: spinel_correction
   type: table
   file: major-elements/build/corrected-spinels.tex
-  caption: Spinel ferric iron content\\tnote{a}
+  caption: "Spinel ferric iron content\\tnote{a}"
   notes:
     a: estimated from cation site balance
     b: "using \\ce{Fe^{2+}} = $\\Sigma$ Fe"
@@ -110,15 +112,15 @@
 
 # Modeling
 - id: model_results
-  file: cooling-scenarios/build/cooling-scenarios.pdf
+  file: model-time-slices.pdf
   two_column: true
 
 - id: model_tracers
   two_column: true
-  file: cooling-scenarios/build/timeline.pdf
+  file: model-timeline.pdf
 
 - id: model_comparison
-  file: cooling-scenarios/build/comparison.pdf
+  file: model-comparison.pdf
 
 - id: cross_sections
   file: cross-section/cross-section.pdf

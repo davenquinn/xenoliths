@@ -133,5 +133,5 @@ module.exports = (el_, callback)->
 
   p = Promise.map scenarios, getSlices, concurrency: 1
     .then (scenarios)-> plotScenarios(el,scenarios)
-    .then callback
+    .finally callback
 

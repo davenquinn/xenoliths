@@ -1,0 +1,31 @@
+#!/usr/bin/env zsh
+
+dir=$PROJECT_DIR/versioned/paper
+
+TDIR=$(mktemp -d)
+texfile="${TDIR}/file.tex"
+echo "Made temp dir $TDIR"
+
+(
+  echo '\documentclass[letterpaper,12pt]{article}'
+  cat "${dir}/source/includes/draft-preamble.tex"
+  echo "\\\begin{document}"
+  echo "\\\begin{adjustbox}{width=\\\textwidth,center}"
+  cat $1
+  echo "\\\end{adjustbox}"
+  echo "\\\end{document}"
+) > $texfile
+
+# Make figure
+(
+cd $dir
+xelatex -interaction=nonstopmode -output-directory $TDIR $texfile
+)
+
+outfile=${texfile:r}.pdf
+if [[ -f $outfile ]]; then
+  mv $outfile $2
+else
+  echo "There was a problem, output file doesn't exist"
+fi
+rm -rf $TDIR

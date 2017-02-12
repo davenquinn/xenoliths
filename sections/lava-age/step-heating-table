@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+sheet="$DATA_DIR/step-heating/Step-heating data formatted.xlsx"
+out="build/step-heating-table.tex"
+
+cd "$PROJECT_DIR/versioned/sections/lava-age"
+mkdir -p build
+python step-heating-table.py $sheet $out
+
+create-standalone-table $out ${out:r}.pdf
