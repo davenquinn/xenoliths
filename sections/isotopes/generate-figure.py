@@ -5,6 +5,7 @@ from sys import argv
 import numpy as N
 import matplotlib as M
 
+import seaborn.apionly as sns
 from matplotlib import pyplot as P
 from paper import plot_style
 from scipy import interpolate
@@ -24,20 +25,16 @@ with app.app_context():
     data['color'] = data.index.map(lambda i:colors[i])
 data.reset_index(level=0, inplace=True)
 
-with open('plot-data/annotations.yaml') as f:
-    aprops = yaml.load(f.read())
-
 x = data["87Sr/86Sr(0)"]
 y = data['Epsilon Nd']
 
-fig = P.figure(figsize=(7,5))
-ax = fig.add_subplot(111)
+fig, ax = P.subplots(figsize=(4,3))
 
 ax.plot(x,y,'ko')
 
 ax.set_xlabel(r'$^{87}$Sr/$^{86}$Sr')
 ax.set_ylabel(r"$\epsilon_{Nd}$")
-ax.set_ylim([-5,12])
+ax.set_ylim([-5,14])
 ax.set_xlim([0.7015,0.7068])
 
 
@@ -62,12 +59,12 @@ ax.annotate("Primitive\nMantle", xy=(0.7043,1.9),**kw)
 kw['ha']='left'
 ax.annotate("Depleted Mantle", xy=(0.703,10.9),**kw)
 
-ax.text(0.7034,5, 'Mantle Array',
+ax.text(0.7034,5.8, 'Mantle Array',
         ha = 'center',
         va = 'center',
         color = '#bbbbbb',
-        fontsize = 20,
-        rotation = -51)
+        fontsize = 12,
+        rotation = -47)
 
 # Plot splines
 areas = {
@@ -95,46 +92,21 @@ for k,color in areas.items():
 
 ax.patches = patches
 
-axins = zoomed_inset_axes(ax, 8, loc=1)
+## Add annotation
 
-for i,row in data.iterrows():
-    x_ = row["87Sr/86Sr(0)"]
-    xs_ = x_*(row['std err%.1']/100)
-    y_ = row['Epsilon Nd']
+arrow = dict(
+    facecolor='black',
+    arrowstyle='-|>')
 
-    for lvl in (2,1):
-        End = Epsilon_Nd(row)
-        e = M.patches.Ellipse(
-            xy=(x_,End.n),
-            width=lvl*xs_,
-            height=lvl*End.s,
-            alpha=0.4,
-            facecolor=row['color'],
-            edgecolor='none')
+ax.annotate('Crystal Knob suite',
+            xy=(x.mean(), y.mean()),
+            ha='center',
+            va='baseline',
+            xytext=(15,10),
+            textcoords='offset points')
 
-        axins.add_artist(e)
-        e.set_clip_box(axins.bbox)
-
-    id = row["Sample Name"]
-    _ = aprops.get(id,None)
-    vals = aprops['default']
-    if _ is not None:
-        vals = dict(vals, **_)
-        vals['color'] = row['color']
-    axins.annotate(id, xy=(x_,y_), **vals)
-
-axins.set_ylim(10.05,11.35)
-axins.set_xlim(0.70228,0.70245)
-
-xt = [.7023,.7024]
-yt = [10.25,10.75,11.25]
-
-axins.xaxis.get_major_formatter().set_useOffset(False)
-axins.xaxis.set_ticks(xt)
-axins.yaxis.set_ticks(yt)
-axins.tick_params(axis='both', which='major', labelsize=9)
-
-mark_inset(ax, axins, loc1=2, loc2=3, fc="none", ec="0.5")
-
+sns.despine(ax=ax)
+fig.tight_layout()
+fig.subplots_adjust(left=0.06,bottom=0.06)
 fig.savefig(argv[1], bbox_inches="tight")
 
