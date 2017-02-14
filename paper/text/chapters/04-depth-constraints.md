@@ -21,9 +21,9 @@ Minimum entrainment depths of all peridotite xenoliths must be greater than ~30 
 This phase transition is composition-dependent and poorly constrained for
 natural systems, but thought to lie over the 50-80 km depth interval
 [@ONeill1981; @Kinzler1997; @Gasparik2000; @Klemme2004]. As shown in `Figure
-cr-number`, the high-temperature sample cohort (CK-3, CK-4, and CK-6) have
+cr-number`, samples in the high-temperature cohort (CK-3, CK-4, and CK-6) have
 higher spinel Cr# than the low-temperature samples. This enrichment in
-refractory elements corresponds to an expanded stability field of spinel
+refractory Cr corresponds to an expanded stability field of spinel
 against garnet to deeper depths. Several experimental studies have attempted to
 estimate the magnitude of this effect.
 For generic mantle compositions without Cr, the maximum depth of the spinel
@@ -56,19 +56,21 @@ vertical isopleths in P-T space [@Herzberg1978; @Gasparik2000].
 Equilibration pressure measurements are attempted for the peridotite
 xenoliths using the @Kohler1990 Ca-in-olivine
 barometer. This barometer is explicitly calibrated for spinel
-peridotites but widely disregarded based on poor resolution,
-vulnerability to late-stage diffusion, and dependence on Ca
+peridotites but should be treated with caution based on poor resolution,
+vulnerability to late-stage diffusion, and dependence on low Ca
 concentrations in olivine near analytical thresholds for
 electron microprobe analysis [@Medaris1999; @OReilly1997].
-The imprecision of the method is modeled by separately calculating
-pressure for each nearest-neighbor pair of measurements,
-propagating analytical errors through the calculation.
-Temperature and pressure are jointly solved to incorporate the
-pressure-dependence of the BKN thermometer.
-A Monte Carlo normal distribution is applied to the analytical
-errors on each barometer estimate to show the distribution
+
+To model the variability of model pressures due to analytical uncertainties,
+barometry is applied separately for nearest-neighbor pyroxene and olivine measurements.
+Analytical errors are propagated through the calculation.
+To correct for the mild pressure dependence of the two-pyroxene thermometer, and the
+temperature dependence of the olivine barometer, we jointly solve temperature and
+pressure by optimizing to a common solution for each analysis.
+In `Figure depth`, we apply a Monte Carlo normal distribution to the analytical
+errors on each pressure estimate to show the distribution
 of possible sample conditions in pressure--temperature space.
-To convert between depth and pressure, we assume a constant geobaric
+To map pressures to depths, we use the simplistic assumption of a constant geobaric
 gradient of 30 km/GPa.
 
 The Ca-in-olivine method yields a broad distribution in model depths,
