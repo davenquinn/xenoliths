@@ -2,7 +2,7 @@ from __future__ import division
 from pandas import DataFrame
 from figurator import tex_renderer, write_file
 from uncertainties import ufloat
-from calculations import T_CHUR, corrected_nd_ratio
+from calculations import T_CHUR, sample_nd_ratio
 from sys import argv
 
 def build_data():
@@ -11,8 +11,9 @@ def build_data():
         d = row.to_dict()
         d['id'] = id
 
-        T = 1.65*1e6*365*24*3600
-        d['143Nd/144Nd(T)'] = corrected_nd_ratio(row,T)
+        T = 1.65*1e6#*365*24*3600
+        d['143Nd/144Nd(T)'] = sample_nd_ratio(row,T)
+        #d['87Sr/86Sr(T)'] = sample_sr_ratio(row,T)
 
         d["T_CHUR"] = round(T_CHUR(row, T),2)
 
