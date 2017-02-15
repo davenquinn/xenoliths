@@ -5,6 +5,7 @@ from xenoliths import app
 from xenoliths.thermometry.results import xenoliths, sample_temperatures
 from pickle import dump, load
 
+from uncertainties import ufloat
 from xenoliths.models import Sample
 from xenoliths.thermometry.rare_earth.plot import ree_temperature
 from xenoliths.thermometry.results import xenoliths
@@ -59,7 +60,9 @@ def ree_data(sample_id):
         return s
 
 def __table_data(s):
-    s = OrderedDict(s.items())
+    ls = list(s.items())
+
+    s = OrderedDict(ls)
 
     for k in ('core','rim'):
         d = s[k]
@@ -70,16 +73,18 @@ def __table_data(s):
         # Go through thermometers
         for k_,v in d.items():
             arr = N.array(v['sep'])
-            d[k_] = dict(n=arr.mean(),s=arr.std())
+            d[k_] = ufloat(arr.mean(),arr.std())
         d['n_cpx'] = n_cpx
         d['n_opx'] = n_opx
 
     ree = ree_data(s['id']).temperature
-    s['core']['ree'] = dict(n=ree.n,s=ree.s)
+    s['core']['ree'] = ufloat(ree.n,ree.s)
 
     return s
 
 def summary_data():
     with open("build/data.pickle") as f:
         data = load(f)
-    return [__table_data(i) for i in data]
+    ls = [__table_data(i) for i in data]
+    ls = sorted(ls, key=lambda x: x['core']['ta98'].n)
+    return ls
