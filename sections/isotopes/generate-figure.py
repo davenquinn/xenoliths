@@ -54,10 +54,10 @@ kw = dict(xycoords="data",
     va='center')
 ax.annotate("Continental",
         xy=(0.7062,-4.4),**kw)
-ax.annotate("Primitive\nMantle", xy=(0.7043,1.9),**kw)
+ax.annotate("Primitive\nMantle", xy=(0.70435,1.9),**kw)
 
 kw['ha']='left'
-ax.annotate("Depleted Mantle", xy=(0.703,10.9),**kw)
+ax.annotate("Depleted Mantle", xy=(0.70305,9.5),**kw)
 
 ax.text(0.7034,5.8, 'Mantle Array',
         ha = 'center',
@@ -102,10 +102,13 @@ ax.annotate('Crystal Knob suite',
             xy=(x.mean(), y.mean()),
             ha='center',
             va='baseline',
-            xytext=(15,10),
+            xytext=(20,10),
+            fontsize=9,
             textcoords='offset points')
 
 sns.despine(ax=ax)
+ax.get_yaxis().set_tick_params(which='both', direction='out')
+ax.get_xaxis().set_tick_params(which='both', direction='out')
 fig.tight_layout()
 fig.subplots_adjust(left=0.06,bottom=0.06)
 fig.savefig(argv[1], bbox_inches="tight")

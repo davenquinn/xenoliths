@@ -37,19 +37,20 @@ for i in cols:
     make_uncertain(df, i)
 
 btm = '39Ar'
-for i in [40,38,37,36]:
+for mul,i in zip([0,2,0,3],[40,38,37,36]):
     st = str(i)+"Ar"
-    series = df[st]/df[btm]
+    # Multiply by factors
+    series = df[st]/df[btm]*10**mul
     lbl = st+"/"+btm
     df.insert(0,lbl,series)
     df.drop(st,axis=1,inplace=True)
 df.drop(btm,axis=1,inplace=True)
 
+df["39Ar Mol"] *= 100
+
 text = (tex_renderer
     .get_template('lava-age.tex')
     .render(data=df.iterrows()))
-
-embed()
 
 with open(argv[2],'w') as f:
     f.write(text)

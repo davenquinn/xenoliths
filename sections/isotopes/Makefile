@@ -1,9 +1,9 @@
-all: build build/isotope-data.pdf build/isotope-data.tex build/isotope-table.pdf
+all: build build/isotope-data.pdf build/isotope-table.pdf
 
 build:
 	mkdir -p $@
 
-build/isotope-data.tex: generate-table.py
+build/isotope-data.tex: generate-table.py | templates/isotopes.tex
 	python $^ $@
 
 build/isotope-table.pdf: build/isotope-data.tex

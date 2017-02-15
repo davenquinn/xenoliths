@@ -1,46 +1,58 @@
-<#- set fs = "\\footnotesize\\centering" -#>
-<# macro el(num, el='Ar') -#>
-\ce{^{<<num>>}<<el>>}
-<#- endmacro #>
-<# macro ratio(num, star='') -#>
-<< el(num) >><<star>>/<< el(39) >>
-<#- endmacro #>
-\renewcommand{\multicell}[2][c]{%
-\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
-\begin{tabular}{l r r r r r r r r r r r}
+{
+\newcommand{\Ar}[1]{\isotope[#1]{Ar}}
+\newcommand{\unitcell}[2][c]{\multicolumn{1}{#1}{\footnotesize #2}}
+\newcommand{\multicell}[2][]{\multirow{2}{*}{#2 \footnotesize #1}}
+  \begin{tabular}{l l <<"r "*10 >>} %S[table-format=3.2]
 \toprule
-  Laser &
-  <#- for i in [36,37,38,40] #>
-  << ratio(i) >> &
-  <# endfor -#>
-  << el(39) >> &
-  << el(39) >> &
-  \ce{Ca}/\ce{K} &
-  << ratio(40,"*") >> &
-  << el(40) >>* &
-  Age \\
-  <<fs>> \si{W} &
-  & & & &
-  <<fs>>$\times 10^{-14}$ \si{mol} &
-  <<fs>>\% & & &
-  <<fs>>\% &
-  <<fs>>\si{Ma}
-  \\
+  Step &
+  Power &
+  \multicell[\si{\times 10^{3}}]{
+    \ratio{\Ar{36}}{\Ar{39}}
+  } &
+  \multicell[]{
+    \ratio{\Ar{37}}{\Ar{39}}
+  } &
+  \multicell[\si{\times 10^{2}}]{
+    \ratio{\Ar{38}}{\Ar{39}}
+  } &
+  \multicell[]{
+    \ratio{\Ar{40}}{\Ar{39}}
+  } &
+  \h{\Ar{39}} &
+  \h{\Ar{39}} &
+  \multicell{
+    \ratio{\ce{Ca}}{\ce{K}}
+  } &
+  \multicell{
+    \ratio{\Ar{40}*}{\Ar{39}}
+  } &
+  \h{\Ar{40}*} &
+  \h{Age} \\
+  &
+  \unitcell{\si{W}} &
+  &
+  &
+  &
+  &
+  \unitcell[r]{\si{mol\times 10^{-12}}&
+  \unitcell{\%} & & &
+  \unitcell{\%} &
+  \unitcell{\si{Ma}} \\
 \midrule
 <#- for ix, r in data  #>
-  << ix|n(1) >> &
-  << r[0]|n(4) >> &
-  << r[1]|n(4) >> &
-  << r[2]|n(5) >> &
-  << r[3]|n(5) >> &
-  << r[4] >> &
-  << r[5]|n(2) >> &
-  << r[6]|n(4) >> &
-  << r[7]|n(4) >> &
-  << r[8]|n(5) >> &
-  << r[9]|n(5) >> \\
+  << loop.index >> &
+  << ix|f('{:4}') >> &
+  << r[0]|unp(2) >> &
+  << r[1]|unp(2) >> &
+  << r[2]|unp(2) >> &
+  << r[3]|unp(2) >> &
+  << r[4]|n(2) >> &
+  << r[5]|n(3) >> &
+  << r[6]|unp(2) >> &
+  << r[7]|unp(2) >> &
+  << r[8]|n(2) >> &
+  << r[9]|n(2) >> \\
 <#- endfor  #>
 \bottomrule
 \end{tabular}
-
-
+}

@@ -1,30 +1,31 @@
+{
 \begin{tabular}{l r r r r r r r r r r}
 \toprule
   Sample &
   Sm &
   Nd &
-  $\frac{\ce{^{147}Sm}}{\ce{^{144}Nd}}$ &
-  $\frac{\ce{^{143}Nd}}{\ce{^{144}Nd}}\left(0\right)$ &
-  $\frac{\ce{^{143}Nd}}{\ce{^{144}Nd}}\left(\SI{1.65}{Ma}\right)$ &
+  \ratio{\isotope[147]{Sm}}{\isotope[144]{Nd}} &
+  \ratio{\isotope[143]{Nd}}{\isotope[144]{Nd}}\hfill{[0]} &
+  [\SI{1.65}{Ma}] &
   $\epsilon_{Nd}$ &
-  T$_{\mathrm{CHUR}}$ &
-  Rb & Sr &
-  ${^{87}Rb}/{^{86}Sr}(0)$ \\
+  $T_{\mathrm{CHUR}}$ &
+  Rb &
+  Sr &
+  \ratio{\isotope[87]{Rb}}{\isotope[86]{Sr}}\hfill{[0]} \\
 \midrule
 <# for s in samples  #>
   << s['id'] >> &
-  << s['Sm']| n(4) >> &
+  << s['Sm']|n(4) >> &
   << s['Nd']|n(4) >> &
   << s['147Sm/144Nd']|n(5) >> &
   << s['143Nd/144Nd(0)']|n(5) >> &
   << s['143Nd/144Nd(T)']|n(5) >> &
-  << s['Epsilon Nd'] >> &
+  << s['Epsilon Nd']|n(2) >> &
   << s['T_CHUR']| n(2) >> &
   << s['Rb']|n(4) >> &
   << s['Sr']|n(4) >> &
   << s['87Sr/86Sr(0)']|n(5) >> \\
 <# endfor  #>
-
 \bottomrule
 \end{tabular}
-
+}
