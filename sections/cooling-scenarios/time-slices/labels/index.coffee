@@ -44,8 +44,8 @@ axisProfileLabels = (d,j)->
 
       createText = (t, opts={})->
         el.append 'text'
+          .styles fill: u.attr('stroke')
           .attrs
-            fill: u.attr('stroke')
             dy: opts.dy or if i != 0 then -2 else 8
           .append 'textPath'
           .text t

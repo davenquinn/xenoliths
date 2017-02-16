@@ -63,7 +63,7 @@ __makeOuterAxes = (data)->
 
   outerAxes.axes.y('right')
     .label 'Temperature (°C)'
-    .labelOffset 25
+    .labelOffset 22
     .despine()
 
   vscale = outerAxes.scale.y
@@ -160,10 +160,6 @@ createAxes = (outerAxes)->
         .label "Asthenosphere held at #{k} km"
       plt.append('g').call s
 
-    d3.select ax.node()
-      .selectAll '.tick text'
-      .attrs 'font-size': 7
-
     if i == 1
       plt.append 'text'
         .text 'Monterey Plate'
@@ -183,9 +179,6 @@ setupElement = (el, data)->
 
     outerAxes = __makeOuterAxes(data)
     g.call outerAxes
-
-    g.selectAll '.tick text'
-      .attrs 'font-size': 8
 
     plt = outerAxes.plotArea()
     plt.selectAll 'g.axes'

@@ -35,7 +35,6 @@ for res in data:
     d = max_depth(T,spinel_cr[id]/100)
     dz = 0.15/0.03 # GPa / # G
     # Plot maximum stability
-    #ax.fill_between(T,d+dz,d-dz)
     # 0.15 GPa error bars assumed
 
 # Plot Plagioclase in

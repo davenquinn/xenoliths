@@ -147,27 +147,4 @@ for dz, heat_flow, T in profiles:
                 style='italic',
                 **kwargs)
 
-## Insert xenoliths area
-from matplotlib.path import Path
-from scipy import interpolate
-
-
-with open('../cooling-scenarios/xenoliths-area.json') as f:
-    d = json.load(f)
-coords = d['geometry']['coordinates']
-coords.append(coords[0])
-
-codes = ([Path.MOVETO]
-         + [Path.LINETO]*(len(coords)-2)
-         + [Path.CLOSEPOLY])
-
-path = Path(coords, codes)
-patch = M.patches.PathPatch(path,
-        facecolor='#fcfcfc',
-        edgecolor='#eeeeee',
-        zorder = -40)
-ax.add_artist(patch)
-ax.patches = [patch]
-
-
 fig.savefig(outfile, bbox_inches="tight", dpi=300)

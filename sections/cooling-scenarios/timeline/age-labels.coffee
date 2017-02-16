@@ -36,7 +36,6 @@ module.exports = (ax)->
       .attrs
         class: 'oc-age'
         y: -4
-      .attrs fontProperties
       .text "#{n} Myr"
 
   L.connectingLine = (data)->
@@ -68,11 +67,11 @@ module.exports = (ax)->
       el.append "text"
         .text "Age of initial oceanic lithosphere"
         .attrs
+          class: 'oc-age-label'
           dy: -10
           transform: "translate(#{_l.x} #{_l.y}) rotate(-7)"
           'text-anchor': 'middle'
           fill: '#888'
-        .attrs fontProperties
 
   return L
 

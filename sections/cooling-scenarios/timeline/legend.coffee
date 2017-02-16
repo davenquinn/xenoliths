@@ -9,9 +9,7 @@ module.exports = (el)->
   g.append 'text'
     .text "Model tracers"
     .attrs
-      'font-size': 8
-      'font-weight': 'bold'
-      fill: c
+      class: 'title'
 
   it = g.selectAll 'g.item'
     .data data
@@ -23,7 +21,6 @@ module.exports = (el)->
 
   it.append 'line'
     .attrs
-      stroke: c
       'stroke-dasharray': (d)->d.da
       x2: 17
       y1: -3
@@ -31,9 +28,5 @@ module.exports = (el)->
 
   it.append 'text'
     .text (d)->"#{d.n} km depth"
-    .attrs
-      fill: c
-      x: 20
-      'font-size': 8
-
+    .attrs x: 20
 

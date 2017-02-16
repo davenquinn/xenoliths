@@ -84,9 +84,7 @@ plotScenarios = (el, scenarios)->
     .attrs class: 'legend'
     .call legend
 
-  el.styles
-    height: offs2 + interval + G.margin.outside
-    width: totalWidth
+  el.styles width: totalWidth
 
   el.select '.scenario.forearc'
     .call labels.profileLabels
@@ -95,7 +93,10 @@ plotScenarios = (el, scenarios)->
 module.exports = (el_, callback)->
   el = d3.select el_
     .append 'div'
-    .attrs width: totalWidth
+    .attrs
+      id: 'figure'
+      width: totalWidth
+    .style 'margin','0 0 0 0'
 
   scenarios = cfg.map (c,i)->
     # Integrate layouts
@@ -123,8 +124,9 @@ module.exports = (el_, callback)->
 
           vals = (a)->{z:a.y,T:a.x}
           profiles = slice.rows.map (d)->d.profile.map vals
-          slice.ml = lithosphereDepth(profiles)
-          console.log slice.ml
+
+          # Different depths for mantle lithosphere
+          slice.lithosphereDepths = profiles.map lithosphereDepth
           return slice
     Promise.map s.slices, getSlice, concurrency:1
       .then (slices)->

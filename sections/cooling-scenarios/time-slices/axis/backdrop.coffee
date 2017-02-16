@@ -44,23 +44,25 @@ module.exports = (ax)->
 
     # Deal with mantle lithosphere, putting it at
     # 1350ºC
-    try
-      depths = profileDepths(layers.profile, 1300)
-        .sort()
-    catch err
-      depths = [layers.ml]
+    if layers.lithosphereDepths?
+      depths = layers.lithosphereDepths.sort()
 
-    allSame = depths.every (d)->d == depths[0]
-    if allSame
-      layerData.push {z: depths[0], id: 'ml'}
+      allSame = depths.every (d)->d == depths[0]
+      if allSame
+        layerData.push {z: depths[0], id: 'ml'}
+      else
+        scale = chroma
+          .scale([style.ml.fill,style.as.fill])
+          #.mode 'lab'
+          .domain([0,depths.length+1])
+        depths.forEach (d,i)->
+          v = {z: d, style: {fill: scale(i+1)}}
+          layerData.push v
+      if depths[depths.length-1] < 90
+        layerData.push {z: maxZ, id: 'as'}
     else
-      scale = chroma.scale([style.ml.fill,style.as.fill])
-        .domain([0,depths.length])
-      depths.forEach (d,i)->
-        layerData.push {z: d, style: {fill: scale(i)}}
-
-    if depths[depths.length-1] < 90
-      layerData.push {z: maxZ, id: 'as'}
+      layerData.push {z: layers.ml, id: 'ml'}
+      layerData.push {z: 6, id: 'as'}
 
     for d in layerData
       d.style = style[d.id] unless d.style?
