@@ -24,27 +24,31 @@ natural systems, but thought to lie over the 50-80 km depth interval
 cr-number`, samples in the high-temperature cohort (CK-3, CK-4, and CK-6) have
 higher spinel Cr# than the low-temperature samples. This enrichment in
 refractory Cr corresponds to an expanded stability field of spinel
-against garnet to deeper depths. Several experimental studies have attempted to
+against garnet to deeper depths. Several experimental and thermodynamic studies have attempted to
 estimate the magnitude of this effect.
-For generic mantle compositions without Cr, the maximum depth of the spinel
-stability field ranges is roughly 18-20 GPa (55-60 km) at 1000-1200ºC
-[@Klemme2004], which is slightly higher than that envisioned by @ONeill1981 and
-others. Experimental results and
-thermodynamic modeling [@ONeill1981; @Klemme2000; @Klemme2004]
-suggest that chromian spinels can have much higher
-pressures of stability. The thermodynamic models suggest a broad garnet-spinel
-costability field (up to a spinel-out reaction at 5 GPa for Cr# of ~30), but
-the relative metastability of these phases is unconstrained and ideal
-garnet--spinel mixing is assumed [@Klemme2004].
-In practice, few natural samples contain these phases together [!! citation needed !!], so it is entirely possible that samples are sourced from the upper
-parts of this shared field. Because of this ambiguity, we prefer the simple empirical relationship given in @ONeill1981, which corresponds to a rough estimate for the garnet-in pressure for a level of spinel composition.
-`Figure depth` shows this depth increases
-estimated by this empirical relationship (with error bars of 0.15 GPa). Though not rigorous, this simple treatment shows that the maximum possible entrainment depths of the high temperature samples increase by up to 15 km, from ~65 km for the low-temperature samples, to maximum depths of ~80 km for the high-temperature cohort.
 
-<!-- This paragraph is confusing.
-It needs more explanation, and closer ties to what is shown on Figure 14. Also
-the Fig. 14 caption needs more, including references for the 100, 95 and 90
-geotherms) -->
+@ONeill1981 presented experiments both with and without Cr and described
+a simple empirical relationship of spinel-out depth with Cr content and temperature.
+Updated experimental results show that the maximum depth of the spinel
+stability field in the absence of Cr
+ranges is roughly 18-20 GPa (55-60 km) at 1000-1200ºC
+[@Klemme2000], a slightly higher estimate than @ONeill1981.
+Chromian spinels can be stable to much greater depth:
+thermodynamic modeling by @Klemme2004 suggests a broad garnet-spinel
+co-stability field (up to a spinel-out reaction at 5 GPa for Cr# of ~30),
+but given the unconstrained assumption of ideal
+garnet--spinel mixing, a spinel-weighted metastable assemblage is possible even
+at higher pressures.
+
+Though @Klemme2000 and @Klemme2004 suggest a significantly higher-pressure and
+more complex phase transition, these differences are focused at high
+temperatures and pressures, and the rough estimate of the garnet-in pressure
+given by @ONeill1981 is sufficiently accurate at T < 1200 ºC. `Figure depth`
+shows this depth increases estimated by this empirical relationship (with error
+bars of 0.15 GPa). Though not rigorous, this simple treatment shows that the
+maximum possible entrainment depths of the high temperature samples increase by
+up to 15 km, from ~65 km for the low-temperature samples, to maximum depths of
+~80 km for the high-temperature cohort.
 
 ### Ca-in-olivine barometer
 
