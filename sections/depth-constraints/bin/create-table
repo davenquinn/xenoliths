@@ -1,6 +1,0 @@
-#!/usr/bin/env zsh
-
-dir="${PROJECT_DIR}/versioned/sections/depth-constraints"
-cd $dir
-
-python depth-table.py build/data.pickle build/depth-table.tex

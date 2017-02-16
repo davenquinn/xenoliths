@@ -37,7 +37,7 @@ module.exports = (el_,cb)->
       width: sz
       height: sz
       fill: xa.texture.url()
-      stroke: "#eee"
+      stroke: "#fbfbfb"
       'stroke-width': 0.5
 
   fa = plotArea.append "foreignObject"
