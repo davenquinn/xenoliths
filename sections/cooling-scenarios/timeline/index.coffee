@@ -172,10 +172,10 @@ createAxes = (outerAxes)->
             "translate(#{x},#{y}) rotate(4)"
 
 setupElement = (el, data)->
-    console.log data
     g = el
       .attrs sz
       .append 'g'
+      .attr 'class', 'outer'
 
     outerAxes = __makeOuterAxes(data)
     g.call outerAxes

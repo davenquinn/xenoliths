@@ -27,14 +27,14 @@ module.exports = (el)->
     'Forearc crust'
     'Oceanic crust'
     'Mantle lithosphere'
-    'Astheno-<br/>sphere'
+    'Asthenosphere'
   ]
 
   ax.backdrop
     cc: 1
     oc: 2
     ml: 3
-    as: 4
+    as: 4.5
 
   el = el.append 'div'
     .attrs class: 'labels'

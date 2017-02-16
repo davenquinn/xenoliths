@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 
 g="$PROJECT_DIR/versioned/graphics"
-$g/node_modules/.bin/pdf-printer $@ -- $g/spec.coffee
+$g/node_modules/.bin/pdf-printer --dpi 1200 $@ -- $g/spec.coffee

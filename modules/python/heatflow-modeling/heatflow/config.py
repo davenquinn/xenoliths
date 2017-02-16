@@ -21,7 +21,8 @@ underplating_distance = u(100,'km')
 oceanic_mantle.conductivity = u(3.138,"W/m/K")
 # Could be higher? u(3300,"W/m/K")
 # Continental crust is mostl granitic and metapelitic here
-continental_crust.heat_generation = u(1,"uW/m**3")
+continental_crust.heat_generation = u(1.5,"uW/m**3")
+continental_crust.conductivity = u(2.5, "W/m/K")
 # Continental crust conductivity is 2.7 W/m/K
 # but could be as low as 1.9
 

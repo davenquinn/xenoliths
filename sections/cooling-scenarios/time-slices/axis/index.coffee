@@ -52,7 +52,7 @@ module.exports = (o={})->
           t = el.append 'text'
             .text d
           if i == data.length-1
-            t.text('ºC').styles 'text-anchor': 'end'
+            t.text('°C').styles 'text-anchor': 'end'
 
   ax.plot = (data)->
     fn = plotData ax
