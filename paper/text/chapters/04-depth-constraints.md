@@ -84,10 +84,10 @@ pressure by iteratively optimizing to a common solution for each analysis.
 This yields a set of independent, internally consistent depth and temperature
 measurements for each sample corresponding to individual pairs of
 microprobe measurements.
-In `Figure depth`, we apply a Monte Carlo normal distribution to the analytical
-errors on each pressure estimate to show the distribution
-of possible sample conditions in pressure--temperature space.
-To map pressures to depths, we use the simplistic assumption of a constant geobaric
+In `Figure depth`, we show the full pressure--temperature error space for each
+sample by applying a Monte Carlo random sampling to the analytical
+errors on each pressure estimate.
+To map pressures to depths, we assume a constant geobaric
 gradient of 30 km/GPa.
 
 The Ca-in-olivine method yields a broad distribution in model depths,
