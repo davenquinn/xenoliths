@@ -156,7 +156,7 @@ fully equilibrated. The exact kinetics of this scenario are unclear, but it is
 likely that REE equilibrium was achieved in a reducing environment
 (Asimow and Blundy, personal communication) !!, or Eu was rapidly and
 differentially diffused into the Crystal Knob melt just prior to eruption.
-Evaluating these scenarios is more difficult due to the low Eu counts
+Discerning between these scenarios is difficult due to the low Eu counts
 measured by ion-microprobe techniques.
 
 Generalized LREE disequilibrium could be explained by
