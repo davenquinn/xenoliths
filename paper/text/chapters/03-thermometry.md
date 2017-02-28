@@ -159,7 +159,7 @@ differentially diffused into the Crystal Knob melt just prior to eruption.
 Discerning between these scenarios is difficult due to the low Eu counts
 measured using ion-microprobe techniques.
 
-General  LREE disequilibrium between pyroxenes could be explained by
+General LREE disequilibrium between pyroxenes could be explained by
 a fossil heating event that was retained only in the large-ion lithophile elements due to their
 slow diffusion rates. This must have happened prior to re-equilibration in major elements.
 Alternatively, partition coefficients for LREE and Eu
