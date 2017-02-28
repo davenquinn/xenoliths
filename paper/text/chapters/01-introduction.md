@@ -127,7 +127,7 @@ remobilized shallow subduction megathrust, beneath which lie the underplated
 schists [@Saleeby2003; @Chapman2010, @Chapman2012, @Chapman2016b]. Seismic reflection
 data image the megathrust as effectively flat beneath the western Mojave
 plateau [@Yan2005], and dipping ~30ºN beneath the southernmost Sierra
-Nevada region [@Malin1995]. The Garlock fault (Fig. 1a) nucleated during
+Nevada region [@Malin1995]. The Garlock fault [@fig:context] nucleated during
 the early Miocene along the inflection in the megathrust [@Saleeby2016],
 with the inflection constituting a lateral ramp in the subduction
 megathrust system [@Saleeby2003; @Chapman2016b]. In contrast to the
@@ -145,7 +145,7 @@ penetrated the Franciscan accretionary complex, clearly poses the question of
 the Crystal Knob suite having sampled additional underplated Farallon mantle
 nappes, in structural sequence with the Dish Hill mantle duplex.
 
-Mantle xenoliths of the eastern Sierra suite (Fig. 3), viewed in the context of late
+Mantle xenoliths of the eastern Sierra suite [@fig:context], viewed in the context of late
 Cenozoic plate kinematics of the southern California region [@Argus1991; @Atwater1998]
 pose another viable possibility for the sub-Crystal Knob upper mantle. The eastern Sierra suite occurs in
 Pliocene-Quaternary mafic lava flows, and records a significantly steeper
