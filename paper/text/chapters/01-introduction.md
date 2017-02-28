@@ -92,7 +92,7 @@ angle fault system below which Franciscan-affinity, mainly metaclastic rocks,
 were tectonically underplated in the Late Cretaceous
 [@Malin1995; @Barth2003; @Yan2005; @Ducea2009; @Chapman2010; @Chapman2012 @Chapman2016b].
 The underplated metaclastic rocks are exposed in a series of windows
-that are labeled as subduction channel schists on Figure 1. Detritus for the
+that are labeled as subduction channel schists in @fig:context. Detritus for the
 schist protoliths was derived from the upper plate batholithic belt that was
 vigorously uplifted above a shallow flat segment of the greater Franciscan
 subduction megathrust system [@Barth2003; @Saleeby2007; @Chapman2013; @Chapman2016a].
