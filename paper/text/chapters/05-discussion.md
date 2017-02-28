@@ -53,6 +53,7 @@ of the Pacific-Farallon ridge [@Thorkelson1989; @Bohannon1995; @Atwater1998; @Wi
 Late Cenozoic volcanism of the coastal region of central California has been
 linked to slab window formation by the partial melting of asthenosphere
 as it ascended into the slab window [@Wilson2005].
+
 Alternatively, it has been suggested that microplate formation along the
 impinging Pacific-Farallon ridge was more dominant than slab window
 formation, and that these microplates stalled beneath coastal central
@@ -66,17 +67,20 @@ microplate hypotheses are based on plate kinematic relationships, which
 upon closer analysis appears to require a combination of both slab
 window and stalled oceanic microplate segments
 [@Bohannon1995; @Atwater1998; @tenBrink1999; @Wilson2005].
+
 Seismic data cited in support of the stalled slab hypothesis consist of
 an 8-15 km thick low east-dipping mafic lower crustal layer that extends
 beneath central California from the offshore region into proximity of
 the San Andreas fault, and which thickens eastwards over Moho depths of
 \~12-30 km [@Brocher1999]. Strong internal reflectivity within this layer
 [@Trehu1987; @Brocher1999], and sharp
-inflections in its upper surface [@Trehu1991] indicate that this mafic
+inflections in its upper surface [@Trehu1991], indicate that this mafic
 layer is internally deformed and imbricated, which accounts for its
 thickness exceeding typical oceanic mafic crust by a factor of two to
 three.
-<!-- Also see @Fuis1998, a review of Coast Range structure along the margin -->
+<comment>Also see @Fuis1998, a review of Coast Range structure along the
+margin</comment>
+
 Such imbrication and underplating require a basal detachment,
 which most logically is the underlying Moho. In this context the
 regions’s lower crustal mafic layer is more plausibly interpreted as a
