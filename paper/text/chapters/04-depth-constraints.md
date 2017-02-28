@@ -90,7 +90,7 @@ errors on each pressure estimate.
 To map pressures to depths, we assume a constant geobaric
 gradient of 30 km/GPa.
 
-The Ca-in-olivine method yields a broad distribution in model depths,
+The Ca-in-olivine barometer yields a broad distribution in model depths,
 largely coincident with the spinel stability field `[Figure depth]`.
 The low-temperature samples in particular have significant scatter
 towards depths below the spinel-in isograd.
