@@ -62,11 +62,13 @@ consisting of pre-Phanerozoic lithosphere, Cretaceous arc mantle wedge,
 underplated Farallon plate nappes, and late Cenozoic shallow convective
 asthenosphere
 [@Galer1989; @Livaccari1993; @Alibert1994; @Beard1995; @Ducea1996, @Ducea1998a; @Jove1998; @Lee2001; @Lee2006; @Usui2003; @Luffi2009].
-In general there is a geologically reasonable correspondence between such upper
-mantle domains and surface geology, with sub-continental suites having been
-erupted through cratonic and peri-cratonic crust, mantle wedge suites erupted
-through the Cretaceous large volume batholith, and asthenospheric suites
-erupted through active rifts. In contrast, xenolith suites derived from
+
+In general, there is a geologically reasonable correspondence between xenolith-sampled
+upper mantle domains and surface geology. Sub-continental suites
+have generally been erupted through cratonic and peri-cratonic crust,
+mantle wedge suites erupted through the Cretaceous large volume batholith,
+and asthenospheric suites erupted through active rifts.
+In contrast, xenolith suites derived from
 underplated Farallon plate mantle nappes have thus far only been recovered from
 more inboard crustal domains, requiring large sub-horizontal displacements and
 underplating along relatively shallow subduction megathrust systems. Crystal
@@ -77,7 +79,7 @@ region of long-lived subduction accretion proximal to the plate edge.
 The tectonic setting of the sub-Crystal Knob mantle lithosphere is best posed
 by the restoration of its host crustal rocks to a pre-San Andreas transform
 offset position, outboard of the northern reaches of the southern California
-batholith (`Figures context and reconstruction`, detailed below).
+batholith (@fig:context and @fig:reconstruction, detailed below).
 The southern California batholith
 is the southern continuation of the Sierra Nevada batholith across the Garlock
 fault. In this restored position the crystalline nappes that constitute Salinia
