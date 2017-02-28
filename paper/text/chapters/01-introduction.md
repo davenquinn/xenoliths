@@ -135,7 +135,7 @@ central Sierra xenolith suite, mantle xenoliths recovered from the eastern
 margin of the southern California batholith record the tectonic erosion of
 sub-continental mantle lithosphere (including Cretaceous mantle wedge), and the
 underplating of Farallon plate mantle lithosphere [@Shervais1973; @Luffi2009].
-More specifically the Dish Hill suite (Fig. 1) samples an upper
+More specifically the Dish Hill suite [@fig:context] samples an upper
 mantle duplex with imbricated nappes of Farallon plate oceanic mantle lying in
 structural sequence beneath a relatively thin roof of attenuated continental
 lithosphere peridotites. The mantle duplex is interpreted to have formed as the
