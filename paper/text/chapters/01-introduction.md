@@ -24,15 +24,14 @@ tectonic and petrogenetic development of the overlying crust.
 The Crystal Knob xenolith locality samples a highly strategic lithospheric
 column through the Late Cretaceous convergent margin belt of the SW North
 American Cordillera. This regionally extensive belt is characterized by
-a large-volume continental magmatic arc whose generation was
-driven by the eastward subduction of the Farallon oceanic plate beneath western
+a large-volume continental magmatic arc, generated as the Farallon oceanic plate subducted eastward beneath western
 North America [@Bateman1992]. The Franciscan complex represents the
 crustal level accretionary complex of this subduction zone, and is widely
 recognized for its tectonic inclusion of Farallon plate oceanic basement and
 pelagic sediment fragments, as well as upper plate magmatic arc derived
 siliciclastic sediments
 [@Cowan1978; @Murchey1984; @Sliter1984; @Blake1988; @Chapman2016a]
-Recently it has been recognized
+Recently, it has been recognized
 that a series of far out of place crystalline nappes that were derived from the
 southern California segment of the Late Cretaceous magmatic arc lie
 tectonically above Franciscan-affinity accretionary complex rocks in the
