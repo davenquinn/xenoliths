@@ -167,7 +167,7 @@ asthenosphere ascended into a slab window.
 Below we investigate the petrology and
 geochemistry of the Crystal Knob suite, in conjunction with
 regional findings on other xenolith locations as well as geophysical data and
-modeling in order to pursue the origin of the upper mantle beneath the Crystal
+modeling, in order to pursue the origin of the upper mantle beneath the Crystal
 Knob eruption site.
 
 <!--[[context]]-->
