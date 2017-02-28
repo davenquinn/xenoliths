@@ -41,7 +41,7 @@ central California coastal area
 In aggregate
 these crystalline nappes have been called “Salinia”, or the “Salinian terrane”
 [@Page1981]. The Crystal Knob xenolith locality lies along the western margin
-of Salinia, adjacent to the Nacimiento fault `[Figure context]`, a polyphase structural zone that in its original geometry constituted the local structural base of the
+of Salinia, adjacent to the Nacimiento fault [@fig:context], a polyphase structural zone that in its original geometry constituted the local structural base of the
 Salinia crystalline nappe sequence [@Hall2013]. In this setting
 the crystal Knob xenolith suite samples the uppermost mantle that has been
 constructed beneath both the Franciscan accretionary complex and its local
