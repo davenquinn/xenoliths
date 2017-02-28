@@ -15,8 +15,7 @@ lithosphere in origin.
 
 Samples were collected from the Crystal Knob lava with an
 emphasis on volumetrically minor polyphase peridotite xenoliths.
-Xenolith samples
-were 5-10 cm diameter friable peridotites with medium (200 µm -- 1 mm)
+Xenolith samples are 5-10 cm diameter friable peridotites with medium (200 µm -- 1 mm)
 grains. However, several samples of the host basalt and dunite cumulates were
 collected to establish context for the xenoliths.
 
@@ -26,18 +25,19 @@ The ages of host lavas for mantle xenolith suites are critical for the
 application of their petrogenesis to tectonic and geodynamic processes
 (for example, see @Ducea1998b).
 The age of the Crystal Knob host lava was determined
-using the $^{40}$Ar/$^{39}$Ar radioisotope technique. A billet
+using the \ce{$^{40}$Ar}/\ce{$^{39}$Ar} radioisotope technique. A billet
 of the host lava (sample CK-1) containing visible plagioclase
 phenocrysts was provided to the USGS Geochronology
 Laboratory in Denver, Colorado. The sample was irradiated in the USGS
-TRIGA reactor, and plagioclase feldspar grains were step-heated *in situ* using an infrared laser `[Figure step_heating]`, and $^{39}$Ar loss was
+TRIGA reactor, and plagioclase feldspar grains were step-heated *in situ*
+using an infrared laser `[Figure step_heating]`, and $^{39}$Ar loss was
 measured simultaneously on a Thermo Scientific Argus VI using 4 Faraday
 detectors (m/e 40-37) and ion counting (m/e 36). The detectors were
 intercalibrated using standard gas and air pipettes. The measurements
 are corrected for blanks above baselines, radioactive decay, and
 nucleogenic interferences, and standardized against a Fish Canyon
 sanidine with an age of 28.20 Ma. Non-radiogenic argon is assumed to have
-an atmospheric composition ($^{40}$Ar/$^{39}$Ar = 298.56) [@Cosca2011].
+an atmospheric composition (\ce{$^{40}$Ar}/\ce{$^{39}$Ar} = 298.56) [@Cosca2011].
 
 Data for stepwise heating are presented in `Table step_heating_table`
 and shown graphically in `Figure step_heating`.
@@ -46,8 +46,7 @@ by the twelve intermediate out of fifteen heating steps, for which the
 entire spectrum define a similar age, within error, of 1.71 Ma. From
 these age data we infer that the xenoliths were entrained
 from the upper mantle directly underlying the Crystal
-Knob volcanic pipe at ca. 1.7 Ma,
-or mid-Pleistocene time.
+Knob volcanic pipe during the mid-Pleistocene, at ca. 1.65 Ma.
 
 <!--[[step_heating]]-->
 

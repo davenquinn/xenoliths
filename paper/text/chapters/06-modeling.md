@@ -174,7 +174,7 @@ talking about here. What is “forearc scenarios”) -->
 
 Model results are presented in \figref{model_results} and
 \figref{model_comparison}.
-For the Farallon-plate scenarios, <!-- why plural -->the @Royden1993a forearc model
+For the underplating scenarios, <!-- why plural -->the @Royden1993a forearc model
 predicts low temperatures (~235-245 ºC) at the subduction
 interface. This is quite low relative to the temperatures predicted for
 the Sierra Pelona schist (~700 ºC) by @Kidder2013, or
@@ -225,3 +225,4 @@ Estimating erosion is beyond the scope of this study, but pulses of recent erosi
 in the Coast Ranges are <!-- see Ducea et al. (2003) for rapid late
 Cenozoic uplift of the Santa Lucia’s -->
 
+- Correspond to results of @Erkan2008

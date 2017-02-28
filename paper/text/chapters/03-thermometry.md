@@ -126,7 +126,7 @@ Significant outliers from the fit are excluded from the thermometry.
 ### Disequilibrium between phases
 
 CK-3 shows disequilibrium in La only, while CK-5 and CK-7 have disequilibrium
-in several of the LREEs. 
+in several of the LREEs.
 Sample CK-4 shows major disequilibrium in the light and medium REEs, with only
 elements heavier than Ho retaining an equilibrium signature.
 
@@ -153,7 +153,7 @@ unlikely to correspond to fractionation into plagioclase, the usual culprit for
 Eu depletions in melt residues. However, this could be the case if quicker
 diffusion of Eu out of clinopyroxenes is invoked, and the samples were never
 fully equilibrated. The exact kinetics of this scenario are unclear, but it is
-likely that REE equilibrium was achieved in a highly reducing environment
+likely that REE equilibrium was achieved in a reducing environment
 (Asimow and Blundy, personal communication) !!, or Eu was rapidly and
 differentially diffused into the Crystal Knob melt just prior to eruption.
 Evaluating these scenarios is more difficult due to the low Eu counts
@@ -167,7 +167,7 @@ could have been modified by an unusual late-stage melt interaction
 favoring the extraction of LREE and Eu from clinopyroxene. <!-- and driving up the relative abundance of LREE in
 orthopyroxene -->
 Overall, disequilibrium patterns in REE between pyroxenes allude to possible
-eruptive effects, poorly understood equilibrium partition coefficients 
+eruptive effects, poorly understood equilibrium partition coefficients
 (for instance, due to reducing mantle conditions), and incomplete linearizing assumptions
 in the @Liang2013 thermometer. Disentangling these effects
 is beyond the scope of this work but presents several opportunities for further study.
