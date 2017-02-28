@@ -171,8 +171,9 @@ eruptive effects, poorly understood equilibrium partition coefficients
 (for instance, due to reducing mantle conditions), and incomplete linearizing assumptions
 in the @Liang2013 thermometer. Disentangling these effects
 is beyond the scope of this work but presents several opportunities for further study.
-Even in samples (such as CK-4) with LREE disequilibrium, temperature estimates anchored
-by HREE perform well as measured against major-element thermometry.
+Despite this disequilibrium, temperature estimates anchored
+by HREE perform well as measured against major-element thermometry,
+even for samples (such as CK-4) with generalized LREE disequilibrium.
 
 ### Significance of temperature estimates
 
