@@ -154,10 +154,10 @@ Eu depletions in melt residues. However, this could be the case if quicker
 diffusion of Eu out of clinopyroxenes is invoked, and the samples were never
 fully equilibrated. The exact kinetics of this scenario are unclear, but it is
 likely that REE equilibrium was achieved in a reducing environment
-(Asimow and Blundy, personal communication) !!, or Eu was rapidly and
+<fixme>(Asimow and Blundy, personal communication)<fixme>, or Eu rapidly and
 differentially diffused into the Crystal Knob melt just prior to eruption.
 Discerning between these scenarios is difficult due to the low Eu counts
-measured by ion-microprobe techniques.
+measured using ion-microprobe techniques.
 
 Generalized LREE disequilibrium could be explained by
 a fossil heating event that was retained only in the large-ion lithophile elements due to their
