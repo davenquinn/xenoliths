@@ -80,7 +80,7 @@ barometry is applied separately for nearest-neighbor pyroxene and olivine measur
 Analytical errors are propagated through the calculation.
 To correct for the mild pressure dependence of the two-pyroxene thermometer, and the
 temperature dependence of the olivine barometer, we jointly solve temperature and
-pressure by optimizing to a common solution for each analysis.
+pressure by iteratively optimizing to a common solution for each analysis.
 In `Figure depth`, we apply a Monte Carlo normal distribution to the analytical
 errors on each pressure estimate to show the distribution
 of possible sample conditions in pressure--temperature space.
