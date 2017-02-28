@@ -128,8 +128,8 @@ schists [@Saleeby2003; @Chapman2010, @Chapman2012, @Chapman2016b]. Seismic refle
 data image the megathrust as effectively flat beneath the western Mojave
 plateau [@Yan2005], and dipping ~30ºN beneath the southernmost Sierra
 Nevada region [@Malin1995]. The Garlock fault [@fig:context] nucleated during
-the early Miocene along the inflection in the megathrust [@Saleeby2016],
-with the inflection constituting a lateral ramp in the subduction
+the early Miocene along this inflection in the megathrust [@Saleeby2016],
+which constituted a lateral ramp in the subduction
 megathrust system [@Saleeby2003; @Chapman2016b]. In contrast to the
 central Sierra xenolith suite, mantle xenoliths recovered from the eastern
 margin of the southern California batholith record the tectonic erosion of
