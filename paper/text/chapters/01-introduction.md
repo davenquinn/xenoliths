@@ -155,8 +155,8 @@ than the Cretaceous mantle wedge suite from the central Sierra
 reveal asthenospheric mantle extending upwards to the base of the crust at ~30 km
 depth [@Jones1998; @Zandt2004; @Frassetto2011; @Jones2014],
 consistent with the eastern Sierra xenolith suite findings.
-The eastern Sierra (suite) eruption sites encompass the <10 Ma old
-Owens Valley rift system (Fig. 1a), which is driven by upper mantle convection.
+The xenolith sites within the eastern Sierra suite are superposed atop the <10 Ma
+Owens Valley rift system [@fig:context], which is driven by upper mantle convection.
 Convective ascent of asthenosphere to relatively shallow levels and late
 Cenozoic regional volcanism of the central to southern California region are
 correlated to the opening of the Pacific-Farallon slab window
