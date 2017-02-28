@@ -180,7 +180,7 @@ even for samples (such as CK-4) with generalized LREE disequilibrium.
 Rare-earth exchange thermometry shows the samples as divided into
 the same two groupings of temperatures as those found by major-element
 thermometry. Temperatures measured for the low-temperature cohort are
-most comparable to the TA98 results `[Figure ree_thermometry]`.
+most comparable to the TA98 results [@fig:ree_thermometry].
 Given that the TA98 method has been
 found to perform best among the pyroxene-exchange thermometers by
 @Nimis2010, it seems likely that both the TA98 and REE temperatures show
@@ -195,9 +195,9 @@ signature of a fossil heating event primarily affecting the deepest
 samples. This is accompanied by major REE disequilibrium in sample CK-4,
 which also contains the most intergranular melt channels.
 
-Sample CK-4 records a significantly higher temperature for LREE than the
-other samples and its HREE equilibration temperatures. This signifies
-that LREEs were equilibrated at a much higher temperature than the
+Sample CK-4 records a significantly higher temperature for LREE than
+both the other samples and its own HREE equilibration temperatures.
+This likely shows that the LREEs were equilibrated at a much higher temperature than the
 HREEs. This pronounced within-sample disequilibrium could be the result
 of metasomatic processes, which is bolstered by the fact that CK-4 has
 the only significant melt-infiltration textures in the sample set. It is
