@@ -9,7 +9,7 @@ from heatflow.config import (
     oceanic_mantle, interface_depth)
 
 from .thermometers import BKN, Taylor1998, Ca_OPX_Corr, Ca_OPX
-from .barometers import Ca_Olivine
+from .barometers import Ca_Olivine, bkn_to_ta98
 from .results import pyroxene_pairs, closest
 from ..models import ProbeMeasurement,Sample
 from ..application import db
@@ -39,7 +39,6 @@ def geobaric_gradient(pressure):
     rho0 = continental_crust.density
     g = u(9.8,'m/s^2')
     P = u(pressure,'GPa')
-
     rho1 = oceanic_mantle.density
     d0 = interface_depth
 
@@ -60,13 +59,15 @@ class GeoThermometryResult(object):
         self.ol = ol
 
         ta98 = Taylor1998(opx,cpx, **kwargs)
+        ta98.uncertainties = True
 
         self.init_temperature = ta98.temperature(pressure=self.init_pressure_basis)
 
-        thermometer = Taylor1998(opx,cpx, uncertainties=True)
+        thermometer = BKN(opx,cpx, uncertainties=True)
         barometer = Ca_Olivine(ol,cpx,thermometer, **kwargs)
-        self.pressure,self.temperature = barometer(iterative=True)
-        self.ta98 = ta98.temperature(pressure=self.pressure)
+        self.pressure,self.bkn = barometer(iterative=True)
+        # Map BKN to TA98 for consistency
+        self.temperature = bkn_to_ta98(self.bkn)
         try:
             self.depth = geobaric_gradient(self.pressure)
         except ValueError:

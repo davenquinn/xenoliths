@@ -208,7 +208,7 @@ class SteadyState(ModelRunner):
             # the mantle, rather than that which
             # sums radiogenic heat.
             s = steady_state_mantle(section,q,
-                    characteristic_scale=u(8,'km'),
+                    characteristic_scale=u(10,'km'),
                     heatflow_mantle_proportion=0.6)
             self.record(s,flux)
             echo("Saving section for "

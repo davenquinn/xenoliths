@@ -49,7 +49,7 @@ class Ca_Olivine(object):
         else:
             return args[0]
 
-    def pressure(self, input_pressure=1.5, iterative=True):
+    def pressure(self, input_pressure=1.5, iterative=True, temp_reproducibility=10):
         T = self.thermometer.temperature(input_pressure)
         # Create an offset to work in TA98 space
         TA98 = self.thermometer.name == 'TA98'
@@ -60,9 +60,9 @@ class Ca_Olivine(object):
             T = T.n+N.random.randn(self.monte_carlo)*T.s
 
         if iterative:
-            method = self.__pressure
-        else:
             method = self.__iterative_pressure
+        else:
+            method = self.__pressure
 
         P = N.array([method(t,d,input_pressure)
                 for t,d in zip(T,self.D_Ca)])
@@ -89,7 +89,7 @@ class Ca_Olivine(object):
         newPressure = 0
         i = 0
         while i < 500:
-            newPressure = self.__pressure(self,T,D_Ca,oldPressure)
+            newPressure = self.__pressure(T,D_Ca,oldPressure)
             if N.abs(newPressure - oldPressure) > 0.001:
                 oldPressure = newPressure
             else:

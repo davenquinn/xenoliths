@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -- coding: utf-8 --
 from __future__ import print_function
+import sys
+sys.path.insert(0, '..')
 
 import json
 import numpy as N
@@ -10,13 +12,13 @@ from collections import defaultdict
 from xenoliths import app, db
 from xenoliths.thermometry.pressure import pressure_measurements, geobaric_gradient
 from paper.query import xenolith_minerals
-from max_stability import max_depth
-from pickle import load
 
-datafile = sys.argv[1]
+from thermodynamics import max_depth
+from statistics import barometer_kernel_density, load_data
+
 outfile = sys.argv[2]
-with open(datafile) as f:
-    data = load(f)
+
+sample_temperatures = load_data(sys.argv[1])
 
 q = "SELECT dz, heat_flow, temperature FROM thermal_modeling.static_profile"
 
@@ -25,7 +27,7 @@ with app.app_context():
             for k in xenolith_minerals('molar')}
     profiles = db.session.execute(q).fetchall()
 
-for res in data:
+for res in sample_temperatures:
     depth = res['depth']
     c = res['sample_color']
     T = res['temperature']
@@ -46,8 +48,7 @@ cells = N.arange(len(T))*dz+dz/2
 Z = cells/1000
 
 lwx=1
-if heat_flow == 90:
-    lwx = 2
+
 for i,v in enumerate(T):
     if v > 1145: break
 d = Z[i]

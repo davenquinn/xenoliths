@@ -16,14 +16,14 @@ from xenoliths import app, db
 from xenoliths.thermometry.pressure import pressure_measurements, geobaric_gradient
 from paper.query import xenolith_minerals
 from scipy.stats import norm, gaussian_kde
-from max_stability import max_depth
-from pickle import load
+from thermodynamics import max_depth
+from statistics import barometer_kernel_density, load_data
+from matplotlib.patches import Polygon
 from chroma import Color
 
 datafile = sys.argv[1]
 outfile = sys.argv[2]
-with open(datafile) as f:
-    data = load(f)
+data = load_data(datafile)
 
 q = "SELECT dz, heat_flow, temperature FROM thermal_modeling.static_profile"
 
@@ -69,7 +69,7 @@ for res in data:
     for s in (1,-1):
         ax.plot(T,d+s*dz,color=c,linewidth=0.4,alpha=0.5)
 
-    kernel = gaussian_kde(depth, 0.1)
+    kernel = barometer_kernel_density(depth)
     Z = N.linspace(depth.min()-10,depth.max()+10,200)
     v = kernel(Z)
     ax1.fill_betweenx(Z,0,v,facecolor=c, alpha=0.05)
@@ -118,13 +118,20 @@ ax.annotate('Garnet',**kws)
 
 ax.autoscale(False)
 c = "#eeeeee"
+plot_area = []
 for dz, heat_flow, T in profiles:
     cells = N.arange(len(T))*dz+dz/2
     Z = cells/1000
 
     lwx=1
-    if heat_flow == 90:
+    if heat_flow in [80,90]:
         lwx = 2
+
+    if heat_flow == 80:
+        plot_area += zip(T,Z)
+    elif heat_flow == 90:
+        plot_area += zip(T,Z)[::-1]
+
     ax.plot(T,Z,color=c, zorder=-20, linewidth=0.75*lwx)
     for i,v in enumerate(T):
         if v > 1145: break
@@ -146,5 +153,10 @@ for dz, heat_flow, T in profiles:
         ax.text(v,d-3.5,r"$q_0$ ($mW/m^2$)",
                 style='italic',
                 **kwargs)
+
+        kw = dict(closed=True, facecolor='none', zorder=10, linewidth=0.25, linestyle=':')
+xy = [(x,y) for x,y in plot_area if 950 < x < 1070]
+poly = Polygon(xy, edgecolor='#444444', **kw)
+ax.add_patch(poly)
 
 fig.savefig(outfile, bbox_inches="tight", dpi=300)
