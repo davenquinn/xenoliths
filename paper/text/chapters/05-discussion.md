@@ -310,7 +310,7 @@ underplated as the seismically imaged thickened mafic lower crust of the
 region [@Trehu1991; @Brocher1999]. On the basis of the regional
 structural evolution of the central to southern California basement, and
 on the petrogenetic history recorded in the region's mantle xenolith
-suites, we consider the Figure \ref{fig:cross_sections}d section to be that most likely sampled by
+suites, we consider the @fig:cross_sections[d] section to be that most likely sampled by
 the Crystal Knob eruption. This section is idealized for Late Cretaceous
 time, and below we layer on the complexity of late Cenozoic faulting in
 our analysis. We focus now to thermal history in order to more
@@ -320,7 +320,8 @@ lithosphere.
 ## Thermal considerations
 
 Regardless of the generalized lithospheric structure depicted in
-`Figure neogene_cross_sections`, kinematic reconstructions of the impingement of the Pacific-Farallon
+@fig:neogene_cross_sections, kinematic reconstructions of the
+impingement of the Pacific-Farallon
 spreading center with the SW Cordilleran subducting trench require a
 slab window beneath the Crystal Knob eruption site in the early Neogene
 [@Atwater1998; @Wilson2005]. The depth of
