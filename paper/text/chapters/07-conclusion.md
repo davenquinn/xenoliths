@@ -20,7 +20,7 @@ represented by the detached portion that forms the Transverse Ranges
 high-wave speed anomaly [@fig:context], an argument could be made that an
 underthrust portion of the Monterey Plate has been translated northwards
 horizontally beneath the Crystal Knob eruption site
-[@fig:neogene_sections[b]]. Although
+[@fig:neogene_sections (b)]. Although
 kinematically plausible, in theory, this case seems unlikely based on
 dynamic factors. As with the “dangling slab” version of this case,
 horizontal translation of such a large mantle mass along the base of the
