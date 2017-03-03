@@ -179,7 +179,7 @@ eastern and southern Sierra Nevada batholith
 [@Zandt2004; @Frassetto2011; @Gilbert2012; @Saleeby2012; @Jones2014; @Levandowski2015].
 In addition to the structural continuity that these studies show between the seismic
 anomaly and the residual mantle lithosphere that is still in place
-beneath the Great Valley and Sierra Nevada `[Figure context]`, these studies show
+beneath the Great Valley and Sierra Nevada [@fig:context], these studies show
 that the volume of the Isabella anomaly far exceeds a reasonable volume
 estimate for the attenuated terminus of a hypothetical translated
 Monterey slab. These studies also provide mechanisms for lower crustal
