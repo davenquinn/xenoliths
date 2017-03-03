@@ -105,6 +105,7 @@ basaltic eruptions [@Erkan2008, Fig. 1], further
 suggesting recent mobilization of asthenospheric mantle that was
 initially emplaced into the early Neogene slab window. 
 
+## A re-interpretation of high surface heat flows in the Coast Ranges
 
 Conclusion
 ==========
