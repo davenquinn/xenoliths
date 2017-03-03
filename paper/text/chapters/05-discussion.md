@@ -194,7 +194,7 @@ convective mobilization of the sub-Sierran mantle lithosphere
 The surface effects of Monterey plate partial subduction followed by transtensional coupling to Pacific
 plate motions are closely correlated to transrotational rifting in the
 southern California Borderland and the linked clockwise rotation of
-western Transverse Ranges bedrock panels [@fig:context; @Bohannon1995; @Wilson2005].
+western Transverse Ranges bedrock panels [@fig:reconstruction; @Bohannon1995; @Wilson2005].
 This is in line with the Monterey slab’s limited down-dip extent as bounded by the Monterey-Farallon slab window
 segment shown on Figure 18. If the hypothetical Monterey "dangling slab"
 were of proper proportion to form the Isabella anomaly, then why were
