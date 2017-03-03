@@ -168,14 +168,16 @@ stability field.
 
 ### Discussion
 
-In summary, the integration of depth constraints on the xenolith samples from multiple
+The integration of depth constraints on the xenolith samples from multiple
 sources gives a broad set of constraints on the pre-eruption depth of the Crystal
-Knob xenoliths.
-For reasonable slopes of the sub-Salinian geotherm,
+Knob xenoliths. For reasonable slopes of the sub-Salinian geotherm,
 the range of temperatures in the sample set indicates sourcing over a
 depth range of 5-15 km within the mantle lithosphere.
 These depths must be greater than 30 km, the
-depth to the Moho, and less than 60-90 km based on the composition-dependent lower limit of the spinel stability field.
+depth to the Moho, and less than 60-90 km based on the
+composition-dependent lower limit of the spinel stability field.
+Ca-in-olivine barometry largely confirms these constraints but provides
+little added information within these broad boundaries.
 
 Estimates of the thermal state of the deep lithosphere derived from seismic
 tomography show temperatures of 700--1100ºC occurring at depths of
