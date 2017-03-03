@@ -268,7 +268,7 @@ it stands to reason that upper mantle duplex accretion progressed
 westwards from the Mojave region to beneath the Salinia
 nappes as well as the Nacimiento belt of the Franciscan.
 
-In `Figure cross_sections` we present a model for the tectonic
+In [@fig:cross_sections] we present a model for the tectonic
 underplating of the Farallon plate mantle lithosphere beneath
 the Mojave-Salinia-Nacimiento segment of
 the SW Cordilleran convergent margin in the Late Cretaceous [after @Saleeby2003; @Luffi2009].
