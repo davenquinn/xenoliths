@@ -2,6 +2,10 @@
 
 <!--[[depth]]-->
 
+Pyroxene-exchange geothermometry shows that the peridotite samples form
+two groups in temperature with centroids separated by roughly 60ºC.
+These temperatures seem to correspond to the samples being sourced along
+a depth gradient.
 The depth of the xenolith samples in the mantle lithosphere, coupled
 with equilibration temperatures, provides a fully-defined constraint on the
 geotherm beneath Crystal Knob at the time of eruption. For spinel
@@ -103,10 +107,7 @@ samples generally showing deeper equilibrium depths.
 
 ### Discussion
 
-Pyroxene-exchange geothermometry shows that the peridotite samples form
-two groups in temperature with centroids separated by roughly 60ºC.
-These temperatures seem to correspond to the samples being sourced along
-a depth gradient. For reasonable slopes of the sub-Salinian geotherm,
+For reasonable slopes of the sub-Salinian geotherm,
 this range of temperatures may sample a depth range of 5-15 km within
 the mantle lithosphere. These depths must be greater than 30 km, the
 depth to the Moho, <!-- appropriate reference --> and less than
