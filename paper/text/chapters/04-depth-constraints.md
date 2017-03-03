@@ -53,8 +53,9 @@ higher spinel Cr# than the low-temperature samples. This enrichment in
 refractory Cr arises from the increased depletion of these samples and
 expands the stability field of spinel against garnet to deeper depths.
 
-Though @Robinson1998, @Klemme2000, and @Klemme2004 show a higher-pressure and
-more complex phase transition than originally understood, these differences are focused at high
+Though @Robinson1998, @Klemme2000, and @Klemme2004 show a high-pressure
+phase transition with a complex compositional dependence, the chief
+differences from a simple CMAS model are focused at high
 temperatures and pressures.
 The rough estimate of the garnet-in pressure
 given by @ONeill1981 is sufficiently accurate at T < 1200 ºC and is used to graphically illustrate
