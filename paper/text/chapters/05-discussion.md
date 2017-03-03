@@ -258,7 +258,7 @@ well [@Saleeby2003; @Chapman2010; @Chapman2012; @Chapman2016b]. Tectonic
 erosion of the mantle wedge followed by shallow subduction underplating
 of Franciscan rocks requires subsequent reconstruction of the current
 mantle lithosphere. As discussed above, @Luffi2009 present
-findings on the Dish Hill and Cima mantle xenolith sites (Fig. 1) that
+findings on the Dish Hill and Cima mantle xenolith sites [@fig:context] that
 suggest the presence of a mantle lithosphere duplex with multiple
 Farallon plate upper mantle nappes in structural sequence beneath a
 residual roof of continental mantle lithosphere. In that the crustal
