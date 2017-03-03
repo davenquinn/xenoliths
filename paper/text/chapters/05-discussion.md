@@ -161,6 +161,8 @@ These observations are in direct conflict with the notion that a structurally co
 lower crust beneath the central coastal California and adjacent offshore
 region, as dismissed in the discussions above.
 
+## Difficulties with a Monterey Plate dangling slab
+
 The analysis presented above argues against models of the Monterey plate
 having been translated horizontally as a “dangling slab” through the
 upper mantle of the coastal region of southern to central California by
@@ -192,7 +194,7 @@ convective mobilization of the sub-Sierran mantle lithosphere
 The surface effects of Monterey plate partial subduction followed by transtensional coupling to Pacific
 plate motions are closely correlated to transrotational rifting in the
 southern California Borderland and the linked clockwise rotation of
-western Transverse Ranges bedrock panels [Fig. 3; @Bohannon1995; @Wilson2005].
+western Transverse Ranges bedrock panels [@fig:context; @Bohannon1995; @Wilson2005].
 This is in line with the Monterey slab’s limited down-dip extent as bounded by the Monterey-Farallon slab window
 segment shown on Figure 18. If the hypothetical Monterey "dangling slab"
 were of proper proportion to form the Isabella anomaly, then why were
@@ -206,7 +208,7 @@ speed anomaly in terms of position and volume (Fig. 3), and also have a
 firm geodynamic basis as such [@Burkett2009].
 
 According to the @Wilson2005 reconstruction of the
-Pacific-Farallon slab window and adjacent Monterey plate `[Figure reconstruction]`,
+Pacific-Farallon slab window and adjacent Monterey plate [@fig:reconstruction],
 the Crystal Knob eruption site was located above a slab window in the early
 Neogene, proximal to the northeastern boundary transform edge of the
 Monterey plate. Diffuse volcanism, some clearly derived from
