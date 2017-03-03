@@ -248,7 +248,7 @@ current outer limit of Salinia crystalline nappes [@fig:context].  Accretion
 of the Nacimiento belt occurred in the Late Cretaceous beneath the outer
 reaches of the Salinia nappe sequence [@Hall2013; @Chapman2016a].
 In their core area the Salinia nappes rode westwards on slightly older, higher metamorphic grade, Franciscan rocks that are
-shown on Figures 1 and 18 as windows into subduction channel schists
+shown on [@fig:context] and [@fig:reconstruction] as windows into subduction channel schists
 [@Barth2003; @Kidder2006; @Ducea2009]. As
 discussed earlier, the southernmost Sierra Nevada-western Mojave
 "autochthon" for the Salinia nappes is likewise detached from its
