@@ -82,7 +82,7 @@ of the mafic duplex in the offshore region. The Crystal Knob xenolith
 suite is the only known direct sampling of this underplated mantle.
 
 The pre-Neogene tectonic setting of the Crystal Knob eruption site is
-shown in Figure 18 by restoration of the San Andreas dextral transform
+shown in @fig:reconstruction by restoration of the San Andreas dextral transform
 system [@Matthews1976; @Dickinson2005; @Chapman2012; @Hall2013; @Sharman2013].
 The Crystal Knob eruption site restores to a position outboard of the southern California
 batholith. The principal windows into shallowly underplated subduction
