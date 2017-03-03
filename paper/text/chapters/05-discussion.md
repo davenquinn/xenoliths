@@ -2,16 +2,6 @@
 Discussion
 ==========
 
-Pyroxene-exchange geothermometry shows that the peridotite samples form
-two groups in temperature with centroids separated by roughly 60ºC.
-These temperatures seem to correspond to the samples being sourced along
-a depth gradient. For reasonable slopes of the sub-Salinian geotherm,
-this range of temperatures may sample a depth range of 5-15 km within
-the mantle lithosphere. These depths must be greater than 30 km, the
-depth to the Moho, <!-- appropriate reference --> and less than
-60-90 km based on the composition-dependent lower limit of the spinel stability field.
-<!-- Say how trace element and REE temperatures relate to this -->
-
 ### Host lava
 
 Extension in the lower crust?

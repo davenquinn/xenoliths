@@ -89,12 +89,16 @@ subduction accretion are taken to be 0. <!-- Accretion rates of 0.2-3.6
 km/Myr favored by Kidder,2013 based on Sierra de Pelona schist. -->
 
 The coastal California accretionary crust is represented homogenously as a material with a
-thermal conductivity of 2.5 W/m/K, specific heat capacity of
+thermal conductivity of 2.71 W/m/K, specific heat capacity of
 1000 J/kg/K, density of 2800 kg/m^3 and a radiogenic heat
-flux of 1 uW/m^3, values that are close to average for the
+flux of 2 uW/m^3, values that are close to average for the
 continental crust [@Fowler2005] and those used by @Kidder2013 to model
 the thermal conditions along the Late Cretaceous shallow subduction
 megathrust segment.
+2 uW/m^3 for radiogenic heat production in the crust
+is actually a relatively conservative estimate given the fluxes implied for
+Sierra Nevada batholithic material by @Brady2006, and the fact that much of the
+subduction channel material is pelitic sediment rich in radiogenic elements <comment>should put some reference to Franciscan radiogenic heat</comment>.
 <!-- Check Kidder2013 and Brady2006 -->
 
 ### Underplating

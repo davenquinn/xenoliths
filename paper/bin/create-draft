@@ -38,7 +38,7 @@ fi
 figures list \
   text/includes.yaml \
   --captions text/figure-captions.md \
-  --order-by $auxfile \
+  --order-by $texfile \
   --collect-dir collected \
 > build/figure-list.tex
 

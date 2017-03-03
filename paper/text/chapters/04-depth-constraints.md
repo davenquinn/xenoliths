@@ -17,8 +17,10 @@ field, between roughly 45 and 80 km.
 ### Limits of spinel stability
 
 Minimum entrainment depths of all peridotite xenoliths must be greater than ~30 km,
-the depth of both the Moho near the eruption site [@Trehu1991] and the plagioclase--spinel peridotite
-facies transition [@Green1970a], and less than the high-pressure boundary of spinel stability.
+the depth of the Moho near the Crystal Knob eruption site [@Trehu1991],
+which will be discussed in more detail in @sec:regional_structure.
+Another minimum depth constraint is the plagioclase--spinel peridotite
+facies transition, which occurs at depths of  [@Green1970a], and less than the high-pressure boundary of spinel stability.
 
 The spinel--garnet peridotite phase transition is
 composition-dependent and poorly constrained for
@@ -85,14 +87,14 @@ microprobe measurments.
 This yields a set of independent, internally consistent depth and temperature
 measurements for each sample corresponding to individual pairs of
 microprobe measurements.
-In `Figure depth`, we show the full pressure--temperature error space for each
+In [@fig:depth], we show the full pressure--temperature error space for each
 sample by applying a Monte Carlo random sampling to the analytical
 errors on each pressure estimate.
 To map pressures to depths, we assume a constant geobaric
 gradient of 30 km/GPa.
 
 The Ca-in-olivine barometer yields a broad distribution in model depths,
-largely coincident with the spinel stability field `[Figure depth]`.
+largely coincident with the spinel stability field [@fig:depth].
 The low-temperature samples in particular have significant scatter
 towards depths below the spinel-in isograd.
 The depth distributions are largely normal, with modes

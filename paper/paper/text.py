@@ -16,4 +16,8 @@ def process_text(stdin, stdout):
         text = text.replace(*t)
     text = filter_SI_units(text)
     stdout.write(pandoc_processor(text,
-            citation_backend='natbib'))
+            citation_backend='natbib',
+            extra_args=[
+                '--metadata=draft:true',
+                '--filter','pandoc-comments',
+                '--filter','pandoc-crossref']))

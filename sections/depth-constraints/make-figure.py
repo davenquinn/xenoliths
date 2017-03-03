@@ -99,13 +99,21 @@ ax1.xaxis.set_ticks([])
 for label in ax1.get_yticklabels():
     label.set_visible(False)
 # Plot Plagioclase in
-# rough, from Green and Ringwood,1970
-x,y = [700,1200],[21,27]
-ax.plot(x,y,':',color="#aaaaaa", dashes=(2,1), linewidth=1.5)
+# rough, from Green and Ringwood,1970 and Borghini 2009
+x,y = [1000,1100],[geobaric_gradient(0.7),geobaric_gradient(0.8)]
+p = N.polyfit(x,y,1)
+
+x = N.array([900, 1200])
+
+plag_spinel = lambda x: p[1]+p[0]*x
+plag_spinel.parameters = p
+
+ax.plot(x,plag_spinel(x),':',color="#aaaaaa", dashes=(2,1), linewidth=1.5)
+T = 1100
 kws = dict(
-    xy=(1100,26),
+    xy=(T,plag_spinel(T)),
     color='#aaaaaa',
-    rotation=-4,
+    rotation=-N.degrees(N.arctan(p[0]/ax.get_data_ratio())),
     ha='center',
     weight='bold',
     style='italic',
@@ -145,6 +153,7 @@ for dz, heat_flow, T in profiles:
         size=7,
         bbox=dict(pad=1,color='#ffffff'),
         va='center',ha='right',
+        zorder=-18,
         color='#bbbbbb')
 
     ax.text(v,d-0.1,heat_flow,
