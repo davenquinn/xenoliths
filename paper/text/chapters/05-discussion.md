@@ -294,7 +294,7 @@ following the crustal thickened oceanic plateau down the subduction
 zone. Principal crustal responses are shown as large magnitude
 trench-directed extension coupled to regional extrusion of the
 underplated subduction channel schists, which was driven by suction
-forces of the retreating slab. In the `Figure cross_sections`c to d transition,
+forces of the retreating slab. In the @fig:cross_sections c to d transition,
 accelerated rollback is accomplished by duplex formation from Farallon
 plate mantle nappes. We suspect that mantle nappe detachment was
 controlled primarily by the temperature control on the brittle-plastic
