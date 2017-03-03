@@ -1,26 +1,7 @@
-
-- Model setups  corresponding to tectonic scenarios
-- Model the relaxation of the geotherm during subduction and underplating
-
-### Setups
-
-
-
-- Global Depth and Heat model for oceanic crust
-- Forearc geotherm model [@Royden1993]
-- Standard values for oceanic and continental material properties
-- We ignore the effects of a downgoing slab below
-<!-- (Not quite sure in what context you are referring to here) -->
-    - may be significant over long timescales
-    - will generally serve only to cool geotherms
-
-
-Given the range of potential geothermal scenarios, models for the
-emplacement of depleted mantle lithosphere under the central coastal
-California region can
-be tested by comparison of their implied geothermal structure with xenolith
-geothermometry. However, this analysis is a crude approximation due to a lack of well-constrained geobarometers for spinel
-peridotites.
+To support the evaluation of these tectonic scenarios, we model
+the relaxation of the geotherm during subduction and underplating.
+We use a series of model setups corresponding to the tectonic scenarios
+outlined above.
 
 <!--[[model_setups]]-->
 
@@ -47,6 +28,28 @@ of tectonic setting, to its final emplacement beneath the Crystal Knob eruption 
 lithosphere (this probably doesn't matter because it is simply used to
 set parameters for Royden model. Maybe should use mantle adiabat as in
 Erkan2009 -->
+
+To support this modeling, we use several auxiliary analytical models
+from the literature to constrain portions of our modeled scenarios.
+We use the Global Depth and Heat (GDH) model for oceanic crust
+[@Stein1992], and the @Royden1993a forearc geotherm model for
+subduction.
+Standard values are used for oceanic and continental material
+properties.
+
+- We ignore the effects of a downgoing slab below
+<!-- (Not quite sure in what context you are referring to here) -->
+    - may be significant over long timescales
+    - will generally serve only to cool geotherms
+
+
+Given the range of potential geothermal scenarios, models for the
+emplacement of depleted mantle lithosphere under the central coastal
+California region can
+be tested by comparison of their implied geothermal structure with xenolith
+geothermometry. However, this analysis is a crude approximation due to a lack of well-constrained geobarometers for spinel
+peridotites.
+
 
 ### Oceanic geotherm
 
@@ -218,15 +221,3 @@ so where are these point(s). They could be important in terms of deep
 heat advection, in terms of why a 1.7 Ma lava would erupt in the region)
 -->
 
-@Erkan2008 pointed out that heat flow for the stalled slab scenario was too low to
-fully explain anomalous heat flows in the Coast ranges.
-Model-predicted heat flows lower than measured values could be explained
-by added heat flux from shear heating [@Thatcher1998] or erosion [@Mancktelow1997;@England1990]
-
-<!--[[model_comparison]]-->
-
-Estimating erosion is beyond the scope of this study, but pulses of recent erosion
-in the Coast Ranges are <!-- see Ducea et al. (2003) for rapid late
-Cenozoic uplift of the Santa Lucia’s -->
-
-- Correspond to results of @Erkan2008
