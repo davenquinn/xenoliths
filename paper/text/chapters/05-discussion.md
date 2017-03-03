@@ -299,7 +299,7 @@ accelerated rollback is accomplished by duplex formation from Farallon
 plate mantle nappes. We suspect that mantle nappe detachment was
 controlled primarily by the temperature control on the brittle-plastic
 transition in olivine. For ca. 40-50 m.y. old oceanic lithosphere
-entering the subduction zone (Figures \ref{fig:cross_sections}c and d),
+entering the subduction zone [@fig:cross_sections c and d],
 an estimated ~700-800 ºC
 control on this transition [@Warren2006; @Burgmann2008; @Mei2010] occurs
 at ~25-40 km depth in the slab [@Doin1996]. We also suspect that the retreat of the slab as it
