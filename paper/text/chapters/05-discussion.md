@@ -366,7 +366,7 @@ present, pr for our xenolith samples until the time of entrainment and
 eruption. However, the timescales of cooling are significantly different. In
 the Farallon-plate scenario, the maximum age of underplating is 70 Ma,
 based on the youngest ages of the most pertinent (Sierra de Salinas and
-correlative Sn Emigdio-Rand) schist bodies
+correlative San Emigdio-Rand) schist bodies
 [@Barth2003; @Grove2003; @Saleeby2007; @Chapman2010]. Seafloor being subducted at that time was 40 Myr old
 [@Seton2012; @Liu2010]. This 110 Myr cooling history implies a relatively cold
 modern geotherm. The potential Monterey Plate mantle lithosphere would have
