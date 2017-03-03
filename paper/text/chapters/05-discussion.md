@@ -341,7 +341,7 @@ duplex of underplated Farallon mantle nappes, roofed by a duplex of
 underplated Farallon oceanic crust (lower crustal mafic layer), in turn
 roofed by the Nacimiento Franciscan and Salinia nappes. Our estimate of
 a 50-80 km depth interval over which the Crystal Knob lavas sampled the
-underlying mantle lithosphere `[Figure depth]`, coupled with a general lack of
+underlying mantle lithosphere [@fig:depth], coupled with a general lack of
 significant late Cenozoic extensional faulting in the immediate region
 implies a strong thermo-mechanical lid that likely suppressed the ascent
 of voluminous asthenosphere derived magmas that were hypothetically
