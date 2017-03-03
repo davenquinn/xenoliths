@@ -240,11 +240,11 @@ upwelling asthenosphere, but think that lithospheric nappes explain the data ele
 ## Underplated Farallon Plate mantle nappes
 
 The reconstruction of the Crystal Knob eruption site to its pre-San
-Andreas position `[Figure reconstruction]` poses a highly viable alternative for the
+Andreas position [@fig:reconstruction] poses a highly viable alternative for the
 development of the site’s underlying mantle lithosphere. This is
 particularly viable in light of the neck having erupted through the
 Nacimiento belt of the Franciscan complex, immediately adjacent to the
-current outer limit of Salinia crystalline nappes `[Figure context]`.  Accretion
+current outer limit of Salinia crystalline nappes [@fig:context].  Accretion
 of the Nacimiento belt occurred in the Late Cretaceous beneath the outer
 reaches of the Salinia nappe sequence [@Hall2013; @Chapman2016a].
 In their core area the Salinia nappes rode westwards on slightly older, higher metamorphic grade, Franciscan rocks that are
