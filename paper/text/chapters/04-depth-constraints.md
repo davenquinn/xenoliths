@@ -54,7 +54,7 @@ more complex phase transition than originally understood, these differences are 
 temperatures and pressures.
 The rough estimate of the garnet-in pressure
 given by @ONeill1981 is sufficiently accurate at T < 1200 ºC and is used to graphically illustrate
-the high-pressure constraint on the Crystal Knob xenoliths. `Figure depth`
+the high-pressure constraint on the Crystal Knob xenoliths. @fig:depth
 shows the phase-transition depths estimated by this empirical relationship,
 given the Cr# of each sample (with error bars of 0.15 GPa). This simple treatment shows that the
 maximum possible entrainment depths of the high-Cr samples increase by
