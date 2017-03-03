@@ -29,7 +29,8 @@ Minimum entrainment depths of all peridotite xenoliths must be greater than ~30 
 the depth of the Moho near the Crystal Knob eruption site [@Trehu1991],
 which will be discussed in more detail in @sec:regional_structure.
 Another minimum depth constraint is the plagioclase--spinel peridotite
-facies transition, which occurs at depths of  [@Green1970a], and less than the high-pressure boundary of spinel stability.
+facies transition, which occurs at depths of 20-30 km [@Green1970a; @Borghini2009],
+and less than the high-pressure boundary of spinel stability.
 
 The spinel--garnet peridotite phase transition is
 composition-dependent and poorly constrained for
