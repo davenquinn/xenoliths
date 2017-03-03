@@ -189,7 +189,7 @@ layer, representing stalled Monterey plate, constitutes the lower crust
 beneath the entire coastal central California and offshore region (see
 above). These studies further suggest that the Monterey “dangling slab”
 currently corresponds to the high-wave speed anomaly of the southern
-Sierra Nevada-Great Valley region (Fig. 1), commonly called the
+Sierra Nevada-Great Valley region [@fig:context], commonly called the
 “Isabella anomaly”. However, seismological and geodynamic studies much
 more rigorously show that this anomaly represents the convectively
 mobilized mantle wedge, or mantle lithosphere, derived from beneath the
