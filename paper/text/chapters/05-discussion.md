@@ -61,8 +61,8 @@ window and stalled oceanic microplate segments
 Seismic data cited in support of the stalled slab hypothesis consist of
 an 8-15 km thick low east-dipping mafic lower crustal layer that extends
 beneath central California from the offshore region into proximity of
-the San Andreas fault, and which thickens eastwards over Moho depths of
-~12-30 km [@Brocher1999]. Strong internal reflectivity within this layer
+the San Andreas fault, and which thickens eastwards over Moho depths
+of ~12-30 km [@Brocher1999]. Strong internal reflectivity within this layer
 [@Trehu1987; @Brocher1999], and sharp
 inflections in its upper surface [@Trehu1991], indicate that this mafic
 layer is internally deformed and imbricated, which accounts for its
