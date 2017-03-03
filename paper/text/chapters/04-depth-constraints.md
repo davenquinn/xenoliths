@@ -58,10 +58,13 @@ phase transition with a complex compositional dependence, the chief
 differences from a simple CMAS model are focused at high
 temperatures and pressures.
 The rough estimate of the garnet-in pressure
-given by @ONeill1981 is sufficiently accurate at T < 1200 ºC and is used to graphically illustrate
-the high-pressure constraint on the Crystal Knob xenoliths. @fig:depth
-shows the phase-transition depths estimated by this empirical relationship,
-given the Cr# of each sample (with error bars of 0.15 GPa). This simple treatment shows that the
+given by @ONeill1981 is sufficiently accurate at T < 1200 ºC.
+This empirical relationship is used in @fig:depth to graphically illustrate
+the phase-transition depths given the Cr# of each sample (with error
+bars of 0.15 GPa).
+
+This simple treatment provides a high-pressure constraint on the Crystal Knob
+xenolith source. The
 maximum possible entrainment depths of the high-Cr samples increase by
 up to 15 km relative to Cr-free compositions, from ~65 km for the
 low-temperature samples to maximum depths of ~80 km for the high-temperature cohort.
