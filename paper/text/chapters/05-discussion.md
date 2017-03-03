@@ -106,7 +106,7 @@ resolved beneath the Dish Hill xenolith location [@Luffi2009].
 
 ## Slab windows and Monterey plate
 
-Figure 18 shows the surface projection of the hypothetical slab window
+@fig:reconstruction shows the surface projection of the hypothetical slab window
 and the partially subducted Monterey plate at ca. 19 Ma [@Wilson2005].
 The slab window is thought to have formed by the subduction of the trailing edge of the Farallon plate, unsupported by sea floor
 spreading along the former spreading axis with the Pacific plate. The
