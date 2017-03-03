@@ -123,7 +123,7 @@ relative to the Crystal Knob eruption site, is a result
 of dextral displacements linked to borderland transrotational rifting,
 subsequent ~155 km-scale dextral offsets along the San Gregorio-Hosgri
 fault system, and possible additional dextral offsets in the offshore
-region (Fig. 3). A number of workers have suggested that translation of
+region [@fig:context]. A number of workers have suggested that translation of
 the Monterey plate along the San Andreas system entailed significant
 sub-horizontal fault segments that accommodated dextral displacements
 [@Furlong1989; @Pikser2012]. As of yet, however, all
