@@ -36,16 +36,16 @@ suite not being able to discriminate between the stalled Monterey plate,
 or underplated Farallon nappe cases, the stalled Monterey plate case
 creates more problems than it solves.
 
-On Figure 16c we show the partially subducted terminus of the Monterey
+In @fig:neogene_sections c we show the partially subducted terminus of the Monterey
 plate bounded to the east by the San Gregorio-Hosgri fault, based on our
-above discussion of the Figure 18 reconstruction. East of the fault lies
+above discussion of the @fig:reconstructions reconstruction. East of the fault lies
 the Nacimiento Franciscan complex and its tectonic veneer of Salinia
 nappes (not differentiated on the figure), and its lower crustal oceanic
 crustal duplex tectonically above underplated Farallon plate mantle
-nappes. The structural profile shown on Figure 16c between the San
+nappes. The structural profile shown on @fig:neogene_sections c between the San
 Andreas and San Gregorio-Hosgri faults was constructed at southern
 California latitudes in continuity with that of the southernmost Sierra
-Nevada and adjacent Mojave plateau region (Figs. 17 and 18). Partial
+Nevada and adjacent Mojave plateau region [@fig:cross_sections; @fig:reconstruction]. Partial
 subduction, or stalling, of the Monterey plate occurred along the outer
 edge of Franciscan complex further south than rocks of the Nacimiento
 belt (Fig. 18).
@@ -107,6 +107,19 @@ suggesting recent mobilization of asthenospheric mantle that was
 initially emplaced into the early Neogene slab window. 
 
 ## A re-interpretation of high surface heat flows in the Coast Ranges
+
+@Erkan2008 pointed out that heat flow for the stalled slab scenario was too low to
+fully explain anomalous heat flows in the Coast ranges.
+Model-predicted heat flows lower than measured values could be explained
+by added heat flux from shear heating [@Thatcher1998] or erosion [@Mancktelow1997;@England1990]
+
+<!--[[model_comparison]]-->
+
+Estimating erosion is beyond the scope of this study, but pulses of recent erosion
+in the Coast Ranges are <!-- see Ducea et al. (2003) for rapid late
+Cenozoic uplift of the Santa Lucia’s -->
+
+- Correspond to results of @Erkan2008
 
 Conclusion
 ==========
