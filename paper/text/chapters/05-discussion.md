@@ -146,7 +146,7 @@ across the subduction megathrust break is hypothesized to have driven
 dextral transrotational rifting [@Bohannon1995]. As western
 Transverse Range rock panels rotated into their current position from
 transrotational rifting, the Monterey plate continued its northward
-displacement along the San Gregorio-Hosgri fault system (Fig. 3). Note
+displacement along the San Gregorio-Hosgri fault system [@fig:context]. Note
 that on Figure 18 the outer edge of the Farallon-Monterey slab window is
 on trend with the San Gregorio-Hosgri fault system. Distinct steps and
 inflections in lower crustal velocity structure across this fault system
