@@ -16,6 +16,11 @@ of the xenolith source. We present several lines of reasoning suggesting that th
 xenoliths were sourced along a depth gradient relatively deep within the spinel stability
 field, between roughly 45 and 80 km.
 
+Several of the techniques below produce estimates of pressure, rather
+than depth. To convert these to depth measurements, we integrate the
+crustal and mantle densities given in @tab:model_parameters across the
+domain of interest.
+
 <!--[[ree_temperatures]]-->
 
 ### Limits of spinel stability
@@ -98,21 +103,18 @@ In [@fig:depth], we show the full pressure--temperature error space for each
 sample by applying a Monte Carlo random sampling to the analytical
 errors on each pressure estimate.
 
-The broad distribution of errors, even
-within a single sample, reflects the barometer's sensitivity to
-both small variations in Ca concentrations as well as temperature. The
-bulk of the spread in the data reflects the poor calibration of the
-barometer itself. Heavy tails toward lower pressures (especially for the
-low-temperature samples) likely reflect a basic 
-
-
-To map pressures to depths, we assume a constant geobaric
-gradient of 30 km/GPa.
-
 The Ca-in-olivine barometer yields a broad distribution in model depths,
 largely coincident with the spinel stability field [@fig:depth].
+The scale of the errors within a single sample
+reflects the barometer's sensitivity to
+both small variations in Ca concentrations and to temperature. The
+bulk of the spread in the data reflects the poor calibration of the
+barometer itself.
 The low-temperature samples in particular have significant scatter
 towards depths below the spinel-in isograd.
+These heavy tails likely reflect the rapid diffusion of Ca into
+olivine during entrainment and eruption [@Kohler1990].
+
 The depth distributions are largely normal, with modes
 ranging from 35 to 52 km.
 The low and high-temperature cohorts remain separable, with high-temperature
