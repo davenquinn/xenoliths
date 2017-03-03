@@ -42,7 +42,7 @@ above discussion of the @fig:reconstructions reconstruction. East of the fault l
 the Nacimiento Franciscan complex and its tectonic veneer of Salinia
 nappes (not differentiated on the figure), and its lower crustal oceanic
 crustal duplex tectonically above underplated Farallon plate mantle
-nappes. The structural profile shown on @fig:neogene_sections c between the San
+nappes. The structural profile shown on @fig:neogene_sections (c) between the San
 Andreas and San Gregorio-Hosgri faults was constructed at southern
 California latitudes in continuity with that of the southernmost Sierra
 Nevada and adjacent Mojave plateau region [@fig:cross_sections; @fig:reconstruction]. Partial
