@@ -44,8 +44,7 @@ but given the unconstrained assumption of ideal
 garnet--spinel mixing, a spinel-weighted metastable assemblage is possible even
 at higher pressures.
 
-As shown in `Figure
-cr-number`, samples in the high-temperature cohort (CK-3, CK-4, and CK-6) have
+As shown in @fig:cr-number, samples in the high-temperature cohort (CK-3, CK-4, and CK-6) have
 higher spinel Cr# than the low-temperature samples. This enrichment in
 refractory Cr arises from the increased depletion of these samples and
 expands the stability field of spinel against garnet to deeper depths.
@@ -103,6 +102,16 @@ The low and high-temperature cohorts remain separable, with high-temperature
 samples generally showing deeper equilibrium depths.
 
 ### Discussion
+
+Pyroxene-exchange geothermometry shows that the peridotite samples form
+two groups in temperature with centroids separated by roughly 60ºC.
+These temperatures seem to correspond to the samples being sourced along
+a depth gradient. For reasonable slopes of the sub-Salinian geotherm,
+this range of temperatures may sample a depth range of 5-15 km within
+the mantle lithosphere. These depths must be greater than 30 km, the
+depth to the Moho, <!-- appropriate reference --> and less than
+60-90 km based on the composition-dependent lower limit of the spinel stability field.
+<!-- Say how trace element and REE temperatures relate to this -->
 
 Estimates of the thermal state of the deep lithosphere derived from seismic
 tomography show temperatures of 700--1100ºC occurring at depths of
