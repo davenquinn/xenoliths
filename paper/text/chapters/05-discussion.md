@@ -88,7 +88,7 @@ The Crystal Knob eruption site restores to a position outboard of the southern C
 batholith. The principal windows into shallowly underplated subduction
 channel schists are shown in @fig:reconstruction along with the principal upper
 plate batholithic exposures. The intervening areas left white denote
-latest Cretaceous-Cenozoic overlap strata. On @fig:reconstruction, the current
+latest Cretaceous-Cenozoic overlap strata. In @fig:reconstruction, the current
 western extent of the Salinia crystalline nappes is shown as the
 Nacimiento fault and the offshore Farallon escarpment. Crystalline rocks
 of the Salinia nappes extended westwards across Nacimiento belt
