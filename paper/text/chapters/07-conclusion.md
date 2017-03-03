@@ -58,8 +58,8 @@ inhibited widespread voluminous volcanism in response to asthenospheric
 upwelling. The time lag between deep slab window opening and the ca. 1.7
 Ma eruption age of Crystal Knob presents a problem for the origin of the
 Crystal Knob lava. Our studies on the Crystal Knob xenoliths indicate an
-underlying lithosphere-asthenosphere boundary at a depth of 50-80 km,
-which is consistent with regional seismic studies placing it at ~70 km
+underlying lithosphere-asthenosphere boundary at a depth of 70-90 km,
+consistent with regional seismic studies placing it at ~70 km
 beneath the central California Coast Ranges [@Li2007]. In
 contrast 28-20 Ma old oceanic lithosphere of the adjacent Monterey plate
 [@Wilson2005], based on thermal decay relations [@Doin1996],
@@ -78,7 +78,7 @@ was likely active during the eruption of the Crystal Knob neck.
 Integration of theoretical and observational data on intra-continental
 transform faults [@Platt2011; @Titus2007] indicate
 that at lower crustal--upper mantle levels Hosgri fault shear could be
-distributed across 10s of kilometers normal to the fault surface [Figure \ref{neogene_sections}].
+distributed across 10s of kilometers normal to the fault surface [@fig:neogene_sections].
 Eruption of small-volume basaltic flows of Plio-Pleistocene age,
 some with lower crust and upper mantle xenoliths also occurred ~150 km
 north of Crystal Knob along the San Andreas-Calaveras fault bifurcation
