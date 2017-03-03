@@ -13,14 +13,14 @@ geodynamic factors, that were discussed above, we dismiss the notion of
 a regionally extensive Monterey Plate “dangling slab” extending far to
 the east of the San Andreas fault as suggested by @Pikser2012.
 Depending on the original scale of Monterey Plate underthrusting beneath
-the southern California borderland region (Fig. 18), its structural
+the southern California borderland region [@fig:neogene_sections], its structural
 integrity following its coupling to borderland transrotational rifting,
 and on what proportion of the partially subducted plate is now
 represented by the detached portion that forms the Transverse Ranges
-high-wave speed anomaly \figref{context}, an argument could be made that an
+high-wave speed anomaly [@fig:context], an argument could be made that an
 underthrust portion of the Monterey Plate has been translated northwards
 horizontally beneath the Crystal Knob eruption site
-(Figure \ref{neogene_sections}b). Although
+[@fig:neogene_sections[b]]. Although
 kinematically plausible, in theory, this case seems unlikely based on
 dynamic factors. As with the “dangling slab” version of this case,
 horizontal translation of such a large mantle mass along the base of the
