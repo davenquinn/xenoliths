@@ -223,8 +223,11 @@ Possible remnants of necked off partially subducted Monterey plate are more plau
 speed anomaly in terms of position and volume [@fig:context], and also have a
 firm geodynamic basis as such [@Burkett2009].
 
+## How do we get thermal shielding without a stalled slab?
+
 Much of the reason for the attractiveness of the stalled slab hypothesis
-is the 
+is its utility to explain sparse volcanism in the Coast
+Ranges in the Neogene, and relatively low .
 
 Whether the migrating slab window caused wholesale replacement of underlying
 mantle lithosphere has been examined by several workers. @Erkan2008 examined the possibility
