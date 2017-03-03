@@ -86,9 +86,9 @@ shown in Figure 18 by restoration of the San Andreas dextral transform
 system [@Matthews1976; @Dickinson2005; @Chapman2012; @Hall2013; @Sharman2013].
 The Crystal Knob eruption site restores to a position outboard of the southern California
 batholith. The principal windows into shallowly underplated subduction
-channel schists are shown on Figure 18 along with the principal upper
+channel schists are shown in @fig:reconstruction along with the principal upper
 plate batholithic exposures. The intervening areas left white denote
-latest Cretaceous-Cenozoic overlap strata. On Figure 18 the current
+latest Cretaceous-Cenozoic overlap strata. On @fig:reconstruction, the current
 western extent of the Salinia crystalline nappes is shown as the
 Nacimiento fault and the offshore Farallon escarpment. Crystalline rocks
 of the Salinia nappes extended westwards across Nacimiento belt
@@ -96,10 +96,10 @@ Franciscan an unknown distance [@Hall2013], but have been
 eroded off their lower plate complex as the coastal region has risen in
 the Pliocene [@Ducea2003].
 
-The Figure 18 reconstruction exhibits the first-order crustal relations
+The @fig:reconstruction reconstruction exhibits the first-order crustal relations
 that pose three highly plausible origins for the sub-Crystal Knob mantle
 lithosphere: 1. shallowly ascended asthenosphere within the
-Pacific-Farallon slab window [@Atwater1998]; 2. subduction
+Pacific-Farallon slab window [@Atwater1998]; 2. subduction of an
 underplated, or stalled Monterey oceanic microplate [@Bohannon1995];
 or 3. underplated Farallon plate mantle lithosphere nappe(s) that lie in structural sequence with the upper mantle duplex
 resolved beneath the Dish Hill xenolith location [@Luffi2009].
