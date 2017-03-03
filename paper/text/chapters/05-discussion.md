@@ -287,7 +287,7 @@ arc, and retrogressed to ~715ºC, peak temperatures recorded in shallowly
 subducted metaclastic rocks of the Sierra de Salinas schist, exposed in
 the principal Salinia window into the subduction channel schists [@Kidder2006].
 
-In @fig:cross_sectionsc and d we adopt the focused slab rollback and mantle
+In @fig:cross_sections c and d we adopt the focused slab rollback and mantle
 lithosphere underplating models of @Saleeby2003 and @Luffi2009,
 for the dynamic response of normal thickness oceanic lithosphere
 following the crustal thickened oceanic plateau down the subduction
