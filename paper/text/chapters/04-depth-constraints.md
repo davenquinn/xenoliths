@@ -171,6 +171,8 @@ have been proposed to account for the mismatch [@Erkan2009].
 Under any of these scenarios, extrapolations of the lithosphere-averaged geotherm
 from surface heat flow estimates likely produce minimum estimates of sample depth.
 
+<comment>Put rest of heat flow discussion here?</comment>
+
 ### Discussion
 
 The integration of depth constraints on the xenolith samples from multiple
@@ -193,3 +195,5 @@ tomography show temperatures of 700--1100ºC occurring at depths of
 mirrored by tomography showing a lithosphere-asthenosphere boundary at
 roughly 70 km depth for the southern Coast Ranges [@Li2007].
 
+The uncertainty of reconstructing depth based on values of surface heat
+flow provides motivation for improved thermal modeling.
