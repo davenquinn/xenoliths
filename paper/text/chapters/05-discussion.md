@@ -129,7 +129,7 @@ sub-horizontal fault segments that accommodated dextral displacements
 [@Furlong1989; @Pikser2012]. As of yet, however, all
 remotely imaged segments of the transform system have been shown to be
 steeply oriented [@Dietz1990; @Brocher1999; @Yan2005; @Titus2007; @Yan2007; @Ozacar2009].
-According to the Figure 18 reconstruction the Crystal Knob eruption site
+According to the @fig:reconstruction reconstruction the Crystal Knob eruption site
 was above the Pacific-Farallon slab window ~50-100 km north of the
 northeast margin of the partially subducted Monterey plate. The narrow
 slab window segment shown along the eastern edge of the partially
