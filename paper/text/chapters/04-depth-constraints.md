@@ -191,5 +191,5 @@ Estimates of the thermal state of the deep lithosphere derived from seismic
 tomography show temperatures of 700--1100ºC occurring at depths of
 50--100 km for coastal California [@Goes2002]. This data is also
 mirrored by tomography showing a lithosphere-asthenosphere boundary at
-roughly 70 km depth for the southern Coast Ranges.
+roughly 70 km depth for the southern Coast Ranges [@Li2007].
 
