@@ -104,7 +104,7 @@ underplated, or stalled Monterey oceanic microplate [@Bohannon1995];
 or 3. underplated Farallon plate mantle lithosphere nappe(s) that lie in structural sequence with the upper mantle duplex
 resolved beneath the Dish Hill xenolith location [@Luffi2009].
 
-## Slab windows and Monterey plate
+## The Neogene slab window
 
 @fig:reconstruction shows the surface projection of the hypothetical slab window
 and the partially subducted Monterey plate at ca. 19 Ma [@Wilson2005].
@@ -118,7 +118,23 @@ Pacific-Farallon plate convergence into the Cordilleran subduction zone
 along the southern California coastal region, and coincided with
 transrotational rifting of the continental borderland region and
 displacement of the western Transverse Ranges bedrock
-[@Bohannon1995; @Atwater1998]. The current position of the Monterey plate,
+[@Bohannon1995; @Atwater1998]. 
+
+According to the @Wilson2005 reconstruction of the
+Pacific-Farallon slab window and adjacent Monterey plate [@fig:reconstruction],
+the Crystal Knob eruption site was located above a slab window in the early
+Neogene, proximal to the northeastern boundary transform edge of the
+Monterey plate. Diffuse volcanism, some clearly derived from
+decompression partial melting of convecting mantle, is widespread for
+this time period across the region of the reconstructed slab window
+[@Hurst1982; @Sharma1991; @Cole1995; @Wilson2005].
+However, this phase of slab window opening and related volcanism
+cannot account for the eruption of the ca. 1.7 Ma Crystal Knob volcanic
+neck, which we return to below.
+
+## The Monterey plate
+
+The current position of the Monterey plate,
 relative to the Crystal Knob eruption site, is a result
 of dextral displacements linked to borderland transrotational rifting,
 subsequent ~155 km-scale dextral offsets along the San Gregorio-Hosgri
@@ -207,17 +223,14 @@ Possible remnants of necked off partially subducted Monterey plate are more plau
 speed anomaly in terms of position and volume [@fig:context], and also have a
 firm geodynamic basis as such [@Burkett2009].
 
-According to the @Wilson2005 reconstruction of the
-Pacific-Farallon slab window and adjacent Monterey plate [@fig:reconstruction],
-the Crystal Knob eruption site was located above a slab window in the early
-Neogene, proximal to the northeastern boundary transform edge of the
-Monterey plate. Diffuse volcanism, some clearly derived from
-decompression partial melting of convecting mantle, is widespread for
-this time period across the region of the reconstructed slab window
-[@Hurst1982; @Sharma1991; @Cole1995; @Wilson2005].
-However, this phase of slab window opening and related volcanism
-cannot account for the eruption of the ca. 1.7 Ma Crystal Knob volcanic
-neck, which we return to below.
+Much of the reason for the attractiveness of the stalled slab hypothesis
+is the 
+
+Whether the migrating slab window caused wholesale replacement of underlying
+mantle lithosphere has been examined by several workers. @Erkan2008 examined the possibility
+of wholesale ML replacement with upwelling asthenosphere, against a possible "stalled slab".
+They concluded the stalled slab was more likely. We agree with their primary assertion against the
+upwelling asthenosphere, but think that lithospheric nappes explain the data elegantly.
 
 ## Underplated Farallon Plate mantle nappes
 
