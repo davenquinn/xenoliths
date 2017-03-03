@@ -78,7 +78,8 @@ was likely active during the eruption of the Crystal Knob neck.
 Integration of theoretical and observational data on intra-continental
 transform faults [@Platt2011; @Titus2007] indicate
 that at lower crustal--upper mantle levels Hosgri fault shear could be
-distributed across 10s of kilometers normal to the fault surface [@fig:neogene_sections].
+distributed across 10s of kilometers normal to the fault surface
+[@fig:neogene_sections].
 Eruption of small-volume basaltic flows of Plio-Pleistocene age,
 some with lower crust and upper mantle xenoliths also occurred ~150 km
 north of Crystal Knob along the San Andreas-Calaveras fault bifurcation
