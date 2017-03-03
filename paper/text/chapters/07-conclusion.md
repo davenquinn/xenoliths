@@ -36,7 +36,7 @@ suite not being able to discriminate between the stalled Monterey plate,
 or underplated Farallon nappe cases, the stalled Monterey plate case
 creates more problems than it solves.
 
-In @fig:neogene_sections c we show the partially subducted terminus of the Monterey
+In @fig:neogene_sections (c) we show the partially subducted terminus of the Monterey
 plate bounded to the east by the San Gregorio-Hosgri fault, based on our
 above discussion of the @fig:reconstructions reconstruction. East of the fault lies
 the Nacimiento Franciscan complex and its tectonic veneer of Salinia
