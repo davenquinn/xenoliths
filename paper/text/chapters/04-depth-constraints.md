@@ -149,6 +149,8 @@ constraints for modeling [@sec:modeling],
 leading to a slightly higher geothermal gradient in the mantle
 lithosphere.
 
+### Using heat flow measurements to reconstruct the lithospheric geotherm
+
 Using a database of surface heat flows for North America
 [@Blackwell2004], @Erkan2009 estimates regionally-averaged heat flows of 80-90 mW/m^2 for the
 central California coast, including the vicinity of Crystal Knob. Based on projection of
@@ -156,15 +158,18 @@ the TA98 temperature distribution onto our calculated steady-state geotherms,
 this corresponds to model depths of ~45-55 km for the Crystal Knob sample set.
 This depth range is within the spinel stability field and falls near the center
 of the depths extracted using Ca-in-olivine barometry.
-
-However, the extent to which these surface heat flows are representative of the
-true integrated geotherm over the entire lithospheric column is unclear.
-Extrapolations of the lithosphere-averaged geotherm
-from surface heat flow estimates likely produce minimum estimates of sample depth.
 Accounting for the Cr-dependent
 depth of the spinel--garnet transition, the 65 mW/m^2 geothermal gradient is
 the coolest conductive geotherm that places all samples within the spinel
 stability field.
+
+However, the extent to which these surface heat flows are representative of the
+true integrated geotherm over the entire lithospheric column is unclear.
+Heat flow measurements in the Coast Ranges are anomalously high, and
+factors such as shear heating, fluid circulation along faults, and rapid surface uplift
+have been proposed to account for the mismatch [@Erkan2009].
+Under any of these scenarios, extrapolations of the lithosphere-averaged geotherm
+from surface heat flow estimates likely produce minimum estimates of sample depth.
 
 ### Discussion
 
@@ -178,8 +183,13 @@ depth to the Moho, and less than 60-90 km based on the
 composition-dependent lower limit of the spinel stability field.
 Ca-in-olivine barometry largely confirms these constraints but provides
 little added information within these broad boundaries.
+Model depths prepared from steady-state geotherms of 45-55 km are
+squarely within the boundaries of the spinel stability field, but the
+accuracy of this extrapolation si uncertain.
 
 Estimates of the thermal state of the deep lithosphere derived from seismic
 tomography show temperatures of 700--1100ºC occurring at depths of
-50--100 km for coastal California [@Goes2002].
+50--100 km for coastal California [@Goes2002]. This data is also
+mirrored by tomography showing a lithosphere-asthenosphere boundary at
+roughly 70 km depth for the southern Coast Ranges.
 
