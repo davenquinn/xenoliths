@@ -227,11 +227,13 @@ firm geodynamic basis as such [@Burkett2009].
 
 Much of the reason for the attractiveness of the stalled slab hypothesis
 is its utility to explain sparse volcanism in the Coast
-Ranges in the Neogene, and relatively low .
+Ranges in the Neogene, and modern heat flow values too low to be
+explained by a shallow slab window.
 
 Whether the migrating slab window caused wholesale replacement of underlying
 mantle lithosphere has been examined by several workers. @Erkan2008 examined the possibility
-of wholesale ML replacement with upwelling asthenosphere, against a possible "stalled slab".
+of wholesale ML replacement with upwelling asthenosphere, against a
+possible "stalled slab". <comment>More explanation here</comment>
 They concluded the stalled slab was more likely. We agree with their primary assertion against the
 upwelling asthenosphere, but think that lithospheric nappes explain the data elegantly.
 
