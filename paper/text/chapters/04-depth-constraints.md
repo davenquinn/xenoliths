@@ -4,8 +4,8 @@
 
 Pyroxene-exchange geothermometry shows that the peridotite samples form
 two groups in temperature with centroids separated by roughly 60ºC.
-These temperatures seem to correspond to the samples being sourced along
-a depth gradient.
+This temperature range likely corresponds to an array of sample sources
+along a depth gradient.
 The depth of the xenolith samples in the mantle lithosphere, coupled
 with equilibration temperatures, provides a fully-defined constraint on the
 geotherm beneath Crystal Knob at the time of eruption. For spinel
