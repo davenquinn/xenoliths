@@ -149,7 +149,7 @@ constraints for modeling [@sec:modeling],
 leading to a slightly higher geothermal gradient in the mantle
 lithosphere.
 
-### Using heat flow measurements to reconstruct the lithospheric geotherm
+### Reconstructing the lithospheric geotherm from surface heat flows
 
 Using a database of surface heat flows for North America
 [@Blackwell2004], @Erkan2009 estimates regionally-averaged heat flows of 80-90 mW/m^2 for the
