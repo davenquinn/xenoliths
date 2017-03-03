@@ -97,6 +97,15 @@ microprobe measurements.
 In [@fig:depth], we show the full pressure--temperature error space for each
 sample by applying a Monte Carlo random sampling to the analytical
 errors on each pressure estimate.
+
+The broad distribution of errors, even
+within a single sample, reflects the barometer's sensitivity to
+both small variations in Ca concentrations as well as temperature. The
+bulk of the spread in the data reflects the poor calibration of the
+barometer itself. Heavy tails toward lower pressures (especially for the
+low-temperature samples) likely reflect a basic 
+
+
 To map pressures to depths, we assume a constant geobaric
 gradient of 30 km/GPa.
 
@@ -155,18 +164,16 @@ depth of the spinel--garnet transition, the 65 mW/m^2 geothermal gradient is
 the coolest conductive geotherm that places all samples within the spinel
 stability field.
 
-In summary, the integration of depth constraints on the xenolith samples from multiple
-sources gives a broad range of 
-
-
 ### Discussion
 
+In summary, the integration of depth constraints on the xenolith samples from multiple
+sources gives a broad set of constraints on the pre-eruption depth of the Crystal
+Knob xenoliths.
 For reasonable slopes of the sub-Salinian geotherm,
-this range of temperatures may sample a depth range of 5-15 km within
-the mantle lithosphere. These depths must be greater than 30 km, the
-depth to the Moho, <!-- appropriate reference --> and less than
-60-90 km based on the composition-dependent lower limit of the spinel stability field.
-<!-- Say how trace element and REE temperatures relate to this -->
+the range of temperatures in the sample set indicates sourcing over a
+depth range of 5-15 km within the mantle lithosphere.
+These depths must be greater than 30 km, the
+depth to the Moho, and less than 60-90 km based on the composition-dependent lower limit of the spinel stability field.
 
 Estimates of the thermal state of the deep lithosphere derived from seismic
 tomography show temperatures of 700--1100ºC occurring at depths of
