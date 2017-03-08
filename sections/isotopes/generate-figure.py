@@ -5,9 +5,8 @@ from sys import argv
 import numpy as N
 import matplotlib as M
 
-import seaborn.apionly as sns
 from matplotlib import pyplot as P
-from paper import plot_style
+from paper.plot_style import update_axes
 from scipy import interpolate
 from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes
 from mpl_toolkits.axes_grid1.inset_locator import mark_inset
@@ -106,9 +105,8 @@ ax.annotate('Crystal Knob suite',
             fontsize=9,
             textcoords='offset points')
 
-sns.despine(ax=ax)
-ax.get_yaxis().set_tick_params(which='both', direction='out')
-ax.get_xaxis().set_tick_params(which='both', direction='out')
+update_axes(ax)
+
 fig.tight_layout()
 fig.subplots_adjust(left=0.06,bottom=0.06)
 fig.savefig(argv[1], bbox_inches="tight")

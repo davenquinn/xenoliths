@@ -7,6 +7,7 @@ with open(path.join(__dirname, 'si-units.txt')) as f:
 
 def filter_SI_units(text):
     for unit in units:
+        unit = unit.replace("^","\^")
         text = sub("((?:(?<=\s)-)?[\d\.]+) ({})".format(unit),r"\SI{\1}{\2}",text)
     return text
 

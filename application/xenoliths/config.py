@@ -83,3 +83,4 @@ BAD_TAGS = [
 	"review",
 	"near alteration"
 ]
+

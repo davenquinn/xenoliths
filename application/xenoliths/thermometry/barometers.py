@@ -23,6 +23,9 @@ class Ca_Olivine(object):
         self.uncertainties = kwargs.pop('uncertainties',True)
         self.breakout_errors = kwargs.pop("breakout_errors",False)
 
+        # On by default, but can turn off
+        self.calibration_uncertainties = kwargs.pop(
+            'calibration_uncertainties', self.uncertainties)
         self.monte_carlo = kwargs.pop('monte_carlo',False)
 
         if self.monte_carlo:
@@ -36,6 +39,9 @@ class Ca_Olivine(object):
         self.thermometer = thermometer
         #Offset to keep within spinel stability field
         # Probably relates to Al-tschermakite
+        #self.D_Ca = self.ol["Ca"]/self.cpx["Ca"]#*.988
+
+        # This value comes from O'Reilly testing dataset
         self.D_Ca = self.ol["CaO"]/self.cpx["CaO"]*7/10*.988
 
         # Set up number of monte carlo replications
@@ -44,7 +50,7 @@ class Ca_Olivine(object):
             self.D_Ca = c.n+N.random.randn(self.monte_carlo)*c.s
 
     def num(self,*args):
-        if self.uncertainties:
+        if self.calibration_uncertainties:
             return u(*args)
         else:
             return args[0]

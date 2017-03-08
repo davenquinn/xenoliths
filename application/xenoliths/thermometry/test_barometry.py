@@ -7,6 +7,7 @@ from .barometers import Ca_Olivine
 class TestBarometer(Ca_Olivine):
     uncertainties=False
     breakout_errors=False
+    calibration_uncertainties=False
     monte_carlo=False
     def __init__(self, data):
         # This conforms to O'Reilly testing data at least.

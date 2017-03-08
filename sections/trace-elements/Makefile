@@ -1,4 +1,5 @@
 all: build/trace-elements.tex \
+	build/trace-elements-table.pdf \
 	build/trace-elements.pdf \
 	build/enrichment.pdf \
 	build/cpx-opx-ratio.pdf \
@@ -8,10 +9,13 @@ all: build/trace-elements.tex \
 build:
 	mkdir -p $@
 
+build/trace-elements-table.pdf: build/trace-elements.tex
+	create-standalone-table $^ $@
+
 build/enrichment.pdf: enrichment-trends.py | build
 	python $^
 
-build/trace-elements.tex: generate-table.py | build
+build/trace-elements.tex: generate-table.py | build templates/trace-elements.tex
 	python $^
 
 build/trace-elements.pdf: generate-figure.py | build

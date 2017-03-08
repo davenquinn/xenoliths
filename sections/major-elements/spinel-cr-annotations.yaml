@@ -1,0 +1,20 @@
+default:
+  xytext: [0,5]
+  textcoords: offset points
+  ha: center
+  va: bottom
+  color: "#555555"
+  fontsize: 9
+CK-2:
+  xytext: [3,4]
+CK-3:
+  xytext: [0,5]
+CK-4:
+  xytext: [0,9]
+CK-5:
+  va: top
+  xytext: [0,-6]
+CK-6:
+  xytext: [0,6]
+CK-7:
+  xytext: [0,5]

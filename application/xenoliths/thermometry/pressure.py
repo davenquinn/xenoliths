@@ -14,7 +14,7 @@ from .results import pyroxene_pairs, closest
 from ..models import ProbeMeasurement,Sample
 from ..application import db
 from ..microprobe.group import get_cations
-from ..microprobe.models.query import tagged, exclude_bad, exclude_tagged
+from ..microprobe.models.query import tagged, exclude_bad
 
 def triplets(queryset, distinct=None, all_possible=False, limit=1):
     olivines = queryset.filter(
@@ -65,6 +65,7 @@ class GeoThermometryResult(object):
 
         thermometer = BKN(opx,cpx, uncertainties=True)
         barometer = Ca_Olivine(ol,cpx,thermometer, **kwargs)
+        # analytical errors only
         self.pressure,self.bkn = barometer(iterative=True)
         # Map BKN to TA98 for consistency
         self.temperature = bkn_to_ta98(self.bkn)
@@ -82,13 +83,17 @@ def mineral_data(queryset, mineral='opx',**kwargs):
         oxygen=6 if mineral != 'ol' else 4)
     return [get_cations(c,**kw) for c in qs.all()]
 
-def pressure_measurements(core=True, all_possible=False,**kwargs):
-    base_queryset = exclude_bad(ProbeMeasurement.query)
-
+def __queryset(core=True):
     # Exclude Ca-in-olivine measurements that are higher than clustered data
-    base_queryset = exclude_tagged(base_queryset,"high-ca")
+    q = db.session.query(ProbeMeasurement)
+    q = exclude_bad(q,'high-ca')
     if core:
-        base_queryset = tagged(base_queryset,"core")
+        q = tagged(q,'core')
+    return q
+
+def pressure_measurements(core=True, all_possible=False,**kwargs):
+
+    base_queryset = __queryset(core=True)
 
     n_closest = kwargs.pop('n',1)
 
@@ -105,4 +110,12 @@ def pressure_measurements(core=True, all_possible=False,**kwargs):
         print(sample.id,length)
         with progressbar(data,length=length) as bar:
             yield sample, [GeoThermometryResult(*i,**kwargs) for i in bar]
+
+def pressure_olivines(core=True):
+    # All olivines used in the pressure measurements
+    ids = db.session.query(Sample.id).filter(Sample.xenolith==True).all()
+    q = (__queryset(core)
+        .filter(ProbeMeasurement.sample_id.in_(ids))
+         .filter(ProbeMeasurement.mineral == 'ol'))
+    return q.all()
 

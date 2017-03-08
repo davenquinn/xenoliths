@@ -3,28 +3,28 @@
     << row.sample_id >>
     <#- for el in elements -#>
     & << row[el]|n >>
-    <#- endfor #> & << row.n >> \\
+    <#- endfor #> & << row.n|n(0) >> \\
   <#- endfor #>
 <#- endmacro #>
 \begin{tabular}{l<< " r"*(ncols-1) >>}
-\hline
+\toprule
   Sample
   <#- for el in elements -#>
   & \ce{<< el >>}
   <#- endfor #> & $n$ \\
-\hline
-\multicolumn{<<ncols>>}{l}{Clinopyroxene} \\
-\hline
+\midrule
+  \multicolumn{<<ncols>>}{l}{\textit{Clinopyroxene}} \\
+\midrule
 << loop(cpx) >>
-\hline
-\multicolumn{<<ncols>>}{l}{Orthopyroxene} \\
-\hline
+\midrule
+  \multicolumn{<<ncols>>}{l}{\textit{Orthopyroxene}} \\
+\midrule
 << loop(opx) >>
-\hline
-\multicolumn{<<ncols>>}{l}{Whole-rock (recalculated)} \\
-\hline
+\midrule
+  \multicolumn{<<ncols>>}{l}{\textit{Whole-rock (recalculated from modal mineralogy)}} \\
+\midrule
 << loop(whole_rock) >>
-\hline
+\bottomrule
 \end{tabular}
 
 

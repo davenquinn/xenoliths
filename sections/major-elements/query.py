@@ -1,6 +1,5 @@
 from xenoliths import app,db
 from xenoliths.models import Sample, ProbeMeasurement, ProbeDatum
-from xenoliths.microprobe.spinel import correct_spinel
 from sqlalchemy.orm.query import Query
 from paper.query import not_bad
 from pandas import read_sql

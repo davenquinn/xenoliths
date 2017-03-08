@@ -1,6 +1,6 @@
 from __future__ import division, print_function
 
-from .group import get_cations
+from xenoliths.microprobe.group import get_cations
 
 _tetrahedral = ('Cr','Al','Si', 'Ti','Fe(III)')
 
@@ -13,12 +13,23 @@ octahedral = lambda c: sum(
 
 def oxygens(cation):
     # Ignore silicon for oxygen calculation
-    if cation == 'Si':
+    if cation in ['Si','Ti']:
         return 2
     elif cation in _tetrahedral:
         return 1.5
     else:
         return 1
+
+def align_oxygen(cat, silent=False):
+    # Tamp down excess oxygen
+    n_ox = sum(oxygens(k)*v for k,v in cat.items())
+    cat = {k:v*4/n_ox for k,v in cat.items()}
+
+    cation_total = sum(cat.values())
+    if not silent:
+        print(cation_total,n_ox)
+    return cat
+
 
 def correct_spinel(obj, **kwargs):
     """
@@ -42,21 +53,30 @@ def correct_spinel(obj, **kwargs):
 
     for i in range(500):
         oct = octahedral(cat)
+        # There should only be one octahedral cation
         excess_oct = oct-1
-        if excess_oct > 0:
-            Fe = cat['Fe']
-            if excess_oct > Fe: excess_oct = Fe
-            removable_iron = excess_oct
-            cat['Fe(III)'] += removable_iron
-            cat['Fe'] -= excess_oct
-        else:
+        if excess_oct < 0:
             # We can't do any more without cannibalizing
             # the octahedral site.
             break
 
-        n_ox = sum(oxygens(k)*v for k,v in cat.items())
-        cat = {k:v*4/n_ox for k,v in cat.items()}
-        total = sum(cat.values())
-        if abs(total - 3) < 0.00001:
+        Fe = cat['Fe']
+        if excess_oct > Fe:
+            # We only consider iron as excess, as it can
+            # be 
+            excess_oct = Fe
+        removable_iron = excess_oct
+        factor = 0.885 # not sure where this factor comes from
+        # but I've seen it before
+        cat['Fe(III)'] += removable_iron*factor
+        cat['Fe'] -= excess_oct*factor
+
+        cat = align_oxygen(cat, silent=True)
+
+        cation_total = sum(cat.values())
+        if abs(cation_total - 3) < 0.00001:
             break
+
+    cat = align_oxygen(cat, silent=True)
     return cat
+

@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 
-redo-ifchange build/ca-ol-pressures.pdf build/depth-table.tex
+redo build/ca-ol-pressures.pdf olivine-ca-mg.pdf #build/depth-table.tex
 

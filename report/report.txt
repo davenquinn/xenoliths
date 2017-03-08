@@ -1,0 +1,3 @@
+Average geobaric gradient: 0.028 GPa/km (to 1 GPa)
+                           0.031 GPa/km (at 3 GPa)
+Simple geobaric gradient:  0.030 GPa/km

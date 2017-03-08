@@ -18,7 +18,6 @@ from ..quality import compute_mineral
 from ...config import OXIDES, MINERALS, MINERAL_SYSTEMS
 from ...core.models import BaseModel, db
 
-
 FORMULAE = {k:pt.formula(k) for k in OXIDES}
 
 tags = db.Table('tag_manager',

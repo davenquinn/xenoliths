@@ -20,6 +20,7 @@ from thermodynamics import max_depth
 from statistics import barometer_kernel_density, load_data
 from matplotlib.patches import Polygon
 from chroma import Color
+from contour_scatter import ScatterPlotter
 
 datafile = sys.argv[1]
 outfile = sys.argv[2]
@@ -32,6 +33,10 @@ with app.app_context():
             for k in xenolith_minerals('molar')}
     profiles = db.session.execute(q).fetchall()
 
+class limits(object):
+    y = [90,10]
+    x = [900,1150]
+
 fig = figure(figsize=(4,5.5), dpi=300)
 
 gs = M.gridspec.GridSpec(1, 2, width_ratios=[4,1], wspace=0)
@@ -39,17 +44,16 @@ gs = M.gridspec.GridSpec(1, 2, width_ratios=[4,1], wspace=0)
 ax = fig.add_subplot(gs[0])
 ax1 = fig.add_subplot(gs[1], sharey=ax)
 
+scatter = ScatterPlotter(ax, n=20)
+
 for res in data:
     depth = res['depth']
+
+    # depth against temperature as scatter plot
+    ## maybe should change this to contour scatter
     c = res['sample_color']
     T = res['temperature']
-    ax.plot(
-        T,
-        depth,
-        ".",
-        alpha=0.01,
-        color=c,
-        rasterized=True)
+    scatter(T,depth,color=c, nlevels=3)
 
     # Maximum depth based on spinel Cr content
     id = res['sample_id']
@@ -88,8 +92,9 @@ ax1.annotate(r"kernel density", xy=loc,
 ax.invert_yaxis()
 ax.set_xlabel(u"Temperature - TA98 (\u00b0C)")
 ax.set_ylabel(u"Depth (km)")
-ax.set_ylim([90,10])
-ax.set_xlim([900,1150])
+
+ax.set_ylim(*limits.y)
+ax.set_xlim(*limits.x)
 
 ax.yaxis.set_ticks_position('left')
 ax.xaxis.set_ticks_position('bottom')

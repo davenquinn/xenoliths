@@ -2,9 +2,14 @@ import numpy as N
 from sys import argv
 from query import spinel_data
 from collections import defaultdict
-from xenoliths.microprobe.spinel import correct_spinel
+from spinel_calc import correct_spinel
 from figurator import tex_renderer, write_file
 from xenoliths import app
+from uncertainties import ufloat
+
+def uncertain_array(v):
+    arr = N.array(v)
+    return ufloat(arr.mean(),arr.std())
 
 with app.app_context():
     data = spinel_data()
@@ -24,12 +29,12 @@ with app.app_context():
 
         r = dict()
         r['sample_id'] = k
-        r['Fe'] = N.array([i['Fe'] for i in corr]).mean()
-        r['Fe(III)'] = N.array([i['Fe(III)'] for i in corr]).mean()
+        r['Fe'] = uncertain_array([i['Fe'] for i in corr])
+        r['Fe(III)'] = uncertain_array([i['Fe(III)'] for i in corr])
         r['fe_ratio'] = r['Fe(III)']/(r['Fe']+r['Fe(III)'])
-        r['mg_number_raw'] = N.array([c.mg_number for c in raw]).mean()
-        r['mg_number_corr'] = N.array([c['Mg']/(c['Mg']+c['Fe'])*100
-                                      for c in corr]).mean()
+        r['mg_number_raw'] = uncertain_array([c.mg_number for c in raw])
+        r['mg_number_corr'] = uncertain_array([c['Mg']/(c['Mg']+c['Fe'])*100
+                                      for c in corr])
         r['n'] = len(raw)
 
         rows.append(r)
