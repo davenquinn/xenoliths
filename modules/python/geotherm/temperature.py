@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from __future__ import division, print_function
+
 
 from geotherm.units import u
 from geotherm.plot import ComparisonPlotter, Plotter

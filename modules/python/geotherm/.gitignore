@@ -7,5 +7,6 @@ archive
 .cache
 
 *.egg-info
+*.bak
 
 notebooks/.ipynb_checkpoints

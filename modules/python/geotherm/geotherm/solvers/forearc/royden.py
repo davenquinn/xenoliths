@@ -8,7 +8,7 @@ The Steady State Thermal Structure of Eroding
 Translated from MATLAB to Python by Daven Quinn, 2014
 """
 
-from __future__ import division, print_function
+
 import numpy as N
 from numpy import log, pi, exp, linspace, sign
 from scipy.special import erf
@@ -58,7 +58,7 @@ class RoydenModel(object):
         self.vfunc = N.vectorize(self.royden, excluded="self")
 
         self.args = {k: kwargs.pop(k,v)\
-            for k,v in self.defaults.items()}
+            for k,v in list(self.defaults.items())}
 
         names = "Tm,l,Al,Au,Kl,Ku,zr,a,e,v,alpha,qfric".split(",")
         Tm,l,Al,Au,Kl,Ku,zr,a,e,v,alpha,qfric = \

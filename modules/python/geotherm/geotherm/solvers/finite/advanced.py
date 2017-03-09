@@ -1,4 +1,4 @@
-from __future__ import division, print_function
+
 
 import click
 import fipy as F
@@ -165,7 +165,7 @@ class AdvancedFiniteSolver(BaseFiniteSolver):
         print("Number of steps: {0}".format(steps))
         print("Step length: {0}".format(time_step))
 
-        with click.progressbar(range(steps),length=steps) as bar:
+        with click.progressbar(list(range(steps)),length=steps) as bar:
             h = self.radiogenic_heating()
             for step in bar:
                 simulation_time = step*time_step

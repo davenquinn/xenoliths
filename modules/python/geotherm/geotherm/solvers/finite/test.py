@@ -42,6 +42,6 @@ def test_radiogenic_heat():
     diff = (cr-cr2)
     # Test that radiative heat generation produces positive
     # results
-    print("Maximum difference: {0}".format(diff.max()))
+    print(("Maximum difference: {0}".format(diff.max())))
     assert N.all(diff.magnitude >= 0)
     assert N.sum(diff.magnitude) > 0

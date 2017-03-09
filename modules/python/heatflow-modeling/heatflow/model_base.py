@@ -83,7 +83,7 @@ class ModelRunner(object):
         # Check if all cells are the same size
         z_ = section.cell_sizes.into('m')
         self.dz = z_[0]
-        self.n_cells = record_max_depth.into('m')/self.dz
+        self.n_cells = int(record_max_depth.into('m')/self.dz)
         assert N.all(z_ == self.dz)
         T = list(section.profile[:self.n_cells].into("degC"))
         return T, self.dz

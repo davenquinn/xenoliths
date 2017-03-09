@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from __future__ import division
+
 
 from geotherm.units import u
 from geotherm.materials import oceanic_mantle, continental_crust

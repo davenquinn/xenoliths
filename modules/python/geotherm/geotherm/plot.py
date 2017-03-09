@@ -1,4 +1,4 @@
-from __future__ import division, print_function
+
 
 import seaborn as sns
 from matplotlib.pyplot import figure, subplots
@@ -22,7 +22,7 @@ class Plotter(object):
     def setup_axes(self):
         self.title = self.fig.suptitle(self.title_prefix+"0 years", fontsize=16)
         self.ax.invert_yaxis()
-        self.ax.set_xlabel(u"Temperature: \u00b0C")
+        self.ax.set_xlabel("Temperature: \u00b0C")
         self.ax.set_ylabel("Depth (m)")
 
         temp_range = self.options.pop("range",None)

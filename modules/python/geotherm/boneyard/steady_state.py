@@ -2,7 +2,7 @@
 This file defines a model continental geotherm using methods similar to
 Luffi et al, 2009.
 """
-from __future__ import division
+
 import numpy as N
 from scipy.optimize import fsolve
 
@@ -28,7 +28,7 @@ class HeatFlowModel(object):
         h_r = 10) #m
 
     def __init__(self, *args, **kwargs):
-        for key, d in defaults.items():
+        for key, d in list(defaults.items()):
             val = kwargs.pop(key,d)
             setattr(self, key, val)
 

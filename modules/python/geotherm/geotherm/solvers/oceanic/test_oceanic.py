@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import division
+
 import numpy as N
 from itertools import product
 
@@ -43,7 +43,7 @@ gdh_mantle = Material(
 
 # Time, depth grid
 def grid():
-    src = product(range(0,100,20),range(0,100,20))
+    src = product(list(range(0,100,20)),list(range(0,100,20)))
     for time, depth in src:
         if time == depth == 0:
             continue

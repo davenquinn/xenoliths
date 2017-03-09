@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from __future__ import division
+
 
 import json
 import seaborn as sns
@@ -22,14 +22,14 @@ ax.invert_yaxis()
 
 y = (N.arange(len(data["farallon"])) * 10 + 5)/1000
 
-for k,x in data.items():
+for k,x in list(data.items()):
     opts = dict(
         color=colors[k],
         linewidth=2,
         label=k.capitalize())
     ax.plot(x,y, **opts)
-ax.set_xlabel(u'Temperature (\u00b0C)')
-ax.set_ylabel(u'Depth (km)')
+ax.set_xlabel('Temperature (\u00b0C)')
+ax.set_ylabel('Depth (km)')
 ax.legend()
 
 

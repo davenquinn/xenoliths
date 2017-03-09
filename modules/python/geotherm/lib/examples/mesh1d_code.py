@@ -140,8 +140,8 @@ try:
     from scipy.special import erf # doctest: +SCIPY
     phiAnalytical.setValue(1 - erf(x / (2 * numerix.sqrt(D * t)))) # doctest: +SCIPY
 except ImportError:
-    print "The SciPy library is not available to test the solution to \
-the transient diffusion equation"
+    print("The SciPy library is not available to test the solution to \
+the transient diffusion equation")
 #
 # We then solve the equation by repeatedly looping in time:
 #
@@ -151,12 +151,12 @@ for step in range(steps):
     if __name__ == '__main__':
         viewer.plot()
 #
-print phi.allclose(phiAnalytical, atol = 7e-4) # doctest: +SCIPY
+print(phi.allclose(phiAnalytical, atol = 7e-4)) # doctest: +SCIPY
 # Expected:
 ## 1
 #
 if __name__ == '__main__':
-    raw_input("Explicit transient diffusion. Press <return> to proceed...")
+    input("Explicit transient diffusion. Press <return> to proceed...")
 #
 # .. image:: mesh1Dexplicit.*
 #    :width: 90%
@@ -196,12 +196,12 @@ for step in range(steps):
     if __name__ == '__main__':
         viewer.plot()
 #
-print phi.allclose(phiAnalytical, atol = 2e-2) # doctest: +SCIPY
+print(phi.allclose(phiAnalytical, atol = 2e-2)) # doctest: +SCIPY
 # Expected:
 ## 1
 #
 if __name__ == '__main__':
-    raw_input("Implicit transient diffusion. Press <return> to proceed...")
+    input("Implicit transient diffusion. Press <return> to proceed...")
 #
 # .. image:: mesh1Dimplicit.*
 #    :width: 90%
@@ -241,12 +241,12 @@ eqI.solve(var=phi,
 if __name__ == '__main__':
     viewer.plot()
 #
-print phi.allclose(phiAnalytical, atol = 3e-3) # doctest: +SCIPY
+print(phi.allclose(phiAnalytical, atol = 3e-3)) # doctest: +SCIPY
 # Expected:
 ## 1
 #
 if __name__ == '__main__':
-    raw_input("Crank-Nicholson transient diffusion. Press <return> to proceed...")
+    input("Crank-Nicholson transient diffusion. Press <return> to proceed...")
 #
 # -----
 #
@@ -272,13 +272,13 @@ if __name__ == '__main__':
 # of :math:`10^{-10}`.
 #
 L = nx * dx
-print phi.allclose(valueLeft + (valueRight - valueLeft) * x / L, 
-                   rtol = 1e-10, atol = 1e-10)
+print(phi.allclose(valueLeft + (valueRight - valueLeft) * x / L, 
+                   rtol = 1e-10, atol = 1e-10))
 # Expected:
 ## 1
 #
 if __name__ == '__main__':
-    raw_input("Implicit steady-state diffusion. Press <return> to proceed...")
+    input("Implicit steady-state diffusion. Press <return> to proceed...")
 #
 # .. image:: mesh1DsteadyState.*
 #    :width: 90%
@@ -323,7 +323,7 @@ while time() < 15:
         viewer.plot()
 #
 if __name__ == '__main__':
-    raw_input("Time-dependent boundary condition. Press <return> to proceed...")
+    input("Time-dependent boundary condition. Press <return> to proceed...")
 #
 # .. image:: mesh1DtimedBC.*
 #    :width: 90%
@@ -408,7 +408,7 @@ phiAnalytical.setValue(10 * x - 9. * L / 4. ,
                        where=(L / 4. <= x) & (x < 3. * L / 4.))
 phiAnalytical.setValue(x + 18. * L / 4. , 
                        where=3. * L / 4. <= x)
-print phi.allclose(phiAnalytical, atol = 1e-8, rtol = 1e-8)
+print(phi.allclose(phiAnalytical, atol = 1e-8, rtol = 1e-8))
 # Expected:
 ## 1
 #
@@ -416,7 +416,7 @@ print phi.allclose(phiAnalytical, atol = 1e-8, rtol = 1e-8)
 #
 if __name__ == '__main__':
     Viewer(vars=(phi, phiAnalytical)).plot()
-    raw_input("Non-uniform steady-state diffusion. Press <return> to proceed...")
+    input("Non-uniform steady-state diffusion. Press <return> to proceed...")
 #
 #
 # .. image:: mesh1Dnon-uniform.*
@@ -536,7 +536,7 @@ for sweeps in range(1,5):
     phi[sweeps].setValue(phi[0])
     if __name__ == '__main__':
         viewer.plot()
-        raw_input("Implicit variable diffusity. %d sweep(s). \
+        input("Implicit variable diffusity. %d sweep(s). \
 Residual = %f. Press <return> to proceed..." % (sweeps, (abs(res))))
 #
 # As can be seen, sweeping does not dramatically change the result, but the
@@ -562,13 +562,13 @@ while res > 1e-6:
                    dt=timeStepDuration)
 #
 #
-print phi[0].allclose(phiAnalytical, atol = 1e-1)
+print(phi[0].allclose(phiAnalytical, atol = 1e-1))
 # Expected:
 ## 1
 #
 if __name__ == '__main__':
     viewer.plot()
-    raw_input("Implicit variable diffusity - steady-state. \
+    input("Implicit variable diffusity - steady-state. \
 Press <return> to proceed...")
 #
 # .. image:: mesh1Dvariable.*

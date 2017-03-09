@@ -1,4 +1,4 @@
-from __future__ import division
+
 from ..units import ensure_unit, unit, u
 from .base import BaseModel
 from .geometry import Layer

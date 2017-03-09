@@ -2,6 +2,7 @@ from geotherm.units import u
 from geotherm.models.geometry import Section
 from geotherm.solvers import RoydenSolver
 from scipy.optimize import minimize_scalar
+from click import echo
 
 from .config import (
     asthenosphere_temperature,
@@ -29,7 +30,7 @@ def optimized_forearc(target,distance,depth, **kwargs):
     d = distance.into("m")
     Z = depth.into("m")
     sz = interface_depth.into("m")
-    print "Optimizing {} to target".format(opt)
+    echo("Optimizing {} to target".format(opt))
 
     def f(v):
         solver.args[opt]=v
@@ -48,12 +49,12 @@ def optimized_forearc(target,distance,depth, **kwargs):
     o = minimize_scalar(f,
             bounds=(0,Z),
             method='bounded')
-    print "Maximum temperature above interface:"
-    print solver.royden(d,o.x,Z)
-    print "at depth ",o.x,"meters"
+    echo("Maximum temperature above interface:")
+    echo(solver.royden(d,o.x,Z))
+    echo("at depth ",o.x,"meters")
 
-    print "Optimal value:"
-    print "  {} = {}".format(opt,solver.args[opt])
+    echo("Optimal value:")
+    echo("  {} = {}".format(opt,solver.args[opt]))
 
     return solver
 

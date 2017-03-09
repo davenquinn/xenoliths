@@ -1,4 +1,4 @@
-from __future__ import division, print_function
+
 from ..base import BaseSolver
 from ...plot import Plotter
 from ...models.geometry import Section

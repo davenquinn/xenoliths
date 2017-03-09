@@ -1,4 +1,4 @@
-from __future__ import division
+
 
 import numpy as N
 from ..units import u
@@ -17,7 +17,7 @@ class AdiabatSolver(object):
             # We need to convert a layer to section
             section = Section(section)
 
-        for k,v in self.defaults.items():
+        for k,v in list(self.defaults.items()):
             setattr(self,k,kwargs.pop(k,v))
 
     @property

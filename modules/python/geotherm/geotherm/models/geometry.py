@@ -1,4 +1,4 @@
-from __future__ import division, print_function
+
 from ..units import ensure_unit, u
 from .base import BaseModel
 import numpy as N
