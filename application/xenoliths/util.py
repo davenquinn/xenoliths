@@ -1,4 +1,4 @@
-from uncertainties import ufloat, NegativeStdDev
+from uncertainties import ufloat
 from click import echo
 
 def uval(u,s):

@@ -13,8 +13,7 @@ from collections import defaultdict
 
 from .image import ProbeImage
 from ..converter import Converter
-from .compute import oxygen_basis
-from ..quality import compute_mineral
+from .compute import oxygen_basis, compute_mineral
 from ...config import OXIDES, MINERALS, MINERAL_SYSTEMS
 from ...core.models import BaseModel, db
 

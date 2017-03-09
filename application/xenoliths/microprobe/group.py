@@ -102,19 +102,21 @@ def get_cations(queryset, **kwargs):
     """
     oxygen_basis = kwargs.pop("oxygen",6)
 
-    molar = {FORMULAE[ox]: v
-            for ox,v in list(get_molar(queryset, **kwargs).items())}
+    molar = get_molar(queryset, **kwargs)
 
     formula = defaultdict(int)
-    for ox,v in list(molar.items()):
-        for i, n in list(ox.atoms.items()):
+    for oxide,v in molar.items():
+        # We eliminated a complex unhashably-keyed dict here.
+        # This may become the focus of new errors but we will have to see
+        ox = FORMULAE[oxide]
+        for i, n in ox.atoms.items():
             formula[str(i)] += n*v
 
     # Rescale cation abundances to the oxygen basis
     ox = formula.pop("O")
     scalar = oxygen_basis/ox
 
-    return {k:v*scalar for k,v in list(formula.items())}
+    return {k:v*scalar for k,v in formula.items()}
 
 def iterate_cations(queryset, **kwargs):
     """
