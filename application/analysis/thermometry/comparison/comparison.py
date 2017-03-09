@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from __future__ import division
+
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 
@@ -15,8 +15,8 @@ import matplotlib.pyplot as P
 import numpy as N
 
 def header(text):
-	print text
-	print "="*len(text)
+	print(text)
+	print("="*len(text))
 
 systems = {
 	"bkn": BKN,
@@ -52,16 +52,16 @@ for sample in Sample.objects.all():
 		"rim": {}
 	}
 	sample_queryset = base_queryset.filter(sample=sample)
-	print ""
-	print sample.id
-	for a_type, a_dict in output["samples"][sample.id].items():
+	print("")
+	print(sample.id)
+	for a_type, a_dict in list(output["samples"][sample.id].items()):
 		queryset = sample_queryset.filter(tags__name__in=[a_type])
 		for pt in queryset:
-			print pt.id, ", ".join([tag.name for tag in pt.tags.all()])
+			print(pt.id, ", ".join([tag.name for tag in pt.tags.all()]))
 		opx = queryset.filter(mineral="opx").distinct()
 		cpx = queryset.filter(mineral="cpx").distinct()
 
-		for name, system in systems.items():
+		for name, system in list(systems.items()):
 			thermometer = system(opx,cpx, uncertainties=False)
 			a_dict[name] = thermometer.temperature(pressure=pressure)
 

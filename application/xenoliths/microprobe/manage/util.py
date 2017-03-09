@@ -19,7 +19,7 @@ def model_factory(cls, echo=False, flush=True):
         if obj is None:
             obj = cls(**kwargs)
             if echo:
-                print("Created new "+cls.__name__+": "+repr(obj))
+                print(("Created new "+cls.__name__+": "+repr(obj)))
             db.session.add(obj)
             if flush:
                 db.session.flush()

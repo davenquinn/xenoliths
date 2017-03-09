@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from __future__ import division
+
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 
@@ -41,8 +41,8 @@ ax.scatter(x,y,zorder=10, marker="o")
 for a in data:
 	ax.annotate(a["name"], xy=(a["temp"],a["Cr#"]), **annotate_props)
 
-ax.set_xlabel(u"Ca-in-OPX \u00b0C ")
-ax.set_ylabel(u"Cr#")
+ax.set_xlabel("Ca-in-OPX \u00b0C ")
+ax.set_ylabel("Cr#")
 
 fig.suptitle("Cr# vs. Ca-in-OPX core (P = 1.5 GPa)")
 path = os.path.join("output", "cr#_ca-opx.svg")

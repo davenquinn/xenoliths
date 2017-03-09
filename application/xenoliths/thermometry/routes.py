@@ -1,10 +1,10 @@
-from __future__ import division
+
 
 import numpy as N
 
 from matplotlib import pyplot as P
 from flask import Blueprint, Response, render_template
-from cStringIO import StringIO
+from io import StringIO
 from .results import sample_temperatures, core_temperatures
 from .rare_earth.plot import plot_DREE, all_DREE, ree_temperature
 from .rare_earth.calc import prepare_data, big10, rare_earths
@@ -34,7 +34,7 @@ def prepare_data(sample):
 @thermometry.route("/")
 def index():
     samples = Sample.query.filter(Sample.xenolith == True)
-    data = map(prepare_data, samples.all())
+    data = list(map(prepare_data, samples.all()))
 
     return render_template("thermometry/list.html",
         title="Thermometry results (core grains)",
@@ -64,7 +64,7 @@ def table():
     def inner():
         first = ["ID"]+big10+rare_earths+[" "]+big10+rare_earths
         yield ", ".join(first)
-        samples = filter(filter_samples, Sample.query.all())
+        samples = list(filter(filter_samples, Sample.query.all()))
         for sample in samples:
             d = prepare_data(sample)
             a = [sample.id]+d["major"]["cpx"]+d["trace"]["cpx"]+[""]+d["major"]["opx"]+d["trace"]["opx"]

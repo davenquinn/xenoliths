@@ -25,7 +25,7 @@ def transform_coordinates(directory,data):
             # AKA different probe sessions.
             if len(point) > 1: point = point.head(1)
 
-            cord = map(float, (point["X-POS"],point["Y-POS"]))
+            cord = list(map(float, (point["X-POS"],point["Y-POS"])))
             tocord = (a["x"], a["y"])
             #print(u"{} -> {}".format(repr(cord),repr(tocord)))
             yield cord,tocord
@@ -35,11 +35,11 @@ def transform_coordinates(directory,data):
             try:
                 coordinates = list(load_transform(sample))
             except IOError:
-                print("No affine seed points available for "+sample)
+                print(("No affine seed points available for "+sample))
                 continue
 
-            fromCoords, toCoords = zip(*list(coordinates))
-            print(fromCoords,toCoords)
+            fromCoords, toCoords = list(zip(*list(coordinates)))
+            print((fromCoords,toCoords))
             affine = Affine.construct(fromCoords, toCoords, verbose=True)
 
             points = data[data.sample_id == sample]

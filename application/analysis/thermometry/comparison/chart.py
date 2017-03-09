@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from __future__ import division
+
 import os
 
 import matplotlib.pyplot as P
@@ -35,15 +35,15 @@ props = {
 }
 annotate_props = dict(xytext=(5,-5), textcoords='offset points', ha='left', va='center')
 
-for key,item in runs.items():
+for key,item in list(runs.items()):
 
 	fig = P.figure()
 	ax = fig.add_subplot(111)
 
-	for name, sample in data["samples"].items():
+	for name, sample in list(data["samples"].items()):
 		x = []
 		y = []
-		for a_loc, analysis in sample.items():
+		for a_loc, analysis in list(sample.items()):
 			ax.scatter(analysis["ta98"], analysis[key],zorder=10, marker="o", **props[a_loc])
 			x.append(analysis["ta98"])
 			y.append(analysis[key])
@@ -53,8 +53,8 @@ for key,item in runs.items():
 	handles, labels = ax.get_legend_handles_labels()
 	ax.legend(handles[0:2],labels[0:2],scatterpoints=1,loc="best")
 
-	ax.set_xlabel(u"TA98 \u00b0C ")
-	ax.set_ylabel(u"{0} \u00b0C".format(item["label"]))
+	ax.set_xlabel("TA98 \u00b0C ")
+	ax.set_ylabel("{0} \u00b0C".format(item["label"]))
 
 	fig.suptitle("{0} vs. TA98 (P = {1:.1f} GPa)".format(item["label"],data["config"]["pressure"]))
 	path = os.path.join(directory, "output", "{0}_ta98.svg".format(key))

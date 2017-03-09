@@ -51,8 +51,8 @@ def import_tags():
         new = res[0]
 
         slugs = [tag.slug for tag in old.tags]
-        print ",".join(slugs)
-        map(new.add_tag, slugs)
+        print(",".join(slugs))
+        list(map(new.add_tag, slugs))
         db.session.commit()
 
     write_json()
@@ -65,10 +65,10 @@ def import_classification():
 
     for old in session.query(DjangoSample).all():
         new = Sample.query.get(update_id(old.id))
-        print new
+        print(new)
         cls = loads(decompress(b64decode(old.classification)))
         if not cls: continue
-        shape = map(int,(cls['h'],cls['w']))
+        shape = list(map(int,(cls['h'],cls['w'])))
         arr = N.array([i["v"] for i in cls.pop("values")])
         new.classification = arr.reshape(shape).tolist()
     db.session.commit()

@@ -1,4 +1,4 @@
-from __future__ import print_function, division
+
 
 from sqlalchemy.sql import func
 from uncertainties import ufloat, umath
@@ -57,7 +57,7 @@ def test_cations():
     print(*sums)
     assert N.allclose(*sums, rtol=0.1)
 
-    for k in g.keys():
+    for k in list(g.keys()):
 
         print(k, g[k], d[k])
         assert N.allclose(g[k].n, d[k].n, atol=0.1)
@@ -135,7 +135,7 @@ def naive_composition(queryset, **kwargs):
     # Divide by number of items in queryset
     n = len(measurements)
     output = dict()
-    for ox, ls in quantity.items():
+    for ox, ls in list(quantity.items()):
         # Mean of values, possibly uncertain
         u = N.mean(ls)
 
@@ -181,7 +181,7 @@ def test_grouped_measurements():
                 s = sum(i.values()).n
                 assert N.allclose(s,100)
 
-        for k,quantity in comp.items():
+        for k,quantity in list(comp.items()):
             print(k, quantity, naive_comp[k])
             assert allclose_uncertain(quantity, naive_comp[k], rtol=0.05)
 

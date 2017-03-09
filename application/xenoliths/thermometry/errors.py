@@ -1,7 +1,7 @@
 def aggregate_errors(T, combine_bases=[]):
     """Quadratic sum of errors with same tag. Provides contribution to total error."""
     def get_components():
-        for var, error in T.error_components().iteritems():
+        for var, error in T.error_components().items():
             tag = var.tag
             for base in combine_bases:
                 if base in var.tag:

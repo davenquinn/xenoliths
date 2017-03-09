@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -- coding: utf-8 --
 
-from __future__ import division
+
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 from django.contrib.gis.geos import *
@@ -81,11 +81,11 @@ for sample in Sample.objects.all():
 	mult = list(separate_measurements(sample_queryset))
 	res["multiple"] += mult
 
-	print sample.id
+	print(sample.id)
 	pressures = N.array([i["olivine"]["P"] for i in mult])
-	print "{0:.2f}±{1:.2f} GPa".format(pressures.mean(),pressures.std())
+	print("{0:.2f}±{1:.2f} GPa".format(pressures.mean(),pressures.std()))
 	depths = N.array([i["olivine"]["z"] for i in mult])
-	print "{0:.2f}±{1:.2f} km".format(depths.mean(),depths.std())
+	print("{0:.2f}±{1:.2f} km".format(depths.mean(),depths.std()))
 
 
 path = os.path.join(os.path.dirname(os.path.abspath( __file__ )), "separated.json")

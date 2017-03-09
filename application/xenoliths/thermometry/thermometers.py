@@ -1,4 +1,4 @@
-from __future__ import division
+
 from uncertainties import ufloat
 from uncertainties.umath import log
 from functools import partial

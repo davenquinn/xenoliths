@@ -25,7 +25,7 @@ def write_json():
     path = os.path.join(app.config.get("DATA_DIR"),"data.json")
     data = dict(
         type="FeatureCollection",
-        features=map(lambda o: o.serialize(), ProbeMeasurement.query.all()))
+        features=[o.serialize() for o in ProbeMeasurement.query.all()])
     with open(path, "w") as f:
         json.dump(data, f)
 
@@ -98,7 +98,7 @@ def setup():
 def recalculate():
     """Calculates derived parameters for already-imported data"""
     for meas in ProbeMeasurement.query.all():
-        print(meas.id)
+        print((meas.id))
         meas.compute_derived()
     db.session.commit()
 

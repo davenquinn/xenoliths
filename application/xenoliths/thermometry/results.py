@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 
-from __future__ import division
+
 
 from flask import app
 
@@ -114,7 +114,7 @@ def sample_temperatures(sample, **kwargs):
     def type_results(typeid="core"):
         queryset = tagged(sample_queryset, typeid)
         pairs = pyroxene_pairs(queryset, distinct=kwargs.pop('distinct',None))
-        for tname, thermometer in thermometers.iteritems():
+        for tname, thermometer in thermometers.items():
             sep = separate_measurements(pairs, method=thermometer, **kwargs)
             T = N.array(sep)
             yield tname, dict(

@@ -1,4 +1,4 @@
-from __future__ import division
+
 import numpy as N
 from geotherm.units import u
 from heatflow.config import (

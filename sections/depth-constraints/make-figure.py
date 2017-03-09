@@ -7,7 +7,6 @@ import numpy as N
 import matplotlib as M
 import sys
 from seaborn.apionly import despine
-from chroma import Color
 from matplotlib.pyplot import figure, style
 from collections import defaultdict
 from paper import plot_style
@@ -19,7 +18,6 @@ from scipy.stats import norm, gaussian_kde
 from thermodynamics import max_depth
 from statistics import barometer_kernel_density, load_data
 from matplotlib.patches import Polygon
-from chroma import Color
 from contour_scatter import ScatterPlotter
 
 datafile = sys.argv[1]
@@ -44,7 +42,7 @@ gs = M.gridspec.GridSpec(1, 2, width_ratios=[4,1], wspace=0)
 ax = fig.add_subplot(gs[0])
 ax1 = fig.add_subplot(gs[1], sharey=ax)
 
-scatter = ScatterPlotter(ax, n=20)
+scatter = ScatterPlotter(ax, nx=20)
 
 for res in data:
     depth = res['depth']

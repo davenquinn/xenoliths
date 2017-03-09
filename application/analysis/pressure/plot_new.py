@@ -14,8 +14,8 @@ import matplotlib.pyplot as P
 	"pgf.texsystem": "xelatex",
 	"pgf.rcfonts": True,
 	"pgf.preamble": [
-		r"\usepackage{fontspec}",
-		r"\usepackage{siunitx}",
+		r"\\usepackage{fontspec}",
+		r"\\usepackage{siunitx}",
 		r"\newfontfamily\bodyfont[]{Helvetica Neue Light}",
 		#r"\RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}",
 		#r"\defaultfontfeatures{Mapping=tex-text}",
@@ -39,8 +39,8 @@ for t in results["multiple"]:
 	ax.scatter(t["T_ta98"], t["heatflow"]["z"], marker="o", s=10, alpha=0.4, color="#cccccc", zorder=-10)
 	ax.scatter(t["T_ta98"], t["olivine"]["z"], marker="o", s=35, alpha=0.4, color=colors[t["sample"]])
 ax.invert_yaxis()
-ax.set_xlabel(u"Temperature - TA98 (\u00b0C)")
-ax.set_ylabel(u"Depth (km)")
+ax.set_xlabel("Temperature - TA98 (\u00b0C)")
+ax.set_ylabel("Depth (km)")
 #ax.set_xlim([940,1150])
 ax.set_xlim([850,1350])
 ax.set_ylim([130,40])
@@ -48,7 +48,7 @@ ax.set_ylim([130,40])
 ax.autoscale(False)
 y = N.linspace(0,150,150)
 m = HeatFlowModel(q_0=90)
-T = N.array(map(m.temperature, y))
+T = N.array(list(map(m.temperature, y)))
 ax.plot(T,y,color="#cccccc", zorder=-20)
 
 context = fig.add_axes([0.62,0.13,0.25,0.53])

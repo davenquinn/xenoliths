@@ -4,6 +4,7 @@ from click import command, echo, style, secho
 
 from .query import sims_data
 from ..util import nested
+from functools import reduce
 
 minerals = dict(
     opx="Orthopyroxene",
@@ -34,7 +35,7 @@ def print_data(meas):
     for lev in range(1,10):
         echo("- {0}σ: ".format(lev),
             nl=False)
-        for el,m in meas.items():
+        for el,m in list(meas.items()):
             t = test_meas(m, lev)
             color = "green" if t else "red"
             sel = style(" {0} ".format(el), fg="black",bg=color)

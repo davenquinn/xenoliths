@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from __future__ import division
+
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 from samples.models import Sample
@@ -28,36 +28,36 @@ query = Sample.objects.all().order_by("id")
 for sample in query:
 	arr = build_array(sample.classification)
 	T = arr.size
-	print ""
+	print("")
 	area = {}
-	print "{0:20s}".format(sample.id)+" Area % "+"  Vol % "+"  Wt %  "
-	for m, item in minerals.items():
+	print("{0:20s}".format(sample.id)+" Area % "+"  Vol % "+"  Wt %  ")
+	for m, item in list(minerals.items()):
 		mode = arr[arr == m].size/T
 		if m == "na":
 			na = mode
 			continue
 		area[m] = mode
-	print "{} pixels".format(T)
+	print("{} pixels".format(T))
 
 	vol = {}
-	for m, item in area.items():
+	for m, item in list(area.items()):
 		vol[m] = item**1.5
-	total = sum(vol.itervalues())
-	for m, item in vol.items():
+	total = sum(vol.values())
+	for m, item in list(vol.items()):
 		vol[m] = item/total
 
 	wt = {}
-	for m, item in vol.items():
+	for m, item in list(vol.items()):
 		wt[m] = item*densities[m]
-	total = sum(wt.itervalues())
-	for m,item in wt.items():
+	total = sum(wt.values())
+	for m,item in list(wt.items()):
 		wt[m] = item/total
 
 
 
-	for m, item in minerals.items():
+	for m, item in list(minerals.items()):
 		if m == "na": continue
-		print "{0:20s}{1:8.3f}{2:8.3f}{3:8.3f}".format(item["name"],100*area[m],100*vol[m], 100*wt[m])
-	print "{0:20s}{1:8.3f}".format("None",na*100)
-	print ""
-	print ""
+		print("{0:20s}{1:8.3f}{2:8.3f}{3:8.3f}".format(item["name"],100*area[m],100*vol[m], 100*wt[m]))
+	print("{0:20s}{1:8.3f}".format("None",na*100))
+	print("")
+	print("")

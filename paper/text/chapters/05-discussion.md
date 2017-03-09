@@ -118,7 +118,7 @@ Pacific-Farallon plate convergence into the Cordilleran subduction zone
 along the southern California coastal region, and coincided with
 transrotational rifting of the continental borderland region and
 displacement of the western Transverse Ranges bedrock
-[@Bohannon1995; @Atwater1998]. 
+[@Bohannon1995; @Atwater1998].
 
 According to the @Wilson2005 reconstruction of the
 Pacific-Farallon slab window and adjacent Monterey plate [@fig:reconstruction],
@@ -145,7 +145,7 @@ sub-horizontal fault segments that accommodated dextral displacements
 [@Furlong1989; @Pikser2012]. As of yet, however, all
 remotely imaged segments of the transform system have been shown to be
 steeply oriented [@Dietz1990; @Brocher1999; @Yan2005; @Titus2007; @Yan2007; @Ozacar2009].
-According to the @fig:reconstruction reconstruction the Crystal Knob eruption site
+According to the @fig:reconstruction reconstruction, the Crystal Knob eruption site
 was above the Pacific-Farallon slab window ~50-100 km north of the
 northeast margin of the partially subducted Monterey plate. The narrow
 slab window segment shown along the eastern edge of the partially

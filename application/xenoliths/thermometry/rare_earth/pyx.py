@@ -1,4 +1,4 @@
-from __future__ import division
+
 from collections import namedtuple
 from ..thermometers import TwoPyroxeneThermometer
 
@@ -7,7 +7,7 @@ import numpy as N
 class Site(object):
     def __init__(self, **entries):
         self.__dict__.update(entries)
-        self.keys = entries.keys()
+        self.keys = list(entries.keys())
     def values(self):
         return [getattr(self,i) for i in self.keys]
     def as_dict(self):
@@ -54,7 +54,7 @@ def pyroxene_form(cations):
             six.Ti = Ti - four.Ti
 
     Mg_number = Mg/(Mg + Fe)
-    M2_t = N.nansum(m2.values()) # ignore nickel
+    M2_t = N.nansum(list(m2.values())) # ignore nickel
 
     if Mg > 0:
         R_Fe_Mg = Fe / Mg

@@ -1,4 +1,4 @@
-from __future__ import division,print_function
+
 import numpy as N
 from uncertainties import ufloat as u
 from uncertainties.umath import log

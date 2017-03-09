@@ -8,5 +8,6 @@ samples/data/backup/
 .sass-cache
 .DS_Store
 .cache
+*.bak
 
 Xenoliths.egg-info

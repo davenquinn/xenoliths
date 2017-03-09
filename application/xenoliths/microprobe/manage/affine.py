@@ -30,8 +30,8 @@ class Affine(object):
 		sol = N.dot(fromCoords,affine.array)
 		res = (toCoords - sol)
 		if verbose:
-			print "Pixel errors:"
-			print res
+			print("Pixel errors:")
+			print(res)
 
 		return affine
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from __future__ import division
+
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 
@@ -47,9 +47,9 @@ for sample in Sample.objects.all():
 		"rim": {}
 	}
 	sample_queryset = base_queryset.filter(sample=sample)
-	print ""
-	print sample.id
-	for a_type, a_dict in dct.items():
+	print("")
+	print(sample.id)
+	for a_type, a_dict in list(dct.items()):
 		queryset = sample_queryset.filter(tags__name__in=[a_type])
 
 
@@ -60,15 +60,15 @@ for sample in Sample.objects.all():
 		T = thermometer.temperature(pressure=pressure)
 
 		errors = aggregate_errors(T, combine_bases=["probe"])
-		print u" \n## {0:.2fP}\n".format(T)
+		print(" \n## {0:.2fP}\n".format(T))
 
 		a_dict["T"] = T.nominal_value
 		a_dict["errors"] = {
 			"Total": T.std_dev
 		}
 
-		for (tag, error) in errors.items():
-			print u"- {0}: {1:.2f}".format(tag, error)
+		for (tag, error) in list(errors.items()):
+			print("- {0}: {1:.2f}".format(tag, error))
 			a_dict["errors"][tag] = error
 
 	dct["id"] = sample.id

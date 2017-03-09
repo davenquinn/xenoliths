@@ -1,4 +1,4 @@
-from __future__ import division
+
 
 import os
 import json
@@ -34,17 +34,17 @@ labels = [el.symbol for el in elements]
 labels[pt.promethium.number] = "--"
 
 ## Normalized ##
-for sample, files in index.iteritems():
+for sample, files in index.items():
 	files = [os.path.join(os.path.dirname(__file__),data_dir, f+".asc.nrm") for f in files]
-	print sample
+	print(sample)
 
 	fig = P.figure()
 	ax = fig.add_subplot(111)
 	for f in files:
 		try:
 			x,y = build_series(f)
-		except IOError, err:
-			print "File {} does not exist".format(f)
+		except IOError as err:
+			print("File {} does not exist".format(f))
 			continue
 		x = x[4:-1]
 		s = N.array([i.s for i in y[4:-1]])
@@ -80,15 +80,15 @@ colors = {
 fig = P.figure()
 ax = fig.add_subplot(111)
 
-for sample, files in index.iteritems():
+for sample, files in index.items():
 	files = [os.path.join(os.path.dirname(__file__),data_dir, f+".asc.nrm") for f in files]
-	print sample
+	print(sample)
 
 	for f in files:
 		try:
 			x,y = build_series(f)
-		except IOError, err:
-			print "File {} does not exist".format(f)
+		except IOError as err:
+			print("File {} does not exist".format(f))
 			continue
 		x = x[4:-1]
 		s = N.array([i.s for i in y[4:-1]])

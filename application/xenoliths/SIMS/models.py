@@ -9,6 +9,7 @@ from collections import defaultdict
 from ..core.models.base import BaseModel, db
 from ..database.util import ChoiceType
 from ..config import MINERALS
+from functools import reduce
 
 class SIMSDatum(BaseModel):
     __tablename__ = "sims_datum"

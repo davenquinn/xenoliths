@@ -1,4 +1,4 @@
-from __future__ import division
+
 
 import operator
 import periodictable as pt
@@ -149,7 +149,7 @@ class ProbeMeasurement(BaseModel):
             return "Unknown"
 
     def add_tag(self,name):
-        slug = slugify(unicode(name.strip()))
+        slug = slugify(str(name.strip()))
         tag = Tag.get_or_create(name=slug)
         try:
             idx = self.tags.index(tag)
@@ -168,7 +168,7 @@ class ProbeMeasurement(BaseModel):
     def __get_atomic__(self, uncertainties=True):
         formula = defaultdict(int)
         for d in self.data:
-            for i, n in d.oxide.atoms.iteritems():
+            for i, n in d.oxide.atoms.items():
                 v = n*d.molar_percent
                 if uncertainties:
                     v = ufloat(v,v*d.error)
@@ -178,11 +178,11 @@ class ProbeMeasurement(BaseModel):
     def get_cations(self, oxygen=6, uncertainties=True):
         formula = self.__get_atomic__(uncertainties)
         scalar = oxygen/formula["O"]
-        for key, value in formula.iteritems():
+        for key, value in formula.items():
             formula[key] = value*scalar
         del formula["O"]
 
-        formula["Total"] = sum(formula.itervalues())
+        formula["Total"] = sum(formula.values())
         return formula
 
 def test_formula():
@@ -195,4 +195,4 @@ def test_formula():
         a += obj.O
         dif = a-obj.Total
         if fabs(dif) > .0001:
-            print obj.id, dif
+            print(obj.id, dif)

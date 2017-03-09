@@ -22,4 +22,4 @@ def root():
 def data():
     return jsonify(
         type="FeatureCollection",
-        features=map(lambda o: o.serialize(), ProbeMeasurement.query.all()))
+        features=[o.serialize() for o in ProbeMeasurement.query.all()])

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from __future__ import division
+
 import os
 
 import matplotlib.pyplot as P
@@ -37,7 +37,7 @@ annotate_props = dict(xytext=(5,-5), textcoords='offset points', ha='left', va='
 def plot_grouped(th1,th2):
 	names = [th["name"] for th in [th1,th2]]
 	ids = [th["id"] for th in [th1,th2]]
-	print ids
+	print(ids)
 	fig = P.figure()
 	ax = fig.add_subplot(111)
 
@@ -60,8 +60,8 @@ def plot_grouped(th1,th2):
 	ax.set_ylim([960,1120])
 	ax.autoscale(False)
 	ax.plot([0,1800],[0,1800],color="#cccccc", zorder=-20)
-	ax.set_xlabel(u"{0} \u00b0C".format(names[0]))
-	ax.set_ylabel(u"{0} \u00b0C".format(names[1]))
+	ax.set_xlabel("{0} \u00b0C".format(names[0]))
+	ax.set_ylabel("{0} \u00b0C".format(names[1]))
 
 	fig.suptitle("{0} vs. {1} (Grouped, P = {2:.1f} GPa)".format(names[1], names[0],1.5))
 	path = os.path.join(directory, "output", "{0}-{1}.grouped.pdf".format(ids[1], ids[0]))
@@ -70,7 +70,7 @@ def plot_grouped(th1,th2):
 def plot_separated(th1,th2):
 	names = [th["name"] for th in [th1,th2]]
 	ids = [th["id"] for th in [th1,th2]]
-	print ids
+	print(ids)
 	fig = P.figure()
 	ax = fig.add_subplot(111)
 
@@ -88,8 +88,8 @@ def plot_separated(th1,th2):
 
 	ax.set_xlim([900,1150])
 	ax.set_ylim([900,1150])
-	ax.set_xlabel(u"{0} \u00b0C".format(names[0]))
-	ax.set_ylabel(u"{0} \u00b0C".format(names[1]))
+	ax.set_xlabel("{0} \u00b0C".format(names[0]))
+	ax.set_ylabel("{0} \u00b0C".format(names[1]))
 	ax.autoscale(False)
 	ax.plot([0,1800],[0,1800],color="#cccccc", zorder=-20)
 

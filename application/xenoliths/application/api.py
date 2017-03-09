@@ -27,7 +27,7 @@ def classification(sample):
             sample.classification = data
             db.session.commit()
             return jsonify(status="success")
-        except Exception, err:
+        except Exception as err:
             return jsonify(
                     status="error",
                     message=str(err),

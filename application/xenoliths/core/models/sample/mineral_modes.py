@@ -1,4 +1,4 @@
-from __future__ import division
+
 
 import numpy as N
 from flask import current_app
@@ -18,7 +18,7 @@ def modes(sample, completion=False):
     assert T > 1
 
     area = {}
-    for m, item in minerals.items():
+    for m, item in list(minerals.items()):
         mode = arr[arr == m].size/T
         if m == "na":
             na = mode
@@ -26,18 +26,18 @@ def modes(sample, completion=False):
         area[m] = mode
 
     vol = {}
-    for m, item in area.items():
+    for m, item in list(area.items()):
         vol[m] = item**1.5
-    total = sum(vol.itervalues())
+    total = sum(vol.values())
     assert total > 0
-    for m, item in vol.items():
+    for m, item in list(vol.items()):
         vol[m] = item/total
 
     wt = {}
-    for m, item in vol.items():
+    for m, item in list(vol.items()):
         wt[m] = item*densities[m]
-    total = sum(wt.itervalues())
-    for m,item in wt.items():
+    total = sum(wt.values())
+    for m,item in list(wt.items()):
         wt[m] = item/total
 
     complete = arr[arr != "un"].size/T

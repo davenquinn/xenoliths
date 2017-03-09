@@ -1,4 +1,4 @@
-from __future__ import division, print_function
+
 from PIL import Image
 import click
 from click import echo, style
@@ -45,12 +45,12 @@ def import_image(sample, image, info_file):
         date=find_date(s1))
 
     data = {k:float(info[v])\
-        for k,v in field_map.items()}
+        for k,v in list(field_map.items())}
     data["sample_id"] = sample.id
     data["session_id"] = session.id
 
     model = find_image(name=name)
-    for k,d in data.items():
+    for k,d in list(data.items()):
         setattr(model,k,d)
 
     # Save files if they don't already exist

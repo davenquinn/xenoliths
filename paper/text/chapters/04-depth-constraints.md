@@ -18,7 +18,8 @@ field, between roughly 45 and 80 km.
 
 Several of the techniques below produce estimates of pressure, rather
 than depth. We use a geothermal gradient based on integration of the
-crustal and mantle densities given in @tab:model_parameters.
+crustal and mantle densities given in @tab:model_parameters. This yields
+a gradient of ~0.03 GPa per km across
 
 <!--[[ree_temperatures]]-->
 
@@ -111,16 +112,14 @@ ranging from 35 to 52 km.
 The low and high-temperature cohorts remain separable, with high-temperature
 samples showing deeper equilibrium depths.
 The scale of the errors within a single sample
-reflects the barometer's sensitivity to
-both small variations in Ca concentrations and to temperature. The
+reflects the barometer's sensitivity to small variations in Ca
+concentrations. The
 bulk of the spread in the data reflects the poor calibration of the
 barometer itself.
 The low-temperature samples in particular have significant scatter
 towards depths above the spinel-in isograd.
-These heavy tails could be the artifact of entrainment and
-eruption: the small Ca cation has extremely fast kinetics,
-and can rapidly diffuse into olivine during transient heating [@Kohler1990].
-This effect produces a shallowing bias on the depth distribution, and may be
+The small Ca cation diffuses rapidly during transient heating
+[@Kohler1990], which produces a shallowing bias on the depth distribution, and may be
 the explanation for the fact that CK-4, the most altered
 sample, has a mode ~10 km shallower than that of the other samples
 (CK-3 and CK-6) at similar temperature.

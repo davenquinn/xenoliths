@@ -47,7 +47,7 @@ def plot_DREE(ax, sample, annotate=True):
     res = regress(X,Y)
     T = temperature(res)
 
-    title = u"{id}: {n:.0f}±{s:.0f} °C"\
+    title = "{id}: {n:.0f}±{s:.0f} °C"\
         .format(
             id=sample.id,
             n=T.n,

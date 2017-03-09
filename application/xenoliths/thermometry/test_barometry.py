@@ -1,4 +1,4 @@
-from __future__ import division
+
 from os import path
 import numpy as N
 
@@ -12,7 +12,7 @@ class TestBarometer(Ca_Olivine):
     def __init__(self, data):
         # This conforms to O'Reilly testing data at least.
         self.D_Ca = data['Ol_CaO']/data["Cpx_CaO"]*7/10*.988
-        print self.D_Ca,data["D"]
+        print(self.D_Ca,data["D"])
         assert N.allclose(self.D_Ca,data["D"], rtol=0.03)
         self.T = data["T"]+273.15
         self.P = data["P"]

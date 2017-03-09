@@ -1,4 +1,4 @@
-from __future__ import print_function, division
+
 from collections import defaultdict
 from sqlalchemy.sql import func
 from .models import ProbeDatum, ProbeMeasurement, db, FORMULAE
@@ -103,18 +103,18 @@ def get_cations(queryset, **kwargs):
     oxygen_basis = kwargs.pop("oxygen",6)
 
     molar = {FORMULAE[ox]: v
-            for ox,v in get_molar(queryset, **kwargs).items()}
+            for ox,v in list(get_molar(queryset, **kwargs).items())}
 
     formula = defaultdict(int)
-    for ox,v in molar.items():
-        for i, n in ox.atoms.items():
+    for ox,v in list(molar.items()):
+        for i, n in list(ox.atoms.items()):
             formula[str(i)] += n*v
 
     # Rescale cation abundances to the oxygen basis
     ox = formula.pop("O")
     scalar = oxygen_basis/ox
 
-    return {k:v*scalar for k,v in formula.items()}
+    return {k:v*scalar for k,v in list(formula.items())}
 
 def iterate_cations(queryset, **kwargs):
     """
@@ -128,12 +128,12 @@ def iterate_cations(queryset, **kwargs):
     formula = defaultdict(list)
     for obj in queryset.all():
         cats = obj.get_cations(oxygen=oxygen, **kwargs)
-        for k,n in cats.iteritems():
+        for k,n in cats.items():
             formula[k].append(n)
     del formula["Total"]
 
     output = dict()
-    for ox,ls in formula.items():
+    for ox,ls in list(formula.items()):
         u = N.mean(ls)
         if hasattr(u, "nominal_value"):
             s_sample = N.std([l.n for l in ls])

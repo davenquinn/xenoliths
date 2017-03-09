@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from __future__ import division
+
 
 import os
 import json
@@ -79,9 +79,9 @@ for typ in ["ppm","nrm"]:
 	ax_avg = fig_avg.add_subplot(111)
 
 	## Normalized ##
-	for sample, files in index.iteritems():
+	for sample, files in index.items():
 		files = [os.path.join(os.path.dirname(__file__),data_dir, f+".asc."+typ) for f in files]
-		print sample
+		print(sample)
 
 		fig = P.figure()
 		ax = fig.add_subplot(111)
@@ -89,8 +89,8 @@ for typ in ["ppm","nrm"]:
 		for f in files:
 			try:
 				x,data = build_series(f)
-			except IOError, err:
-				print "File {} does not exist".format(f)
+			except IOError as err:
+				print("File {} does not exist".format(f))
 				continue
 			series.append(data)
 			x = x[4:-1]

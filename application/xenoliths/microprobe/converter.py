@@ -12,14 +12,14 @@ class SimpleConverter(object):
 		points = N.array([molar_percent.get(i,0) for i in OXIDES]).T
 		result = N.dot(self.array,points)
 		result = result/result.sum()
-		return dict(zip(self.components,result))
+		return dict(list(zip(self.components,result)))
 
 	@classmethod
 	def construct(cls, system="pyroxene"):
 		system = MINERAL_SYSTEMS[system]
 		ls = []
 		components = []
-		for i,component in system.iteritems():
+		for i,component in system.items():
 			ls.append([component.get(j,0) for j in OXIDES])
 			components.append(i)
 		model = N.linalg.pinv(N.array(ls).T)
@@ -32,11 +32,11 @@ class Converter(object):
 		self.in_components = [i for i in OXIDES]
 		self.out_components = []
 		array = []
-		for name,component in system.iteritems():
-			for key in component.keys():
+		for name,component in system.items():
+			for key in list(component.keys()):
 				if not key in self.in_components:
 					self.in_components.append(key)
-		for name,component in system.iteritems():
+		for name,component in system.items():
 			ls = [component.get(j,0) for j in self.in_components]
 			array.append(ls)
 			self.out_components.append(name)
@@ -63,4 +63,4 @@ class Converter(object):
 		points = N.array(self.preprocess(molar_data)).T
 		result = N.dot(self.array,points)
 		result = result/result.sum()
-		return dict(zip(self.out_components,result))
+		return dict(list(zip(self.out_components,result)))

@@ -37,9 +37,9 @@ def compute_transform(self, system="pyroxene"):
 def compute_formula(meas, oxygen=6, **kwargs):
     formula = meas.__get_atomic__(**kwargs)
     scalar = oxygen/formula["O"]
-    for key, value in formula.iteritems():
+    for key, value in formula.items():
         formula[key] = value*scalar
-    formula["Total"] = sum(formula.itervalues())
+    formula["Total"] = sum(formula.values())
     return formula
 
 def compute_mineral(point):
@@ -49,10 +49,10 @@ def compute_mineral(point):
     """
 
     point.transforms = {k: compute_transform(point,k)
-        for k in current_app.config["MINERAL_SYSTEMS"].keys()}
+        for k in list(current_app.config["MINERAL_SYSTEMS"].keys())}
 
     t = point.transforms["minerals"]
-    mineral = max(t.iteritems(), key=operator.itemgetter(1))[0]
+    mineral = max(iter(t.items()), key=operator.itemgetter(1))[0]
 
     ## Recompute formula based on oxygen basis of minerals
     ofu = oxygen_basis(mineral)

@@ -36,7 +36,7 @@ with app.app_context():
     for cat in cats:
         cat["mg_number"]=cat["Mg"]/(cat["Mg"]+cat["Fe"])
 
-    for cat in cats[0].keys():
+    for cat in list(cats[0].keys()):
         n = [c[cat].n for c in cats]
 
         fig, ax = P.subplots()

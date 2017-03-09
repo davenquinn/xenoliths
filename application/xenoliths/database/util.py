@@ -17,7 +17,7 @@ class ChoiceType(types.TypeDecorator):
         super(ChoiceType, self).__init__(**kw)
 
     def process_bind_param(self, value, dialect):
-        return [k for k, v in self.choices.iteritems() if v == value or k == value][0]
+        return [k for k, v in self.choices.items() if v == value or k == value][0]
 
     def process_result_value(self, value, dialect):
         return Choice(value,self.choices[value])

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from __future__ import division
+
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 
@@ -20,7 +20,7 @@ annotate_props = dict(xytext=(5,-5), textcoords='offset points', ha='left', va='
 m = HeatFlowModel(q_0=90)
 
 y = N.linspace(0,60,100)
-T = N.array(map(m.temperature, y))
+T = N.array(list(map(m.temperature, y)))
 
 fig = P.figure()
 ax = fig.add_subplot(111)
@@ -32,8 +32,8 @@ for sample in data["samples"]:
 	ax.scatter(temp,d, marker="o", s=35, alpha=0.6, color=colors[sample["id"]])
 	#ax.annotate(sample["id"], xy=(temp, d), **annotate_props)
 	
-ax.set_xlabel(u"Temperature \u00b0C ")
-ax.set_ylabel(u"Depth (m)") 
+ax.set_xlabel("Temperature \u00b0C ")
+ax.set_ylabel("Depth (m)") 
 ax.invert_yaxis()
 ax.set_ylim([60,0])
 ax.set_xlim([0,1200])

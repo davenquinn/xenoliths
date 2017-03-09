@@ -2,7 +2,7 @@
 This section implements the REE-in-two-pyroxene thermometer
 of Liang, Sun, and Yao (2013).
 """
-from __future__ import division, print_function
+
 
 import click
 
@@ -16,7 +16,7 @@ def ree():
     """ Calculates rare-earth element temperatures using the REE-in-two-pyroxene
         thermometer of Liang, Sun, and Yao (2013).
     """
-    samples = filter(lambda x: len(x.sims_measurements) > 0, Sample.query.all())
+    samples = [x for x in Sample.query.all() if len(x.sims_measurements) > 0]
 
     for sample in samples:
         print(sample.id)

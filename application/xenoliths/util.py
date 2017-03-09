@@ -15,7 +15,7 @@ class nested(object):
 
     def __call__(self, f):
         def wrapped_f(data):
-            for k,v in data.items():
+            for k,v in list(data.items()):
                 echo(self.make_text(k,v))
                 f(v)
             if self.nl:
