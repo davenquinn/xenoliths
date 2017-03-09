@@ -12,17 +12,12 @@ from subprocess import call
 # import logging
 # logging.basicConfig()
 # logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
-
-call(["redo-ifchange",pressure.__file__])
-
 sys.stdout = sys.stderr
+call(["redo-ifchange",pressure.__file__])
 
 with app.app_context():
     olivines = pressure.pressure_olivines()
     colors = [s.sample.color for s in olivines]
-
-    for o in olivines:
-        print([i.name for i in o.tags])
 
     edgecolors = list(lighten(*colors, lum=0.1))
 

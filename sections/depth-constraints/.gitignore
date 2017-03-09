@@ -2,4 +2,5 @@ build/*
 !build/*.do
 .redo
 
-olivine-ca-mg.pdf
+*.pdf
+
