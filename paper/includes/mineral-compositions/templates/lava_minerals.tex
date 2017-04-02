@@ -3,16 +3,15 @@
   Mineral
   <#- for ox in oxides -#>
   & \ce{<< ox >>}
-  <#- endfor #> & Total & Mg\# & Cr\# \\
+  <#- endfor #> & Total & Mg\# \\
 \midrule
 <#- for s in samples #>
-  << s.mineral >>  \textit{<< s.type >>}
+  << s.mineral >> \hfill\textit{<< s.type >>}
   <#- for ox in oxides -#>
   & << s[ox]|n >>
   <#- endfor -#>
   & << s.oxide_total|n >>
-  & << s.mg_number|n >>
-  & << s.cr_number|n >> \\
+  & << s.mg_number|n >> \\
 <#- endfor #>
 \bottomrule
 \end{tabular}

@@ -13,9 +13,6 @@
 - id: microscope-images
   file: microscope-images/microscope-images.pdf
 
-- id: reconstruction
-  file: maps/reconstruction.pdf
-
 - id: cpx_profile
   file: cpx-profile/output/cpx-profile.pdf
 
@@ -31,6 +28,32 @@
   file: lava-age/build/step-heating-table.tex
   type: table
   two_column: true
+
+- id: isotopes_table
+  file: isotopes/build/isotope-data.tex
+  two_column: true
+  type: table
+  caption: Radiogenic isotope measurements
+
+- id: isotopes
+  file: isotopes/build/isotope-data.pdf
+  caption: Paired Sm-Nd and Rb-Sr isotopes.
+
+- id: minerals
+  type: table
+  file: mineral-compositions/build/minerals.tex
+  two_column: true
+  caption: Average composition\tnote{a} of xenolith mineral components
+  notes:
+    a: oxide weight percent
+
+- id: lava_minerals
+  type: table
+  two_column: true
+  file: mineral-compositions/build/lava_minerals.tex
+  caption: Representative compositions\tnote{a} of minerals in the host lava
+  notes:
+    a: oxide weight percent
 
 # Major elements
 - id: major_elements
@@ -63,9 +86,16 @@
 - id: spider
   file: trace-elements/build/trace-elements.pdf
   caption: Clinopyroxene and orthopyroxene rare-earth element abundances.
+
 - id: enrichment_trends
   file: trace-elements/build/enrichment.pdf
   caption: Enrichment trends for trace elements.
+
+- id: trace_elements
+  type: table
+  file: trace-elements/build/trace-elements.tex
+  two_column: true
+  caption: Trace element abundances (ppm)
 
 - id: whole_rock_trace
   file: trace-elements/build/whole-rock.pdf
@@ -73,6 +103,13 @@
     Trace element abundances recalculated from whole-rock major elements.
   enabled: false
   desc: This figure is superseded by @fig:ree_model.
+
+# Perhaps should add a trace-element figure that estimates whole-rock depletion
+# from dataset of @Warren2016
+# Can use partition coefficients from @WittEickschen2005
+- id: cpx_literature_comparison
+  file: trace-elements/build/literature-comparison.pdf
+  enabled: false
 
 - id: ree_model
   file: depletion-model/output/depletion-model.pdf
@@ -86,17 +123,15 @@
   file: depletion-model/output/depletion_degrees.tex
   caption: Depletion degrees estimated for various methods
 
-# Perhaps should add a trace-element figure that estimates whole-rock depletion
-# from dataset of @Warren2016
-# Can use partition coefficients from @WittEickschen2005
-- id: cpx_literature_comparison
-  file: trace-elements/build/literature-comparison.pdf
-
-- id: trace_elements
+- id: thermometry
   type: table
-  file: trace-elements/build/trace-elements.tex
-  two_column: true
-  caption: Trace element abundances (ppm)
+  file: thermometry/build/temperatures.tex
+  caption: Results of two-pyroxene thermometers
+  notes:
+    "": >
+      For major-element
+      thermometers, $\sigma$ consists of errors between samples. For REE thermometer,
+      it is regression error.
 
 # Pyroxene thermometry
 - id: ree_temperatures
@@ -109,12 +144,30 @@
 - id: temp_summary
   file: thermometry/build/temp-summary.pdf
 
-# Chromium in spinels
+- id: ca_in_olivine
+  file: depth-constraints/olivine-ca-mg.pdf
 
-# Should have a figure for max. depth constraints from Cr-in-spinel
-# Hugh St.O'Neill 1981
+- id: depth
+  file: depth-constraints/ca-ol-pressures.pdf
+
+## Tectonic history
+
+- id: reconstruction
+  file: maps/reconstruction.pdf
+
+- id: cross_sections
+  file: cross-section/cross-section.pdf
+
+- id: neogene_sections
+  file: cross-section/neogene-cross-sections.pdf
 
 # Modeling
+
+- id: model_parameters
+  type: table
+  file: model-setups.tex
+  caption: Material properties used in modeling
+
 - id: model_results
   file: model-time-slices.pdf
   two_column: true
@@ -126,56 +179,7 @@
 - id: model_comparison
   file: model-comparison.pdf
 
-- id: cross_sections
-  file: cross-section/cross-section.pdf
-
-- id: depth
-  file: depth-constraints/build/ca-ol-pressures.pdf
-
-- id: isotopes
-  file: isotopes/build/isotope-data.pdf
-  caption: Paired Sm-Nd and Rb-Sr isotopes.
-
-- id: thermometry
-  type: table
-  file: thermometry/build/temperatures.tex
-  caption: Results of two-pyroxene thermometers
-  notes:
-    "": >
-      For major-element
-      thermometers, $\sigma$ consists of errors between samples. For REE thermometer,
-      it is regression error.
-
-- id: minerals
-  type: table
-  file: mineral-compositions/build/minerals.tex
-  two_column: true
-  caption: Average composition\tnote{a} of xenolith mineral components
-  notes:
-    a: oxide weight percent
-
-- id: lava_minerals
-  type: table
-  two_column: true
-  file: mineral-compositions/build/lava_minerals.tex
-  caption: Representative compositions\tnote{a} of minerals in the host lava
-  notes:
-    a: oxide weight percent
-
-- id: model_setups
-  type: table
-  file: model-setups.tex
-  caption: Material properties used in modeling
-
-- id: neogene_sections
-  file: cross-section/neogene-cross-sections.pdf
-
-- id: isotopes_table
-  file: isotopes/build/isotope-data.tex
-  two_column: true
-  type: table
-  caption: Radiogenic isotope measurements
-
 - id: monterey_plate
   file: translating-slab/translating-slab.png
+  enabled: false
 

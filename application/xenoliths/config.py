@@ -3,6 +3,7 @@ import os
 DEBUG = True
 
 DB_NAME = "xenoliths_flask"
+SQLALCHEMY_TRACK_MODIFICATIONS = False
 SQLALCHEMY_DATABASE_URI = "postgresql://Daven@localhost/"+DB_NAME
 
 SITE_DIR = "/Users/Daven/Development/Xenoliths/versioned/application"

@@ -33,11 +33,11 @@ Tectonic reconstruction of the California margin at 19 Ma showing tectonic
 provinces of Salinia restored for offset along the San Andreas system.
 The view shows the disaggregated Mojave--Salinia batholith and surface
 outcrops of subduction channel schists in the Mojave province. Reconstruction
-of Salinian lithologic features is after @Schott1998,@Schott2001,@Chapman2012,@Dickinson2005.
-Reconstruction of the evolving slab window and microplate detachment after @Wilson2005.
+of Salinian lithologic features from @Schott1998, @Schott2001, @Chapman2012, and @Dickinson2005
+is combined with reconstruction of the evolving slab window and microplate detachment after @Wilson2005.
 
 #cpx_profile
-Profile showing Mg\# measured across clinopyroxene grain.
+Profile of Mg\# measured across clinopyroxene grain.
 
 #textures
 Mineral classification images of each sample (1" round thin-section)
@@ -45,7 +45,8 @@ created atop coregistered electron backscatter optical imagery and
 showing textural variation within Crystal Knob suite.
 
 #step_heating
-Step-heating results for Ar/Ar dating of Crystal Knob host basalt.
+Step-heating results for \ce{^{40}Ar}/\ce{^{39}Ar} dating of the Crystal Knob host basalt,
+showing a broad plateau for the accepted age of 1.65 Ma.
 
 #major_elements
 FeO vs. MgO for electron microprobe measurements of grain
@@ -53,11 +54,11 @@ cores, showing range in major-element depletion between
 samples. Dotted lines show Mg\# levels.
 
 #spinel_cr
-Cr# vs. Mg# for spinels, showing two groups of
-samples with low and high Cr content.
+Spinel Cr# vs. Mg# showing two groups of samples with low and high Cr content, corresponding
+to the temperature cohorts of the dataset.
 
 #whole_rock_major
-Major element composition (oxide %$_{wt}$, normalized to 100%)
+Major element composition (oxide %$_\textrm{wt}$, normalized to 100%)
 of xenolith samples recalculated from modal mineralogy.
 
 #modes
@@ -74,7 +75,7 @@ Trace element abundances recalculated from whole-rock major elements.
 
 #ree_model
 Recalculated whole-rock trace elements for xenolith samples
-[Table \ref{tab:whole_rock_trace}] presented with best-fitting
+[@tab:whole_rock_trace] presented with best-fitting
 modeled compositions for depleted peridotite and enriching
 fluid per sample, using the model discussed in text.
 Normal mid-ocean
@@ -87,7 +88,10 @@ the modeled composition of the enriching fluids.
 #ree_trends
 REE depletion and re-enrichment trends for xenolith
 samples, calculated using the model shown in
-Figure \ref{fig:ree_model}.
+Figure \ref{fig:ree_model}. For all samples, <1%
+assimilation of alkali-basalt-like melt is
+required to explain the observed trends
+in re-enrichment of rare-earth elements.
 
 #cpx_literature_comparison
 Clinopyroxene trace elements for Crystal Knob compared to abyssal peridotite
@@ -117,6 +121,15 @@ Comparison of results from pyroxene major-element thermometers.
 Summary of temperature data showing the two temperature cohorts
 of the dataset.
 
+#depth
+Summary of depth constraints for the xenolith samples.
+Depths from Ca-in-olivine geobarometry are plotted against
+TA98 temperature. A series of steady-state conductive geotherms with are plotted in the top right. Lines show
+per-sample maximum emplacement depths calculated using the expanded
+stability of high-chromian spinel [@ONeill1981] with error bars of
+0.15 GPa. The synthesis of this data suggests that the samples were sourced from
+~50--70 km depth.
+
 #model_results
 Temperature-depth profiles through the crust and upper mantle
 at different points during the evolution of the three tectonic scenarios.
@@ -143,7 +156,7 @@ Mendocino slab window under southern California and the Salinian block [@Wilson2
 The geotherm begins as a steady-state profile to 600 ºC and 30 km, truncated by a mantle adiabat.
 The mantle is held at asthenospheric conditions for a set period which varies between model runs
 (from 0 to 6 Myr) to simulate a period of active convection,
-after which it relaxes conductively to the concusion of the model.
+after which it relaxes conductively to the conclusion of the model.
 Panel **B** shows a range of scenarios corresponding to oceanic lithosphere slices underplated at
 different times during the subduction history of the Farallon plate until its
 cessation in the Neogene.
@@ -155,7 +168,7 @@ model [@Stein1992] for oceanic lithosphere for particular age of oceanic crust.
 The subduction time and age of oceanic crust covary to represent different phases of
 Farallon plate subduction beneath the coast of Southern California, corresponding to @Seton2012.
 Modeled tracers begin at 10 and 45 km beneath the seafloor and are advected to depths of
-40 and 75 km over the first 2 Myr of the model timeframe during subduction. Thermal conditions
+40 and 75 km over the first ~1 Myr of the model timeframe during subduction. Thermal conditions
 during subduction are tracked using the @Royden1993a steady-state forearc model.
 The samples then relax to the present.
 Panel **C** tracks a Farallon-plate slab subducted and underplated during the late Cretaceous. The initial
@@ -178,15 +191,6 @@ a Cretaceous Farallon slab both with and without deep slab-window reheating are 
 Cross sections showing the evolution of southern California during
 subduction of a large oceanic plateau during the late Cretaceous.
 
-#depth
-Depths from Ca-in-olivine geobarometry plotted against
-TA98 temperature. 90, 95, and 100 mW/m^2
-conductive geotherms are plotted in the top right. Lines show
-per-sample maximum emplacement depths calculated using the expanded
-stability of high-chromian spinel [@ONeill1981] with error bars of
-0.15 GPa. This data suggests that the samples were sourced from
-~50--80 km depth.
-
 #neogene_sections
 Schematic cross-sections showing potential scenarios for modification of the
 marginal mantle lithosphere at the end of subduction in the early Miocene.
@@ -203,3 +207,6 @@ marginal continental mantle lithosphere \figp{monterey_plate}.
 Schematic representation of the Monterey plate dangling slab scenario
 for the origin of the sub-Salinian mantle lithosphere as envisioned
 by @Wijk2001 and @Pikser2012, among others.
+
+#ca_in_olivine
+Calcium abundance in olivine for xenolith samples.

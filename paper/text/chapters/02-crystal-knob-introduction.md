@@ -30,7 +30,7 @@ of the host lava (sample CK-1) containing visible plagioclase
 phenocrysts was provided to the USGS Geochronology
 Laboratory in Denver, Colorado. The sample was irradiated in the USGS
 TRIGA reactor, and plagioclase feldspar grains were step-heated *in situ*
-using an infrared laser `[Figure step_heating]`, and $^{39}$Ar loss was
+using an infrared laser [@fig:step_heating], and $^{39}$Ar loss was
 measured simultaneously on a Thermo Scientific Argus VI using 4 Faraday
 detectors (m/e 40-37) and ion counting (m/e 36). The detectors were
 intercalibrated using standard gas and air pipettes. The measurements
@@ -39,8 +39,8 @@ nucleogenic interferences, and standardized against a Fish Canyon
 sanidine with an age of 28.20 Ma. Non-radiogenic argon is assumed to have
 an atmospheric composition (\ce{$^{40}$Ar}/\ce{$^{39}$Ar} = 298.56) [@Cosca2011].
 
-Data for stepwise heating are presented in `Table step_heating_table`
-and shown graphically in `Figure step_heating`.
+Data for stepwise heating are presented in @tab:step_heating_table
+and shown graphically in @fig:step_heating.
 Our preferred age of 1.65±0.06 Ma is defined
 by the twelve intermediate out of fifteen heating steps, for which the
 entire spectrum define a similar age, within error, of 1.71 Ma. From

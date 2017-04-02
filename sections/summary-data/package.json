@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "postinstall": "linklocal"
+  },
+  "dependencies": {
+    "d3": "^4.7.1",
+    "d3-selection-multi": "^1.0.1",
+    "underscore": "^1.8.3",
+    "d3-plot-area": "file:../../modules/node/d3-plot-area"
+  }
+}

@@ -2,7 +2,7 @@
 
 Electron-microprobe major-element data is used as the basis for pyroxene
 Ca--exchange geothermometry. Several formulations of this reaction are
-tested `[Table thermometry]`: BKN [@Brey1990] and TA98 [@Taylor1998] are
+tested [@tab:thermometry]: BKN [@Brey1990] and TA98 [@Taylor1998] are
 two slightly different formulations based on empirical calibration of the two-pyroxene Ca exchange
 reaction in simple and natural systems. @Taylor1998 is explicitly calibrated to
 account for errors arising from high Al content.
@@ -44,7 +44,7 @@ The disparity decreases
 towards higher temperatures and conforms to the relationship between
 the two thermometers found by @Nimis2010.
 This relationship can be expressed as
-$\textrm{T}_\textrm{BKN} = 0.9~\textrm{T}_\textrm{TA98} + 145$ for temperatures
+$\mathrm{T}_\mathrm{BKN} = 0.9~\mathrm{T}_\mathrm{TA98} + 145$ for temperatures
 in ºC.
 @Nimis2010 shows that TA98 performs well against
 experimental results in several scenarios and advises its use over BKN.
@@ -55,7 +55,7 @@ and complete re-equilibration of small amounts of Ca in orthopyroxene,
 or of generally higher stability of this more refractory phase against late magmatic modification. <!-- *** --->
 
 Average TA98 temperatures range from 957 to 1063ºC for cores and
-955 to 1054ºC for rims `[Table thermometry]`.
+955 to 1054ºC for rims [@tab:thermometry].
 CK-2 core temperatures indicate more complete
 equilibration, with a standard deviation of only 2.3ºC (compared
 with 8.2-12.4ºC for all other samples). Temperatures are distributed roughly normally
@@ -116,7 +116,7 @@ Rare-earth abundances are compiled for SIMS measurements of
 pyroxene phases in contact (2--3 pairs) for each xenolith sample.
 A two-pyroxene equilibrium is calculated for each REE element and Y,
 equivalent to $T_i [K] = B_i (\ln(\D_i)-A_i)^{-1}$.
-These per-element equilibration temperatures are shown in `Figure ree_thermometry`.
+These per-element equilibration temperatures are shown in @fig:ree_thermometry.
 The best-fitting line from the origin through each point
 in $B$ vs. $\ln(\D)-A$ space
 (using a robust regression with a Tukey biweight norm) yields
@@ -159,7 +159,7 @@ differentially diffused into the Crystal Knob melt just prior to eruption.
 Discerning between these scenarios is difficult due to the low Eu counts
 measured using ion-microprobe techniques.
 
-General LREE disequilibrium between pyroxenes could be explained by
+General LREE disequilibrium between pyroxenes can be explained by
 a fossil heating event that was retained only in the large-ion lithophile elements due to their
 slow diffusion rates. This must have happened prior to re-equilibration in major elements.
 Alternatively, partition coefficients for LREE and Eu
@@ -199,7 +199,7 @@ Sample CK-4 records a significantly higher temperature for LREE than
 both the other samples and its own HREE equilibration temperatures.
 This likely shows that the LREEs were equilibrated at a much higher temperature than the
 HREEs. This pronounced within-sample disequilibrium could be the result
-of metasomatic processes, which is bolstered by the fact that CK-4 has
+of metasomatic processes, which is bolstered by the fact that CK-4 shows
 the only significant melt-infiltration textures in the sample set. It is
 likely, therefore, that CK-4 was subjected to a short, transient heating
 event that was not fully equilibrated in HREE. Further, since this

@@ -1,3 +1,6 @@
+REE: CK-4 is altered, which shows up petrographically, but does not show
+up in depletion statistics
+
 Ca in olivine: bias to lower depths due to Ca diffusion into olivine during transient heating
 
 Samples are isotopically indistinguishable
@@ -28,8 +31,6 @@ We propose another scenario to align with a large quantity of geologic data:
 Mojave exposures of the subduction megathrust, disaggregation of the Mojave-Salinia batholith,
 microplate capture and rotation
 as well as the deep depths/low geotherm seen in xenolith and other data
-
-Given the interpretation of possible 
 
 Blah blah.
 

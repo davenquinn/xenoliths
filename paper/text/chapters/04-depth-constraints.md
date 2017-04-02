@@ -19,7 +19,7 @@ field, between roughly 45 and 80 km.
 Several of the techniques below produce estimates of pressure, rather
 than depth. We use a geothermal gradient based on integration of the
 crustal and mantle densities given in @tab:model_parameters. This yields
-a gradient of ~0.03 GPa per km across
+a gradient of ~0.03 GPa per km across the mantle lithosphere.
 
 <!--[[ree_temperatures]]-->
 
@@ -130,14 +130,19 @@ deep within the spinel stability field, at
 depths of ~40 km or greater. This preference is amplified by
 comparisons with heat flow datasets.
 
-### Comparisons with steady-state geotherms
+### Comparisons with extraneous procedures
 
-Given our accurate temperature measurements for the Crystal Knob
-xenolith suite, we can produce model entrainment depths by pinning the
-samples to a steady-state conductive geotherm constrained by surface heat flux. In
-@fig:depth, we show steady-state geotherms for surface heat fluxes ranging from
-60 to 120 mW/m^2, all of which intersect the potential depth distributions from
-spinel stability and Ca-in-olivine barometry.
+These depth constraints derived from xenolith geothermobarometry
+can be compared to seismic and geophysical
+constraints on the regional geotherm.
+
+Given the high agreement of our temperature measurements for the Crystal
+Knob xenolith suite, we can compare our intrinsic depth constraints with
+model entrainment depths derived by pinning the samples to a
+conductive geotherm constrained by surface heat flux. In
+@fig:depth, we show potential steady-state geotherms for surface heat fluxes
+ranging from 60 to 120 mW/m^2, all of which intersect the potential
+depth distributions from spinel stability and Ca-in-olivine barometry.
 
 These geothermal gradients are calculated using thermal conductivity and
 diffusivity given in @tab:model_parameters for the crust, to a depth of
@@ -146,46 +151,35 @@ No fixed amount of radiogenic heat production is assumed, but the average empiri
 factor of 0.6 proposed by @Pollack1977 is used to
 reduce surface heat flux to a presumed mantle contribution, with
 the remainder being taken up by radiogenic heat production near the surface.
-We use an
-exponentially decreasing radiogenic contribution with depth
+We use a radiogenic contribution that exponentially decreases with depth
 with a characteristic length scale of 10 km.
 The amount of heat emanating from the mantle and the presumed thermal conductivity
 across the lithosphere are the main
 controls on the slope of the modeled geothermal
 gradient. This methodology is developed in @Turcotte2002 and is
 identical to that used by @Luffi2009, except that crustal
-thermal conductivity is reduced to match our
-constraints for modeling [@sec:modeling],
-leading to a slightly higher geothermal gradient in the mantle
-lithosphere.
+thermal conductivity is reduced to match our conditions for dynamic
+thermal modeling [@sec:modeling]. This yields a slightly "hotter"
+geotherm throughout the mantle lithosphere.
 
-The highest heat flow values, when they are found, are 
-
-### Reconstructing the lithospheric geotherm from surface heat flows
+The mineralogic constraints on the Crystal Knob xenoliths correspond to a broad
+range of plausible lithospheric conductive geotherms.
+The hottest potential geotherm keeping the sample set within the spinel stability
+field is > 120 mW/m^2 at the surface.
+Accounting for the Cr-dependent
+depth of the spinel--garnet transition, the 65 mW/m^2 conductive geotherm is
+the coolest that places all samples within the spinel
+stability field.
+The centroids of the Ca-in-olivine model age distributions correspond to
+a range in surface heat flow from ~70 to 110 mW/m^2.
 
 Using a database of surface heat flows for North America
 [@Blackwell2004], @Erkan2009 estimates regionally-averaged heat flows of 80-90 mW/m^2 for the
 central California coast, including the vicinity of Crystal Knob. Based on projection of
 the TA98 temperature distribution onto our calculated steady-state geotherms,
-this corresponds to model depths of ~45-55 km for the Crystal Knob sample set.
+corresponding to model depths of ~45-55 km for the Crystal Knob sample set.
 This depth range is within the spinel stability field and falls near the center
 of the depth distributions extracted using Ca-in-olivine barometry.
-Accounting for the Cr-dependent
-depth of the spinel--garnet transition, the 65 mW/m^2 geothermal gradient is
-the coolest conductive geotherm that places all samples within the spinel
-stability field.
-
-Corresponding to our suspicions about the heat flow.
-
-However, the extent to which these surface heat flows are representative of the
-true integrated geotherm over the entire lithospheric column is unclear.
-Heat flow measurements in the Coast Ranges are anomalously high, and
-factors such as shear heating, fluid circulation along faults, and rapid surface uplift
-have been proposed to account for the mismatch [@Erkan2009].
-Under any of these scenarios, extrapolations of the lithosphere-averaged geotherm
-from surface heat flow estimates likely produce minimum estimates of sample depth.
-
-<comment>Put rest of heat flow discussion here?</comment>
 
 Estimates of the thermal state of the deep lithosphere derived from seismic
 tomography show temperatures of 700--1100ºC occurring at depths of
@@ -198,22 +192,31 @@ lithosphere-asthenosphere boundary occurring at
 1200-1300ºC [e.g. @OReilly2010; @Fischer2010], corresponds to
 steady-state geotherms of 70-80 mW/m^2.
 
-
-### Discussion
-
 The integration of depth constraints on the xenolith samples from multiple
-sources gives a broad set of constraints on the pre-eruption depth of the Crystal
-Knob xenoliths. For reasonable slopes of the sub-Salinian geotherm,
+sources gives a broad set of constraints on the depth of the Crystal
+Knob xenoliths within the mantle lithosphere at the time of their eruption.
+For reasonable slopes of the sub-Salinian geotherm,
 the range of temperatures in the sample set indicates sourcing over a
-depth range of 5-15 km within the mantle lithosphere.
+depth range of 5-10 km within the mantle lithosphere.
 These depths must be greater than 30 km, the
 depth to the Moho, and less than 60-90 km based on the
 composition-dependent lower limit of the spinel stability field.
-Ca-in-olivine barometry largely confirms these constraints but provides
-little added information within these broad boundaries.
-Model depths prepared from steady-state geotherms of 45-55 km are
-squarely within the boundaries of the spinel stability field, but the
-accuracy of this extrapolation si uncertain.
+Ca-in-olivine barometry suggests a tighter set of constraints near the center of the spinel stability field.
+Model depths of 45-55 km prepared from steady-state geotherms agree with
+this assessment. Given the bias in both Ca-in-olivine and heat-flow
+measurements to shallower depths, we take the depth range of 50-70 km as
+a likely source region for the 
+We next turn
+to the accuracy of this extrapolation from heat flow values,
+and its implication for understanding the thermal structure of the lithosphere.
 
-The uncertainty of reconstructing depth based on values of surface heat
-flow provides motivation for improved thermal modeling.
+
+### The origin of the Crystal Knob volcanic pipe
+
+Extension in the lower crust?
+Of family with small eruptive episodes such as Coyote Creek (based on
+eruptive age)
+
+Fossil heating event affecting CK-4 LREE. This is not the most recent
+perturbation because it's not reflected in the major element thermometers
+

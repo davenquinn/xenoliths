@@ -4,14 +4,14 @@ In this section we integrate the results of our thermal modeling with
 our petrogenetic findings on the Crystal Knob xenoliths, regional
 crustal structure and evolution, and the timing and map position of
 xenolith entrainment. Of the three plausible scenarios depicted for the
-evolution of the sub-Crystal Knob mantle lithosphere on Figure 16 we
+evolution of the sub-Crystal Knob mantle lithosphere on Figure \ref{neogeone_sections} we
 reject the shallow slab window emplaced asthenosphere case based on our
 thermal modeling presented above. The Monterey plate stalled slab and
 underplated Farallon plate mantle nappe cases are equally plausible
 based on our thermal modeling. Based on a wide spectrum of geologic and
-geodynamic factors, that were discussed above, we dismiss the notion of
-a regionally extensive Monterey Plate “dangling slab” extending far to
-the east of the San Andreas fault as suggested by @Pikser2012.
+geodynamic factors, that were discussed above, we dismiss the notion suggested by @Pikser2012
+of a regionally extensive Monterey Plate "dangling slab" extending far to
+the east of the San Andreas fault.
 Depending on the original scale of Monterey Plate underthrusting beneath
 the southern California borderland region [@fig:neogene_sections], its structural
 integrity following its coupling to borderland transrotational rifting,
@@ -20,11 +20,11 @@ represented by the detached portion that forms the Transverse Ranges
 high-wave speed anomaly [@fig:context], an argument could be made that an
 underthrust portion of the Monterey Plate has been translated northwards
 horizontally beneath the Crystal Knob eruption site
-[@fig:neogene_sections (b)]. Although
+[Figure \ref{fig:neogene_sections}b]. Although
 kinematically plausible, in theory, this case seems unlikely based on
-dynamic factors. As with the “dangling slab” version of this case,
+dynamic factors. As with the "dangling slab" version of this case,
 horizontal translation of such a large mantle mass along the base of the
-crust should manifest at surface levels by transients in dynamic
+crust should manifest at the surface by transients in dynamic
 topography, as well brittle crustal deformational responses to
 horizontal shear stresses in the lower crust. Such surface deformation
 patterns are not expressed for late Cenozoic time north of the
@@ -36,41 +36,44 @@ suite not being able to discriminate between the stalled Monterey plate,
 or underplated Farallon nappe cases, the stalled Monterey plate case
 creates more problems than it solves.
 
-In @fig:neogene_sections (c) we show the partially subducted terminus of the Monterey
+In Figure \ref{neogene_sections}c we show the partially subducted terminus of the Monterey
 plate bounded to the east by the San Gregorio-Hosgri fault, based on our
 above discussion of the @fig:reconstructions reconstruction. East of the fault lies
 the Nacimiento Franciscan complex and its tectonic veneer of Salinia
 nappes (not differentiated on the figure), and its lower crustal oceanic
 crustal duplex tectonically above underplated Farallon plate mantle
-nappes. The structural profile shown on @fig:neogene_sections (c) between the San
+nappes. The structural profile shown on Figure \ref{neogene_sections}c between the San
 Andreas and San Gregorio-Hosgri faults was constructed at southern
 California latitudes in continuity with that of the southernmost Sierra
 Nevada and adjacent Mojave plateau region [@fig:cross_sections; @fig:reconstruction]. Partial
 subduction, or stalling, of the Monterey plate occurred along the outer
 edge of Franciscan complex further south than rocks of the Nacimiento
-belt (Fig. 18).
+belt [@fig:reconstruction].
 
 Slab window opening beneath the Crystal Knob eruption site is
 reconstructed to have occurred between ca. 28-23 Ma [@Atwater1998; @Wilson2005].
-As posited above, the thick and relatively
-cool lithospheric lid that the slab window of this region opened beneath
+As posited above, a thick and relatively cool lithospheric lid
 inhibited widespread voluminous volcanism in response to asthenospheric
-upwelling. The time lag between deep slab window opening and the ca. 1.7
-Ma eruption age of Crystal Knob presents a problem for the origin of the
+upwelling during the opening of the slab window.
+
+### Origin of the Crystal Knob basalt
+
+The time lag between deep slab window opening and the ca. 1.7
+Ma eruptive age of Crystal Knob presents a problem for the origin of the
 Crystal Knob lava. Our studies on the Crystal Knob xenoliths indicate an
 underlying lithosphere-asthenosphere boundary at a depth of 70-90 km,
 consistent with regional seismic studies placing it at ~70 km
 beneath the central California Coast Ranges [@Li2007]. In
-contrast 28-20 Ma old oceanic lithosphere of the adjacent Monterey plate
-[@Wilson2005], based on thermal decay relations [@Doin1996],
-would have its lithosphere-asthenosphere boundary at ~35 km.
+contrast, 28-20 Ma old oceanic lithosphere of the adjacent Monterey plate
+[@Wilson2005], would have its lithosphere-asthenosphere boundary at ~35 km,
+based on thermal decay relations [@Doin1996].
 The offshore Monterey plate is at the edge of \citet[]['s]{Li2007}
 resolution, which yields an ~50 km depth for the
 lithosphere-asthenosphere boundary.  Proximal to the modern shoreline
 the Monterey plate is thrust beneath ~12 km of sedimentary accretionary
 prism [@Trehu1991], bringing the thermal maturation theoretical depth
 for the transition much closer to the depth observed by @Li2007.
-Crystal Knob is located ~15 km east of the Hosgri fault, with it’s host
+Crystal Knob is located ~15 km east of the Hosgri fault, with its host
 Franciscan complex pervasively cut by faults and shear zones
 [@Cowan1978; @Seiders1989]. The geologic slip and seismicity history of the
 Hosgri fault [@Dickinson2005; @Hardebeck2012] indicate that it
@@ -91,7 +94,7 @@ Crystal Knob small volume eruption is not an exceptional event.
 Distributed shearing and strike-slip juxtaposition of the shallow
 sub-Monterey plate asthenosphere against underplated Farallon plate
 lithosphere and its deep slab window asthenosphere along the Hosgri
-fault (Fig. 16c) is a plausible mechanism for Crystal Knob basalt melt
+fault [Figure \ref{fig:neogene_sections}c] is a plausible mechanism for Crystal Knob basalt melt
 generation. This was perhaps accentuated by possible extensional
 transients along the fault surface as documented for the Coyote Lake
 basalts [@Jove1998; @Titus2007]. Thermal modeling
@@ -102,9 +105,9 @@ and that volumetrically far exceed the lithospheric peridotite
 xenoliths, attest to at least another reheating event at ca. 1.7 Ma. Two
 of the principal thermal maxima in the Coast Range thermal anomaly occur
 in the areas of the Crystal Knob and Coyote Lake Plio-Pleistocene
-basaltic eruptions [@Erkan2008, Fig. 1], further
+basaltic eruptions [@Erkan2008, Figure 1], further
 suggesting recent mobilization of asthenospheric mantle that was
-initially emplaced into the early Neogene slab window. 
+initially emplaced into the early Neogene slab window.
 
 ## A re-interpretation of high surface heat flows in the Coast Ranges
 

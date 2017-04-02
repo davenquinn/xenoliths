@@ -39,7 +39,7 @@ samples = [row for i,row in data.iterrows()]
 text = (tex_renderer
     .get_template("lava_minerals.tex")
     .render(
-        ncols=len(oxide_cols)+5,
+        ncols=len(oxide_cols)+4,
         oxides=oxide_cols,
         samples=samples))
 write_file(argv[1], text)

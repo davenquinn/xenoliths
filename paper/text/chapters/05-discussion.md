@@ -1,15 +1,3 @@
-
-Discussion
-==========
-
-### Host lava
-
-Extension in the lower crust?
-Of family with small eruptive episodes such as Coyote Creek (based on
-eruptive age)
-
-Fossil heating event affecting CK-4 LREE. This is not the most recent perturbation because it's not reflected in the major element thermometers
-
 ## Origin of mantle lithosphere beneath the Crystal Knob volcanic neck
 
 Rb-Sr and Sm-Nd isotopic data on peridotite xenoliths from this study
@@ -30,7 +18,7 @@ plate subduction. The geologic history of the region integrated with
 crustal structure constraints pose viable alternatives for these
 mechanisms.
 
-## Late Cenozoic tectonic history and regional crustal structure
+# Late Cenozoic tectonic history and regional crustal structure
 
 In Oligocene to early Miocene time the Pacific-Farallon spreading ridge
 obliquely impinged into the SW Cordillera subduction zone leading to the
@@ -96,13 +84,15 @@ Franciscan an unknown distance [@Hall2013], but have been
 eroded off their lower plate complex as the coastal region has risen in
 the Pliocene [@Ducea2003].
 
-The @fig:reconstruction reconstruction exhibits the first-order crustal relations
-that pose three highly plausible origins for the sub-Crystal Knob mantle
+The cross-sections presented in @fig:cross_sections show the first-order crustal relations
+that are implied by three potential origins for the sub-Crystal Knob mantle
 lithosphere: 1. shallowly ascended asthenosphere within the
 Pacific-Farallon slab window [@Atwater1998]; 2. subduction of an
-underplated, or stalled Monterey oceanic microplate [@Bohannon1995];
+underplated, or stalled, Monterey oceanic microplate [@Bohannon1995];
 or 3. underplated Farallon plate mantle lithosphere nappe(s) that lie in structural sequence with the upper mantle duplex
-resolved beneath the Dish Hill xenolith location [@Luffi2009].
+resolved beneath the Dish Hill xenolith location, and correspond to a similar time [@Luffi2009].
+These scenarios have been posed by several workers and are underpinned
+by the contextal features presented below.
 
 ## The Neogene slab window
 
@@ -130,60 +120,82 @@ this time period across the region of the reconstructed slab window
 [@Hurst1982; @Sharma1991; @Cole1995; @Wilson2005].
 However, this phase of slab window opening and related volcanism
 cannot account for the eruption of the ca. 1.7 Ma Crystal Knob volcanic
-neck, which we return to below.
+neck itself, which we return to below <fixme>cite the section</fixme>.
 
 ## The Monterey plate
 
-The current position of the Monterey plate,
-relative to the Crystal Knob eruption site, is a result
+The Monterey microplate is often invoked as the source of the
+lithosphere beneath the central Coast Ranges.
+When the East Pacific Rise first reached the North American plate at
+28.5 Ma, the Monterey microplate broke from the Farallon slab and
+subducted independently until 19.5 Ma, while rotating clockwise with respect
+to the Pacific plate [@Wilson2005]. The remnant slab has been
+integrated into the Pacific plate and still forms part of the abyssal
+seafloor [@fig:context]. The idea that the Monterey plate stalled slab
+is attached to the Pacific Plate and extends as far eastward as the
+Central Valley, corresponding with the Isabella seismic anomaly, has
+been advanced by many workers
+[@tenBrink1999; @Pikser2012; @Wang2013].
+
+The current position of the Monterey plate offshore
+of the Crystal Knob eruption site is a result
 of dextral displacements linked to borderland transrotational rifting,
 subsequent ~155 km-scale dextral offsets along the San Gregorio-Hosgri
-fault system, and possible additional dextral offsets in the offshore
-region [@fig:context]. A number of workers have suggested that translation of
-the Monterey plate along the San Andreas system entailed significant
-sub-horizontal fault segments that accommodated dextral displacements
-[@Furlong1989; @Pikser2012]. As of yet, however, all
-remotely imaged segments of the transform system have been shown to be
-steeply oriented [@Dietz1990; @Brocher1999; @Yan2005; @Titus2007; @Yan2007; @Ozacar2009].
-According to the @fig:reconstruction reconstruction, the Crystal Knob eruption site
+fault system, and ~100 km of additional dextral offsets in the offshore
+region [@fig:context] as modeled both by geologic reconstruction
+of fault offsets along the San Gregorio--Hosgri system [@Dickinson2005]
+and geodynamic restorations [@Wilson2005].
+This translation in conjunction with a relict subduction interface
+projecting eastward at depth would require translation along an
+eastward-dipping surface beneath the Coast Ranges.
+The analysis presented here argues against models invoking horizontal
+translation of the Monterey plate as a “dangling slab” through the
+upper mantle of the coastal region of southern to central California by
+its coupling to Pacific plate motions [@VanWijk2001; @Pikser2012; @Wang2013].
+This can be argued against on the basis of seismological, geodynamic, and surface geological relations.
+
+As shown in the @fig:reconstruction reconstruction, the Crystal Knob eruption site
 was above the Pacific-Farallon slab window ~50-100 km north of the
 northeast margin of the partially subducted Monterey plate. The narrow
 slab window segment shown along the eastern edge of the partially
 subducted plate marks the plate’s separation locus with the Farallon
 plate, which subsequently opened wider beneath the southern California
 region as the Farallon plate descended deeper into the mantle
-[@Atwater1998; @Wilson2005]. Over the time interval of ca. 22-10 Ma the Monterey plate’s dextral motion relative to the subducting
+[@Atwater1998; @Wilson2005]. Over the time interval of ca. 22-10 Ma,
+the Monterey plate’s dextral motion relative to the subducting
 trench had a nontrivial divergence component, as a result of it’s
 coupling to the Pacific plate. The likelihood of extensional attenuation
 of the underthrust portion of the Monterey plate during such divergent
-motion is non-explored, but strongly implied in \citet[]['s]{Bohannon1995} reconstruction.
+motion is non-explored, but strongly implied in the @Bohannon1995 reconstruction.
 Coupling of Monterey plate divergent motion
 across the subduction megathrust break is hypothesized to have driven
-dextral transrotational rifting [@Bohannon1995]. As western
-Transverse Range rock panels rotated into their current position from
+dextral transrotational rifting [@Bohannon1995].
+
+As western Transverse Range crustal panels rotated into their current position from
 transrotational rifting, the Monterey plate continued its northward
 displacement along the San Gregorio-Hosgri fault system [@fig:context]. Note
-that on Figure 18 the outer edge of the Farallon-Monterey slab window is
+that on @fig:neogene_cross_sections the outer edge of the Farallon-Monterey slab window is
 on trend with the San Gregorio-Hosgri fault system. Distinct steps and
 inflections in lower crustal velocity structure across this fault system
 [@Brocher1999] indicates that it cuts the entire crust. This
 poses the likely possibility that the San Gregorio-Hosgri fault system
 bounds the eastern margin of underplated Monterey plate in the coastal
 central California region. This is in line with seismic observations
-showing an ~16 E dip to the Monterey plate offshore, with a typical
+showing an ~16º eastward-dipping Monterey plate offshore, with a typical
 abyssal crustal thickness, juxtaposed against a nearly flat thickened
 lower crustal layer beneath the Nacimiento Franciscan  [@Trehu1991; @Nicholson1992].
-These observations are in direct conflict with the notion that a structurally continuous mafic layer constitutes the
+These observations are in direct conflict with the notion that
+a structurally continuous mafic layer constitutes the
 lower crust beneath the central coastal California and adjacent offshore
-region, as dismissed in the discussions above.
+region.
 
-## Difficulties with a Monterey Plate dangling slab
+A number of workers have suggested that translation of
+the Monterey plate along the San Andreas system entailed significant
+sub-horizontal fault segments that accommodated dextral displacements
+[@Furlong1989; @Pikser2012]. As of yet, however, all seismically imaged
+segments of the transform system have been shown to be
+steeply oriented [@Dietz1990; @Brocher1999; @Yan2005; @Titus2007; @Yan2007; @Ozacar2009].
 
-The analysis presented above argues against models of the Monterey plate
-having been translated horizontally as a “dangling slab” through the
-upper mantle of the coastal region of southern to central California by
-its coupling to Pacific plate motions [@VanWijk2001; @Pikser2012; @Wang2013].
-This can be argued against on the basis of seismological, geodynamic and surface geological relations.
 All such models rely on the untenable notion that a structurally continuous mafic
 layer, representing stalled Monterey plate, constitutes the lower crust
 beneath the entire coastal central California and offshore region (see
@@ -268,7 +280,7 @@ it stands to reason that upper mantle duplex accretion progressed
 westwards from the Mojave region to beneath the Salinia
 nappes as well as the Nacimiento belt of the Franciscan.
 
-In [@fig:cross_sections] we present a model for the tectonic
+In @fig:cross_sections, we present a model for the tectonic
 underplating of the Farallon plate mantle lithosphere beneath
 the Mojave-Salinia-Nacimiento segment of
 the SW Cordilleran convergent margin in the Late Cretaceous [after @Saleeby2003; @Luffi2009].
@@ -277,8 +289,8 @@ LIP [after @Saleeby2003; @Liu2010]. The approximate age of
 Farallon plate entering the trench is shown on each frame [after @Seton2012].
 Crustal deformation, timing and thermal conditions, as
 applied to our thermal modeling presented below, are integrated from
-@Kidder2006 and @Chapman2010; @Chapman2012; @Chapman2016a. Figure
-17a and b show the arrival of the oceanic plateau into the subducting
+@Kidder2006 and @Chapman2010; @Chapman2012; @Chapman2016a.
+@fig:cross_sections a and b show the arrival of the oceanic plateau into the subducting
 trench, and plateau buoyancy driven shallowing of the subduction
 megathrust, which drove tectonic erosion of the mantle wedge.
 Temperature conditions along the flat subduction megathrust initiated at
@@ -315,7 +327,7 @@ underplated as the seismically imaged thickened mafic lower crust of the
 region [@Trehu1991; @Brocher1999]. On the basis of the regional
 structural evolution of the central to southern California basement, and
 on the petrogenetic history recorded in the region's mantle xenolith
-suites, we consider the @fig:cross_sections[d] section to be that most likely sampled by
+suites, we consider the @fig:cross_sections d section to be that most likely sampled by
 the Crystal Knob eruption. This section is idealized for Late Cretaceous
 time, and below we layer on the complexity of late Cenozoic faulting in
 our analysis. We focus now to thermal history in order to more
@@ -351,42 +363,4 @@ significant late Cenozoic extensional faulting in the immediate region
 implies a strong thermo-mechanical lid that likely suppressed the ascent
 of voluminous asthenosphere derived magmas that were hypothetically
 sourced from a deep underlying slab window.
-
-## Geothermal implications
-
-The Farallon Plate, Monterey Plate, and slab window scenarios for mantle
-lithosphere emplacement all imply a peridotite composition with a
-depleted (convecting-mantle) isotopic and trace-element signature.
-Though petrographic and geochemical variations can provide information
-on the fractionation history, they cannot discriminate between these
-potential depleted convecting mantle sources. However, these emplacement
-scenarios present potentially distinct thermal structures due to the
-large differences in timescales of cooling.
-
-The Farallon-- and Monterey--plate scenarios are qualitatively similar,
-with initial emplacement beneath a mid-ocean ridge and cooling on the seafloor. After
-subduction and underplating, the cooled oceanic lithosphere
-re-equilibrates with an overlying 30 km of forearc crust until the
-present, pr for our xenolith samples until the time of entrainment and
-eruption. However, the timescales of cooling are significantly different. In
-the Farallon-plate scenario, the maximum age of underplating is 70 Ma,
-based on the youngest ages of the most pertinent (Sierra de Salinas and
-correlative San Emigdio-Rand) schist bodies
-[@Barth2003; @Grove2003; @Saleeby2007; @Chapman2010]. Seafloor being subducted at that time was 40 Myr old
-[@Seton2012; @Liu2010]. This 110 Myr cooling history implies a relatively cold
-modern geotherm. The potential Monterey Plate mantle lithosphere would have
-been emplaced under the ridge at 27 Ma (corresponding to the chron 9
-magnetic anomaly) and subducted shortly thereafter [@Atwater1998; @Wilson2005],
-leaving a much shorter period for relaxation of the geotherm. The
-emplacement of slab-window asthenosphere directly under the coastal
-central California crust entails
-the truncation of a low-temperature forearc geotherm at 19 Ma
-[@Atwater1998] and the substitution of an asthenospheric adiabat below
-this level. This scenario would provide the hottest modern geotherm,
-which, according to @Erkan2008, is too hot to correspond to the
-modern regional geotherm. <!-- (Daven, are they referring to the region
-under CRTA, or the cooler Great Valley and Sierra Nevada) -->
-
-<!--[[reconstruction]]-->
-
 

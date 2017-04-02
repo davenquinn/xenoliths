@@ -24,8 +24,14 @@ olivine. This variability means the samples were likely entrained at several
 depths. Considering broad limits imposed by phase stability and temperature,
 the samples are likely sourced between 40 and 80 km depth. The
 higher-temperature samples show general REE depletion but sharp enrichment in
-LREEs, potentially showing a history of melt extraction followed by off-axis
-refertilization.
+LREEs, potentially the signature of a relict heating event. Sample CK-6
+shows anomalous major-element refertilization, perhaps relating to a .
+
+The samples show depth constraints from the spinel facies and
+Ca-in-olivine barometry that give them a likely depth range of 40-60 km
+for the xenolith samples. This correspond to regional geothermal
+gradients ranging from 70-90 mW/m2, in good agreement with regional heat
+flow measurements. The Pleistocene thermal structure for the 
 
 Forward modeling of thermal evolution is used to construct a range of scenarios
 for the age of the underplated Farallon slab and structure of the margin.

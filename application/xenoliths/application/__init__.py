@@ -1,5 +1,5 @@
 from flask import jsonify
-from flask.ext.migrate import Migrate
+from flask_migrate import Migrate
 
 from .base import Application
 from ..database import db
