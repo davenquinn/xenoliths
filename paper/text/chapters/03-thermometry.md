@@ -9,7 +9,7 @@ account for errors arising from high Al content.
 The Ca-in-orthopyroxene (Ca-OPX) thermometer [@Brey1990] is formulated for
 use in the absence of clinopyroxene.
 Together, these thermometers can query the full range of major-element compositions
-seen in the Crystal Knob dataset.
+seen in the Crystal Knob xenolith samples.
 
 <!--[[thermometry]]-->
 
@@ -22,7 +22,7 @@ Other sources of error include the calibration of the thermometer
 and potential bias from within-sample disequilibrium. @Taylor1998
 reports residuals of calibration of the thermometer to experimental
 data which yield total errors of 50-60ºC (1$\sigma$). Unreported calibration errors for the
-BKN and Ca-OPX thermometers are likely similar in scale. In practice,
+BKN and Ca-OPX thermometers are likely similar in scale [@Taylor1998]. In practice,
 error distributions based on calibration with heterogeneous experimental
 samples likely form an upper bound on relative errors. Within-sample scatter in measured temperatures
 can be used to estimate the relative error of the thermometer, and the relative
@@ -79,8 +79,8 @@ show significant scatter to temperatures ~180 ºC higher than grain cores
 (CK-5 and CK-7 contain a few measurements of this type as well).
 High and variable rim compositions may be related to fluid infiltration
 during entrainment and eruption of the xenoliths, but with significant
-mobilization of cations was limited to grain rims. CK-4, which shows high core temperatures
-and the most significant petrographic evidence of melt interaction, has no
+mobilization of cations limited to grain rims. CK-4, which shows high core temperatures
+and the most significant petrographic evidence of melt interaction, lacks
 high-temperature rim compositions, implying more sustained equilibration with the Crystal
 Knob melt.
 
@@ -95,7 +95,7 @@ The high-temperature samples show significantly higher levels of REE depletion, 
 as some amount of re-enrichment in LREEs. They also contain chromian spinels, which are a product of increased
 levels of melt extraction.
 This temperature distribution may signify sourcing of these two sets of xenoliths from different
-depths within a magmatic system. Throughout this paper, the samples are color-coded, with
+depths within a magmatic ascent system. Throughout this paper, the samples are color-coded, with
 blue-green corresponding to the low-temperature array, and red-yellow representing
 the high-temperature samples.
 
@@ -116,14 +116,15 @@ Rare-earth abundances are compiled for SIMS measurements of
 pyroxene phases in contact (2--3 pairs) for each xenolith sample.
 A two-pyroxene equilibrium is calculated for each REE element and Y,
 equivalent to $T_i [K] = B_i (\ln(\D_i)-A_i)^{-1}$.
-These per-element equilibration temperatures are shown in @fig:ree_thermometry.
+These per-element equilibration temperatures are shown in
+@fig:ree_thermometry.
 The best-fitting line from the origin through each point
 in $B$ vs. $\ln(\D)-A$ space
 (using a robust regression with a Tukey biweight norm) yields
 the equilibrium temperature for each sample.
 Significant outliers from the fit are excluded from the thermometry.
 
-### Disequilibrium between phases
+### Rare-earth disequilibrium between phases
 
 CK-3 shows disequilibrium in La only, while CK-5 and CK-7 have disequilibrium
 in several of the LREEs.
@@ -149,13 +150,13 @@ amount of \ce{Eu^{2+}} exists in these samples and that it is strongly
 partitioned between orthopyroxene and clinopyroxene. Moreover, the dataset
 suggests an incorrect partition coefficient, with Eu favoring orthopyroxene at
 a factor of up to 10. Since this disequilibrium exists between pyroxenes, it is
-unlikely to correspond to fractionation into plagioclase, the usual culprit for
+unlikely to correspond to fractionation into plagioclase, the usual source
 Eu depletions in melt residues. However, this could be the case if quicker
 diffusion of Eu out of clinopyroxenes is invoked, and the samples were never
 fully equilibrated. The exact kinetics of this scenario are unclear, but it is
 likely that REE equilibrium was achieved in a reducing environment
-<fixme>(Asimow and Blundy, personal communication)</fixme>, or Eu rapidly and
-differentially diffused into the Crystal Knob melt just prior to eruption.
+<fixme>(P. Asimow and J. Blundy, personal communication)</fixme>, or Eu rapidly and
+differentially diffused out of the Crystal Knob xenoliths just prior to eruption.
 Discerning between these scenarios is difficult due to the low Eu counts
 measured using ion-microprobe techniques.
 
@@ -192,7 +193,8 @@ slower than major elements [@Liang2013], so early thermal events can
 leave an imprint on the distribution of rare-earths for much longer than
 with major elements. It is likely that these higher temperatures are a
 signature of a fossil heating event primarily affecting the deepest
-samples. This is accompanied by major REE disequilibrium in sample CK-4,
+samples.<comment>Bring this back in during later discussion of the deep
+slab window.</comment> This is accompanied by major REE disequilibrium in sample CK-4,
 which also contains the most intergranular melt channels.
 
 Sample CK-4 records a significantly higher temperature for LREE than
@@ -200,7 +202,8 @@ both the other samples and its own HREE equilibration temperatures.
 This likely shows that the LREEs were equilibrated at a much higher temperature than the
 HREEs. This pronounced within-sample disequilibrium could be the result
 of metasomatic processes, which is bolstered by the fact that CK-4 shows
-the only significant melt-infiltration textures in the sample set. It is
+the only significant melt-infiltration textures in the sample set
+<comment>Also significant in light of history</comment>. It is
 likely, therefore, that CK-4 was subjected to a short, transient heating
 event that was not fully equilibrated in HREE. Further, since this
 transient heating is not reflected in major-element temperatures, it is

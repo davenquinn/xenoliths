@@ -4,7 +4,7 @@ Source of Crystal Knob xenoliths
 #context
 Map of southern California showing the geologic setting
 of Crystal Knob and its placement relative to other tectonic
-features, such as Neogene sinistral faults and the stalled Monterey microplate.
+features, such as Neogene dextral faults and the stalled Monterey microplate.
 Xenolith sampling locations that backed up previous studies are shown:
 the Central and Eastern Sierran suites show a record of delamination of
 a batholithic root [@Ducea1996] and Mojave sites show underplating of
@@ -29,8 +29,10 @@ a host lava groundmass containing <100 µm phenocrysts of olivine, pyroxene, and
 and spinel (sp).
 
 #reconstruction
-Tectonic reconstruction of the California margin at 19 Ma showing tectonic
-provinces of Salinia restored for offset along the San Andreas system.
+Tectonic reconstruction of the California margin at 19 Ma showing the
+early evolution of the San Andreas transform system, offshore oceanic
+plates, and Cretaceous batholithic belt. Exposures of Salinia nappes
+are shown as red patches west of the future San Andreas Fault.
 The view shows the disaggregated Mojave--Salinia batholith and surface
 outcrops of subduction channel schists in the Mojave province. Reconstruction
 of Salinian lithologic features from @Schott1998, @Schott2001, @Chapman2012, and @Dickinson2005
@@ -189,7 +191,8 @@ a Cretaceous Farallon slab both with and without deep slab-window reheating are 
 
 #cross_sections
 Cross sections showing the evolution of southern California during
-subduction of a large oceanic plateau during the late Cretaceous.
+subduction of a large oceanic plateau during the late Cretaceous, and
+underplating of Farallon-plate mantle nappes during slab rollback.
 
 #neogene_sections
 Schematic cross-sections showing potential scenarios for modification of the
@@ -197,11 +200,11 @@ marginal mantle lithosphere at the end of subduction in the early Miocene.
 **A**: Migration of the East Pacific mantle
 upwelling beneath the continental margin, forming a slab window and causing
 wholesale replacement of sub-Salinia mantle lithosphere with abyssal material.
-**B**: Similar to **A**, but with heating of mantle lithosphere from below
-without wholesale replacement.
-**C**: Breakoff of slab at depth (presumably the rotated Monterey microplate)
-and dextral strike-slip translation beneath te continental margin, replacing
-marginal continental mantle lithosphere \figp{monterey_plate}.
+**B**: Translation of the Monterey plate stalled slab along the former
+subduction megathrust to a current position beneath the California Coast
+Ranges [after @Pikser2012]
+**C**: Translation of Monterey plate fragment along Hosgri fault after
+following slab breakoff in the Transverse Ranges region.
 
 #monterey_plate
 Schematic representation of the Monterey plate dangling slab scenario

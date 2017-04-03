@@ -1,9 +1,10 @@
-## Contemporary lithospheric structure and thermal state
+# Contemporary lithospheric structure and thermal state
 
 In this section we integrate the results of our thermal modeling with
 our petrogenetic findings on the Crystal Knob xenoliths, regional
 crustal structure and evolution, and the timing and map position of
-xenolith entrainment. Of the three plausible scenarios depicted for the
+xenolith entrainment.
+Of the three plausible scenarios depicted for the
 evolution of the sub-Crystal Knob mantle lithosphere on Figure \ref{neogeone_sections} we
 reject the shallow slab window emplaced asthenosphere case based on our
 thermal modeling presented above. The Monterey plate stalled slab and
@@ -12,6 +13,7 @@ based on our thermal modeling. Based on a wide spectrum of geologic and
 geodynamic factors, that were discussed above, we dismiss the notion suggested by @Pikser2012
 of a regionally extensive Monterey Plate "dangling slab" extending far to
 the east of the San Andreas fault.
+
 Depending on the original scale of Monterey Plate underthrusting beneath
 the southern California borderland region [@fig:neogene_sections], its structural
 integrity following its coupling to borderland transrotational rifting,
@@ -41,7 +43,7 @@ plate bounded to the east by the San Gregorio-Hosgri fault, based on our
 above discussion of the @fig:reconstructions reconstruction. East of the fault lies
 the Nacimiento Franciscan complex and its tectonic veneer of Salinia
 nappes (not differentiated on the figure), and its lower crustal oceanic
-crustal duplex tectonically above underplated Farallon plate mantle
+crustal duplex lying tectonically above underplated Farallon plate mantle
 nappes. The structural profile shown on Figure \ref{neogene_sections}c between the San
 Andreas and San Gregorio-Hosgri faults was constructed at southern
 California latitudes in continuity with that of the southernmost Sierra
@@ -55,8 +57,24 @@ reconstructed to have occurred between ca. 28-23 Ma [@Atwater1998; @Wilson2005].
 As posited above, a thick and relatively cool lithospheric lid
 inhibited widespread voluminous volcanism in response to asthenospheric
 upwelling during the opening of the slab window.
+Petrologic markers within the Crystal Knob xenolith suite and the late
+timing of the Crystal Knob eruption can be related to interaction of
+the lithospheric lid from which the xenoliths were sourced and an
+underlying deep slab window [@fig:neogene_sections c].
 
-### Origin of the Crystal Knob basalt
+## Implications of petrologic complexities to thermal state
+
+The Crystal Knob xenolith suite shows petrologic variation consistent
+with reheating from below.
+
+Spike in high-temperature scenarios from rare-earth barometers
+
+@Kelemen2000
+Reference Keleman: melt channels for peridotites, fractal scaling, melt channels
+Cumulates getting re-entrained. 
+
+
+## Origin of the Crystal Knob basalt
 
 The time lag between deep slab window opening and the ca. 1.7
 Ma eruptive age of Crystal Knob presents a problem for the origin of the
@@ -67,8 +85,8 @@ beneath the central California Coast Ranges [@Li2007]. In
 contrast, 28-20 Ma old oceanic lithosphere of the adjacent Monterey plate
 [@Wilson2005], would have its lithosphere-asthenosphere boundary at ~35 km,
 based on thermal decay relations [@Doin1996].
-The offshore Monterey plate is at the edge of \citet[]['s]{Li2007}
-resolution, which yields an ~50 km depth for the
+The offshore Monterey plate is at the edge of the
+resolution of @Li2007, which yields an ~50 km depth for the
 lithosphere-asthenosphere boundary.  Proximal to the modern shoreline
 the Monterey plate is thrust beneath ~12 km of sedimentary accretionary
 prism [@Trehu1991], bringing the thermal maturation theoretical depth
@@ -83,10 +101,12 @@ transform faults [@Platt2011; @Titus2007] indicate
 that at lower crustal--upper mantle levels Hosgri fault shear could be
 distributed across 10s of kilometers normal to the fault surface
 [@fig:neogene_sections].
-Eruption of small-volume basaltic flows of Plio-Pleistocene age,
-some with lower crust and upper mantle xenoliths also occurred ~150 km
-north of Crystal Knob along the San Andreas-Calaveras fault bifurcation
-zone [@Jove1998; @Titus2007]. Xenoliths recovered
+Eruption of small-volume basaltic flows of Plio-Pleistocene age occurred
+elsewhere in the Coast Range belt. This includes
+the Coyote Lake pipe [@fig:context], which occurred ~150 km north
+of Crystal Knob along the San Andreas-Calaveras fault bifurcation
+zone and entrained lower crust and upper mantle xenoliths [@Jove1998; @Titus2007].
+Xenoliths recovered
 from these flows record asthenosphere ascent and partial melting that
 markedly post-dates any possible slab window opening, and thus the
 Crystal Knob small volume eruption is not an exceptional event.
@@ -109,23 +129,11 @@ basaltic eruptions [@Erkan2008, Figure 1], further
 suggesting recent mobilization of asthenospheric mantle that was
 initially emplaced into the early Neogene slab window.
 
-## A re-interpretation of high surface heat flows in the Coast Ranges
-
-@Erkan2008 pointed out that heat flow for the stalled slab scenario was too low to
-fully explain anomalous heat flows in the Coast ranges.
-Model-predicted heat flows lower than measured values could be explained
-by added heat flux from shear heating [@Thatcher1998] or erosion [@Mancktelow1997;@England1990]
-
-<!--[[model_comparison]]-->
-
-Estimating erosion is beyond the scope of this study, but pulses of recent erosion
-in the Coast Ranges are <!-- see Ducea et al. (2003) for rapid late
-Cenozoic uplift of the Santa Lucia’s -->
-
-- Correspond to results of @Erkan2008
-
 Conclusion
 ==========
+
+Petrographic, trace element and Sr-Nd isotopic data imply a convective
+mantle origin for the mantle lithosphere beneath 
 
 - Slab window is really hot!
 - Farallon plate and older forearc are really cold

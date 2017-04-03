@@ -26,7 +26,7 @@ column through the Late Cretaceous convergent margin belt of the SW North
 American Cordillera. This regionally extensive belt is characterized by
 a large-volume continental magmatic arc,
 generated as the Farallon oceanic plate subducted eastward beneath western
-North America [@Bateman1992]. The Franciscan complex represents the
+North America [@Ducea2015]. The Franciscan complex represents the
 crustal level accretionary complex of this subduction zone, and is widely
 recognized for its tectonic inclusion of Farallon plate oceanic basement and
 pelagic sediment fragments, as well as upper plate magmatic arc derived
@@ -85,7 +85,7 @@ is the southern continuation of the Sierra Nevada batholith across the Garlock
 fault. In this restored position the crystalline nappes that constitute Salinia
 correlate to deeply exhumed Cretaceous arc plutonic rocks of the southernmost
 Sierra Nevada batholith and the northwestern zones of the southern California
-batholith, widely exposed in ranges of the Mojave plateau
+batholith, the latter widely exposed in ranges of the Mojave plateau
 [@Saleeby2003; @Barbeau2005; @Chapman2012]. These deeply exhumed batholithic
 rocks all share a common regional upper plate position above a polyphase low
 angle fault system below which Franciscan-affinity, mainly metaclastic rocks,
@@ -102,7 +102,7 @@ subduction megathrust segment is attributed to the ephemeral buoyancy effect
 resulting from the subduction of the conjugate massif to the Shatsky Rise
 oceanic LIP [@Livaccari1981; @Sliter1984; @Saleeby2003], which is
 currently resolved in deep seismic tomographic images beneath the interior of
-North America [@Liu2010]. The tectonic position and state of structural
+North America [@Liu2010; @Sun2017]. The tectonic position and state of structural
 attenuation of the Salinia nappes, as well as adjacent (Salinia restored
 position) deeply exhumed batholithic rocks, derives from both shallow
 subduction megathrust displacements, and subsequent large magnitude
@@ -134,7 +134,7 @@ megathrust system [@Saleeby2003; @Chapman2016b]. In contrast to the
 central Sierra xenolith suite, mantle xenoliths recovered from the eastern
 margin of the southern California batholith record the tectonic erosion of
 sub-continental mantle lithosphere (including Cretaceous mantle wedge), and the
-underplating of Farallon plate mantle lithosphere [@Shervais1973; @Luffi2009].
+underplating of Farallon plate mantle lithosphere [@Shervais1973; @Luffi2009; @Shields2016].
 More specifically the Dish Hill suite [@fig:context] samples an upper
 mantle duplex with imbricated nappes of Farallon plate oceanic mantle lying in
 structural sequence beneath a relatively thin roof of attenuated continental
@@ -155,8 +155,8 @@ than the Cretaceous mantle wedge suite from the central Sierra
 reveal asthenospheric mantle extending upwards to the base of the crust at ~30 km
 depth [@Jones1998; @Zandt2004; @Frassetto2011; @Jones2014],
 consistent with the eastern Sierra xenolith suite findings.
-The xenolith sites within the eastern Sierra suite are superposed atop the <10 Ma
-Owens Valley rift system [@fig:context], which is driven by upper mantle convection.
+The xenolith sites within the eastern Sierra suite were erupted within the <10 Ma
+Owens Valley rift system [@fig:context], which is presumably driven by upper mantle convection.
 Convective ascent of asthenosphere to relatively shallow levels and late
 Cenozoic regional volcanism of the central to southern California region are
 correlated to the opening of the Pacific-Farallon slab window

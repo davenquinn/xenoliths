@@ -2,54 +2,17 @@
 dir=$PROJECT_DIR/versioned/paper
 cd $dir
 
-# collect includes
-bin/collect-figures
-
-build_dir='build'
-
 infile=text/body.md
-body="$build_dir/draft_body.tex"
+output="output/Crystal-Knob.docx"
 bibfile="source/references.bib"
-texfile="$build_dir/draft.tex"
-auxfile="${texfile:r}.aux"
 
-function run-latex {
-  xelatex -interaction=nonstopmode -output-directory $build_dir $1
-}
-
-mkdir -p build
-
-rm -f $body build/abstract.tex build/figure-list.tex
 # Process body text
 # Correct for pandoc-crossref annoyingness
-cat text/chapters/*.md \
+cat text/abstract.md text/chapters/*.md \
 | sed -r "s/\[((@(fig|eq|sec|tab):\w+;? ?)*)\]/\\\[\1\\\]/g" \
-| paper markdown-to-latex \
-> $body
-# Process abstract
-cat text/abstract.md \
-| paper markdown-to-latex \
-> build/abstract.tex
+| pandoc -t docx --metadata=draft:true \
+       --filter pandoc-comments \
+       --filter pandoc-crossref \
+       --bibliography=$bibfile \
+       --csl="source/lib/agu.csl" -o $output
 
-if [[ ! -f $auxfile ]]; then
-  run-latex $texfile
-fi
-
-# Making figure list
-figures list \
-  text/includes.yaml \
-  --captions text/figure-captions.md \
-  --collect-dir collected \
-> build/figure-list.tex
-
-cp source/draft.tex $texfile
-
-# Filter bibliography
-LIBRARY="/Users/Daven/Resources/Papers/BibTeX/library.bib"
-bib-filter --clean --aux $auxfile $LIBRARY $bibfile
-# rebuild citations
-bibtex $auxfile
-
-run-latex $texfile
-
-mv build/draft.pdf output/draft.pdf

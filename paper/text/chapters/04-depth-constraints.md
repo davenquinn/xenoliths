@@ -11,7 +11,7 @@ with equilibration temperatures, provides a fully-defined constraint on the
 geotherm beneath Crystal Knob at the time of eruption. For spinel
 peridotites, equilibration depths can only be analytically
 determined within broad boundaries. With no reliable geobarometers for spinel peridotites,
-several less robust measures are used to evaluate the depth
+several less robust metrics are used to evaluate the depth
 of the xenolith source. We present several lines of reasoning suggesting that the
 xenoliths were sourced along a depth gradient relatively deep within the spinel stability
 field, between roughly 45 and 80 km.
@@ -42,7 +42,7 @@ Several experimental and thermodynamic studies have attempted to
 estimate the magnitude of this effect.
 @ONeill1981 presented experiments both with and without Cr and described
 a simple empirical relationship of spinel-out depth with Cr content and temperature.
-@Robinson1998 suggests that, given fertile "Pyrolite" compositions with little
+@Robinson1998 suggests that, given fertile "pyrolite" compositions with little
 Cr,  garnet is unstable at depths less than 80 km at the peridotite solidus (~1470ºC at this depth).
 Subsolidus experimental results show that the maximum depth of the spinel
 stability field in the absence of Cr ranges from 1.8-2.0 GPa (55-60 km) at 1000-1200ºC
@@ -193,7 +193,7 @@ lithosphere-asthenosphere boundary occurring at
 steady-state geotherms of 70-80 mW/m^2.
 
 The integration of depth constraints on the xenolith samples from multiple
-sources gives a broad set of constraints on the depth of the Crystal
+sources gives a broad set of constraints on the depth of origin of the Crystal
 Knob xenoliths within the mantle lithosphere at the time of their eruption.
 For reasonable slopes of the sub-Salinian geotherm,
 the range of temperatures in the sample set indicates sourcing over a
@@ -204,14 +204,12 @@ composition-dependent lower limit of the spinel stability field.
 Ca-in-olivine barometry suggests a tighter set of constraints near the center of the spinel stability field.
 Model depths of 45-55 km prepared from steady-state geotherms agree with
 this assessment. Given the bias in both Ca-in-olivine and heat-flow
-measurements to shallower depths, we take the depth range of 50-70 km as
-a likely source region for the 
-We next turn
-to the accuracy of this extrapolation from heat flow values,
+measurements towards shallower depths, we take the depth range of 50-70 km as
+a likely entrainment depth for the Crystal Knob xenoliths.
+We next turn to the accuracy of this extrapolation from heat flow values,
 and its implication for understanding the thermal structure of the lithosphere.
 
-
-### The origin of the Crystal Knob volcanic pipe
+<comment>### The origin of the Crystal Knob volcanic neck
 
 Extension in the lower crust?
 Of family with small eruptive episodes such as Coyote Creek (based on
@@ -219,4 +217,5 @@ eruptive age)
 
 Fossil heating event affecting CK-4 LREE. This is not the most recent
 perturbation because it's not reflected in the major element thermometers
+</comment>
 

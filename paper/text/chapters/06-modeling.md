@@ -1,24 +1,24 @@
-# Modeling of tectonic scenarios
+# Thermal modeling of tectonic scenarios
 
-The Farallon Plate, Monterey Plate, and slab window scenarios for mantle
-lithosphere emplacement all imply a peridotite composition with a
+The Farallon Plate, Monterey Plate, and slab window scenarios for
+the source of the Crystal Knob xenoliths all imply a peridotite composition with a
 depleted (convecting-mantle) isotopic and trace-element signature.
-Though petrographic and geochemical variations can provide information
-on the fractionation history, they cannot discriminate between these
+Though petrographic and geochemical variations provide information
+on the depletion history, they cannot discriminate between these
 potential depleted convecting mantle sources. However, these emplacement
 scenarios present potentially distinct thermal structures due to
-variable timescales of cooling as well as .
+large differences in timescales of cooling.
 
 The Farallon-- and Monterey--plate scenarios are qualitatively similar,
 with initial emplacement beneath a mid-ocean ridge, and cooling on the seafloor. After
 subduction and underplating, the cooled oceanic lithosphere
 re-equilibrates with an overlying 30 km of forearc crust until the
-present, pr for our xenolith samples until the time of entrainment and
+present, or for our xenolith samples until the time of ca. 1.7 Ma entrainment and
 eruption. However, the timescales of cooling are significantly different. In
 the Farallon-plate scenario, the maximum age of underplating is 70 Ma,
 based on the youngest ages of the most pertinent (Sierra de Salinas and
 correlative San Emigdio-Rand) schist bodies
-[@Barth2003; @Grove2003; @Saleeby2007; @Chapman2010].
+[@Barth2003; @Grove2003; @Saleeby2007; @Chapman2010; @Chapman2016].
 Seafloor being subducted at that time was 40 Myr old
 [@Seton2012; @Liu2010]. This 110 Myr cooling history implies a relatively cold
 modern geotherm. The potential Monterey Plate mantle lithosphere would have
@@ -40,14 +40,10 @@ under CRTA, or the cooler Great Valley and Sierra Nevada) -->
 
 ## Model setup
 
-Evaluation of potential thermal scenarios sampled by Crystal Knob
-requires constraints on the implied present geotherm.
-Forward-modeling of the initial thermal conditions will help assess the
-level of separation between the scenarios after 25 Myr or more of
-re-equilibration beneath the continental margin.
-To distinguish between potential emplacement mechanisms for this mantle
-lithosphere, a forward model of the geotherm implied by each case is
-constructed.
+To distinguish between potential emplacement mechanisms for the mantle
+lithosphere sampled by Crystal Knob, a forward model of the geotherm
+implied by each of the tectonic scenarios shown in @fig:neogene_sections
+is constructed.
 A model based on the one-dimensional heat-flow equation
 \begin{equation}
 \frac{\partial T}{\partial t} = \frac{k}{\rho C_p} \frac{\partial^2
@@ -70,9 +66,7 @@ Given the range of potential geothermal scenarios, models for the
 emplacement of depleted mantle lithosphere under the central coastal
 California region can
 be tested by comparison of their implied geothermal structure with xenolith
-geothermometry. However, this analysis is a crude approximation due to a lack of well-constrained geobarometers for spinel
-peridotites.
-
+geothermometry.
 
 ### Oceanic geotherm
 
@@ -115,7 +109,9 @@ megathrust segment.
 2 uW/m^3 for radiogenic heat production in the crust
 is actually a relatively conservative estimate given the fluxes implied for
 Sierra Nevada batholithic material by @Brady2006, and the fact that much of the
-subduction channel material is pelitic sediment rich in radiogenic elements <comment>should put some reference to Franciscan radiogenic heat</comment>.
+subduction channel material is pelitic sediment rich in radiogenic elements
+<comment>should put some reference to Franciscan radiogenic heat or just
+pelitic sediments</comment>.
 <!-- Check Kidder2013 and Brady2006 -->
 
 ### Underplating
@@ -162,11 +158,12 @@ This model framework has several simplifications.
 Surface erosion after underplating is taken to be zero. The majority of
 erosion to the mid-crustal levels now at the surface in Salinia is
 likely to have occurred in a major pulse of unroofing coincident with
-flat-slab underplating and rollback [@Chapman2012], and is thus likely to
+flat-slab underplating and rollback [@Saleeby2003; @Chapman2012], and is thus likely to
 disproportionately affect the older models. The lack of erosion
 in the model framework will likely bias the results to lower geothermal
 gradients overall, as advection of material upwards increases the
-geothermal gradient.
+geothermal gradient. <comment>Shift everything up by an appropriate
+amount</comment>.
 
 The confounding factor of an active subduction zone just outboard of the
 scenarios for the older models is also not treated.
@@ -177,10 +174,12 @@ detached nappe from below. This is not modeled because it would
 substantially increase model complexity (requiring a fully
 iterative approach to the forearc geotherm), and at this
 distance (~100 km) inboard of the final trench interface, there is
-limited scope for further episodic rollback after emplacement of the nappe of interest.
+limited scope for further episodic rollback after emplacement of the
+nappe(s) of presumed xenolith source.
+
 The subduction zone will have the effect of cooling the
 mantle lithosphere from below for the cases in which subduction is
-modeled [Figure \ref{model_comparison}b and c], which are already near
+modeled [@fig:model_comparisons\ b and c], which are already near
 the coolest permitted by our xenolith constraints.
 However, the subduction of progressively younger crust until
 the shutoff at ~27 Ma will gradually increase the heat on the bottom of the lithosphere.
@@ -201,19 +200,22 @@ is run to great depth to avoid any influence on the surface geotherm. However,
 Farallon and forearc scenarios can be treated as maximum temperatures because of
 the influence of the overriding slab.
 
+<comment>
+Model-predicted heat flows lower than measured values could be explained
+by erosion [@Mancktelow1997;@England1990].
+</comment>
 
 <!--[[model_results]]-->
 
 
 ### Model results
 
-<comment>Need to rework still</comment>
-Model results are presented as geotherms at specific events in @fig:model_results
+Model results are presented as geotherms corresponding to specific model steps in @fig:model_results
 and as temperature--time tracers in @fig:model_comparison.
 For the underplating scenario, the @Royden1993a forearc model
 predicts low temperatures (~235-245 ºC) at the subduction
 interface. This is quite low relative to the temperatures predicted for
-the Sierra Pelona schist (~700 ºC) by @Kidder2013, or
+the Pelona schist (~700 ºC) by @Kidder2013, or
 700-800 ºC derived as an emplacement constraint for the Sierra de
 Salinas schist [@Kidder2006]. In the stalled
 Monterey-plate scenario, temperature is predicted to be
@@ -238,7 +240,7 @@ We would expect a deep Miocene slab window event (depicted in Figure
 The model predicts much higher temperatures within the mantle lithosphere, and
 much higher geothermal gradients, for the slab window than for the
 Farallon-plate or stalled-slab models. The geothermal gradients implied for
-this scenario are much higher than that which is observed in the Coast Ranges.
+this scenario are much higher than those is observed in the Coast Ranges.
 This corresponds to the model findings of @Erkan2008. However, these studies
 concluded that the low heat flows must be due to a stalled slab, where in fact
 underplated Farallon mantle nappes satisfy the surface heat flow data equally
