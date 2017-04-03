@@ -2,7 +2,7 @@
 
 Electron-microprobe major-element data is used as the basis for pyroxene
 Ca--exchange geothermometry. Several formulations of this reaction are
-tested [@tab:thermometry]: BKN [@Brey1990] and TA98 [@Taylor1998] are
+tested [@tbl:thermometry]: BKN [@Brey1990] and TA98 [@Taylor1998] are
 two slightly different formulations based on empirical calibration of the two-pyroxene Ca exchange
 reaction in simple and natural systems. @Taylor1998 is explicitly calibrated to
 account for errors arising from high Al content.
@@ -55,7 +55,7 @@ and complete re-equilibration of small amounts of Ca in orthopyroxene,
 or of generally higher stability of this more refractory phase against late magmatic modification. <!-- *** --->
 
 Average TA98 temperatures range from 957 to 1063ºC for cores and
-955 to 1054ºC for rims [@tab:thermometry].
+955 to 1054ºC for rims [@tbl:thermometry].
 CK-2 core temperatures indicate more complete
 equilibration, with a standard deviation of only 2.3ºC (compared
 with 8.2-12.4ºC for all other samples). Temperatures are distributed roughly normally
@@ -117,14 +117,15 @@ pyroxene phases in contact (2--3 pairs) for each xenolith sample.
 A two-pyroxene equilibrium is calculated for each REE element and Y,
 equivalent to $T_i [K] = B_i (\ln(\D_i)-A_i)^{-1}$.
 These per-element equilibration temperatures are shown in
-@fig:ree_thermometry.
+@fig:ree_temperatures.
 The best-fitting line from the origin through each point
 in $B$ vs. $\ln(\D)-A$ space
 (using a robust regression with a Tukey biweight norm) yields
 the equilibrium temperature for each sample.
-Significant outliers from the fit are excluded from the thermometry.
+Significant outliers from the fit are excluded from the thermometry,
+and may represent effects of disequilibrium processes.
 
-### Rare-earth disequilibrium between phases
+### Pyroxene rare-earth disequilibrium
 
 CK-3 shows disequilibrium in La only, while CK-5 and CK-7 have disequilibrium
 in several of the LREEs.
@@ -137,7 +138,7 @@ due to low clinopyroxene modes in the harzburgite CK-4. The shape of this
 disequilibrium relationship may be traceable to the parabolic nature
 of mineral-melt partition curves for both pyroxene phases, which are
 incompletely modeled by a linear relationship when offset [@Sun2012;@Blundy2003].
-Alternatively, low clinopyroxene modes in the harzburgite CK-4 could be
+Alternatively, low clinopyroxene modes in the harzburgite CK-4 could
 result in more being incorporated into orthopyroxene, showing incomplete REE
 diffusion throughout the sample. This is consistent with late re-enrichment
 in LREEs from the Crystal Knob source magma.
@@ -155,7 +156,7 @@ Eu depletions in melt residues. However, this could be the case if quicker
 diffusion of Eu out of clinopyroxenes is invoked, and the samples were never
 fully equilibrated. The exact kinetics of this scenario are unclear, but it is
 likely that REE equilibrium was achieved in a reducing environment
-<fixme>(P. Asimow and J. Blundy, personal communication)</fixme>, or Eu rapidly and
+*(P. Asimow and J. Blundy, personal communication)*, or Eu rapidly and
 differentially diffused out of the Crystal Knob xenoliths just prior to eruption.
 Discerning between these scenarios is difficult due to the low Eu counts
 measured using ion-microprobe techniques.
@@ -170,13 +171,13 @@ orthopyroxene -->
 Overall, disequilibrium patterns in REE between pyroxenes allude to possible
 eruptive effects, poorly understood equilibrium partition coefficients
 (for instance, due to reducing mantle conditions), and incomplete linearizing assumptions
-in the @Liang2013 thermometer. Disentangling these effects
+in the @Liang2013 thermometer. Untangling these effects
 is beyond the scope of this work but presents several opportunities for further study.
 Despite this disequilibrium, temperature estimates anchored
 by HREE perform well as measured against major-element thermometry,
 even for samples (such as CK-4) with generalized LREE disequilibrium.
 
-### Significance of temperature estimates
+### Significance of temperature estimates {#sec:temperature-significance}
 
 Rare-earth exchange thermometry shows the samples as divided into
 the same two groupings of temperatures as those found by major-element
@@ -193,8 +194,7 @@ slower than major elements [@Liang2013], so early thermal events can
 leave an imprint on the distribution of rare-earths for much longer than
 with major elements. It is likely that these higher temperatures are a
 signature of a fossil heating event primarily affecting the deepest
-samples.<comment>Bring this back in during later discussion of the deep
-slab window.</comment> This is accompanied by major REE disequilibrium in sample CK-4,
+samples. This is accompanied by major REE disequilibrium in sample CK-4,
 which also contains the most intergranular melt channels.
 
 Sample CK-4 records a significantly higher temperature for LREE than
@@ -202,12 +202,11 @@ both the other samples and its own HREE equilibration temperatures.
 This likely shows that the LREEs were equilibrated at a much higher temperature than the
 HREEs. This pronounced within-sample disequilibrium could be the result
 of metasomatic processes, which is bolstered by the fact that CK-4 shows
-the only significant melt-infiltration textures in the sample set
-<comment>Also significant in light of history</comment>. It is
+the only significant melt-infiltration textures in the sample set. It is
 likely, therefore, that CK-4 was subjected to a short, transient heating
 event that was not fully equilibrated in HREE. Further, since this
 transient heating is not reflected in major-element temperatures, it is
-likely that the sample was heated transiently and equilibrated at a
+likely that the sample was subsequently equilibrated at a
 lower temperature for a significant period of time. Also, given low CPX modes,
 rare-earths added during refertilization may not be completely
 homogenized throughout the sample.

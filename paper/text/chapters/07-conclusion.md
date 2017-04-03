@@ -5,7 +5,8 @@ our petrogenetic findings on the Crystal Knob xenoliths, regional
 crustal structure and evolution, and the timing and map position of
 xenolith entrainment.
 Of the three plausible scenarios depicted for the
-evolution of the sub-Crystal Knob mantle lithosphere on Figure \ref{neogeone_sections} we
+evolution of the sub-Crystal Knob mantle lithosphere in
+@fig:neogene_sections, we
 reject the shallow slab window emplaced asthenosphere case based on our
 thermal modeling presented above. The Monterey plate stalled slab and
 underplated Farallon plate mantle nappe cases are equally plausible
@@ -38,7 +39,7 @@ suite not being able to discriminate between the stalled Monterey plate,
 or underplated Farallon nappe cases, the stalled Monterey plate case
 creates more problems than it solves.
 
-In Figure \ref{neogene_sections}c we show the partially subducted terminus of the Monterey
+In Figure \ref{fig:neogene_sections}c we show the partially subducted terminus of the Monterey
 plate bounded to the east by the San Gregorio-Hosgri fault, based on our
 above discussion of the @fig:reconstructions reconstruction. East of the fault lies
 the Nacimiento Franciscan complex and its tectonic veneer of Salinia
@@ -49,7 +50,7 @@ Andreas and San Gregorio-Hosgri faults was constructed at southern
 California latitudes in continuity with that of the southernmost Sierra
 Nevada and adjacent Mojave plateau region [@fig:cross_sections; @fig:reconstruction]. Partial
 subduction, or stalling, of the Monterey plate occurred along the outer
-edge of Franciscan complex further south than rocks of the Nacimiento
+edge of Franciscan complex, further south than rocks of the Nacimiento
 belt [@fig:reconstruction].
 
 Slab window opening beneath the Crystal Knob eruption site is
@@ -60,19 +61,27 @@ upwelling during the opening of the slab window.
 Petrologic markers within the Crystal Knob xenolith suite and the late
 timing of the Crystal Knob eruption can be related to interaction of
 the lithospheric lid from which the xenoliths were sourced and an
-underlying deep slab window [@fig:neogene_sections c].
+underlying deep slab window [@fig:neogene_sections\c].
 
 ## Implications of petrologic complexities to thermal state
 
 The Crystal Knob xenolith suite shows petrologic variation consistent
-with reheating from below.
+with reheating from below. The sourcing of the Crystal Knob pipe from
+relatively deep levels of the mantle lithosphere, the highly
+fractionated nature of the magma with zoned phenocrysts, and the
+presence of both dunite cumulates and peridotite xenoliths suggest that
+the magma was sourced from a complex multi-tiered melt percolation
+network within the mantle lithosphere at depths >50 km, such as that
+investigated by @Kelemen2000, which includes fractal scaling of melt
+migration channels hosting cumulates, which are sometimes re-entrained
+by small-volume volcanism. Such a network is linked to progressive
+percolation of melt upwards from a deep mantle source.
 
-Spike in high-temperature scenarios from rare-earth barometers
-
-@Kelemen2000
-Reference Keleman: melt channels for peridotites, fractal scaling, melt channels
-Cumulates getting re-entrained. 
-
+As discussed in @sec:temperature-significance, the LREE disequilibrium
+seen in several samples (especially CK-4) could be the signature of a
+fossil heating event not fully re-equilibrated in LREEs. This is
+underscored by the presence of melt-infiltration textures in sample
+CK-4.
 
 ## Origin of the Crystal Knob basalt
 

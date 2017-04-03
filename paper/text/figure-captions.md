@@ -77,7 +77,7 @@ Trace element abundances recalculated from whole-rock major elements.
 
 #ree_model
 Recalculated whole-rock trace elements for xenolith samples
-[@tab:whole_rock_trace] presented with best-fitting
+[@tbl:whole_rock_trace] presented with best-fitting
 modeled compositions for depleted peridotite and enriching
 fluid per sample, using the model discussed in text.
 Normal mid-ocean
@@ -85,7 +85,8 @@ ridge basalt (NMORB) rare-earth composition is
 from @Sun1989, and the range presented for alkali basalts
 is compiled from a suite of Mojave-desert samples measured by
 @Farmer1995. These fields are presented for comparison with
-the modeled composition of the enriching fluids.
+the modeled composition of the enriching fluids, which closely
+resemble alkali basalt for all samples.
 
 #ree_trends
 REE depletion and re-enrichment trends for xenolith

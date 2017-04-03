@@ -256,17 +256,23 @@ upwelling asthenosphere, but think that lithospheric nappes explain the data ele
 ## Underplated Farallon Plate mantle nappes
 
 The reconstruction of the Crystal Knob eruption site to its pre-San
-Andreas position [@fig:reconstruction] poses a highly viable alternative for the
-development of the site’s underlying mantle lithosphere. This is
+Andreas position [@fig:reconstruction] suggests the underplating of
+Farallon-plate mantle nappes prior to transform offsets as a
+highly viable alternative for the
+development of the site’s underlying mantle lithosphere. This scenario
+has not been considered in previous geodynamic modeling [@Erkan2008] but
+corresponds to many features of crustal and upper-mantle structure
+summarized below.
+
+This is
 particularly viable in light of the neck having erupted through the
 Nacimiento belt of the Franciscan complex, immediately adjacent to the
 current outer limit of Salinia crystalline nappes [@fig:context].  Accretion
 of the Nacimiento belt occurred in the Late Cretaceous beneath the outer
 reaches of the Salinia nappe sequence [@Hall2013; @Chapman2016a].
-In their core area the Salinia nappes rode westwards on slightly older, higher metamorphic grade, Franciscan rocks that are
+In their core area, the Salinia nappes rode westwards on slightly older, higher metamorphic grade, Franciscan rocks that are
 shown on [@fig:context] and [@fig:reconstruction] as windows into subduction channel schists
-[@Barth2003; @Kidder2006; @Ducea2009]. As
-discussed earlier, the southernmost Sierra Nevada-western Mojave
+[@Barth2003; @Kidder2006; @Ducea2009]. The southernmost Sierra Nevada-western Mojave
 "autochthon" for the Salinia nappes is likewise detached from its
 original mantle wedge underpinnings, and shingled into crystalline
 nappes that lie on underplated high-grade subduction channel schists as

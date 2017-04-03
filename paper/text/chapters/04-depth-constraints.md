@@ -18,7 +18,7 @@ field, between roughly 45 and 80 km.
 
 Several of the techniques below produce estimates of pressure, rather
 than depth. We use a geothermal gradient based on integration of the
-crustal and mantle densities given in @tab:model_parameters. This yields
+crustal and mantle densities given in @tbl:model_parameters. This yields
 a gradient of ~0.03 GPa per km across the mantle lithosphere.
 
 <!--[[ree_temperatures]]-->
@@ -54,7 +54,7 @@ but given the unconstrained assumption of ideal
 garnet--spinel mixing, a spinel-weighted metastable assemblage is possible even
 at higher pressures.
 
-As shown in @fig:cr-number, samples in the high-temperature cohort (CK-3, CK-4, and CK-6) have
+As shown in @fig:spinel_cr, samples in the high-temperature cohort (CK-3, CK-4, and CK-6) have
 higher spinel Cr# than the low-temperature samples. This enrichment in
 refractory Cr arises from the increased depletion of these samples and
 expands the stability field of spinel against garnet to deeper depths.
@@ -133,7 +133,7 @@ comparisons with heat flow datasets.
 ### Comparisons with extraneous procedures
 
 These depth constraints derived from xenolith geothermobarometry
-can be compared to seismic and geophysical
+can be compared to surface heat-flow and seismic
 constraints on the regional geotherm.
 
 Given the high agreement of our temperature measurements for the Crystal
@@ -145,7 +145,7 @@ ranging from 60 to 120 mW/m^2, all of which intersect the potential
 depth distributions from spinel stability and Ca-in-olivine barometry.
 
 These geothermal gradients are calculated using thermal conductivity and
-diffusivity given in @tab:model_parameters for the crust, to a depth of
+diffusivity given in @tbl:model_parameters for the crust, to a depth of
 30 km, and mantle lithosphere below this level.
 No fixed amount of radiogenic heat production is assumed, but the average empirical
 factor of 0.6 proposed by @Pollack1977 is used to
@@ -162,7 +162,7 @@ thermal conductivity is reduced to match our conditions for dynamic
 thermal modeling [@sec:modeling]. This yields a slightly "hotter"
 geotherm throughout the mantle lithosphere.
 
-The mineralogic constraints on the Crystal Knob xenoliths correspond to a broad
+The stability-field constraints on the Crystal Knob xenoliths correspond to a broad
 range of plausible lithospheric conductive geotherms.
 The hottest potential geotherm keeping the sample set within the spinel stability
 field is > 120 mW/m^2 at the surface.

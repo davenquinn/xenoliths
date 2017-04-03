@@ -115,7 +115,7 @@ directly beneath deep crustal large volume batholithic rocks requires the prior
 tectonic erosion of the mantle lithosphere (mantle wedge) that hosted the
 source regime for the overlying batholith. Integrated mantle xenolith studies
 and deep seismic imaging document this process.  Late Miocene small volume
-volcanic flows and plugs from the central Sierra Nevada batholith (Fig. 3)
+volcanic flows and plugs from the central Sierra Nevada batholith [@fig:context]
 carry xenolith suites that sampled the Cretaceous mantle wedge of the overlying
 batholith [@Ducea1996, @Ducea1998a; @Lee2001, @Lee2006; @Saleeby2003].
 The central and northern regions of the batholith are currently
@@ -140,7 +140,8 @@ mantle duplex with imbricated nappes of Farallon plate oceanic mantle lying in
 structural sequence beneath a relatively thin roof of attenuated continental
 lithosphere peridotites. The mantle duplex is interpreted to have formed as the
 Farallon plate retreated following Shatsky conjugate low-angle subduction
-[@Luffi2009]. The reconstructed position of Crystal Knob, directly outboard of the Dish Hill locality [Fig. 1], as well as the neck having
+[@Luffi2009]. The reconstructed position of Crystal Knob, directly
+outboard of the Dish Hill locality [@fig:context], as well as the neck having
 penetrated the Franciscan accretionary complex, clearly poses the question of
 the Crystal Knob suite having sampled additional underplated Farallon mantle
 nappes, in structural sequence with the Dish Hill mantle duplex.
@@ -160,7 +161,7 @@ Owens Valley rift system [@fig:context], which is presumably driven by upper man
 Convective ascent of asthenosphere to relatively shallow levels and late
 Cenozoic regional volcanism of the central to southern California region are
 correlated to the opening of the Pacific-Farallon slab window
-[@Atwater1998; @Wilson2005].  Both eruption of the Crystal Knob
+[@Atwater1998; @Wilson2005].  Both the eruption of the Crystal Knob
 neck and the origin of its upper mantle underpinnings could also owe their origins to
 asthenosphere ascended into a slab window.
 
@@ -168,7 +169,8 @@ Below we investigate the petrology and
 geochemistry of the Crystal Knob suite, in conjunction with
 regional findings on other xenolith locations as well as geophysical data and
 modeling, in order to pursue the origin of the upper mantle beneath the Crystal
-Knob eruption site.
+Knob eruption site and the central California Coast Ranges more
+generally.
 
 <!--[[context]]-->
 

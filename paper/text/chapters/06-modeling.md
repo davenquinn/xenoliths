@@ -9,13 +9,20 @@ potential depleted convecting mantle sources. However, these emplacement
 scenarios present potentially distinct thermal structures due to
 large differences in timescales of cooling.
 
-The Farallon-- and Monterey--plate scenarios are qualitatively similar,
+The youngest stalled slab scenario corresponds to the "Monterey plate"
+stalled slab, with translation northward beneath the plate-bounding
+transform system. The older models shown in panel B are included for
+completeness, though none of these can be linked to geologic features of
+the margin as well as the Cretaceous underplating and Monterey plate
+scenarios.
+
+The stalled-slab and late-Cretaceous underplating scenarios are qualitatively similar,
 with initial emplacement beneath a mid-ocean ridge, and cooling on the seafloor. After
 subduction and underplating, the cooled oceanic lithosphere
 re-equilibrates with an overlying 30 km of forearc crust until the
 present, or for our xenolith samples until the time of ca. 1.7 Ma entrainment and
-eruption. However, the timescales of cooling are significantly different. In
-the Farallon-plate scenario, the maximum age of underplating is 70 Ma,
+eruption. However, a wide range of cooling timescales are modeled. In
+the Late Cretaceous duplexing scenario, the maximum age of underplating is 70 Ma,
 based on the youngest ages of the most pertinent (Sierra de Salinas and
 correlative San Emigdio-Rand) schist bodies
 [@Barth2003; @Grove2003; @Saleeby2007; @Chapman2010; @Chapman2016].
@@ -31,8 +38,13 @@ the truncation of a low-temperature forearc geotherm at 19 Ma
 [@Atwater1998] and the substitution of an asthenospheric adiabat below
 this level. This scenario would provide the hottest modern geotherm,
 which, according to @Erkan2008, is too hot to correspond to the
-modern regional geotherm. <!-- (Daven, are they referring to the region
-under CRTA, or the cooler Great Valley and Sierra Nevada) -->
+modern regional geotherm.
+
+Given the range of potential geothermal scenarios, models for the
+emplacement of depleted mantle lithosphere under the central coastal
+California region can
+be tested by comparison of their implied geothermal structure with xenolith
+geothermometry.
 
 <!--[[reconstruction]]-->
 
@@ -45,10 +57,8 @@ lithosphere sampled by Crystal Knob, a forward model of the geotherm
 implied by each of the tectonic scenarios shown in @fig:neogene_sections
 is constructed.
 A model based on the one-dimensional heat-flow equation
-\begin{equation}
-\frac{\partial T}{\partial t} = \frac{k}{\rho C_p} \frac{\partial^2
-T}{\partial z^2} + \frac{\alpha}{\rho C_p} \label{eqn:heat-flow}
-\end{equation}
+$$\frac{\partial T}{\partial t} = \frac{k}{\rho C_p} \frac{\partial^2
+T}{\partial z^2} + \frac{\alpha}{\rho C_p}$$ {#eq:heat_flow}
 is used to track a vertical profile through the
 lithosphere. This framework is used to follow the thermal state of the
 xenolith source region from its most recent thermal peak, regardless
@@ -60,29 +70,36 @@ We use the Global Depth and Heat (GDH) model for oceanic crust
 [@Stein1992], and the @Royden1993a forearc geotherm model for
 subduction.
 Standard values are used for oceanic and continental material
-properties, and are given in [@tab:model_parameters].
+properties, and are given in [@tbl:model_parameters].
 
-Given the range of potential geothermal scenarios, models for the
-emplacement of depleted mantle lithosphere under the central coastal
-California region can
-be tested by comparison of their implied geothermal structure with xenolith
-geothermometry.
+To simulate subduction and underplating, the forearc geotherm
+is stacked atop the modeled oceanic geotherm and relaxed towards
+the present by iteratively
+solving the heat-flow equation using finite differences. The entire
+model is implemented in Python, with finite-difference modeling based on
+the FiPy software package [@Guyer2009]. Explicit and implicit finite
+difference approaches are combined using a two-sweep
+technique [@Crank1947] to ensure a stable result.
+The model is run to a depth of 500 km to remove the effects of an
+unknown mantle heat flux.
 
 ### Oceanic geotherm
 
-For the Neogene stalled Monterey plate and Late Cretaceous Farallon mantle nappe scenarios, the Global Depth and Heat (GDH)
+For the Neogene stalled Monterey plate and Late Cretaceous Farallon
+mantle nappe scenarios, the Global Depth and Heat (GDH)
 model [@Stein1992] is used to trace the thermal evolution of the oceanic
 lithosphere from its emplacement at the spreading ridge until subduction.
-This model is an Taylor-polynomial fit of cooling parameters to global
+This model is a Taylor-polynomial fit of cooling parameters to global
 heat-flow and depth datasets. This fit yields higher geotherms than half-space
-cooling models that are directly based on Equation \eqn{heat-flow}
+cooling models that are directly based on @eq:heat_flow
 (e.g., @Fowler2005), and tends to produce higher geotherms for old
-geothermal lithosphere.
+oceanic lithosphere.
 All models, including GDH and half-space cooling models, significantly
 overestimate heat flux from young oceanic plates, a fact that is likely attributable
 to vigorous hydrothermal circulation in young submarine lithosphere [@Stein1992;@Stein1995].
-This may result in overestimates of geothermal gradients for the youngest
-subduction scenarios.
+This may result in overestimates of geothermal gradients for the
+scenarios with the youngest subducted oceanic crust, such as the
+Monterey Plate scenario at the left of @fig:model_tracers.
 
 <!--[[model_tracers]]-->
 
@@ -90,14 +107,13 @@ subduction scenarios.
 
 The geotherm of the forearc wedge during subduction is calculated using
 the @Royden1993a analytical solution for the steady-state thermal
-structure of continuously-subducting systems.  <!-- At this rate it takes 5 Myr after
-subduction to reach the final position! This is pretty significant, it
-seems..., maybe should be incorporated! Also, depth of subduction
-interface may be greater, especially in Monterey-plate (i.e. probably
-not flat-slab case). --> Shear heating on the subduction thrust is taken
-to be 15 mW/m^2. Rates of surface erosion in the forearc and
-subduction accretion are taken to be 0. <!-- Accretion rates of 0.2-3.6
-km/Myr favored by Kidder,2013 based on Sierra de Pelona schist. -->
+structure of continuously-subducting systems.
+Shear heating on the subduction thrust is ignored, as recent studies
+suggest that it is not an important factor [@Kidder2013]. Forearc rock uplift and erosion, as well as accretion
+and erosion on the subduction megathrust are ignored. In reality, 
+megathrust accretion rates of 0.2-3.6 km/Myr are favored by @Kidder2013
+based on the Pelona schist, and some rock uplift is evident for the
+Coast Ranges.
 
 The coastal California accretionary crust is represented homogenously as a material with a
 thermal conductivity of 2.71 W/m/K, specific heat capacity of
@@ -106,24 +122,15 @@ flux of 2 uW/m^3, values that are close to average for the
 continental crust [@Fowler2005] and those used by @Kidder2013 to model
 the thermal conditions along the Late Cretaceous shallow subduction
 megathrust segment.
-2 uW/m^3 for radiogenic heat production in the crust
-is actually a relatively conservative estimate given the fluxes implied for
+A radiogenic heat production in the crust of 2 uW/m^3
+is actually a relatively conservative estimate given the fluxes shown for
 Sierra Nevada batholithic material by @Brady2006, and the fact that much of the
-subduction channel material is pelitic sediment rich in radiogenic elements
-<comment>should put some reference to Franciscan radiogenic heat or just
-pelitic sediments</comment>.
-<!-- Check Kidder2013 and Brady2006 -->
+Franciscan material within the subduction channel is pelitic sediment
+rich in radiogenic elements [@Vila2010]. Still, lower radiogenic heat
+production in the crust yields only a slight decrease in modeled
+geotherms across the board, not impacting conclusions.
 
 ### Underplating
-
-To simulate subduction and underplating, the forearc geotherm
-is stacked atop the modeled oceanic geotherm and relaxed towards
-the present by iteratively
-solving the heat-flow equation using finite differences. The entire
-model is implemented in Python, with finite-difference modeling based on
-the FiPy software package [@Guyer2009]. Explicit and implicit finite
-difference approaches are combined using a two-sweep Crank-Nicholson
-technique [@Crank1947] to ensure a stable result.
 
 Progressive subduction of the downgoing slab beneath the
 forearc wedge is modeled as stepwise advection beneath a linearly thickening
@@ -137,16 +144,12 @@ geometries. Though increasing the slab dip angle will result in a cooler subduct
 overall effect on the evolution of the thermal
 scenarios appears to be minimal.
 
-In the Farallon-plate scenario, the temperature is pegged at 715ºC at
+In the late Cretaceous underplating scenario, the temperature is pegged at 715ºC at
 25 km depth, a temperature constraint that is established based garnet-biotite
 thermometry of exhumed granites of the Sierra de Salinas.
-Figure \ref{model_results}C, panel 2 correctly captures the inverted metamorphic
+Figure \ref{fig:model_results}c, panel 2 correctly captures the inverted metamorphic
 gradient found by @Kidder2006 for this episode of subduction,
 validating this approach to calculating the forearc geotherm.
-
-
-
-<!-- @Groome2006: ridge subduction modeling -->
 
 <!--[[cross_sections]]-->
 
@@ -179,12 +182,12 @@ nappe(s) of presumed xenolith source.
 
 The subduction zone will have the effect of cooling the
 mantle lithosphere from below for the cases in which subduction is
-modeled [@fig:model_comparisons\ b and c], which are already near
+modeled [@fig:model_comparisons b and c], which are already near
 the coolest permitted by our xenolith constraints.
 However, the subduction of progressively younger crust until
 the shutoff at ~27 Ma will gradually increase the heat on the bottom of the lithosphere.
 As these geotherms are already quite cold, introducing this added complexity will not
-significantly change the model results. <comment>Not sure if this makes sense...</comment>
+significantly change the model results.
 
 For simplicity, subducted oceanic crust is not considered to have distinct thermal
 properties from the oceanic mantle.
@@ -235,7 +238,8 @@ experienced during late-Cretaceous flat slab
 subduction and schist metamorphism did not have a long-lasting impact on the
 thermal structure of the margin.
 We would expect a deep Miocene slab window event (depicted in Figure
-\ref{model_comparison}c) to have a similar effect on the oldest scenarios of Figure \ref{model_comparison}b.
+\ref{fig:model_comparison}c) to have a similar effect on the oldest
+scenarios of Figure \ref{fig:model_comparison}b.
 
 The model predicts much higher temperatures within the mantle lithosphere, and
 much higher geothermal gradients, for the slab window than for the

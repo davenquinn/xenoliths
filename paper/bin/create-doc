@@ -3,7 +3,7 @@ dir=$PROJECT_DIR/versioned/paper
 cd $dir
 
 infile=text/body.md
-output="output/Crystal-Knob.docx"
+output="output/Crystal-Knob-text.docx"
 bibfile="source/references.bib"
 
 # Process body text
@@ -15,4 +15,12 @@ cat text/abstract.md text/chapters/*.md \
        --filter pandoc-crossref \
        --bibliography=$bibfile \
        --csl="source/lib/agu.csl" -o $output
+
+cat text/figure-captions.md \
+| sed -r "s/\[((@(fig|eq|sec|tab):\w+;? ?)*)\]/\\\[\1\\\]/g" \
+| pandoc -t docx --metadata=draft:true \
+       --filter pandoc-comments \
+       --filter pandoc-crossref \
+       --bibliography=$bibfile \
+       --csl="source/lib/agu.csl" -o "output/Crystal-Knob-figure-captions.docx"
 

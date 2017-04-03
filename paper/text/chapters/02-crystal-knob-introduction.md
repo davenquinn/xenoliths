@@ -39,7 +39,7 @@ nucleogenic interferences, and standardized against a Fish Canyon
 sanidine with an age of 28.20 Ma. Non-radiogenic argon is assumed to have
 an atmospheric composition (\ce{$^{40}$Ar}/\ce{$^{39}$Ar} = 298.56) [@Cosca2011].
 
-Data for stepwise heating are presented in @tab:step_heating_table
+Data for stepwise heating are presented in @tbl:step_heating_table
 and shown graphically in @fig:step_heating.
 Our preferred age of 1.65±0.06 Ma is defined
 by the twelve intermediate out of fifteen heating steps, for which the

@@ -23,7 +23,7 @@ rm -f $body build/abstract.tex build/figure-list.tex
 # Process body text
 # Correct for pandoc-crossref annoyingness
 cat text/chapters/*.md \
-| sed -r "s/\[((@(fig|eq|sec|tab):\w+;? ?)*)\]/\\\[\1\\\]/g" \
+| sed -r "s/\[((@(fig|eq|sec|tbl):\w+;? ?)*)\]/\\\[\1\\\]/g" \
 | paper markdown-to-latex \
 > $body
 # Process abstract
