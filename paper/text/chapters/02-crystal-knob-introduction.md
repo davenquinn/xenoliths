@@ -30,7 +30,7 @@ of the host lava (sample CK-1) containing visible plagioclase
 phenocrysts was provided to the USGS Geochronology
 Laboratory in Denver, Colorado. The sample was irradiated in the USGS
 TRIGA reactor, and plagioclase feldspar grains were step-heated *in situ*
-using an infrared laser [@fig:step_heating], and $^{39}$Ar loss was
+using an infrared laser [@fig:step_heating], and \ce{$^{39}$Ar} loss was
 measured simultaneously on a Thermo Scientific Argus VI using 4 Faraday
 detectors (m/e 40-37) and ion counting (m/e 36). The detectors were
 intercalibrated using standard gas and air pipettes. The measurements
