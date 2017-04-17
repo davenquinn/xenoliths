@@ -122,6 +122,6 @@ def element_data(data,columns='element', index=None):
             index=index,
             columns=columns,
             values=['average'],
-            aggfunc=lambda x: x)
+            aggfunc=lambda x: x.iloc[0])
     df.columns = df.columns.get_level_values(1)
     return df.join(n)
