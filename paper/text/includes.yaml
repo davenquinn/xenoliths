@@ -30,14 +30,17 @@
   two_column: true
 
 - id: isotopes_table
-  file: isotopes/build/isotope-data.tex
+  file: isotopes/isotopes-table.tex
   two_column: true
   type: table
   caption: Radiogenic isotope measurements
+  notes:
+    "": >
+      $\Delta t$ is a time correction
+      of the preceding measured isotope ratio to eruptive conditions ($t =$ \SI{1.65}{Ma}).
 
 - id: isotopes
-  file: isotopes/build/isotope-data.pdf
-  caption: Paired Sm-Nd and Rb-Sr isotopes.
+  file: isotopes/isotope.pdf
 
 - id: minerals
   type: table

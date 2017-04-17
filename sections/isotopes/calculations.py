@@ -9,7 +9,6 @@ import numpy as N
 nd_chur_0 = 0.512638 # DePaolo and Wasserberg
 sm_nd_chur = 0.1967 # McCulloch and Wasserberg
 lam = 6.54e-12
-lam_sr = 1.39e-11
 
 def Epsilon_Nd(row,T=0):
     if T == 0:
@@ -33,6 +32,14 @@ def sample_nd_ratio(row, time):
     return correct_nd_ratio(
         row['143Nd/144Nd(0)'],
         row['147Sm/144Nd'],time)
+
+def sample_sr_ratio(row, time):
+    lam = 1.39e-11 # Half life of 87Rb is 48.8 Ga;
+    # 27.83% of Rb is 87Rb, which decays to 87Sr
+    # which is 7.04% of total Sr (relative to 9.87% 86Sr)
+    # all this together makes this number
+    factor = row['87Rb/86Sr']*(N.exp(lam*time)-1)
+    return row['87Sr/86Sr(0)']-factor
 
 def T_CHUR(row, T=0):
     if T == 0:

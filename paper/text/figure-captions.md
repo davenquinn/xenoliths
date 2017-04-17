@@ -38,6 +38,11 @@ outcrops of subduction channel schists in the Mojave province. Reconstruction
 of Salinian lithologic features from @Schott1998, @Schott2001, @Chapman2012, and @Dickinson2005
 is combined with reconstruction of the evolving slab window and microplate detachment after @Wilson2005.
 
+#isotopes
+Paired Sm-Nd and Rb-Sr isotopes, showing the position of the Crystal Knob sample set relative to major
+reservoirs. The position of on the isotopic chart suggests that the mantle source of the Crystal Knob
+xenoliths had no input of crustal material.
+
 #cpx_profile
 Profile of Mg\# measured across clinopyroxene grain.
 

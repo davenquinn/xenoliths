@@ -130,7 +130,7 @@ deep within the spinel stability field, at
 depths of ~40 km or greater. This preference is amplified by
 comparisons with heat flow datasets.
 
-### Comparisons with extraneous procedures
+### Comparisons with steady-state heat flow
 
 These depth constraints derived from xenolith geothermobarometry
 can be compared to surface heat-flow and seismic
@@ -168,10 +168,9 @@ The hottest potential geotherm keeping the sample set within the spinel stabilit
 field is > 120 mW/m^2 at the surface.
 Accounting for the Cr-dependent
 depth of the spinel--garnet transition, the 65 mW/m^2 conductive geotherm is
-the coolest that places all samples within the spinel
-stability field.
-The centroids of the Ca-in-olivine model age distributions correspond to
-a range in surface heat flow from ~70 to 110 mW/m^2.
+the coolest that places all samples within the spinel stability field.
+The centroids of the Ca-in-olivine model age distributions broadly
+correspond to a range in surface heat flow from ~70 to 110 mW/m^2.
 
 Using a database of surface heat flows for North America
 [@Blackwell2004], @Erkan2009 estimates regionally-averaged heat flows of 80-90 mW/m^2 for the

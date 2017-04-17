@@ -44,7 +44,7 @@ The disparity decreases
 towards higher temperatures and conforms to the relationship between
 the two thermometers found by @Nimis2010.
 This relationship can be expressed as
-$\mathrm{T}_\mathrm{BKN} = 0.9~\mathrm{T}_\mathrm{TA98} + 145$ for temperatures
+$T_{\mathrm{BKN}} = 0.9~T_{\mathrm{TA98}} + 145$ for temperatures
 in ºC.
 @Nimis2010 shows that TA98 performs well against
 experimental results in several scenarios and advises its use over BKN.

@@ -28,6 +28,7 @@ cat text/chapters/*.md \
 > $body
 # Process abstract
 cat text/abstract.md \
+| figures expand-refs \
 | paper markdown-to-latex \
 > build/abstract.tex
 

@@ -15,9 +15,10 @@ it follows that the mantle lithosphere of the region was constructed from partly
 plate upper mantle at some point late in the Franciscan accretionary
 history, or by some other mechanism following the cessation of Farallon
 plate subduction with the establishment of the San Andreas transform
-system. The geologic history of the region integrated with
-crustal structure constraints pose viable alternatives for these
-mechanisms.
+system. Based on this regional geologic history and constraints
+from crustal structure, we identify several viable tectonic scenarios for the
+formation of the mantle lithosphere beneath coastal central California,
+which we summarize in Sections \ref{sec:slab_window}-\ref{sec:mantle_nappes}.
 
 ## Late Cenozoic tectonic history and regional crustal structure
 
@@ -96,7 +97,7 @@ These scenarios have been posed by several workers and are underpinned
 by the contextal features presented below.
 <comment>Maybe think about putting this earlier?</comment>
 
-## The Neogene slab window
+## The Neogene slab window {#sec:slab_window}
 
 @fig:reconstruction shows the surface projection of the hypothetical slab window
 and the partially subducted Monterey plate at ca. 19 Ma [@Wilson2005].
@@ -253,7 +254,7 @@ possible "stalled slab". <comment>More explanation here</comment>
 They concluded the stalled slab was more likely. We agree with their primary assertion against the
 upwelling asthenosphere, but think that lithospheric nappes explain the data elegantly.
 
-## Underplated Farallon Plate mantle nappes
+## Underplated Farallon Plate mantle nappes  {#sec:farallon_nappes}
 
 The reconstruction of the Crystal Knob eruption site to its pre-San
 Andreas position [@fig:reconstruction] suggests the underplating of
@@ -271,7 +272,7 @@ current outer limit of Salinia crystalline nappes [@fig:context].  Accretion
 of the Nacimiento belt occurred in the Late Cretaceous beneath the outer
 reaches of the Salinia nappe sequence [@Hall2013; @Chapman2016a].
 In their core area, the Salinia nappes rode westwards on slightly older, higher metamorphic grade, Franciscan rocks that are
-shown on [@fig:context] and [@fig:reconstruction] as windows into subduction channel schists
+shown in @fig:context and @fig:reconstruction as windows into subduction channel schists
 [@Barth2003; @Kidder2006; @Ducea2009]. The southernmost Sierra Nevada-western Mojave
 "autochthon" for the Salinia nappes is likewise detached from its
 original mantle wedge underpinnings, and shingled into crystalline
@@ -294,11 +295,11 @@ In @fig:cross_sections, we present a model for the tectonic
 underplating of the Farallon plate mantle lithosphere beneath
 the Mojave-Salinia-Nacimiento segment of
 the southwest Cordilleran convergent margin in the Late Cretaceous [after @Saleeby2003; @Luffi2009].
-This is shown to have occurred in conjunction with shallow flat subduction of the Shatsky Rise conjugate
-LIP [after @Saleeby2003; @Liu2010; @Sun2017]. The approximate age of
+This is shown to have occurred in conjunction with shallow flat subduction of the Shatsky Rise conjugate Large Igneous Province [after @Saleeby2003; @Liu2010; @Sun2017].
+The approximate age of
 Farallon plate entering the trench is shown on each frame [after @Seton2012].
 Crustal deformation, timing and thermal conditions, as
-applied to our thermal modeling presented below, are integrated from
+applied to our thermal modeling presented in @sec:modeling, are integrated from
 @Kidder2006 and @Chapman2010; @Chapman2012; @Chapman2016a.
 @fig:cross_sections a and b show the arrival of the oceanic plateau into the subducting
 trench, and plateau buoyancy driven shallowing of the subduction
@@ -312,16 +313,16 @@ the principal Salinia window into the subduction channel schists [@Kidder2006].
 In @fig:cross_sections c and d we adopt the focused slab rollback and mantle
 lithosphere underplating models of @Saleeby2003 and @Luffi2009,
 for the dynamic response of normal thickness oceanic lithosphere
-following the crustal thickened oceanic plateau down the subduction
+following the thickened oceanic plateau down the subduction
 zone. Principal crustal responses are shown as large magnitude
 trench-directed extension coupled to regional extrusion of the
 underplated subduction channel schists, which was driven by suction
-forces of the retreating slab. In the @fig:cross_sections c to d transition,
-accelerated rollback is accomplished by duplex formation from Farallon
+forces of the retreating slab. In the `Figure cross_sections{c} to {d}` transition,
+accelerated rollback is driven by duplex formation from Farallon
 plate mantle nappes. We suspect that mantle nappe detachment was
 controlled primarily by the temperature control on the brittle-plastic
 transition in olivine. For ca. 40-50 m.y. old oceanic lithosphere
-entering the subduction zone [@fig:cross_sections c and d],
+entering the subduction zone `[Figure cross_sections{c} and {d}]`,
 an estimated ~700-800 ºC
 control on this transition [@Warren2006; @Burgmann2008; @Mei2010] occurs
 at ~25-40 km depth in the slab [@Doin1996]. We also suspect that the retreat of the slab as it
@@ -337,7 +338,7 @@ underplated as the seismically imaged thickened mafic lower crust of the
 region [@Trehu1991; @Brocher1999]. On the basis of the regional
 structural evolution of the central to southern California basement, and
 on the petrogenetic history recorded in the region's mantle xenolith
-suites, we consider the @fig:cross_sections d section to be that most likely sampled by
+suites, we consider the `Figure cross_sections{d}` section to be that most likely sampled by
 the Crystal Knob eruption. This section is idealized for Late Cretaceous
 time, and below we layer on the complexity of late Cenozoic faulting in
 our analysis. We focus now to thermal history in order to more

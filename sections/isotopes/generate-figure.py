@@ -4,6 +4,7 @@ import yaml
 from sys import argv
 import numpy as N
 import matplotlib as M
+from dofile import redo_ifchange
 
 from matplotlib import pyplot as P
 from paper.plot_style import update_axes
@@ -15,7 +16,11 @@ from calculations import Epsilon_Nd
 from xenoliths import app, db
 from xenoliths.models import Sample
 
-data = DataFrame.from_csv("isotope-data.tsv",sep='\t')
+filename = "isotope-data.tsv"
+
+redo_ifchange(filename)
+
+data = DataFrame.from_csv(filename,sep='\t')
 
 with app.app_context():
     _ = (db.session.query(Sample)
@@ -109,5 +114,5 @@ update_axes(ax)
 
 fig.tight_layout()
 fig.subplots_adjust(left=0.06,bottom=0.06)
-fig.savefig(argv[1], bbox_inches="tight")
+fig.savefig(argv[1], bbox_inches="tight", format='pdf')
 
