@@ -9,7 +9,7 @@ from depletion_model import get_melts_data, ree_plot, sample_ree
 from depletion_model.util import element, ree_only
 from depletion_model import DepletionModel
 from xenoliths.core import sample_colors
-from paper import plot_style
+from paper.plot_style import update_axes
 from matplotlib import pyplot as plt
 
 @click.command()
@@ -47,7 +47,7 @@ def run_model(src,dst,clinopyroxene=False):
     alkali /= PM_trace
     alkali_trace = ree_only(alkali)
 
-    vals = map(element,data.columns)
+    vals = [element(i) for i in data.columns]
     d = ree_only(depleted)
     with ree_plot(dst) as ax:
         for i,row in d.iterrows():
@@ -65,6 +65,8 @@ def run_model(src,dst,clinopyroxene=False):
             def plot(name,x,y,**kwargs):
                 if i == 'CK-2':
                     kwargs['label'] = name
+                else:
+                    kwargs['label'] = ""
                 p = ax.plot(x,y,color=c,**kwargs)
 
             if clinopyroxene:
@@ -74,14 +76,14 @@ def run_model(src,dst,clinopyroxene=False):
             plot('Measured '+s,vals,u)
 
             # Plot calculated best fit
-            plot("Modeled depleted", d.columns,row, linestyle='--')
+            plot("Modeled depleted", d.columns,row, linestyle='--', linewidth=1)
 
             v = enrichment.ix[row.name]
-            plot("Enriching fluid (assimilated)",d.columns,v, linestyle=':')
+            plot("Enriching fluid (assimilated)",d.columns,v, linestyle=':', linewidth=1)
 
         # Plot NMORB
         ax.plot(NMORB_trace.columns, NMORB_trace.ix[0,:],
-                color='#888888', linewidth=1.5, zorder=-5)
+                color='#888888', linewidth=1.5, zorder=-5, label="")
 
         ax.fill_between(
             alkali_trace.columns,
@@ -89,22 +91,25 @@ def run_model(src,dst,clinopyroxene=False):
             alkali_trace.max(),
             facecolor='#dddddd',
             edgecolor='none',
-            zorder=-10)
+            zorder=-10,
+            label="")
 
         ax.set_ylim(.01,200)
-        ax.set_xlim(element('La')-0.3,element('Lu')+0.3)
+        ax.set_xlim(element('La')-0.1,element('Lu'))
         ax.yaxis.set_ticklabels(["{:g}".format(v) for v in ax.yaxis.get_ticklocs()])
-        ax.set_ylabel(s.capitalize()+" REE / Primitive Mantle")
+        ax.set_ylabel("Rare-earth element abundance / Primitive Mantle")
         ax.xaxis.set_ticks(vals)
         ax.xaxis.set_ticklabels(data.columns)
 
-        ax.text(element('Nd'),21,"Alkali basalt",
-            rotation=-25,color='#888888')
+        ax.text(element('Ce')-0.5,40,"Alkali basalt",
+            rotation=-28,color='#888888')
         ax.text(element('La'),5,"NMORB",
             rotation=15,color='#888888')
         legend = ax.legend(loc="upper right")
         fr = legend.get_frame()
         fr.set_lw(0.5)
+
+        update_axes(ax)
 
 if __name__ == '__main__':
     run_model()

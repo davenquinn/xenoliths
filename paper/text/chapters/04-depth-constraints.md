@@ -98,7 +98,7 @@ To correct for the mild pressure dependence of the two-pyroxene thermometer, and
 temperature dependence of the olivine barometer, we jointly solve temperature and
 pressure by iteratively optimizing to a common solution for each set of
 microprobe measurments.
-This yields a set of independent, internally consistent depth and temperature
+This yields a set of separate internally consistent depth and temperature
 measurements for each sample corresponding to individual pairs of
 microprobe measurements.
 In @fig:depth, we show the full pressure--temperature error space for each
@@ -108,27 +108,33 @@ errors on each pressure estimate.
 The Ca-in-olivine barometer yields a broad distribution in model depths,
 largely coincident with the spinel stability field [@fig:depth].
 The depth distributions are largely normal, with modes
-ranging from 35 to 52 km.
-The low and high-temperature cohorts remain separable, with high-temperature
+ranging from 40 to 53 km.
+Within the Crystal Knob sample set, the low and high-temperature cohorts
+remain separable, with high-temperature
 samples showing deeper equilibrium depths.
 The scale of the errors within a single sample
-reflects the barometer's sensitivity to small variations in Ca
-concentrations. The
-bulk of the spread in the data reflects the poor calibration of the
+reflects the barometer's strong covariance with major-element thermometers,
+as well as its sensitivity to small variations in Ca concentrations.
+The bulk of the spread in the data reflects the poor calibration of the
 barometer itself.
 The low-temperature samples in particular have significant scatter
 towards depths above the spinel-in isograd.
 The small Ca cation diffuses rapidly during transient heating
 [@Kohler1990], which produces a shallowing bias on the depth distribution, and may be
 the explanation for the fact that CK-4, the most altered
-sample, has a mode ~10 km shallower than that of the other samples
+sample, has a depth mode ~10 km shallower than the other samples
 (CK-3 and CK-6) at similar temperature.
+The fact that temperatures derived from the independent REE system are higher
+than the major-element temperatures for several samples in the high-temperature
+cohort (CK-4 and CK-6) may point to these samples being derived from a greater
+depth within the distribution of Ca-in-olivine depths.
 
 Despite the imprecision of the method, Ca-in-olivine barometry
 suggests that the samples were sourced from relatively
 deep within the spinel stability field, at
 depths of ~40 km or greater. This preference is amplified by
-comparisons with heat flow datasets.
+comparisons with depth estimates of the thermal state of the mantle
+lithosphere derived from regional heat flow datasets.
 
 ### Comparisons with steady-state heat flow
 
@@ -136,11 +142,12 @@ These depth constraints derived from xenolith geothermobarometry
 can be compared to surface heat-flow and seismic
 constraints on the regional geotherm.
 
-Given the high agreement of our temperature measurements for the Crystal
-Knob xenolith suite, we can compare our intrinsic depth constraints with
-model entrainment depths derived by pinning the samples to a
-conductive geotherm constrained by surface heat flux. In
-@fig:depth, we show potential steady-state geotherms for surface heat fluxes
+Given our high-confidence temperature measurements for the Crystal
+Knob xenolith suite, we can generate model entrainment depths
+by pinning the samples to a conductive geotherm constrained by surface heat flux.
+These can be useful for comparisons with our intrinsic depth constraints from
+thermobarometry.
+In @fig:depth, we show potential steady-state geotherms for surface heat fluxes
 ranging from 60 to 120 mW/m^2, all of which intersect the potential
 depth distributions from spinel stability and Ca-in-olivine barometry.
 
@@ -180,16 +187,7 @@ corresponding to model depths of ~45-55 km for the Crystal Knob sample set.
 This depth range is within the spinel stability field and falls near the center
 of the depth distributions extracted using Ca-in-olivine barometry.
 
-Estimates of the thermal state of the deep lithosphere derived from seismic
-tomography show temperatures of 700--1100ºC occurring at depths of
-50--100 km for coastal California [@Goes2002], corresponding to cooler
-geotherms than predicted by surface heat flow. More recent
-estimates put the depth of the lithosphere-asthenosphere
-boundary at roughly 70 km in the southern Coast Ranges
-[@Li2007], which, given estimates of the subcontinental
-lithosphere-asthenosphere boundary occurring at
-1200-1300ºC [e.g. @OReilly2010; @Fischer2010], corresponds to
-steady-state geotherms of 70-80 mW/m^2.
+### Summary of depth constraints
 
 The integration of depth constraints on the xenolith samples from multiple
 sources gives a broad set of constraints on the depth of origin of the Crystal
@@ -202,9 +200,25 @@ depth to the Moho, and less than 60-90 km based on the
 composition-dependent lower limit of the spinel stability field.
 Ca-in-olivine barometry suggests a tighter set of constraints near the center of the spinel stability field.
 Model depths of 45-55 km prepared from steady-state geotherms agree with
-this assessment. Given the bias in both Ca-in-olivine and heat-flow
+this assessment, but might be underestimates.
+Given the bias in both Ca-in-olivine and heat-flow
 measurements towards shallower depths, we take the depth range of 50-70 km as
 a likely entrainment depth for the Crystal Knob xenoliths.
+
+This assessment of relatively deep entrainment of the Crystal Knob xenoliths
+along a fairly "cool" geotherm conforms to constraints from independent studies
+of the deep lithosphere in coastal California.
+Estimates of the thermal state of the deep lithosphere derived from seismic
+tomography show temperatures of 700--1100ºC occurring at depths of
+50--100 km for coastal California [@Goes2002], corresponding to cooler
+geotherms than predicted by surface heat flow. More recent
+estimates put the depth of the lithosphere-asthenosphere
+boundary at roughly 70 km in the southern Coast Ranges
+[@Li2007]. Given estimates of the subcontinental
+lithosphere-asthenosphere boundary occurring at
+1200-1300ºC [e.g. @OReilly2010; @Fischer2010], this corresponds to
+steady-state geotherms of 70-80 mW/m^2.
+
 We next turn to the accuracy of this extrapolation from heat flow values,
 and its implication for understanding the thermal structure of the lithosphere.
 

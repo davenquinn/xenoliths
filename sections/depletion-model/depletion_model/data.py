@@ -3,7 +3,7 @@ from __future__ import division, print_function
 import pandas as P
 import re
 from sys import argv
-from StringIO import StringIO
+from io import StringIO
 from xenoliths.SIMS.query import sims_data, element_data
 from .util import element
 from .melts import get_melts_data

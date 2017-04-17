@@ -1,6 +1,6 @@
 from __future__ import print_function
 import pandas as P
-from StringIO import StringIO
+from io import StringIO
 from IPython import embed
 
 class MeltsDataset(object):

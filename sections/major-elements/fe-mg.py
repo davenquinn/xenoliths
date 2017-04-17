@@ -1,6 +1,6 @@
 from __future__ import division
 import numpy as N
-from paper import plot_style
+from paper.plot_style import update_axes
 from matplotlib.pyplot import subplots
 from xenoliths import app
 from sqlalchemy import or_
@@ -95,6 +95,8 @@ with app.app_context():
     ax.text(60,4.8,"Olivine",**props)
     ax.text(42,11.5,"Spinel",**props)
     ax.text(53,21,"Phenocryst olivine",**props)
+
+    update_axes(ax)
 
     fig.savefig(argv[1], bbox_inches='tight')
 
