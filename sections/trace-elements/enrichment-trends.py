@@ -6,6 +6,7 @@ from paper.query import sample_colors
 from xenoliths.application import app
 from xenoliths.SIMS.query import sims_data
 from xenoliths.core.models import Sample
+from paper.plot_style import update_axes, lighten
 
 with app.app_context():
 
@@ -13,36 +14,49 @@ with app.app_context():
     colors = sample_colors()
 
 df = df.reset_index()
-df = (df[df['mineral'] == 'cpx']
-        .drop('mineral',axis=1)
+df = (df
         .drop('element',axis=1))
 
 tab = df.pivot_table(
-        columns='symbol',
+        columns=['symbol','mineral'],
         index='sample_id',
         values='average',
-        aggfunc=lambda x: x)
+        aggfunc=lambda x: x.iloc[0])
 tab = tab.join(colors)
 
 fig, ax = P.subplots(1, figsize=(5,5))
 
 nv = lambda x: x.nominal_value
 
-tab['HREE_proxy'] = 1/tab['Lu'].apply(nv)
-tab['LREE_proxy'] = (tab['La']-tab['Lu']).apply(nv)
+min='cpx'
+lu_idx = ('Lu', min)
+tab['HREE_proxy'] = 1/tab[lu_idx].apply(nv)
+tab['LREE_proxy'] = (tab[('La',min)]/tab[lu_idx]).apply(nv)
+colors = list(tab['color'])
 ax.scatter(
     tab['HREE_proxy'],
     tab['LREE_proxy'],
-    c=tab['color'])
+    c=list(lighten(*colors)),
+    edgecolor=colors,
+    alpha=0.8)
 
-ax.set_ylabel("La - Lu (proxy for LREE enrichment)")
+ax.set_ylabel("La / Lu (proxy for LREE enrichment)")
 ax.set_xlabel(r"Lu$^{-1}$ (proxy for depletion)")
+
+mean_x = tab['HREE_proxy'].mean()
 
 val = ('HREE','LREE')
 for i,r in tab.iterrows():
     loc = tuple(r[v+'_proxy'] for v in val)
+    v = loc[0] > mean_x
+    xlabel = -10 if v else 10
     ax.annotate(i,
-        loc,xytext=(5,5), textcoords='offset points')
+        loc,xytext=(xlabel,0),
+            textcoords='offset points',
+            va='center',
+            ha='right' if v else 'left')
+
+update_axes(ax)
 
 fig.savefig("build/enrichment.pdf", bbox_inches="tight")
 

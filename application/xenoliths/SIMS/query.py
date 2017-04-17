@@ -61,8 +61,8 @@ def sims_data(**kwargs):
 
     # Apply uncertainty
     def uncertainty(row):
-        vals = list(zip(row['ppm'],row['std']))
-        return [uval(n,s) for n,s in vals]
+        vals = tuple(zip(row['ppm'],row['std']))
+        return tuple(uval(n,s) for n,s in vals)
 
     df['norm'] = df.apply(uncertainty,axis=1)
     df = (df
