@@ -137,7 +137,7 @@ class ModelRunner(object):
 
         # Because we are dealing with
         # final section only
-        cell = (_depth-self._top_depth).into('m')/self.dz
+        cell = int((_depth-self._top_depth).into('m')/self.dz)
         T = self.section.profile[cell]
 
         v = ModelTracer(

@@ -31,7 +31,8 @@ and spinel (sp).
 #reconstruction
 Tectonic reconstruction of the California margin at 19 Ma showing the
 early evolution of the San Andreas transform system, offshore oceanic
-plates, and Cretaceous batholithic belt. Exposures of Salinia nappes
+plates, and Cretaceous batholithic belt. The Monterey plate ridge ceased spreading at 20 Ma (Chron 6),
+which is labeled and corresponds to the similar time-label on Figure \ref{fig:neogene_sections}B.  Exposures of Salinia nappes
 are shown as red patches west of the future San Andreas Fault.
 The view shows the disaggregated Mojave--Salinia batholith and surface
 outcrops of subduction channel schists in the Mojave province. Reconstruction
@@ -155,39 +156,30 @@ a pulse of heat from below during the Miocene slab window [Figure \ref{fig:neoge
 Temperature-time tracers for each modeled scenario shown in Figure \ref{fig:model_results}
 following the evolution of particles
 at a final depth of 40 and 75 km depth in the model domain
-(dashed and solid lines, respectively), which corresponds to the Salinian basement. All models
+(dashed and solid lines, respectively), bracketing the depth-domain boundary
+conditions of the Crystal Knob xenolith suite. All models
 conclude at 1.65 Ma, the eruptive age of the Crystal Knob xenoliths.
-**A** shows a scenario corresponding to upwelling-driven mantle lithosphere replacement
-to the base of the crust during the Mendocino slab window episode.
-The model begins at 24 Ma, corresponding to the time of opening of the
-Mendocino slab window under southern California and the Salinian block [@Wilson2005].
-The geotherm begins as a steady-state profile to 600 ºC and 30 km, truncated by a mantle adiabat.
-The mantle is held at asthenospheric conditions for a set period which varies between model runs
-(from 0 to 6 Myr) to simulate a period of active convection,
-after which it relaxes conductively to the conclusion of the model.
-Panel **B** shows a range of scenarios corresponding to oceanic lithosphere slices underplated at
+**A** shows a scenario corresponding to upwelling-driven mantle
+lithosphere replacement to the base of the crust during the Mendocino
+slab window episode [@Wilson2005], in which the crust is underplated by
+asthenospheric mantle which convects for a period of time (several durations of active
+convection from 0-6 Myr are shown) beginning at 24 Ma.
+**B** shows a range of scenarios corresponding to oceanic lithosphere slices underplated at
 different times during the subduction history of the Farallon plate until its
 cessation in the Neogene.
 The youngest of these scenarios corresponds to the likely
 thermal evolution of a Monterey Plate stalled slab.
-Models begin at the subduction time of that oceanic lithosphere parcel
-and an initial thermal structure corresponding to the Global Depth and Heat
-model [@Stein1992] for oceanic lithosphere for particular age of oceanic crust.
-The subduction time and age of oceanic crust covary to represent different phases of
-Farallon plate subduction beneath the coast of Southern California, corresponding to @Seton2012.
-Modeled tracers begin at 10 and 45 km beneath the seafloor and are advected to depths of
-40 and 75 km over the first ~1 Myr of the model timeframe during subduction. Thermal conditions
-during subduction are tracked using the @Royden1993a steady-state forearc model.
-The samples then relax to the present.
-Panel **C** tracks a Farallon-plate slab subducted and underplated during the late Cretaceous. The initial
-conditions of this scenario are qualitatively similar to those of the older models of **B**, except
-that the early thermal structure of the forearc is set by thermal constraints on the temperature of batholithic
-rocks at 800ºC at 0.75 GPa at the time of underplating [@Kidder2003]. This sequence corresponds to
-the tectonic scenario envisioned in Figure \ref{fig:cross_sections}. The resulting geotherm (similar to the
-steady-state geotherms without the leading temperature constraint) are
-subjected to heating from below by slab window underplating of asthenospheric
-material at 80 km depth for a period of 0 to 6 Myr, corresponding to a deeper version of the underplating
-in **A**. A version with no underplating is also shown.
+The older models shown in panel B are included for
+completeness, though none of these can be linked to geologic features of
+the margin as well as the Cretaceous underplating and Monterey plate
+scenarios.
+Modeled tracers begin at 10 and 45 km beneath the seafloor and are advected to depths of 40 and 75 km over the first ~1 Myr of the model timeframe during subduction. 
+Panel **C** tracks a Farallon-plate slab subducted and underplated
+during the late Cretaceous. It is similar to the older models of **B**
+but is based on key geologic constraints from subduction channel schists
+[@Kidder2003]. The effects of deep upwelling corresponding with the
+Mendocino slab window are shown for several of the models, in a manner
+similar to **A**.
 
 #model_comparison
 Comparisons of "modern" (1.65 Ma) sub-Salinia geotherms for each of the modeled scenarios.

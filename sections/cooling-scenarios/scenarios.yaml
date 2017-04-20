@@ -29,12 +29,13 @@
     - forearc-50-30
     - forearc-40-20
     - forearc-30-10
+    - monterey-plate
   slices: &subduction
     - id: before-subduction
       oc: 5
-      age: T<sub>sub</sub>
+      age: T<sub>start</sub>
     - id: after-subduction
-      age: T<sub>sub</sub> + 1 myr
+      age: T<sub>end</sub>
       cc: 30
       oc: 35
     - id: final
@@ -52,7 +53,7 @@
     - farallon-reheated-2
     - farallon-reheated-4
     - farallon-reheated-6
-  title: Farallon-plate slab
+  title: Cretaceous underplating
   subtitle: ± deep slab window
   slices:
     - id: before-subduction

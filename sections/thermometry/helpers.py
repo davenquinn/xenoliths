@@ -1,4 +1,6 @@
-from chroma import Color
+from colour import Color
+from paper.plot_style import lighten
+from matplotlib.colors import colorConverter
 
 def label(i):
     s = r"T$_\mathregular{"+i+r"}$"
@@ -7,12 +9,11 @@ def label(i):
 def scatter_options(color, loc='core', **kwargs):
     base = dict(marker="o", s=20)
     base.update(**kwargs)
-    color = Color(color)
+    #color = Color(color)
     if loc == "core":
-        color.alpha = 0.5
-        return dict(color=color.rgb)
+        fc = next(lighten(color, lum=0.1))
+        return dict(color=fc, edgecolor=color, alpha=0.5)
     elif loc == "rim":
-        color.alpha = 0.2
-        f = Color("#ffffff")
-        f.alpha = 0
-        return dict(edgecolor=color.rgb, color=f.rgb, **base)
+        opaque = colorConverter.to_rgba(color)
+        transparent = colorConverter.to_rgba(color,alpha = 0.5)
+        return dict(edgecolor=transparent, color=(1,1,0,0.0), **base)

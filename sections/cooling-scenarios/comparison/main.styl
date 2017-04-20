@@ -1,13 +1,28 @@
 svg
   overflow: hidden
 
+.neatline
+  stroke: #ffffff
+
+.axis
+  stroke-width: 1.5
+  .tick text, text.label
+    font-family: "Helvetica Neue"
+    font-weight: 400
+
+text
+  font-family: Gotham
+
+text.run-label
+  font-family: Gotham
+
 .static-curve
   use
     stroke-width: 1.5
     stroke: #eeeeee
     fill: none
   text
-    fill: #555
+    fill: #aaa
     font-family: Gotham
     font-weight: 300
     font-size: 8
@@ -17,9 +32,14 @@ svg
   font-size: 8px
   font-family: Gotham
   div
-    text-align: right
-    color: #555
-    font-style: italic
+    font-weight: 300
+    text-align: center
+    color: #aaa
+    sub, sup
+      font-size: 0.6em
+
+.heatflow-axis-label
+  font-size: 8px
 
 .model-curve
   use
@@ -30,8 +50,11 @@ svg
       stroke-width: 2
       stroke-opacity: 1
   text
-    font-family: 'Helvetica Neue'
-    dy: 10
+    font-family: Gotham
+    alignment-baseline: bottom
+    font-weight: bold
+    tspan.subtitle
+      font-weight: 300
   textPath
     font-size: 10
 

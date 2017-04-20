@@ -12,29 +12,35 @@ from xenoliths.core import sample_colors
 from paper import plot_style
 from matplotlib import pyplot as plt
 
-def run_model():
-
-    with app.app_context():
-        data = sample_ree(normalized=True)
-        colors = sample_colors()
-
-    model = DepletionModel(argv[1])
+def ree_scatter(ax, model, data, colors):
     depleted = model.fit_HREE(data)
     enrichment, multiplier = model.enrichment(data,depleted)
 
     s = 100-depleted.mass
     s.name = 'Depletion'
-    v = 1/multiplier
+    v = 1/multiplier*100
     v.name = 'Enrichment'
     df = concat([s,v,colors],axis=1)
-    fig, ax = plt.subplots(figsize=(4,3.5))
     ax.scatter(df.Depletion,df.Enrichment,color=df.color,s=20)
     for i,row in df.iterrows():
         y = 0
+        x = 5
         if i in ['CK-3','CK-6']:
             y -= 6
+        if i in ['CK-3', 'CK-4']:
+            x -= 28
         ax.annotate(i,xy=(row.Depletion,row.Enrichment),
-            color=row.color,xytext=(5,y),textcoords='offset points')
+            color=row.color,xytext=(x,y),textcoords='offset points')
+
+def run_model():
+    fig, ax = plt.subplots(figsize=(4,3.5))
+
+    with app.app_context():
+        data = sample_ree(normalized=True)
+        colors = sample_colors()
+    model = DepletionModel(argv[1])
+    ree_scatter(ax, model, data, colors)
+
     ax.set_xlabel(r'HREE depletion degrees (%)')
     ax.set_ylabel(r'Mass ratio: re-enriching fluid/sample')
 

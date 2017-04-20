@@ -1,13 +1,12 @@
 import numpy as N
 import matplotlib.pyplot as P
 from pandas import read_sql
-from paper.plot_style import update_axes
+from paper.plot_style import update_axes, axis_labels
 from paper.query import sample_colors
 from matplotlib.ticker import ScalarFormatter
 from xenoliths.application import app, db
 from xenoliths.SIMS.query import sims_data, element_data
 from xenoliths.core.models import Sample
-from string import ascii_uppercase
 
 from enrichment_trends import enrichment_trends
 from shared import mineral_data
@@ -75,15 +74,10 @@ ax2.locator_params(nbins=5, axis='x')
 fig.tight_layout()
 fig.subplots_adjust(hspace=0.09, right=1, left=0.035)
 
-for i, a in enumerate((ax,ax2)):
-    a.text(-0.14,1, ascii_uppercase[i],
-           transform=a.transAxes, color="#888888",
-           fontsize=20, weight='bold', va='top')
+kw = dict(color='#888888',fontsize=10)
+ax.text(x[0],20,"Clinopyroxene",**kw)
 
-    kw = dict(color='#888888',fontsize=10)
-    ax.text(x[0],20,"Clinopyroxene",**kw)
-
-
+axis_labels(ax,ax2)
 fig.savefig("build/trace-elements.pdf", bbox_inches="tight")
 
 

@@ -1,7 +1,7 @@
 from geotherm.units import u
 from geotherm.models.geometry import Section
 from geotherm.solvers import RoydenSolver
-from scipy.optimize import minimize_scalar
+from scipy.optimize import minimize, minimize_scalar
 from click import echo
 
 from .config import (
@@ -34,14 +34,14 @@ def optimized_forearc(target,distance,depth, **kwargs):
 
     def f(v):
         solver.args[opt]=v
-        t = solver.royden(d, Z, sz)
-        a = abs(target-t)
+        t = solver.royden(d, Z, sz)[0]
+        a = (target-t)**2
         return a
 
-    o = minimize_scalar(f,
-            bounds=(0,1e9),
-            method='bounded')
-    solver.args[opt] = o.x
+    o = minimize(f,0)#,
+            # bounds=(0,1e9),
+            # method='bounded')
+    solver.args[opt] = o.x[0]
 
     # Determine max temperature in forearc
     def f(depth):
@@ -51,7 +51,7 @@ def optimized_forearc(target,distance,depth, **kwargs):
             method='bounded')
     echo("Maximum temperature above interface:")
     echo(solver.royden(d,o.x,Z))
-    echo("at depth ",o.x,"meters")
+    echo(f"at depth {o.x} meters")
 
     echo("Optimal value:")
     echo("  {} = {}".format(opt,solver.args[opt]))

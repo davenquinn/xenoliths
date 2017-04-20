@@ -1,33 +1,45 @@
 d3 = require 'd3'
 require 'd3-selection-multi'
 _ = require 'underscore'
+yaml = require "js-yaml"
 
 fs = require 'fs'
 
+f = fs.readFileSync __dirname+'/constraint-labels.yaml'
+labelData = yaml.load f
+
+
 {axisTitles} = require './axis-labels'
 
-addSantaLuciaConstraint = (scenario)->
-  ly = scenario.layout
-  # Add P-T constraints
-  ax = ly.axes()[1]
-  g = ax.plotArea().append 'g'
-
-  g.datum {T: 715, z: 25}
+makeConstraint = (scale)->(d,i)->
+  g = d3.select @
   g.attrs
     class: 'constraint'
-    transform: (d)->
-      "translate(#{ax.scale.x(d.T)},#{ax.scale.y(d.z)})"
+    transform: "translate(#{scale.x(d.T)},#{scale.y(d.z)})"
   g.append 'circle'
     .attrs
       r: 3
-      fill: '#444'
+      fill: '#888'
   g.append 'foreignObject'
-    .attrs
-      x: 5
-      y: -10
+    .attrs d.attrs
     .append 'xhtml:div'
-      .text 'Santa Lucia'
-      .attrs class: 'santa-lucia-label'
+      .text d.text
+      .attrs class: d.class
+
+addSantaLuciaConstraint = (scenario)->
+  ly = scenario.layout
+
+  axes = ly.axes()
+
+  # Add P-T constraints
+  sel = axes[1]
+    .plotArea()
+    .selectAll 'g.constraint'
+    .data labelData
+
+  sel.enter()
+    .append 'g'
+    .each makeConstraint(ax.scale)
 
 f = d3.format('.0f')
 
@@ -36,7 +48,7 @@ axisProfileLabels = (d,j)->
   sel = d3.select(@).selectAll 'g.data'
 
   sel.filter (d,i)->
-      i == 0 or i >= sel.size()-2
+      i == 0 or i >= sel.size()-3
     .each (d,i)->
       el = d3.select @
       u = el.select('use')
@@ -48,15 +60,16 @@ axisProfileLabels = (d,j)->
           .attrs
             dy: opts.dy or if i != 0 then -2 else 8
           .append 'textPath'
-          .text t
+          .html t
           .attrs
             'xlink:href': u.attr('href')
 
-      offs1 = v[j]-4*i**0.8
+      offs1 = v[j]-4-i**0.3
+
       createText(t)
         .attrs startOffset: "#{offs1}%"
 
-      offs = 55-10*i**0.8
+      offs = 40-4*i**0.3
       if j == 0
         t = "#{f(d.start_time-d.time)} Myr"
         createText(t)
@@ -78,6 +91,16 @@ axisProfileLabels = (d,j)->
             .attrs
               startOffset: "#{offs}%"
               class: 'oc-age label'
+
+      if i == 0
+        val = if j==0 then "start" else "end"
+        t = "<tspan>T</tspan><tspan class='label-subscript'>#{val}</tspan>"
+        t.split('\n').forEach (t,i)->
+          createText(t, dy: 16+7*i)
+            .attrs
+              startOffset: "#{offs1}%"
+              class: 'label timestep'
+
 
 addProfileLabels = (el)->
   axes = el.selectAll 'g.axis'

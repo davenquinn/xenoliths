@@ -3,7 +3,6 @@ from __future__ import division
 import numpy as N
 import matplotlib
 from matplotlib import pyplot as P
-from chroma import Color
 
 from xenoliths import app
 from xenoliths.thermometry.rare_earth.plot import ree_temperature

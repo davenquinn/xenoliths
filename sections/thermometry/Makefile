@@ -7,8 +7,8 @@ all: build/pyx-dree.pdf build/temperatures.tex \
 build:
 	mkdir -p $@
 
-build/data.pickle: get-data.py | build
-	python $^
+build/data.pickle: build/data.pickle.do
+	redo build/data.pickle
 
 build/temp-comparisons.pdf: temp-comparisons.py
 	python $^

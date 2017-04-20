@@ -20,7 +20,7 @@ def create_data():
     with app.app_context():
         data = [sample_temperatures(s, distinct=min, uncertainties=True)
            for s in xenoliths()]
-    with open(cache,"w") as f:
+    with open(cache,"wb") as f:
         dump(data,f)
     return data
 
@@ -29,7 +29,7 @@ def load_data():
     Load thermometry data, creating a cache if it doesn't exist
     """
     try:
-        with open(cache) as f:
+        with open(cache, 'rb') as f:
             data = load(f)
     except IOError:
         data = create_data()
@@ -83,7 +83,7 @@ def __table_data(s):
     return s
 
 def summary_data():
-    with open("build/data.pickle") as f:
+    with open("build/data.pickle", 'rb') as f:
         data = load(f)
     ls = [__table_data(i) for i in data]
     ls = sorted(ls, key=lambda x: x['core']['ta98'].n)

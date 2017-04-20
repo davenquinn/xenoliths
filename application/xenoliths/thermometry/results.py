@@ -69,13 +69,13 @@ def closest(a,b, distinct=None):
         use_labels=True)
 
 def pyroxene_pairs(queryset, distinct=min,names=("opx","cpx")):
-    opx,cpx = (queryset
+    opx,cpx = tuple(queryset
                 .filter(ProbeMeasurement.mineral==a)
                 .subquery() for a in names)
     # Restrict number selected to minimum or maximum number of measurements
     # to avoid duplication
     if distinct:
-        distinct = distinct((opx,cpx),key=lambda d: d.count())
+        distinct = distinct((opx,cpx),key=lambda d: db.session.scalar(d.count()))
     q = closest(opx,cpx, distinct=distinct)
     res = db.session.execute(q).fetchall()
     return tuple(

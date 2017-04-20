@@ -39,6 +39,21 @@ class ForearcCase(SubductionCase):
         self.stepped_subduction()
         self.solve_to_present()
 
+class MontereyPlate(SubductionCase):
+    """
+    Basically the same as a forearc case but with a longer subduction
+    timescale.
+    """
+    name_base = 'forearc'
+    def __init__(self):
+        self.name = "monterey-plate"
+        SubductionCase.__init__(self, u(27, "Myr"), u(22, "Myr"))
+
+    def run(self):
+        self.pre_subduction()
+        self.stepped_subduction(),
+        self.solve_to_present()
+
 class Farallon(SubductionCase):
     """
     Similar to the forearc-geotherm case, but with the
@@ -57,8 +72,8 @@ class Farallon(SubductionCase):
     def setup(self):
         self.pre_subduction()
         self.stepped_subduction(
-            final_temperature=u(715,"degC"),
-            optimization_depth=u(25,'km'),
+            final_temperature=u(775,"degC"),
+            optimization_depth=u(28,'km'),
             vary=self.variable_term)
 
     def run(self):

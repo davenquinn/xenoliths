@@ -5,7 +5,7 @@ xenolithsArea = require 'xenoliths-area'
 require './main.styl'
 
 module.exports = (el_,cb)->
-  el_.innerHTML = fs.readFileSync("build/ca-ol-pressures.svg")
+  el_.innerHTML = fs.readFileSync("ca-ol-pressures.svg")
 
   el = d3.select "svg"
 

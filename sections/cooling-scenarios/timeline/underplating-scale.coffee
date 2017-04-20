@@ -41,6 +41,7 @@ module.exports = (ax)->
       el.append 'text'
         .text labelText
         .attrs
+          class: 'axis-label'
           x: s(0)
           y: -11
 

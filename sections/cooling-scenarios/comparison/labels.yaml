@@ -1,9 +1,13 @@
 farallon-reheated-6:
-  text: Farallon + deep slab window
+  text: >
+    <tspan>Cretaceous underplating</tspan>
+    <tspan class='subtitle'>+ deep slab window</tspan>
 underplated-6:
-  text: Slab window
+  text: Shallow slab window
   offset: 30px
-forearc-30-10:
+monterey-plate:
   text: Monterey plate
 farallon:
-  text: Farallon (no reheating)
+  text: >
+    <tspan>Cretaceous underplating</tspan>
+    <tspan class='subtitle'>without reheating</tspan>

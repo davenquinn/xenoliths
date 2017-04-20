@@ -4,6 +4,7 @@ import yaml
 from matplotlib import pyplot
 import seaborn.apionly as sns
 from colour import Color
+from string import ascii_uppercase
 
 pyplot.rcdefaults()
 
@@ -29,3 +30,12 @@ def lighten(*colors, **kwargs):
         c.saturation += kwargs['sat']
         yield c.hex
 
+def axis_labels(*axes, pad=0.14, ypos=1, **kwargs):
+    defaults = dict(
+        color="#888888", fontsize=20,
+        weight='bold', va='top')
+    defaults.update(kwargs)
+
+    for i, a in enumerate(axes):
+        a.text(-pad,ypos, ascii_uppercase[i],
+               transform=a.transAxes, **defaults)

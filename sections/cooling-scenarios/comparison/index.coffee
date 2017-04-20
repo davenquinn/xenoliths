@@ -65,16 +65,15 @@ setupElement = (rows)->
     .classed 'selected', (d)->d.index==0
     .attrs
       'xlink:href': (d)-> '#'+d.name
-      stroke: modelColors
-        #c = modelColors(d)
+      stroke: (d)->
+        c = modelColors(d)
+        if d.index != 0
+          c = c.alpha((1-0.1*d.index)**2.5).css()
+        return c
+      #'stroke-dasharray': (d,i)->
         #if d.index == 0
-          #return c.alpha(0.8).css()
-        #else
-          #return c.alpha(0.2).css()
-      'stroke-dasharray': (d,i)->
-        if d.index == 0
-          return 'none'
-        return "#{d.index*0.4+1} #{d.index+1}"
+          #return 'none'
+        #return "#{d.index*0.4+1} #{d.index+1}"
       fill: 'none'
 
   g.each (d,i)->
@@ -84,13 +83,14 @@ setupElement = (rows)->
     d3.select @
       .append 'text'
       .attrs
-        dy: -2
+        dy: -3
+        class: 'run-label'
       .append 'textPath'
       .attrs
         'xlink:href': '#'+d.name
         fill: modelColors(d)
         startOffset: data.offset or '10px'
-      .text data.text
+      .html data.text
 
   el.selectAll '.tick text'
     .attrs
@@ -121,6 +121,7 @@ setupStaticGeotherms = (rows)->
       'xlink:href': (d)-> '#'+d.heat_flow
 
   e.each (d,i)->
+    return if [0,1,11].indexOf(i) != -1
     d3.select @
       .append 'text'
       .attrs
@@ -135,14 +136,14 @@ setupStaticGeotherms = (rows)->
   loc = e.selectAll('text').nodes()[0].getBBox()
   console.log loc
 
-  g.append 'foreignObject'
+  el.append 'foreignObject'
     .attrs
       class: 'heatflow-label'
-      width: 80
+      width: 120
       height: 50
-      transform: "translate(#{loc.x} #{loc.y-15}) rotate(22) translate(-60)"
+      transform: "translate(#{size.width} #{size.height/2}) rotate(90) translate(-50)"
     .append 'xhtml:div'
-      .html "q<sub>0</sub> (mW/m<sup>2</sup>)"
+      .html "Surface heat flow <b>q<sub>0</sub></b> (mW/m<sup>2</sup>)"
 
 module.exports = (el_, cb)->
   el = d3.select el_
@@ -155,37 +156,40 @@ module.exports = (el_, cb)->
   ax = axes()
     .neatline()
     .size size
-    .margin left: 0.5*dpi, bottom: 0.45*dpi, right: 0.05*dpi, top: 0.1*dpi
+    .margin left: 0.5*dpi, bottom: 0.45*dpi, right: 0.1*dpi, top: 0.1*dpi
 
   ax.scale.x.domain [800,1200]
   ax.scale.y.domain [90,30]
 
   ax.axes.y()
     .label "Depth (km)"
-    .tickPadding 7
+    .tickPadding 5
     .tickSize 5
     .ticks 5
     .tickFormat d3.format("i")
 
   ax.axes.x()
     .label "Temperature (°C)"
-    .tickPadding 7
-    .tickSize 5
+    .tickPadding 5
+    .tickSize 7
     .ticks 5
     .tickFormat d3.format("i")
   el.call ax
 
   # Suppress last tick label
-  sel = el.select('.axis.x')
-    .selectAll '.tick'
-  sel.filter (d,i)->i == sel.size()-1
-    .select 'text'
-      .text ''
+  #sel = el.select('.axis.x')
+    #.selectAll '.tick'
+  #sel.filter (d,i)->i == sel.size()-1
+    #.select 'text'
+      #.text ''
 
   line = ax.line(type:'object')
 
   xa = xenolithsArea color: '#eee', size: 8
   xa ax.plotArea(), ax.line()
+
+  el.select "g:first-child"
+    .raise()
 
   db.query(staticGeotherms)
     .then setupStaticGeotherms

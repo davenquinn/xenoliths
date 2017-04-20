@@ -4,9 +4,9 @@ from __future__ import print_function, division
 
 import numpy as N
 import seaborn.apionly as sns
+from paper.plot_style import update_axes
 from uncertainties import unumpy
 import matplotlib as M
-from chroma import Color
 import yaml
 from collections import defaultdict
 from matplotlib.gridspec import GridSpec
@@ -20,6 +20,7 @@ from xenoliths.thermometry.rare_earth import (
 
 from data import load_data, ree_data, sample_colors
 from helpers import scatter_options, label
+from contour_scatter import ScatterPlotter
 
 with open('font-style.yaml') as f:
     style_object = yaml.load(f)
@@ -27,8 +28,11 @@ for k,v in style_object.items():
     M.rc(k,**v)
 
 label_offsets = defaultdict(int)
-label_offsets['CK-2'] = 4
-label_offsets['CK-5'] = -5
+label_offsets['CK-6'] = 5
+label_offsets['CK-4'] = -5
+label_offsets['CK-2'] = 7
+label_offsets['CK-7'] = 5
+label_offsets['CK-5'] = 0
 
 xv = N.arange(len(rare_earths))
 
@@ -103,7 +107,7 @@ def plot_DREE(axes, sample, annotate=True, uncertainties=True, offset=0):
         ax.plot(xv,n,'-',**kwargs)
 
     # Plot filled and open circles
-    kws = dict(edgecolor=sample.color, marker='o', zorder=10)
+    kws = dict(edgecolor=sample.color, marker='o', zorder=10, s=10)
     ax.scatter(xv[ix],n[ix], color='#ffffff', **kws)
     ax.scatter(xv[~ix],n[~ix],color=sample.color,**kws)
 
@@ -112,7 +116,7 @@ def plot_DREE(axes, sample, annotate=True, uncertainties=True, offset=0):
     x = N.linspace(-3*s,3*s,100)
     P = norm.pdf(x,0,s)
     ax1.fill_betweenx(x+T.n,0,P,facecolor=sample.color, alpha=0.3, zorder=-10)
-    ax1.plot(P,x+T.n, color=sample.color)
+    ax1.plot(P,x+T.n, color=sample.color, linewidth=1)
 
     linekws = dict(color=sample.color, linewidth=2, alpha=0.2)
     coords = line_between(ax,ax1,T.n+offs,T.n, **linekws)
@@ -135,7 +139,7 @@ def plot_DREE(axes, sample, annotate=True, uncertainties=True, offset=0):
 with app.app_context():
 
     gs_left = M.gridspec.GridSpec(1, 1)
-    gs_right = M.gridspec.GridSpec(1, 2, width_ratios=[1,6], wspace=0)
+    gs_right = M.gridspec.GridSpec(1, 2, width_ratios=[1,6], wspace=0.05)
     gs_left.update(right=0.55, bottom=0.1,top=0.99)
     gs_right.update(left=0.6, bottom=0.1, top=0.99)
 
@@ -151,8 +155,10 @@ with app.app_context():
     else:
         _ = 1500
 
+    ylim2 = [900,1125]
+
     ax.set_ylim([800,_])
-    ax1.set_ylim([900,1125])
+    ax1.set_ylim(ylim2)
 
     sample_ids = (db.session.query(Sample.id)
         .filter(Sample.xenolith==True)
@@ -195,12 +201,16 @@ with app.app_context():
 
     data = {d['id']: d for d in data}
     # Comparison axis
+    cxlim = [900,1100]
+    scatter = ScatterPlotter(comp_ax, nx=40, ny=60,
+        xrange=cxlim, yrange=ylim2, nlevels=15, color_exponent=1)
 
     for sample in samples:
+        print(sample.id)
         temps = data[sample.id]
         ta98 = temps['core']['ta98']['sep']
 
-        n = 1e4
+        n = 10000
 
         choice = N.random.choice(ta98,size=n)
         x = unumpy.nominal_values(choice)
@@ -210,12 +220,13 @@ with app.app_context():
         _ = res.params[0]-273.15
         s = res.bse[0] # B-hat standard estimator
         y = s*N.random.randn(n) + _
-        comp_ax.plot(x,y,
-            marker='.',
-            linestyle='none',
-            color=sample.color,
-            alpha=0.01,
-            rasterized=True)
+        #comp_ax.plot(x,y,
+            # marker='.',
+            # linestyle='none',
+            # color=sample.color,
+            # alpha=0.01,
+            # rasterized=True)
+        scatter(x,y,color=sample.color)
 
         comp_ax.set_rasterization_zorder(-10)
 
@@ -230,12 +241,13 @@ with app.app_context():
 
     ax.set_ylabel(u"Equilibrium T (ºC)")
 
-    comp_ax.set_xlim([900,1100])
+    comp_ax.set_xlim(cxlim)
     comp_ax.autoscale(False)
     a = [0,2000]
     comp_ax.plot(a,a, c="#cccccc", zorder=-20)
 
     sns.despine(ax=ax)
+    sns.despine(ax=comp_ax, left=True, right=False, top=True)
     sns.despine(ax=ax1,left=True,bottom=True, right=False)
 
     fig.savefig("build/pyx-dree.pdf",bbox_inches="tight", dpi=300)

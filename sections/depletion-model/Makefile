@@ -20,7 +20,7 @@ output/depletion-model.pdf: make-model-plot.py $(table)
 output/depletion-model-cpx.pdf: make-model-plot.py $(table)
 	python $< --clinopyroxene $(word 2,$^) $@
 
-output/ree-trends.pdf: ree-trends.py $(table)
+output/ree-trends.pdf: ree_trends.py $(table)
 	python $^ $@
 
 $(latex): depletion-degrees.py $(table)

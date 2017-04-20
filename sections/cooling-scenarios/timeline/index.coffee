@@ -32,6 +32,7 @@ getData = (scenario)->
     .then (d)->
       d.id = scenario.name
       d.title = scenario.title
+      d.subtitle = scenario.subtitle or null
       d.limits = [
         d3.min d, (a)->a.trange[0]
         d3.max d, (a)->a.trange[1]]
@@ -58,12 +59,12 @@ __makeOuterAxes = (data)->
     .domain [0, d3.sum(data,(d)->d.axSize)+2*spacing+spacingBottom]
   outerAxes.axes.x()
     .label 'Time before present (Ma)'
-    .labelOffset 20
+    .labelOffset 22
     .tickSize 4
 
   outerAxes.axes.y('right')
     .label 'Temperature (°C)'
-    .labelOffset 22
+    .labelOffset 30
     .despine()
 
   vscale = outerAxes.scale.y
@@ -92,6 +93,8 @@ createProfileDividers = (lineGenerator, color)->
         d: (d)->
           t = d.trange.map (a)->[d.time,a]
           lineGenerator(t)
+
+ alpha = "ABCDEF"
 
 createAxes = (outerAxes)->
   (data, i)->
@@ -137,12 +140,16 @@ createAxes = (outerAxes)->
     #  .attrs class: 'profile'
     #  .each createProfileDividers(ax.line())
 
+    h = "<tspan class='subfig-index'>#{alpha[i]}</tspan>
+         <tspan>#{data.title}</tspan>"
+    if data.subtitle?
+      h += " <tspan class='subtitle'>#{data.subtitle}</tspan>"
     # Add title
     plt.append 'text'
-      .text data.title
+      .html h
       .attrs
-        'font-size': 10
-        x: if i == 0 then 3*dpi else 0
+        class: 'title'
+        x: if i == 0 then 2*dpi else 0
 
     if data.id == 'forearc'
       labels = ageLabels(ax)
@@ -168,8 +175,8 @@ createAxes = (outerAxes)->
           fill: modelColors.scales.forearc(30)
           transform: (d)->
             x = ax.scale.x(10)
-            y = ax.scale.y(1200)
-            "translate(#{x},#{y}) rotate(4)"
+            y = ax.scale.y(1340)
+            "translate(#{x},#{y}) rotate(5)"
 
 setupElement = (el, data)->
     g = el

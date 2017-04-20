@@ -5,8 +5,8 @@ printer = new Printer
 
 printer
   #.task 'textures.pdf', '../sections/textures/generate'
+  .task 'model-time-slices.pdf', '../sections/cooling-scenarios/time-slices'
   .task 'model-comparison.pdf', '../sections/cooling-scenarios/comparison'
   .task 'model-timeline.pdf', '../sections/cooling-scenarios/timeline'
-  .task 'model-time-slices.pdf', '../sections/cooling-scenarios/time-slices'
 
 module.exports = printer

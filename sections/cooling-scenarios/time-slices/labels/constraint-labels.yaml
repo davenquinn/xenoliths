@@ -1,0 +1,17 @@
+- T: 800
+  z: 26
+  text: Santa Lucia granodiorite
+  class: 'santa-lucia-label'
+  attrs:
+    x: -75
+    y: -14
+    width: 70
+
+- T: 575
+  z: 32
+  text: Sierra de Salinas subduction-channel schist
+  attrs:
+    x: 3
+    y: 1
+    width: 50
+  class: 'schist-label'

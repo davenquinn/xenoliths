@@ -20,14 +20,13 @@ from contour_scatter import ScatterPlotter
 
 # This part reflects the fact that this
 # python module is actually a REDO build script
-from dofile import redo_modules, redo_ifchange, redirect
+from dofile import redo_ifchange, redirect
 
 datafile = 'build/data.pickle'
 outfile = sys.argv[3]
 
 redo_ifchange(datafile)
 # Redo personal modules if they have changed
-redo_modules()
 redirect()
 
 data = load_data(datafile)
@@ -51,7 +50,7 @@ ax = fig.add_subplot(gs[0])
 ax1 = fig.add_subplot(gs[1], sharey=ax)
 
 scatter = ScatterPlotter(ax, nx=30, ny=60,
-        xrange=limits.x, yrange=limits.y[::-1], nlevels=15, color_exponent=1.1)
+        xrange=limits.x, yrange=limits.y[::-1], nlevels=15, color_exponent=1)
 
 for res in data:
     depth = res['depth']
@@ -87,7 +86,7 @@ for res in data:
     ax1.plot(v,Z,color=c, alpha=0.5, linewidth=1.5)
 
 # Draw all of the scatterplot data
-scatter.draw(ax)
+#scatter.draw(ax)
 
 
 loc = (.6,.30)
@@ -109,7 +108,7 @@ ax.set_xlim(*limits.x)
 
 ax.yaxis.set_ticks_position('left')
 ax.xaxis.set_ticks_position('bottom')
-despine(ax=ax1,left=False,bottom=True, right=True)
+despine(ax=ax1,left=True,bottom=True, right=True)
 ax1.yaxis.set_ticks_position('none')
 ax1.xaxis.set_ticks([])
 for label in ax1.get_yticklabels():
@@ -129,7 +128,7 @@ T = 1100
 kws = dict(
     xy=(T,plag_spinel(T)),
     color='#aaaaaa',
-    rotation=-N.degrees(N.arctan(p[0]/ax.get_data_ratio())),
+    rotation=-10,
     ha='center',
     weight='bold',
     style='italic',
@@ -175,6 +174,7 @@ for dz, heat_flow, T in profiles:
     ax.text(v,d-0.1,heat_flow,
             **kwargs)
     if heat_flow == 120:
+        kwargs['zorder'] = -20
         ax.text(v,d-3.5,r"$q_0$ ($mW/m^2$)",
                 style='italic',
                 **kwargs)
@@ -183,5 +183,6 @@ for dz, heat_flow, T in profiles:
 xy = [(x,y) for x,y in plot_area if 950 < x < 1070]
 poly = Polygon(xy, edgecolor='#444444', **kw)
 ax.add_patch(poly)
+despine(ax=ax)
 
 fig.savefig(outfile, bbox_inches="tight", dpi=300, format='svg')

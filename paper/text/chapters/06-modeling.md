@@ -9,36 +9,85 @@ potential depleted convecting mantle sources. However, these emplacement
 scenarios present potentially distinct thermal structures due to
 large differences in timescales of cooling.
 
-The youngest stalled slab scenario corresponds to the "Monterey plate"
-stalled slab, with translation northward beneath the plate-bounding
-transform system. The older models shown in panel B are included for
-completeness, though none of these can be linked to geologic features of
-the margin as well as the Cretaceous underplating and Monterey plate
-scenarios.
+The first set of models, displayed in
+`Figure model_tracers{A} and model_results{A}`, correlate to a shallow
+slab-window scenario for mantle lithosphere emplacement.
+The emplacement of slab-window asthenosphere directly under the coastal
+central California crust entails
+the truncation of a low-temperature forearc geotherm at 19 Ma
+[@Atwater1998] and the substitution of an asthenospheric adiabat below
+this level.
+The model begins at 24 Ma, corresponding to the time of opening of the
+Mendocino slab window under southern California [@Wilson2005].
+The geotherm begins as a steady-state profile to 600 ºC at 30 km,
+truncated by a mantle adiabat.
+The mantle is held at asthenospheric conditions for
+a set period which is varied between model runs
+(from 0 to 6 Myr) to simulate a period of active convection,
+after which it relaxes conductively to the conclusion of the model.
+This scenario would provide the hottest modern geotherm, and
+previous modeling by @Erkan2008 has suggested it yields geotherms
+too hot to correspond to the modern regional geotherm.
 
-The stalled-slab and late-Cretaceous underplating scenarios are qualitatively similar,
-with initial emplacement beneath a mid-ocean ridge, and cooling on the seafloor. After
-subduction and underplating, the cooled oceanic lithosphere
-re-equilibrates with an overlying 30 km of forearc crust until the
-present, or for our xenolith samples until the time of ca. 1.7 Ma entrainment and
-eruption. However, a wide range of cooling timescales are modeled. In
-the Late Cretaceous duplexing scenario, the maximum age of underplating is 70 Ma,
-based on the youngest ages of the most pertinent (Sierra de Salinas and
+The second set of models, laid out in `Figure model_tracers{B} and
+model_results{B}`, tracks the potential thermal structure of oceanic plates
+stalled under the forearc at different times. Models begin at the subduction
+time of that oceanic lithosphere parcel and an initial thermal structure
+corresponding to the Global Depth and Heat model [@Stein1992] for oceanic
+lithosphere for particular age of oceanic crust. The subduction time and age of
+oceanic crust covary to represent different phases of Farallon plate subduction
+beneath the coast of Southern California, corresponding to @Seton2012. Thermal
+conditions during subduction are tracked using the @Royden1993a steady-state
+forearc model. The samples then relax to the present. After subduction and
+underplating, the cooled oceanic lithosphere re-equilibrates with an overlying
+30 km of forearc crust until the present, or for our xenolith samples until the
+time of ca. 1.7 Ma entrainment and eruption. The youngest "stalled slab"
+scenario corresponds to the geologic scenario of a relict Monterey-plate slab.
+However, a series of older cooling timescales are modeled, representing a wide
+range of potential timings for backstepping of the subduction megathrust and
+underplating of a slice of mantle lithosphere. Though these represent plausible
+thermal histories, only the youngest "Monterey plate" can be explicitly tied to
+a geodynamic and geological evidence of subduction instability.
+
+The "Monterey plate" tectonic scenario, as discussed in @sec:discussion,
+entails lateral translation on a dipping subduction megathrust. However, absent
+of consideration of shear heating (which appears to be minor, e.g.
+@Kidder2013), the thermal scenario can be be reduced to the subduction of
+younger oceanic mantle lithosphere. Potential Monterey Plate mantle
+lithosphere beneath Crystal Knob would have been emplaced under the ridge at 27
+Ma (corresponding to the chron 7 magnetic anomaly) and subducted shortly
+thereafter [@Atwater1998; @Wilson2005]. Due to slower margin-normal
+convergence during microplate fragmentation and rotation [@Wilson2005], the
+parcel would take ~3 Myr to reach its final stalled position (~100 km behind
+the trench) as shown in Figure \ref{fig:neogene_sections}b. However, for model
+simplicity, we do not incorporate this disequilibrium shift in starting
+conditions.
+
+`Figure model_tracers{C} and model_results{C}` shows a set of scenarios
+corresponding to the late-Cretaceous underplating scenario envisioned in
+@fig:cross_sections. The stalled-slab and late-Cretaceous underplating
+scenarios are similar in construction, with initial emplacement beneath
+a mid-ocean ridge, and cooling on the seafloor.
+The initial
+conditions and thermal evolution of this scenario are qualitatively similar to the older models of **B**, except that this scenario has more geological constraints. Still, they show
+much the same thermal structure.
+
+In the Late Cretaceous duplexing scenario,
+the maximum age of underplating is 70 Ma, based on the youngest ages of the most pertinent (Sierra de Salinas and
 correlative San Emigdio-Rand) schist bodies
 [@Barth2003; @Grove2003; @Saleeby2007; @Chapman2010; @Chapman2016].
 Seafloor being subducted at that time was 40 Myr old
 [@Seton2012; @Liu2010]. This 110 Myr cooling history implies a relatively cold
-modern geotherm. The potential Monterey Plate mantle lithosphere would have
-been emplaced under the ridge at 27 Ma (corresponding to the chron 9
-magnetic anomaly) and subducted shortly thereafter [@Atwater1998; @Wilson2005],
-leaving a much shorter period for relaxation of the geotherm. The
-emplacement of slab-window asthenosphere directly under the coastal
-central California crust entails
-the truncation of a low-temperature forearc geotherm at 19 Ma
-[@Atwater1998] and the substitution of an asthenospheric adiabat below
-this level. This scenario would provide the hottest modern geotherm,
-which, according to @Erkan2008, is too hot to correspond to the
-modern regional geotherm.
+modern geotherm.
+The thermal structure of the forearc is set by thermal constraints on the temperature of batholithic
+rocks at 800ºC at 0.75 GPa at the time of underplating [@Kidder2003]. 
+
+ that the early The resulting geotherm (similar to the
+steady-state geotherms without the leading temperature constraint) are
+subjected to heating from below by slab window underplating of asthenospheric
+material at 80 km depth for a period of 0 to 6 Myr, corresponding to a deeper version of the underplating
+in **A**. A version with no underplating is also shown.
+
 
 Given the range of potential geothermal scenarios, models for the
 emplacement of depleted mantle lithosphere under the central coastal
@@ -144,11 +193,12 @@ geometries. Though increasing the slab dip angle will result in a cooler subduct
 overall effect on the evolution of the thermal
 scenarios appears to be minimal.
 
-In the late Cretaceous underplating scenario, the temperature is pegged at 715ºC at
-25 km depth, a temperature constraint that is established based garnet-biotite
-thermometry of exhumed granites of the Sierra de Salinas.
-Figure \ref{fig:model_results}c, panel 2 correctly captures the inverted metamorphic
-gradient found by @Kidder2006 for this episode of subduction,
+In the late Cretaceous underplating scenario, the temperature is pegged at
+715ºC at 25 km depth, a temperature constraint that is established based
+garnet-biotite thermometry of exhumed granites of the Sierra de Salinas
+[@Ducea2003]. Figure \ref{fig:model_results}C, panel 2 correctly captures the
+thermobarometric constraints and inverted metamorphic gradient recorded by the
+Pelona schist [@Kidder2006;@Kidder2013] for this episode of subduction,
 validating this approach to calculating the forearc geotherm.
 
 <!--[[cross_sections]]-->
@@ -180,9 +230,8 @@ distance (~100 km) inboard of the final trench interface, there is
 limited scope for further episodic rollback after emplacement of the
 nappe(s) of presumed xenolith source.
 
-The subduction zone will have the effect of cooling the
-mantle lithosphere from below for the cases in which subduction is
-modeled [@fig:model_comparisons b and c], which are already near
+An active subduction interface at depth within the model domain will cool the
+mantle lithosphere from below. However, the models [@fig:model_comparisons b and c], which are already near
 the coolest permitted by our xenolith constraints.
 However, the subduction of progressively younger crust until
 the shutoff at ~27 Ma will gradually increase the heat on the bottom of the lithosphere.
@@ -202,6 +251,8 @@ by the presence of a subducting slab below the model domain at some depth. The m
 is run to great depth to avoid any influence on the surface geotherm. However,
 Farallon and forearc scenarios can be treated as maximum temperatures because of
 the influence of the overriding slab.
+
+Most of the model uncertainties tend to bias the results towards predicting geotherms at a given depth
 
 <comment>
 Model-predicted heat flows lower than measured values could be explained

@@ -5,6 +5,6 @@ def barometer_kernel_density(depth):
     return gaussian_kde(depth, 0.1)
 
 def load_data(datafile):
-    with open(datafile) as f:
+    with open(datafile, 'rb') as f:
         return load(f)
 
