@@ -1,17 +1,24 @@
 from __future__ import division
 import numpy as N
-from paper.plot_style import update_axes
-from matplotlib.pyplot import subplots
+from matplotlib.pyplot import figure
+from matplotlib.gridspec import GridSpec
 from xenoliths import app
 from sqlalchemy import or_
 from xenoliths.models import Sample, ProbeMeasurement, ProbeDatum, Tag
 from paper.query import not_bad
+from paper.plot_style import update_axes, axis_labels
 from sys import argv
 from colour import Color
+from seaborn.apionly import despine
 
 minerals = ['ol','cpx','opx']
 m = ProbeMeasurement
 d = ProbeDatum
+
+def edge_color(color):
+    c = Color(color)
+    c.luminance += 0.1
+    return c.hex
 
 def process_data(measurements):
     for m in measurements:
@@ -19,10 +26,7 @@ def process_data(measurements):
         color = m.sample.color
         if m.sample_id == 'CK-1':
             color = '#dddddd'
-        c = Color(color)
-        c.luminance += 0.1
-        ec = c.hex
-
+        ec = edge_color(color)
         yield ox('MgO'),ox('FeO'),ec,color
 
 with app.app_context():
@@ -31,7 +35,10 @@ with app.app_context():
         .filter(m.oxide_total > 98)
         .filter(not_bad()))
 
-    fig, ax = subplots(figsize=(4,3.5))
+    fig = figure(figsize=(4,5.5))
+
+    gs = GridSpec(2,2, height_ratios=[2,1], width_ratios=[2.5,3.5], wspace=0.04)
+    ax = fig.add_subplot(gs[0,:2])
 
     def scatter_plot(query, **kwargs):
         data = list(process_data(query.all()))
@@ -42,7 +49,8 @@ with app.app_context():
 
     lava = scatter_plot(q.filter(Sample.id == 'CK-1'),
                         marker='s', s=8)
-    xeno = scatter_plot(q.filter(Sample.id != 'CK-1'))
+    xeno_query = q.filter(Sample.id != 'CK-1')
+    xeno = scatter_plot(xeno_query)
 
     legend = ax.legend([lava,xeno],
             ['Host lava: CK-1','Xenoliths: CK-2 to CK-7'],
@@ -56,8 +64,15 @@ with app.app_context():
     ax.set_ylim([0,22.5])
     ax.autoscale(False)
 
+    aspect = ax.get_data_ratio()
+
+
     lines = N.linspace(66,90,n+1)
-    for i,num in enumerate(lines):
+    xvals = N.linspace(22,50,len(lines))
+    v = lines/100
+    yvals = xvals*(1-v)/v
+
+    for i,(num,*loc) in enumerate(zip(lines, xvals, yvals)):
         ax.plot([0,num],[0,100-num],
                 color='#dddddd',
                 linewidth=0.5,
@@ -68,26 +83,26 @@ with app.app_context():
         angle = N.arctan2(
             (100-num),num)
 
-        aspect = ax.get_data_ratio()
 
         real_angle = N.arctan2((100-num)/aspect,num)
         xstart = 22
         h = xstart+(50-xstart)*i/n
-        x = N.cos(angle)*h
-        y = N.sin(angle)*h
-        ax.text(x,y,"{:.0f}".format(num),
+
+        print(loc)
+        ax.text(*loc,"{:.0f}".format(num),
                 color='#aaaaaa', size=6,
                 backgroundcolor='white',
                 rotation=N.degrees(real_angle),
                 horizontalalignment='center',
                 verticalalignment='center',
+                transform=ax.transData,
                 zorder=-4)
 
     ax.set_xlabel("MgO (molar %)")
     ax.set_ylabel("FeO (molar %)")
 
-    ax.text(32,10.8,"Mg #",rotation=-20, color="#aaaaaa",size=5)
-    props = dict(color='#aaaaaa', size=6,
+    ax.text(32,11.6,"Mg #",rotation=-20, color="#aaaaaa",size=5)
+    props = dict(color='#aaaaaa', size=8,
                  horizontalalignment='center',
                  verticalalignment='center')
     ax.text(43,3.2,"Orthopyroxene",**props)
@@ -97,6 +112,43 @@ with app.app_context():
     ax.text(53,21,"Phenocryst olivine",**props)
 
     update_axes(ax)
+
+    def process_data():
+        for m in xeno_query.all():
+            ox = lambda x: m.oxide(x).molar_percent
+            color = m.sample.color
+            ec = edge_color(color)
+            yield ox('SiO2'),m.mg_number,ec,color
+
+    data = list(process_data())
+    x,y,colors,edgecolors = zip(*data)
+
+    ax2 = fig.add_subplot(gs[1,0])
+    ax2.scatter(x,y,c=colors,
+        edgecolors=edgecolors, alpha=0.5)
+    ax2.set_xlim(32,34.5)
+
+
+    ax3 = fig.add_subplot(gs[1,1], sharey=ax2)
+    ax3.scatter(x,y,c=colors,
+        edgecolors=edgecolors, alpha=0.5)
+    ax3.set_xlim(47.5,51)
+    ax2.set_ylim(86,92)
+
+    v = dict(va='top', fontsize=10, color='#888888')
+    ax2.text(32.2,92, "Olivine", **v)
+    ax3.text(49.4,92, "Pyroxene", **v)
+
+    update_axes(ax2)
+    despine(ax=ax3,left=True)
+    ax2.set_ylabel("Mg#")
+    ax3.yaxis.set_visible(False)
+
+    ax4 = fig.add_subplot(gs[1,:2])
+    axis_labels(ax,ax4, fontsize=14, pad=.15)
+    ax4.axis('off')
+    ax3.set_xlabel("SiO2 (molar %)")
+    ax3.xaxis.set_label_coords(0.15,-0.18)
 
     fig.savefig(argv[1], bbox_inches='tight')
 

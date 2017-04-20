@@ -16,9 +16,12 @@ makeConstraint = (scale)->(d,i)->
   g.attrs
     class: 'constraint'
     transform: "translate(#{scale.x(d.T)},#{scale.y(d.z)})"
-  g.append 'circle'
+  g.append 'rect'
     .attrs
-      r: 3
+      x: -2
+      y: -2
+      width: 4
+      height: 4
       fill: '#888'
   g.append 'foreignObject'
     .attrs d.attrs
@@ -39,7 +42,7 @@ addSantaLuciaConstraint = (scenario)->
 
   sel.enter()
     .append 'g'
-    .each makeConstraint(ax.scale)
+    .each makeConstraint(axes[1].scale)
 
 f = d3.format('.0f')
 
