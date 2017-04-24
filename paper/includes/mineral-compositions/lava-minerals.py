@@ -18,7 +18,7 @@ data = data[data.type != 'xenolith']
 with app.app_context():
     qset = (ProbeMeasurement.query
         .join(ProbeSession)
-        .filter(ProbeMeasurement.id.in_(list(data.index)))
+        .filter(ProbeMeasurement.id.in_([int(i) for i in data.index]))
         .filter(ProbeSession.sample_id=='CK-1'))
 
     oxide_cols = [i for i in app.config.get("OXIDES")

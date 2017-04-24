@@ -93,6 +93,7 @@
 - id: enrichment_trends
   file: trace-elements/build/enrichment.pdf
   caption: Enrichment trends for trace elements.
+  enabled: false
 
 - id: trace_elements
   type: table
@@ -120,6 +121,7 @@
 # Presumably this supersedes `enrichment trends` figure.
 - id: ree_trends
   file: depletion-model/output/ree-trends.pdf
+  enabled: false
 
 - id: depletion_degrees
   type: table

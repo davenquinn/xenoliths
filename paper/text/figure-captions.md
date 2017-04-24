@@ -175,7 +175,7 @@ the margin as well as the Cretaceous underplating and Monterey plate
 scenarios.
 Modeled tracers begin at 10 and 45 km beneath the seafloor and are advected to depths of 40 and 75 km over the first ~1 Myr of the model timeframe during subduction. 
 Panel **C** tracks a Farallon-plate slab subducted and underplated
-during the late Cretaceous. It is similar to the older models of **B**
+during the late Cretaceous, as envisioned in Figure \ref{fig:cross_sections}. It is similar to the older models of **B**
 but is based on key geologic constraints from subduction channel schists
 [@Kidder2003]. The effects of deep upwelling corresponding with the
 Mendocino slab window are shown for several of the models, in a manner

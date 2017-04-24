@@ -6,7 +6,7 @@ $\mu$ & $\sigma$
 <#- endmacro #>
 \newcommand{\cel}{[\si{\celsius}]}
 <# macro tloop(k, s) -#>
-    <#- if k == 'core' -#>
+    <#- if k == 'coreA' -#>
       <# set preamble="\\textbf" #>
     <#- else -#>
       <# set preamble="" #>
@@ -34,7 +34,7 @@ $\textrm{n}_\textrm{cpx}$ &
 <# for s in samples  #>
     \rule{0pt}{2ex} 
     << s.id >> &
-    \textbf{core} &
+    core &
     << tloop('core',s.core) >> \\
     &
     rim &
