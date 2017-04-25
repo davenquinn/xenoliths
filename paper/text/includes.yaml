@@ -113,7 +113,7 @@
 # Can use partition coefficients from @WittEickschen2005
 - id: cpx_literature_comparison
   file: trace-elements/build/literature-comparison.pdf
-  enabled: false
+  enabled: true
 
 - id: ree_model
   file: depletion-model/output/depletion-model.pdf

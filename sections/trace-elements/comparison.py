@@ -13,6 +13,7 @@ from os import path, environ
 from subprocess import Popen, PIPE
 from xenoliths import app, db
 from xenoliths.models import Sample
+from seaborn.apionly import despine
 
 import matplotlib.pyplot as plt
 from paper.query import sample_colors
@@ -45,7 +46,11 @@ trace_el = df.iloc[:,49:62]
 # Filter data with no trace elements
 trace_el = trace_el[trace_el.sum(axis=1).notnull()]
 
-fig, ax = plt.subplots(1,1,figsize=(5,5))
+# Filter weird outlier
+Tb = trace_el['Tb']
+trace_el = trace_el[Tb.min() != Tb]
+
+fig, ax = plt.subplots(1,1,figsize=(5,3))
 
 cols = list(trace_el.columns)
 norm = 1000/N.array(chondrite.T)[0]
@@ -79,7 +84,8 @@ ticks = all_cols['element'].unique()
 symbols = all_cols['symbol'].unique()
 
 ax.set_yscale('log')
-ax.set_xlim([ticks[0]-0.5,ticks[-1]+0.5])
+ax.set_xlim([ticks[0]-0.1,ticks[-1]])
+ax.set_ylim([0.1, 30])
 
 kw = dict(color='#888888',fontsize=10)
 ax.yaxis.set_ticklabels(["{:g}".format(v) for v in ax.yaxis.get_ticklocs()])
@@ -87,6 +93,10 @@ ax.set_ylabel("Clinopyroxene REE / CI chondrite")
 
 ax.xaxis.set_ticks(ticks)
 ax.xaxis.set_ticklabels(symbols)
+
+despine(ax=ax)
+fig.tight_layout()
+fig.subplots_adjust(hspace=0.09, right=1, left=0.035)
 
 fig.savefig(argv[1], bbox_inches="tight")
 
