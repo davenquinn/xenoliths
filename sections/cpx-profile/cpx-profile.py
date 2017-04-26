@@ -6,6 +6,7 @@ from paper import plot_style
 
 #matplotlib.rcParams.update({'font.size': 8})
 from matplotlib import pyplot as plt
+from matplotlib.ticker import MaxNLocator
 from matplotlib.cm import get_cmap
 from matplotlib_scalebar.scalebar import ScaleBar
 from xenoliths import app, db
@@ -54,9 +55,16 @@ cmap = get_cmap('hot_r')
 
 ax.plot(x,y,color='black')
 scatter = ax.scatter(x,y,
-   c=[m.mg_number for m in measurements],
-   cmap=cmap, vmin=70,vmax=90,s=20,zorder=10)
+    c=[m.mg_number for m in measurements],
+    linewidths=0.5,
+    edgecolors='black',
+    cmap=cmap, vmin=70,vmax=90,s=20,zorder=10)
 cbar = fig.colorbar(scatter, ax=ax, orientation='horizontal', label='Mg #',fraction=0.04, pad=0.02)
+
+tick_locator = MaxNLocator(nbins=6)
+cbar.locator = tick_locator
+cbar.update_ticks()
+
 ax.set_xlim(0,img.size[1])
 ax.set_ylim(img.size[0],0)
 ax.set_axis_off()

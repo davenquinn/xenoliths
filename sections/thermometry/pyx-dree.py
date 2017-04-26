@@ -4,7 +4,7 @@ from __future__ import print_function, division
 
 import numpy as N
 import seaborn.apionly as sns
-from paper.plot_style import update_axes
+from paper.plot_style import update_axes, axis_labels
 from uncertainties import unumpy
 import matplotlib as M
 import yaml
@@ -203,8 +203,7 @@ with app.app_context():
     # Comparison axis
     cxlim = [900,1100]
     scatter = ScatterPlotter(comp_ax, nx=40, ny=60,
-        xrange=cxlim, yrange=ylim2, nlevels=15, color_exponent=1)
-
+        xrange=cxlim, yrange=ylim2, nlevels=15, color_exponent=0.8)
     for sample in samples:
         print(sample.id)
         temps = data[sample.id]
@@ -249,5 +248,7 @@ with app.app_context():
     sns.despine(ax=ax)
     sns.despine(ax=comp_ax, left=True, right=False, top=True)
     sns.despine(ax=ax1,left=True,bottom=True, right=False)
+
+    axis_labels(ax,ax1, fontsize=16, pad=0.12)
 
     fig.savefig("build/pyx-dree.pdf",bbox_inches="tight", dpi=300)

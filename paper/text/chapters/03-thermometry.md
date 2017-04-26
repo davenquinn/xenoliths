@@ -2,14 +2,15 @@
 
 Electron-microprobe major-element data is used as the basis for pyroxene
 Ca--exchange geothermometry. Several formulations of this reaction are
-tested [@tbl:thermometry]: BKN [@Brey1990] and TA98 [@Taylor1998] are
+tested: BKN [@Brey1990] and TA98 [@Taylor1998] are
 two slightly different formulations based on empirical calibration of the two-pyroxene Ca exchange
 reaction in simple and natural systems. @Taylor1998 is explicitly calibrated to
 account for errors arising from high Al content.
 The Ca-in-orthopyroxene (Ca-OPX) thermometer [@Brey1990] is formulated for
 use in the absence of clinopyroxene.
 Together, these thermometers can query the full range of major-element compositions
-seen in the Crystal Knob xenolith samples.
+seen in the Crystal Knob xenolith samples. Results are shown in
+@tbl:thermometry and @fig:temp_comparisons.
 
 <!--[[thermometry]]-->
 
@@ -54,6 +55,8 @@ The Ca-in-OPX thermometer yields remarkably little within-sample scatter, possib
 and complete re-equilibration of small amounts of Ca in orthopyroxene,
 or of generally higher stability of this more refractory phase against late magmatic modification. <!-- *** --->
 
+### Core temperatures
+
 Average TA98 temperatures range from 957 to 1063ºC for cores and
 955 to 1054ºC for rims [@tbl:thermometry].
 CK-2 core temperatures indicate more complete
@@ -70,7 +73,7 @@ of the temperature calculated for average compositions of pyroxene phases across
 This implies that the bulk of the temperature signature
 is based on the equilibrium state of the sample.
 
-#### Rim temperatures
+### Rim temperatures
 
 Rim temperatures (measured ~10 µm from grain edges) are generally higher than
 core temperatures, although the level of disparity varies widely between samples.
@@ -84,7 +87,7 @@ and the most significant petrographic evidence of melt interaction, lacks
 high-temperature rim compositions, implying more sustained equilibration with the Crystal
 Knob melt.
 
-#### Two temperature cohorts
+### Two temperature cohorts
 
 The samples can be divided into two clear cohorts based on equilibration temperatures. A cooler
 group of samples, with a distribution of grain core temperatures centered at ~970ºC (TA98), contains CK-2, CK-5, and CK-7.
@@ -163,8 +166,7 @@ subsolidus re-equilibration in major elements, which implies that it is
 not related to the eruptive episode. Alternatively, partition
 coefficients for LREE and Eu could have been modified by an unusual
 late-stage melt interaction favoring the extraction of LREE and Eu from
-clinopyroxene. <!-- and driving up the relative abundance of LREE in
-orthopyroxene --> Overall, disequilibrium patterns in REE between
+clinopyroxene. Overall, disequilibrium patterns in REE between
 pyroxenes allude to possible focused heating of sample CK-4, poorly
 understood equilibrium partition coefficients (for instance, due to
 reducing mantle conditions), and incomplete linearizing assumptions in
@@ -179,7 +181,7 @@ samples (such as CK-4) with generalized LREE disequilibrium.
 Rare-earth exchange thermometry shows the samples as divided into
 the same two groupings of temperatures as those found by major-element
 thermometry. Temperatures measured for the low-temperature cohort are
-most comparable to the TA98 results [@fig:ree_thermometry].
+most comparable to the TA98 results [@fig:ree_temperatures].
 Given that the TA98 method has been
 found to perform best among the pyroxene-exchange thermometers by
 @Nimis2010, it seems likely that both the TA98 and REE temperatures show

@@ -48,3 +48,4 @@ beneath the Coast Ranges was constructed in a similar fashion to the mantle
 lithosphere beneath the Mojave Province. Its position near the continental
 margin subjected it to major thermal pulses related to the cessation of
 subduction in the Neogene.
+

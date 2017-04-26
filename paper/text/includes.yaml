@@ -85,6 +85,14 @@
 - id: modes
   file: modal-mineralogy/output/ternary.pdf
 
+# Modal mineralogy
+- id: modal_mineralogy
+  file: modal-mineralogy/output/modal-mineralogy.tex
+  type: table
+  caption: "Recalculated modal mineralogy\\tnote{a}"
+  notes:
+    a: \%wt based on \citet{Nesse2000} phase densities
+
 # Trace Elements
 - id: spider
   file: trace-elements/build/trace-elements.pdf

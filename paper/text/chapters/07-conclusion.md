@@ -61,7 +61,7 @@ upwelling during the opening of the slab window.
 Petrologic markers within the Crystal Knob xenolith suite and the late
 timing of the Crystal Knob eruption can be related to interaction of
 the lithospheric lid from which the xenoliths were sourced and an
-underlying deep slab window [@fig:neogene_sections\c].
+underlying deep slab window [Figure \ref{fig:neogene_sections}c].
 
 ## Implications of petrologic complexities to thermal state
 
@@ -87,7 +87,14 @@ migration channels hosting cumulates, which are sometimes re-entrained
 by small-volume volcanism. Such a network is linked to progressive
 percolation of melt upwards from a deep mantle source.
 
-## Origin of the Crystal Knob basalt
+A long-duration reservoir of slab window material locally rising through a thick lid of
+relict mantle lithosphere may explain both mid-Miocene hypabyssal intrusives
+that are directly related to the slab window episode
+(e.g. the Morro Rock--Islay Hills complex [@Stanley2000]
+and the Cambria Felsite [@Ernst1974]) and later deeply
+sourced small-volume eruptions such as Crystal Knob.
+
+## Origin of the Crystal Knob basalt {#sec:crystal_knob_eruption}
 
 The time lag between deep slab window opening and the ca. 1.7
 Ma eruptive age of Crystal Knob presents a problem for the origin of the
@@ -102,7 +109,7 @@ The offshore Monterey plate is at the edge of the
 resolution of @Li2007, which yields an ~50 km depth for the
 lithosphere-asthenosphere boundary.  Proximal to the modern shoreline
 the Monterey plate is thrust beneath ~12 km of sedimentary accretionary
-prism [@Trehu1991], bringing the thermal maturation theoretical depth
+prism [@Trehu1991], bringing the theoretical thermal maturation depth
 for the transition much closer to the depth observed by @Li2007.
 Crystal Knob is located ~15 km east of the Hosgri fault, with its host
 Franciscan complex pervasively cut by faults and shear zones

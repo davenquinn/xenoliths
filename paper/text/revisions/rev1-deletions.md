@@ -34,7 +34,7 @@ boundary. Shearing of the continental borderland along this
 right-lateral system continues to the present. Stalled remnant slabs
 related to the progressive cessation of subduction have been proposed as
 a possible component of the mantle lithosphere underlying coastal
-California [@Wijk2001; @Pikser2012].
+California [@VanWijk2001; @Pikser2012].
 
 <!-- Ophiolites have long been recognized
 and studied as signatures of augmentation of the
@@ -267,7 +267,7 @@ Workers differ on how to interpret an apparent dislocation near the current coas
 with oceanic material dipping eastward at 16º offshore and abruptly flattening
 to 2º beneath the coast (Figure \ref{fig:neogene_sections} gives the rough configuration).
 Some interpret this data to show a single continuous slab
-[@Brocher1999;@tenBrink1999;@Wijk2001;@Pikser2012;@Wang2013].
+[@Brocher1999;@tenBrink1999;@VanWijk2001;@Pikser2012;@Wang2013].
 However, the available data is consistent with imbrication of oceanic material [@Trehu1991] and
 a shallow slab tear adjacent to previously underplated material, at the approximate
 location of the coastline [@Wilson2005].
@@ -300,7 +300,7 @@ rotation coincided with a shallow breakoff of the Monterey-plate slab.
 
 Some workers have invoked the Isabella anomaly, a 300 km deep seismic high-velocity
 zone underlying the southeast Central Valley, as a signature of a
-stalled slab extending far inland [@Wijk2001;@Pikser2012;@Wang2013].
+stalled slab extending far inland [@VanWijk2001;@Pikser2012;@Wang2013].
 However, this anomaly
 dwarfs the scale of the Monterey plate and requires it to project 300 km inland from the
 subduction interface \figp{monterey_plate}. Further, xenolith studies, late-Cenozoic
@@ -371,7 +371,7 @@ upwelling asthenosphere, but think that lithospheric nappes explain the data ele
 
 
 subducting slab or asthenospheric material underplated during a
-slab window event [@Wijk2001]. <!--better references needed -->
+slab window event [@VanWijk2001]. <!--better references needed -->
 
 Regardless of whether this rock was emplaced at the last gasp of subduction,
 it is unlikely that the rock is part of the Monterey Plate proper, because this

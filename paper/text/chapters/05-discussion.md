@@ -2,7 +2,7 @@
 
 Rb-Sr and Sm-Nd isotopic and trace-element data on peridotite xenoliths from this study
 demonstrate that the mantle lithosphere that was sampled by the Crystal
-Knob volcanic neck is sourced from the depleted convecting mantle [e.g. @Hoffmann1997] with
+Knob volcanic neck is sourced from the depleted convecting mantle [e.g. @Hofmann1997] with
 no contribution from recycled crustal material, nor ancient
 sub-continental mantle lithosphere. This is consistent with the neck
 having penetrated through the Franciscan accretionary complex, and also
@@ -22,7 +22,7 @@ from crustal structure, we identify several viable tectonic scenarios for the
 formation of the mantle lithosphere beneath coastal central California,
 which we summarize in Sections \ref{sec:slab_window}-\ref{sec:mantle_nappes}.
 
-## Late Cenozoic tectonic history and regional crustal structure
+## Late Cenozoic tectonic history and regional crustal structure {#sec:tectonic_scenarios}
 
 In Oligocene to early Miocene time the Pacific-Farallon spreading ridge
 obliquely impinged into the SW Cordillera subduction zone leading to the
@@ -125,7 +125,7 @@ this time period across the region of the reconstructed slab window
 [@Hurst1982; @Sharma1991; @Cole1995; @Wilson2005].
 However, this phase of slab window opening and related volcanism
 cannot account for the eruption of the ca. 1.7 Ma Crystal Knob volcanic
-neck itself, which we return to below <fixme>cite the section</fixme>.
+neck itself, which we return to in @sec:crystal_knob_eruption.
 
 ## The Monterey plate
 

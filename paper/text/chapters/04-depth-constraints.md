@@ -138,7 +138,7 @@ lithosphere derived from regional heat flow datasets.
 
 ### Comparisons with steady-state heat flow
 
-These depth constraints derived from xenolith geothermobarometry
+These depth constraints derived from xenolith thermobarometry
 can be compared to surface heat-flow and seismic
 constraints on the regional geotherm.
 
