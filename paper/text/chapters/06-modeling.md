@@ -208,19 +208,17 @@ validating this approach to calculating the forearc geotherm.
 ### Model simplifications
 
 This model framework has several simplifications.
-Surface erosion after underplating is taken to be zero. The majority of
-erosion to the mid-crustal levels now at the surface in Salinia is
-likely to have occurred in a major pulse of unroofing coincident with
-flat-slab underplating and rollback [@Saleeby2003; @Chapman2012], and is thus likely to
-disproportionately affect the older models. The lack of erosion
-in the model framework will likely bias the results to lower geothermal
-gradients overall, as advection of material upwards increases the
-geothermal gradient. <comment>Shift everything up by an appropriate
-amount</comment>.
+Subducted oceanic crust is not considered to have distinct thermal
+properties from the oceanic mantle.
+Increasing the thermal conductivity of the model domain substantially
+flattens the modeled geotherms, but does not affect the relative
+temperatures predicted by the geotherms.
+Additionally, though there are no reliable estimates of the mantle heat flux that cover the model
+domain, the model is run to great depth to avoid any influence of this
+uncertainty on the surface geotherm.
 
 The confounding factor of an active subduction zone just outboard of the
-scenarios for the older models is also not treated.
-All of the rollback underplating scenarios are potentially beset by this problem.
+scenarios for the older models is also not included within the model.
 When the trench interface jumps with the emplacement of an oceanic mantle
 nappe beneath the forearc, the new subduction interface will cool the
 detached nappe from below. This is not modeled because it would
@@ -228,36 +226,39 @@ substantially increase model complexity (requiring a fully
 iterative approach to the forearc geotherm), and at this
 distance (~100 km) inboard of the final trench interface, there is
 limited scope for further episodic rollback after emplacement of the
-nappe(s) of presumed xenolith source.
-
-An active subduction interface at depth within the model domain will cool the
-mantle lithosphere from below. However, the models [@fig:model_comparisons b and c], which are already near
-the coolest permitted by our xenolith constraints.
-However, the subduction of progressively younger crust until
-the shutoff at ~27 Ma will gradually increase the heat on the bottom of the lithosphere.
+nappe(s) of presumed xenolith source [e.g. Figure \ref{fig:neogene_sections}c].
+Further, although an active subduction interface at depth will cool the
+mantle lithosphere from below, the subduction of progressively younger crust until cessation
+at ~27 Ma will gradually increase the heat on the subduction interface.
+The models for these scenarios [Figure \ref{fig:model_comparisons}b and c]
+are already near the coolest permitted by our xenolith constraints.
 As these geotherms are already quite cold, introducing this added complexity will not
 significantly change the model results.
-
-For simplicity, subducted oceanic crust is not considered to have distinct thermal
-properties from the oceanic mantle.
-Increasing the thermal conductivity of the model domain substantially
-flattens the modeled geotherms, but does not affect the relative
-temperatures predicted by the geotherms.
-
-<comment>Need to reword this</comment>
-There are no reliable estimates of the mantle heat flux that cover the model
-domain, and the thermal environment for underplated mantle lithosphere is complicated
-by the presence of a subducting slab below the model domain at some depth. The model
-is run to great depth to avoid any influence on the surface geotherm. However,
+However,
 Farallon and forearc scenarios can be treated as maximum temperatures because of
 the influence of the overriding slab.
 
-Most of the model uncertainties tend to bias the results towards predicting geotherms at a given depth
+Finally, and most significantly, surface erosion after underplating is
+taken to be zero. The majority of erosion to the mid-crustal levels now
+at the surface in Salinia is likely to have occurred in a major pulse of
+unroofing coincident with flat-slab underplating and rollback
+[@Saleeby2003; @Chapman2012], and is thus likely to disproportionately
+affect the older models. However, the 30 km of crust shown in the study
+area is based on modern estimates of the Moho depth, so recent erosion
+is unlikely to have biased the whole-lithosphere geotherm significantly.
+Still, the lack of erosion in the model framework will likely bias the
+results towards predicting lower geothermal gradient overall, as upward
+advection of material by erosion increases the geothermal
+gradient [@Mancktelow1997;@England1990].
 
-<comment>
-Model-predicted heat flows lower than measured values could be explained
-by erosion [@Mancktelow1997;@England1990].
-</comment>
+The uncertainties inherent in this model tend to bias the results towards
+predicting lower-temperature geotherms over the model domain and more shallowly sloping
+geotherms over the mantle lithosphere. This is especially significant in
+light of comparisons with measured values of heat flux and xenolith
+thermobarometry, which are not subject to these biases. Thus, geotherms
+predicted by this model might be underestimates for potential mantle
+temperature at a given depth, especially for the older tectonic
+scenarios modeled.
 
 <!--[[model_results]]-->
 
@@ -301,14 +302,20 @@ concluded that the low heat flows must be due to a stalled slab, where in fact
 underplated Farallon mantle nappes satisfy the surface heat flow data equally
 well, given a deep slab window heating event.
 
-The case of relict Farallon-plate material shows low geotherms that correspond to
-mantle lithosphere temperature conditions too cold for the xenolith constraints.
-However, the Farallon plate with reheating by a deep slab window in the early Miocene
-shows results similar to that for the youngest stalled slab scenario modeled. This
-means that the thermal structures of a "Monterey Plate" and a deep slab window scenario
-are indistinguishable from a geothermal perspective. Thus, this scenario
-is equally attractive from a geothermal point of view to explain a moderately elevated
-geothermal gradient in the mantle lithosphere (which is what we see from the heat flow and
-xenolith constraints on the geotherm), while corresponding to the geologic
-context much better than the "stalled slab" scenario.
+The case of relict Farallon-plate material shows low geotherms that
+correspond to mantle lithosphere temperature conditions too cold for the
+xenolith constraints. However, the Farallon plate with reheating by a
+deep slab window in the early Miocene shows results similar to that for
+the youngest stalled slab scenarios except for the "Monterey Plate"
+scenario. The Monterey Plate scenario matches well with the geothermal
+constraints derived from heat flow modeling. However, when potential
+temperature overestimates from extrapolation of heat flow values are
+considered along with underestimate effects in the modeled geotherms,
+the slightly colder temperatures predicted by the reheated relict mantle
+lithosphere scenario fall in a reasonable range for the geotherm within
+the mantle lithosphere beneath central California. This scenario is thus
+equally attractive from a geothermal point of view to explain the
+moderately elevated geothermal gradient seen in the mantle lithosphere,
+while corresponding to the geologic context much better than the
+"stalled slab" scenario.
 

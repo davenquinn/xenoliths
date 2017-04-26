@@ -60,9 +60,9 @@ with app.app_context():
     mg_number = [c['Mg']/(c['Mg']+c['Fe'])*100 for c in spinel_cations]
 
     ax.scatter(mg_number, cr_number,
-               c=list(lighten(*colors, lum=0.45, sat=-.2)),
+               c=list(lighten(*colors, lum=0.45, sat=-0.1)),
                marker='s',
-               edgecolor=list(lighten(*colors,lum=0.38, sat=-.2)),
+               edgecolor=list(lighten(*colors,lum=0.38, sat=-0.)),
                alpha=0.8,
                label='Uncorrected')
 

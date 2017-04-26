@@ -2,13 +2,15 @@
 
 Rb-Sr and Sm-Nd isotopic and trace-element data on peridotite xenoliths from this study
 demonstrate that the mantle lithosphere that was sampled by the Crystal
-Knob volcanic neck is sourced from the depleted convecting mantle with
+Knob volcanic neck is sourced from the depleted convecting mantle [e.g. @Hoffmann1997] with
 no contribution from recycled crustal material, nor ancient
 sub-continental mantle lithosphere. This is consistent with the neck
 having penetrated through the Franciscan accretionary complex, and also
 with the observations that Salinia continental arc rocks of the region
 are unrooted nappes that lie structurally above Franciscan complex
-rocks. In that the Franciscan complex of the region was assembled by
+rocks.
+
+In that the Franciscan complex of the region was assembled by
 long-lived subduction of the Farallon plate encompassing
 Cretaceous-early Tertiary time [@Cowan1978; @Saleeby1986; @Seton2012; @Chapman2016a],
 it follows that the mantle lithosphere of the region was constructed from partly subducted Farallon
@@ -220,7 +222,9 @@ estimate for the attenuated terminus of a hypothetical translated
 Monterey slab. These studies also provide mechanisms for lower crustal
 plastic deformation, observable surface faulting, upper mantle--lower
 crustal partial melting and dynamic topographic effects that are ignored
-in the dangling slab hypothesis. Surface geological effects of such
+in the dangling slab hypothesis.
+
+Surface geological effects of such
 melting and topographic transients are closely correlated to the
 convective mobilization of the sub-Sierran mantle lithosphere
 [@Ducea1998b; @Farmer2002; @Saleeby2013; @Cecil2014; @Levandowski2015].
@@ -240,19 +244,18 @@ Possible remnants of necked off partially subducted Monterey plate are more plau
 speed anomaly in terms of position and volume [@fig:context], and also have a
 firm geodynamic basis as such [@Burkett2009].
 
-## How do we get thermal shielding without a stalled slab?
-
 Much of the reason for the attractiveness of the stalled slab hypothesis
-is its utility to explain sparse volcanism in the Coast
-Ranges in the Neogene, and modern heat flow values too low to be
-explained by a shallow slab window.
-
-Whether the migrating slab window caused wholesale replacement of underlying
-mantle lithosphere has been examined by several workers. @Erkan2008 examined the possibility
-of wholesale ML replacement with upwelling asthenosphere, against a
-possible "stalled slab". <comment>More explanation here</comment>
-They concluded the stalled slab was more likely. We agree with their primary assertion against the
-upwelling asthenosphere, but think that lithospheric nappes explain the data elegantly.
+is its utility to explain sparse Neogene volcanism in the Coast
+Ranges in the Neogene and modern heat flow values too low to be
+explained by shallow underplating of mantle lithosphere.
+@Erkan2008 examined whether the migrating slab window caused wholesale replacement of underlying
+mantle lithosphere against a possible "stalled slab", and concluded that
+the stalled slab was more likely due to the lower thermal gradients and
+heat flows predicted by this mechanism. Though their model techniques were
+sound, they failed to consider another distinct tectonic mechanism that
+could result in similarly lower thermal gradients than a shallow slab
+window. We summarize this mechanism and the supporting geologic data
+below.
 
 ## Underplated Farallon Plate mantle nappes  {#sec:farallon_nappes}
 
@@ -310,19 +313,19 @@ arc, and retrogressed to ~715ºC, peak temperatures recorded in shallowly
 subducted metaclastic rocks of the Sierra de Salinas schist, exposed in
 the principal Salinia window into the subduction channel schists [@Kidder2006].
 
-In @fig:cross_sections c and d we adopt the focused slab rollback and mantle
+In @fig:cross_sectionsc and d we adopt the focused slab rollback and mantle
 lithosphere underplating models of @Saleeby2003 and @Luffi2009,
 for the dynamic response of normal thickness oceanic lithosphere
 following the thickened oceanic plateau down the subduction
 zone. Principal crustal responses are shown as large magnitude
 trench-directed extension coupled to regional extrusion of the
 underplated subduction channel schists, which was driven by suction
-forces of the retreating slab. In the `Figure cross_sections{c} to {d}` transition,
+forces of the retreating slab. In the Figure \ref{fig:cross_sections}c to d transition,
 accelerated rollback is driven by duplex formation from Farallon
 plate mantle nappes. We suspect that mantle nappe detachment was
 controlled primarily by the temperature control on the brittle-plastic
 transition in olivine. For ca. 40-50 m.y. old oceanic lithosphere
-entering the subduction zone `[Figure cross_sections{c} and {d}]`,
+entering the subduction zone [Figure \ref{fig:cross_sections}c and d],
 an estimated ~700-800 ºC
 control on this transition [@Warren2006; @Burgmann2008; @Mei2010] occurs
 at ~25-40 km depth in the slab [@Doin1996]. We also suspect that the retreat of the slab as it
@@ -338,7 +341,7 @@ underplated as the seismically imaged thickened mafic lower crust of the
 region [@Trehu1991; @Brocher1999]. On the basis of the regional
 structural evolution of the central to southern California basement, and
 on the petrogenetic history recorded in the region's mantle xenolith
-suites, we consider the `Figure cross_sections{d}` section to be that most likely sampled by
+suites, we consider the Figure \ref{fig:cross_sections}d section to be that most likely sampled by
 the Crystal Knob eruption. This section is idealized for Late Cretaceous
 time, and below we layer on the complexity of late Cenozoic faulting in
 our analysis. We focus now to thermal history in order to more

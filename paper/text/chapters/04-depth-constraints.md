@@ -97,7 +97,7 @@ Analytical errors are propagated through the calculation.
 To correct for the mild pressure dependence of the two-pyroxene thermometer, and the
 temperature dependence of the olivine barometer, we jointly solve temperature and
 pressure by iteratively optimizing to a common solution for each set of
-microprobe measurments.
+microprobe measurements.
 This yields a set of separate internally consistent depth and temperature
 measurements for each sample corresponding to individual pairs of
 microprobe measurements.
@@ -202,7 +202,7 @@ Ca-in-olivine barometry suggests a tighter set of constraints near the center of
 Model depths of 45-55 km prepared from steady-state geotherms agree with
 this assessment, but might be underestimates.
 Given the bias in both Ca-in-olivine and heat-flow
-measurements towards shallower depths, we take the depth range of 50-70 km as
+measurements towards shallower depths, we take the depth range of 45-70 km as
 a likely entrainment depth for the Crystal Knob xenoliths.
 
 This assessment of relatively deep entrainment of the Crystal Knob xenoliths
@@ -221,14 +221,4 @@ steady-state geotherms of 70-80 mW/m^2.
 
 We next turn to the accuracy of this extrapolation from heat flow values,
 and its implication for understanding the thermal structure of the lithosphere.
-
-<comment>### The origin of the Crystal Knob volcanic neck
-
-Extension in the lower crust?
-Of family with small eruptive episodes such as Coyote Creek (based on
-eruptive age)
-
-Fossil heating event affecting CK-4 LREE. This is not the most recent
-perturbation because it's not reflected in the major element thermometers
-</comment>
 

@@ -9,9 +9,9 @@ output:
 	mkdir -p $@
 
 table:=$(figure:.pdf=.tbl)
-$(table): fractional-melting.melts-env
+$(table): fractional-melting.melts-env literature/WH_oDMM_REE-x.melts
 	cd $(dir $@) ;\
-	run_alphamelts.command -f ../$^ -b ../fractional-melting.bat -o $(notdir $@);\
+	run_alphamelts.command -f ../$< -b ../fractional-melting.bat -o $(notdir $@);\
 	rm -f *.txt
 
 output/depletion-model.pdf: make-model-plot.py $(table)

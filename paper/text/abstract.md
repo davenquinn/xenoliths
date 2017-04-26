@@ -13,32 +13,38 @@ continental arc, but more recently has been shown to be a series of crystalline
 nappes emplaced above the Franciscan.
 
 Six spinel peridotite samples were analyzed, ranging from fertile lherzolites
-to clinopyroxene harzburgites with modal clinopyroxene from 2-13%. They have a depleted
-mantle isotopic signature and correspond to abyssal peridotites, most likely
-sourced in a relict subducted slab. Ca-exchange geothermometry shows
-equilibration temperatures between 950 and 1060 ºC. Rare-earth geothermometry
-shows similar results, but hotter for the hottest samples. Broadly the samples
-can be divided into two groups based on temperature of equilibration, which
-also manifest in trace-element patterns, Cr content in spinels, and Ca in
-olivine. This variability means the samples were likely entrained at several
-depths. Considering broad limits imposed by phase stability and temperature,
-the samples are likely sourced between 40 and 80 km depth. The
-higher-temperature samples show general REE depletion but sharp enrichment in
-LREEs, potentially the signature of a relict heating event. Sample CK-6
-shows anomalous major-element refertilization, perhaps relating to a .
+to clinopyroxene harzburgites with modal clinopyroxene from 2-13%. They have
+a depleted mantle isotopic signature and correspond to abyssal peridotites,
+most likely sourced in a relict subducted slab. Ca-exchange geothermometry
+shows equilibration temperatures between 950 and 1060 ºC. Rare-earth
+geothermometry shows similar results, but hotter for the hottest samples.
+Broadly the samples can be divided into two groups based on temperature of
+equilibration, which also manifest in trace-element patterns, Cr content in
+spinels, and Ca in olivine. Ca-in-olivine barometry and phase stability limits
+suggest that the xenoliths were sourced along a depth gradient in the 45-75 km
+range. This corresponds to regional geothermal
+gradients ranging from 70-90 mW/m2, broadly in agreement with regional heat
+flow measurements.
+The samples show variable depletion, with residual harzburgites at deeper depths.
+All samples show pronounced trace element re-enrichment.
 
-The samples show depth constraints from the spinel facies and
-Ca-in-olivine barometry that give them a likely depth range of 40-60 km
-for the xenolith samples. This correspond to regional geothermal
-gradients ranging from 70-90 mW/m2, in good agreement with regional heat
-flow measurements. The Pleistocene thermal structure for the 
+Given these constraints from xenolith thermobarometry, forward modeling of
+thermal evolution is used to construct a range of potential thermal structures
+corresponding to likely tectonic scenarios for the evolution of the mantle
+lithosphere beneath coastal California. Both a translating relict slab
+associated with the Monterey Plate and Cretaceous rollback imbrication of the
+Farallon plate predict reasonable geotherms corresponding to xenolith and
+geophysical constraints. However, the Cretaceous relict slab aligns better with
+crustal geological constraints. The preferred tectonic scenario for
+construction of the coastal California mantle lithosphere is thus subduction
+during the late Cretaceous, underplating during rollback extension, and cooling
+at depth over the Paleogene. During the Neogene, a deep slab window at ~80 km
+depth warmed the mantle lithosphere from the base.
 
-Forward modeling of thermal evolution is used to construct a range of scenarios
-for the age of the underplated Farallon slab and structure of the margin.
-Scenarios ranging from a young "stalled slab" to the rollback imbrication of
-Farallon lithosphere in the Cretaceous to Paleocene imply relatively cool
-modern geotherms approaching steady-state heat flow. These scenarios generally
-predict colder conditions at depth than are recorded by the xenoliths or
-surface heat-flow data implying that the xenoliths are sourced from the bottom
-of their stability field, and that fluid migration following the plate boundary
-may be an important process for increasing local heat transfer rates.
+This scenario can explain the temperature and depth distribution of the Crystal
+Knob xenoliths, as well as the paired depletion and re-enrichment signatures
+recorded by most of the sample set. This work shows that the mantle lithosphere
+beneath the Coast Ranges was constructed in a similar fashion to the mantle
+lithosphere beneath the Mojave Province. Its position near the continental
+margin subjected it to major thermal pulses related to the cessation of
+subduction in the Neogene.

@@ -1,4 +1,4 @@
-## Thermometry
+## Major-element thermometry
 
 Electron-microprobe major-element data is used as the basis for pyroxene
 Ca--exchange geothermometry. Several formulations of this reaction are
@@ -91,10 +91,8 @@ group of samples, with a distribution of grain core temperatures centered at ~97
 A hotter group, with a mean temperature of ~1050ºC (TA98) contains samples CK-3, CK-4, and CK-6.
 This division between these two groups is robust and apparent in all thermometers, as well as in
 other geochemical data.
-The high-temperature samples show significantly higher levels of REE depletion, as well
-as some amount of re-enrichment in LREEs. They also contain chromian spinels, which are a product of increased
-levels of melt extraction.
-This temperature distribution may signify sourcing of these two sets of xenoliths from different
+
+This temperature distribution likely corresponds to the sourcing of these two sets of xenoliths from different
 depths within a magmatic ascent system. Throughout this paper, the samples are color-coded, with
 blue-green corresponding to the low-temperature array, and red-yellow representing
 the high-temperature samples.
@@ -102,7 +100,7 @@ the high-temperature samples.
 <!--[[temp_comparisons]]-->
 <!--[[temp_summary]]-->
 
-### REE-in-pyroxene thermometry
+## REE-in-pyroxene thermometry
 
 We use the @Liang2013 REE-in-two-pyroxene thermometer to estimate the
 equilibration temperature of the samples using an independent system.
@@ -146,36 +144,35 @@ in LREEs from the Crystal Knob source magma.
 All samples except CK-6 and CK-7 show results off the linear trendline for Eu.
 This distinct disequilibrium was also found in calibration by @Sun2012, and is
 dependent on the oxygen fugacity (and \ce{Eu^{2+}}/\ce{Eu^{3+}} ratio of the
-host magma. The strength of these disequilibria suggests that a significant
-amount of \ce{Eu^{2+}} exists in these samples and that it is strongly
-partitioned between orthopyroxene and clinopyroxene. Moreover, the dataset
-suggests an incorrect partition coefficient, with Eu favoring orthopyroxene at
-a factor of up to 10. Since this disequilibrium exists between pyroxenes, it is
-unlikely to correspond to fractionation into plagioclase, the usual source
-Eu depletions in melt residues. However, this could be the case if quicker
-diffusion of Eu out of clinopyroxenes is invoked, and the samples were never
-fully equilibrated. The exact kinetics of this scenario are unclear, but it is
+host magma. The exact kinetics of this scenario are unclear, but it is
 likely that REE equilibrium was achieved in a reducing environment
 *(P. Asimow and J. Blundy, personal communication)*, or Eu rapidly and
 differentially diffused out of the Crystal Knob xenoliths just prior to eruption.
+These patterns could also be due to the effect of "ghost" plagioclase on
+creating local europium enrichments and depletions in the neighborhood
+of resorbed plagioclase grains. Such a pattern would suggest that the
+xenoliths originated at shallow mantle lithosphere levels and was
+transported deeper, causing plagioclase breakdown.
 Discerning between these scenarios is difficult due to the low Eu counts
 measured using ion-microprobe techniques.
 
-General LREE disequilibrium between pyroxenes can be explained by
-a fossil heating event that was retained only in the large-ion lithophile elements due to their
-slow diffusion rates. This must have happened prior to re-equilibration in major elements.
-Alternatively, partition coefficients for LREE and Eu
-could have been modified by an unusual late-stage melt interaction
-favoring the extraction of LREE and Eu from clinopyroxene. <!-- and driving up the relative abundance of LREE in
-orthopyroxene -->
-Overall, disequilibrium patterns in REE between pyroxenes allude to possible
-eruptive effects, poorly understood equilibrium partition coefficients
-(for instance, due to reducing mantle conditions), and incomplete linearizing assumptions
-in the @Liang2013 thermometer. Untangling these effects
-is beyond the scope of this work but presents several opportunities for further study.
-Despite this disequilibrium, temperature estimates anchored
-by HREE perform well as measured against major-element thermometry,
-even for samples (such as CK-4) with generalized LREE disequilibrium.
+General LREE disequilibrium between pyroxenes can be explained by a
+fossil heating event that was retained only in rare-earth elements due
+to their slow diffusion rates. This must have happened prior to
+subsolidus re-equilibration in major elements, which implies that it is
+not related to the eruptive episode. Alternatively, partition
+coefficients for LREE and Eu could have been modified by an unusual
+late-stage melt interaction favoring the extraction of LREE and Eu from
+clinopyroxene. <!-- and driving up the relative abundance of LREE in
+orthopyroxene --> Overall, disequilibrium patterns in REE between
+pyroxenes allude to possible focused heating of sample CK-4, poorly
+understood equilibrium partition coefficients (for instance, due to
+reducing mantle conditions), and incomplete linearizing assumptions in
+the @Liang2013 thermometer. Untangling these effects is beyond the scope
+of this work but presents several opportunities for further study.
+Despite this disequilibrium, temperature estimates anchored by HREE
+perform well as measured against major-element thermometry, even for
+samples (such as CK-4) with generalized LREE disequilibrium.
 
 ### Significance of temperature estimates {#sec:temperature-significance}
 
@@ -198,17 +195,68 @@ samples. This is accompanied by major REE disequilibrium in sample CK-4,
 which also contains the most intergranular melt channels.
 
 Sample CK-4 records a significantly higher temperature for LREE than
-both the other samples and its own HREE equilibration temperatures.
-This likely shows that the LREEs were equilibrated at a much higher temperature than the
-HREEs. This pronounced within-sample disequilibrium could be the result
-of metasomatic processes, which is bolstered by the fact that CK-4 shows
-the only significant melt-infiltration textures in the sample set. It is
-likely, therefore, that CK-4 was subjected to a short, transient heating
-event that was not fully equilibrated in HREE. Further, since this
-transient heating is not reflected in major-element temperatures, it is
-likely that the sample was subsequently equilibrated at a
-lower temperature for a significant period of time. Also, given low CPX modes,
-rare-earths added during refertilization may not be completely
-homogenized throughout the sample.
+both the other samples and its own HREE equilibration temperatures. This
+likely shows that the LREEs were equilibrated at a much higher
+temperature than the HREEs. This pronounced within-sample disequilibrium
+could be the result of metasomatic processes, which is bolstered by the
+fact that CK-4 shows the only significant melt-infiltration textures in
+the sample set. It is likely, therefore, that CK-4 was subjected to a
+short, transient heating event that was not fully equilibrated in HREE.
+Further, since this transient heating is not reflected in major-element
+temperatures, it is likely that the sample was subsequently equilibrated
+at a lower temperature for a significant period of time. Also, given low
+clinopyroxene modes, rare-earths added during refertilization may not be
+completely homogenized throughout the sample.
 
+# Geochemical differences within the Crystal Knob sample set
 
+All of the Crystal Knob xenoliths analyzed are isotopically depleted, with an
+initial $\epsilon_\mathrm{Nd}$ of +10, and \ce{^{87}Sr}/\ce{^{86}Sr} of .7029.
+This corresponds to the depleted upper mantle [e.g. @Hofmann1997], with a
+mantle upwelling source that has seen no contribution from the western
+North American crust or continental lithosphere more generally.
+The mantle lithosphere sampled by the Crystal Knob suite was created
+from the same mantle reservoir and is distinct from the overlying
+crustal material.
+
+However, the two cohorts in temperature seem to sample mantle material
+with somewhat different major- and trace-element characteristics. In
+major elements, the low-temperature cohort generally includes phases
+with relatively fertile compositions, with modal abundances showing a
+trend towards depletion by decrease in the abundance of pyroxene phases.
+This is supplemented by relatively undepleted pyroxene trace-element
+patterns: In clinopyroxene trace elements, the low-temperature cohort
+ranges from essentially undepleted to low levels of depletion
+characteristic of the least-depleted abyssal peridotites
+[@fig:cpx_literature_comparison].
+
+The high-temperature samples show major-element compositions with lower
+Mg\#s, suggesting that depletion progressed differently, with all phases
+losing volatile elements during depletion. Within this cohort, CK-3 and
+CK-4 show significantly higher levels of REE depletion and extremely low
+clinopyroxene modes, as well as distinct enrichments in clinopyroxene
+LREEs, which likely correspond to assimilation of enriching fluid and
+are notably different from profiles found in abyssal peridotites
+[@fig:cpx_literature_comparison]. They also contain chromian spinels,
+which are a product of increased levels of melt extraction.
+
+Sample CK-6 shows still-lower Mg\#s for phases but greater abundances of pyroxene
+phases, suggesting some amount of major-element re-enrichment. It is
+relatively undepleted in REEs and shows no significant temperature
+disequilibrium in any thermometer including REE. This major-element
+refertilization is likely a result of assimilation of mantle material
+and re-equilibration near the solidus. It implies significant mass
+exchange and may be due to interaction with deep upwelling fluids.
+
+Broadly, the results of geochemical and thermometric studies of the
+Crystal Knob suite suggest that the mantle lithosphere beneath central
+California was affected by differing levels of depletion and
+re-enrichment. The shallower samples are less depleted, and the hottest
+and deepest samples are melt residues, implying more melt extraction at
+deeper levels of the lithospheric column. Modeling suggests that
+re-enrichment happened throughout the sample set, and all clinopyroxene
+rare-earth elements show effects of re-enrichment except for CK-2.
+However, disequilibrium in REE (CK-4) and unusual major element
+signatures (CK-6) occur in the hotter samples. This suggests that the
+samples were affected by alteration that was the most intense at deeper
+depths sometime in their post-emplacement and pre-eruptive history.

@@ -23,11 +23,12 @@ def update_axes(ax, ticks_out=True):
         d.set_tick_params(which='both', direction='out')
 
 def lighten(*colors, **kwargs):
-    kwargs.update(dict(lum=0.1, sat=0))
+    defaults = dict(lum=0.1, sat=0)
+    defaults.update(kwargs)
     for color in colors:
         c = Color(color)
-        c.luminance += kwargs['lum']
-        c.saturation += kwargs['sat']
+        c.luminance += defaults['lum']
+        c.saturation += defaults['sat']
         yield c.hex
 
 def axis_labels(*axes, pad=0.14, ypos=1, **kwargs):

@@ -66,7 +66,17 @@ underlying deep slab window [@fig:neogene_sections\c].
 ## Implications of petrologic complexities to thermal state
 
 The Crystal Knob xenolith suite shows petrologic variation consistent
-with reheating from below. The sourcing of the Crystal Knob pipe from
+with reheating from below.  As discussed in @sec:temperature-significance,
+the LREE disequilibrium seen in
+several samples (especially CK-4) could be the signature of a fossil heating
+event not fully re-equilibrated in LREEs. This is underscored by the presence
+of melt-infiltration textures in sample CK-4. The apparent polyphase
+major-element refertilization in sample CK-6 as well as the apparently
+re-enriched clinopyroxenes across the sample set attest to the assimilation of
+varying amounts of material after the initial crystallization of these
+xenoliths, and re-equilibration of major-element compositions after this event.
+
+The sourcing of the Crystal Knob pipe from
 relatively deep levels of the mantle lithosphere, the highly
 fractionated nature of the magma with zoned phenocrysts, and the
 presence of both dunite cumulates and peridotite xenoliths suggest that
@@ -76,12 +86,6 @@ investigated by @Kelemen2000, which includes fractal scaling of melt
 migration channels hosting cumulates, which are sometimes re-entrained
 by small-volume volcanism. Such a network is linked to progressive
 percolation of melt upwards from a deep mantle source.
-
-As discussed in @sec:temperature-significance, the LREE disequilibrium
-seen in several samples (especially CK-4) could be the signature of a
-fossil heating event not fully re-equilibrated in LREEs. This is
-underscored by the presence of melt-infiltration textures in sample
-CK-4.
 
 ## Origin of the Crystal Knob basalt
 
@@ -141,38 +145,49 @@ initially emplaced into the early Neogene slab window.
 Conclusion
 ==========
 
-Petrographic, trace element and Sr-Nd isotopic data imply a convective
-mantle origin for the mantle lithosphere beneath 
+The lithosphere of southern California was subjected to two major
+episodes of deformation, with the impact of the Shatsky Rise large
+igneous province during the late Cretaceous followed by the progressive
+evolution of a transform boundary in the Neogene. These episodes are
+recorded throughout the crustal geologic record of southern California
+and the central California Coast Ranges outboard of the San Andreas
+Fault. Using constraints from the Crystal Knob xenolith suite along with
+thermal modeling of tectonic scenarios, we show that the mantle
+lithosphere beneath the central California coast was affected by both of
+these episodes of deformation. The Crystal Knob suite is sourced along a
+depth gradient from ~45-70 km depth, and isotopic constraints show that
+it originates from the convecting mantle, which is typical of mid-ocean
+ridge or underplated mantle lithosphere. Samples are variably depleted,
+and trace-element re-enrichment (and a single example of likely
+major-element assimilation) suggests interaction with low-volume melts
+after the formation of this mantle lithosphere.
 
-- Slab window is really hot!
-- Farallon plate and older forearc are really cold
-    - Converging on “steady-state” value
-- Farallon heated from below seems to work well
-    - Provides a thermal buffer for low-heatflow coast range and can
-      potentially help explain the Coast Range Thermal Anomaly
+These xenolith geochemical markers can be analyzed against the three
+tectonic scenarios posed for mantle lithosphere formation, and thermal
+modeling of these scenarios tests their viability. The shallow slab
+window underplating scenario predicts extremely hot geotherms that are
+untenable for the xenolith constraints on this study.
+A "stalled slab" origin scenario modeled on the lateral translation of
+the Monterey plate best replicates the target geotherm but is
+geologically untenable. A scenario involving underplating at the
+close of the Cretaceous stalled slab followed by reheating of the
+mantle lithosphere by a deep slab window during the Neogene fits the
+geothermal data as well.
 
-Thermal relaxation of a young stalled slab is largely similar to
-a deep slab window, thermally buffered by old lithosphere.
-
-An initial petrologic study of the Crystal Knob peridotite xenoliths has
-been conducted, and thermobarometry has been applied to examine the
-thermal state of their mantle source. These xenoliths sample the
-lithosphere at moderate to deep (45-80 km) depths and are divided into
-two groups which record subtly different temperatures. Sm-Nd and Rb-Sr
-isotopes show that the samples are derived from the depleted convecting
-mantle. <!-- Given the location of the Salinian block adjacent to the Mojave
-prior to \SI{5}{Ma},--> Given this, the samples are derived from
-some generation of the Farallon downgoing slab. However, the thermal models
-approach equilibrium at long timescales, and depth constraints are
-imperfect at best, so distinguishing between the plateau-emplacement and
-older underplating scenarios is difficult at best. No compelling features
-to distinguish these two scenarios are as yet identifiable.
-
-Continuing refinement of thermometry and depth constraints
-along with forward-modeling of temperature scenarios will potentially
-improve the ability to resolve the structure of the geotherm, but the
-uncertainties inherent in spinel peridotite barometry may prove
-crippling. Regardless, the completed work and continuing petrologic
-analysis of the host basalt and cumulates will lead to an improved
-understanding of the coastal California mantle lithosphere.
+This preferred origin scenario for the mantle lithosphere sampled by
+Crystal Knob xenoliths
+matches a host of geologic constraints demonstrating slab rollback and
+regional crustal extension during the Cretaceous. This episode
+constructed the mantle lithosphere beneath the Mojave province
+[@Luffi2009] and seems to have built the sub-Salinia mantle lithosphere
+as well. This displaced package of mantle lithosphere shows an
+additional record of additional heat from the Mendocino slab window and
+predicts deep percolation of fluids through the mantle lithosphere
+during the Neogene. These percolating fluids can explain the
+re-enrichment observed in the sample set and the eventual isolated
+formation of the deeply sourced, highly fractionated Crystal Knob
+basaltic pipe.
+This adds to a growing body of evidence that much of the structural
+complexity in the California Coast Ranges is inherited from the
+Cretaceous.
 

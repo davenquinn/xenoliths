@@ -134,7 +134,7 @@ megathrust system [@Saleeby2003; @Chapman2016b]. In contrast to the
 central Sierra xenolith suite, mantle xenoliths recovered from the eastern
 margin of the southern California batholith record the tectonic erosion of
 sub-continental mantle lithosphere (including Cretaceous mantle wedge), and the
-underplating of Farallon plate mantle lithosphere [@Shervais1973; @Luffi2009; @Shields2016].
+underplating of Farallon plate mantle lithosphere [@Shervais1973; @Luffi2009; @Shields2016GSA].
 More specifically the Dish Hill suite [@fig:context] samples an upper
 mantle duplex with imbricated nappes of Farallon plate oceanic mantle lying in
 structural sequence beneath a relatively thin roof of attenuated continental

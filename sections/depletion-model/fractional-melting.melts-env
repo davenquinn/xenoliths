@@ -50,7 +50,7 @@ ALPHAMELTS_DO_TRACE            true
 !ALPHAMELTS_TRACE_VARIABLE_D true
 ! Normalize to Sun and McDonough primitive mantle
 ALPHAMELTS_TRACE_NORMALIZATION 1
-ALPHAMELTS_TRACE_INPUT_FILE ../literature/Lee_Yao_trace_1400C.melts-settings
+ALPHAMELTS_TRACE_INPUT_FILE ../literature/Lee_Yao_trace_1300C.melts-settings
 !ALPHAMELTS_TRACE_OUTPUT_FILE trace.out
 !ALPHAMELTS_TRACE_DEFAULT_DPTX true
 !ALPHAMELTS_TRACE_INPUT_FILE   yourtraceinfile.txt
