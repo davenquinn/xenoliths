@@ -24,6 +24,7 @@ rm -f $body build/abstract.tex build/figure-list.tex
 # Correct for pandoc-crossref annoyingness
 cat text/chapters/*.md \
 | sed -r "s/\[((@(fig|eq|sec|tbl):\w+;? ?)*)\]/\\\[\1\\\]/g" \
+| sed "s/\(@fig:\(\w\+\)\)'/\1‌/g" \ # Substitute a zero-width space
 | paper markdown-to-latex \
 > $body
 # Process abstract
