@@ -151,19 +151,19 @@ incorporate this disequilibrium shift into the starting parameters of the @Royde
 ### Erosion of the forearc
 
 Surface erosion after underplating is taken to be zero. Any erosion will
-result in higher apparent heat flow values and increased geotherm
-convexity, as heat is advected from the
-top of the model domain by material removal.
-Geologic constraints suggest that
-the majority of erosion to the mid-crustal levels now
-at the surface in Salinia is likely to have occurred in a major pulse of
-unroofing coincident with flat-slab underplating and rollback
-[@Saleeby2003; @Chapman2012], and is thus likely to disproportionately
-affect the older models. However, the 30 km of crust shown in the study
-area is based on modern estimates of the Moho depth, so recent erosion
-is unlikely to have biased the whole-lithosphere geotherm significantly.
-Still, the lack of erosion in the model framework will likely bias the
-results towards predicting lower geothermal gradient overall, as upward
-advection of material by erosion increases the geothermal gradient
-[@Mancktelow1997;@England1990].
-
+result in higher apparent heat flow values and increased geotherm convexity,
+as heat is advected from the top of the model domain by material removal.
+Geologic constraints suggest that the majority of erosion to the mid-crustal
+levels now at the surface in Salinia is likely to have occurred in a major
+pulse of unroofing coincident with flat-slab underplating and rollback
+[@Saleeby2003; @Chapman2012], and is thus likely to disproportionately affect
+the older models. The 30 km of crust shown in the study area is based on
+modern estimates of the Moho depth, so recent erosion is unlikely to have
+biased the whole-lithosphere geotherm significantly. Still, the lack of
+erosion in the model framework will likely bias the results towards predicting
+a lower geothermal gradient overall, and lower temperatures in the mantle
+lithosphere, as upward advection of material by erosion increases the
+geothermal gradient [@Mancktelow1997;@England1990]. Thus, these values need to
+be biased to higher temperatures to accurately capture the relationship
+between xenolith constraints on the actual temperature and temperatures
+derived from this modeling.
