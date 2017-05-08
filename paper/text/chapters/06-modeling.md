@@ -9,8 +9,8 @@ these potential depleted convecting mantle sources. However, these
 emplacement scenarios present potentially distinct thermal structures
 due to large differences in timescales of cooling.
 
-The first set of models, displayed in -@fig:model_results'a 
-and @fig:model_tracers'a, correlate to a shallow slab-window
+The first set of models, displayed in -@fig:model_results|a 
+and @fig:model_tracers|a, correlate to a shallow slab-window
 scenario for mantle lithosphere emplacement.
 The emplacement of slab-window
 asthenosphere directly under the coastal central California crust
@@ -27,8 +27,9 @@ scenario would provide the hottest modern geotherm, and previous
 modeling by @Erkan2008 has suggested it yields geotherms too hot to
 correspond to the modern regional geotherm.
 
-The second set of models, laid out in @fig:model_results'b and
--@fig:model_tracers'b, tracks the potential thermal structure of oceanic
+The second set of models, laid out in
+@fig:model_results|b and -@fig:model_tracers|b,
+tracks the potential thermal structure of oceanic
 plates stalled under the forearc at different times. Models begin at the
 subduction time of that oceanic lithosphere parcel and an initial
 thermal structure corresponding to the Global Depth and Heat model
@@ -63,7 +64,7 @@ stalled position (~100 km behind the trench) as shown in Figure
 @fig:neogene_sections'b. However, for model simplicity, we do not
 incorporate this disequilibrium shift in starting conditions.
 
-@fig:model_tracers'c and -@fig:model_results'c shows a set of scenarios
+@fig:model_tracers|c and -@fig:model_results|c shows a set of scenarios
 corresponding to the late-Cretaceous underplating scenario envisioned in
 @fig:cross_sections. The stalled-slab and late-Cretaceous underplating
 scenarios are similar in construction, with initial emplacement beneath
@@ -187,7 +188,7 @@ thermal scenarios appears to be minimal.
 In the late Cretaceous underplating scenario, the temperature is pegged
 at 715ºC at 25 km depth, a temperature constraint that is established
 based garnet-biotite thermometry of exhumed granites of the Sierra de
-Salinas [@Ducea2003]. Figure @fig:model_results'C, panel 2 correctly
+Salinas [@Ducea2003]. Figure @fig:model_results'c, panel 2 correctly
 captures the thermobarometric constraints and inverted metamorphic
 gradient recorded by the Pelona schist [@Kidder2006;@Kidder2013] for
 this episode of subduction, validating this approach to calculating the
