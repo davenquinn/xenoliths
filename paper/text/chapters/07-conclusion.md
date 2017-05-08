@@ -1,19 +1,16 @@
 # Contemporary lithospheric structure and thermal state
 
-In this section we integrate the results of our thermal modeling with
-our petrogenetic findings on the Crystal Knob xenoliths, regional
-crustal structure and evolution, and the timing and map position of
-xenolith entrainment.
-Of the three plausible scenarios depicted for the
-evolution of the sub-Crystal Knob mantle lithosphere in
-@fig:neogene_sections, we
-reject the shallow slab window emplaced asthenosphere case based on our
-thermal modeling presented above. The Monterey plate stalled slab and
-underplated Farallon plate mantle nappe cases are equally plausible
-based on our thermal modeling. Based on a wide spectrum of geologic and
-geodynamic factors, that were discussed above, we dismiss the notion suggested by @Pikser2012
-of a regionally extensive Monterey Plate "dangling slab" extending far to
-the east of the San Andreas fault.
+In this section we integrate the results of our thermal modeling with our
+petrogenetic findings on the Crystal Knob xenoliths, regional crustal structure
+and evolution, and the timing and map position of xenolith entrainment. Of the
+three plausible scenarios depicted for the evolution of the sub-Crystal Knob
+mantle lithosphere in @fig:neogene_sections, we reject the shallow slab window
+emplaced asthenosphere case based on our thermal modeling presented above. The
+Monterey plate stalled slab and underplated Farallon plate mantle nappe cases
+are equally plausible based on our thermal modeling. Based on a wide spectrum
+of geologic and geodynamic factors, that were discussed above, we dismiss the
+notion suggested by @Pikser2012 of a regionally extensive Monterey Plate
+"dangling slab" extending far to the east of the San Andreas fault.
 
 Depending on the original scale of Monterey Plate underthrusting beneath
 the southern California borderland region [@fig:neogene_sections], its structural
@@ -23,7 +20,7 @@ represented by the detached portion that forms the Transverse Ranges
 high-wave speed anomaly [@fig:context], an argument could be made that an
 underthrust portion of the Monterey Plate has been translated northwards
 horizontally beneath the Crystal Knob eruption site
-[Figure \ref{fig:neogene_sections}b]. Although
+[@fig:neogene_sections|b]. Although
 kinematically plausible, in theory, this case seems unlikely based on
 dynamic factors. As with the "dangling slab" version of this case,
 horizontal translation of such a large mantle mass along the base of the
@@ -39,13 +36,13 @@ suite not being able to discriminate between the stalled Monterey plate,
 or underplated Farallon nappe cases, the stalled Monterey plate case
 creates more problems than it solves.
 
-In Figure \ref{fig:neogene_sections}c we show the partially subducted terminus of the Monterey
+In @fig:neogene_sections|c we show the partially subducted terminus of the Monterey
 plate bounded to the east by the San Gregorio-Hosgri fault, based on our
 above discussion of the @fig:reconstructions reconstruction. East of the fault lies
 the Nacimiento Franciscan complex and its tectonic veneer of Salinia
 nappes (not differentiated on the figure), and its lower crustal oceanic
 crustal duplex lying tectonically above underplated Farallon plate mantle
-nappes. The structural profile shown on Figure \ref{neogene_sections}c between the San
+nappes. The structural profile shown on @fig:neogene_sections|c between the San
 Andreas and San Gregorio-Hosgri faults was constructed at southern
 California latitudes in continuity with that of the southernmost Sierra
 Nevada and adjacent Mojave plateau region [@fig:cross_sections; @fig:reconstruction]. Partial
@@ -134,7 +131,7 @@ Crystal Knob small volume eruption is not an exceptional event.
 Distributed shearing and strike-slip juxtaposition of the shallow
 sub-Monterey plate asthenosphere against underplated Farallon plate
 lithosphere and its deep slab window asthenosphere along the Hosgri
-fault [Figure \ref{fig:neogene_sections}c] is a plausible mechanism for Crystal Knob basalt melt
+fault [@fig:neogene_sections|c] is a plausible mechanism for Crystal Knob basalt melt
 generation. This was perhaps accentuated by possible extensional
 transients along the fault surface as documented for the Coyote Lake
 basalts [@Jove1998; @Titus2007]. Thermal modeling
