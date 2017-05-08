@@ -27,7 +27,8 @@ $$\frac{\partial T}{\partial t} = \frac{k}{\rho C_p} \frac{\partial^2
 T}{\partial z^2} + \frac{\alpha}{\rho C_p}$$ {#eq:heat_flow} is used to
 track a vertical profile through the lithosphere. This framework is used
 to follow the thermal state of the xenolith source region from
-subduction (or, in case **A**), emplacement beneath the Crystal Knob eruption site.
+subduction (or, in case **A**, underplating beneath the crust) to final
+emplacement beneath the Crystal Knob eruption site at 1.65 Ma.
 
 To simulate subduction and underplating, the forearc geotherm is stacked
 atop the modeled oceanic geotherm and relaxed towards the present by
@@ -173,31 +174,39 @@ architecture of the model domain.
 Due to widely varying timescale of equilibration for modeled scenarios
 in groups **B** and **C**, the model is sensitive to assumptions
 about steady-state cooling of the oceanic mantle lithosphere.
-
-The choice of the relatively cool "GDH" model to track the evolution of
+The choice of the "GDH" model to track the evolution of
 the suboceanic thermal structure is important control on the scale of
-the variation in @fig:model_tracers|b.
-Still, oceanic cooling models tend to overestimate the heat flow from
+temperature variation in @fig:model_tracers|b.
+Though GDH is well-calibrated, oceanic cooling models tend to overestimate the heat flow from
 young oceanic plates [@Stein1995], potentially yielding higher temperatures
 for the younger scenarios of **B**, including
 the Monterey plate scenario.
 
-Surface erosion is not modeled, but may be a biasing factor. Any erosion will
+Another key confounding factor not modeled for the subduction scenarios **B** and
+**C** is the effects of continued subduction outboard of the model
+domain. After rollback and underplating of the modeled section of
+oceanic mantle lithosphere, a downgoing slab at depth will tend to cool
+the forearc lithosphere from below However, this effect should
+diminish over time due to the subduction of younger, hotter oceanic
+material [@Royden1993a] and be overprinted by the underplating of hot
+slab window material in **C**.
+
+Surface erosion is not modeled, but may bias the results. Any erosion will
 result in higher apparent heat flow values and increased geotherm
 convexity, as heat is advected from the
 top of the model domain by material removal [@Mancktelow1997;@England1990].
 Geologic constraints suggest that
-the majority of erosion to the mid-crustal levels now
-at the surface in Salinia is likely to have occurred in a major pulse of
+the majority of erosion to the mid-crustal exposures in Salinia
+is likely to have occurred in a major pulse of
 unroofing coincident with flat-slab underplating and rollback
 [@Saleeby2003; @Chapman2012], and is thus likely to disproportionately
 affect the older models. The lack of erosion in the model framework
 biases towards predicting lower geothermal gradient overall.
 
-The uncertainties inherent in this model generally bias the results
+The uncertainties inherent in this model bias the results
 towards predicting lower-temperature,
-less-convex geotherms over the model domain
-over the mantle lithosphere. These potential biases are significant when
+less-convex geotherms over the model domain.
+These potential biases are significant when
 making comparisons with measured values of
 heat flux and xenolith thermobarometry [e.g. @fig:model_comparison], which are not subject to these
 biases. Thus, geotherms predicted by this model might be underestimates
@@ -210,29 +219,33 @@ Additional discussion of these factors can be found in
 
 The model predicts much higher temperatures within the mantle
 lithosphere, and much higher geothermal gradients, for the slab window
-than for the Farallon-plate or stalled-slab models. The geothermal
+than for the late-Cretaceous rollback or stalled-slab models. The geothermal
 gradients implied for this scenario are much higher than those is
-observed in the Coast Ranges.  This corresponds to the model findings of
+observed in the Coast Ranges, and the Monterey Plate scenario matches
+well with the geothermal
+constraints derived from heat flow modeling.
+This corresponds to the model findings of
 @Erkan2008. However, these studies concluded that the low heat flows
 must be due to a stalled slab, where in fact underplated Farallon mantle
 nappes satisfy the surface heat flow data equally well, given a deep
 slab window heating event.
 
-The case of relict Farallon-plate material shows low geotherms that
+In scenario **C**, relict Farallon-plate material shows low geotherms that
 correspond to mantle lithosphere temperature conditions too cold for the
-xenolith constraints. However, the Farallon plate with reheating by a
-deep slab window in the early Miocene shows results similar to that for
-the youngest stalled slab scenarios except for the "Monterey Plate"
-scenario. The Monterey Plate scenario matches well with the geothermal
-constraints derived from heat flow modeling. When potential
+Crystal Knob xenolith constraints. However, when reheated by a
+deep slab window in the early Miocene, this scenario
+shows results similar to that for
+the youngest stalled slab scenarios in **B** except for the "Monterey Plate"
+scenario.
+
+When potential
 temperature overestimates from extrapolation of heat flow values
-[@sec:heat-flow] are
-considered along with biases in the modeled geotherms,
+[@sec:heat-flow] are considered along with biases in model geotherms,
 the slightly colder temperatures predicted by the reheated relict mantle
 lithosphere scenario also fall in a reasonable range for the geotherm within
-the mantle lithosphere beneath central California. This scenario is thus
-equally attractive from a geothermal point of view to explain the
-moderately elevated geothermal gradient seen in the mantle lithosphere,
-while corresponding to the geologic context much better than the
+the mantle lithosphere beneath central California. This scenario thus
+provides an equally attractive geothermal gradient to explain the
+moderately elevated temperatures seen in the mantle lithosphere,
+while fitting the geologic context much better than the
 "stalled slab" scenario.
 
