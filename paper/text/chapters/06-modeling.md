@@ -130,7 +130,7 @@ older models of **B**, except that this scenario has more geological
 constraints. Still, they show much the same thermal structure.
 
 In the Late Cretaceous duplex scenario, the maximum age of
-underplating is 70 Ma, based on the youngest ages of the most pertinent
+subduction and underplating is 70 Ma, based on the youngest ages of the most pertinent
 (Sierra de Salinas and correlative San Emigdio-Rand) schist bodies
 [@Barth2003; @Grove2003; @Saleeby2007; @Chapman2010; @Chapman2016].
 Seafloor being subducted at that time was 40 Myr old [@Seton2012; @Liu2010].
@@ -138,32 +138,32 @@ This 110 Myr cooling history implies a relatively cold modern
 geotherm.
 After a long history of cooling beneath the forearc, these geotherms
 are subjected to
-heating from below by slab window underplating of asthenospheric
+heating from below by underplating of asthenospheric
 material at 80 km depth for a period of 0 to 6 Myr, corresponding to a
-deeper version of the underplating in the slab-window scenario.
+deeper version of the slab-window underplating modeled in **A**.
 
 In this set of scenarios, the @Royden1993a
 subduction model is tied to temperature constraint of 715ºC at 25 km
 depth for garnet-biotite thermometry of exhumed granites of the Santa
-Lucia range [@Ducea2003], and thermobarometric constraints on the Pelona
-schist. Figure @fig:model_results|c, panel 2 correctly captures the
+Lucia range [@Ducea2003], and thermobarometric constraints on the Sierra
+de Salinas schist [@Kidder2006]. Figure @fig:model_results|c, panel 2 correctly captures the
 thermobarometric constraints and inverted metamorphic gradient recorded
-by the Pelona schist [@Kidder2006;@Kidder2013] for this episode of
-subduction, validating this approach to calculating the forearc
+by subduction-channel schists for this episode of
+subduction [@Kidder2006; @Kidder2013], validating our approach to calculating the forearc
 geotherm.
 
-The pinning of subduction temperatures to the Sierra de Salinas
-schist makes little difference for the final thermal structure of the
-mantle lithosphere [@fig:model_tracers|c].
-The Cretaceous underplating scenario not subjected to reheating has a
-similar final thermal structure to
-the longest-running stalled slab scenarios in **B**, reflecting its basic
-correspondence with a generalized slab rollback event of similar age.
-High subduction-channel temperatures experienced during
-late-Cretaceous flat slab subduction and schist metamorphism did not
-have a long-lasting impact on the thermal structure of the margin.
-Thus, underplating by a deep slab window during the Miocene is required
-for these scenarios to produce warm mantle lithosphere.
+These lithologically-constrained high subduction temperatures make
+little difference to the final thermal structure of the mantle
+lithosphere [@fig:model_tracers|c]. When not reheated by a deep slab
+window, the Cretaceous underplating scenario has a similar final thermal
+structure to the longest-running stalled slab scenarios in **B**. This
+reflects the model's basic correspondence with a generalized slab
+rollback event of similar age. High subduction-channel temperatures
+experienced during late-Cretaceous flat slab subduction and schist
+metamorphism did not have a long-lasting impact on the thermal structure
+of the margin. Thus, underplating by a deep slab window during the
+Miocene is required for these scenarios to produce warm mantle
+lithosphere.
 
 ## Model sensitivity and bias
 
@@ -195,11 +195,10 @@ Surface erosion is not modeled, but may bias the results. Any erosion will
 result in higher apparent heat flow values and increased geotherm
 convexity, as heat is advected from the
 top of the model domain by material removal [@Mancktelow1997;@England1990].
-Geologic constraints suggest that
-the majority of erosion to the mid-crustal exposures in Salinia
+Geologic constraints suggest that 15-20 km of erosion
 is likely to have occurred in a major pulse of
-unroofing coincident with flat-slab underplating and rollback
-[@Saleeby2003; @Chapman2012], and is thus likely to disproportionately
+unroofing coincident with flat-slab underplating and rollback in the
+Cretaceous [@Saleeby2003; @Chapman2012], and is thus likely to disproportionately
 affect the older models. The lack of erosion in the model framework
 biases towards predicting lower geothermal gradient overall.
 
