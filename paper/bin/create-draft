@@ -7,9 +7,7 @@ bin/collect-figures
 
 build_dir='build'
 
-infile=text/body.md
 body="$build_dir/draft_body.tex"
-bibfile="source/references.bib"
 texfile="$build_dir/draft.tex"
 auxfile="${texfile:r}.aux"
 
@@ -19,17 +17,18 @@ function run-latex {
 
 mkdir -p build
 
+source bin/defs.zsh
+
 rm -f $body build/abstract.tex build/figure-list.tex
 # Process body text
 # Correct for pandoc-crossref annoyingness
 cat text/chapters/*.md \
-| sed -r "s/\[((@(fig|eq|sec|tbl):\w+;? ?)*)\]/\\\[\1\\\]/g" \
-| sed "s/\(@fig:\(\w\+\)\)'/\1‌/g" \ # Substitute a zero-width space
+| prepare-crossref \
 | paper markdown-to-latex \
 > $body
 # Process abstract
 cat text/abstract.md \
-| figures expand-refs \
+| prepare-crossref \
 | paper markdown-to-latex \
 > build/abstract.tex
 
