@@ -20,18 +20,17 @@ geothermal structure with xenolith geothermometry.
 ## Model setup
 
 To distinguish between potential emplacement mechanisms for the mantle
-lithosphere sampled by Crystal Knob, a forward model of the geotherm
-implied by each of the tectonic scenarios shown in @fig:neogene_sections
-is constructed.  A model based on the one-dimensional heat-flow equation
-$$\frac{\partial T}{\partial t} = \frac{k}{\rho C_p} \frac{\partial^2
-T}{\partial z^2} + \frac{\alpha}{\rho C_p}$$ {#eq:heat_flow} is used to
-track a vertical profile through the lithosphere. This framework is used
-to follow the thermal state of the xenolith source region from
+lithosphere sampled by Crystal Knob, we construct a forward model of the geotherm
+implied by each of the tectonic scenarios **A**, **B**, and **C**
+shown in @fig:neogene_sections.  A model based on the one-dimensional heat-flow equation
+$$\frac{\partial T}{\partial t} = \frac{k}{\rho C_p} \frac{\partial^2 T}{\partial z^2} + \frac{\alpha}{\rho C_p}$$ {#eq:heat_flow}
+is used to track a vertical profile through the lithosphere.
+This framework is used to follow the thermal state of the xenolith source region from
 subduction (or, in case **A**, underplating beneath the crust) to final
 emplacement beneath the Crystal Knob eruption site at 1.65 Ma.
 
-To simulate subduction and underplating, the forearc geotherm is stacked
-atop the modeled oceanic geotherm and relaxed towards the present by
+For scenarios **B** and **C**, we simulate subduction and underplating by
+stacking the forearc geotherm atop the modeled oceanic geotherm and relaxed towards the present by
 iteratively solving the heat-flow equation using finite differences. The
 entire model is implemented in Python, with finite-difference modeling
 based on the FiPy software package [@Guyer2009]. Explicit and implicit
@@ -44,8 +43,11 @@ our modeled scenarios.  We use the Global Depth and Heat (GDH) model for
 oceanic crust [@Stein1992], and the @Royden1993a forearc geotherm model
 to model the evolution of a geotherm during subduction on a continuously
 subducting model.  Standard values are used for oceanic and continental
-material properties, and are given in [@tbl:model_parameters]. More
-information about model setup and integration is given in @sec:model_supplement.
+material properties, and are given in [@tbl:model_parameters].
+We neglect the effects of shear heating by simple down-dip
+displacements along the subduction megathrust based on the thermal
+modeling of @Kidder2013.
+Additional information about model setup and integration is given in @sec:model_supplement.
 
 <!--[[model_tracers]]-->
 
@@ -81,25 +83,29 @@ much of the temperature domain of interest [@fig:model_comparison].
 
 #### Stalled slab
 
-Model group **B**, laid out in
+Model group **B**, displayed in
 @fig:model_results|b and -@fig:model_tracers|b,
 tracks the potential thermal structure of oceanic
-plates stalled under the forearc at different times. Models begin at the
-subduction time of that oceanic lithosphere parcel and an initial
+plates stalled under the forearc at successive times. Each run begins
+at a specified time with the subduction of oceanic lithosphere
+assigned an initial
 thermal structure corresponding to the Global Depth and Heat model
-[@Stein1992] for oceanic lithosphere for particular age of oceanic
+[@Stein1992] for oceanic lithosphere of a given age of oceanic
 crust.
 
-The "Monterey plate" tectonic scenario
-entails lateral translation on a dipping subduction megathrust.
+<comment>Track the entire model run then at the end of this section cover the
+Monterey plate case</comment>
+
+The "Monterey plate" scenario is a subset of these models entailing
+hypothetical northward lateral translation on a shallowly-dipping subduction megathrust.
 Neglecting shear heating (which appears to be minor, e.g.  @Kidder2013),
 this scenario can be modeled as a young
 endmember stalled-slab scenario, and is shown as the youngest model of
 **B**. Potential Monterey
-Plate mantle lithosphere beneath Crystal Knob would have been emplaced
-under the ridge at 27 Ma (corresponding to the chron 7 magnetic anomaly)
+Plate mantle lithosphere beneath Crystal Knob would have been generated beneath the oceanic spreading ridge at 27 Ma (corresponding to the chron 7 magnetic anomaly)
 and subducted shortly thereafter [@Atwater1998; @Wilson2005].
 
+<comment>Move this up</comment>
 In addition to the Monterey plate scenario, a series of older cooling
 scenarios are modeled, representing a wide range of potential timings
 for backstepping of the subduction megathrust and underplating of a
@@ -113,8 +119,7 @@ histories, only the "Monterey plate" construction can be tied to
 geodynamic and geological evidence of a specific episode of subduction instability.
 
 These scenarios result in cooler geotherms than the shallow slab window
-underplating, falling within the spinel stability field at the
-temperature of xenolith entrainment [@fig:model_comparison]. The Monterey plate subduction
+underplating, matching the broad thermobarometric constraints on Crystal Knob xenolith entrainment relatively deep within the spinel stability field [@fig:model_comparison]. The Monterey plate subduction
 scenario predicts a modern geotherm that coincides with the entrainment
 constraints on the Crystal Knob xenoliths.
 
@@ -122,9 +127,9 @@ constraints on the Crystal Knob xenoliths.
 
 @fig:model_tracers|c and -@fig:model_results|c shows a set of scenarios
 corresponding to the late-Cretaceous underplating scenario envisioned in
-@fig:cross_sections. The stalled-slab and late-Cretaceous underplating
-scenarios are similar in construction, with initial emplacement beneath
-a mid-ocean ridge, and cooling on the seafloor.  The initial conditions
+@fig:cross_sections. These scenarios are similar in construction to **B**
+with initial formation at the mid-ocean ridge, and cooling within the oceanic
+lithosphere thereafter. The initial conditions
 and thermal evolution of this scenario are qualitatively similar to the
 older models of **B**, except that this scenario has more geological
 constraints. Still, they show much the same thermal structure.
