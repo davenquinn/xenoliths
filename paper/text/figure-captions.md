@@ -166,16 +166,30 @@ stability of high-chromian spinel [@ONeill1981] with error bars of
 
 #model_results
 Temperature-depth profiles through the crust and upper mantle
-at different points during the evolution of the three tectonic scenarios.
-Each plotted profile represents a different model run. All model runs on panels titled with
-a time occur at the same time.
-**A** presents the evolution of slab window underplating. **B** shows
-stalled slabs of different ages.
-The hottest curves of this scenario corresponds roughly to the thermal history
-of the Monterey Plate.
-**C** tracks Farallon Plate mantle lithosphere emplaced beneath Salinia during
+at key timesteps during the evolution of the three tectonic scenarios.
+Each plotted profile represents a different model run based on the same
+scenario.
+**A** presents a shallow slab window scenario, with underplating of
+upwelling asthenosphere truncating a forearc geotherm at 24 Ma. This
+asthenosphere is held against the base of the crust from 0--6 Myr,
+accounting for the spread of models in the second panel. The final panel
+tracks all models to the present.
+**B** shows stalled slabs of different ages, with panels corresponding
+to shared tectonic events, modeled at different times based on the
+timing of subduction and age of oceanic crust. Subduction
+is bracketed by T$_\textrm{start}$ and T$_\textrm{end}$, with
+T$_\textrm{start}$ = T$_\textrm{end}$ - 1.04 Myr for all cases.
+The youngest and hottest of these runs corresponds to the "Monterey plate"
+tectonic scenario.
+**C** tracks Farallon Plate mantle lithosphere emplaced beneath the
+central California coast during
 the late Cretaceous [Figure \ref{fig:cross_sections}] and reheated by
-a pulse of heat from below during the Miocene slab window [Figure \ref{fig:neogene_sections}]
+a pulse of heat from below during the Miocene slab window [Figure
+\ref{fig:neogene_sections}]. The second panel, at the end of subduction,
+shows the geologic temperature constraints used to tune the model to
+subduction conditions on the late-Cretaceous megathrust [e.g. @Ducea2003; @Kidder2006]
+In this scenario, oceanic lithosphere is 55 Myr old at the time of
+subduction.
 
 #model_tracers
 Temperature-time tracers for each modeled scenario shown in Figure \ref{fig:model_results}
@@ -198,19 +212,24 @@ The older models shown in panel B are included for
 completeness, though none of these can be linked to geologic features of
 the margin as well as the Cretaceous underplating and Monterey plate
 scenarios.
-Modeled tracers begin at 10 and 45 km beneath the seafloor and are advected to depths of 40 and 75 km over the first ~1 Myr of the model timeframe during subduction. 
+Modeled tracers begin at 10 and 45 km beneath the seafloor and are
+advected to depths of 40 and 75 km during subduction
+over the first 1.04 Myr of the model run.
 Panel **C** tracks a Farallon-plate slab subducted and underplated
 during the late Cretaceous, as envisioned in Figure \ref{fig:cross_sections}. It is similar to the older models of **B**
 but is based on key geologic constraints from subduction channel schists
 [@Kidder2003]. The effects of deep upwelling corresponding with the
 Mendocino slab window are shown for several of the models, in a manner
-similar to (a).
+similar to **A**.
 
 #model_comparison
 Comparisons of "modern" (1.65 Ma) sub-Salinia geotherms for each of the modeled scenarios.
 The profiles corresponding with a young underplated slab (Monterey-plate equivalent),
 wholesale mantle-lithosphere replacement by the slab window, and
 a Cretaceous Farallon slab both with and without deep slab-window reheating are shown.
+The results as shown are purely conductive geotherms in the absence of
+erosion and thus might be biased towards lower temperatures relative to
+measured xenolith pressure--temperature constraints [see @sec:model_bias].
 
 #cross_sections
 Cross sections showing the evolution of southern California during

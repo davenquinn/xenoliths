@@ -93,35 +93,55 @@ thermal structure corresponding to the Global Depth and Heat model
 [@Stein1992] for oceanic lithosphere of a given age of oceanic
 crust.
 
-<comment>Track the entire model run then at the end of this section cover the
-Monterey plate case</comment>
+We model cooling scenarios for a wide range of underplating times,
+reflecting the long subduction history of the Farallon plate beneath the
+central California coast through the Cretaceous and Paleogene.
+In principle, backstepping of the subduction megathrust and underplating of a
+slice of mantle lithosphere could have occurred at any time during this
+history. However, only the oldest and youngest stalled slab models correspond
+to geodynamic and geological evidence of a specific episode of
+subduction instability.
 
-The "Monterey plate" scenario is a subset of these models entailing
-hypothetical northward lateral translation on a shallowly-dipping subduction megathrust.
-Neglecting shear heating (which appears to be minor, e.g.  @Kidder2013),
-this scenario can be modeled as a young
-endmember stalled-slab scenario, and is shown as the youngest model of
-**B**. Potential Monterey
-Plate mantle lithosphere beneath Crystal Knob would have been generated beneath the oceanic spreading ridge at 27 Ma (corresponding to the chron 7 magnetic anomaly)
-and subducted shortly thereafter [@Atwater1998; @Wilson2005].
+We model a series of scenarios with differently-timed underplating
+events, with the start of subduction ranging from 22 to 80 Ma.
+These subduction times, T_$\textrm{start}$,  set the beginning of the models shown in
+@fig:model_tracers|b and are shown in the first panel of
+@fig:model_results|b.
+Each model operates on oceanic crust of the appropriate age for the
+time of subduction, given the geometry of Farallon plate subduction over
+the Cretaceous and Paleogene [@Liu2010; @Seton2012].
+As the subduction time moves towards the present, the age of subducted
+oceanic crust generally decreases, reflecting the approach of the
+Pacific--Farallon spreading ridge to the western margin of North America.
+In the oldest model with a subduction time of 80 Ma, the oceanic lithosphere at the time of subduction
+is 60 myr old, meaning that the oceanic crust in this model was
+generated beneath the Pacific--Farallon spreading ridge at 140 Ma.
 
-<comment>Move this up</comment>
-In addition to the Monterey plate scenario, a series of older cooling
-scenarios are modeled, representing a wide range of potential timings
-for backstepping of the subduction megathrust and underplating of a
-slice of mantle lithosphere.
-Covarying subduction time and age of oceanic crust are
-constrained by @Seton2012 and represent
-different phases of Farallon plate subduction beneath the coast of
-Southern California.
-Though these scenarios represent plausible thermal
-histories, only the "Monterey plate" construction can be tied to
-geodynamic and geological evidence of a specific episode of subduction instability.
+Stalled slab scenarios with subduction ages as young as 30 Ma (all but
+the last scenario presented on @fig:model_tracers|b) model
+rollback during sustained Farallon-plate subduction.
+The final model run in @fig:model_tracers|b corresponds to the "Monterey plate"
+hypothesis [@Pikser2012; @VanWijk2001], which entails
+hypothetical northward lateral translation on a shallowly-dipping stalled subduction megathrust.
+The potential thermal effects of the required anhydrous shearing of the underplated
+oceanic lithosphere along a ~300 km flat displacement trajectory [@fig:context]
+are not accounted for in model **B**. Instead, this scenario
+is modeled simply as a young
+endmember stalled-slab scenario, with the generation of mantle lithosphere
+beneath the oceanic spreading ridge at 27 Ma (corresponding to the chron 7
+magnetic anomaly) and subduction shortly thereafter [@Atwater1998; @Wilson2005].
 
-These scenarios result in cooler geotherms than the shallow slab window
-underplating, matching the broad thermobarometric constraints on Crystal Knob xenolith entrainment relatively deep within the spinel stability field [@fig:model_comparison]. The Monterey plate subduction
-scenario predicts a modern geotherm that coincides with the entrainment
-constraints on the Crystal Knob xenoliths.
+Overall, the stalled-slab underplating scenarios represented in **B** result
+in cooler geotherms than the shallow slab window
+underplating, matching the broad thermobarometric constraints placing
+Crystal Knob xenolith entrainment relatively deep within the spinel stability
+field [@fig:model_comparison]. The Monterey plate subduction
+scenario likewise predicts a modern geotherm that coincides with the entrainment
+constraints on the Crystal Knob xenoliths. Without consideration of
+potential bias towards colder measurements in the modeled geotherms,
+this appears to be the best model. When accounting for
+possible external effects [@sec:model_bias], it may predict a hotter geotherm than derived
+from the thermobarometric constraints.
 
 #### Late-Cretaceous stalled slab
 
@@ -170,7 +190,7 @@ of the margin. Thus, underplating by a deep slab window during the
 Miocene is required for these scenarios to produce warm mantle
 lithosphere.
 
-## Model sensitivity and bias
+## Model sensitivity and bias {#sec:model_bias}
 
 Generally, changes in model parameters do not impact the relative
 results for modeled scenarios, due to the consistent lithologic
