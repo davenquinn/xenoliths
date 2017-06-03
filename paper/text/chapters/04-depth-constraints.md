@@ -25,13 +25,14 @@ a gradient of ~0.03 GPa per km across the mantle lithosphere.
 
 ### Limits of spinel stability
 
-Minimum entrainment depths of all peridotite xenoliths must be greater than ~30 km,
+Entrainment depths of all peridotite xenoliths must be greater than ~30 km,
 the depth of the Moho near the Crystal Knob eruption site [@Trehu1991],
 which will be discussed in more detail in @sec:regional_structure.
 Another minimum depth constraint is the plagioclase--spinel peridotite
-facies transition, which occurs at depths of 20-30 km [@Green1970a; @Borghini2009],
-and less than the high-pressure boundary of spinel stability.
+facies transition, which occurs at depths of 20-30 km [@Green1970a; @Borghini2009].
 
+The high-pressure boundary of spinel stability limits maximum possible
+entrainment depths.
 The spinel--garnet peridotite phase transition is
 composition-dependent and poorly constrained for
 natural systems, but thought to lie over the 50-80 km depth interval
@@ -43,7 +44,7 @@ estimate the magnitude of this effect.
 @ONeill1981 presented experiments both with and without Cr and described
 a simple empirical relationship of spinel-out depth with Cr content and temperature.
 @Robinson1998 suggests that, given fertile "pyrolite" compositions with little
-Cr,  garnet is unstable at depths less than 80 km at the peridotite solidus (~1470ºC at this depth).
+Cr, garnet is unstable at depths less than 80 km at the peridotite solidus (~1470ºC at this depth).
 Subsolidus experimental results show that the maximum depth of the spinel
 stability field in the absence of Cr ranges from 1.8-2.0 GPa (55-60 km) at 1000-1200ºC
 [@Klemme2000], a slightly deeper estimate than @ONeill1981.
@@ -116,12 +117,12 @@ variations in Ca concentrations. The bulk of the spread in the data reflects
 the poor calibration of the barometer itself. The low-temperature samples in
 particular have significant scatter towards depths above the spinel-in isograd.
 The small Ca cation diffuses rapidly during transient heating [@Kohler1990],
-which produces a shallowing bias on the depth distribution, and may be the
-explanation for the fact that CK-4, the most altered sample, has a depth mode
-~10 km shallower than the other samples (CK-3 and CK-6) at similar temperature.
-The fact that temperatures derived from the independent REE system are higher
+which produces a shallowing bias on the depth distribution.
+This may explain that CK-4, the most altered sample, has a depth mode
+~10 km shallower than the other samples (CK-3 and CK-6) with similar equilibration temperatures.
+The temperatures derived from the independent REE system are higher
 than the major-element temperatures for several samples in the high-temperature
-cohort (CK-4 and CK-6) may point to these samples being derived from a greater
+cohort (CK-4 and CK-6), which may point to these samples being derived from a greater
 depth within the distribution of Ca-in-olivine depths.
 
 Despite the imprecision of the method, Ca-in-olivine barometry
@@ -133,7 +134,7 @@ lithosphere derived from regional heat flow datasets.
 
 ### Comparisons with steady-state heat flow
 
-These depth constraints derived from xenolith thermobarometry
+The depth constraints derived from xenolith thermobarometry above
 can be compared to surface heat-flow and seismic
 constraints on the regional geotherm.
 

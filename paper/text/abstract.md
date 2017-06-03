@@ -1,23 +1,23 @@
-The Crystal Knob volcanic neck in the Santa Lucia Range, California, was
-erupted during the Pleistocene (1.65 Ma from Ar geochronology) through the
+The Crystal Knob volcanic neck in the central California Coast Ranges was
+erupted during the Pleistocene (1.65 Ma) through the
 Nacimiento belt of the Franciscan complex in the coastal region of central
-California. The neck erupted an
-olivine-plagioclase phyric basalt containing spinel peridotites and dunite
-cumulate xenoliths. The peridotites sample the mantle lithosphere beneath the
+California. It is composed of
+olivine-plagioclase phyric basalt containing spinel peridotites and
+cumulate dunite xenoliths. The peridotites sample the mantle lithosphere beneath the
 Nacimiento Franciscan, which was constructed as an accretionary prism during
-Late Cretaceous subduction of the Farallon plate. The xenolith suite is of
-particular interest because it lies within the bounds of the "Salinia terrane",
-a crustal fragment slivered into the Franciscan complex by strike-slip faulting.
-This terrane is commonly interpreted as a rooted outlier of the SW Cordilleran
-continental arc, but more recently has been shown to be a series of crystalline
-nappes emplaced above the Franciscan.
+Late Cretaceous subduction of the Farallon plate.
+The Crystal Knob locality is of further interest because it lies in immediate
+proximity to crystalline nappes of the “Salinia terrane”, which are
+traditionally interpreted as a rooted crustal sliver,
+but which more recent studies show are detached and
+lying above the Franciscan complex.
 
 Six spinel peridotite samples were analyzed, ranging from fertile lherzolites
 to clinopyroxene harzburgites with modal clinopyroxene from 2-13%. They have
-a depleted mantle isotopic signature and correspond to abyssal peridotites,
+a depleted mantle Sr and Nd isotopic signature and correspond to abyssal peridotites,
 most likely sourced in a relict subducted slab. Ca-exchange geothermometry
 shows equilibration temperatures between 950 and 1060 ºC. Rare-earth
-geothermometry shows similar results, but hotter for the hottest samples.
+geothermometry shows similar results, but hotter for the hottest and deepest samples.
 Broadly the samples can be divided into two groups based on temperature of
 equilibration, which also manifest in trace-element patterns, Cr content in
 spinels, and Ca in olivine. Ca-in-olivine barometry and phase stability limits
@@ -28,24 +28,22 @@ flow measurements.
 The samples show variable depletion, with residual harzburgites at deeper depths.
 All samples show pronounced trace element re-enrichment.
 
-Given these constraints from xenolith thermobarometry, forward modeling of
-thermal evolution is used to construct a range of potential thermal structures
-corresponding to likely tectonic scenarios for the evolution of the mantle
-lithosphere beneath coastal California. Both a translating relict slab
-associated with the Monterey Plate and Cretaceous rollback imbrication of the
-Farallon plate predict reasonable geotherms corresponding to xenolith and
-geophysical constraints. However, the Cretaceous relict slab aligns better with
-crustal geological constraints. The preferred tectonic scenario for
-construction of the coastal California mantle lithosphere is thus subduction
-during the late Cretaceous, underplating during rollback extension, and cooling
-at depth over the Paleogene. During the Neogene, a deep slab window at ~80 km
-depth warmed the mantle lithosphere from the base.
-
+Given constraints from xenolith thermobarometry, forward modeling of thermal
+evolution is used to construct a range of potential thermal structures that are
+tested against plausible tectonic scenarios for the evolution of the mantle
+lithosphere beneath the region. Underplated Late Cretaceous Farallon plate
+floored by a deep slab window, and underplated Neogene Monterey microplate
+equally satisfy the thermal constraints, but a shallow Neogene slab window is
+excluded. Underplated Farallon plate best satisfies the crustal geological
+constraints. Given this, the preferred tectonic scenario for the construction
+of the region’s mantle lithosphere is subduction underplating of Farallon plate
+during the latest Cretaceous followed by cooling at depth over the Paleogene,
+and then superposed slab window formation at ~80 km depth during the Neogene.
 This scenario can explain the temperature and depth distribution of the Crystal
 Knob xenoliths, as well as the paired depletion and re-enrichment signatures
-recorded by most of the sample set. This work shows that the mantle lithosphere
-beneath the Coast Ranges was constructed in a similar fashion to the mantle
-lithosphere beneath the Mojave Province. Its position near the continental
-margin subjected it to major thermal pulses related to the cessation of
-subduction in the Neogene.
+recorded by most of the samples. This work shows that the mantle lithosphere
+beneath the Coast Ranges was constructed in a similar fashion as the mantle
+lithosphere beneath the Mojave Province; two regions that were in immediate
+proximity to one another prior to late Neogene-Quaternary dextral offsets along
+the San Andreas transform system.
 

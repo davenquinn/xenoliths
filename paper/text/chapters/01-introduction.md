@@ -42,7 +42,7 @@ In aggregate
 these crystalline nappes have been called “Salinia”, or the “Salinian terrane”
 [@Page1981]. The Crystal Knob xenolith locality lies along the western margin
 of Salinia, adjacent to the Nacimiento fault [@fig:context],
-a polyphase structural zone that, in its original geometry,
+a polyphase structural zone which, in its original geometry,
 constituted the local structural base of the
 Salinia crystalline nappe sequence [@Hall2013]. In this setting
 the crystal Knob xenolith suite samples the uppermost mantle that has been

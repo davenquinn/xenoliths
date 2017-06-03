@@ -8,7 +8,7 @@ information on the depletion history, they cannot discriminate between
 these potential depleted convecting mantle sources. However, these
 emplacement scenarios present potentially distinct thermal structures
 due to large differences in timescales of cooling.
-Models for the
+Tectonic models for the
 emplacement of depleted mantle lithosphere under the central coastal
 California region can be tested by comparison of their implied
 geothermal structure with xenolith geothermometry.
@@ -20,11 +20,13 @@ geothermal structure with xenolith geothermometry.
 ## Model setup
 
 To distinguish between potential emplacement mechanisms for the mantle
-lithosphere sampled by Crystal Knob, we construct a forward model of the geotherm
+lithosphere sampled by Crystal Knob, a forward model of the geotherm
 implied by each of the tectonic scenarios **A**, **B**, and **C**
-shown in @fig:neogene_sections.  A model based on the one-dimensional heat-flow equation
+shown in @fig:neogene_sections is constructed.
+A model based on the one-dimensional heat-flow equation
 $$\frac{\partial T}{\partial t} = \frac{k}{\rho C_p} \frac{\partial^2 T}{\partial z^2} + \frac{\alpha}{\rho C_p}$$ {#eq:heat_flow}
-is used to track a vertical profile through the lithosphere.
+is used to track the evolution of the lithospheric geotherm predicted by
+the three tectonic scenarios presented above.
 This framework is used to follow the thermal state of the xenolith source region from
 subduction (or, in case **A**, underplating beneath the crust) to final
 emplacement beneath the Crystal Knob eruption site at 1.65 Ma.
@@ -86,10 +88,9 @@ much of the temperature domain of interest [@fig:model_comparison].
 Model group **B**, displayed in
 @fig:model_results|b and -@fig:model_tracers|b,
 tracks the potential thermal structure of oceanic
-plates stalled under the forearc at successive times. Each run begins
-at a specified time with the subduction of oceanic lithosphere
-assigned an initial
-thermal structure corresponding to the Global Depth and Heat model
+plates stalled under the forearc at successive times. The modeling
+begins with the subduction time of a oceanic lithosphere parcel of a given
+age, with an initial thermal structure corresponding to the Global Depth and Heat model
 [@Stein1992] for oceanic lithosphere of a given age of oceanic
 crust.
 
@@ -148,8 +149,8 @@ from the thermobarometric constraints.
 @fig:model_tracers|c and -@fig:model_results|c shows a set of scenarios
 corresponding to the late-Cretaceous underplating scenario envisioned in
 @fig:cross_sections. These scenarios are similar in construction to **B**
-with initial formation at the mid-ocean ridge, and cooling within the oceanic
-lithosphere thereafter. The initial conditions
+with initial mantle lithosphere formation at the mid-ocean ridge, and
+cooling beneath the seafloor afterwards. The initial conditions
 and thermal evolution of this scenario are qualitatively similar to the
 older models of **B**, except that this scenario has more geological
 constraints. Still, they show much the same thermal structure.

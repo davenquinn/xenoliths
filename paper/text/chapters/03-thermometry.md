@@ -98,7 +98,7 @@ other geochemical data.
 This temperature distribution likely corresponds to the sourcing of these two sets of xenoliths from different
 depths within a magmatic ascent system. Throughout this paper, the samples are color-coded, with
 blue-green corresponding to the low-temperature array, and red-yellow representing
-the high-temperature samples.
+the high-temperature samples [@fig:major_elements‌-‌-@fig:depths].
 
 <!--[[temp_comparisons]]-->
 <!--[[temp_summary]]-->
@@ -149,7 +149,7 @@ This distinct disequilibrium was also found in calibration by @Sun2012, and is
 dependent on the oxygen fugacity (and \ce{Eu^{2+}}/\ce{Eu^{3+}} ratio of the
 host magma. The exact kinetics of this scenario are unclear, but it is
 likely that REE equilibrium was achieved in a reducing environment
-*(P. Asimow and J. Blundy, personal communication)*, or Eu rapidly and
+*(P. Asimow and J. Blundy, personal communication, 2016)*, or Eu rapidly and
 differentially diffused out of the Crystal Knob xenoliths just prior to eruption.
 These patterns could also be due to the effect of "ghost" plagioclase on
 creating local europium enrichments and depletions in the neighborhood
@@ -218,7 +218,7 @@ This corresponds to the depleted upper mantle [e.g. @Hofmann1997], with a
 mantle upwelling source that has seen no contribution from the western
 North American crust or continental lithosphere more generally.
 The mantle lithosphere sampled by the Crystal Knob suite was created
-from the same mantle reservoir and is distinct from the overlying
+from the same convective mantle reservoir and is distinct from the overlying
 crustal material.
 
 However, the two cohorts in temperature seem to sample mantle material
@@ -250,6 +250,11 @@ refertilization is likely a result of assimilation of mantle material
 and re-equilibration near the solidus. It implies significant mass
 exchange and may be due to interaction with deep upwelling fluids.
 
+<comment>Could the difference exhibited in the higher-T cohort be
+derived from the interaction of underlying younger convective mantle,
+i.e. slab window. If not definitive, is the question worth raising?
+Ask Paul...</comment>
+
 Broadly, the results of geochemical and thermometric studies of the
 Crystal Knob suite suggest that the mantle lithosphere beneath central
 California was affected by differing levels of depletion and
@@ -262,3 +267,4 @@ However, disequilibrium in REE (CK-4) and unusual major element
 signatures (CK-6) occur in the hotter samples. This suggests that the
 samples were affected by alteration that was the most intense at deeper
 depths sometime in their post-emplacement and pre-eruptive history.
+

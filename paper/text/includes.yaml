@@ -1,9 +1,9 @@
-- id: field_photo
-  file: figures/xenolith-photo.pdf
-
 - id: context
   file: maps/map-single.pdf
   two_column: true
+
+- id: field_photo
+  file: figures/xenolith-photo.pdf
 
 - id: sample_petrography
   type: table
@@ -168,11 +168,11 @@
 - id: reconstruction
   file: maps/reconstruction.pdf
 
-- id: cross_sections
-  file: cross-section/cross-section.pdf
-
 - id: neogene_sections
   file: cross-section/neogene-cross-sections.pdf
+
+- id: cross_sections
+  file: cross-section/cross-section.pdf
 
 # Modeling
 
