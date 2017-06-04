@@ -21,18 +21,16 @@ geothermal structure with xenolith geothermometry.
 
 To distinguish between potential emplacement mechanisms for the mantle
 lithosphere sampled by Crystal Knob, a forward model of the geotherm
-implied by each of the tectonic scenarios **A**, **B**, and **C**
+implied by each of the tectonic scenarios
 shown in @fig:neogene_sections is constructed.
 A model based on the one-dimensional heat-flow equation
 $$\frac{\partial T}{\partial t} = \frac{k}{\rho C_p} \frac{\partial^2 T}{\partial z^2} + \frac{\alpha}{\rho C_p}$$ {#eq:heat_flow}
 is used to track the evolution of the lithospheric geotherm predicted by
 the three tectonic scenarios presented above.
-This framework is used to follow the thermal state of the xenolith source region from
-subduction (or, in case **A**, underplating beneath the crust) to final
-emplacement beneath the Crystal Knob eruption site at 1.65 Ma.
 
-For scenarios **B** and **C**, we simulate subduction and underplating by
-stacking the forearc geotherm atop the modeled oceanic geotherm and relaxed towards the present by
+To simulate both subduction and slab-window driven mantle underplating,
+the forearc geotherm is stacked atop modeled oceanic (or asthenospheric)
+geotherms and relaxed towards the present by
 iteratively solving the heat-flow equation using finite differences. The
 entire model is implemented in Python, with finite-difference modeling
 based on the FiPy software package [@Guyer2009]. Explicit and implicit
@@ -46,10 +44,7 @@ oceanic crust [@Stein1992], and the @Royden1993a forearc geotherm model
 to model the evolution of a geotherm during subduction on a continuously
 subducting model.  Standard values are used for oceanic and continental
 material properties, and are given in [@tbl:model_parameters].
-We neglect the effects of shear heating by simple down-dip
-displacements along the subduction megathrust based on the thermal
-modeling of @Kidder2013.
-Additional information about model setup and integration is given in @sec:model_supplement.
+More information about model setup and integration is given in @sec:model_supplement.
 
 <!--[[model_tracers]]-->
 
@@ -67,32 +62,36 @@ steps in @fig:model_results and as temperature--time tracers in
 
 #### Shallow slab window
 
-Model group **A**, displayed in -@fig:model_results|a 
-and @fig:model_tracers|a, shows a shallow slab-window
-scenario for mantle lithosphere emplacement.
+The geologic context of the shallow slab window scenario is shown in
+@fig:neogene_sections|a, and our thermal modeling for this scenario
+(model group **A**) is displayed in @fig:model_results|a
+and -@fig:model_tracers|a.
 The model begins at 24 Ma, corresponding to the time of
 opening of the Mendocino slab window under southern California
 [@Wilson2005]. A steady-state profile through the crust is truncated
-by a mantle adiabat to simulate direct contact with the asthenosphere
+by a mantle adiabat to simulate direct contact with the ascended asthenosphere
 (for 0-6 Myr), after
 which the domain relaxes conductively to the conclusion of the model.
 Previous
 modeling by @Erkan2008 suggests that this scenario yields geotherms too hot to
 correspond to the modern regional geotherm.
-We confirm this assessment, finding that these scenarios produce extremely
-"hot" geotherms that are above the stability of spinel lherzolite for
-much of the temperature domain of interest [@fig:model_comparison].
+We confirm this assessment, finding that this scenario produces extremely
+"hot" geotherms that are at the upper boundary of spinel lherzolite stability for
+much of the temperature domain of interest [@fig:model_comparison],
+reproducing neither the xenolith geotherm determined in this
+study nor the seismically-determined depth of the
+lithosphere-asthenosphere boundary [e.g. @Li2007].
 
 #### Stalled slab
 
-Model group **B**, displayed in
-@fig:model_results|b and -@fig:model_tracers|b,
-tracks the potential thermal structure of oceanic
-plates stalled under the forearc at successive times. The modeling
-begins with the subduction time of a oceanic lithosphere parcel of a given
-age, with an initial thermal structure corresponding to the Global Depth and Heat model
-[@Stein1992] for oceanic lithosphere of a given age of oceanic
-crust.
+The geologic context of the stalled slab scenario is shown in
+@fig:neogene_sections|b, and our thermal modeling of this scenario
+(model group **B**) is displayed in @fig:model_results|b and -@fig:model_tracers|b.
+This scenario tracks the potential thermal structure of oceanic
+plates stalled under the forearc at a range of times. Each run begins at
+a specified time with the subduction of oceanic lithosphere assigned an
+initial thermal structure corresponding to the Global Depth and Heat model
+[@Stein1992] for oceanic lithosphere of a given age of oceanic crust.
 
 We model cooling scenarios for a wide range of underplating times,
 reflecting the long subduction history of the Farallon plate beneath the
@@ -144,89 +143,121 @@ this appears to be the best model. When accounting for
 possible external effects [@sec:model_bias], it may predict a hotter geotherm than derived
 from the thermobarometric constraints.
 
-#### Late-Cretaceous stalled slab
+#### Late-Cretaceous mantle nappe underplating
 
-@fig:model_tracers|c and -@fig:model_results|c shows a set of scenarios
-corresponding to the late-Cretaceous underplating scenario envisioned in
-@fig:cross_sections. These scenarios are similar in construction to **B**
-with initial mantle lithosphere formation at the mid-ocean ridge, and
-cooling beneath the seafloor afterwards. The initial conditions
-and thermal evolution of this scenario are qualitatively similar to the
-older models of **B**, except that this scenario has more geological
-constraints. Still, they show much the same thermal structure.
+The geologic context of the Late Cretaceous mantle nappe underplating scenario
+is shown in @fig:neogene_sections|c, and our thermal modeling of this
+scenario (model group **C**) is displayed in
+@fig:model_tracers|c and -@fig:model_results|c.
+This scenario initiates in a similar fashion to the model runs for the
+stalled slab scenario [@fig:model_tracers|b] with the oldest emplacement
+ages. In both cases, the oceanic mantle forms under the
+Pacific--Farallon spreading ridge during the Late Cretaceous, thermally
+matures to form a mantle lithosphere lid during oceanic plate transport,
+and subducts beneath the southwest Cordilleran margin later in the
+Cretaceous.
+Thus, the initial conditions and thermal evolution of scenario **C** are
+qualitatively similar to the
+older models of **B**, except that this scenario incorporates more
+crustal geological constraints that pertain to its subduction history.
+In model **C**, the @Royden1993a
+forearc geotherm is tied to temperature constraint of 715ºC at 25 km
+depth based on garnet-biotite thermometry of Salinia granites that lie
+tectonically above the subduction complex, and ~575ºC at 30 km depth
+based on garnet-biotite thermobarometry on the proximally underplated
+schist of Sierra de Salinas schist [@Ducea2003b; @Kidder2006]. The
+subduction conditions and mantle lithosphere structure implied by this
+scenario are shown in @fig:cross_sections.
 
-In the Late Cretaceous duplex scenario, the maximum age of
-subduction and underplating is 70 Ma, based on the youngest ages of the most pertinent
-(Sierra de Salinas and correlative San Emigdio-Rand) schist bodies
+In model **C** the maximum age of
+subduction and underplating is taken as ~70 Ma, based on the youngest
+ages of the Sierra de Salinas/Nacimiento Franciscan subduction complex
 [@Barth2003; @Grove2003; @Saleeby2007; @Chapman2010; @Chapman2016].
 Seafloor being subducted at that time was 40 Myr old [@Seton2012; @Liu2010].
-This 110 Myr cooling history implies a relatively cold modern
-geotherm.
-After a long history of cooling beneath the forearc, these geotherms
-are subjected to
-heating from below by underplating of asthenospheric
-material at 80 km depth for a period of 0 to 6 Myr, corresponding to a
-deeper version of the slab-window underplating modeled in **A**.
+In this tectonic scenario [@fig:neogene_sections|c and @fig:cross_sections],
+Farallon oceanic lithosphere continued to subduct after mantle nappe
+detachment until the Pacific--Farallon spreading ridge encountered the
+trench in the Neogene. In the thermal model [@fig:model_results], the
+underplated mantle nappe(s) cool beneath the forearc for 50 Myr, and
+then the geotherm is perturbed by the underplating of asthenosphere
+by an ~80 km deep slab window. We present models with asthenosphere with
+an adiabatic temperature gradient held against the base of the
+lithosphere for a period ranging from 0 Myr (i.e. instantaneous contact
+followed immediately by conductive relaxation) to 6 Myr. The model
+for 6 Myr of asthenospheric upwelling at the base of the lithosphere
+produces the "kinked" geotherm seen in panel 4 of @fig:model_results|c
+at the 18 Ma time step. A model without any slab window heating is shown
+on both @fig:model_results|c and -@fig:model_tracers|c
 
-In this set of scenarios, the @Royden1993a
-subduction model is tied to temperature constraint of 715ºC at 25 km
-depth for garnet-biotite thermometry of exhumed granites of the Santa
-Lucia range [@Ducea2003], and thermobarometric constraints on the Sierra
-de Salinas schist [@Kidder2006]. Figure @fig:model_results|c, panel 2 correctly captures the
-thermobarometric constraints and inverted metamorphic gradient recorded
-by subduction-channel schists for this episode of
-subduction [@Kidder2006; @Kidder2013], validating our approach to calculating the forearc
-geotherm.
-
-These lithologically-constrained high subduction temperatures make
+Figure @fig:model_results|c, panel 2 shows the thermobarometric constraints
+and inverted metamorphic gradient recorded by subduction-channel schists for this episode of
+subduction [@Kidder2006; @Kidder2013] and used to tune the @Royden1993
+forearc geotherm model.
+These high subduction temperatures constrained by crustal geothemometry make
 little difference to the final thermal structure of the mantle
 lithosphere [@fig:model_tracers|c]. When not reheated by a deep slab
 window, the Cretaceous underplating scenario has a similar final thermal
-structure to the longest-running stalled slab scenarios in **B**. This
-reflects the model's basic correspondence with a generalized slab
-rollback event of similar age. High subduction-channel temperatures
+structure to the longest-running stalled slab scenarios in **B**
+[@fig:model_comparison]. This
+reflects the model's basic correspondence with a generalized Farallon
+plate mantle lithosphere underplating event of similar age. High subduction-channel temperatures
 experienced during late-Cretaceous flat slab subduction and schist
 metamorphism did not have a long-lasting impact on the thermal structure
-of the margin. Thus, underplating by a deep slab window during the
-Miocene is required for these scenarios to produce warm mantle
+of the margin. Thus, heating by a Miocene deep slab window
+is required for Cretaceous mantle nappe underplating scenarios to produce warm mantle
 lithosphere.
 
 ## Model sensitivity and bias {#sec:model_bias}
 
-Generally, changes in model parameters do not impact the relative
+Generally, changes in model parameters such as radiogenic heat flux,
+thermal conductivity, and heat capacity do not impact the relative
 results for modeled scenarios, due to the consistent lithologic
-architecture of the model domain.
+structure of the model domains.
 
 Due to widely varying timescale of equilibration for modeled scenarios
 in groups **B** and **C**, the model is sensitive to assumptions
 about steady-state cooling of the oceanic mantle lithosphere.
 The choice of the "GDH" model to track the evolution of
-the suboceanic thermal structure is important control on the scale of
+the suboceanic thermal structure is an important control on the scale of
 temperature variation in @fig:model_tracers|b.
 Though GDH is well-calibrated, oceanic cooling models tend to overestimate the heat flow from
-young oceanic plates [@Stein1995], potentially yielding higher temperatures
-for the younger scenarios of **B**, including
-the Monterey plate scenario.
+young oceanic plates [@Stein1995]. This suggests that the high
+geothermal temperatures predicted for the younger stalled slab scenarios
+in model group **B**, including the Monterey plate scenario, may be
+overestimates.
 
-Another key confounding factor not modeled for the subduction scenarios **B** and
-**C** is the effects of continued subduction outboard of the model
-domain. After rollback and underplating of the modeled section of
-oceanic mantle lithosphere, a downgoing slab at depth will tend to cool
-the forearc lithosphere from below However, this effect should
-diminish over time due to the subduction of younger, hotter oceanic
-material [@Royden1993a] and be overprinted by the underplating of hot
-slab window material in **C**.
+Another potential confounding factor affecting the older scenarios
+of **B** and **C** is the thermal effects of continued subduction
+beneath the underplated mantle nappes. After rollback and underplating of the modeled section of
+oceanic mantle lithosphere, a downgoing slab at depth could, depending
+on its age, cool the forearc lithosphere from below.
+However, this effect is considered minimal and
+diminishes over time due to the progressive subduction of younger, hotter oceanic
+lithosphere.
+Reconstruction of the Pacific--Farallon spreading ridge history show
+progressively younger oceanic lithosphere entering the southwest
+Cordilleran subduction zone between ca. 70 and 30 Ma at a rate of ~-1
+Myr/Ma [@Atwater1998; @Liu2009; @Seton2010]. This factor coupled with
+slab window emplacement starting at ca. 24 Ma leads to the
+interpretation that cooling from below by continued subduction
+was of second-order significance.
 
 Surface erosion is not modeled, but may bias the results. Any erosion will
 result in higher apparent heat flow values and increased geotherm
 convexity, as heat is advected from the
 top of the model domain by material removal [@Mancktelow1997;@England1990].
-Geologic constraints suggest that 15-20 km of erosion
+Geologic constraints suggest that 15-20 km of exhumation
 is likely to have occurred in a major pulse of
 unroofing coincident with flat-slab underplating and rollback in the
 Cretaceous [@Saleeby2003; @Chapman2012], and is thus likely to disproportionately
 affect the older models. The lack of erosion in the model framework
 biases towards predicting lower geothermal gradient overall.
+For the slab window and underplated Monterey plate scenarios (model
+groups **A** and **B**) this effect would push the final geotherm to or
+beyond the limit of xenolith thermobarometry [@fig:model_results|a and b].
+In the underplated mantle nappe scenario (model **C**) this effect would
+push the final modeled geotherm towards the centroid of the xenolith
+thermobarometric array [@fig:model_results|c and @fig:model_comparison]
 
 The uncertainties inherent in this model bias the results
 towards predicting lower-temperature,
@@ -242,35 +273,25 @@ Additional discussion of these factors can be found in
 
 ### Summary of model results
 
-The model predicts much higher temperatures within the mantle
-lithosphere, and much higher geothermal gradients, for the slab window
-than for the late-Cretaceous rollback or stalled-slab models. The geothermal
-gradients implied for this scenario are much higher than those is
-observed in the Coast Ranges, and the Monterey Plate scenario matches
-well with the geothermal
-constraints derived from heat flow modeling.
-This corresponds to the model findings of
-@Erkan2008. However, these studies concluded that the low heat flows
-must be due to a stalled slab, where in fact underplated Farallon mantle
-nappes satisfy the surface heat flow data equally well, given a deep
-slab window heating event.
+Our thermal modeling predicts much higher temperatures within the mantle
+lithosphere, and much higher geothermal gradients, for the shallow slab window
+than for the stalled-slab or underplated mantle nappe models. The geothermal
+gradients implied for the shallow slab window scenario are much higher than those
+suggested by heat flow data in the Coast Ranges, leading @Erkan2008 to favor a stalled slab
+tectonic scenario.
+Our modeling predicts that both the stalled slab and (deep slab window reheated)
+Cretaceous mantle nappe scenarios recover the geotherm determined by
+xenolith thermobarometry, while not violating constraints posed by heat
+flow data.
 
-In scenario **C**, relict Farallon-plate material shows low geotherms that
-correspond to mantle lithosphere temperature conditions too cold for the
-Crystal Knob xenolith constraints. However, when reheated by a
-deep slab window in the early Miocene, this scenario
-shows results similar to that for
-the youngest stalled slab scenarios in **B** except for the "Monterey Plate"
-scenario.
-
-When potential
-temperature overestimates from extrapolation of heat flow values
-[@sec:heat-flow] are considered along with biases in model geotherms,
-the slightly colder temperatures predicted by the reheated relict mantle
-lithosphere scenario also fall in a reasonable range for the geotherm within
-the mantle lithosphere beneath central California. This scenario thus
-provides an equally attractive geothermal gradient to explain the
-moderately elevated temperatures seen in the mantle lithosphere,
-while fitting the geologic context much better than the
-"stalled slab" scenario.
+Exhumation/erosion, while not accounted for in our models,
+pushes the modeled geotherm for the shallow slab window
+scenario outside of the limit of the thermobarometric constraints on xenolith
+entrainment, while pushing the Monterey plate endmember stalled-slab
+scenario towards the upper limit of this field, and aligns the reheated
+mantle nappe scenario with the center of the field. Unfortunately, we
+are prevented from incorporating the effects of exhumation/erosion
+due to the lack of temporally-defined geologic constraints on these
+processes that can be properly posed within the context of such
+modeling.
 
