@@ -1,13 +1,27 @@
 text
   font-family: Gotham
+  fill: black
 
 .y
   text.label
     font-size: 10
   .tick text
     font-size: 8
+    transform: rotate(-90deg) translate(5px, -8px)
+    alignment-baseline: bottom
+    text-anchor: middle
 
 .x
   .tick text
     font-size: 9
     color: #666
+
+.sample-label
+  font-size: 10
+  alignment-baseline: middle
+  transform: translate(3px, 0)
+  &.CK-5
+    transform: translate(3px, 6px)
+
+#main
+  background-color: white

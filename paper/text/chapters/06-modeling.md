@@ -104,7 +104,7 @@ subduction instability.
 
 We model a series of scenarios with differently-timed underplating
 events, with the start of subduction ranging from 22 to 80 Ma.
-These subduction times, T_$\textrm{start}$,  set the beginning of the models shown in
+These subduction times, T$_\textrm{start}$,  set the beginning of the models shown in
 @fig:model_tracers|b and are shown in the first panel of
 @fig:model_results|b.
 Each model operates on oceanic crust of the appropriate age for the
@@ -182,12 +182,15 @@ underplated mantle nappe(s) cool beneath the forearc for 50 Myr, and
 then the geotherm is perturbed by the underplating of asthenosphere
 by an ~80 km deep slab window. We present models with asthenosphere with
 an adiabatic temperature gradient held against the base of the
-lithosphere for a period ranging from 0 Myr (i.e. instantaneous contact
+lithosphere for periods ranging from 0 Myr (instantaneous contact
 followed immediately by conductive relaxation) to 6 Myr. The model
-for 6 Myr of asthenospheric upwelling at the base of the lithosphere
+for 6 Myr of sustained upwelling at the base of the lithosphere
 produces the "kinked" geotherm seen in panel 4 of @fig:model_results|c
-at the 18 Ma time step. A model without any slab window heating is shown
-on both @fig:model_results|c and -@fig:model_tracers|c
+at the 18 Ma time step, due to imposition of a mantle adiabat below 80
+km depth. A single model without slab window heating
+[highlighted in @fig:model_comparison] predicts much
+cooler geotherms that do not match the mantle geothermal constraints
+developed in this study.
 
 Figure @fig:model_results|c, panel 2 shows the thermobarometric constraints
 and inverted metamorphic gradient recorded by subduction-channel schists for this episode of

@@ -9,7 +9,7 @@ d = fs.readFileSync "#{__dirname}/temperature-summary.json"
 data = JSON.parse d.toString()
 
 dpi = 72
-sz = width: dpi*3.5, height: dpi*3
+sz = width: dpi*4, height: dpi*3
 
 func = (el, callback)->
   console.log "Started function"
@@ -19,9 +19,9 @@ func = (el, callback)->
 
   plot = axes()
     .margin
-      left: 0.5*dpi
-      bottom: 0.35*dpi
-      right: 0.15*dpi
+      left: 0.4*dpi
+      bottom: 0.38*dpi
+      right: 0.5*dpi
       top: 0.05*dpi
     .size sz
 
@@ -32,8 +32,8 @@ func = (el, callback)->
     .domain [-0.15,3]
 
   plot.axes.y(orientation='left')
-    .label 'Temperature (ºC)'
-    .labelOffset 26
+    .label 'Temperature (°C)'
+    .labelOffset 20
     .ticks 5
     .tickSize 3
     .tickFormat d3.format('.0f')
@@ -42,6 +42,7 @@ func = (el, callback)->
 
   plot.axes.x(orientation='bottom')
     .label 'Thermometer'
+    .labelOffset 25
     .tickSize 3
     .tickValues [0..3]
     .tickFormat (d)->tnames[d]
@@ -94,6 +95,15 @@ func = (el, callback)->
       'stroke': (d)->d.color
       'stroke-width': 2
       'fill': 'transparent'
+
+  g.append 'text'
+    .text (d)->d.id
+    .attrs
+      class: (d)->"sample-label #{d.id}"
+      y: (d)->
+        val = d[d.length-1].n
+        plot.scale.y(val)
+      x: plot.scale.x(3)
 
   callback()
 
