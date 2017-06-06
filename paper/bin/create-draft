@@ -19,6 +19,8 @@ mkdir -p build
 
 source bin/defs.zsh
 
+echo "Converting markdown to latex"
+
 rm -f $body build/abstract.tex build/figure-list.tex
 # Process body text
 # Correct for pandoc-crossref annoyingness
@@ -36,20 +38,31 @@ if [[ ! -f $auxfile ]]; then
   run-latex $texfile
 fi
 
+captions=build/figure-captions.tex
+
+cat text/figure-captions.md \
+| prepare-crossref \
+| paper markdown-to-latex \
+> $captions
+
 # Making figure list
 figures list \
   text/includes.yaml \
-  --captions text/figure-captions.md \
+  --captions $captions \
   --collect-dir collected \
 > build/figure-list.tex
 
 cp source/draft.tex $texfile
+
+echo "Filtering bibliography"
 
 # Filter bibliography
 LIBRARY="/Users/Daven/Resources/Papers/BibTeX/library.bib"
 bib-filter --clean --aux $auxfile $LIBRARY $bibfile
 # rebuild citations
 bibtex $auxfile
+
+echo "Running latex"
 
 run-latex $texfile
 

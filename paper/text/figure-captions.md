@@ -192,7 +192,8 @@ In this scenario, oceanic lithosphere is 55 Myr old at the time of
 subduction.
 
 #model_tracers
-Temperature-time tracers for each modeled scenario shown in Figure \ref{fig:model_results}
+Temperature-time tracers for each modeled scenario shown in Figure \ref{
+fig:model_results}
 following the evolution of particles
 at a final depth of 40 and 75 km depth in the model domain
 (dashed and solid lines, respectively), bracketing the depth-domain boundary
