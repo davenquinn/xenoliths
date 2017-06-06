@@ -13,7 +13,7 @@ notion suggested by @Pikser2012 of a regionally extensive Monterey Plate
 "dangling slab" extending far to the east of the San Andreas fault.
 
 Depending on the original scale of Monterey Plate underthrusting beneath
-the southern California borderland region [@fig:neogene_sections], its structural
+the southern California borderland [@fig:neogene_sections], its structural
 integrity following its coupling to borderland transrotational rifting,
 and on what proportion of the partially subducted plate is now
 represented by the detached portion that forms the Transverse Ranges
@@ -25,12 +25,12 @@ kinematically plausible, in theory, this case seems unlikely based on
 dynamic factors. As with the "dangling slab" version of this case,
 horizontal translation of such a large mantle mass along the base of the
 crust should manifest at the surface by transients in dynamic
-topography, as well brittle crustal deformational responses to
+topography, as well as brittle crustal deformational responses to
 horizontal shear stresses in the lower crust. Such surface deformation
 patterns are not expressed for late Cenozoic time north of the
-Transverse Ranges though. Furthermore, such horizontal translation of a
-previously underthrust slab offers little in terms of melting mechanisms
-neither for Neogene nor Pleistocene volcanic centers of the region. We
+Transverse Ranges. Furthermore, horizontal translation of a
+previously underthrust slab provides no melting mechanism
+for the early Neogene or Pleistocene volcanic centers of the region. We
 thus conclude that despite of our findings on the Crystal Knob xenolith
 suite not being able to discriminate between the stalled Monterey plate,
 or underplated Farallon nappe cases, the stalled Monterey plate case
@@ -38,14 +38,14 @@ creates more problems than it solves.
 
 In @fig:neogene_sections|c we show the partially subducted terminus of the Monterey
 plate bounded to the east by the San Gregorio-Hosgri fault, based on our
-above discussion of the @fig:reconstructions reconstruction. East of the fault lies
+above discussion of the @fig:reconstruction reconstruction. East of the fault lies
 the Nacimiento Franciscan complex and its tectonic veneer of Salinia
 nappes (not differentiated on the figure), and its lower crustal oceanic
 crustal duplex lying tectonically above an underplated Farallon plate mantle
 nappes. The structural profile shown on @fig:neogene_sections|c between the San
 Andreas and San Gregorio-Hosgri faults was constructed at southern
 California latitudes in continuity with that of the southernmost Sierra
-Nevada and adjacent Mojave plateau region [@fig:cross_sections; @fig:reconstruction]. Partial
+Nevada and adjacent Mojave plateau region [@fig:reconstruction; @fig:cross_sections]. Partial
 subduction, or stalling, of the Monterey plate occurred along the outer
 edge of Franciscan complex, further south than rocks of the Nacimiento
 belt [@fig:reconstruction].
@@ -149,59 +149,67 @@ initially emplaced into the early Neogene slab window.
 Conclusion
 ==========
 
-The lithosphere of southern California, to first order created by Cretaceous
-convergent margin tectonics, was severely structurally overprinted by two
-subsequent tectonic episodes, with the impact and subduction of the Shatsky Rise large
-igneous province conjugate during the Late Cretaceous followed by the progressive
-evolution of a transform boundary in the Neogene.
-These episodes are
-recorded throughout the crustal geologic record of southern California
-and the central California Coast Ranges outboard of the San Andreas
-Fault. Using constraints from the Crystal Knob xenolith suite along with
-thermal modeling of tectonic scenarios, we show that the mantle
-lithosphere beneath the central California coast was profoundly affected by both of
+The lithosphere of southern California, to first order created by
+Cretaceous convergent margin tectonics, was severely structurally
+overprinted by two subsequent tectonic episodes, with the impact and
+subduction of the Shatsky Rise large igneous province conjugate during
+the Late Cretaceous followed by the progressive evolution of a transform
+boundary in the Neogene. These episodes are recorded throughout the
+crustal geologic record of southern California and the central
+California Coast Ranges outboard of the San Andreas Fault. Using
+constraints from the Crystal Knob xenolith suite along with thermal
+modeling of tectonic scenarios, we show that the mantle lithosphere
+beneath the central California coast was profoundly affected by both of
 these episodes of deformation. The Crystal Knob suite is sourced along a
 depth gradient from ~45-70 km depth, and isotopic constraints show that
 it originates from the convecting mantle, which is typical of mid-ocean
-ridges or shallowly-ascended asthenosphere. Samples are variably depleted,
-and trace-element re-enrichment (and a single example of likely
-major-element assimilation) suggests interaction with low-volume melts
-after the formation and initial thermal equilibration of this mantle lithosphere.
+ridges or shallowly-ascended asthenosphere. Samples are variably
+depleted, and trace-element re-enrichment (and a single example of
+likely major-element assimilation) suggests interaction with low-volume
+melts after the formation and initial thermal equilibration of this
+mantle lithosphere material.
 
-Major element, trace element, and radiogenic isotope data for the Crystal Knob
-xenolith suite equally satisfy the first-order geochemical requisites of the shallow slab window, stalled slab,
-and Late Cretaceous mantle nappe tectonic scenarios. While xenolith thermobarometric data
-tested against thermal modeling, and geochemical subtleties of depletion and re-enrichment
-add some discriminating factors between these scenarios.
-The shallow slab window underplating scenario predicts extremely hot geotherms that are
-untenable for the xenolith constraints of this study.
-The stalled slab and mantle nappe scenarios appear equally plausible in terms of the thermal
-modeling, equally satisfying constraints developed from xenolith thermobarometry.
-When poorly constrained effects of exhumation/erosion are qualitatively considered,
-the Monterey plate stalled slab endmember scenario
-only marginally conforms to the thermobarometric constraints. This, in conjunction with a number
-of crustal geologic constraints, leads us to favor the Late Cretaceous mantle nappe underplating scenario,
-with reheating by a deep slab window in the Neogene.
+Major element, trace element, and radiogenic isotope data for the
+Crystal Knob xenolith suite equally satisfy the first-order geochemical
+requisites of the shallow slab window, stalled slab, and Late Cretaceous
+mantle nappe tectonic scenarios. Xenolith pressure-temperature
+constraints, thermal modeling, and geochemical subtleties of depletion
+and re-enrichment together add some discriminating factors between these
+scenarios. A shallowly underplated slab window predicts extremely hot
+geotherms that are untenable for the xenolith constraints of this study.
+The stalled slab and mantle nappe scenarios appear equally plausible in
+terms of the thermal modeling, equally satisfying constraints developed
+from xenolith thermobarometry. When the effects of potential
+exhumation/erosion are qualitatively considered, the Monterey plate
+stalled slab endmember scenario corresponds less well to constraints on
+the upper-mantle geotherm. This, along with a number of crustal
+geologic constraints, leads us to favor the Late Cretaceous mantle nappe
+underplating scenario, with reheating by a deep slab window in the
+Neogene.
 
-This preferred scenario for the origin of the mantle lithosphere sampled by
-Crystal Knob xenoliths
-matches a host of geologic constraints demonstrating slab rollback and
-regional crustal extension during the Late Cretaceous, as the Shatsky Rise conjugate subducted deeper
-into the mantle following its initial collision and shallow subduction beneath the southern California convergent
-margin. This episode
-constructed the mantle lithosphere beneath the Mojave province
-by mantle duplex formation as the Farallon Plate retreated [@Luffi2009],
-and in sequence appears to have built the outboard mantle lithosphere
-beneath the Crystal Knob eruption site.
-The outer toe of this lithosphere-scale accretionary belt was subsequently displaced along the San Andreas
-transform system to its current location in the central California coastal region.
-This displaced package of underplated mantle lithosphere shows a record of subsequent basal reheating by the
-Mendocino slab window, which opened in conjunction with the San Andreas plate juncture.
-Geochemical re-enrichment and abundant dunite cumulate xenoliths and xenocrysts within the Crystal Knob basalt
-record the percolation of fluids and melts through the lithosphere. This percolation, the highly fractionated
-Crystal Knob basaltic pipe, and the modeled Neogene thermal pulse that reheated the lithosphere can be attributed to
-a deep slab window segment that opened as the Pacific--Farallon ridge encountered the California convergent margin.
-This adds to a growing body of evidence that much of the structural
-complexity in the California Coast Ranges is inherited from the
-Late Cretaceous regime of subduction accretion.
+This preferred scenario for the origin of the mantle lithosphere sampled
+by Crystal Knob xenoliths matches a host of geologic constraints
+demonstrating slab rollback and regional crustal extension during the
+Late Cretaceous, as the Shatsky Rise conjugate subducted deeper into the
+mantle following its initial collision and shallow subduction beneath
+the southern California convergent margin. This episode built the
+mantle lithosphere beneath the Mojave province by mantle duplexing
+during the retreat of the Farallon Plate subducting slab [@Luffi2009],
+and appears to have subsequently built the outboard mantle lithosphere beneath the
+Crystal Knob eruption site. The outer toe of this lithosphere-scale
+accretionary belt was subsequently displaced along the San Andreas
+transform system to its current location beneath the central California
+Coast Ranges. This displaced package of underplated mantle lithosphere
+records basal reheating by the Mendocino slab
+window, which opened in conjunction with the San Andreas plate juncture.
+Geochemical re-enrichment and abundant dunite cumulate xenoliths and
+xenocrysts within the Crystal Knob basalt record the percolation of
+fluids and melts through the lithosphere. This percolation, the highly
+fractionated Crystal Knob basaltic pipe, and the modeled Neogene thermal
+pulse that reheated the lithosphere can be attributed to a deep slab
+window segment that opened as the Pacific--Farallon ridge encountered
+the California convergent margin. This adds to a growing body of
+evidence that much of the structural complexity in the California Coast
+Ranges is inherited from the Late Cretaceous regime of subduction
+accretion.
 

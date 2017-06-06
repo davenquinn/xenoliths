@@ -13,3 +13,9 @@
 [submodule "sections/modal-mineralogy"]
 	path = sections/modal-mineralogy
 	url = git://github.com/davenquinn/crystal-knob-modal-mineralogy.git
+[submodule "modules/python/wrap-si-units"]
+	path = modules/python/wrap-si-units
+	url = git://github.com/davenquinn/wrap-si-units.git
+[submodule "modules/python/--force"]
+	path = modules/python/--force
+	url = git://github.com/davenquinn/wrap-si-units.git

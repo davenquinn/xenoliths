@@ -262,10 +262,9 @@ thermobarometric array [@fig:model_results|c and @fig:model_comparison]
 The uncertainties inherent in this model bias the results
 towards predicting lower-temperature,
 less-convex geotherms over the model domain.
-These potential biases are significant when
-making comparisons with measured values of
-heat flux and xenolith thermobarometry [e.g. @fig:model_comparison], which are not subject to these
-biases. Thus, geotherms predicted by this model might be underestimates
+These potential biases affect comparisons comparisons with measured values of
+heat flux and xenolith thermobarometry, which are not subject to these
+biases [@fig:model_comparison]. Thus, geotherms predicted by this model might be underestimates
 for potential mantle temperature at a given depth, especially for the
 older tectonic scenarios modeled.
 Additional discussion of these factors can be found in

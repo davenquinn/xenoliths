@@ -4,5 +4,5 @@ cd $dir
 
 search_dirs=(../sections includes ../../analysis ../graphics/build)
 
-figures collect --copy text/includes.yaml collected ${search_dirs}
+figurator collect --copy text/includes.yaml collected ${search_dirs}
 

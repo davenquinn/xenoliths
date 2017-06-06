@@ -21,32 +21,37 @@ source bin/defs.zsh
 
 echo "Converting markdown to latex"
 
+function text-pipeline {
+ prepare-crossref \
+ | wrap-si-units \
+ | pandoc \
+    --from markdown \
+    --to latex \
+    --natbib \
+    --metadata=draft:true \
+    --filter pandoc-comments \
+    --filter pandoc-crossref
+}
+
 rm -f $body build/abstract.tex build/figure-list.tex
 # Process body text
 # Correct for pandoc-crossref annoyingness
 cat text/chapters/*.md \
-| prepare-crossref \
-| paper markdown-to-latex \
+| text-pipeline \
 > $body
 # Process abstract
 cat text/abstract.md \
-| prepare-crossref \
-| paper markdown-to-latex \
+| text-pipeline \
 > build/abstract.tex
-
-if [[ ! -f $auxfile ]]; then
-  run-latex $texfile
-fi
 
 captions=build/figure-captions.tex
 
 cat text/figure-captions.md \
-| prepare-crossref \
-| paper markdown-to-latex \
+| text-pipeline \
 > $captions
 
 # Making figure list
-figures list \
+figurator list \
   text/includes.yaml \
   --captions $captions \
   --collect-dir collected \
