@@ -29,7 +29,7 @@ makeConstraint = (scale)->(d,i)->
       .text d.text
       .attrs class: d.class
 
-addSantaLuciaConstraint = (scenario)->
+santaLuciaConstraint = (scenario)->
   ly = scenario.layout
 
   axes = ly.axes()
@@ -105,7 +105,7 @@ axisProfileLabels = (d,j)->
               class: 'label timestep'
 
 
-addProfileLabels = (el)->
+profileLabels = (el)->
   axes = el.selectAll 'g.axis'
     .data [true,true,false]
     .filter (d)->d
@@ -141,7 +141,12 @@ createAgeLabels = (axes, slices)->
       .attrs class: 'age-labels'
       .call axisTitles('h3', data, (d)->d.age)
 
-module.exports =
-  santaLuciaConstraint: addSantaLuciaConstraint
-  createAgeLabels: createAgeLabels
-  profileLabels: addProfileLabels
+underplatingConstraint = (scenario)->
+  ## Eventually this should become labels of ages
+
+module.exports = {
+  santaLuciaConstraint
+  createAgeLabels
+  profileLabels
+  underplatingConstraint
+}

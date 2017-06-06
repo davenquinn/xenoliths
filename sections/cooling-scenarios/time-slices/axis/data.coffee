@@ -18,7 +18,14 @@ module.exports = (ax)->
     sel.enter()
       .append "g"
       .attrs
-        class: "data"
+        class: (d)->
+          cls = "data #{d.name}"
+          if d.type == 'forearc'
+            if d.subduction_time < 32
+              cls += " end-subduction"
+            else
+              cls += " continuing-subduction"
+          cls
       .call textPath (d)->line(d.profile)
       .select 'use'
       .attrs

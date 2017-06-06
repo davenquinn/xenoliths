@@ -133,7 +133,15 @@ createAxes = (outerAxes)->
 
     enter = sel.enter()
       .append 'g'
-        .attrs class: 'model-run'
+        .attrs
+          class: (d)->
+            cls = "model-run #{d.name}"
+            if d.type == 'forearc'
+              if d.subduction_time < 32
+                cls += " end-subduction"
+              else
+                cls += " continuing-subduction"
+            cls
         .each plotArea(ax)
 
     #enter.append 'g'

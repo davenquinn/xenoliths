@@ -1,6 +1,9 @@
 text
   font-family: "Gotham", sans-serif
 
+#main
+  background-color: white
+
 .monterey-plate.annotation
   font-size: 10
   font-style: italic
@@ -16,6 +19,15 @@ text
     transform: translate(-5px, 0)
     font-weight: 400
 
+.model-run
+  path.tracer
+    stroke-width: 1px
+  &.continuing-subduction
+    path.tracer
+      stroke-width: 0.5px
+      stroke-opacity: 0.5
+    path
+      fill-opacity: 0.3
 
 .x.axis
   .label

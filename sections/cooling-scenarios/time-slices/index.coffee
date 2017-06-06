@@ -86,6 +86,7 @@ plotScenarios = (el, scenarios)->
 
   el.styles width: totalWidth
 
+  ## Apply labels ##
   el.select '.scenario.forearc'
     .call labels.profileLabels
   labels.santaLuciaConstraint(scenarios[2])
