@@ -111,7 +111,8 @@ for the transition much closer to the depth observed by @Li2007.
 Crystal Knob is located ~15 km east of the Hosgri fault, with its host
 Franciscan complex pervasively cut by faults and shear zones
 [@Cowan1978; @Seiders1989]. The geologic slip and seismicity history of the
-Hosgri fault [@Dickinson2005; @Hardebeck2012] indicate that it
+Hosgri fault [@Dickinson2005; @Hardebeck2010] <!--could also refer to
+Hardebeck2012--> indicate that it
 was likely active during the eruption of the Crystal Knob neck.
 Integration of theoretical and observational data on intra-continental
 transform faults [@Platt2011; @Titus2007] indicate

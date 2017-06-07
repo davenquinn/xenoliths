@@ -155,7 +155,7 @@
   file: thermometry/build/temp-comparisons.pdf
 
 - id: temp_summary
-  file: thermometry/build/temp-summary.pdf
+  file: summary-data/summary-data.pdf
 
 - id: ca_in_olivine
   file: depth-constraints/olivine-ca-mg.pdf

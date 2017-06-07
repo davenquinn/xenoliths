@@ -9,10 +9,12 @@ build_dir='build'
 
 body="$build_dir/draft_body.tex"
 texfile="$build_dir/draft.tex"
-auxfile="${texfile:r}.aux"
+
+name="Crystal-Knob-xenoliths"
+auxfile="$build_dir/$name.aux"
 
 function run-latex {
-  xelatex -interaction=nonstopmode -output-directory $build_dir $1
+  latexmk -xelatex -quiet -f -jobname=$name -output-directory=$build_dir $1
 }
 
 mkdir -p build
@@ -50,6 +52,10 @@ cat text/figure-captions.md \
 | text-pipeline \
 > $captions
 
+cat text/modeling-supplement.md \
+| text-pipeline \
+> build/modeling-supplement.tex
+
 # Making figure list
 figurator list \
   text/includes.yaml \
@@ -71,4 +77,12 @@ echo "Running latex"
 
 run-latex $texfile
 
-mv build/draft.pdf output/draft.pdf
+outfile="output/$name.pdf"
+
+mv "build/$name.pdf" "$outfile"
+
+tag --set paper-draft $outfile
+
+/usr/local/bin/gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default \
+    -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages \
+    -dCompressFonts=true -r150 -sOutputFile="output/${name}-compressed.pdf" $outfile

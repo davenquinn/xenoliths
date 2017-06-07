@@ -51,8 +51,8 @@ veneer of Salinia crystalline nappes.
 
 ## Regional tectonic setting and the application of mantle xenolith studies
 
-The SW North American Cordillera is endowed with an abundance of xenolith
-localities wherein upper mantle-lower crustal rock fragments were entrained in
+The SW North American Cordillera hosts many xenolith
+localities, at which upper mantle-lower crustal rock fragments were entrained in
 mainly late Cenozoic volcanic eruptions. Early studies of a number of these
 xenolith suites focused on the systematizing of petrographic features and
 classifying various samples into petrographic groups [@Wilshire1988].
@@ -63,7 +63,7 @@ underplated Farallon plate nappes, and late Cenozoic shallow convective
 asthenosphere
 [@Galer1989; @Livaccari1993; @Alibert1994; @Beard1995; @Ducea1996, @Ducea1998a; @Jove1998; @Lee2001; @Lee2006; @Usui2003; @Luffi2009].
 
-In general, there is a geologically reasonable correspondence between xenolith-sampled
+These studies suggest clear correspondence between xenolith-sampled
 upper mantle domains and surface geology. Sub-continental suites
 have generally been erupted through cratonic and peri-cratonic crust,
 mantle wedge suites erupted through the Cretaceous large volume batholith,
@@ -77,12 +77,9 @@ presents a rare opportunity to sample mantle lithosphere directly beneath the
 region of long-lived subduction accretion proximal to the plate edge.
 
 The tectonic setting of the sub-Crystal Knob mantle lithosphere is best posed
-by the restoration of its host crustal rocks to a pre-San Andreas transform
-offset position, outboard of the northern reaches of the southern California
-batholith (@fig:context and @fig:reconstruction, detailed below).
-The southern California batholith
-is the southern continuation of the Sierra Nevada batholith across the Garlock
-fault. In this restored position the crystalline nappes that constitute Salinia
+by restoring its host crustal rocks to their position prior to San Andreas
+transform offset. This places them outboard of the northern reaches of the southern California batholith, the southern continuation of the Sierra Nevada
+batholith across the Garlock fault (@fig:context and @fig:reconstruction, detailed below). In this restored position the crystalline nappes that constitute Salinia
 correlate to deeply exhumed Cretaceous arc plutonic rocks of the southernmost
 Sierra Nevada batholith and the northwestern zones of the southern California
 batholith, the latter widely exposed in ranges of the Mojave plateau

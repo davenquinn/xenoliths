@@ -54,13 +54,13 @@ More information about model setup and integration is given in @sec:model_supple
 
 <!--[[model_results]]-->
 
-### Model results
+## Model results
 
 Model results are presented as geotherms corresponding to specific model
 steps in @fig:model_results and as temperature--time tracers in
 @fig:model_tracers.
 
-#### Shallow slab window
+### Shallow slab window
 
 The geologic context of the shallow slab window scenario is shown in
 @fig:neogene_sections|a, and our thermal modeling for this scenario
@@ -82,7 +82,7 @@ reproducing neither the xenolith geotherm determined in this
 study nor the seismically-determined depth of the
 lithosphere-asthenosphere boundary [e.g. @Li2007].
 
-#### Stalled slab
+### Stalled slab
 
 The geologic context of the stalled slab scenario is shown in
 @fig:neogene_sections|b, and our thermal modeling of this scenario
@@ -143,7 +143,7 @@ this appears to be the best model. When accounting for
 possible external effects [@sec:model_bias], it may predict a hotter geotherm than derived
 from the thermobarometric constraints.
 
-#### Late-Cretaceous mantle nappe underplating
+### Late-Cretaceous mantle nappe underplating
 
 The geologic context of the Late Cretaceous mantle nappe underplating scenario
 is shown in @fig:neogene_sections|c, and our thermal modeling of this
@@ -165,7 +165,7 @@ forearc geotherm is tied to temperature constraint of 715ºC at 25 km
 depth based on garnet-biotite thermometry of Salinia granites that lie
 tectonically above the subduction complex, and ~575ºC at 30 km depth
 based on garnet-biotite thermobarometry on the proximally underplated
-schist of Sierra de Salinas schist [@Ducea2003b; @Kidder2006]. The
+schist of Sierra de Salinas schist [@Ducea2003; @Kidder2006]. The
 subduction conditions and mantle lithosphere structure implied by this
 scenario are shown in @fig:cross_sections.
 
@@ -194,7 +194,7 @@ developed in this study.
 
 Figure @fig:model_results|c, panel 2 shows the thermobarometric constraints
 and inverted metamorphic gradient recorded by subduction-channel schists for this episode of
-subduction [@Kidder2006; @Kidder2013] and used to tune the @Royden1993
+subduction [@Kidder2006; @Kidder2013] and used to tune the @Royden1993a
 forearc geotherm model.
 These high subduction temperatures constrained by crustal geothemometry make
 little difference to the final thermal structure of the mantle
@@ -238,9 +238,10 @@ However, this effect is considered minimal and
 diminishes over time due to the progressive subduction of younger, hotter oceanic
 lithosphere.
 Reconstruction of the Pacific--Farallon spreading ridge history show
-progressively younger oceanic lithosphere entering the southwest
-Cordilleran subduction zone between ca. 70 and 30 Ma at a rate of ~-1
-Myr/Ma [@Atwater1998; @Liu2009; @Seton2010]. This factor coupled with
+that, between ca. 70 and 30 Ma, oceanic lithosphere entering the
+southwest Cordilleran subduction zone got younger at a rate of ~1
+Myr/Ma [@Atwater1998; @Liu2010; @Seton2012] corresponding to the
+approach of the ridge to the subduction zone. This factor coupled with
 slab window emplacement starting at ca. 24 Ma leads to the
 interpretation that cooling from below by continued subduction
 was of second-order significance.
@@ -273,7 +274,7 @@ older tectonic scenarios modeled.
 Additional discussion of these factors can be found in
 @sec:model_supplement.
 
-### Summary of model results
+## Summary of model results
 
 Our thermal modeling predicts much higher temperatures within the mantle
 lithosphere, and much higher geothermal gradients, for the shallow slab window

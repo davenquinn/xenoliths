@@ -18,6 +18,6 @@ function text-pipeline {
 }
 
 # Process body text
-cat text/abstract.md text/chapters/*.md | text-pipeline $output
-
-cat text/figure-captions.md | text-pipeline "output/Crystal-Knob-figure-captions.docx"
+cat text/abstract.md text/chapters/*.md \
+  text/modeling-supplement.md text/figure-captions.md \
+| text-pipeline $output

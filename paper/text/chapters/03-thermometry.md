@@ -14,7 +14,7 @@ seen in the Crystal Knob xenolith samples. Results are shown in
 
 <!--[[thermometry]]-->
 
-#### Error in thermometer calibrations
+### Error in thermometer calibrations
 
 Core and rim compositions measured on the microprobe are separated to assess within-sample
 temperature disequilibrium and late-stage (e.g. eruptive) heating. Analytical errors (caused by
@@ -51,9 +51,9 @@ in ºC.
 experimental results in several scenarios and advises its use over BKN.
 The Ca-in-OPX thermometer generally yields results coincident with BKN
 temperatures (sensibly, as they were calibrated from the same dataset) [@Brey1990].
-The Ca-in-OPX thermometer yields remarkably little within-sample scatter, possibly the result of fast diffusion
-and complete re-equilibration of small amounts of Ca in orthopyroxene,
-or of generally higher stability of this more refractory phase against late magmatic modification. <!-- *** --->
+The low within-sample scatter of the Ca-in-OPX thermometer possibly
+results from the fast diffusion and complete re-equilibration of small amounts of Ca in orthopyroxene,
+or of the stability of relatively refractory orthopyroxene against late magmatic modification. <!-- *** --->
 
 ### Core temperatures
 
@@ -176,7 +176,7 @@ Despite this disequilibrium, temperature estimates anchored by HREE
 perform well as measured against major-element thermometry, even for
 samples (such as CK-4) with generalized LREE disequilibrium.
 
-### Significance of temperature estimates {#sec:temperature-significance}
+### Comparison with major-element thermometry {#sec:temperature-significance}
 
 Rare-earth exchange thermometry shows the samples as divided into
 the same two groupings of temperatures as those found by major-element
@@ -210,7 +210,7 @@ at a lower temperature for a significant period of time. Also, given low
 clinopyroxene modes, rare-earths added during refertilization may not be
 completely homogenized throughout the sample.
 
-# Geochemical differences within the Crystal Knob sample set
+## Geochemical variation within the Crystal Knob sample set
 
 All of the Crystal Knob xenoliths analyzed are isotopically depleted, with an
 initial $\epsilon_\mathrm{Nd}$ of +10, and \ce{^{87}Sr}/\ce{^{86}Sr} of .7029.
@@ -242,18 +242,16 @@ are notably different from profiles found in abyssal peridotites
 [@fig:cpx_literature_comparison]. They also contain chromian spinels,
 which are a product of increased levels of melt extraction.
 
-Sample CK-6 shows still-lower Mg\#s for phases but greater abundances of pyroxene
-phases, suggesting some amount of major-element re-enrichment. It is
+Phases within sample CK-6 shows uniformly low Mg\#s, suggesting
+depletion. However, high modal abundance of pyroxene
+phases suggests some amount of major-element re-enrichment after
+formation. This is bolstered by petrographic evidence of significant
+growth and aggregation of pyroxene grains, unique in the sample set. It is
 relatively undepleted in REEs and shows no significant temperature
 disequilibrium in any thermometer including REE. This major-element
 refertilization is likely a result of assimilation of mantle material
 and re-equilibration near the solidus. It implies significant mass
 exchange and may be due to interaction with deep upwelling fluids.
-
-<comment>Could the difference exhibited in the higher-T cohort be
-derived from the interaction of underlying younger convective mantle,
-i.e. slab window. If not definitive, is the question worth raising?
-Ask Paul...</comment>
 
 Broadly, the results of geochemical and thermometric studies of the
 Crystal Knob suite suggest that the mantle lithosphere beneath central

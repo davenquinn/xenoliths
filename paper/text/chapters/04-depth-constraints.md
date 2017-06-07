@@ -175,7 +175,7 @@ the coolest that places all samples within the spinel stability field.
 The centroids of the Ca-in-olivine model age distributions broadly
 correspond to a range in surface heat flow from ~70 to 110 mW/m^2.
 
-Using a database of surface heat flows for North America [@Blackwell2004],
+Using a database of surface heat flows for North America,
 @Erkan2009 estimates regionally-averaged heat flows of 80-90 mW/m^2 for the
 central California coast, including the vicinity of Crystal Knob. Projection of the TA98 temperature distribution onto our calculated
 steady-state geotherms yields model depths of ~45-55 km for the

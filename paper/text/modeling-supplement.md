@@ -1,8 +1,8 @@
-# Supplementary information for modeling setup {#sec:model_supplement}
+# Supplementary file: modeling setup {#sec:model_supplement}
 
 ## Model setups
 
-Standardized model parameters used in the models are justified
+Standardized parameters used in modeling are justified
 in the text below. Standard values for thermal conductivity from
 @Fowler2005 yield good results.
 Increasing the thermal conductivity of the model domain
@@ -35,7 +35,7 @@ during subduction are tracked using the @Royden1993a steady-state
 forearc model. The samples then relax to the present. After subduction
 and underplating, the cooled oceanic lithosphere re-equilibrates with an
 overlying 30 km of forearc crust until the present, or for our xenolith
-samples until the time of ca. 1.7 Ma entrainment and eruption. 
+samples until the time of ca. 1.7 Ma entrainment and eruption.
 
 Progressive subduction of the downgoing slab beneath the forearc wedge
 is modeled as stepwise advection beneath a linearly thickening forearc
@@ -167,3 +167,4 @@ geothermal gradient [@Mancktelow1997;@England1990]. Thus, these values need to
 be biased to higher temperatures to accurately capture the relationship
 between xenolith constraints on the actual temperature and temperatures
 derived from this modeling.
+

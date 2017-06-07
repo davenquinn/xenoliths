@@ -9,7 +9,7 @@ fit it into this section in your logical progression, and wording: -->
 
 They corner themselves into needing special circumstances to explain
 CRTA like rapid recent uplift (which could be a contributing
-factor @Ducea2003), shear heating or thermal
+factor @Ducea2003b), shear heating or thermal
 relaxation of stalled slab nonsense, just because they insist on the low
 heat flow from the Great Valley-Sierra Nevada to be caused by a stalled
 slab-classic circular reasoning. We need to go on the offensive here.

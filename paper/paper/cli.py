@@ -4,7 +4,6 @@ import codecs
 
 from .util import run
 from .figures import cmds
-from .text import process_text
 
 @click.group()
 def cli():
@@ -14,12 +13,6 @@ def cli():
 @click.option("--all", is_flag=True, default=False)
 def figures(all):
     pass
-
-@cli.command(name="markdown-to-latex")
-def markdown_to_latex():
-    stdin = click.get_text_stream('stdin')
-    stdout = click.get_text_stream('stdout')
-    process_text(stdin, stdout)
 
 @cli.command(name='standalone-table')
 @click.option('--landscape',is_flag=True, default=False)
