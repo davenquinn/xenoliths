@@ -172,17 +172,18 @@ field is > 120 mW/m^2 at the surface.
 Accounting for the Cr-dependent
 depth of the spinel--garnet transition, the 65 mW/m^2 conductive geotherm is
 the coolest that places all samples within the spinel stability field.
-The centroids of the Ca-in-olivine model age distributions broadly
+The centroids of the Ca-in-olivine model depth distributions broadly
 correspond to a range in surface heat flow from ~70 to 110 mW/m^2.
 
 Using a database of surface heat flows for North America,
 @Erkan2009 estimates regionally-averaged heat flows of 80-90 mW/m^2 for the
-central California coast, including the vicinity of Crystal Knob. Projection of the TA98 temperature distribution onto our calculated
+central California coast, including the vicinity of Crystal Knob.
+Projection of the TA98 temperature distribution onto our calculated
 steady-state geotherms yields model depths of ~45-55 km for the
-Crystal Knob sample set. This depth range is within the spinel stability field
-and falls near the center of the depth distributions extracted using
-Ca-in-olivine barometry. We discuss the accuracy of heat flow data
-further in @sec:heat-flow
+Crystal Knob sample set. This depth range falls within the spinel stability field
+and near the center of the depth distributions extracted using
+Ca-in-olivine barometry. However, depths derived from surface heat flows
+may be underestimates, for reasons discussed in @sec:heat-flow.
 
 ### Summary of depth constraints
 

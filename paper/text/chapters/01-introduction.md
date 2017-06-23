@@ -84,8 +84,8 @@ correlate to deeply exhumed Cretaceous arc plutonic rocks of the southernmost
 Sierra Nevada batholith and the northwestern zones of the southern California
 batholith, the latter widely exposed in ranges of the Mojave plateau
 [@Saleeby2003; @Barbeau2005; @Chapman2012]. These deeply exhumed batholithic
-rocks all share a common regional upper plate position above a polyphase low
-angle fault system below which Franciscan-affinity, mainly metaclastic rocks,
+rocks share a common regional upper plate position above a polyphase
+low-angle fault system below which Franciscan-affinity, mainly metaclastic rocks,
 were tectonically underplated in the Late Cretaceous
 [@Malin1995; @Barth2003; @Yan2005; @Ducea2009; @Chapman2010; @Chapman2012 @Chapman2016b].
 The underplated metaclastic rocks are exposed in a series of windows
@@ -108,7 +108,7 @@ conjugate progressing deeper into the mantle beneath the North American plate
 [@Saleeby2003; @Liu2010; @Chapman2012].
 
 The relatively shallow level of the tectonic underplating of the schists
-directly beneath deep crustal large volume batholithic rocks requires the prior
+directly beneath deep crustal large-volume batholithic rocks requires the prior
 tectonic erosion of the mantle lithosphere (mantle wedge) that hosted the
 source regime for the overlying batholith. Integrated mantle xenolith studies
 and deep seismic imaging document this process.  Late Miocene small volume

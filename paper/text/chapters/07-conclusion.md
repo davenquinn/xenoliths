@@ -2,21 +2,22 @@
 
 In this section we integrate the results of our thermal modeling with our
 petrogenetic findings on the Crystal Knob xenoliths, regional crustal structure
-and evolution, and the timing and map position of xenolith entrainment. Of the
+and evolution, and the timing and location of xenolith entrainment. Of the
 three plausible scenarios depicted for the evolution of the sub-Crystal Knob
-mantle lithosphere in @fig:neogene_sections, we reject the shallow slab window
-emplaced asthenosphere case based on our thermal modeling presented above. The
+mantle lithosphere in @fig:neogene_sections, we reject the scenario of
+asthenosphere emplaced in a shallow slab window,
+based on our thermal modeling presented above. The
 Monterey plate stalled slab and underplated Farallon plate mantle nappe cases
-are equally plausible based on our thermal modeling. Based on a wide spectrum
-of geologic and geodynamic factors, that were discussed above, we dismiss the
+are equally plausible based on our thermal modeling. Based on the wide spectrum
+of geologic and geodynamic factors discussed above, we dismiss the
 notion suggested by @Pikser2012 of a regionally extensive Monterey Plate
 "dangling slab" extending far to the east of the San Andreas fault.
 
-Depending on the original scale of Monterey Plate underthrusting beneath
-the southern California borderland [@fig:neogene_sections], its structural
+Depending on the original scale of the subducted portion of the Monterey Plate
+beneath the southern California borderland [@fig:neogene_sections], its structural
 integrity following its coupling to borderland transrotational rifting,
-and on what proportion of the partially subducted plate is now
-represented by the detached portion that forms the Transverse Ranges
+and the potential correspondence of the partially subducted plate
+to the detached portion that forms the Transverse Ranges
 high-wave speed anomaly [@fig:context], an argument could be made that an
 underthrust portion of the Monterey Plate has been translated northwards
 horizontally beneath the Crystal Knob eruption site
@@ -25,10 +26,10 @@ kinematically plausible, in theory, this case seems unlikely based on
 dynamic factors. As with the "dangling slab" version of this case,
 horizontal translation of such a large mantle mass along the base of the
 crust should manifest at the surface by transients in dynamic
-topography, as well as brittle crustal deformational responses to
+topography, as well as brittle crustal deformation in response to
 horizontal shear stresses in the lower crust. Such surface deformation
-patterns are not expressed for late Cenozoic time north of the
-Transverse Ranges. Furthermore, horizontal translation of a
+patterns are not expressed north of the Transverse Ranges in late Cenozoic time.
+Furthermore, horizontal translation of a
 previously underthrust slab provides no melting mechanism
 for the early Neogene or Pleistocene volcanic centers of the region. We
 thus conclude that despite of our findings on the Crystal Knob xenolith

@@ -91,6 +91,8 @@ plotScenarios = (el, scenarios)->
     .call labels.profileLabels
   labels.santaLuciaConstraint(scenarios[2])
 
+  labels.underplatingConstraint(scenarios[0])
+
 module.exports = (el_, callback)->
   el = d3.select el_
     .append 'div'

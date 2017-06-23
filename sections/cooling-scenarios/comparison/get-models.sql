@@ -9,4 +9,5 @@ SELECT
     ON r.id = p.run_id
   WHERE p.name = 'final'
     AND r.name != 'forearc-28-2'
+    AND r.name != 'forearc-80-60'
   ORDER BY p.temperature[50] DESC

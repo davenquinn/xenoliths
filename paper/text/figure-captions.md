@@ -13,7 +13,7 @@ Sampling locations for previous xenolith studies are shown:
 the Central and Eastern Sierran suites show a record of delamination of
 a batholithic root [@Ducea1996] and Mojave sites show underplating of
 Farallon-plate lithospheric nappes during the Cretaceous [@Luffi2009].
-The position of Crystal Knob is also shown, as well as its reconstruction for dextral
+The position of Crystal Knob is also shown, along with its reconstruction for dextral
 offset on the Neogene San Andreas transform system. This
 reconstruction was created independently using the regional paleomagnetic framework
 of @Wilson2005 with the restoration of slip along San Andreas--system
@@ -21,7 +21,7 @@ faults [@Dickinson2005] approaches. The methods agree to within 5 km on the posi
 of the Crystal Knob source locale at 19 Ma [see also @fig:reconstruction]. Crystal Knob
 can be restored to ~350 km SE of its current location, accounting
 for ~310 km displacement on modern San Andreas Fault and ~40 km remainder
-on the Rinconada fault within the Salinian block.
+on the Rinconada fault within the area of Salinian nappes.
 
 ##microscope-images
 Optical petrographic images (2.5 mm wide field of view) showing characteristic textures
@@ -112,6 +112,8 @@ is compiled from a suite of Mojave-desert samples measured by @Farmer1995.
 These fields are presented for comparison with
 the modeled composition of the enriching fluids, which closely
 resemble alkali basalt for all samples.
+The calculated re-enriching fluid composition for sample CK-2
+is not shown because this sample is not depleted relative to modeled values.
 (b) REE depletion and re-enrichment trends for xenolith
 samples derived from modeling in (a). For all samples, <1%
 assimilation of alkali-basalt-like melt is
@@ -187,7 +189,7 @@ tracks all models to the present.
 to shared tectonic events, modeled at different times based on the
 timing of subduction and age of oceanic crust. Subduction
 is bracketed by T$_\textrm{start}$ and T$_\textrm{end}$, with
-T$_\textrm{start}$ = T$_\textrm{end}$ - 1.04 Myr for all cases.
+T$_\textrm{start}$ = T$_\textrm{end}$ -- 1.04 Myr for all cases.
 The youngest and hottest of these runs corresponds to the "Monterey plate"
 tectonic scenario.
 **C** tracks Farallon Plate mantle lithosphere emplaced beneath the
@@ -204,17 +206,18 @@ subduction.
 ##model_tracers
 Temperature-time tracers for each modeled scenario shown in
 @fig:model_results, following the evolution of particles
-at a final depth of 40 and 75 km depth in the model domain
-(dashed and solid lines, respectively), bracketing the depth-domain boundary
+at final depths of 40 and 75 km in the model domain
+(dashed and solid lines, respectively), bracketing the boundary
 conditions of the Crystal Knob xenolith suite. All models
 conclude at 1.65 Ma, the eruptive age of the Crystal Knob xenoliths.
 (a) shows a scenario corresponding to upwelling-driven mantle
 lithosphere replacement to the base of the crust during the Mendocino
-slab window episode [@Wilson2005], in which the crust is underplated by
-asthenospheric mantle which convects for a period of time (several durations of active
-convection from 0-6 Myr are shown) beginning at 24 Ma.
+slab window episode beginning at 24 Ma [@Wilson2005]. Asthenospheric
+mantle is held at the base of the crust for a
+period of time between 0 and 6 Myr to represent potential
+durations of active convection.
 (b) shows a range of scenarios corresponding to oceanic lithosphere slices underplated at
-different times during the subduction history of the Farallon plate until its
+different times during the subduction of the Farallon plate until its
 cessation in the Neogene.
 The youngest of these scenarios corresponds to the likely
 thermal evolution of a Monterey Plate stalled slab.
@@ -222,7 +225,7 @@ The older models shown in panel B are included for
 completeness, though none of these can be linked to geologic features of
 the margin as well as the Cretaceous underplating and Monterey plate
 scenarios.
-Modeled tracers begin at 10 and 45 km beneath the seafloor and are
+Model tracers begin at 10 and 45 km beneath the seafloor and are
 advected to depths of 40 and 75 km during subduction
 over the first 1.04 Myr of the model run.
 (c) tracks a Farallon-plate slab subducted and underplated
@@ -242,24 +245,25 @@ erosion and thus might be biased towards lower temperatures relative to
 measured xenolith pressure--temperature constraints [see @sec:model_bias].
 
 ##cross_sections
-Cross sections showing the evolution of southern California during
+Cross sections showing the evolution of southern California during the
 subduction of a large oceanic plateau during the late Cretaceous, and
-underplating of Farallon-plate mantle nappes during slab rollback.
+underplating of Farallon-plate mantle nappes during slab rollback
+[after @Saleeby2003; @Luffi2009; @Chapman2010].
 
 ##neogene_sections
 Schematic cross-sections showing potential scenarios for modification of the
 marginal mantle lithosphere at the end of subduction in the early Miocene.
-**A**: Migration of the East Pacific mantle
+(a) Migration of the East Pacific mantle
 upwelling beneath the continental margin, forming a slab window and causing
-wholesale replacement of sub-Salinia mantle lithosphere with abyssal material.
-**B**: Translation of the Monterey plate stalled slab along the former
+wholesale replacement of sub-Salinia mantle lithosphere with ascended
+asthenosphere.
+(b) Translation of the Monterey plate stalled slab along the former
 subduction megathrust to a current position beneath the California Coast
-Ranges [after @Pikser2012]
-**C**: Translation of Monterey plate fragment along Hosgri fault after
-following slab breakoff in the Transverse Ranges region.
-
-##monterey_plate
-Schematic representation of the Monterey plate dangling slab scenario
-for the origin of the sub-Salinian mantle lithosphere as envisioned
-by @VanWijk2001 and @Pikser2012, among others.
+Ranges [after @Bohannon1995]
+(c) Mantle lithosphere beneath the Crystal Knob eruption site composed
+of underplated Farallon plate mantle nappes reheated at their base by
+the Neogene slab window. The Monterey plate fragment is translated along
+the Hosgri fault from the Transverse Ranges region, to have its lithospheric
+column juxtaposed with previously underplated Farallon-plate mantle
+lithosphere.
 

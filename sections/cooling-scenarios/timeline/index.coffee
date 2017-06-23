@@ -137,7 +137,7 @@ createAxes = (outerAxes)->
           class: (d)->
             cls = "model-run #{d.name}"
             if d.type == 'forearc'
-              if d.subduction_time < 32
+              if d.subduction_time < 28 # This should possibly be 32...
                 cls += " end-subduction"
               else
                 cls += " continuing-subduction"

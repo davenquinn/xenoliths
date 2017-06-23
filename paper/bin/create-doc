@@ -14,6 +14,7 @@ function text-pipeline {
        --filter pandoc-comments \
        --filter pandoc-crossref \
        --bibliography=$bibfile \
+       --number-sections \
        --csl="source/lib/agu.csl" -o $1
 }
 

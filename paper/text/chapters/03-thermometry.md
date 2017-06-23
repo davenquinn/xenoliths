@@ -242,7 +242,7 @@ are notably different from profiles found in abyssal peridotites
 [@fig:cpx_literature_comparison]. They also contain chromian spinels,
 which are a product of increased levels of melt extraction.
 
-Phases within sample CK-6 shows uniformly low Mg\#s, suggesting
+Phases within sample CK-6 show uniformly low Mg\#s, suggesting
 depletion. However, high modal abundance of pyroxene
 phases suggests some amount of major-element re-enrichment after
 formation. This is bolstered by petrographic evidence of significant

@@ -1,5 +1,7 @@
 from __future__ import division, print_function
 
+import matplotlib
+matplotlib.use('Agg')
 from sys import argv
 import numpy as N
 import click
@@ -86,6 +88,8 @@ def run_model(src,dst,clinopyroxene=False):
             plot("Modeled depleted", d.columns,row, linestyle='--', linewidth=1)
 
             v = enrichment.ix[row.name]
+            if i == 'CK-2':
+                continue
             plot("Enriching fluid",d.columns,v, linestyle=':', linewidth=1)
 
         # Plot NMORB

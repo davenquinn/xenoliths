@@ -40,7 +40,7 @@
       of the preceding measured isotope ratio to eruptive conditions ($t =$ \SI{1.65}{Ma}).
 
 - id: isotopes
-  file: isotopes/isotope.pdf
+  file: isotopes/isotopes.pdf
 
 - id: minerals
   type: table
@@ -180,7 +180,8 @@
   type: table
   file: model-setups.tex
   caption: Material properties used in modeling
-
+  notes:
+    "": "CC: continental crust; ML: mantle lithosphere"
 - id: model_results
   file: model-time-slices.pdf
   two_column: true

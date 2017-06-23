@@ -1,7 +1,5 @@
-from __future__ import print_function
 import pandas as P
 from io import StringIO
-from IPython import embed
 
 class MeltsDataset(object):
     """

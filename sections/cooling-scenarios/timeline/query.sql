@@ -20,6 +20,7 @@ WITH
     JOIN a ON a.id = r.id
     WHERE r.type LIKE $1::text || '%'
       AND r.name != 'forearc-28-2'
+      AND r.name != 'forearc-80-60'
     GROUP BY t.run_id, r.name, t.final_depth, a.profile_time),
   u AS (SELECT * FROM b WHERE b.depth = 40),
   l AS (SELECT * FROM b WHERE b.depth = 75)

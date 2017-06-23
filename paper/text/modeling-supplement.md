@@ -101,7 +101,67 @@ sediment rich in radiogenic elements [@Vila2010]. Still, lower
 radiogenic heat production in the crust yields only a slight decrease in
 modeled geotherms across the board, not impacting conclusions.
 
-## Factors not incorporated into the model
+## Model sensitivity and bias {#sec:model_bias}
+
+Generally, changes in model parameters such as radiogenic heat flux,
+thermal conductivity, and heat capacity do not impact the relative
+results for modeled scenarios, due to the consistent lithologic
+structure of the model domains.
+
+Due to widely varying timescale of equilibration for modeled scenarios
+in groups **B** and **C**, the model is sensitive to assumptions
+about steady-state cooling of the oceanic mantle lithosphere.
+The choice of the "GDH" model to track the evolution of
+the suboceanic thermal structure is an important control on the scale of
+temperature variation in @fig:model_tracers|b.
+Though GDH is well-calibrated, oceanic cooling models tend to overestimate the heat flow from
+young oceanic plates [@Stein1995]. Thus, the modeled geothermal gradients for the
+younger stalled slab model runs may be too high.
+
+Another potential confounding factor affecting the older scenarios
+of **B** and **C** is the thermal effects of continued subduction
+beneath the underplated mantle nappes. After rollback and underplating of the modeled section of
+oceanic mantle lithosphere, a downgoing slab at depth could, depending
+on its age, cool the forearc lithosphere from below.
+However, this effect is considered minimal and
+diminishes over time due to the progressive subduction of younger, hotter oceanic
+lithosphere.
+Reconstruction of the Pacific--Farallon spreading ridge history show
+that, between ca. 70 and 30 Ma, oceanic lithosphere entering the
+southwest Cordilleran subduction zone got younger at a rate of ~1
+Myr/Ma [@Atwater1998; @Liu2010; @Seton2012] corresponding to the
+approach of the ridge to the subduction zone. This factor coupled with
+slab window emplacement starting at ca. 24 Ma leads to the
+interpretation that cooling from below by continued subduction
+was of second-order significance.
+
+Surface erosion is not modeled, but may bias the results. Any erosion will
+yield higher apparent heat flows and increased geotherm
+convexity, as heat is advected from the
+top of the model domain by material removal [@Mancktelow1997;@England1990].
+Geologic constraints suggest that 15-20 km of exhumation
+is likely to have occurred in a major pulse of
+unroofing coincident with flat-slab underplating and rollback in the
+Cretaceous [@Saleeby2003; @Chapman2012], and is thus likely to disproportionately
+affect the older models. The lack of erosion in the model framework
+biases towards predicting lower geothermal gradient overall.
+For the slab window and underplated Monterey plate scenarios (model
+groups **A** and **B**) this effect would push the final geotherm to or
+beyond the limit of xenolith thermobarometry [@fig:model_results|a and b].
+In the underplated mantle nappe scenario (model **C**) this effect would
+push the final modeled geotherm towards the centroid of the xenolith
+thermobarometric array [@fig:model_results|c and @fig:model_comparison]
+
+The uncertainties inherent in this model bias the results
+towards predicting lower-temperature,
+less-convex geotherms over the model domain.
+These potential biases affect comparisons comparisons with measured values of
+heat flux and xenolith thermobarometry, which are not subject to these
+biases [@fig:model_comparison]. Thus, geotherms predicted by this model might be underestimates
+for potential mantle temperature at a given depth, especially for the
+older tectonic scenarios modeled.
+
+## Factors not incorporated in the model
 
 Several simplifications are made to create an internally consistent model framework.
 Subducted oceanic

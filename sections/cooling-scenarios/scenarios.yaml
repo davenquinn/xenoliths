@@ -23,7 +23,6 @@
     - 1.6 Ma
 - name: forearc
   id:
-    - forearc-80-60
     - forearc-70-50
     - forearc-60-40
     - forearc-50-30

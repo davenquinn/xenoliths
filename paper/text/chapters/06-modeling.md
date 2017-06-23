@@ -103,26 +103,35 @@ to geodynamic and geological evidence of a specific episode of
 subduction instability.
 
 We model a series of scenarios with differently-timed underplating
-events, with the start of subduction ranging from 22 to 80 Ma.
-These subduction times, T$_\textrm{start}$,  set the beginning of the models shown in
-@fig:model_tracers|b and are shown in the first panel of
-@fig:model_results|b.
-Each model operates on oceanic crust of the appropriate age for the
-time of subduction, given the geometry of Farallon plate subduction over
-the Cretaceous and Paleogene [@Liu2010; @Seton2012].
-As the subduction time moves towards the present, the age of subducted
-oceanic crust generally decreases, reflecting the approach of the
-Pacific--Farallon spreading ridge to the western margin of North America.
-In the oldest model with a subduction time of 80 Ma, the oceanic lithosphere at the time of subduction
-is 60 myr old, meaning that the oceanic crust in this model was
-generated beneath the Pacific--Farallon spreading ridge at 140 Ma.
+events, with the start of subduction ranging from 22 to 80 Ma. These
+subduction times, T$_\textrm{start}$,  set the beginning of the models
+shown in @fig:model_tracers|b and are shown in the first panel of
+@fig:model_results|b. Each model operates on oceanic crust of the
+appropriate age for the time of subduction, given the geometry of
+Farallon plate subduction over the Cretaceous and Paleogene [@Liu2010; @Seton2012].
+As the subduction time moves towards the present, the age
+of subducted oceanic crust generally decreases, reflecting the approach
+of the Pacific--Farallon spreading ridge to the western margin of North
+America.
 
-Stalled slab scenarios with subduction ages as young as 30 Ma (all but
-the last scenario presented on @fig:model_tracers|b) model
+Stalled slab scenarios with subduction ages older than 30 Ma (all but
+the last sequence presented on @fig:model_tracers|b) simulate
 rollback during sustained Farallon-plate subduction.
+These are considered tectonically improbable but are included to fully
+explore the model space.
+In the oldest model with a subduction time of 70 Ma, the
+oceanic lithosphere is 50 Myr old at the time of subduction (and thus
+was generated beneath the Pacific--Farallon spreading ridge at 120 Ma).
+At this time, the Shatsky conjugate had already subducted to beneath the Cordilleran
+interior [@Liu2009] and the Nacimiento belt of the Franciscan
+was in its later stages of subduction accretion [@Chapman2016a].
+This is the earliest time a stalled slab could have developed outside
+of the specific scenario treated in model group **C**.
+
 The final model run in @fig:model_tracers|b corresponds to the "Monterey plate"
 hypothesis [@Pikser2012; @VanWijk2001], which entails
-hypothetical northward lateral translation on a shallowly-dipping stalled subduction megathrust.
+hypothetical northward lateral translation on a shallowly-dipping
+arrested subduction megathrust.
 The potential thermal effects of the required anhydrous shearing of the underplated
 oceanic lithosphere along a ~300 km flat displacement trajectory [@fig:context]
 are not accounted for in model **B**. Instead, this scenario
@@ -132,11 +141,11 @@ beneath the oceanic spreading ridge at 27 Ma (corresponding to the chron 7
 magnetic anomaly) and subduction shortly thereafter [@Atwater1998; @Wilson2005].
 
 Overall, the stalled-slab underplating scenarios represented in **B** result
-in cooler geotherms than the shallow slab window
+in cooler geotherms than shallow slab window
 underplating, matching the broad thermobarometric constraints placing
 Crystal Knob xenolith entrainment relatively deep within the spinel stability
 field [@fig:model_comparison]. The Monterey plate subduction
-scenario likewise predicts a modern geotherm that coincides with the entrainment
+scenario likewise predicts a modern geotherm that matches the entrainment
 constraints on the Crystal Knob xenoliths. Without consideration of
 potential bias towards colder measurements in the modeled geotherms,
 this appears to be the best model. When accounting for
@@ -149,16 +158,16 @@ The geologic context of the Late Cretaceous mantle nappe underplating scenario
 is shown in @fig:neogene_sections|c, and our thermal modeling of this
 scenario (model group **C**) is displayed in
 @fig:model_tracers|c and -@fig:model_results|c.
-This scenario initiates in a similar fashion to the model runs for the
-stalled slab scenario [@fig:model_tracers|b] with the oldest emplacement
-ages. In both cases, the oceanic mantle forms under the
+The initiation of this scenario is similar to the older
+stalled slab scenarios [@fig:model_tracers|b].
+In both cases, the oceanic mantle forms under the
 Pacific--Farallon spreading ridge during the Late Cretaceous, thermally
 matures to form a mantle lithosphere lid during oceanic plate transport,
 and subducts beneath the southwest Cordilleran margin later in the
 Cretaceous.
 Thus, the initial conditions and thermal evolution of scenario **C** are
 qualitatively similar to the
-older models of **B**, except that this scenario incorporates more
+older runs of **B**, except that this scenario incorporates more
 crustal geological constraints that pertain to its subduction history.
 In model **C**, the @Royden1993a
 forearc geotherm is tied to temperature constraint of 715ºC at 25 km
@@ -169,20 +178,22 @@ schist of Sierra de Salinas schist [@Ducea2003; @Kidder2006]. The
 subduction conditions and mantle lithosphere structure implied by this
 scenario are shown in @fig:cross_sections.
 
-In model **C** the maximum age of
+In model **C**, the age of
 subduction and underplating is taken as ~70 Ma, based on the youngest
 ages of the Sierra de Salinas/Nacimiento Franciscan subduction complex
-[@Barth2003; @Grove2003; @Saleeby2007; @Chapman2010; @Chapman2016].
+[@Barth2003; @Grove2003; @Saleeby2007; @Chapman2010; @Chapman2016; @Chapman2016a].
 Seafloor being subducted at that time was 40 Myr old [@Seton2012; @Liu2010].
 In this tectonic scenario [@fig:neogene_sections|c and @fig:cross_sections],
 Farallon oceanic lithosphere continued to subduct after mantle nappe
 detachment until the Pacific--Farallon spreading ridge encountered the
 trench in the Neogene. In the thermal model [@fig:model_results], the
-underplated mantle nappe(s) cool beneath the forearc for 50 Myr, and
-then the geotherm is perturbed by the underplating of asthenosphere
-by an ~80 km deep slab window. We present models with asthenosphere with
-an adiabatic temperature gradient held against the base of the
-lithosphere for periods ranging from 0 Myr (instantaneous contact
+underplated mantle nappe(s) cool beneath the forearc for 50 Myr, after
+which the geotherm is perturbed by the underplating of asthenosphere
+at ~80 km depth, corresponding to a deep slab window.
+
+In several model runs, asthenosphere with an adiabatic temperature
+gradient is held against the base of the lithosphere for periods
+ranging from 0 Myr (instantaneous contact
 followed immediately by conductive relaxation) to 6 Myr. The model
 for 6 Myr of sustained upwelling at the base of the lithosphere
 produces the "kinked" geotherm seen in panel 4 of @fig:model_results|c
@@ -210,70 +221,6 @@ of the margin. Thus, heating by a Miocene deep slab window
 is required for Cretaceous mantle nappe underplating scenarios to produce warm mantle
 lithosphere.
 
-## Model sensitivity and bias {#sec:model_bias}
-
-Generally, changes in model parameters such as radiogenic heat flux,
-thermal conductivity, and heat capacity do not impact the relative
-results for modeled scenarios, due to the consistent lithologic
-structure of the model domains.
-
-Due to widely varying timescale of equilibration for modeled scenarios
-in groups **B** and **C**, the model is sensitive to assumptions
-about steady-state cooling of the oceanic mantle lithosphere.
-The choice of the "GDH" model to track the evolution of
-the suboceanic thermal structure is an important control on the scale of
-temperature variation in @fig:model_tracers|b.
-Though GDH is well-calibrated, oceanic cooling models tend to overestimate the heat flow from
-young oceanic plates [@Stein1995]. This suggests that the high
-geothermal temperatures predicted for the younger stalled slab scenarios
-in model group **B**, including the Monterey plate scenario, may be
-overestimates.
-
-Another potential confounding factor affecting the older scenarios
-of **B** and **C** is the thermal effects of continued subduction
-beneath the underplated mantle nappes. After rollback and underplating of the modeled section of
-oceanic mantle lithosphere, a downgoing slab at depth could, depending
-on its age, cool the forearc lithosphere from below.
-However, this effect is considered minimal and
-diminishes over time due to the progressive subduction of younger, hotter oceanic
-lithosphere.
-Reconstruction of the Pacific--Farallon spreading ridge history show
-that, between ca. 70 and 30 Ma, oceanic lithosphere entering the
-southwest Cordilleran subduction zone got younger at a rate of ~1
-Myr/Ma [@Atwater1998; @Liu2010; @Seton2012] corresponding to the
-approach of the ridge to the subduction zone. This factor coupled with
-slab window emplacement starting at ca. 24 Ma leads to the
-interpretation that cooling from below by continued subduction
-was of second-order significance.
-
-Surface erosion is not modeled, but may bias the results. Any erosion will
-result in higher apparent heat flow values and increased geotherm
-convexity, as heat is advected from the
-top of the model domain by material removal [@Mancktelow1997;@England1990].
-Geologic constraints suggest that 15-20 km of exhumation
-is likely to have occurred in a major pulse of
-unroofing coincident with flat-slab underplating and rollback in the
-Cretaceous [@Saleeby2003; @Chapman2012], and is thus likely to disproportionately
-affect the older models. The lack of erosion in the model framework
-biases towards predicting lower geothermal gradient overall.
-For the slab window and underplated Monterey plate scenarios (model
-groups **A** and **B**) this effect would push the final geotherm to or
-beyond the limit of xenolith thermobarometry [@fig:model_results|a and b].
-In the underplated mantle nappe scenario (model **C**) this effect would
-push the final modeled geotherm towards the centroid of the xenolith
-thermobarometric array [@fig:model_results|c and @fig:model_comparison]
-
-The uncertainties inherent in this model bias the results
-towards predicting lower-temperature,
-less-convex geotherms over the model domain.
-These potential biases affect comparisons comparisons with measured values of
-heat flux and xenolith thermobarometry, which are not subject to these
-biases [@fig:model_comparison]. Thus, geotherms predicted by this model might be underestimates
-for potential mantle temperature at a given depth, especially for the
-older tectonic scenarios modeled.
-Additional discussion of these factors can be found in
-@sec:model_supplement.
-
 ## Summary of model results
 
 Our thermal modeling predicts much higher temperatures within the mantle
@@ -285,16 +232,16 @@ tectonic scenario.
 Our modeling predicts that both the stalled slab and (deep slab window reheated)
 Cretaceous mantle nappe scenarios recover the geotherm determined by
 xenolith thermobarometry, while not violating constraints posed by heat
-flow data.
-
-Exhumation/erosion, while not accounted for in our models,
-pushes the modeled geotherm for the shallow slab window
-scenario outside of the limit of the thermobarometric constraints on xenolith
-entrainment, while pushing the Monterey plate endmember stalled-slab
-scenario towards the upper limit of this field, and aligns the reheated
-mantle nappe scenario with the center of the field. Unfortunately, we
-are prevented from incorporating the effects of exhumation/erosion
-due to the lack of temporally-defined geologic constraints on these
-processes that can be properly posed within the context of such
-modeling.
+flow data. An assessment of model sensitivity presented in
+@sec:model_supplement includes biases that may influence the model
+results. Most pertinent is the underestimation of modeled geothermal
+gradients due to lack of accounting for exhumation during
+lithospheric thermal equilibration.
+This would: 1. for the slab
+window scenario, further push
+the model results out of the field of acceptable mantle lithosphere
+geotherms derived from xenolith constraints; 2. for the
+Monterey plate, push it to the upper margin of the field; and 3. for the
+reheated mantle nappe scenario, push it towards the centroid of the
+field.
 
