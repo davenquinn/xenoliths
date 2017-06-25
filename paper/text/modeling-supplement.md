@@ -1,4 +1,4 @@
-# Supplementary file: modeling setup {#sec:model_supplement}
+# Supplementary file: modeling setup {#sec:model_supplement label="Modeling Supplement"}
 
 ## Model setups
 

@@ -7,7 +7,7 @@
 
 - id: sample_petrography
   type: table
-  file: sample-petrography.tex
+  file: tables/sample-petrography.tex
   caption: Summary of petrographic data
 
 - id: microscope-images
@@ -94,7 +94,7 @@
     a: \%wt based on \citet{Nesse2000} phase densities
 
 # Trace Elements
-- id: spider
+- id: trace_elements
   file: trace-elements/build/trace-elements.pdf
   caption: Clinopyroxene and orthopyroxene rare-earth element abundances.
 
@@ -103,7 +103,7 @@
   caption: Enrichment trends for trace elements.
   enabled: false
 
-- id: trace_elements
+- id: trace_elements_table
   type: table
   file: trace-elements/build/trace-elements.tex
   two_column: true
@@ -178,10 +178,11 @@
 
 - id: model_parameters
   type: table
-  file: model-setups.tex
+  file: tables/model-setups.tex
   caption: Material properties used in modeling
   notes:
     "": "CC: continental crust; ML: mantle lithosphere"
+
 - id: model_results
   file: model-time-slices.pdf
   two_column: true

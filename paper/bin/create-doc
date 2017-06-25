@@ -10,7 +10,10 @@ source bin/defs.zsh
 
 function text-pipeline {
  prepare-crossref \
- | pandoc -t docx --metadata=draft:true \
+ | pandoc -t docx \
+       --standalone \
+       --metadata=draft:true \
+       -M numberSections=true \
        --filter pandoc-comments \
        --filter pandoc-crossref \
        --bibliography=$bibfile \

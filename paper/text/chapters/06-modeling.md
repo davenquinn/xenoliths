@@ -1,6 +1,6 @@
-# Thermal modeling of tectonic scenarios
+# Thermal modeling of tectonic scenarios {#sec:modeling}
 
-The Farallon Plate, Monterey Plate, and slab window scenarios for the
+The slab window, Monterey Plate, and Cretaceous mantle duplexing scenarios for the
 source of the Crystal Knob xenoliths all imply a peridotite composition
 with a depleted (convecting-mantle) isotopic and trace-element
 signature.  Though petrographic and geochemical variations provide
@@ -123,7 +123,7 @@ In the oldest model with a subduction time of 70 Ma, the
 oceanic lithosphere is 50 Myr old at the time of subduction (and thus
 was generated beneath the Pacific--Farallon spreading ridge at 120 Ma).
 At this time, the Shatsky conjugate had already subducted to beneath the Cordilleran
-interior [@Liu2009] and the Nacimiento belt of the Franciscan
+interior [@Liu2010] and the Nacimiento belt of the Franciscan
 was in its later stages of subduction accretion [@Chapman2016a].
 This is the earliest time a stalled slab could have developed outside
 of the specific scenario treated in model group **C**.

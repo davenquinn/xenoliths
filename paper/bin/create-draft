@@ -85,4 +85,5 @@ tag --set paper-draft $outfile
 
 /usr/local/bin/gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default \
     -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages \
+    -dRENDERTTNOTDEF=true \
     -dCompressFonts=true -r150 -sOutputFile="output/${name}-compressed.pdf" $outfile

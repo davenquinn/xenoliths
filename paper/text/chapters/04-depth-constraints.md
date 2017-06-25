@@ -27,7 +27,7 @@ a gradient of ~0.03 GPa per km across the mantle lithosphere.
 
 Entrainment depths of all peridotite xenoliths must be greater than ~30 km,
 the depth of the Moho near the Crystal Knob eruption site [@Trehu1991],
-which will be discussed in more detail in @sec:regional_structure.
+which will be discussed in more detail in @sec:tectonic_scenarios.
 Another minimum depth constraint is the plagioclase--spinel peridotite
 facies transition, which occurs at depths of 20-30 km [@Green1970a; @Borghini2009].
 
@@ -188,7 +188,7 @@ may be underestimates, for reasons discussed in @sec:heat-flow.
 ### Summary of depth constraints
 
 The integration of depth constraints on the xenolith samples from multiple
-sources gives a broad set of constraints on the depth of origin of the Crystal
+techniques gives a broad boundaries on the depth of origin of the Crystal
 Knob xenoliths within the mantle lithosphere at the time of their eruption. For
 reasonable slopes of the sub-Salinian geotherm, the range of temperatures in
 the sample set indicates sourcing over a depth range of 5-10 km within the

@@ -36,14 +36,17 @@ material consisting of mosaic-textured olivine grains.
 ##reconstruction
 Tectonic reconstruction of the California margin at 19 Ma showing the
 early evolution of the San Andreas transform system, offshore oceanic
-plates, and Cretaceous batholithic belt. The Monterey plate ridge ceased spreading at 20 Ma (Chron 6),
-which is labeled and corresponds to the similar time label on
-@fig:neogene_sections|b.  Exposures of Salinia nappes
+plates, and Cretaceous batholithic belt.
+Exposures of Salinia nappes
 are shown as red patches west of the future San Andreas Fault.
 The view shows the disaggregated Mojave--Salinia batholith and surface
-outcrops of subduction channel schists in the Mojave province. Reconstruction
-of Salinian lithologic features from @Schott1998, @Schott2001, @Chapman2012, and @Dickinson2005
+outcrops of subduction channel schists in the Mojave province.
+Reconstruction of displaced features such as Salinia
+batholithic exposures from @Schott1998, @Schott2001, @Chapman2012, and @Dickinson2005
 is combined with reconstruction of the evolving slab window and microplate detachment after @Wilson2005.
+The Monterey plate ridge ceased spreading at 20 Ma (Chron 6),
+which is labeled and corresponds to the similar time label on
+@fig:neogene_sections|b.
 
 ##isotopes
 Paired Sm-Nd and Rb-Sr isotope data for the Crystal Knob sample set
@@ -75,6 +78,10 @@ showing a broad plateau for the accepted age of 1.65 Ma.
 (a) FeO vs. MgO for electron microprobe measurements of grain
 cores, showing range in major-element depletion between
 samples. Dotted lines show Mg\# levels.
+(b) Mg\# (measured with a total iron basis) vs. \ce{SiO2} for
+the silicate phases in the Crystal Knob peridotite xenoliths.
+This shows the range in major-element depletion between samples,
+including the low Mg\# of CK-6, the most fertile sample.
 
 ##ca_in_olivine
 Calcium abundance in olivine for xenolith samples, showing the
@@ -82,7 +89,10 @@ separability of each sample's cluster in the dataset.
 
 ##spinel_cr
 Spinel Cr# vs. Mg# showing two groups of samples with low and high Cr content, corresponding
-to the temperature cohorts of the dataset.
+to the temperature cohorts of the dataset. Mg# is corrected based on
+constraints on iron residence in the octahedral-coordination cation
+site. The shift to higher Mg# evident in all samples reflects the
+presence of oxidized iron in the tetrahedral site in all samples.
 
 ##whole_rock_major
 Major element composition (oxide %$_\textrm{wt}$, normalized to 100%)
@@ -93,7 +103,7 @@ Modal composition of Crystal Knob perodotites. Abyssal
 [@Asimow1999; @Baker1999] and Dish Hill [@Luffi2009] peridotite
 compositions are shown for comparison.
 
-##spider
+##trace_elements
 (a) Chondrite-normalized pyroxene rare-earth element abundances showing
 the range in depletion and re-enrichment in the Crystal Knob sample set.
 (b) Element-ratio proxies for depletion and re-enrichment of
@@ -180,19 +190,19 @@ Temperature-depth profiles through the crust and upper mantle
 at key timesteps during the evolution of the three tectonic scenarios.
 Each plotted profile represents a different model run based on the same
 scenario.
-**A** presents a shallow slab window scenario, with underplating of
+(a) presents a shallow slab window scenario, with underplating of
 upwelling asthenosphere truncating a forearc geotherm at 24 Ma. This
 asthenosphere is held against the base of the crust from 0--6 Myr,
 accounting for the spread of models in the second panel. The final panel
 tracks all models to the present.
-**B** shows stalled slabs of different ages, with panels corresponding
+(b) shows stalled slabs of different ages, with panels corresponding
 to shared tectonic events, modeled at different times based on the
 timing of subduction and age of oceanic crust. Subduction
 is bracketed by T$_\textrm{start}$ and T$_\textrm{end}$, with
 T$_\textrm{start}$ = T$_\textrm{end}$ -- 1.04 Myr for all cases.
 The youngest and hottest of these runs corresponds to the "Monterey plate"
 tectonic scenario.
-**C** tracks Farallon Plate mantle lithosphere emplaced beneath the
+(c) tracks Farallon Plate mantle lithosphere emplaced beneath the
 central California coast by mantle duplexing during
 the late Cretaceous [@fig:cross_sections] and reheated by
 a pulse of heat from below during the Miocene slab window
@@ -233,16 +243,16 @@ during the late Cretaceous, as envisioned in @fig:cross_sections. It is similar 
 but is based on key geologic constraints from subduction channel schists
 [@Kidder2003]. The effects of deep upwelling corresponding with the
 Mendocino slab window are shown for several of the models, in a manner
-similar to **A**.
+similar to (a).
 
 ##model_comparison
-Comparisons of "modern" (1.65 Ma) sub-Salinia geotherms for each of the modeled scenarios.
+Comparisons of Crystal Knob eruptive (1.65 Ma) sub-Salinia geotherms for each of the modeled scenarios.
 The profiles corresponding with a young underplated slab (Monterey-plate equivalent),
 wholesale mantle-lithosphere replacement by the slab window, and
 a Cretaceous Farallon slab both with and without deep slab-window reheating are shown.
 The results as shown are purely conductive geotherms in the absence of
 erosion and thus might be biased towards lower temperatures relative to
-measured xenolith pressure--temperature constraints [see @sec:model_bias].
+measured xenolith pressure--temperature constraints [see @sec:model_supplement].
 
 ##cross_sections
 Cross sections showing the evolution of southern California during the
