@@ -151,11 +151,12 @@ initially emplaced into the early Neogene slab window.
 Conclusion
 ==========
 
-The lithosphere of southern California, to first order created by
-Cretaceous convergent margin tectonics, was severely structurally
-overprinted by two subsequent tectonic episodes, with the impact and
+The Phanerozoic lithosphere of southern California, to first order created by
+Cretaceous convergent margin tectonics which was superposed onto an
+older, long-lived continental margin, was severely structurally
+overprinted by two subsequent tectonic episodes: the arrival and
 subduction of the Shatsky Rise large igneous province conjugate during
-the Late Cretaceous followed by the progressive evolution of a transform
+the Late Cretaceous and the progressive evolution of a transform
 boundary in the Neogene. These episodes are recorded throughout the
 crustal geologic record of southern California and the central
 California Coast Ranges outboard of the San Andreas Fault. Using

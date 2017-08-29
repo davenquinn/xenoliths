@@ -3,7 +3,7 @@ erupted during the Pleistocene (1.65 Ma) through the
 Nacimiento belt of the Franciscan complex in the coastal region of central
 California. It is composed of
 olivine-plagioclase phyric basalt containing spinel peridotites and
-cumulate dunite xenoliths. The peridotites sample the mantle lithosphere beneath the
+dunite xenoliths. The peridotites sample the mantle lithosphere beneath the
 Nacimiento Franciscan, which was constructed as an accretionary prism during
 Late Cretaceous subduction of the Farallon plate.
 The Crystal Knob locality is of further interest because it lies in immediate
