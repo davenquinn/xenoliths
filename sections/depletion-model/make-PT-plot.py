@@ -51,13 +51,16 @@ def run_model(src,dst,clinopyroxene=False):
             color=row.color,xytext=(x,y),textcoords='offset points')
 
     ax.set_ylim([2.5,0])
-    ax.set_xlim([1250,1375])
+    ax.set_xlim([1230,1350])
     ax.annotate("garnet out",xy=(1345,2.05),
         xytext=(-28,2),textcoords='offset points',
         size=7,
         style='italic')
-    ax.annotate("start: DMM at 4.0 GPa, 1400ºC",xy=(1360,2.5),
-        xytext=(-2,2),textcoords='offset points', ha='right', va='bottom', size=7)
+    ax.annotate("start: DMM at 3.0 GPa, 1350ºC",xy=(1340,2.5),
+        xytext=(-15,2),textcoords='offset points', ha='right', va='bottom', size=7)
+    ax.annotate("↓",xy=(1340,2.5),
+        rotation=25,
+        xytext=(-7,2),textcoords='offset points', ha='right', va='bottom', size=10)
 
 
     fig.savefig(dst, bbox_inches='tight')
