@@ -4,7 +4,9 @@ latex=output/depletion_degrees.tex
 
 
 all: output/depletion-model.pdf \
-			$(latex) output/ree-trends.pdf output/depletion-model-cpx.pdf | output
+			$(latex) output/ree-trends.pdf \
+			output/PT-plot.pdf \
+			output/depletion-model-cpx.pdf | output
 output:
 	mkdir -p $@
 
@@ -21,6 +23,9 @@ output/depletion-model-cpx.pdf: make-model-plot.py $(table)
 	python $< --clinopyroxene $(word 2,$^) $@
 
 output/ree-trends.pdf: ree_trends.py $(table)
+	python $^ $@
+
+output/PT-plot.pdf: make-pt-plot.py $(table)
 	python $^ $@
 
 $(latex): depletion-degrees.py $(table)

@@ -88,9 +88,9 @@ def run_model(src,dst,clinopyroxene=False):
             plot("Modeled depleted", d.columns,row, linestyle='--', linewidth=1)
 
             v = enrichment.ix[row.name]
-            if i == 'CK-2':
-                continue
-            plot("Enriching fluid",d.columns,v, linestyle=':', linewidth=1)
+            #if i == 'CK-2':
+            #    continue
+            plot("Enriching melt",d.columns,v, linestyle=':', linewidth=1)
 
         # Plot NMORB
         ax.fill_between(NMORB_trace.columns, NMORB_trace.ix[0,:],
@@ -129,7 +129,7 @@ def run_model(src,dst,clinopyroxene=False):
     ree_scatter(ax2, model, data, colors)
     ax2.set_ylim([0,1.2])
     ax2.set_xlabel(r'HREE depletion degrees (%)')
-    ax2.set_ylabel("Re-enriching fluid\nassimilated (%)")
+    ax2.set_ylabel("Enriching fluid\nassimilated (%)")
     ax2.yaxis.set_label_coords(-0.1,0.22)
     update_axes(ax2)
     axis_labels(ax1,ax2, pad=.16, fontsize=14)
