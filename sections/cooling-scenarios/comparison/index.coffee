@@ -48,11 +48,14 @@ setupElement = (rows)->
   selectedGeotherms = (k for k,v of labelData)
 
   sel = ax.plotArea().selectAll 'g.model-curve'
-    .data rows.filter (d)->d.index == 0
+    .data rows #.filter (d)->d.index == 0
 
   g = sel.enter()
     .append 'g'
-    .attrs class: 'model-curve'
+    .attrs class: (d)->
+      cls = 'model-curve'
+      cls += util.subductionTypeClasses(d)
+      cls
 
   g.append 'defs'
     .append 'path'
@@ -68,7 +71,8 @@ setupElement = (rows)->
       stroke: (d)->
         c = modelColors(d)
         if d.index != 0
-          c = c.alpha((1-0.1*d.index)**2.5).css()
+          c = c.alpha(0.5).css()
+          #c = c.alpha((1-0.2*d.index)**2.5).css()
         return c
       #'stroke-dasharray': (d,i)->
         #if d.index == 0

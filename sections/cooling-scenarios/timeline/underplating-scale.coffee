@@ -34,7 +34,7 @@ module.exports = (ax)->
       .text 'Myr'
       .attrs
         class: 'myr-label'
-        x: s(6)+12
+        x: s(6)+13
         y: -3
 
     if labelText
@@ -42,8 +42,8 @@ module.exports = (ax)->
         .text labelText
         .attrs
           class: 'axis-label'
-          x: s(0)
-          y: -11
+          x: s(0)+2
+          y: -12
 
   F.label = (d)->
     labelText = d

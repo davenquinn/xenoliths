@@ -3,10 +3,12 @@ farallon-reheated-6:
     <tspan>Cretaceous mantle duplex</tspan>
     <tspan class='subtitle'>+ deep slab window</tspan>
 underplated-6:
-  text: Shallow slab window
+  text:
+    <tspan x=20 dy=-13>Neogene shallow</tspan>
+    <tspan x=20 dy=10>slab window</tspan>
   offset: 20px
 monterey-plate:
-  text: Monterey plate
+  text: Neogene stalled slab
 farallon:
   text: >
     <tspan>Cretaceous mantle duplex</tspan>

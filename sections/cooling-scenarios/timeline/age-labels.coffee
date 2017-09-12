@@ -14,7 +14,6 @@ module.exports = (ax)->
 
   L = (d,i)->
     l = loc(d)
-    l.x -= 10 if i != 0
     n = d.start_time - d.subduction_time
 
     g = d3.select(@)
@@ -24,54 +23,32 @@ module.exports = (ax)->
         fill: '#888'
         transform: "translate(#{l.x} #{l.y})"
 
-    g.append 'rect'
-      .attrs
-        width: 26
-        height: 8
-        y: -10
-        x: -2
-        fill: 'white'
+    #g.append 'rect'
+      #.attrs
+        #width: 26
+        #height: 8
+        #y: -10
+        #x: -2
+        #fill: 'white'
 
     g.append 'text'
       .attrs
         class: 'oc-age'
-        y: -4
-      .text "#{n} Myr"
+        x: -3
+        'text-anchor': 'end'
+      .html "<tspan>#{n} Myr</tspan><tspan x=-3 dy=7 class='smaller'>#{d.start_time} Ma</tspan>"
 
-  L.connectingLine = (data)->
-    data = data
-      .map (d)->[d.time[0],d.lower[0]]
-    data.sort()
-    v = data[0]
-
-    (el)->
-
-      el.append "path"
-        .datum data
-        .attrs
-          class: 'label-line'
-          d: ax.line()
-          stroke: '#888'
-          'stroke-width': 0.5
-          'stroke-dasharray': '1 1'
-          fill: 'transparent'
-          transform: 'translate(5 -6)'
-
-      _l = {}
-      console.log ax.scales
-      for k,scale of ax.scale
-        n = if k == 'x' then 0 else 1
-        val = d3.mean(data,(i)->i[n])
-        _l[k] = scale val
-
-      el.append "text"
-        .text "Age of initial oceanic lithosphere"
-        .attrs
-          class: 'oc-age-label'
-          dy: -10
-          transform: "translate(#{_l.x} #{_l.y}) rotate(-7)"
-          'text-anchor': 'middle'
-          fill: '#888'
+  L.axisLabel = (x,y)->(el)->
+    el.append "text"
+      .html "
+        <tspan>Age of initial oceanic lithosphere</tspan>
+        <tspan x=0 dy=7 class='smaller'>Timing of spreading-ridge emplacement</tspan>"
+      .attrs
+        class: 'oc-age-label'
+        dy: -10
+        transform: "translate(#{x} #{y})"
+        'text-anchor': 'start'
+        fill: '#888'
 
   return L
 

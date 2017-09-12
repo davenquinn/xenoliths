@@ -7,6 +7,7 @@ Promise = require 'bluebird'
 require './main.styl'
 
 modelColors = require '../shared/colors'
+{subductionTypeClasses} = require '../shared/util'
 {db, storedProcedure} = require '../shared/database'
 axes = require 'd3-plot-area/src'
 plotArea = require './plot-area'
@@ -136,12 +137,8 @@ createAxes = (outerAxes)->
         .attrs
           class: (d)->
             cls = "model-run #{d.name}"
-            if d.type == 'forearc'
-              if d.subduction_time < 28 # This should possibly be 32...
-                cls += " end-subduction"
-              else
-                cls += " continuing-subduction"
-            cls
+            cls += subductionTypeClasses(d)
+            return cls
         .each plotArea(ax)
 
     #enter.append 'g'
@@ -158,16 +155,51 @@ createAxes = (outerAxes)->
       .attrs
         class: 'title'
         x: if i == 0 then 2*dpi else 0
+        dy: 10
 
     if data.id == 'forearc'
       labels = ageLabels(ax)
-      bkg.call labels.connectingLine(data)
+      #bkg.call labels.connectingLine(data)
       enter.each labels
+      el.call labels.axisLabel(ax.scale.x(70)-30,104)
+
+      el.append "text"
+        .html "
+          <tspan>Underplating at cessation</tspan>
+          <tspan x=0 dy=8>of subduction</tspan>"
+        .attrs
+          class: 'axis-description'
+          transform: "translate(#{ax.scale.x(30)} 164)"
+          'text-anchor': 'start'
+          fill: modelColors.scales.forearc(40)
+
+      el.append "text"
+        .html "
+          <tspan>Cretaceous–Paleogene stalled-slab scenarios
+          <tspan>have no clear</tspan>
+          <tspan x=0 dy=8>driver of underplating but share basic model structure
+          with <tspan class='bold'>C</tspan></tspan>"
+        .attrs
+          class: 'axis-description'
+          transform: "translate(#{ax.scale.x(70)} 187)"
+          'text-anchor': 'start'
+          fill: modelColors.scales.forearc(80)
+
     if data.id == 'farallon'
-      sel
-        .filter (d,c)->c==0
+      enter
+        .filter (d,c)->
+          c==0
         .each ageLabels(ax)
 
+      el.append "text"
+        .html "
+          <tspan>Rollback underplating after impact of</tspan>
+          <tspan x=0 dy=8>Shatsky-conjugate LIP</tspan>"
+        .attrs
+          class: 'axis-description'
+          transform: "translate(#{ax.scale.x(73)} 300)"
+          'text-anchor': 'start'
+          fill: modelColors.scales.farallon(160)
 
     if data.id != 'forearc'
       k = if data.id == 'farallon' then 80 else 30

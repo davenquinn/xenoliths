@@ -3,7 +3,16 @@ require 'd3-selection-multi'
 simplify = require 'simplify-js'
 uuid = require 'uuid'
 
-module.exports =
+subductionTypeClasses = (d, cls)->
+  if d.type == 'forearc'
+    if d.subduction_time < 32 # This should possibly be 32...
+      return " end-subduction"
+    else
+      return " continuing-subduction"
+  return ""
+
+module.exports = {
+  subductionTypeClasses
   # Builds the temperature profile from dz
   makeProfile: (row, simp=true)->
     profile = row.temperature.map (d,i)->
@@ -30,3 +39,4 @@ module.exports =
     (sel)->
       sel.each f
          .select 'use'
+  }
