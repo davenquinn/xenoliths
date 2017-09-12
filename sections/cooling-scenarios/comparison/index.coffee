@@ -139,11 +139,11 @@ setupStaticGeotherms = (rows)->
   el.append 'foreignObject'
     .attrs
       class: 'heatflow-label'
-      width: 120
+      width: 300
       height: 50
-      transform: "translate(#{size.width} #{size.height/2}) rotate(90) translate(-50)"
+      transform: "translate(#{size.width} #{size.height/2}) rotate(90) translate(-150)"
     .append 'xhtml:div'
-      .html "Surface heat flow <b>q<sub>0</sub></b> (mW/m<sup>2</sup>)"
+      .html "Steady-state geotherm with surface heat flow <b>q<sub>0</sub></b> (mW/m<sup>2</sup>)"
 
 module.exports = (el_, cb)->
   el = d3.select el_
@@ -236,25 +236,6 @@ module.exports = (el_, cb)->
         'font-size': 20
         transform: "translate(#{x+8} #{y-8}) rotate(-50)"
 
-    x = pos+sz-20
-    y = ypos
-    ax.plotArea().append 'text'
-      .text "➞"
-      .attrs
-        fill: '#aaa'
-        'font-size': 16
-        transform: "translate(#{x+8} #{y-8}) rotate(-45)"
-
-    attrs = {
-      x: pos+sz+4
-      y: ypos-28
-      width: 60
-    }
-
-    ax.plotArea()
-      .call textBox("Direction of bias correction", attrs)
-
-
     x = ax.scale.x(1135)
     y = ax.scale.y(75)
     ax.plotArea().append 'text'
@@ -264,7 +245,24 @@ module.exports = (el_, cb)->
         'font-size': 20
         transform: "translate(#{x+8} #{y-8}) rotate(-45)"
 
+    ypos -= 20
+    x = pos+sz-20
+    y = ypos
+    ax.plotArea().append 'text'
+      .text "➞"
+      .attrs
+        fill: '#aaa'
+        'font-size': 20
+        transform: "translate(#{x+8} #{y-8}) rotate(-45)"
 
+    attrs = {
+      x: pos+sz+4
+      y: ypos-30
+      width: 46
+    }
+
+    ax.plotArea()
+      .call textBox("Direction of model adjustment for erosion", attrs)
 
   db.query(staticGeotherms)
     .then setupStaticGeotherms
