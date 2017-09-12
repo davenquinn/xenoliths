@@ -24,7 +24,7 @@ module.exports = (el_,cb)->
     .x (d)->x(d[0])
     .y (d)->y(d[1])
 
-  xa = xenolithsArea(color: "#eee")
+  xa = xenolithsArea(color: "#eee", showInner: true, strokeWidth: 0.5)
   xa plotArea, line
 
   pos = 145
@@ -36,13 +36,13 @@ module.exports = (el_,cb)->
       y: ypos
       width: sz
       height: sz
-      fill: xa.texture.url()
-      stroke: "#fbfbfb"
-      'stroke-width': 0.5
+      fill: xa.texture1.url()
+      stroke: "#eee"
+      'stroke-width': 1
 
   fa = plotArea.append "foreignObject"
     .attrs
-      x: pos+sz+2
+      x: pos+sz+4
       y: ypos
       width: 50
 

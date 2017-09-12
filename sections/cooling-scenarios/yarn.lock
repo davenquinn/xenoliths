@@ -276,6 +276,10 @@ coffee-script@^1.10.0:
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/coffee-script/-/coffee-script-1.12.2.tgz#0d4cbdee183f650da95419570c4929d08ef91376"
 
+coffeescript@next:
+  version "2.0.0-beta5"
+  resolved "https://registry.yarnpkg.com/coffeescript/-/coffeescript-2.0.0-beta5.tgz#790e80393b70f337b925114c690f775f427f4c19"
+
 colors@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.1.2.tgz#168a4701756b6a7f51a12ce0c97bfa28c084ed63"
@@ -421,6 +425,10 @@ d3-path@1, d3-path@1.0.3, d3-path@^1.0.3:
 
 "d3-plot-area@file:../../modules/node/d3-plot-area":
   version "0.1.0"
+  dependencies:
+    d3 "^4.4.1"
+    d3-selection-multi "^1.0.0"
+    uuid "^3.0.1"
 
 d3-polygon@1.0.2:
   version "1.0.2"
@@ -493,6 +501,12 @@ d3-selection@1.0.2:
 d3-shape@1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/d3-shape/-/d3-shape-1.0.4.tgz#145ee100ccbec42f8e3f1996cd05c786f79fe1c6"
+  dependencies:
+    d3-path "1"
+
+d3-shape@^1.0.4:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/d3-shape/-/d3-shape-1.2.0.tgz#45d01538f064bafd05ea3d6d2cb748fd8c41f777"
   dependencies:
     d3-path "1"
 
@@ -1486,6 +1500,11 @@ wrappy@1:
 
 "xenoliths-area@file:../../modules/node/xenoliths-area":
   version "1.0.0"
+  dependencies:
+    chroma-js "^1.2.1"
+    d3-path "^1.0.3"
+    d3-shape "^1.0.4"
+    textures "^1.0.4"
 
 xmlhttprequest@1:
   version "1.8.0"

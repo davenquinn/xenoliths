@@ -48,7 +48,7 @@ setupElement = (rows)->
   selectedGeotherms = (k for k,v of labelData)
 
   sel = ax.plotArea().selectAll 'g.model-curve'
-    .data rows
+    .data rows.filter (d)->d.index == 0
 
   g = sel.enter()
     .append 'g'
@@ -185,11 +185,86 @@ module.exports = (el_, cb)->
 
   line = ax.line(type:'object')
 
-  xa = xenolithsArea color: '#eee', size: 8
+  xa = xenolithsArea color: '#eee', size: 8, showInner: true
   xa ax.plotArea(), ax.line()
 
   el.select "g:first-child"
     .raise()
+
+  pos = 8
+  ypos = ax.scale.y(90)-25
+  sz = 20
+  ax.plotArea().append 'rect'
+    .attrs
+      x: pos
+      y: ypos
+      width: sz
+      height: sz
+      fill: xa.texture1.url()
+      stroke: "#eee"
+      'stroke-width': 1
+
+  textBox = (text, attrs)->(el)->
+    fa = ax.plotArea().append "foreignObject"
+      .attrs attrs
+
+    fa.append "xhtml:div"
+      .text text
+      .styles
+        'font-size': 9
+        'font-family': 'Helvetica Neue'
+        'font-style': 'italic'
+        'color': '#ccc'
+
+
+  attrs = {
+    x: pos+sz+4
+    y: ypos
+    width: 80
+  }
+
+  ax.plotArea()
+    .call textBox("P-T of xenolith entrainment", attrs)
+
+  setupArrows = ->
+    x = ax.scale.x(1135)
+    y = ax.scale.y(63)
+    ax.plotArea().append 'text'
+      .text "➞"
+      .attrs
+        fill: 'limegreen'
+        'font-size': 20
+        transform: "translate(#{x+8} #{y-8}) rotate(-50)"
+
+    x = pos+sz-20
+    y = ypos
+    ax.plotArea().append 'text'
+      .text "➞"
+      .attrs
+        fill: '#aaa'
+        'font-size': 16
+        transform: "translate(#{x+8} #{y-8}) rotate(-45)"
+
+    attrs = {
+      x: pos+sz+4
+      y: ypos-28
+      width: 60
+    }
+
+    ax.plotArea()
+      .call textBox("Direction of bias correction", attrs)
+
+
+    x = ax.scale.x(1135)
+    y = ax.scale.y(75)
+    ax.plotArea().append 'text'
+      .text "➞"
+      .attrs
+        fill: 'purple'
+        'font-size': 20
+        transform: "translate(#{x+8} #{y-8}) rotate(-45)"
+
+
 
   db.query(staticGeotherms)
     .then setupStaticGeotherms
@@ -202,5 +277,8 @@ module.exports = (el_, cb)->
         ix[row.type]+= 1
       data
     .then setupElement
+    .tap setupArrows
     .finally cb
+
+
 

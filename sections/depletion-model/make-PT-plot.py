@@ -62,6 +62,7 @@ def run_model(src,dst,clinopyroxene=False):
         rotation=25,
         xytext=(-7,2),textcoords='offset points', ha='right', va='bottom', size=10)
 
+    update_axes(ax)
 
     fig.savefig(dst, bbox_inches='tight')
 

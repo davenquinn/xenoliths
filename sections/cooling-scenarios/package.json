@@ -8,6 +8,7 @@
   "dependencies": {
     "bluebird": "^3.4.7",
     "chroma-js": "^1.1.1",
+    "coffeescript": "next",
     "d3": "^4.4.1",
     "d3-plot-area": "file:../../modules/node/d3-plot-area",
     "d3-queue": "^2.0.2",
