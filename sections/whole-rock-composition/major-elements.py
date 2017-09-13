@@ -8,7 +8,6 @@ from paper.query import whole_rock_major_elements
 
 def major_elements():
     oxides = app.config.get("OXIDES")
-    oxides.remove("K2O")
 
     data = whole_rock_major_elements()
 

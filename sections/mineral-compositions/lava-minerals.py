@@ -21,8 +21,7 @@ with app.app_context():
         .filter(ProbeMeasurement.id.in_([int(i) for i in data.index]))
         .filter(ProbeSession.sample_id=='CK-1'))
 
-    oxide_cols = [i for i in app.config.get("OXIDES")
-        if i != 'NiO']
+    oxide_cols = app.config.get("OXIDES")
 
     def setup_data():
         for meas in qset.all():

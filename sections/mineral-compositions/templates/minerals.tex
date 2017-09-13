@@ -2,7 +2,11 @@
   <#- for s in samples #>
     << s.id >>
     <#- for ox in oxides -#>
+    <#- if ox == 'K2O' -#>
+    & --
+    <#- else -#>
     & << s[type].weight[ox]|n >>
+    <#- endif -#>
     <#- endfor -#>
     & << s[type].oxide_total|n >>
     & << s[type].count >>

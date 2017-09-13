@@ -12,9 +12,7 @@ def mineral_compositions():
     Could potentially be combined with modal abundance
     data, but might not be best.
     """
-    oxides = [ox
-        for ox in app.config.get("OXIDES")
-        if ox != "K2O"]
+    oxides = app.config.get("OXIDES")
 
     text = (tex_renderer
         .get_template(argv[1])
