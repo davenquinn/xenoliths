@@ -21,8 +21,7 @@ with app.app_context():
         .filter(ProbeMeasurement.id.in_([int(i) for i in data.index]))
         .filter(ProbeSession.sample_id=='CK-1'))
 
-    oxide_cols = [i for i in app.config.get("OXIDES")
-        if i != 'NiO']
+    oxide_cols = app.config.get("OXIDES")
 
     def setup_data():
         for meas in qset.all():
@@ -37,10 +36,10 @@ with app.app_context():
 data = data.join(oxides)
 samples = [row for i,row in data.iterrows()]
 text = (tex_renderer
-    .get_template("lava_minerals.tex")
+    .get_template(argv[1])
     .render(
         ncols=len(oxide_cols)+4,
         oxides=oxide_cols,
         samples=samples))
-write_file(argv[1], text)
+write_file(argv[2], text)
 
