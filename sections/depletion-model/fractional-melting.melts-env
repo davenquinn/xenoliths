@@ -34,7 +34,7 @@ ALPHAMELTS_MINT 900
 ALPHAMELTS_CONTINUOUS_MELTING true
 ! Controls the amount of liquid in the system at any one moment
 ! (in other words, the degree of fractional crystallization)
-ALPHAMELTS_MINPHI 0.001
+ALPHAMELTS_MINPHI 0.01
 !ALPHAMELTS_OLD_GARNET false
 ! this one turns on fractional crystallization for all solids
 ! We're melting not cr1ystallizing

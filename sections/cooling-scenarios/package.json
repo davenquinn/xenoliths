@@ -18,7 +18,7 @@
     "pg-promise": "^5.5.0",
     "simplify-js": "^1.2.1",
     "stylus": "^0.54.5",
-    "textures": "^1.0.3",
+    "textures": "^1.0.5",
     "underscore": "^1.8.3",
     "uuid": "^3.0.1",
     "xenoliths-area": "file:../../modules/node/xenoliths-area"

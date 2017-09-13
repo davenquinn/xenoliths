@@ -19,3 +19,6 @@
 [submodule "modules/python/--force"]
 	path = modules/python/--force
 	url = git://github.com/davenquinn/wrap-si-units.git
+[submodule "modules/node/d3-conventions"]
+	path = modules/node/d3-conventions
+	url = git://github.com/davenquinn/d3-conventions.git

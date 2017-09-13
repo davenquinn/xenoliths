@@ -1415,9 +1415,13 @@ tar@^2.0.0:
     fstream "^1.0.2"
     inherits "2"
 
-textures@^1.0.3, textures@^1.0.4:
+textures@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/textures/-/textures-1.0.4.tgz#f582bd0103bc8a7eab6ca75552a93246ccd05973"
+
+textures@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/textures/-/textures-1.0.5.tgz#8c8018c62cd195ebaef0c1c29f6fc498d303bcc9"
 
 thenify-all@^1.0.0, thenify-all@^1.6.0:
   version "1.6.0"

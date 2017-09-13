@@ -1,28 +1,40 @@
 _ = require 'underscore'
 d3 = require 'd3'
 require 'd3-selection-multi'
+textures = require 'textures'
 
 modelColors = require '../shared/colors'
 
 module.exports = (ax)->
+  widthOfSubduction = ax.scale.x(0)-ax.scale.x(1.04)
 
   gen = ax.line().curve d3.curveBasis
-  line = (key)->
-    (d)-> gen _.zip(d.time, d[key])
-
-  agen = d3.area()
-    .x (d)->ax.scale.x d[0]
-    .y0 (d)->ax.scale.y d[1]
-    .y1 (d)->ax.scale.y d[2]
-
-  area = (d)->
-    agen _.zip(d.time, d['lower'], d['upper'])
+  lineUpper = (d)->gen _.zip(d.time, d.upper).reverse()
+  lineLower = (d)->gen _.zip(d.time, d.lower)
 
   (d)->
+    upper = lineUpper(d)
+    lower = lineLower(d)
+
+    # Create area using SVG path language
+    area = upper+'L'+lower.slice(1)+"Z"
+    areaID = d.name+'_area'
+    clipID = areaID+'_clip'
+
     el = d3.select @
-    el.append 'path'
+
+    defs = el.append 'defs'
+
+    defs.append 'path'
       .datum d
       .attrs
+        id: areaID
+        fill: modelColors(d).alpha(0.08).css()
+        d: area
+
+    el.append 'use'
+      .attrs
+        href: "#"+areaID
         fill: modelColors(d).alpha(0.08).css()
         d: area
 
@@ -32,7 +44,7 @@ module.exports = (ax)->
         class: 'tracer'
         stroke: modelColors(d).alpha(0.8).css()
         fill: 'transparent'
-        d: line('upper')
+        d: upper
         "stroke-dasharray": '5,1'
 
     el.append 'path'
@@ -41,5 +53,27 @@ module.exports = (ax)->
         class: 'tracer'
         stroke: modelColors(d).alpha(0.8).css()
         fill: 'transparent'
-        d: line('lower')
+        d: lower
 
+    if d.subduction_time?
+      defs.append 'clipPath'
+        .attr 'id', clipID
+        .append 'use'
+        .attr 'href', '#'+areaID
+
+      tex = textures.lines()
+              .orientation('5/8')
+              .size 4
+              .strokeWidth 0.5
+              .stroke modelColors(d).alpha(0.8).css()
+      el.call tex
+
+      el.append 'rect'
+        .attrs {
+          class: 'subduction-area'
+          x: ax.scale.x(d.subduction_time)
+          width: widthOfSubduction
+          y: 0, height: 500
+          }
+        .attr 'clip-path', "url(##{clipID})"
+        .attr 'fill', tex.url()

@@ -21,15 +21,7 @@ module.exports = (ax)->
       .attrs
         class: 'sub-label'
         fill: '#888'
-        transform: "translate(#{l.x} #{l.y})"
-
-    #g.append 'rect'
-      #.attrs
-        #width: 26
-        #height: 8
-        #y: -10
-        #x: -2
-        #fill: 'white'
+        transform: "translate(#{l.x} #{l.y+2})"
 
     g.append 'text'
       .attrs

@@ -1,18 +1,33 @@
-fs = require 'fs'
+{readFileSync} = require 'fs'
 d3 = require 'd3'
+conventions = require 'd3-conventions'
 require 'd3-selection-multi'
+require 'd3-jetpack'
 axes = require 'd3-plot-area'
 _ = require 'underscore'
 require './main.styl'
 
-d = fs.readFileSync "#{__dirname}/temperature-summary.json"
-data = JSON.parse d.toString()
+getJSON = (fn)->
+  d = readFileSync require.resolve fn
+  JSON.parse d.toString()
+
+data = getJSON "./temperature-summary.json"
+depletionData = getJSON "./depletion-summary.json"
+
+console.log depletionData
+mergedData = for d in data
+  temperature = d.core
+  {id, color} = d
+  depletion = depletionData.find (v)->v.sample_id == id
+  {temperature, depletion, id, color}
+
 
 dpi = 72
-sz = width: dpi*4, height: dpi*3
+sz = width: dpi*6.5, height: dpi*3
 
 func = (el, callback)->
-  console.log "Started function"
+  console.log mergedData
+
   svg = d3.select el
     .append 'svg'
     .attrs sz
@@ -25,11 +40,14 @@ func = (el, callback)->
       top: 0.05*dpi
     .size sz
 
-  plot.scale.y
+  y = plot.scale.y
     .domain [920,1120]
 
-  plot.scale.x
-    .domain [-0.15,3]
+  #y2 = y.copy()
+  #  .domain [0, 40]
+
+  x = plot.scale.x
+    .domain [-0.15,6]
 
   plot.axes.y(orientation='left')
     .label 'Temperature (°C)'
@@ -47,35 +65,38 @@ func = (el, callback)->
     .tickValues [0..3]
     .tickFormat (d)->tnames[d]
 
-
   svg.call plot
 
   thermometers = ['bkn','ca_opx_corr','ta98','ree']
-  data = data.map (s)->
-    console.log s
-    d = thermometers.map (t)->s.core[t]
-    d.id = s.id
-    d.color = s.color
-    return d
 
   sel = plot.plotArea()
     .selectAll 'g.sample'
-    .data data
+    .data mergedData
 
   g = sel.enter()
     .append 'g'
     .attrs class: 'sample'
 
-  gen = plot.line()
-  line = (d,i)->
-    ld = d.map (v,i)->[i,v.n]
-    gen ld
+  tempAtProbability = (level=0)->(d,i)->
+    console.log d,i
+    t = themometers[i]
+    console.log d
+    T = d.temperature[t]
+    y T.n + level*T.s
+
+  getY = (f)->(d,i)->
+    console.log d
+    y f(d,i)
+
+  lineData = d3.line()
+    .x (d,i)->x(i)
+    .y tempAtProbability(0)
 
   agen = (level=1)->
     d3.area()
-      .x (d,i)->plot.scale.x i
-      .y0 (d)->plot.scale.y d.n-level*d.s
-      .y1 (d)->plot.scale.y d.n+level*d.s
+      .x (d,i)->x i
+      .y0 tempAtProbability(level)
+      .y1 tempAtProbability(-level)
 
   g.append 'path'
     .attrs
@@ -91,19 +112,21 @@ func = (el, callback)->
 
   g.append 'path'
     .attrs
-      d: line
-      'stroke': (d)->d.color
+      d: lineData
+      'stroke': (d)->
+        console.log d
+        d.color
       'stroke-width': 2
       'fill': 'transparent'
 
-  g.append 'text'
-    .text (d)->d.id
-    .attrs
-      class: (d)->"sample-label #{d.id}"
-      y: (d)->
-        val = d[d.length-1].n
-        plot.scale.y(val)
-      x: plot.scale.x(3)
+  #g.append 'text'
+    #.text (d)->d.id
+    #.attrs
+      #class: (d)->"sample-label #{d.id}"
+      #y: (d)->
+        #val = d[d.length-1].n
+        #plot.scale.y(val)
+      #x: plot.scale.x(3)
 
   callback()
 

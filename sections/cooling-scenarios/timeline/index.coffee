@@ -176,8 +176,8 @@ createAxes = (outerAxes)->
       el.append "text"
         .html "
           <tspan>Cretaceous–Paleogene stalled-slab scenarios
-          <tspan>have no clear</tspan>
-          <tspan x=0 dy=8>driver of underplating but share basic model structure
+          <tspan>do not correspond to a</tspan>
+          <tspan x=0 dy=8>clear driver of underplating but share basic model structure
           with <tspan class='bold'>C</tspan></tspan>"
         .attrs
           class: 'axis-description'
