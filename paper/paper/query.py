@@ -95,13 +95,13 @@ def rescale_values(sample_data):
     data["id"] = sample_id
     return data
 
-def whole_rock_major_elements(dataframe=False):
+def whole_rock_major_elements(dataframe=False, type="normalized_weight"):
     """
     Whole-rock major elements for each xenolith sample
     recalculated from oxide compositions of each mineral
     and its modal abundance.
     """
-    samples = xenolith_minerals("normalized_weight")
+    samples = xenolith_minerals(type)
     data = [rescale_values(sample) for sample in samples]
     if not dataframe:
         return data
