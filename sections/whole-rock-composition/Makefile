@@ -1,7 +1,5 @@
-all: prepare major_elements
+all: build/major-elements.tex
 
-prepare:
-	mkdir -p build
-
-major_elements: major-elements.py templates/major-elements.tex
-	python major-elements.py
+build/major-elements.tex: major-elements.py templates/major-elements.tex
+	mkdir -p $(dir $@)
+	python $< major-elements.tex $@

@@ -3,6 +3,7 @@
 from xenoliths import app
 from paper.query import xenolith_minerals
 from figurator import tex_renderer, write_file
+from sys import argv
 
 def mineral_compositions():
     """
@@ -16,12 +17,12 @@ def mineral_compositions():
         if ox != "K2O"]
 
     text = (tex_renderer
-        .get_template("minerals.tex")
+        .get_template(argv[1])
         .render(
             ncols=len(oxides)+5,
             oxides=oxides,
             samples=xenolith_minerals("weight")))
-    write_file("build/minerals.tex", text)
+    write_file(argv[2], text)
 
 with app.app_context():
     mineral_compositions()

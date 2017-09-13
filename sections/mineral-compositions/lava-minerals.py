@@ -37,10 +37,10 @@ with app.app_context():
 data = data.join(oxides)
 samples = [row for i,row in data.iterrows()]
 text = (tex_renderer
-    .get_template("lava_minerals.tex")
+    .get_template(argv[1])
     .render(
         ncols=len(oxide_cols)+4,
         oxides=oxide_cols,
         samples=samples))
-write_file(argv[1], text)
+write_file(argv[2], text)
 
