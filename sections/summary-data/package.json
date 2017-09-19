@@ -3,11 +3,11 @@
     "preinstall": "linklocal"
   },
   "dependencies": {
-    "d3": "^4.7.1",
-    "d3-jetpack": "^2.0.7",
-    "d3-plot-area": "file:../../modules/node/d3-plot-area",
+    "d3": "^4.10.2",
     "d3-conventions": "file:../../modules/node/d3-conventions",
+    "d3-jetpack": "^2.0.7",
     "d3-selection-multi": "^1.0.1",
+    "d3-svg-annotation": "^2.0.0",
     "underscore": "^1.8.3"
   }
 }
