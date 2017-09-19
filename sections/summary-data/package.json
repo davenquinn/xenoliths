@@ -8,6 +8,7 @@
     "d3-jetpack": "^2.0.7",
     "d3-selection-multi": "^1.0.1",
     "d3-svg-annotation": "^2.0.0",
+    "require-yaml": "^0.0.1",
     "underscore": "^1.8.3"
   }
 }
