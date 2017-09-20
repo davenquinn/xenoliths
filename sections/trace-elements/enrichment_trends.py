@@ -17,7 +17,7 @@ def enrichment_trends(ax, df, colors):
     nv = lambda x: x.nominal_value
 
     min='cpx'
-    lu_idx = ('Lu', min)
+    lu_idx = ('Yb', min)
     tab['HREE_proxy'] = 1/tab[lu_idx].apply(nv)
     tab['LREE_proxy'] = (tab[('La',min)]/tab[lu_idx]).apply(nv)
     colors = list(tab['color'])
@@ -28,8 +28,8 @@ def enrichment_trends(ax, df, colors):
         edgecolor=colors,
         alpha=0.8)
 
-    ax.set_ylabel("La / Lu (proxy for LREE enrichment)")
-    ax.set_xlabel(r"Lu$^{-1}$ (proxy for depletion)")
+    ax.set_ylabel(" Clinopyroxene La / Yb")
+    ax.set_xlabel(r"Yb$^{-1}$ (proxy for depletion)")
 
     mean_x = tab['HREE_proxy'].mean()
 
