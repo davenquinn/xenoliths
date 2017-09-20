@@ -8,6 +8,15 @@ getJSON = (fn)->
   d = readFileSync require.resolve fn
   JSON.parse d.toString()
 
+dpi = 72
+sz = width: dpi*6.5, height: dpi*3
+margin = {
+  left: 0.4*dpi
+  bottom: 0.38*dpi
+  right: 0.5*dpi
+  top: 0.05*dpi
+}
+
 data = getJSON "./temperature-summary.json"
 depletionData = getJSON "./depletion-summary.json"
 
@@ -19,17 +28,19 @@ mergedData = for d in data
 
 xScale = ->
   d3.scaleBand()
-    .paddingInner 40
+    .paddingInner 0.6
 
 thermometers = ['bkn','ca_opx_corr','ta98','ree']
-tnames = ['BKN','Ca-in-Opx','TA98','REE']
+tnames = ['BKN','Ca-in-Opx','TA98','HREE']
 depletionTypes = ['Al2O3', 'MgO', 'ree']
-dnames = ['Al<sub>2</sub>O<sub>3</sub>', 'MgO','REE']
+dnames = ["Al<tspan class='sub'>2</tspan>O<tspan class='sub'>3</tspan>", 'MgO','REE']
 
 module.exports = (el, callback)->
   console.log mergedData
-  {size, innerSize, transform, x, y} = conventions {
-    width: 500, height: 500, margin: 20}
+  {size, innerSize, transform, x, y} = conventions { sz..., margin... }
+
+
+  #innerSize.width -= 2*innerMargin
 
   svg = d3.select(el)
     .append 'svg'
@@ -44,8 +55,9 @@ module.exports = (el, callback)->
   x.domain [0,lenTotal]
 
   temperature = xScale()
-    .range [0,thermometers.length-1].map(x)
+    .rangeRound [0,thermometers.length-1].map(x)
     .domain thermometers
+
 
   depletion = xScale()
     .range [4,lenTotal].map(x)
@@ -54,72 +66,64 @@ module.exports = (el, callback)->
   tscale = y.copy().domain [920,1120]
   dscale = y.copy()
     .domain [0,20]
-    .range [innerSize.height, 100]
 
-  ax = svg.append 'g.axes'
-
-  tax = d3.axisLeft(tscale)
-    .ticks 5
-    .tickSize 3
-    .tickFormat d3.format('.0f')
-
-  ax.append 'g.y.axis.temperature'
-    .call tax
-
-  tax = d3.axisRight(dscale)
-    .ticks 5
-    .tickSize 3
-    .tickFormat d3.format('.0f')
-
-  ax.append 'g.y.axis.depletion'
-    .call tax
-    .translate [innerSize.width,0]
-
-
-  xAx = ax.append 'g.x'
-    .translate [0,innerSize.height]
-
-  xt = xAx.append 'g.axis.temperature'
-    .call d3.axisBottom(temperature)
-
-  xd = xAx.append 'g.axis.depletion'
-    .call d3.axisBottom(depletion)
-
-  tdata = thermometers.map (d,i)->
+  tdata = thermometers.map (id,i)->
     accessor = (level=0)->
       (v)->
-        a = v.temperature[d]
+        a = v.temperature[id]
         T = a.n + a.s*level
         tscale(T)
 
-    loc = temperature(d)
+    scale = temperature
+    loc = temperature(id)
     label = tnames[i]
-    {accessor, loc, label}
+    {id, accessor, loc, label, scale}
 
-  ddata = depletionTypes.map (d,i)->
+  ddata = depletionTypes.map (id,i)->
     accessor = (level=0)->(v)->
-      dscale(v.depletion[d])
-    loc = depletion(d)
+      dscale(v.depletion[id])
+    scale = depletion
+    loc = depletion(id)
     label = dnames[i]
-    {accessor, loc, label}
+    {id, accessor, loc, label, scale}
 
   dataTypes = tdata.concat(ddata)
 
   dataAtProbability = (d,level=0)->(v,i)->
     return v.accessor(level)(d)
 
+  xLocs = (point)->
+    {scale, loc} = point
+    start = loc
+    end = start+scale.bandwidth()
+    {start,end}
+
   lineData = (d)->
-    _ = d3.line()
-      .x (v)->v.loc
-      .y dataAtProbability(d,0)
-    _(dataTypes)
+    y = dataAtProbability(d,0)
+    arr = []
+    for pt in dataTypes
+      {start,end} = xLocs(pt)
+      y_ = y(pt)
+      arr.push [start, y_]
+      arr.push [end,y_]
+    d3.line()(arr)
 
   agen = (level)->(d)->
-    _ = d3.area()
-      .x (v)->v.loc
-      .y0 dataAtProbability(d,level)
-      .y1 dataAtProbability(d,-level)
-    _(dataTypes)
+    area = d3.area()
+      .x (v)->v.x
+      .y0 (v)->v.y0
+      .y1 (v)->v.y1
+
+    upper = dataAtProbability(d,level)
+    lower = dataAtProbability(d,-level)
+    arr = []
+    for pt in dataTypes
+      y0 = upper(pt)
+      y1 = lower(pt)
+      {start,end} = xLocs(pt)
+      arr.push { x: start, y0, y1}
+      arr.push { x: end, y0, y1}
+    area(arr)
 
   buildData = (d,i)->
     el = d3.select @
@@ -137,6 +141,53 @@ module.exports = (el, callback)->
         d: agen(1)
         fill: d.color
         'fill-opacity': 0.1
+
+  ### Build axes ###
+
+  ax = svg.append 'g.axes'
+
+  tax = d3.axisLeft(tscale)
+    .ticks 5
+    .tickSize 3
+    .tickFormat d3.format('.0f')
+
+  ax.append 'g.y.axis.temperature'
+    .call tax
+    .append 'text.label'
+      .text 'Temperature (°C)'
+      .attrs 'transform': "translate(-20,#{innerSize.height/2}) rotate(-90)"
+
+  tax = d3.axisRight(dscale)
+    .ticks 5
+    .tickSize 3
+    .tickFormat d3.format('.0f')
+
+  ax.append 'g.y.axis.depletion'
+    .call tax
+    .translate [innerSize.width,0]
+
+
+  xAx = ax.append 'g.x'
+    .translate [0,innerSize.height]
+
+  sel = ax.append 'g.backdrop'
+    .selectAll 'g.system'
+    .data dataTypes
+    .enter()
+
+  s = sel.append 'g.system'
+    .translate (d)->[d.loc,0]
+
+  s.append 'rect.backdrop'
+    .at
+      width: (d)->d.scale.bandwidth()
+      height: innerSize.height
+      y: 0
+
+  s.append 'text.system-label'
+   .translate (d)->
+      [d.scale.bandwidth()/2, innerSize.height+4]
+   .html (d)->d.label
 
   ### Plot data ###
   sel = svg.append 'g'

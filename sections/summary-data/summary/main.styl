@@ -2,9 +2,13 @@ text
   font-family: Gotham
   fill: black
 
+rect.backdrop
+  fill: #eee
+
 .y
   text.label
     font-size: 10
+    text-anchor: middle
   .tick text
     font-size: 8
     transform: rotate(-90deg) translate(5px, -8px)
@@ -15,6 +19,14 @@ text
   .tick text
     font-size: 9
     color: #666
+
+tspan.sub
+  alignnment-baseline: hanging
+
+.system-label
+  text-anchor: middle
+  font-size: 10
+  fill: #444
 
 .sample-label
   font-size: 10
