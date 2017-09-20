@@ -1,26 +1,33 @@
 text
   font-family: Gotham
-  fill: black
 
 rect.backdrop
   fill: #eee
 
 .y
+  text
+    text-anchor: middle
+    fill: black
   text.label
     font-size: 9
-    text-anchor: middle
     font-style: italic
   .tick text
     font-size: 8
     alignment-baseline: bottom
-    text-anchor: middle
   &.temperature
     .tick text
       transform: rotate(-90deg) translate(5px, -8px)
 
-tspan.sub
-  alignment-baseline: hanging
-  font-size: 0.65em
+text.annotation-note-title
+  font-size: 12
+  font-weight: 400
+
+tspan
+  &.sub
+    alignment-baseline: hanging
+    font-size: 0.65em
+  &.normal
+    font-style: normal
 
 .system-label
   text-anchor: middle

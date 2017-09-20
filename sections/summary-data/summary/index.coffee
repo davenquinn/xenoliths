@@ -1,6 +1,6 @@
 d3 = require 'd3-jetpack/build/d3v4+jetpack'
 {readFileSync} = require 'fs'
-{annotation} = require 'd3-svg-annotation'
+{annotation, annotationCalloutElbow} = require 'd3-svg-annotation'
 conventions = require 'd3-conventions'
 require './main.styl'
 
@@ -10,7 +10,7 @@ sz = width: dpi*6.5, height: dpi*2.5
 margin = {
   left: 0.4*dpi+marginInner
   bottom: 0.38*dpi
-  right: 0.55*dpi+marginInner
+  right: 0.4*dpi+marginInner
   top: 0.05*dpi
 }
 
@@ -177,8 +177,8 @@ module.exports = (el, callback)->
     .call tax
     .translate [innerSize.width+marginInner,0]
     .append 'text.label'
-      .attrs 'transform': "translate(30,#{innerSize.height/2}) rotate(90)" 
-      .tspans  ['Depletion degree (%)','Spinel Cr#'], 10
+      .attrs 'transform': "translate(20,#{innerSize.height/2}) rotate(90)"
+      .html 'Depletion degrees (%) <tspan class="normal">or</tspan> Spinel Cr#'
 
   xAx = ax.append 'g.x'
     .translate [0,innerSize.height]
@@ -222,5 +222,31 @@ module.exports = (el, callback)->
   sel.append 'g'
     .attr 'class', 'sample'
     .each buildData
+
+  annotations = require "./annotations.json"
+
+  for a in annotations
+    d = mergedData.find (v)->a.note.title == v.id
+    a.color = d.color
+    a.wrap = 30
+
+  ## Annotations ##
+  makeAnnotations = annotation()
+    .type annotationCalloutElbow
+    .notePadding 0
+    .annotations annotations
+
+  global.makeAnnotations = makeAnnotations
+
+  el.call makeAnnotations
+
+  d3.selectAll 'g.annotations g.annotation'
+    .each (d)->
+      e = d3.select @
+      e.select '.note-line'
+        .attr 'stroke', d.color
+
+      e.selectAll 'tspan'
+        .attr 'dy', "0.9em"
 
   callback()
