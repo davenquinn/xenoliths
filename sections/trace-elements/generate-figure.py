@@ -2,7 +2,7 @@ import numpy as N
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as P
-from pandas import read_sql, read_excel, read_csv
+from pandas import read_sql, read_excel, read_csv, Series
 from paper.plot_style import update_axes, axis_labels
 from paper.query import sample_colors
 from matplotlib.ticker import ScalarFormatter
@@ -90,12 +90,6 @@ trace_el = df.iloc[:,49:62]
 
 # Filter data with no trace elements
 trace_el = trace_el[trace_el.sum(axis=1).notnull()]
-## Filter spurious values of La
-trace_el = trace_el[trace_el["La"]<2]
-trace_el = trace_el[trace_el["Yb"]>2]
-
-## Guesstimate Lu from Yb
-trace_el["Lu"] = trace_el["Yb"]
 
 # Filter weird outlier
 Tb = trace_el['Tb']
@@ -103,9 +97,20 @@ trace_el = trace_el[Tb.min() != Tb]
 
 cols = list(trace_el.columns)
 norm = 1000/N.array(chondrite.T)[0]
+norm = Series(norm[:-1], index=cols)
+# Convert to normalized trace elements
+trace_el = trace_el*norm
+
+## Guesstimate Lu from Yb
+trace_el["Lu"] = trace_el["Yb"]
+## Filter spurious values of La
+trace_el = trace_el[trace_el["La"]<2]
+trace_el = trace_el[trace_el["Yb"]>2]
+
+cols = list(trace_el.columns)
 ixs = N.array([getattr(elements,i).number for i in cols])
 for ix,row in trace_el.iterrows():
-    d = N.array(row)*norm[:-1]
+    d = N.array(row)
     msk = ~N.isnan(d)
     ax.plot(ixs[msk],d[msk], color='#eeeeee', linewidth=2, zorder=-10)
 
