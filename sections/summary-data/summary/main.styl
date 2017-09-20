@@ -11,17 +11,15 @@ rect.backdrop
     text-anchor: middle
   .tick text
     font-size: 8
-    transform: rotate(-90deg) translate(5px, -8px)
     alignment-baseline: bottom
     text-anchor: middle
-
-.x
-  .tick text
-    font-size: 9
-    color: #666
+  &.temperature
+    .tick text
+      transform: rotate(-90deg) translate(5px, -8px)
 
 tspan.sub
-  alignnment-baseline: hanging
+  alignment-baseline: hanging
+  font-size: 0.65em
 
 .system-label
   text-anchor: middle
@@ -34,6 +32,13 @@ tspan.sub
   transform: translate(3px, 0)
   &.CK-5
     transform: translate(3px, 6px)
+
+.system-type-label
+  font-size: 8
+  font-style: italic
+  fill: #666
+  text-transform: uppercase
+  font-weight: 500
 
 #main
   background-color: white

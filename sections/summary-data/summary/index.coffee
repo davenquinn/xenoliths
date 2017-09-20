@@ -4,21 +4,18 @@ d3 = require 'd3-jetpack/build/d3v4+jetpack'
 conventions = require 'd3-conventions'
 require './main.styl'
 
-getJSON = (fn)->
-  d = readFileSync require.resolve fn
-  JSON.parse d.toString()
-
+marginInner = 10
 dpi = 72
-sz = width: dpi*6.5, height: dpi*3
+sz = width: dpi*6.5, height: dpi*2.5
 margin = {
-  left: 0.4*dpi
+  left: 0.4*dpi+marginInner
   bottom: 0.38*dpi
-  right: 0.5*dpi
+  right: 0.5*dpi+marginInner
   top: 0.05*dpi
 }
 
-data = getJSON "./temperature-summary.json"
-depletionData = getJSON "./depletion-summary.json"
+data = require "./temperature-summary.json"
+depletionData = require "./depletion-summary.json"
 
 mergedData = for d in data
   temperature = d.core
@@ -31,13 +28,15 @@ xScale = ->
     .paddingInner 0.6
 
 thermometers = ['bkn','ca_opx_corr','ta98','ree']
-tnames = ['BKN','Ca-in-Opx','TA98','HREE']
+tnames = ['BKN','Ca-in-Opx','TA98','REE']
 depletionTypes = ['Al2O3', 'MgO', 'ree']
-dnames = ["Al<tspan class='sub'>2</tspan>O<tspan class='sub'>3</tspan>", 'MgO','REE']
+dnames = [
+  "Al<tspan class='sub'>2</tspan>O<tspan class='sub'>3</tspan>",
+  'MgO','HREE']
 
 module.exports = (el, callback)->
-  console.log mergedData
-  {size, innerSize, transform, x, y} = conventions { sz..., margin... }
+  {size, innerSize,
+   transform, x, y} = conventions { sz..., margin... }
 
 
   #innerSize.width -= 2*innerMargin
@@ -153,6 +152,7 @@ module.exports = (el, callback)->
 
   ax.append 'g.y.axis.temperature'
     .call tax
+    .translate [-marginInner,0]
     .append 'text.label'
       .text 'Temperature (°C)'
       .attrs 'transform': "translate(-20,#{innerSize.height/2}) rotate(-90)"
@@ -160,18 +160,28 @@ module.exports = (el, callback)->
   tax = d3.axisRight(dscale)
     .ticks 5
     .tickSize 3
+    .tickPadding 6
     .tickFormat d3.format('.0f')
 
   ax.append 'g.y.axis.depletion'
     .call tax
-    .translate [innerSize.width,0]
-
+    .translate [innerSize.width+marginInner,0]
+    .append 'text.label'
+      .text 'Depletion degree (%)'
+      .attrs 'transform': "translate(20,#{innerSize.height/2}) rotate(90)"
 
   xAx = ax.append 'g.x'
     .translate [0,innerSize.height]
 
-  sel = ax.append 'g.backdrop'
-    .selectAll 'g.system'
+  back = ax.append 'g.backdrop'
+
+  _ = ["Thermometer","System"]
+  systems = [temperature,depletion]
+  back.appendMany _, 'text.system-type-label'
+    .text (d,i)->d
+    .translate (v,i)->[x(i*4),innerSize.height+25]
+
+  sel = back.selectAll 'g.system'
     .data dataTypes
     .enter()
 
@@ -186,7 +196,7 @@ module.exports = (el, callback)->
 
   s.append 'text.system-label'
    .translate (d)->
-      [d.scale.bandwidth()/2, innerSize.height+4]
+      [d.scale.bandwidth()/2, innerSize.height+10]
    .html (d)->d.label
 
   ### Plot data ###
