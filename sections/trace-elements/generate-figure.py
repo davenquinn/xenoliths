@@ -1,12 +1,15 @@
 import numpy as N
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as P
-from pandas import read_sql
+from pandas import read_sql, read_excel, read_csv
 from paper.plot_style import update_axes, axis_labels
 from paper.query import sample_colors
 from matplotlib.ticker import ScalarFormatter
 from xenoliths.application import app, db
 from xenoliths.SIMS.query import sims_data, element_data
 from xenoliths.core.models import Sample
+from os import environ, path
 
 from enrichment_trends import enrichment_trends
 from shared import mineral_data
@@ -57,7 +60,7 @@ for mineral in minerals:
 
     kw = dict(color='#888888',fontsize=10)
     ax.text(x[0],20,"Clinopyroxene",**kw)
-    ax.text(x[0],.3,"Orthopyroxene",**kw)
+    ax.text(65,.3,"Orthopyroxene",rotation=26,**kw)
 
     ax.yaxis.set_ticklabels(["{:g}".format(v) for v in ax.yaxis.get_ticklocs()])
     ax.set_ylabel("Pyroxene rare-earth abundance / CI chondrite", labelpad=-1)
@@ -65,6 +68,47 @@ for mineral in minerals:
 ax.xaxis.set_ticks(ticks)
 ax.xaxis.set_ticklabels(symbols)
 update_axes(ax)
+
+#### Plot literature field
+
+"""
+Generate a figure comparing cpx depletion trends to
+those of abyssal peridotites.
+
+Uses data from [Warren, 2016, doi:10.1016/j.lithos.2015.12.023]
+"""
+from periodictable import elements
+
+# Get literature modal mineralogy data
+data_dir = environ.get('DATA_DIR')
+fn = path.join(data_dir,'literature','Warren (2016) abyssal peridotites','mmc1-2.xls')
+df = read_excel(fn, index_col=0, skiprows=[0])
+
+chondrite = read_csv('chondrite.csv',comment='#',index_col=0)
+df = df[(df.Lithology == 'Lherz')]
+trace_el = df.iloc[:,49:62]
+
+# Filter data with no trace elements
+trace_el = trace_el[trace_el.sum(axis=1).notnull()]
+## Filter spurious values of La
+trace_el = trace_el[trace_el["La"]<2]
+trace_el = trace_el[trace_el["Yb"]>2]
+
+## Guesstimate Lu from Yb
+trace_el["Lu"] = trace_el["Yb"]
+
+# Filter weird outlier
+Tb = trace_el['Tb']
+trace_el = trace_el[Tb.min() != Tb]
+
+cols = list(trace_el.columns)
+norm = 1000/N.array(chondrite.T)[0]
+ixs = N.array([getattr(elements,i).number for i in cols])
+for ix,row in trace_el.iterrows():
+    d = N.array(row)*norm[:-1]
+    msk = ~N.isnan(d)
+    ax.plot(ixs[msk],d[msk], color='#eeeeee', linewidth=2, zorder=-10)
+
 
 #### Enrichment trends in cpx
 enrichment_trends(ax2, data, colors)
