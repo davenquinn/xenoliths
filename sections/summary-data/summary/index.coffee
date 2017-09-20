@@ -5,12 +5,12 @@ conventions = require 'd3-conventions'
 require './main.styl'
 
 marginInner = 10
-dpi = 72
+dpi = 96
 sz = width: dpi*6.5, height: dpi*2.5
 margin = {
   left: 0.4*dpi+marginInner
   bottom: 0.38*dpi
-  right: 0.5*dpi+marginInner
+  right: 0.55*dpi+marginInner
   top: 0.05*dpi
 }
 
@@ -22,6 +22,7 @@ mergedData = for d in data
   temperature = d.core
   {id, color} = d
   depletion = depletionData.find (v)->v.sample_id == id
+  depletion["hree"] = depletion["ree"]
   spinel = spinelCrData[id]
   {temperature, depletion, id, color, spinel}
 
@@ -31,9 +32,9 @@ xScale = ->
 
 thermometers = ['bkn','ca_opx_corr','ta98','ree']
 tnames = ['BKN','Ca-in-Opx','TA98','REE']
-depletionTypes = ['spinel_cr','Al2O3', 'MgO', 'ree']
+depletionTypes = ['spinel_cr','Al2O3', 'MgO', 'hree']
 dnames = [
-  'Spinel Cr#',
+  "<tspan dy=2>Spinel</tspan><tspan x=0 dy=12>Cr#</tspan>",
   "Al<tspan class='sub'>2</tspan>O<tspan class='sub'>3</tspan>",
   'MgO','HREE']
 
@@ -51,16 +52,6 @@ module.exports = (el, callback)->
     .append 'g'
     .attr 'transform', transform
 
-
-
-  #temperature = xScale()
-    #.rangeRound [0,thermometers.length].map(x)
-    #.domain thermometers
-
-  #depletion = xScale()
-    #.range [thermometers.length+1,lenTotal].map(x)
-    #.domain depletionTypes
-
   tscale = y.copy().domain [920,1120]
   dscale = y.copy()
     .domain [0,30]
@@ -72,9 +63,8 @@ module.exports = (el, callback)->
         T = a.n + a.s*level
         tscale(T)
 
-    scale = temperature
     label = tnames[i]
-    {id, accessor, loc, label, scale}
+    {id, accessor, label}
 
   tdata.push {id: 'spacer'}
 
@@ -86,24 +76,24 @@ module.exports = (el, callback)->
     else
       accessor = (level=0)->(v)->
         dscale(v.depletion[id])
-    scale = depletion
-    loc = depletion(id)
     label = dnames[i]
-    {id, accessor, loc, label, scale}
+    {id, accessor, label}
 
   dataTypes = tdata.concat(ddata)
 
   xScale = d3.scaleBand()
     .paddingInner 0.6
-    .domain [0,x(1)]
-    .range dataTypes
+    .domain dataTypes.map (d)->d.id
+    .range [0,innerSize.width]
 
   dataAtProbability = (d,level=0)->(v,i)->
     return v.accessor(level)(d)
 
   xLocs = (point)->
     {id} = point
+    console.log id
     loc = xScale(id)
+    console.log loc
     start = loc
     end = start+xScale.bandwidth()
     {start,end}
@@ -112,6 +102,7 @@ module.exports = (el, callback)->
     y = dataAtProbability(d,0)
     arr = []
     for pt in dataTypes
+      continue unless pt.accessor?
       {start,end} = xLocs(pt)
       y_ = y(pt)
       arr.push [start, y_]
@@ -128,6 +119,7 @@ module.exports = (el, callback)->
     lower = dataAtProbability(d,-level)
     arr = []
     for pt in dataTypes
+      continue unless pt.accessor?
       y0 = upper(pt)
       y1 = lower(pt)
       {start,end} = xLocs(pt)
@@ -151,6 +143,13 @@ module.exports = (el, callback)->
         d: agen(1)
         fill: d.color
         'fill-opacity': 0.1
+
+    el.append 'path'
+      .attrs
+        d: agen(2)
+        fill: d.color
+        'fill-opacity': 0.1
+
 
   ### Build axes ###
 
@@ -178,7 +177,7 @@ module.exports = (el, callback)->
     .call tax
     .translate [innerSize.width+marginInner,0]
     .append 'text.label'
-      .attrs 'transform': "translate(20,#{innerSize.height/2}) rotate(90)" 
+      .attrs 'transform': "translate(30,#{innerSize.height/2}) rotate(90)" 
       .tspans  ['Depletion degree (%)','Spinel Cr#'], 10
 
   xAx = ax.append 'g.x'
@@ -186,28 +185,31 @@ module.exports = (el, callback)->
 
   back = ax.append 'g.backdrop'
 
-  _ = ["Thermometer","System"]
-  systems = [temperature,depletion]
+  _ = ["Thermometer","Modeled depletion"]
+  v = dataTypes.map (d)->d.id
+  ids = [v[0],v[6]]
   back.appendMany _, 'text.system-type-label'
-    .text (d,i)->d
-    .translate (v,i)->[x(i*4),innerSize.height+25]
+    .html (d,i)->d
+    .translate (v,i)->[xScale(ids[i]),innerSize.height+25]
+
+  realDataTypes = dataTypes.filter (d)-> d.id != "spacer"
 
   sel = back.selectAll 'g.system'
-    .data dataTypes
+    .data realDataTypes
     .enter()
 
   s = sel.append 'g.system'
-    .translate (d)->[d.loc,0]
+    .translate (d)->[xScale(d.id),0]
 
   s.append 'rect.backdrop'
     .at
-      width: (d)->d.scale.bandwidth()
+      width: (d)->xScale.bandwidth()
       height: innerSize.height
       y: 0
 
   s.append 'text.system-label'
    .translate (d)->
-      [d.scale.bandwidth()/2, innerSize.height+10]
+      [xScale.bandwidth()/2, innerSize.height+10]
    .html (d)->d.label
 
   ### Plot data ###
