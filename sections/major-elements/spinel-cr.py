@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+import os
+import matplotlib
+matplotlib.use('Agg')
 from xenoliths import app
 import matplotlib.pyplot as P
 import numpy as N
@@ -53,23 +56,27 @@ with app.app_context():
             v_ = dict(vals,**v_)
         ax.annotate(id, xy=pos, **v_)
 
+    __xlabel = "Mg#"
     #### Plot against uncorrected data
-    spinel_cations = [get_cations(o, oxygen=4, uncertainties=False)
-                      for o in spinels]
-    cr_number = [c['Cr']/(c['Cr']+c['Al'])*100 for c in spinel_cations]
-    mg_number = [c['Mg']/(c['Mg']+c['Fe'])*100 for c in spinel_cations]
+    if os.environ.get("PLOT_UNCORRECTED",False):
+        spinel_cations = [get_cations(o, oxygen=4, uncertainties=False)
+                          for o in spinels]
+        cr_number = [c['Cr']/(c['Cr']+c['Al'])*100 for c in spinel_cations]
+        mg_number = [c['Mg']/(c['Mg']+c['Fe'])*100 for c in spinel_cations]
 
-    ax.scatter(mg_number, cr_number,
-               c=list(lighten(*colors, lum=0.45, sat=-0.1)),
-               marker='s',
-               edgecolor=list(lighten(*colors,lum=0.38, sat=-0.)),
-               alpha=0.8,
-               label='Uncorrected')
+        ax.scatter(mg_number, cr_number,
+                   c=list(lighten(*colors, lum=0.45, sat=-0.1)),
+                   marker='s',
+                   edgecolor=list(lighten(*colors,lum=0.38, sat=-0.)),
+                   alpha=0.8,
+                   label='Uncorrected')
+
+        ax.legend(loc='lower left')
+    else:
+        __xlabel += " (corrected)"
 
     ax.set_ylabel('Cr#')
-    ax.set_xlabel('Mg#')
-
-    ax.legend(loc='lower left')
+    ax.set_xlabel(__xlabel)
 
     update_axes(ax)
     fig.savefig(argv[1], bbox_inches='tight')

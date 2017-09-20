@@ -16,12 +16,14 @@ margin = {
 
 data = require "./temperature-summary.json"
 depletionData = require "./depletion-summary.json"
+spinelCrData = require "./spinel-cr.json"
 
 mergedData = for d in data
   temperature = d.core
   {id, color} = d
   depletion = depletionData.find (v)->v.sample_id == id
-  {temperature, depletion, id, color}
+  spinel = spinelCrData[id]
+  {temperature, depletion, id, color, spinel}
 
 xScale = ->
   d3.scaleBand()
@@ -29,8 +31,9 @@ xScale = ->
 
 thermometers = ['bkn','ca_opx_corr','ta98','ree']
 tnames = ['BKN','Ca-in-Opx','TA98','REE']
-depletionTypes = ['Al2O3', 'MgO', 'ree']
+depletionTypes = ['spinel_cr','Al2O3', 'MgO', 'ree']
 dnames = [
+  'Spinel Cr#',
   "Al<tspan class='sub'>2</tspan>O<tspan class='sub'>3</tspan>",
   'MgO','HREE']
 
@@ -49,22 +52,18 @@ module.exports = (el, callback)->
     .attr 'transform', transform
 
 
-  lenTotal = mergedData.length
 
-  x.domain [0,lenTotal]
+  #temperature = xScale()
+    #.rangeRound [0,thermometers.length].map(x)
+    #.domain thermometers
 
-  temperature = xScale()
-    .rangeRound [0,thermometers.length-1].map(x)
-    .domain thermometers
-
-
-  depletion = xScale()
-    .range [4,lenTotal].map(x)
-    .domain depletionTypes
+  #depletion = xScale()
+    #.range [thermometers.length+1,lenTotal].map(x)
+    #.domain depletionTypes
 
   tscale = y.copy().domain [920,1120]
   dscale = y.copy()
-    .domain [0,20]
+    .domain [0,30]
 
   tdata = thermometers.map (id,i)->
     accessor = (level=0)->
@@ -74,13 +73,19 @@ module.exports = (el, callback)->
         tscale(T)
 
     scale = temperature
-    loc = temperature(id)
     label = tnames[i]
     {id, accessor, loc, label, scale}
 
+  tdata.push {id: 'spacer'}
+
   ddata = depletionTypes.map (id,i)->
-    accessor = (level=0)->(v)->
-      dscale(v.depletion[id])
+    if id == "spinel_cr"
+      accessor = (level=0)->(v)->
+        {cr_number, cr_number_std} = v.spinel
+        dscale(cr_number+level*cr_number_std)
+    else
+      accessor = (level=0)->(v)->
+        dscale(v.depletion[id])
     scale = depletion
     loc = depletion(id)
     label = dnames[i]
@@ -88,13 +93,19 @@ module.exports = (el, callback)->
 
   dataTypes = tdata.concat(ddata)
 
+  xScale = d3.scaleBand()
+    .paddingInner 0.6
+    .domain [0,x(1)]
+    .range dataTypes
+
   dataAtProbability = (d,level=0)->(v,i)->
     return v.accessor(level)(d)
 
   xLocs = (point)->
-    {scale, loc} = point
+    {id} = point
+    loc = xScale(id)
     start = loc
-    end = start+scale.bandwidth()
+    end = start+xScale.bandwidth()
     {start,end}
 
   lineData = (d)->
@@ -167,8 +178,8 @@ module.exports = (el, callback)->
     .call tax
     .translate [innerSize.width+marginInner,0]
     .append 'text.label'
-      .text 'Depletion degree (%)'
-      .attrs 'transform': "translate(20,#{innerSize.height/2}) rotate(90)"
+      .attrs 'transform': "translate(20,#{innerSize.height/2}) rotate(90)" 
+      .tspans  ['Depletion degree (%)','Spinel Cr#'], 10
 
   xAx = ax.append 'g.x'
     .translate [0,innerSize.height]
