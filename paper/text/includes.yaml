@@ -42,21 +42,11 @@
 - id: isotopes
   file: isotopes/isotopes.pdf
 
-- id: minerals
+- id: composition
   type: table
-  file: mineral-compositions/build/minerals.tex
+  file: composition-table/composition-table.tex
   two_column: true
-  caption: Average composition\tnote{a} of xenolith mineral components
-  notes:
-    a: oxide weight percent
-
-- id: lava_minerals
-  type: table
-  two_column: true
-  file: mineral-compositions/build/lava_minerals.tex
-  caption: Representative compositions\tnote{a} of minerals in the host lava
-  notes:
-    a: oxide weight percent
+  caption: Xenolith and host lava major-element compositional data
 
 # Major elements
 - id: major_elements
@@ -73,13 +63,6 @@
     a: estimated from cation site balance
     b: "using \\ce{Fe^{2+}} = $\\Sigma$ Fe"
     c: corrected
-
-## Major element tables
-
-- id: whole_rock_major
-  type: table
-  file: whole-rock/build/major-elements.tex
-  two_column: true
 
 # Modal mineralogy
 - id: modes
@@ -98,43 +81,19 @@
   file: trace-elements/build/trace-elements.pdf
   caption: Clinopyroxene and orthopyroxene rare-earth element abundances.
 
-- id: enrichment_trends
-  file: trace-elements/build/enrichment.pdf
-  caption: Enrichment trends for trace elements.
-  enabled: false
-
 - id: trace_elements_table
   type: table
   file: trace-elements/build/trace-elements.tex
   two_column: true
   caption: Trace element abundances (ppm)
 
-- id: whole_rock_trace
-  file: trace-elements/build/whole-rock.pdf
-  caption: >
-    Trace element abundances recalculated from whole-rock major elements.
-  enabled: false
-  desc: This figure is superseded by @fig:ree_model.
-
-# Perhaps should add a trace-element figure that estimates whole-rock depletion
-# from dataset of @Warren2016
-# Can use partition coefficients from @WittEickschen2005
-- id: cpx_literature_comparison
-  file: trace-elements/build/literature-comparison.pdf
-  enabled: true
-
 - id: ree_model
   file: depletion-model/output/depletion-model.pdf
-
-# Presumably this supersedes `enrichment trends` figure.
-- id: ree_trends
-  file: depletion-model/output/ree-trends.pdf
-  enabled: false
 
 - id: depletion_degrees
   type: table
   file: depletion-model/output/depletion_degrees.tex
-  caption: Depletion degrees estimated for various methods
+  caption: Melting degrees estimated using MgO, \ce{Al2O3}, and HREE content.
 
 - id: thermometry
   type: table
@@ -143,7 +102,8 @@
   notes:
     "": >
       For major-element
-      thermometers, $\sigma$ consists of errors between samples. For REE thermometer,
+      thermometers, $\sigma$ (in parentheses) represents errors between
+      individual measurements. For REE thermometer,
       it is regression error.
 
 # Pyroxene thermometry
@@ -155,6 +115,7 @@
   file: thermometry/build/temp-comparisons.pdf
 
 - id: temp_summary
+  two_column: true
   file: summary-data/summary-data.pdf
 
 - id: ca_in_olivine
@@ -193,8 +154,4 @@
 
 - id: model_comparison
   file: model-comparison.pdf
-
-- id: monterey_plate
-  file: translating-slab/translating-slab.png
-  enabled: false
 

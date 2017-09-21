@@ -178,14 +178,14 @@ module.exports = (el, callback)->
     .translate [innerSize.width+marginInner,0]
     .append 'text.label'
       .attrs 'transform': "translate(20,#{innerSize.height/2}) rotate(90)"
-      .html 'Depletion degrees (%) <tspan class="normal">or</tspan> Spinel Cr#'
+      .html 'Melting degree (%) <tspan class="normal">or</tspan> Spinel Cr#'
 
   xAx = ax.append 'g.x'
     .translate [0,innerSize.height]
 
   back = ax.append 'g.backdrop'
 
-  _ = ["Thermometer","Modeled depletion"]
+  _ = ["Thermometer","Melting degree system"]
   v = dataTypes.map (d)->d.id
   ids = [v[0],v[6]]
   back.appendMany _, 'text.system-type-label'

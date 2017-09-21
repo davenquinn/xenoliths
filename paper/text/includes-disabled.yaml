@@ -1,0 +1,50 @@
+- id: monterey_plate
+  file: translating-slab/translating-slab.png
+  enabled: false
+
+# Presumably this supersedes `enrichment trends` figure.
+- id: ree_trends
+  file: depletion-model/output/ree-trends.pdf
+  enabled: false
+
+- id: whole_rock_trace
+  file: trace-elements/build/whole-rock.pdf
+  caption: >
+    Trace element abundances recalculated from whole-rock major elements.
+  enabled: false
+  desc: This figure is superseded by @fig:ree_model.
+
+- id: enrichment_trends
+  file: trace-elements/build/enrichment.pdf
+  caption: Enrichment trends for trace elements.
+  enabled: false
+
+# Perhaps should add a trace-element figure that estimates whole-rock depletion
+# from dataset of @Warren2016
+# Can use partition coefficients from @WittEickschen2005
+- id: cpx_literature_comparison
+file: trace-elements/build/literature-comparison.pdf
+enabled: true
+
+- id: minerals
+  type: table
+  file: mineral-compositions/build/minerals.tex
+  two_column: true
+  caption: Average composition\tnote{a} of xenolith mineral components
+  notes:
+    a: oxide weight percent
+
+- id: lava_minerals
+  type: table
+  two_column: true
+  file: mineral-compositions/build/lava_minerals.tex
+  caption: Representative compositions\tnote{a} of minerals in the host lava
+  notes:
+    a: oxide weight percent
+
+## Major element tables
+- id: whole_rock_major
+  type: table
+  file: whole-rock/build/major-elements.tex
+  two_column: true
+

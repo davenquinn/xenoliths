@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 from __future__ import division, print_function
+import matplotlib
+matplotlib.use('Agg')
 from xenoliths import app
 from xenoliths.thermometry import pressure
 import matplotlib.pyplot as P

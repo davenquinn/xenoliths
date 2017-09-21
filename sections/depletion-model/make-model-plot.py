@@ -72,7 +72,7 @@ def run_model(src,dst,clinopyroxene=False):
                 alpha=0.2)
 
             def plot(name,x,y,**kwargs):
-                if i == 'CK-2':
+                if i == 'CK-3':
                     kwargs['label'] = name
                 else:
                     kwargs['label'] = ""
@@ -88,8 +88,9 @@ def run_model(src,dst,clinopyroxene=False):
             plot("Modeled depleted", d.columns,row, linestyle='--', linewidth=1)
 
             v = enrichment.ix[row.name]
-            #if i == 'CK-2':
-            #    continue
+            if i == 'CK-2':
+                # Don't include CK-2 because it isn't depleted, so results are spurious.
+                continue
             plot("Enriching melt",d.columns,v, linestyle=':', linewidth=1)
 
         # Plot NMORB
