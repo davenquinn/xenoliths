@@ -21,10 +21,10 @@ xenolith locality of coastal central California, and integrate our findings
 with regional geophysical data and modeling, and with a wealth of data on the
 tectonic and petrogenetic development of the overlying crust.
 
-The Crystal Knob xenolith locality samples a highly strategic lithospheric
+The Crystal Knob xenolith locality samples a crucially important lithospheric
 column through the Late Cretaceous convergent margin belt of the SW North
 American Cordillera. This regionally extensive belt is characterized by
-a large-volume continental magmatic arc,
+a voluminous continental magmatic arc,
 generated as the Farallon oceanic plate subducted eastward beneath western
 North America [@Ducea2015]. The Franciscan complex represents the
 crustal level accretionary complex of this subduction zone, and is widely
@@ -61,7 +61,7 @@ led to the recognition of distinct regional mantle lithosphere domains
 consisting of pre-Phanerozoic lithosphere, Cretaceous arc mantle wedge,
 underplated Farallon plate nappes, and late Cenozoic shallow convective
 asthenosphere
-[@Galer1989; @Livaccari1993; @Alibert1994; @Beard1995; @Ducea1996, @Ducea1998a; @Jove1998; @Lee2001; @Lee2006; @Usui2003; @Luffi2009].
+[@Galer1989; @Livaccari1993; @Alibert1994; @Beard1995; @Ducea1996; @Ducea1998a; @Jove1998; @Lee2001; @Lee2006; @Usui2003; @Luffi2009].
 
 These studies suggest clear correspondence between xenolith-sampled
 upper mantle domains and surface geology. Sub-continental suites
@@ -87,8 +87,8 @@ batholith, the latter widely exposed in ranges of the Mojave plateau
 rocks share a common regional upper plate position above a polyphase
 low-angle fault system below which Franciscan-affinity, mainly metaclastic rocks,
 were tectonically underplated in the Late Cretaceous
-[@Malin1995; @Barth2003; @Yan2005; @Ducea2009; @Chapman2010; @Chapman2012 @Chapman2016b].
-The underplated metaclastic rocks are exposed in a series of windows
+[@Malin1995; @Barth2003; @Yan2005; @Ducea2009; @Chapman2010; @Chapman2012; @Chapman2016b].
+The underplated metaclastic rocks are exposed in a series of tectonic windows
 that are labeled as subduction channel schists in @fig:context. Detritus for the
 schist protoliths was derived from the upper plate batholithic belt that was
 vigorously uplifted above a shallow flat segment of the greater Franciscan
@@ -114,14 +114,14 @@ source regime for the overlying batholith. Integrated mantle xenolith studies
 and deep seismic imaging document this process.  Late Miocene small volume
 volcanic flows and plugs from the central Sierra Nevada batholith [@fig:context]
 carry xenolith suites that sampled the Cretaceous mantle wedge of the overlying
-batholith [@Ducea1996, @Ducea1998a; @Lee2001, @Lee2006; @Saleeby2003].
+batholith [@Ducea1996; @Ducea1998a; @Lee2001; @Lee2006; @Saleeby2003].
 The central and northern regions of the batholith are currently
 exposed over shallow to medial crustal depths (2 to 4 kb pressure), whereas at
 its southern reaches traversing towards the Garlock fault, a continuous
 gradient to deep levels (10 kb) is exposed [@Nadin2008]. At these
 deep levels the structural base of the batholith consists of the normal sense
 remobilized shallow subduction megathrust, beneath which lie the underplated
-schists [@Saleeby2003; @Chapman2010, @Chapman2012, @Chapman2016b]. Seismic reflection
+schists [@Saleeby2003; @Chapman2010; @Chapman2012; @Chapman2016b]. Seismic reflection
 data image the megathrust as effectively flat beneath the western Mojave
 plateau [@Yan2005], and dipping ~30ºN beneath the southernmost Sierra
 Nevada region [@Malin1995]. The Garlock fault [@fig:context] nucleated during
@@ -129,9 +129,11 @@ the early Miocene along this inflection in the megathrust [@Saleeby2016],
 which constituted a lateral ramp in the subduction
 megathrust system [@Saleeby2003; @Chapman2016b]. In contrast to the
 central Sierra xenolith suite, mantle xenoliths recovered from the eastern
-margin of the southern California batholith record the tectonic erosion of
+margin of the southern California batholith record the partial tectonic erosion of
 sub-continental mantle lithosphere (including Cretaceous mantle wedge), and the
 underplating of Farallon plate mantle lithosphere [@Shervais1973; @Luffi2009; @Shields2016GSA].
+<fixme>Not everybody likes the underplated Farallon interpretation, be
+sure to mention @Armytage2015.</fixme>
 More specifically the Dish Hill suite [@fig:context] samples an upper
 mantle duplex with imbricated nappes of Farallon plate oceanic mantle lying in
 structural sequence beneath a relatively thin roof of attenuated continental

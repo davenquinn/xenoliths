@@ -21,8 +21,8 @@ geothermometry shows similar results, but hotter for the hottest and deepest sam
 Broadly the samples can be divided into two groups based on temperature of
 equilibration, which also manifest in trace-element patterns, Cr content in
 spinels, and Ca in olivine. Ca-in-olivine barometry and phase stability limits
-suggest that the xenoliths were sourced along a depth gradient in the 45-75 km
-range. This corresponds to regional geothermal
+suggest a xenolith source in the 45-75 km
+depth range. This corresponds to regional geothermal
 gradients ranging from 70-90 mW/m2, broadly in agreement with regional heat
 flow measurements.
 The samples show variable depletion, with residual harzburgites at deeper depths.
@@ -39,7 +39,7 @@ constraints. Given this, the preferred tectonic scenario for the construction
 of the region’s mantle lithosphere is subduction underplating of Farallon plate
 during the latest Cretaceous followed by cooling at depth over the Paleogene,
 and then superposed slab window formation at ~80 km depth during the Neogene.
-This scenario can explain the temperature and depth distribution of the Crystal
+This scenario explains the temperature and depth distribution of the Crystal
 Knob xenoliths, as well as the paired depletion and re-enrichment signatures
 recorded by most of the samples. This work shows that the mantle lithosphere
 beneath the Coast Ranges was constructed in a similar fashion as the mantle

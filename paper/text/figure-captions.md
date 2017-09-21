@@ -25,7 +25,8 @@ on the Rinconada fault within the area of Salinian nappes.
 
 ##microscope-images
 Optical petrographic images (2.5 mm wide field of view) showing characteristic textures
-found in the Crystal Knob sample set. (a) shows sample CK-D2, with the edge of a cumulate xenolith
+found in the Crystal Knob sample set.
+(a) shows sample CK-D2, with the edge of a cumulate xenolith
 composed of equant olivine (ol) grains at ~200 µm characteristic scale, set against
 a host lava groundmass containing <100 µm phenocrysts of olivine, pyroxene, and plagioclase feldspar.
 (b) shows the spinel lherzolite sample CK-4 with >2 mm olivine, orthopyroxene (opx), clinopyroxene (cpx),
@@ -36,14 +37,13 @@ material consisting of mosaic-textured olivine grains.
 ##reconstruction
 Tectonic reconstruction of the California margin at 19 Ma showing the
 early evolution of the San Andreas transform system, offshore oceanic
-plates, and Cretaceous batholithic belt.
-Exposures of Salinia nappes
-are shown as red patches west of the future San Andreas Fault.
-The view shows the disaggregated Mojave--Salinia batholith and surface
-outcrops of subduction channel schists in the Mojave province.
+plates, and the reconstructed location of modern exposures of the
+Cretaceous batholithic belt, the disaggregated Mojave--Salinia batholith,
+and surface outcrops of subduction channel schists in the Mojave province.
 Reconstruction of displaced features such as Salinia
 batholithic exposures from @Schott1998, @Schott2001, @Chapman2012, and @Dickinson2005
-is combined with reconstruction of the evolving slab window and microplate detachment after @Wilson2005.
+is combined with reconstruction of the evolving slab window and
+microplate detachment after @Wilson2005.
 The Monterey plate ridge ceased spreading at 20 Ma (Chron 6),
 which is labeled and corresponds to the similar time label on
 @fig:neogene_sections|b.
@@ -114,8 +114,7 @@ depletion characteristics and a variety of re-enrichment patters.
 (a) Recalculated whole-rock trace elements for xenolith samples
 @tbl:trace_elements presented with best-fitting
 modeled compositions for depleted peridotite and enriching
-fluid per sample, using the model discussed in text.
-Normal mid-ocean
+fluid, using the model discussed in text. Normal mid-ocean
 ridge basalt (NMORB) rare-earth composition is
 from @Sun1989, and the range presented for alkali basalts
 is compiled from a suite of Mojave-desert samples measured by @Farmer1995.

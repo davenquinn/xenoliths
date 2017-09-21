@@ -10,16 +10,16 @@ The depth of the xenolith samples in the mantle lithosphere, coupled
 with equilibration temperatures, provides a fully-defined constraint on the
 geotherm beneath Crystal Knob at the time of eruption. For spinel
 peridotites, equilibration depths can only be analytically
-determined within broad boundaries. With no reliable geobarometers for spinel peridotites,
+estimated within broad boundaries. With no reliable geobarometers for spinel peridotites,
 several less robust metrics are used to evaluate the depth
 of the xenolith source. We present several lines of reasoning suggesting that the
 xenoliths were sourced along a depth gradient relatively deep within the spinel stability
 field, between roughly 45 and 80 km.
 
 Several of the techniques below produce estimates of pressure, rather
-than depth. We use a geothermal gradient based on integration of the
-crustal and mantle densities given in @tbl:model_parameters. This yields
-a gradient of ~0.03 GPa per km across the mantle lithosphere.
+than depth. To discuss these data in depth--temperature space, we correct
+them using a hydrostatic gradient of ~0.03 GPa per km across the mantle lithosphere,
+based on integration of the crustal and mantle densities given in @tbl:model_parameters.
 
 <!--[[ree_temperatures]]-->
 
@@ -29,11 +29,13 @@ Entrainment depths of all peridotite xenoliths must be greater than ~30 km,
 the depth of the Moho near the Crystal Knob eruption site [@Trehu1991],
 which will be discussed in more detail in @sec:tectonic_scenarios.
 Another minimum depth constraint is the plagioclase--spinel peridotite
-facies transition, which occurs at depths of 20-30 km [@Green1970a; @Borghini2009].
+facies transition, which occurs at depths of 20-30 km but is
+highly composition-dependent [@Green1970a; @Borghini2009], with high-Cr
+harzburgites stable to the surface.
 
 The high-pressure boundary of spinel stability limits maximum possible
 entrainment depths.
-The spinel--garnet peridotite phase transition is
+The spinel--garnet peridotite facies transition is
 composition-dependent and poorly constrained for
 natural systems, but thought to lie over the 50-80 km depth interval
 [@ONeill1981; @Kinzler1997; @Gasparik2000; @Klemme2004].
@@ -47,12 +49,11 @@ a simple empirical relationship of spinel-out depth with Cr content and temperat
 Cr, garnet is unstable at depths less than 80 km at the peridotite solidus (~1470ºC at this depth).
 Subsolidus experimental results show that the maximum depth of the spinel
 stability field in the absence of Cr ranges from 1.8-2.0 GPa (55-60 km) at 1000-1200ºC
-[@Klemme2000], a slightly deeper estimate than @ONeill1981.
+[@Klemme2000].
 Chromian spinels can be stable to much greater depth:
 thermodynamic modeling by @Klemme2004 suggests a broad garnet-spinel
 co-stability field (up to a spinel-out reaction at 5 GPa for Cr# of ~30),
-but given the unconstrained assumption of ideal
-garnet--spinel mixing, a spinel-weighted metastable assemblage is possible even
+but a spinel-weighted metastable assemblage is possible even
 at higher pressures.
 
 As shown in @fig:spinel_cr, samples in the high-temperature cohort (CK-3, CK-4, and CK-6) have
@@ -61,11 +62,9 @@ refractory Cr arises from the increased depletion of these samples and
 expands the stability field of spinel against garnet to deeper depths.
 
 Though @Robinson1998, @Klemme2000, and @Klemme2004 show a high-pressure
-phase transition with a complex compositional dependence, the chief
-differences from a simple CMAS model are focused at high
-temperatures and pressures.
-The rough estimate of the garnet-in pressure
-given by @ONeill1981 is sufficiently accurate at T < 1200 ºC.
+phase transition with a complex compositional dependence,
+the rough estimate of the garnet-in pressure
+given by @ONeill1981 performs sufficiently well at T < 1200 ºC.
 This empirical relationship is used in @fig:depth to graphically illustrate
 the phase-transition depths given the Cr# of each sample (with error
 bars of 0.15 GPa).
@@ -77,11 +76,6 @@ up to 15 km relative to Cr-free compositions, from ~65 km for the
 low-temperature samples to maximum depths of ~80 km for the high-temperature cohort.
 
 ### Ca-in-olivine barometer
-
-Peridotite barometers are based on the decreasing Al content of
-orthopyroxene with depth [@Nickel1985; @Brey1990; @Nimis2000]. However, in
-the absence of garnet, the reaction is purely thermometric, with nearly
-vertical isopleths in P-T space [@Herzberg1978; @Gasparik2000].
 
 Equilibration pressure measurements are attempted for the peridotite
 xenoliths using the @Kohler1990 Ca-in-olivine
@@ -118,7 +112,7 @@ the poor calibration of the barometer itself. The low-temperature samples in
 particular have significant scatter towards depths above the spinel-in isograd.
 The small Ca cation diffuses rapidly during transient heating [@Kohler1990],
 which produces a shallowing bias on the depth distribution.
-This may explain that CK-4, the most altered sample, has a depth mode
+This may explain why CK-4, the most altered sample, has a depth mode
 ~10 km shallower than the other samples (CK-3 and CK-6) with similar equilibration temperatures.
 The temperatures derived from the independent REE system are higher
 than the major-element temperatures for several samples in the high-temperature

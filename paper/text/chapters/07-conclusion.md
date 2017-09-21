@@ -71,7 +71,7 @@ event not fully re-equilibrated in LREEs. This is underscored by the presence
 of melt-infiltration textures in sample CK-4. The apparent polyphase
 major-element refertilization in sample CK-6 as well as the apparently
 re-enriched clinopyroxenes across the sample set attest to the assimilation of
-varying amounts of material after the initial crystallization of these
+varying amounts of material after the initial equilibration of these
 xenoliths, and re-equilibration of major-element compositions after this event.
 
 The sourcing of the Crystal Knob pipe from
@@ -138,21 +138,22 @@ generation. This was perhaps accentuated by possible extensional
 transients along the fault surface as documented for the Coyote Lake
 basalts [@Jove1998; @Titus2007]. Thermal modeling
 presented above indicates that underplated Farallon mantle was already
-re-heated by the deeper Neogene slab window. The dominance of dunite
-cumulate xenoliths that appear to be related to the Crystal Knob lava,
-and that volumetrically far exceed the lithospheric peridotite
-xenoliths, attest to at least another reheating event at ca. 1.7 Ma. Two
-of the principal thermal maxima in the Coast Range thermal anomaly occur
+re-heated by the deeper Neogene slab window. The abundance of dunite
+cumulate xenoliths and xenocrysts in the Crystal Knob basalt suggests the generation
+of significant melt in the mantle lithosphere beneath the Coast Ranges, and the
+entrainment of peridotite xenoliths underscores its rapid ascent at ca. 1.7 Ma.
+Two of the principal thermal maxima in the Coast Range thermal anomaly occur
 in the areas of the Crystal Knob and Coyote Lake Plio-Pleistocene
 basaltic eruptions [@Erkan2008, Figure 1], further
 suggesting recent mobilization of asthenospheric mantle that was
-initially emplaced into the early Neogene slab window.
+initially emplaced into the early Neogene slab window, due to
+extension in the mantle lithosphere.
 
 Conclusion
 ==========
 
-The lithosphere of southern California, to first order created by
-Cretaceous convergent margin tectonics, was severely structurally
+The lithospheric structure of southern California, to first order created by
+Cretaceous convergent margin tectonics, was severely
 overprinted by two subsequent tectonic episodes, with the impact and
 subduction of the Shatsky Rise large igneous province conjugate during
 the Late Cretaceous followed by the progressive evolution of a transform

@@ -1,0 +1,3 @@
+- Add T vs. F plot to figure `temp_summary`
+- Add Warren abyssal peridotites to `fig:trace_elements`?
+- Group petrologic tables together

@@ -191,19 +191,21 @@ underplated mantle nappe(s) cool beneath the forearc for 50 Myr, after
 which the geotherm is perturbed by the underplating of asthenosphere
 at ~80 km depth, corresponding to a deep slab window.
 
-In several model runs, asthenosphere with an adiabatic temperature
-gradient is held against the base of the lithosphere for periods
-ranging from 0 Myr (instantaneous contact
-followed immediately by conductive relaxation) to 6 Myr. The model
-for 6 Myr of sustained upwelling at the base of the lithosphere
+In several model runs, asthenosphere is held against the base of the lithosphere for periods
+ranging from 0 Myr to 6 Myr.
+An adiabatic temperature gradient with a
+mantle potential temperature of 1450ºC is held against the base of the
+lithosphere for the duration of contact.
+The model for 0 Myr entails instantaneous contact followed immediately
+by conductive relaxation, while 6 Myr of sustained upwelling
 produces the "kinked" geotherm seen in panel 4 of @fig:model_results|c
-at the 18 Ma time step, due to imposition of a mantle adiabat below 80
+at the 18 Ma time step, due to continuing imposition of a mantle adiabat below 80
 km depth. A single model without slab window heating
 [highlighted in @fig:model_comparison] predicts much
 cooler geotherms that do not match the mantle geothermal constraints
 developed in this study.
 
-Figure @fig:model_results|c, panel 2 shows the thermobarometric constraints
+@fig:model_results|c, panel 2 shows the thermobarometric constraints
 and inverted metamorphic gradient recorded by subduction-channel schists for this episode of
 subduction [@Kidder2006; @Kidder2013] and used to tune the @Royden1993a
 forearc geotherm model.
