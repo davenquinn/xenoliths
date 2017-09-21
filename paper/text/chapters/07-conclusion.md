@@ -156,7 +156,7 @@ The lithospheric structure of southern California, to first order created by
 Cretaceous convergent margin tectonics, was severely
 overprinted by two subsequent tectonic episodes, with the impact and
 subduction of the Shatsky Rise large igneous province conjugate during
-the Late Cretaceous followed by the progressive evolution of a transform
+the Late Cretaceous and the progressive evolution of a transform
 boundary in the Neogene. These episodes are recorded throughout the
 crustal geologic record of southern California and the central
 California Coast Ranges outboard of the San Andreas Fault. Using
