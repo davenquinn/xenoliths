@@ -236,27 +236,26 @@ North American subcontinental mantle or continental lithosphere more generally.
 The mantle lithosphere sampled by the Crystal Knob suite was created
 from the same convective mantle reservoir and is distinct from the overlying
 crustal material.
+However, the two temperature cohorts seem to sample mantle material
+with somewhat different major- and trace-element characteristics.
 
-However, the two cohorts in temperature seem to sample mantle material
-with somewhat different major- and trace-element characteristics. In
-major elements, the low-temperature cohort generally includes phases
-with relatively fertile compositions, with modal abundances showing a
-trend towards depletion by decrease in the abundance of pyroxene phases.
-This is supplemented by relatively undepleted pyroxene trace-element
-patterns: In clinopyroxene trace elements, the low-temperature cohort
-ranges from essentially undepleted to low levels of depletion
+The low-temperature cohort includes phases
+with relatively fertile compositions in both major and trace elements.
+The samples have phase compositions similar to depleted MORB
+mantle [@Workman2005], and clinopyroxene trace element patterns
+range from essentially undepleted to low levels of depletion
 characteristic of the least-depleted abyssal peridotites
-[@fig:cpx_literature_comparison].
+[@fig:trace_elements].
 
 The high-temperature samples show major-element compositions with lower
-Mg\#s, suggesting that depletion progressed differently, with all phases
-losing incompatible elements during depletion. Within this cohort, CK-3 and
+Mg\#s, suggesting that depletion progressed further, with all phases
+losing incompatible elements. Within this cohort, CK-3 and
 CK-4 show significantly higher levels of REE depletion and extremely low
 clinopyroxene modes, as well as distinct enrichments in clinopyroxene
 LREEs, which likely correspond to assimilation of enriching fluid and
 are notably different from profiles found in abyssal peridotites
-[@fig:cpx_literature_comparison]. They also contain chromian spinels,
-which are indicative of significant melt extraction.
+[@fig:trace_elements; @fig:ree_model]. They also contain chromian spinels,
+which indicate significant melt extraction.
 
 Phases within sample CK-6 show uniformly low Mg\#s, suggesting
 enrichment. However, high modal abundance of pyroxene
