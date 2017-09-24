@@ -85,14 +85,14 @@ including the low Mg\# of CK-6, the most fertile sample.
 
 ##ca_in_olivine
 Calcium abundance in olivine for xenolith samples, showing the
-separability of each sample's cluster in the dataset.
+per-sample separability of microprobe analyses
+despite low measured abundances.
 
 ##spinel_cr
-Spinel Cr# vs. Mg# showing two groups of samples with low and high Cr content, corresponding
-to the temperature cohorts of the dataset. Mg# is corrected based on
-constraints on iron residence in the octahedral-coordination cation
-site. The shift to higher Mg# evident in all samples reflects the
-presence of oxidized iron in the tetrahedral site in all samples.
+Spinel Cr# vs. Mg# showing two groups of samples with low and high Cr content,
+corresponding to different levels of depletion. Mg# is corrected based cation charge balance.
+The highest-Cr samples (CK-3 and CK-4)
+are harzburgite residues, while the CK-6 is an apparently refertilized lherzolite.
 
 ##whole_rock_major
 Major element composition (oxide %$_\textrm{wt}$, normalized to 100%)
@@ -166,11 +166,20 @@ reproduction of two clear temperature cohorts around 980 and 1080ºC
 by this thermometer for grain cores.
 
 ##temp_summary
-Summary of temperature data showing the two temperature cohorts
+Summary of temperature and depletion-degree data for the peridotite
+xenoliths showing the two temperature cohorts
 of the dataset, which remain separable for all thermometers and
-are centered roughly 80ºC apart. The higher temperature estimates for
-the REE thermometer for samples CK-4 and CK-6 may reflect a fossil
+are centered roughly 80ºC apart. Estimates for all thermometers
+track together except for the higher temperature estimates for
+the REE thermometer for samples CK-4 and CK-6, which may reflect a fossil
 heating event.
+Spinel Cr\# and several melt-extraction proxies are used to assess
+the level of depletion of the samples. The lower-temperature
+samples are generally less depleted in all systems, with variable MgO and
+\ce{Al2O3} depletion reflecting low modal abundances of pyroxene.
+Sample CK-6 has moderately high spinel Cr\# but low
+levels of whole-rock depletion, suggesting bulk assimilation
+of an enriching fluid.
 
 ##depth
 Summary of depth constraints for the xenolith samples.
@@ -180,9 +189,9 @@ values of surface heat flow are
 plotted beneath the data, and the hatched region represents the
 bounds of the potential xenolith source region assembled from the  Lines show
 per-sample maximum emplacement depths calculated using the expanded
-stability of high-chromian spinel [@ONeill1981] with error bars of
-0.15 GPa. The synthesis of this data suggests that the samples were sourced from
-~50--70 km depth.
+stability of high-chromian spinel [@ONeill1981] with error bars of 0.15 GPa.
+The synthesis of this data suggests that the samples were sourced from
+~45--70 km depth.
 
 ##model_results
 Temperature-depth profiles through the crust and upper mantle

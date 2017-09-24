@@ -3,7 +3,7 @@
 The Crystal Knob volcanic neck (35.806º N, 121.174º W) is a mid-Pleistocene
 olivine--plagioclase phyric basalt that erupted along the margin of the
 Franciscan assemblage 500 m west of the Nacimiento Fault in the Santa Lucia
-Mountains of central California [@Seiders1989]. It was briefly described in 
+Mountains of central California [@Seiders1989]. It was briefly described in
 @Wilshire1989 but not studied in detail. The basaltic plug is ~80
 m in diameter at the surface and has entrained abundant dunite and sparse
 spinel peridotite xenoliths [@fig:field_photo]. The dunites are cumulates, and

@@ -56,34 +56,33 @@ reconstructed to have occurred between ca. 28-23 Ma [@Atwater1998; @Wilson2005].
 As posited above, a thick and relatively cool lithospheric lid
 inhibited widespread voluminous volcanism in response to asthenospheric
 upwelling during the opening of the slab window.
-Petrologic markers within the Crystal Knob xenolith suite and the late
-timing of the Crystal Knob eruption can be related to interaction of
-the lithospheric lid from which the xenoliths were sourced, with an
-underlying deep slab window [@fig:neogene_sections|c].
 
 ## Implications of petrologic complexities to thermal state
 
+Petrologic markers within the Crystal Knob xenolith suite and the late
+timing of the Crystal Knob eruption can be related to interaction of
+the lithospheric lid from which the xenoliths were sourced with an
+underlying deep slab window.
 The Crystal Knob xenolith suite shows petrologic variation consistent
-with reheating from below.  As discussed in @sec:temperature-significance,
-the LREE disequilibrium seen in
-several samples (especially CK-4) could be the signature of a fossil heating
-event not fully re-equilibrated in LREEs. This is underscored by the presence
-of melt-infiltration textures in sample CK-4. The apparent polyphase
-major-element refertilization in sample CK-6 as well as the apparently
-re-enriched clinopyroxenes across the sample set attest to the assimilation of
-varying amounts of material after the initial equilibration of these
-xenoliths, and re-equilibration of major-element compositions after this event.
+with reheating from below.  As discussed in @sec:PT-geochemical-variation,
+the array of increasing depletion with depth in the Crystal Knob sample
+set does not match simple decompression melting, and sample CK-6
+contains polyphase major-element refertilization by fractionated
+melt presumably generated below its pre-eruptive depth. At the same time,
+low levels of re-enrichment by alkali-basalt-like melt are evident across
+the sample set. Deep partial melting and alkalic melt generation are common
+features of slab window volcanism [@Hole1991].
 
 The sourcing of the Crystal Knob pipe from
 relatively deep levels of the mantle lithosphere, the highly
-fractionated nature of the magma with zoned phenocrysts, and the
+fractionated, alkalic magma, and the
 presence of both dunite cumulates and peridotite xenoliths suggest that
 the magma was sourced from a complex multi-tiered melt percolation
-network within the mantle lithosphere at depths >50 km, such as that
-investigated by @Kelemen2000, which includes fractal scaling of melt
-migration channels hosting cumulates, which are sometimes re-entrained
-by small-volume volcanism. Such a network is linked to progressive
-percolation of melt upwards from a deep mantle source.
+network within the mantle lithosphere at depths >45 km, such as the
+fractal scaling of melt migration channels
+investigated by @Kelemen2000. These host cumulates which are sometimes re-entrained
+by small-volume volcanism, during a process of progressive upwards
+percolation of melt from a deep mantle source.
 
 A long-duration reservoir of slab window material locally rising through a thick lid of
 relict mantle lithosphere may explain both mid-Miocene hypabyssal intrusives
@@ -92,11 +91,12 @@ that are directly related to the slab window episode
 and the Cambria Felsite [@Ernst1974]) and later deeply
 sourced small-volume eruptions such as Crystal Knob.
 
-## Origin of the Crystal Knob basalt {#sec:crystal_knob_eruption}
+## The Crystal Knob eruptive event {#sec:crystal_knob_eruption}
 
 The time lag between deep slab window opening and the ca. 1.7
 Ma eruptive age of Crystal Knob presents a problem for the origin of the
-Crystal Knob lava. Our studies on the Crystal Knob xenoliths indicate an
+Crystal Knob lava.
+Our studies on the Crystal Knob xenoliths indicate an
 underlying lithosphere-asthenosphere boundary at a depth of 70-90 km,
 consistent with regional seismic studies placing it at ~70 km
 beneath the central California Coast Ranges [@Li2007]. In
@@ -105,7 +105,7 @@ contrast, 28-20 Ma old oceanic lithosphere of the adjacent Monterey plate
 based on thermal decay relations [@Doin1996].
 The offshore Monterey plate is at the edge of the
 resolution of @Li2007, which yields an ~50 km depth for the
-lithosphere-asthenosphere boundary.  Proximal to the modern shoreline
+lithosphere-asthenosphere boundary.  Proximal to the modern shoreline,
 the Monterey plate is thrust beneath ~12 km of sedimentary accretionary
 prism [@Trehu1991], bringing the theoretical thermal maturation depth
 for the transition much closer to the depth observed by @Li2007.
