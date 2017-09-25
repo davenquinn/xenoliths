@@ -82,6 +82,10 @@ samples. Dotted lines show Mg\# levels.
 the silicate phases in the Crystal Knob peridotite xenoliths.
 This shows the range in major-element depletion between samples,
 including the low Mg\# of CK-6, the most fertile sample.
+(c) Spinel Cr# vs. Mg# showing grouping of samples by Cr content,
+corresponding to different levels of depletion. Mg# is corrected based cation charge balance.
+The highest-Cr samples (CK-3 and CK-4)
+are harzburgite residues, while the CK-6 is an apparently refertilized lherzolite.
 
 ##ca_in_olivine
 Calcium abundance in olivine for xenolith samples, showing the
