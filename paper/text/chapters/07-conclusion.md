@@ -1,6 +1,6 @@
 # Contemporary lithospheric structure and thermal state
 
-In this section we integrate the results of our thermal modeling with our
+In this section we integrate the results of thermal modeling with
 petrogenetic findings on the Crystal Knob xenoliths, regional crustal structure
 and evolution, and the timing and location of xenolith entrainment. Of the
 three plausible scenarios depicted for the evolution of the sub-Crystal Knob
