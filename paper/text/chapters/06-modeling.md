@@ -81,7 +81,7 @@ reproducing neither the xenolith pressure--temperature array developed
 in this study nor the seismically-inferred depth of the
 lithosphere-asthenosphere boundary [e.g. @Li2007].
 
-### Stalled slab
+### Neogene stalled slab
 
 The geologic context of the stalled slab scenario is shown in
 @fig:neogene_sections|b, and our thermal modeling of this scenario
@@ -93,35 +93,30 @@ initial thermal structure corresponding to the Global Depth and Heat model
 [@Stein1992] for oceanic lithosphere of a given age of oceanic crust.
 
 We model cooling scenarios for a wide range of underplating times,
-reflecting the long subduction history of the Farallon plate beneath the
+with the start of subduction ranging from 22 to 80 Ma.
+This reflects the long subduction history of the Farallon plate beneath the
 central California coast through the Cretaceous and Paleogene.
-In principle, backstepping of the subduction megathrust and underplating of a
-slice of mantle lithosphere could have occurred at any time during this
-history. However, only the youngest stalled slab models correspond
-to geodynamic and geological evidence of a specific episode of
-subduction instability.
-
-We track a series of scenarios with differently-timed underplating
-events, with the start of subduction ranging from 22 to 80 Ma. These
-subduction times, T$_\textrm{start}$,  set the beginning of the models
-shown in @fig:model_tracers|b and are shown in the first panel of
+These subduction times, T$_\textrm{start}$,  set the initial conditions
+shown in @fig:model_tracers|b and the first panel of
 @fig:model_results|b. Each model operates on oceanic crust of the
 appropriate age for the time of subduction, given the geometry of
 Farallon plate subduction over the Cretaceous and Paleogene [@Liu2010; @Seton2012].
-As the subduction time moves towards the present, the age
+As T$_\textrm{start}$ approaches the present, the age
 of subducted oceanic crust generally decreases, reflecting the approach
 of the Pacific--Farallon spreading ridge to the western margin of North
 America.
 
 Stalled slab scenarios with subduction ages older than 30 Ma simulate
 rollback during sustained Farallon-plate subduction.
-These are considered geologically improbable, fitting none of our
-tectonic scenarios, but are included to fully
-explore the model space between model groups **B** and **C**.
-They are represented with a reduced opacity on @fig:model_tracers|b.
+While backstepping of the subduction megathrust and underplating of a
+slice of mantle lithosphere could, in principle, occur at any time during
+subduction, these older stalled-slab models do not correspond
+to geodynamic and geological evidence of a specific episode of
+subduction instability. Though improbable, these models are included to fully
+explore the model space between model groups **B** and **C**,
+and are represented with a reduced opacity on @fig:model_tracers|b.
 In the oldest model with a subduction time of 70 Ma, the
-oceanic lithosphere is 50 Myr old at the time of subduction (and thus
-was generated beneath the Pacific--Farallon spreading ridge at 120 Ma).
+oceanic lithosphere is 50 Myr old at the time of subduction.
 At this time, the Shatsky conjugate had already subducted to beneath the Cordilleran
 interior [@Liu2010] and the Nacimiento belt of the Franciscan
 was in its later stages of subduction accretion [@Chapman2016a].

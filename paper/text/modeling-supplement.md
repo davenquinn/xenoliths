@@ -1,6 +1,6 @@
-# Supplementary file: thermal modeling setup {#sec:model_supplement label="Modeling Supplement"}
+# Supplementary Information {#sec:model_supplement}
 
-## Model setups
+## Thermal modeling setup
 
 Standardized parameters used in modeling are justified
 in the text below. Standard values for thermal conductivity from
@@ -101,7 +101,7 @@ sediment rich in radiogenic elements [@Vila2010]. Still, lower
 radiogenic heat production in the crust yields only a slight decrease in
 modeled geotherms across the board, not impacting conclusions.
 
-## Model sensitivity and bias {#sec:model_bias}
+## Thermal model sensitivity and bias {#sec:model_bias}
 
 Generally, changes in model parameters such as radiogenic heat flux,
 thermal conductivity, and heat capacity do not impact the relative
