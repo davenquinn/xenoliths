@@ -14,7 +14,7 @@ estimated within broad boundaries. With no reliable geobarometers for spinel per
 several less robust metrics are used to evaluate the depth
 of the xenolith source. We present several lines of reasoning suggesting that the
 xenoliths were sourced along a depth gradient relatively deep within the spinel stability
-field, between roughly 45 and 80 km.
+field, between roughly 45 and 75 km.
 
 Several of the techniques below produce estimates of pressure, rather
 than depth. To discuss these data in depth--temperature space, we correct
@@ -56,7 +56,7 @@ co-stability field (up to a spinel-out reaction at 5 GPa for Cr# of ~30),
 but a spinel-weighted metastable assemblage is possible even
 at higher pressures.
 
-As shown in @fig:spinel_cr, samples in the high-temperature cohort (CK-3, CK-4, and CK-6) have
+As shown in @fig:major_elements|c, samples in the high-temperature cohort (CK-3, CK-4, and CK-6) have
 higher spinel Cr# than the low-temperature samples. This enrichment in
 refractory Cr arises from the increased depletion of these samples and
 expands the stability field of spinel against garnet to deeper depths.
@@ -80,7 +80,7 @@ low-temperature samples to maximum depths of ~80 km for the high-temperature coh
 Equilibration pressure measurements are attempted for the peridotite
 xenoliths using the @Kohler1990 Ca-in-olivine
 barometer, which is based on the decreasing abundance of Ca
-cation in olivine with pressure. This barometer is explicitly calibrated for spinel
+in olivine with pressure. This barometer is explicitly calibrated for spinel
 peridotites but should be treated with caution based on poor resolution,
 high temperature dependence,vulnerability to late-stage diffusion, and dependence on low Ca
 concentrations in olivine near analytical thresholds for
@@ -97,7 +97,7 @@ This yields a set of separate internally consistent depth and temperature
 measurements for each sample corresponding to individual pairs of
 microprobe measurements.
 In @fig:depth, we show the full pressure--temperature error space for each
-sample by applying a Monte Carlo random sampling to the analytical
+sample by applying a Monte Carlo random sampling ($n=100,000$) to the analytical
 errors on each pressure estimate.
 
 The Ca-in-olivine barometer yields a broad distribution in model depths,
@@ -142,7 +142,7 @@ ranging from 60 to 120 mW/m^2, all of which intersect the potential
 depth distributions from spinel stability and Ca-in-olivine barometry.
 
 These geothermal gradients are calculated using thermal conductivity and
-diffusivity given in @tbl:model_parameters for the crust, to a depth of
+diffusivity given in @tbl:model_parameters for the crust to a depth of
 30 km, and mantle lithosphere below this level.
 No fixed amount of radiogenic heat production is assumed, but the average empirical
 factor of 0.6 proposed by @Pollack1977 is used to
@@ -159,7 +159,7 @@ thermal conductivity is reduced to match our conditions for dynamic
 thermal modeling [@sec:modeling]. This yields a slightly "hotter"
 geotherm throughout the mantle lithosphere.
 
-The stability-field constraints on the Crystal Knob xenoliths correspond to a broad
+Phase stability constraints on the Crystal Knob xenoliths correspond to a broad
 range of plausible lithospheric conductive geotherms.
 The hottest potential geotherm keeping the sample set within the spinel stability
 field is > 120 mW/m^2 at the surface.
@@ -167,10 +167,10 @@ Accounting for the Cr-dependent
 depth of the spinel--garnet transition, the 65 mW/m^2 conductive geotherm is
 the coolest that places all samples within the spinel stability field.
 The centroids of the Ca-in-olivine model depth distributions broadly
-correspond to a range in surface heat flow from ~70 to 110 mW/m^2.
+correspond to surface heat flows ranging from ~70 to 110 mW/m^2.
 
 Using a database of surface heat flows for North America,
-@Erkan2009 estimates regionally-averaged heat flows of 80-90 mW/m^2 for the
+@Erkan2009 estimate regionally-averaged heat flows of 80-90 mW/m^2 for the
 central California coast, including the vicinity of Crystal Knob.
 Projection of the TA98 temperature distribution onto our calculated
 steady-state geotherms yields model depths of ~45-55 km for the
@@ -192,7 +192,7 @@ the spinel stability field. Ca-in-olivine barometry suggests a tighter set of
 constraints near the center of the spinel stability field. Model depths of
 45-55 km prepared from steady-state geotherms agree with this assessment, but
 might be underestimates. Given the bias in both Ca-in-olivine and heat-flow
-measurements towards shallower depths, we take the depth range of 45-70 km as
+measurements towards shallower depths, we take the depth range of 45-75 km as
 a likely entrainment depth for the Crystal Knob xenoliths.
 
 This assessment of relatively deep entrainment of the Crystal Knob xenoliths
@@ -202,8 +202,8 @@ seismic tomography show temperatures of 700--1100ºC occurring at depths of
 50--100 km for coastal California [@Goes2002], corresponding to cooler
 geotherms than predicted by surface heat flow. More recent estimates put the
 depth of the lithosphere-asthenosphere boundary at roughly 70 km in the
-southern Coast Ranges [@Li2007]. Given estimates of the subcontinental
-lithosphere-asthenosphere boundary occurring at 1200-1300ºC
+southern Coast Ranges [@Li2007]. Given estimates that the subcontinental
+lithosphere-asthenosphere boundary occurs at 1200-1300ºC
 [e.g. @OReilly2010; @Fischer2010], this corresponds to steady-state
 geotherms of 70-80 mW/m^2.
 

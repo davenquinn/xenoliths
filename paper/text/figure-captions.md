@@ -243,7 +243,7 @@ different times during the subduction of the Farallon plate until its
 cessation in the Neogene.
 The youngest of these scenarios corresponds to the likely
 thermal evolution of a Monterey Plate stalled slab.
-The older models shown in panel B are included for
+The models with subduction times >30 Ma are included for
 completeness, though none of these can be linked to geologic features of
 the margin as well as the Cretaceous underplating and Monterey plate
 scenarios.
@@ -251,11 +251,13 @@ Model tracers begin at 10 and 45 km beneath the seafloor and are
 advected to depths of 40 and 75 km during subduction
 over the first 1.04 Myr of the model run.
 (c) tracks a Farallon-plate slab subducted and underplated
-during the late Cretaceous, as envisioned in @fig:cross_sections. It is similar to the older models of **B**
-but is based on key geologic constraints from subduction channel schists
-[@Kidder2003]. The effects of deep upwelling corresponding with the
-Mendocino slab window are shown for several of the models, in a manner
-similar to (a).
+during the late Cretaceous, as envisioned in @fig:cross_sections. While
+similar to the older models of **B**, it is
+tuned for key thermobarometric constraints on subduction channel schists
+[@Kidder2003]. The effect of
+Mendocino slab window upwelling at the base of this section is shown,
+with timing equivalent to the replacement of the entire mantle lithosphere
+represented in (a).
 
 ##model_comparison
 Comparisons of Crystal Knob eruptive (1.65 Ma) sub-Salinia geotherms for each of the modeled scenarios.

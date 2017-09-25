@@ -1,6 +1,6 @@
 The Crystal Knob volcanic neck in the central California Coast Ranges was
 erupted during the Pleistocene (1.65 Ma) through the
-Nacimiento belt of the Franciscan complex in the coastal region of central
+Nacimiento belt of the Franciscan complex in coastal central
 California. It is composed of
 olivine-plagioclase phyric basalt containing spinel peridotites and
 dunite xenoliths. The peridotites sample the mantle lithosphere beneath the

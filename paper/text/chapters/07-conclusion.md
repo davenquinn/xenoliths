@@ -32,17 +32,16 @@ patterns are not expressed north of the Transverse Ranges in late Cenozoic time.
 Furthermore, horizontal translation of a
 previously underthrust slab provides no melting mechanism
 for the early Neogene or Pleistocene volcanic centers of the region. We
-thus conclude that despite of our findings on the Crystal Knob xenolith
-suite not being able to discriminate between the stalled Monterey plate,
-or underplated Farallon nappe cases, the stalled Monterey plate case
-creates more problems than it solves.
+thus conclude that, despite the inability the Crystal Knob xenolith
+suite to fully rule it out, an eastward-extending stalled Monterey plate
+is geologically and geodynamically untenable.
 
 In @fig:neogene_sections|c we show the partially subducted terminus of the Monterey
 plate bounded to the east by the San Gregorio-Hosgri fault, based on our
 above discussion of the @fig:reconstruction reconstruction. East of the fault lies
 the Nacimiento Franciscan complex and its tectonic veneer of Salinia
 nappes (not differentiated on the figure), and its lower crustal oceanic
-crustal duplex lying tectonically above an underplated Farallon plate mantle
+crustal duplex lying tectonically above underplated Farallon-plate mantle
 nappes. The structural profile shown on @fig:neogene_sections|c between the San
 Andreas and San Gregorio-Hosgri faults was constructed at southern
 California latitudes in continuity with that of the southernmost Sierra
@@ -53,7 +52,10 @@ belt [@fig:reconstruction].
 
 Slab window opening beneath the Crystal Knob eruption site is
 reconstructed to have occurred between ca. 28-23 Ma [@Atwater1998; @Wilson2005].
-As posited above, a thick and relatively cool lithospheric lid
+Based on the colocation of distinct Cretaceous structural features with
+the footprint of the Neogene slab window, along with our constraints
+from the Crystal Knob xenoliths, we conclude that a
+thick and relatively cool lithospheric lid
 inhibited widespread voluminous volcanism in response to asthenospheric
 upwelling during the opening of the slab window.
 
@@ -67,11 +69,12 @@ The Crystal Knob xenolith suite shows petrologic variation consistent
 with reheating from below.  As discussed in @sec:PT-geochemical-variation,
 the array of increasing depletion with depth in the Crystal Knob sample
 set does not match simple decompression melting, and sample CK-6
-contains polyphase major-element refertilization by fractionated
+experienced polyphase major-element refertilization by fractionated
 melt presumably generated below its pre-eruptive depth. At the same time,
 low levels of re-enrichment by alkali-basalt-like melt are evident across
 the sample set. Deep partial melting and alkalic melt generation are common
-features of slab window volcanism [@Hole1991].
+features of slab window volcanism [@Hole1991] and may contribute to the
+signature of deep depletion and re-enrichment seen in the Crystal Knob sample set.
 
 The sourcing of the Crystal Knob pipe from
 relatively deep levels of the mantle lithosphere, the highly
@@ -86,25 +89,23 @@ percolation of melt from a deep mantle source.
 
 A long-duration reservoir of slab window material locally rising through a thick lid of
 relict mantle lithosphere may explain both mid-Miocene hypabyssal intrusives
-that are directly related to the slab window episode
-(e.g. the Morro Rock--Islay Hills complex [@Stanley2000]
-and the Cambria Felsite [@Ernst1974]) and later deeply
-sourced small-volume eruptions such as Crystal Knob.
+that are directly related to the slab window episode, such as the Morro Rock--Islay Hills complex [@Stanley2000]
+and Cambria Felsite [@Ernst1974], and later deeply-sourced, small-volume eruptions such as Crystal Knob.
 
 ## The Crystal Knob eruptive event {#sec:crystal_knob_eruption}
 
 The time lag between deep slab window opening and the ca. 1.7
-Ma eruptive age of Crystal Knob presents a problem for the origin of the
+Ma eruptive age of Crystal Knob underscores the unknown genesis of the
 Crystal Knob lava.
-Our studies on the Crystal Knob xenoliths indicate an
+Our studies of the Crystal Knob xenoliths indicate an
 underlying lithosphere-asthenosphere boundary at a depth of 70-90 km,
 consistent with regional seismic studies placing it at ~70 km
 beneath the central California Coast Ranges [@Li2007]. In
-contrast, 28-20 Ma old oceanic lithosphere of the adjacent Monterey plate
+contrast, 28-20 Ma oceanic lithosphere of the adjacent Monterey plate
 [@Wilson2005], would have its lithosphere-asthenosphere boundary at ~35 km,
 based on thermal decay relations [@Doin1996].
 The offshore Monterey plate is at the edge of the
-resolution of @Li2007, which yields an ~50 km depth for the
+resolution of @Li2007, who calculate a ~50 km depth for the
 lithosphere-asthenosphere boundary.  Proximal to the modern shoreline,
 the Monterey plate is thrust beneath ~12 km of sedimentary accretionary
 prism [@Trehu1991], bringing the theoretical thermal maturation depth
@@ -117,17 +118,17 @@ Hardebeck2012--> indicate that it
 was likely active during the eruption of the Crystal Knob neck.
 Integration of theoretical and observational data on intra-continental
 transform faults [@Platt2011; @Titus2007] indicate
-that at lower crustal--upper mantle levels Hosgri fault shear could be
+that, at lower crustal--upper mantle levels, Hosgri fault shear could be
 distributed across 10s of kilometers normal to the fault surface
 [@fig:neogene_sections].
-Eruption of small-volume basaltic flows of Plio-Pleistocene age occurred
+Eruption of small-volume basalts of Plio-Pleistocene age occurred
 elsewhere in the Coast Range belt. This includes
 the Coyote Lake pipe [@fig:context], which occurred ~150 km north
 of Crystal Knob along the San Andreas-Calaveras fault bifurcation
 zone and entrained lower crust and upper mantle xenoliths [@Jove1998; @Titus2007].
 Xenoliths recovered
-from these flows record asthenosphere ascent and partial melting that
-markedly post-dates any possible slab window opening, and thus the
+from these flows record asthenosphere ascent and partial melting
+markedly post-dating any possible slab window opening. Thus, the
 Crystal Knob small volume eruption is not an exceptional event.
 
 Distributed shearing and strike-slip juxtaposition of the shallow
@@ -141,7 +142,7 @@ presented above indicates that underplated Farallon mantle was already
 re-heated by the deeper Neogene slab window. The abundance of dunite
 cumulate xenoliths and xenocrysts in the Crystal Knob basalt suggests the generation
 of significant melt in the mantle lithosphere beneath the Coast Ranges, and the
-entrainment of peridotite xenoliths underscores its rapid ascent at ca. 1.7 Ma.
+entrainment of peridotite xenoliths underscores its rapid ascent at ~1.65 Ma.
 Two of the principal thermal maxima in the Coast Range thermal anomaly occur
 in the areas of the Crystal Knob and Coyote Lake Plio-Pleistocene
 basaltic eruptions [@Erkan2008, Figure 1], further
@@ -186,7 +187,7 @@ from xenolith thermobarometry. When the effects of potential
 exhumation/erosion are qualitatively considered, the Monterey plate
 stalled slab endmember scenario corresponds less well to constraints on
 the upper-mantle geotherm. This, along with a number of crustal
-geologic constraints, leads us to favor the Late Cretaceous mantle nappe
+geologic considerations, leads us to favor the Late Cretaceous mantle nappe
 underplating scenario, with reheating by a deep slab window in the
 Neogene.
 
@@ -205,7 +206,7 @@ transform system to its current location beneath the central California
 Coast Ranges. This displaced package of underplated mantle lithosphere
 records basal reheating by the Mendocino slab
 window, which opened in conjunction with the San Andreas plate juncture.
-Geochemical re-enrichment and abundant dunite cumulate xenoliths and
+Peridotite major- and trace-element re-enrichment and abundant dunite cumulate xenoliths and
 xenocrysts within the Crystal Knob basalt record the percolation of
 fluids and melts through the lithosphere. This percolation, the highly
 fractionated Crystal Knob basaltic pipe, and the modeled Neogene thermal
