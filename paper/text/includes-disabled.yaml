@@ -48,3 +48,6 @@ enabled: true
   file: whole-rock/build/major-elements.tex
   two_column: true
 
+- id: spinel_cr
+  file: major-elements/build/spinel-composition.pdf
+

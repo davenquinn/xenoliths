@@ -52,9 +52,6 @@
 - id: major_elements
   file: major-elements/build/fe-mg.pdf
 
-- id: spinel_cr
-  file: major-elements/build/spinel-composition.pdf
-
 - id: spinel_correction
   type: table
   file: major-elements/build/corrected-spinels.tex

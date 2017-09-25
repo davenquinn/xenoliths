@@ -1,15 +1,22 @@
 from __future__ import division
 import numpy as N
+import matplotlib
+matplotlib.use('Agg')
 from matplotlib.pyplot import figure
 from matplotlib.gridspec import GridSpec
 from xenoliths import app
 from sqlalchemy import or_
 from xenoliths.models import Sample, ProbeMeasurement, ProbeDatum, Tag
 from paper.query import not_bad
-from paper.plot_style import update_axes, axis_labels
+from paper.plot_style import update_axes, axis_labels, lighten
 from sys import argv
 from colour import Color
 from seaborn.apionly import despine
+import matplotlib.pyplot as P
+import yaml
+from pandas import DataFrame
+from query import spinel_data
+from spinel_calc import correct_spinel, get_cations
 
 minerals = ['ol','cpx','opx']
 m = ProbeMeasurement
@@ -35,9 +42,9 @@ with app.app_context():
         .filter(m.oxide_total > 98)
         .filter(not_bad()))
 
-    fig = figure(figsize=(4,5.5))
+    fig = figure(figsize=(4,7.5))
 
-    gs = GridSpec(2,2, height_ratios=[2,1], width_ratios=[2.5,3.5], wspace=0.04)
+    gs = GridSpec(3,2, height_ratios=[2,1,1], width_ratios=[2.5,3.5], wspace=0.04)
     ax = fig.add_subplot(gs[0,:2])
 
     def scatter_plot(query, **kwargs):
@@ -108,7 +115,7 @@ with app.app_context():
     ax.text(43,3.2,"Orthopyroxene",**props)
     ax.text(22,1.4,"Clinopyroxene",**props)
     ax.text(60,4.8,"Olivine",**props)
-    ax.text(42,11.5,"Spinel",**props)
+    ax.text(42,11.2,"Spinel",**props)
     ax.text(53,21,"Phenocryst olivine",**props)
 
     update_axes(ax)
@@ -145,10 +152,56 @@ with app.app_context():
     ax3.yaxis.set_visible(False)
 
     ax4 = fig.add_subplot(gs[1,:2])
-    axis_labels(ax,ax4, fontsize=14, pad=.15)
     ax4.axis('off')
     ax3.set_xlabel("SiO2 (molar %)")
     ax3.xaxis.set_label_coords(0.15,-0.18)
 
+    ### Spinel Cr ###
+    ax5 = fig.add_subplot(gs[2,:2])
+
+    spinels = spinel_data()
+    colors = [s.sample.color for s in spinels]
+
+    edgecolors = list(lighten(*colors, lum=0.1))
+
+    data = [correct_spinel(s, uncertainties=False) for s in spinels]
+
+    # Use all tetrahedral cations in the calculation of corrected Cr#
+    cr_number = [c['Cr']/(c['Cr']+c['Al'])*100 for c in data]
+    mg_number = [c['Mg']/(c['Mg']+c['Fe'])*100 for c in data]
+
+    ax5.scatter(cr_number,mg_number,
+            c=edgecolors,
+            edgecolor=colors,
+            alpha=0.8,
+            label='Corrected')
+    ax5.set_ylim([70,85])
+    ## Annotations
+    # Group data
+    with open("spinel-cr-annotations2.yaml",'r') as f:
+        annotation_data = yaml.load(f.read())
+
+    samples = [s.sample.id for s in spinels]
+    df = DataFrame(
+        data=N.array([cr_number, mg_number]).T,
+        index=samples)
+
+    vals = annotation_data['default']
+    for id in df.index.unique():
+        sm = df.ix[df.index == id]
+        pos = tuple(sm.mean())
+
+        v_ = annotation_data.get(id,None)
+        if v_ is not None:
+            v_ = dict(vals,**v_)
+        ax5.annotate(id, xy=pos, **v_)
+
+    ax5.set_ylabel('Spinel Mg# (corr.)')
+    ax5.set_xlabel('Spinel Cr#')
+
+    update_axes(ax5)
+
+
+    axis_labels(ax,ax4,ax5, fontsize=14, pad=.15)
     fig.savefig(argv[1], bbox_inches='tight')
 
