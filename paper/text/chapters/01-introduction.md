@@ -46,7 +46,7 @@ the Crystal Knob xenolith suite samples the uppermost mantle that has been
 constructed beneath both the Franciscan accretionary complex and its local
 veneer of Salinia crystalline nappes.
 
-## Regional tectonic setting and the application of mantle xenolith studies
+## Regional tectonic setting and previous mantle xenolith studies
 
 The SW North American Cordillera hosts many xenolith
 localities, at which upper mantle-lower crustal rock fragments were entrained in
