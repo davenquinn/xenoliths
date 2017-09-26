@@ -5,3 +5,16 @@ function prepare-crossref {
 }
 
 bibfile="source/references.bib"
+
+function text-pipeline {
+ prepare-crossref \
+ | wrap-si-units \
+ | pandoc \
+    --from markdown \
+    --to latex \
+    --natbib \
+    --metadata=draft:true \
+    --filter pandoc-comments \
+    --filter pandoc-crossref
+}
+

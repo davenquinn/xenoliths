@@ -10,7 +10,7 @@ body='build/body.tex'
 mkdir -p build
 # Process body text
 cat text/chapters/*.md \
-| figures inline text/includes.yaml \
+| figurator inline text/includes.yaml \
   --captions text/figure-captions.md \
   --collect-dir collected \
   --natbib \

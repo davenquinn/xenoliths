@@ -4,35 +4,34 @@ and spinel peridotite xenoliths.
 The peridotites sample the mantle lithosphere beneath the
 Nacimiento belt of the Franciscan complex and crystalline
 nappes of the "Salinia terrane," which together form
-extended and exhumed remnants of the Cretaceous subduction complex
-and magmatic arc of southern California.
-Crystal Knob, located near the continental margin, substantially
-extends a body of xenolith evidence linking mantle-lithosphere
-construction to regional crustal geology.
+the exhumed remnants of the southern California
+Cretaceous subduction complex and batholith.
+Crystal Knob adds a new continental-margin constraint
+on mantle-lithosphere architecture, which xenolith studies have linked
+to crustal structure in the Mojave and Sierra Nevada.
 Six samples ranging from fertile lherzolites
 to harzburgite residues were analyzed. With $\epsilon_{\textrm{Nd}}$ of 10.3-11.0
 and \ce{^{87}Sr}/\ce{^{86}Sr} of .702, they likely represent underplated
 sub-oceanic mantle.
-The samples show a range of depletion by partial melting
-and minor refertilization with substantial melting and re-enrichement
-recorded by the deepest samples.
-Pyroxene major-element and rare-earth geothermometry
-show equilibration temperatures of 950-1060 ºC.
+Pyroxene and rare-earth exchange geothermometry
+show equilibration at 950-1060 ºC.
 Phase stability, Ca-in-olivine barometry, and
-predicted regional geothermal gradients of 65-90 \si{mW/m2}
-suggest equilibration depths of 45-75 km.
-We test xenolith thermobarometry against
+65-90 mW/m^2 regional geotherms
+suggest entrainment at 45-75 km depth.
+The samples show evidence of variable partial melting, and substantial
+re-enrichment of the hottest suggests deep melt interaction.
+We test the Crystal Knob temperature-depth array against
 a range of forward-modeled geotherms
 matching plausible tectonic scenarios
 for the origin of the regional mantle lithosphere.
-A shallow Neogene slab window source is excluded, and a
-young Monterey-plate "stalled slab" fits geothermal constraints.
-However, suboceanic mantle lithosphere
-underplated during the Cretaceous and reheated
-by a Neogene thermal pulse corresponding to the Mendocino slab window
-fits both the temperature--depth array
-and deep melt interaction evident in the Crystal Knob xenolith suite.
-We conclude that the mantle lithosphere beneath the central California coast
-was constructed by Cretaceous tectonic events and records a thermal
-history of Neogene ridge subduction.
+A shallow Mendocino slab window source is excluded, and a
+young Monterey-plate "stalled slab" fits xenolith thermobarometry
+but is geodynamically untenable.
+Suboceanic mantle lithosphere
+underplated during the Cretaceous and reheated at deep levels
+by the Miocene slab window matches both xenolith constraints
+and the processes that shaped the overriding crust and Mojave block.
+This suggests that the mantle lithosphere beneath the central California
+coast was emplaced after Cretaceous flat-slab subduction records a thermal
+signature of Neogene ridge subduction.
 
