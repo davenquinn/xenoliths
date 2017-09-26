@@ -147,10 +147,10 @@ affect the older models. The lack of erosion in the model framework
 biases towards predicting lower geothermal gradient overall.
 For the slab window and underplated Monterey plate scenarios (model
 groups **A** and **B**) this effect would push the final geotherm to or
-beyond the limit of xenolith thermobarometry [@fig:model_results|a and b].
+beyond the limit of xenolith thermobarometry [Figure \ref{fig:model_results}a and b].
 In the underplated mantle nappe scenario (model **C**) this effect would
 push the final modeled geotherm towards the centroid of the xenolith
-thermobarometric array [@fig:model_results|c and @fig:model_comparison]
+thermobarometric array [Figure \ref{fig:model_results}c and \ref{fig:model_comparison}].
 
 The uncertainties inherent in this model bias the results
 towards predicting lower-temperature,
@@ -183,16 +183,16 @@ substantially increase model complexity (requiring a fully iterative
 approach to the forearc geotherm), and at this distance (~100 km)
 inboard of the final trench interface, there is limited scope for
 further episodic rollback after emplacement of the nappe(s) of presumed
-xenolith source [e.g. Figure @fig:neogene_sections|c].  Further,
+xenolith source [e.g. Figure \ref{fig:neogene_sections}c].  Further,
 although an active subduction interface at depth will cool the mantle
 lithosphere from below, the subduction of progressively younger crust
 until cessation at ~27 Ma will yield gradually increasing heat on the
 subduction interface [@Royden1993a]. The models for scenarios **B** and **C**
-[@fig:model_comparisons|b and c]
+[Figure \ref{fig:model_comparison}b and c]
 are already near the coolest
 permitted by our xenolith constraints.  As these geotherms are already
 quite cold, introducing this added complexity will not significantly
-change the model results.  However, late-Creteaceous underplating and other stalled-slab scenarios can
+change the model results.  However, late-Cretaceous underplating and other stalled-slab scenarios can
 be treated as maximum temperatures because of the influence of the
 subducting slab.
 
@@ -204,8 +204,9 @@ under the ridge at 27 Ma (corresponding to the chron 7 magnetic anomaly)
 and subducted shortly thereafter [@Atwater1998; @Wilson2005]. 
 Due to slower margin-normal convergence during microplate fragmentation and
 rotation [@Wilson2005], the parcel would take ~3 Myr to reach its final
-stalled position (~100 km behind the trench) as shown in Figure
-@fig:neogene_sections|b. This is responsible for the kink in the "Age of initial oceanic lithosphere" curve in @fig:model_tracers|b. For model simplicity, we do not
+stalled position (~100 km behind the trench) as shown in @fig:neogene_sections|b.
+This is responsible for the kink in the "Age of initial oceanic lithosphere"
+curve in @fig:model_tracers|b. For model simplicity, we do not
 incorporate this disequilibrium shift into the starting parameters of the @Royden1993a subduction model.
 
 ### Erosion of the forearc

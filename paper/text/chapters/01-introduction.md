@@ -2,7 +2,7 @@ Introduction
 ============
 
 The tectonic and petrogenetic processes by which Earth’s continental mantle
-lithosphere develops through time are of fundamental importance in geodynamics
+lithosphere develops through time are of fundamental importance to geodynamics
 and Earth history. Volcanic
 rock-hosted mantle xenolith suites offer vertical sampling columns that reveal
 compositions and textures of the deep lithosphere at the time of

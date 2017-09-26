@@ -3,6 +3,7 @@
 \usepackage{textcomp}
 \usepackage{ifthen}
 \usepackage[small,compact]{titlesec}
+\usepackage{titling}
 \usepackage{graphicx}			% Nice graphics, optional
 \usepackage{siunitx}
 \usepackage[version=3]{mhchem}
@@ -23,6 +24,8 @@
 \usepackage{textcomp}
 \usepackage{tablefootnote}
 \usepackage{lineno}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[affil-it]{authblk}
 \usepackage[flushleft]{threeparttable}
 \usepackage[justification=justified,singlelinecheck=false,skip=0pt]{caption}
 %% FONTS %%
@@ -50,7 +53,8 @@
 \setlist[itemize]{leftmargin=*}
 \setlist{nolistsep}
 
-\setlength{\bibsep}{4pt}
+\setlength{\bibsep}{2pt}
+\def\bibfont{\footnotesize}
 
 \input{source/includes/defs.tex}
 %\usepackage[super]{natbib}
@@ -62,4 +66,8 @@
 \usepackage{tcolorbox}
 \definecolor{light-gray}{gray}{0.6}
 
+\newcommand\invisiblesection[1]{%
+  \refstepcounter{section}%
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+  \sectionmark{#1}}
 

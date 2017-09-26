@@ -14,10 +14,10 @@ the Central and Eastern Sierran suites show a record of delamination of
 a batholithic root [@Ducea1996] and Mojave sites show underplating of
 Farallon-plate lithospheric nappes during the Cretaceous [@Luffi2009].
 The position of Crystal Knob is also shown, along with its reconstruction for dextral
-offset on the Neogene San Andreas transform system. This
-reconstruction was created independently using the regional paleomagnetic framework
-of @Wilson2005 with the restoration of slip along San Andreas--system
-faults [@Dickinson2005] approaches. The methods agree to within 5 km on the position
+offset on the Neogene San Andreas transform system. Independent reconstructions
+using the regional paleomagnetic framework
+of @Wilson2005 and restoration of slip along San Andreas--system
+faults [@Dickinson2005] agree to within 5 km on the position
 of the Crystal Knob source locale at 19 Ma [see also @fig:reconstruction]. Crystal Knob
 can be restored to ~350 km SE of its current location, accounting
 for ~310 km displacement on modern San Andreas Fault and ~40 km remainder
@@ -116,7 +116,7 @@ depletion characteristics and a variety of re-enrichment patters.
 
 ##ree_model
 (a) Recalculated whole-rock trace elements for xenolith samples
-@tbl:trace_elements presented with best-fitting
+@tbl:trace_elements_table presented with best-fitting
 modeled compositions for depleted peridotite and enriching
 fluid, using the model discussed in text. Normal mid-ocean
 ridge basalt (NMORB) rare-earth composition is

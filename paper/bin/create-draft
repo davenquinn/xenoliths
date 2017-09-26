@@ -28,11 +28,16 @@ rm -f $body build/abstract.tex build/figure-list.tex
 # Correct for pandoc-crossref annoyingness
 cat text/chapters/*.md \
 | text-pipeline \
+| sed -r 's/^\\section\{(Introduction)\}/\\invisiblesection\{\1\}/g' \
 > $body
 # Process abstract
 cat text/abstract.md \
 | text-pipeline \
 > build/abstract.tex
+
+cp text/title-block.tex build
+
+cat text/key-points.md | text-pipeline > build/key-points.tex
 
 captions=build/figure-captions.tex
 
@@ -49,6 +54,7 @@ figurator list \
   text/includes.yaml \
   --captions $captions \
   --collect-dir collected \
+| sed -r 's/^\\section\{(.+)\}/\\invisiblesection\{\1\}/g' \
 > build/figure-list.tex
 
 cp source/draft.tex $texfile

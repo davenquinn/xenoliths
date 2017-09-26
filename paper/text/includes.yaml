@@ -27,6 +27,7 @@
 - id: step_heating_table
   file: lava-age/build/step-heating-table.tex
   type: table
+  caption: Step-heating data for Argon geochronology
   two_column: true
 
 - id: isotopes_table

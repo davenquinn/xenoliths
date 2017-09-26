@@ -1,23 +1,43 @@
 \documentclass[letterpaper,12pt]{article}
 \input{source/includes/draft-preamble.tex}
 
-\renewcommand{\maketitlehooka}{\Gotham}
 \titleformat{\section}{\Gotham\large\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{\Gotham\normalsize\bfseries}{\thesubsection}{3pt}{}
 \titleformat{\subsubsection}[runin]{\Gotham\small\bfseries}{\thesubsubsection}{3pt}{}[~~~~]
+%\renewcommand{\maketitlehooka}{\Gotham\Large\bfseries}
+
+\renewcommand{\Authfont}{\Gotham\large}
+\renewcommand{\Affilfont}{\normalfont\small}
+
+\setlength{\droptitle}{-40pt}
+\pretitle{\begin{flushleft}\Gotham\bfseries\Large}
+\posttitle{\par\end{flushleft}\vskip 0.5em}
+
+\preauthor{\begin{flushleft}\Gotham\normalsize}
+\postauthor{\par\end{flushleft}\vspace{-60pt}}
 
 \begin{document}
 
-\begin{spacing}{0.8}\noindent\Gotham\Large\textbf{Late-Cretaceous construction
-of the mantle lithosphere beneath
-the central California coast revealed by Crystal Knob xenoliths}\end{spacing}
-{\noindent\GothamLight\normalsize\textbf{Daven Quinn, J.Saleeby, M.Ducea and P.Luffi}}\\
-{\noindent\GothamLight\normalsize\today}\\
+\input{build/title-block.tex}
 
+\begingroup
+\let\newpage\relax%
+\maketitle
+\endgroup
 
 \section*{Abstract}
 
 \input{build/abstract.tex}
+
+\vspace{20pt}
+\subsubsection*{Key Points}
+{\small
+\input{build/key-points.tex}
+}
+
+\thispagestyle{empty}
+\clearpage
+\pagenumbering{arabic}
 
 \begin{spacing}{1.2}
 \begin{linenumbers}
@@ -26,7 +46,10 @@ the central California coast revealed by Crystal Knob xenoliths}\end{spacing}
 \end{linenumbers}
 
 \bibliographystyle{source/agufull08.bst}
+
+{\small
 \bibliography{source/references}
+}
 
 \pagebreak
 
@@ -38,7 +61,8 @@ the central California coast revealed by Crystal Knob xenoliths}\end{spacing}
 
 \tableofcontents
 
-\pagebreak
+\clearpage
+\pagenumbering{arabic}
 \begin{spacing}{1.2}
 \begin{appendices}
 \begin{linenumbers}
