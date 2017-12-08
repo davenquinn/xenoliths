@@ -31,27 +31,26 @@ well as upper plate siliciclastic sediments derived from the magmatic arc
 far-displaced crystalline nappes, derived from the southern California segment
 of the Late Cretaceous magmatic arc and lying tectonically above
 Franciscan-affinity accretionary complex rocks in the central California
-coastal area
-[@Hall1991;@Barth2003;@Kidder2006;@Ducea2009;@Chapman2012;@Hall2013]. The
-Crystal Knob xenolith locality lies along the western margin of Salinia,
-adjacent to the Nacimiento fault [@fig:context], a polyphase structural zone
-which, in its original geometry, constituted the local structural base of the
-Salinian crystalline nappe sequence [@Hall2013]. In this setting, the Crystal
-Knob xenolith suite samples the uppermost mantle that has been constructed
-beneath both the Franciscan accretionary complex and its local veneer of
-Salinia crystalline nappes.
+coastal area [@Hall1991; @Barth2003; @Kidder2006; @Ducea2009; @Chapman2012;
+@Hall2013]. The Crystal Knob xenolith locality lies along the western margin of
+Salinia, adjacent to the Nacimiento fault [@fig:context], a polyphase shear
+zone which, in its original geometry, constituted the local structural base of
+the Salinian crystalline nappe sequence [@Hall2013]. In this setting, the
+Crystal Knob xenolith suite samples the uppermost mantle that has been
+constructed beneath both the Franciscan accretionary complex and its local
+veneer of Salinia crystalline nappes.
 
 ## Regional tectonic setting and previous mantle xenolith studies
 
-The SW North American Cordillera hosts many xenolith localities, at which upper
-mantle-lower crustal rock fragments were entrained in mainly late Cenozoic
-volcanic eruptions. Early studies of a number of these xenolith suites focused
-on the systematizing of petrographic features and classifying samples into
-textural groups [e.g. @Nixon1987; @Wilshire1988]. Subsequent application of
-modern geochemical and petrogenetic techniques has led to the recognition of
-distinct regional mantle lithosphere domains consisting of Precambrian crustal
-root, Cretaceous arc mantle wedge, underplated Farallon plate nappes, and
-late Cenozoic shallow convective asthenosphere [e.g. @Galer1989;
+The southwest North American Cordillera hosts many xenolith localities, at
+which upper mantle-lower crustal rock fragments were entrained in mainly late
+Cenozoic volcanic eruptions. Early studies of a number of these xenolith suites
+focused on the systematizing of petrographic features and classifying samples
+into textural groups [e.g. @Nixon1987; @Wilshire1988]. Subsequent application
+of modern geochemical and petrogenetic techniques has led to the recognition of
+distinct regional mantle lithosphere domains consisting of Precambrian
+crustal root, Cretaceous arc mantle wedge, underplated Farallon plate nappes,
+and late Cenozoic shallow convective asthenosphere [e.g. @Galer1989;
 @Livaccari1993; @Alibert1994; @Beard1995; @Ducea1998a; @Jove1998; @Lee2001;
 @Usui2003; @Luffi2009].
 

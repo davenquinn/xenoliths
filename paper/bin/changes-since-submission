@@ -1,7 +1,21 @@
 #!/usr/bin/env zsh
 
-base="$PROJECT_DIR/versioned/paper/text"
+rpath="paper/text"
+base="$PROJECT_DIR/versioned"
+cd "$base"
 
-for fn in "$base/chapters/"*.md; do
-  echo $fn
-done
+paths=($rpath/abstract.md $rpath/key-points.md \
+  "$rpath/chapters"/*.md $rpath/figure-captions.md $rpath/modeling-supplement.md)
+
+function rev-text {
+  # If we don't have a revision, use current text
+  [ -z "$1" ] && cat $paths && exit 0
+
+  for fn in $paths; do
+    git show $1:$fn
+  done
+}
+
+git text-diff --no-index \
+  =(rev-text submitted) \
+  =(rev-text)
