@@ -3,62 +3,56 @@ Introduction
 
 The tectonic and petrogenetic processes by which Earth’s continental mantle
 lithosphere develops through time are of fundamental importance to geodynamics
-and Earth history. Volcanic
-rock-hosted mantle xenolith suites offer vertical sampling columns that reveal
-compositions and textures of the deep lithosphere at the time of
-xenolith entrainment and eruption. Petrogenetic studies of such xenolith suites
-offer constraints on depth of entrainment, thermal gradients, and
-geochemical evolutionary states. The integration of such constraints with
-regional geophysical data, as well as tectonic and petrogenetic studies of the
-overlying crust, offer critical insights into the interplay of plate tectonic
-and geodynamic processes that assembled the deep mantle lithosphere.
-In this contribution we present new petrologic and
-geochemical data on the Pleistocene Crystal Knob volcanic neck-hosted mantle
-xenolith locality of coastal central California, and integrate our findings
-both with regional geophysical and modeling studies of the mantle
-lithosphere and a well-developed literature on the
-tectonic and petrogenetic development of the overlying crust.
+and Earth history. Mantle xenoliths entrained in volcanic rock reveal
+compositions and textures of the deep lithosphere in a vertical transect below
+the eruptive event. Petrogenetic studies can discern the geochemical evolution,
+thermal conditions, and depth of entrainment of xenolith suites. When
+integrated with regional geophysical data and tectonic and petrogenetic studies
+of the overlying crust, these constraints on the deep mantle lithosphere offer
+critical insights into the geodynamic processes of continental assembly. In
+this contribution, we present new petrologic and geochemical data on mantle
+xenoliths hosted in the Pleistocene Crystal Knob volcanic neck in coastal
+central California. We integrate these findings both with regional geophysical
+and modeling studies of the mantle lithosphere and a well-developed literature
+on the tectonic and petrogenetic development of the overlying crust.
 
 The Crystal Knob xenolith locality samples a crucially important lithospheric
-column through the Late Cretaceous convergent margin belt of the SW North
-American Cordillera. This regionally extensive belt is characterized by
-a voluminous continental magmatic arc,
-generated as the Farallon oceanic plate subducted eastward beneath western
-North America [@Ducea2015], and the Franciscan complex, the
-crustal-level accretionary complex of this subduction zone. The
-Franciscan is widely
-recognized for its tectonic inclusion of Farallon plate oceanic basement and
-pelagic sediment fragments, as well as upper plate
-siliciclastic sediments derived from the magmatic arc
-[@Cowan1978; @Murchey1984; @Sliter1984; @Blake1988; @Chapman2016; @Chapman2016a].
-The crystalline basement of the "Salinian terrane" (or "Salinia") [@Page1981] has
-recently been recognized as a series of far-displaced crystalline nappes, derived
-from the southern California segment of the Late Cretaceous magmatic arc
-and lying tectonically above Franciscan-affinity accretionary complex rocks in the
-central California coastal area
-[@Hall1991; @Barth2003; @Kidder2006; @Ducea2009; @Chapman2012; @Hall2013].
-The Crystal Knob xenolith locality lies along the western margin
-of Salinia, adjacent to the Nacimiento fault [@fig:context],
-a polyphase structural zone which, in its original geometry,
-constituted the local structural base of the
-Salinian crystalline nappe sequence [@Hall2013]. In this setting,
-the Crystal Knob xenolith suite samples the uppermost mantle that has been
-constructed beneath both the Franciscan accretionary complex and its local
-veneer of Salinia crystalline nappes.
+column through the Late Cretaceous convergent margin of the North American
+Cordillera. This regionally extensive belt includes a voluminous
+continental magmatic arc, generated as the Farallon oceanic plate
+subducted eastward beneath western North America [e.g. @Glazner1991;
+@Ducea2015], and the Franciscan complex, the crustal-level accretionary complex
+of this subduction zone. The Franciscan is widely recognized for its tectonic
+inclusion of Farallon plate oceanic basement and pelagic sediment fragments, as
+well as upper plate siliciclastic sediments derived from the magmatic arc
+[@Cowan1978;@Murchey1984;@Sliter1984;@Blake1988;@Chapman2016;@Chapman2016a].
+The crystalline basement of the "Salinian terrane", or "Salinia" [@Page1981],
+has recently been recognized as a series of far-displaced crystalline nappes,
+derived from the southern California segment of the Late Cretaceous magmatic
+arc and lying tectonically above Franciscan-affinity accretionary complex rocks
+in the central California coastal area
+[@Hall1991;@Barth2003;@Kidder2006;@Ducea2009;@Chapman2012;@Hall2013]. The
+Crystal Knob xenolith locality lies along the western margin of Salinia,
+adjacent to the Nacimiento fault [@fig:context], a polyphase structural zone
+which, in its original geometry, constituted the local structural base of the
+Salinian crystalline nappe sequence [@Hall2013]. In this setting, the Crystal
+Knob xenolith suite samples the uppermost mantle that has been constructed
+beneath both the Franciscan accretionary complex and its local veneer of
+Salinia crystalline nappes.
 
 ## Regional tectonic setting and previous mantle xenolith studies
 
-The SW North American Cordillera hosts many xenolith
-localities, at which upper mantle-lower crustal rock fragments were entrained in
-mainly late Cenozoic volcanic eruptions. Early studies of a number of these
-xenolith suites focused on the systematizing of petrographic features and
-classifying samples into textural groups [e.g. @Wilshire1988; @Nixon1987].
-Subsequent application of modern geochemical and petrogenetic techniques has
-led to the recognition of distinct regional mantle lithosphere domains
-consisting of pre-Phanerozoic lithosphere, Cretaceous arc mantle wedge,
-underplated Farallon plate nappes, and late Cenozoic shallow convective
-asthenosphere
-[e.g. @Galer1989; @Livaccari1993; @Alibert1994; @Beard1995; @Ducea1998a; @Jove1998; @Lee2001; @Usui2003; @Luffi2009].
+The SW North American Cordillera hosts many xenolith localities, at which upper
+mantle-lower crustal rock fragments were entrained in mainly late Cenozoic
+volcanic eruptions. Early studies of a number of these xenolith suites focused
+on the systematizing of petrographic features and classifying samples into
+textural groups [e.g. @Nixon1987; @Wilshire1988]. Subsequent application of
+modern geochemical and petrogenetic techniques has led to the recognition of
+distinct regional mantle lithosphere domains consisting of Precambrian crustal
+root, Cretaceous arc mantle wedge, underplated Farallon plate nappes, and
+late Cenozoic shallow convective asthenosphere [e.g. @Galer1989;
+@Livaccari1993; @Alibert1994; @Beard1995; @Ducea1998a; @Jove1998; @Lee2001;
+@Usui2003; @Luffi2009].
 
 These studies suggest a clear correspondence between xenolith-sampled
 upper mantle domains and surface geology. Sub-continental suites
@@ -68,10 +62,10 @@ and asthenospheric suites through active rifts.
 In contrast, xenolith suites derived from
 underplated Farallon plate mantle nappes have thus far only been recovered from
 more inboard crustal domains, requiring large sub-horizontal displacements and
-underplating along relatively shallow subduction megathrust systems [@Helmstaedt1975; @Lee2001b]. Crystal
-Knob, having erupted through the Franciscan subduction accretionary complex,
-presents a rare opportunity to sample mantle lithosphere directly beneath the
-region of long-lived subduction accretion proximal to the plate edge.
+underplating along relatively shallow subduction megathrust systems
+[@Helmstaedt1975; @Lee2001b]. Crystal Knob presents a rare opportunity to
+sample mantle lithosphere directly beneath the region of long-lived subduction
+accretion proximal to the plate edge.
 
 The tectonic setting of the sub-Crystal Knob mantle lithosphere is best understood
 by restoring its host crustal rocks to their position prior to San Andreas
