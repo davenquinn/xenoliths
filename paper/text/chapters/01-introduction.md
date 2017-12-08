@@ -25,12 +25,13 @@ subducted eastward beneath western North America [e.g. @Glazner1991;
 of this subduction zone. The Franciscan is widely recognized for its tectonic
 inclusion of Farallon plate oceanic basement and pelagic sediment fragments, as
 well as upper plate siliciclastic sediments derived from the magmatic arc
-[@Cowan1978;@Murchey1984;@Sliter1984;@Blake1988;@Chapman2016;@Chapman2016a].
-The crystalline basement of the "Salinian terrane", or "Salinia" [@Page1981],
-has recently been recognized as a series of far-displaced crystalline nappes,
-derived from the southern California segment of the Late Cretaceous magmatic
-arc and lying tectonically above Franciscan-affinity accretionary complex rocks
-in the central California coastal area
+[@Cowan1978; @Murchey1984; @Sliter1984; @Blake1988; @Chapman2016;
+@Chapman2016a]. The crystalline basement of the "Salinian terrane", or
+"Salinia" [@Page1981], has recently been recognized as a series of
+far-displaced crystalline nappes, derived from the southern California segment
+of the Late Cretaceous magmatic arc and lying tectonically above
+Franciscan-affinity accretionary complex rocks in the central California
+coastal area
 [@Hall1991;@Barth2003;@Kidder2006;@Ducea2009;@Chapman2012;@Hall2013]. The
 Crystal Knob xenolith locality lies along the western margin of Salinia,
 adjacent to the Nacimiento fault [@fig:context], a polyphase structural zone

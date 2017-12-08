@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+base="$PROJECT_DIR/versioned/paper/text"
+
+for fn in "$base/chapters/"*.md; do
+  echo $fn
+done
