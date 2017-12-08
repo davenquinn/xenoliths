@@ -22,16 +22,15 @@ Cordillera. This regionally extensive belt includes a voluminous
 continental magmatic arc, generated as the Farallon oceanic plate
 subducted eastward beneath western North America [e.g. @Glazner1991;
 @Ducea2015], and the Franciscan complex, the crustal-level accretionary complex
-of this subduction zone. The Franciscan is widely recognized for its tectonic
-inclusion of Farallon plate oceanic basement and pelagic sediment fragments, as
-well as upper plate siliciclastic sediments derived from the magmatic arc
-[@Cowan1978; @Murchey1984; @Sliter1984; @Blake1988; @Chapman2016;
-@Chapman2016a]. The crystalline basement of the "Salinian terrane", or
-"Salinia" [@Page1981], has recently been recognized as a series of
-far-displaced crystalline nappes, derived from the southern California segment
-of the Late Cretaceous magmatic arc and lying tectonically above
-Franciscan-affinity accretionary complex rocks in the central California
-coastal area [@Hall1991; @Barth2003; @Kidder2006; @Ducea2009; @Chapman2012;
+of this subduction zone. The Franciscan includes tectonic slivers of Farallon
+plate oceanic basement and pelagic sediment, as well as upper plate
+siliciclastic sediments derived from the magmatic arc [@Cowan1978;
+@Murchey1984; @Sliter1984; @Blake1988; @Chapman2016; @Chapman2016a]. The
+crystalline basement blocks of the "Salinian terrane", or "Salinia"
+[@Page1981], have recently been recognized as a series of nappes derived from
+the southern California segment of the Late Cretaceous magmatic arc, displaced
+westward to lie tectonically above the accretionary complex near the central
+California coast [@Hall1991; @Barth2003; @Kidder2006; @Ducea2009; @Chapman2012;
 @Hall2013]. The Crystal Knob xenolith locality lies along the western margin of
 Salinia, adjacent to the Nacimiento fault [@fig:context], a polyphase shear
 zone which, in its original geometry, constituted the local structural base of
@@ -71,34 +70,31 @@ The tectonic setting of the sub-Crystal Knob mantle lithosphere is best understo
 by restoring its host crustal rocks to their position prior to San Andreas
 transform offset. This places them outboard of the southern California batholith,
 the southern continuation of the Sierra Nevada
-batholith across the Garlock fault [@fig:context; @fig:reconstruction].
+batholith across the Garlock fault [@fig:context].
 In this restored position, the crystalline nappes that constitute Salinia
 correlate to deeply exhumed Cretaceous arc plutonic rocks of the southernmost
 Sierra Nevada batholith and the northwestern zones of the southern California
-batholith, the latter widely exposed in the Mojave plateau
-[@Saleeby2003; @Barbeau2005; @Chapman2012]. These deeply exhumed batholithic
-rocks share a common regional upper plate position above a polyphase
-low-angle fault system below which Franciscan-affinity, mainly metaclastic rocks
-were tectonically underplated in the Late Cretaceous
-[@Malin1995; @Barth2003; @Yan2005; @Ducea2009; @Chapman2010; @Chapman2012; @Chapman2016b].
-The underplated metaclastic rocks are exposed in a series of tectonic windows
-that are labeled as subduction channel schists in @fig:context. Detritus for the
-schist protoliths was derived from the upper plate batholithic belt, which
-was rapidly uplifted above a shallow flat segment of the greater Franciscan
-subduction megathrust system [@Barth2003; @Saleeby2007; @Chapman2013; @Chapman2016a].
-The underplated schists tectonically encase blocks and
-nappes of Farallon plate oceanic basement and sediments. The shallow flat
-subduction megathrust segment is attributed to the ephemeral buoyancy
-resulting from the subduction of the conjugate massif to the Shatsky Rise
-oceanic LIP [@Livaccari1981; @Sliter1984; @Saleeby2003], which is
-currently resolved in deep seismic tomographic images beneath the interior of
-North America [@Liu2010; @Sun2017]. The tectonic position and structural
-attenuation of the Salinia nappes, as well as adjacent (restored for
-Neogene dextral faulting) deeply exhumed batholithic rocks, derives from both shallow
-subduction megathrust displacements and subsequent large magnitude
-trench-directed extensional faulting, correlated in time to the progress
-of the Shatsky conjugate deeper into the mantle beneath the North American plate
-[@Saleeby2003; @Liu2010; @Chapman2012].
+batholith, the latter widely exposed in the Mojave plateau [@Wood1997;
+@Saleeby2003; @Barbeau2005; @Chapman2012]. These deeply exhumed batholithic
+rocks share a common regional upper plate position above a polyphase low-angle
+fault system below which Franciscan-affinity, mainly metaclastic rocks were
+tectonically underplated in the Late Cretaceous [@Malin1995; @Barth2003;
+@Yan2005; @Ducea2009; @Chapman2010; @Chapman2012; @Chapman2016b]. These
+subduction channel schists are exposed in a series of tectonic windows
+[@fig:context] and tectonically encase blocks and nappes of Farallon-plate
+oceanic basement and sediments. The schist protoliths were derived from the
+upper plate batholithic belt, which was rapidly exhumed above a shallow flat
+segment of the Franciscan subduction megathrust system [@Barth2003;
+@Saleeby2007; @Chapman2013; @Chapman2016a]. This "flat slab" is attributed to
+the ephemeral buoyancy resulting from the subduction of the conjugate massif to
+the Shatsky Rise oceanic igneous province [@Livaccari1981; @Sliter1984;
+@Saleeby2003], which is currently resolved in deep seismic tomographic images
+beneath the interior of North America [@Liu2010; @Sun2017]. The Salinia nappes
+and adjacent (restored for Neogene dextral faulting) deeply exhumed batholithic
+rocks were displaced and structurally attenuated by both the shallow subduction
+megathrust and subsequent trench-directed extensional faulting, which occurred
+as the Shatsky conjugate moved deeper into the mantle beneath the North
+American plate [@Saleeby2003; @Liu2010; @Chapman2012].
 
 Shallow tectonic underplating of the subduction-channel schists
 directly beneath deep crustal large-volume batholithic rocks requires the prior
@@ -108,35 +104,34 @@ Integrated mantle xenolith studies and deep seismic imaging document this proces
 Late Miocene small-volume
 volcanic flows and plugs from the central Sierra Nevada batholith [@fig:context]
 carry xenolith suites that sampled the Cretaceous mantle wedge of the overlying
-batholith [@Ducea1996; @Ducea1998a; @Lee2001; @Lee2006; @Saleeby2003].
-The central and northern regions of the batholith are currently
+batholith [@Ducea1996; @Ducea1998a; @Lee2001; @Saleeby2003; @Lee2006;
+@Chin2015]. The central and northern regions of the batholith are currently
 exposed over shallow to medial crustal depths (2 to 4 kb pressure), whereas at
-its southern reaches, a continuous
-gradient to deep levels (10 kb) is exposed [@Nadin2008]. At this depth,
-the shallow subduction
-megathrust (remobilized as an extensional structure) forms the structural base of the batholith,
-with the underplated
-schists lying directly beneath [@Saleeby2003; @Chapman2010; @Chapman2012; @Chapman2016b].
-Seismic reflection imaging shows an effectively flat megathrust beneath the western Mojave
-plateau [@Yan2005] and dips of ~30ºN beneath the southernmost Sierra
-Nevada region [@Malin1995]. The Garlock fault [@fig:context] nucleated during
-the early Miocene along this inflection in the megathrust [@Saleeby2016],
-which constituted a lateral ramp in the subduction
-megathrust system [@Saleeby2003; @Chapman2016b]. In contrast to the
-central Sierra xenolith suite, mantle xenoliths recovered from the eastern
-margin of the southern California batholith record the partial tectonic erosion of
-sub-continental mantle lithosphere (including Cretaceous mantle wedge), and the
-underplating of Farallon plate mantle lithosphere [@Shervais1973; @Luffi2009; @Armytage2015; @Shields2016GSA].
-More specifically, the Dish Hill suite [@fig:context] samples an upper
-mantle duplex with imbricated nappes of Farallon plate oceanic mantle lying in
-structural sequence beneath a relatively thin roof of attenuated continental
-lithosphere peridotites. The mantle duplex is interpreted to have formed as the
-Farallon plate retreated following Shatsky conjugate low-angle subduction
-[@Luffi2009]. The reconstructed position of Crystal Knob, directly
-outboard of the Dish Hill locality [@fig:context], as well as its
-penetration of the Franciscan accretionary complex, suggests that
-the Crystal Knob suite may have sampled additional underplated Farallon mantle
-nappes outboard of the Dish Hill mantle duplex.
+its southern reaches, a continuous gradient to deep levels (10 kb) is exposed
+[@Ague1988a; @Nadin2008]. At this depth, the shallow subduction megathrust
+(remobilized as an extensional structure) forms the structural base of the
+batholith, with the underplated schists lying directly beneath [@Saleeby2003;
+@Chapman2010; @Chapman2012; @Chapman2016b]. Seismic reflection imaging shows
+an effectively flat megathrust beneath the western Mojave plateau [@Yan2005]
+and dips of ~30ºN beneath the southernmost Sierra Nevada region [@Malin1995].
+The Garlock fault [@fig:context] nucleated during the early Miocene along this
+inflection in the megathrust [@Saleeby2016], which constituted a lateral ramp
+in the subduction megathrust system [@Saleeby2003; @Chapman2016b]. In contrast
+to the central Sierra xenolith suite, mantle xenoliths recovered from the
+eastern margin of the southern California batholith record the partial
+tectonic erosion of sub-continental mantle lithosphere (including Cretaceous
+mantle wedge), and the underplating of Farallon plate mantle lithosphere
+[@Shervais1973; @Luffi2009; @Armytage2015; @Shields2016GSA]. More specifically,
+the Dish Hill suite [@fig:context] samples an upper mantle duplex with
+imbricated nappes of Farallon plate oceanic mantle lying in structural sequence
+beneath a relatively thin roof of attenuated continental lithosphere
+peridotites. The mantle duplex is interpreted to have formed as the Farallon
+plate retreated following Shatsky conjugate low-angle subduction [@Luffi2009].
+The reconstructed position of Crystal Knob, directly outboard of the Dish Hill
+locality [@fig:context], as well as its penetration of the Franciscan
+accretionary complex, suggests that the Crystal Knob suite may have sampled
+additional underplated Farallon mantle nappes outboard of the Dish Hill mantle
+duplex.
 
 Mantle xenoliths of the eastern Sierra suite [@fig:context], viewed in the context of late
 Cenozoic plate kinematics of the southern California region [@Argus1991; @Atwater1998]
