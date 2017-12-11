@@ -1,0 +1,91 @@
+body {
+  max-width: 50em;
+  margin: 1em auto;
+}
+* {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+p {
+  padding: 0.2em 0.5em 0.1em;
+}
+p span {
+  display: block;
+  margin: 0.2em 0.5em;
+  font-style: italic;
+  padding: 0.2em 0.5em 0.1em;
+  background-color: #fff;
+}
+p span:before {
+  content: "D Quinn";
+  font-weight: bold;
+  font-size: 0.8em;
+  display: block;
+}
+p.comment {
+  background-color: #f3f3f3;
+  border-left-color: #eee;
+}
+p.comment.r1:before {
+  content: "Reviewer 1";
+}
+p.comment.r2:before {
+  content: "Reviewer 2";
+}
+p.comment.r3:before {
+  content: "Reviewer 3";
+}
+p.comment:before {
+  font-weight: bold;
+  font-size: 0.8em;
+  display: block;
+}
+p.comment span {
+  margin-left: 0em;
+  border-left: 0.5em solid #f3f3f3;
+  border-left-color: inherit;
+}
+p.comment span.fixed {
+  border-left-color: #90ee90;
+}
+p.comment span.partial {
+  border-left-color: #fda;
+}
+p.comment span.rejected {
+  border-left-color: #f99;
+}
+p.comment.fixed {
+  border-left-color: #90ee90;
+}
+p.comment.partial {
+  border-left-color: #fda;
+}
+p.comment.rejected {
+  border-left-color: #f99;
+}
+p.response {
+  border-left: 0.3em solid #eee;
+  margin-left: 0.2em;
+}
+p.response.r1:before {
+  content: "D Quinn → Reviewer 1";
+}
+p.response.r2:before {
+  content: "D Quinn → Reviewer 1";
+}
+p.response.r3:before {
+  content: "D Quinn → Reviewer 1";
+}
+p.response:before {
+  font-weight: bold;
+  font-size: 0.8em;
+  display: block;
+}
+p.response.fixed {
+  border-left-color: #90ee90;
+}
+p.response.partial {
+  border-left-color: #fda;
+}
+p.response.rejected {
+  border-left-color: #f99;
+}

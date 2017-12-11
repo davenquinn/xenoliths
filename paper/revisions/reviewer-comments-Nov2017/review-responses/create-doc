@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+find . -name '*.md' | entr pandoc --css style.css -o index.html Review-Responses.md & \
+find . -name '*.styl' | entr stylus *.styl & \
+browser-sync start --server --files "*.css" --files "*.html"
+
+

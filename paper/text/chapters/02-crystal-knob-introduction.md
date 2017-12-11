@@ -41,14 +41,12 @@ nucleogenic interferences, and standardized against a Fish Canyon
 sanidine with an age of 28.20 Ma. Non-radiogenic argon is assumed to have
 an atmospheric composition of \ce{$^{40}$Ar}/\ce{$^{39}$Ar} = 298.56 [@Cosca2011].
 
-Step-heating data are presented in @tbl:step_heating_table
-and shown graphically in @fig:step_heating.
-Our preferred age of 1.65±0.06 Ma is defined
-by the twelve intermediate out of fifteen heating steps. The
-entire spectrum defines a similar age, within error, of 1.71 Ma. From
-these ages we infer that the xenoliths were entrained
-from the upper mantle directly underlying the Crystal
-Knob volcanic pipe during the mid-Pleistocene, at ca. 1.65 Ma.
+Step-heating data are presented in @tbl:step_heating_table and shown
+graphically in @fig:step_heating. Our preferred age of 1.65±0.06 Ma (2\sigma)
+is defined by the twelve intermediate of fifteen heating steps. The entire
+spectrum defines a similar age, within error, of 1.71 Ma. From these ages we
+infer that the xenoliths were entrained from the upper mantle directly
+underlying the Crystal Knob volcanic pipe during the mid-Pleistocene.
 
 <!--[[step_heating]]-->
 
