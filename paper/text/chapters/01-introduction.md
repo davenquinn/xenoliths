@@ -144,11 +144,11 @@ depth [@Jones1998; @Zandt2004; @Frassetto2011; @Jones2014], consistent with the
 eastern Sierra xenolith suite findings. The eruption of xenolith-hosting lavas
 within the eastern Sierra suite within the <5 Ma Owens Valley rift system
 [@fig:context] was presumably driven by upper mantle convection
-[@LePourhiet2006; @Jones2015]. Convective ascent of asthenosphere to relatively
+[@LePourhiet2006; @Jones2014]. Convective ascent of asthenosphere to relatively
 shallow levels and late Cenozoic regional volcanism of the central to southern
 California region [@Dodge1988] are correlated with the opening of the
-Pacific-Farallon slab window [@Atwater1998; @Wilson2005].  Both the eruption of
-Crystal Knob and the origin of its upper mantle underpinnings could also owe
+Pacific-Farallon slab window [@Atwater1998; @Wilson2005].  Both the eruption
+of Crystal Knob and the origin of its upper mantle underpinnings could also owe
 their origins to asthenosphere ascended into a slab window.
 
 Below we investigate the petrology and
