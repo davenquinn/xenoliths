@@ -85,15 +85,13 @@ the SNB
 <span class="response fixed">Done</span>
 </p>
 
-
-
-
+<div class='group'>
 <p class="comment r2">
 Lines 81-83 and 94-97: The contrast is not apparent as phrased. Try, "In addition to Cretaceous mantle wedge, eastern margin xenoliths include ..... "
 </p>
-
-
-<p class="comment r3"> line 93 - new paragraph<span class="fixed">Agreed</span></p>
+<p class="comment r3"> line 93 - new paragraph</p>
+<p class="response fixed">Lines 53-120 were phrased in a very ponderous manner with several restatements. We have reworked significantly to present a more linear flow and work from more general background towards implications for our study.</span>
+</div>
 
 <p class="comment r2">
 Line 116: provide a reference for upper-mantle convection driving Owens Valley rifting, or specify "we presume"

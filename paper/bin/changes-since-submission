@@ -16,6 +16,13 @@ function rev-text {
   done
 }
 
+if [[ "$1" == "--count" ]]; then
+  echo "             Lines   Words   Chars"
+  echo "Submitted: $(wc <(rev-text submitted))"
+  echo "  Current: $(wc <(rev-text))"
+  exit 0
+fi
+
 git text-diff --no-index \
   =(rev-text submitted) \
   =(rev-text)

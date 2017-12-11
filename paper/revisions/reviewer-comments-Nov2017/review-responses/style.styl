@@ -1,9 +1,13 @@
+*
+ font-family: "Helvetica Neue", Helvetica, sans-serif
+
+bkg1=#eeeeee
+bkg0=#f3f3f3
+
 body
   max-width 50em
   margin 1em auto
-
-*
- font-family: "Helvetica Neue", Helvetica, sans-serif
+  border-left-color: bkg0
 
 types()
   &.fixed
@@ -13,23 +17,35 @@ types()
   &.rejected
       border-left-color: #f99
 
+response()
+  types()
+  font-style: italic
+  margin-left: 0em
+  border-left: 0.5em solid bkg0
+  border-left-color: inherit
+  &:before
+    content: "D Quinn"
+    font-weight: bold
+    font-size: 0.8em
+    display: block
+
 p
   padding 0.2em 0.5em 0.1em
   span
+    response()
     display: block
     margin: 0.2em 0.5em
-    font-style: italic
     padding 0.2em 0.5em 0.1em
     background-color #fff
-    &:before
-      content: "D Quinn"
-      font-weight: bold
-      font-size: 0.8em
-      display: block
 
-
-bkg1=#eeeeee
-bkg0=#f3f3f3
+div.group
+  background-color: bkg0
+  p.response
+    response()
+    margin: 0.2em 0.5em
+    margin-bottom 0.2em
+    padding 0.2em 0.5em 0.1em
+    background-color #fff
 
 p.comment
   background-color bkg0
@@ -45,25 +61,16 @@ p.comment
     font-size: 0.8em
     display: block
   span
-    margin-left: 0em
-    border-left: 0.5em solid bkg0
-    border-left-color: inherit
-    types()
+    response()
   types()
 
 
 p.response
+  response()
   &.r1:before
     content: "D Quinn → Reviewer 1"
   &.r2:before
     content: "D Quinn → Reviewer 1"
   &.r3:before
     content: "D Quinn → Reviewer 1"
-  &:before
-    font-weight: bold
-    font-size: 0.8em
-    display: block
-  border-left: 0.3em solid bkg1
-  margin-left: 0.2em
-  types()
 
