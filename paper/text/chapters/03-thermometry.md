@@ -88,17 +88,18 @@ temperature, possibly in the Crystal Knob melt.
 
 ### Two temperature cohorts
 
-The samples can be divided into two clear cohorts based on equilibration temperatures. A cooler
-group of samples, with a distribution of grain core temperatures centered at ~970ºC (TA98), contains CK-2, CK-5, and CK-7.
-A hotter group, with a mean temperature of ~1050ºC (TA98) contains samples CK-3, CK-4, and CK-6.
-This division between these two groups is robust and apparent in all
-thermometers, and aligns with geochemical differences within the sample
-set, with the hotter samples having higher spinel Cr\# and greater HREE
-depletion.
-The range of temperatures likely records the sourcing of two sets of xenoliths from different
-depths within a magmatic ascent system. Throughout this paper, the samples are color-coded, with
-blue-green corresponding to the low-temperature array, and red-yellow representing
-the high-temperature samples \[@fig:major_elements‌-‌-@fig:depth\].
+The samples can be divided into two cohorts based on equilibration
+temperatures. A cooler group of samples, with a distribution of grain core
+temperatures centered at ~970ºC (TA98), contains CK-2, CK-5, and CK-7. A hotter
+group, with a mean temperature of ~1050ºC (TA98) contains samples CK-3, CK-4,
+and CK-6. This division between these two groups is robust and apparent in all
+thermometers, and aligns with geochemical differences within the sample set,
+with the hotter samples having higher spinel Cr\# and greater HREE depletion.
+The range of temperatures likely records the sourcing of two sets of xenoliths
+from different depths within a magmatic ascent system. Throughout this paper,
+the samples are color-coded, with blue-green corresponding to the
+low-temperature array, and red-yellow representing the high-temperature samples
+\[@fig:major_elements‌-‌-@fig:depth\].
 
 <!--[[temp_comparisons]]-->
 <!--[[temp_summary]]-->

@@ -50,7 +50,7 @@ Garlock fault [@fig:context]. In this restored position, the crystalline nappes
 that constitute Salinia correlate to deeply exhumed Cretaceous arc plutonic
 rocks of the southernmost Sierra Nevada batholith and the northwestern zones of
 the southern California batholith, the latter widely exposed in the Mojave
-province [@Wood1997; @Saleeby2003; @Barbeau2005; @Chapman2012]. The central and
+Desert [@Wood1997; @Saleeby2003; @Barbeau2005; @Chapman2012]. The central and
 northern regions of the batholith are currently exposed at shallow to medial
 crustal depths (2 to 4 kb pressure), whereas at its southern reaches,
 a continuous gradient to deep  levels (10 kb) is exposed [@Ague1988a;

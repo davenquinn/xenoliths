@@ -12,6 +12,7 @@
 unclear - perhaps “…a new constraint on the mantle lithosphere
 architecture of the continental margin, which…”
 <span class="response r1 fixed ">Updated wording substantially and reordered to clarify importance of mantle xenoliths constraints constraint.</span><p>
+<p class="response r1 fixed">*existing* xenolith studies</p>
 <p class="response r1 fixed">Added new clarifications of time-corrected isotope values.</p>
 
 <p class='comment r1'> In lines 5-6, xenolith studies are said to link crustal
@@ -63,12 +64,16 @@ western North America. Use "e.g." or list more refs.
 </p>
 
 
-<p class="comment r2  rejected"> Line 22: I don't think the quotes around Salinian
-terrane or Salinia are necessary
-<span class='response'>
-We strongly disagree. Salinia has traditionally been used for a mantle lithosphere rooted semi-intact displaced terrane, and many researchers not current with the most pertinent literature still envision it as such. The expected compositions and P-T history an intact batholithic terrane (the traditional view of Salinia) would root into a fundamentally different mantle lithosphere than a long-lived subduction accretion assemblage (the Franciscan, including its recently recognized roof nappes of Salinia arc rocks). Important distinction for study of ML xenoliths!
-</span>
-</p>
+<p class="comment r2  rejected"> Line 22: I don't think the quotes around
+Salinian terrane or Salinia are necessary <span class='response'> We strongly
+disagree. Salinia has traditionally been used for a mantle lithosphere rooted
+semi-intact displaced terrane, and many researchers not current with the most
+pertinent literature still envision it as such. The expected compositions and
+P-T history an intact batholithic terrane (the traditional view of Salinia)
+would root into a fundamentally different mantle lithosphere than a long-lived
+subduction accretion assemblage (the Franciscan, including its recently
+recognized roof nappes of Salinia arc rocks). Important distinction for study
+of ML xenoliths! </span> </p>
 
 
 <p class='response r1 fixed'>Line 26: Added Barbeau, 2005 reference</p>
@@ -90,6 +95,8 @@ Line 38: Added Precambrian
 also Chin et al., 2015 - geochemical perspectives letters
 <span>Added ref</span>
 </p>
+
+<p class="response r1 fixed">Line 59: Mojave *Desert*</p>
 
 <p class="response r1 fixed">Line 59: Added Wood and Saleeby</p>
 
@@ -122,17 +129,29 @@ Line 116: provide a reference for upper-mantle convection driving Owens Valley r
 <span class="fixed">Added Jones, 2015 and Le Pourhiet, 2006 refs</span>
 </p>
 
+# Crystal Knob xenolith locality
+
 <p class="comment r2"> Line 131: explain why the dunites are cumulate - is this
 a textural determination? And how do they "grade"? is it like there are layers
 of basalt with large cumulate xenoliths, and then layers with smaller ones, and
-then layers with small chunks, and then layers with single crystals? </p>
+then layers with small chunks, and then layers with single crystals?
+<span class='fixed'>Clarified that this a size-range gradation, and reworked description</span></p>
 
 
 <p class="comment r2"> Line 137: Unless I am missing something, 1 basalt and
 2 dunites is not "several". Just list how many samples of each you analyzed, or
 delete "several". </p>
 
+## Eruptive age
+
+<p class='comment r1'>
+Perhaps discuss petrography before age?
+<span>Yep, changed order of these sections</span>
+</p>
+
 <p class="response r1 fixed">Line 153: noted 2sigma errors</p>
+
+## Petrographic and analytical methods
 
 <p class="comment r2"> Lines 160-161: I think this could be made clearer by
 saying that you prepared thin sections of two dunite cumulate samples hosted in
