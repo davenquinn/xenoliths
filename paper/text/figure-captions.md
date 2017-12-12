@@ -23,11 +23,13 @@ displacement on modern San Andreas Fault and ~40 km remainder on the Rinconada
 fault within the area of Salinian nappes.
 
 ##microscope-images
-Optical petrographic images (2.5 mm wide field of view) showing characteristic textures
-found in the Crystal Knob sample set.
-(a) shows sample CK-D2, with the edge of a cumulate xenolith
-composed of equant olivine (ol) grains at ~200 µm characteristic scale, set against
-a host lava groundmass containing <100 µm phenocrysts of olivine, pyroxene, and plagioclase feldspar.
+
+Optical petrographic images (2.5 mm wide field of view) showing characteristic
+textures of the xenolith samples and basaltic host.
+(a) shows sample CK-D2, with the edge of a cumulate xenolith composed of equant
+    olivine (ol) grains (~200 µm characteristic scale) set against a host lava
+    groundmass containing <100 µm phenocrysts of olivine, pyroxene, and
+    plagioclase feldspar.
 (b) shows the spinel lherzolite sample CK-4 with >2 mm olivine, orthopyroxene (opx), clinopyroxene (cpx),
 and spinel (sp). (c) shows sample CK-D2, with a single large orthopyroxene crystal with augite exsolution lamellae
 and containing an olivine inclusion juxtaposed against dunite cumulate

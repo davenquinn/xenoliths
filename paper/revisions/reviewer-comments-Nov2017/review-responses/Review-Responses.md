@@ -153,21 +153,23 @@ Perhaps discuss petrography before age?
 
 ## Petrographic and analytical methods
 
+<div class="group">
 <p class="comment r2"> Lines 160-161: I think this could be made clearer by
 saying that you prepared thin sections of two dunite cumulate samples hosted in
-basalt </p>
-
+basalt</p>
 <p class="comment r2"> The dunite-basalt relationship is not abundantly clear.
 Be specific, especially on p. 5 near the middle (lines 160-161) </p>
+<p class='response fixed'>Thanks, your way is definitely clearer</p>
+</div>
 
 <p class="comment r2"> Lines 173-179: Is there a figure for this? Or results
 (only results) in a table format? If you already have this, which table is it?
-</p>
-
+<span> The mineral compositions discussed here are given in our compositional
+table and results shown in *Figure 5*</span> </p>
 
 <p class="comment r2"> Line 178: I have no problem with discarding, but as
 a reader I prefer to know which samples you KEPT and why you decided to keep
-them. </p>
+them.<span class="partial">I think that it is implied that we kept all of the ones that weren't obviously bad measurements in the modes discussed here. Tried to make that a little more clear in text</span></p>
 
 <p class="comment r3"> 179- figure 5 should be mentioned here i think </p>
 
