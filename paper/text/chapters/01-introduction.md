@@ -90,6 +90,7 @@ and structurally attenuated by both the shallow subduction megathrust and
 subsequent trench-directed extensional faulting, which occurred as the Shatsky
 conjugate moved deeper into the mantle beneath the North American plate
 [@Saleeby2003; @Liu2010; @Chapman2012].
+
 In the Neogene, ridge subduction and the opening of the Pacific-Farallon slab
 window [@Atwater1998] drove far-field effects including late Cenozoic regional
 volcanism in central and southern California [@Dodge1988] and the convective
@@ -160,12 +161,12 @@ Pacific-Farallon slab window [@Wilson2005] suggests that its upper mantle
 underpinnings may have originated as ascended asthenosphere in a manner
 analogous to the eastern Sierra xenolith suite.
 
-This integrative study seeks to discern the origin of the upper mantle beneath
-the central California Coast Ranges and the role of Cretaceous and Neogene
-processes in its formation. Below, we investigate the petrology and
-geochemistry of the Crystal Knob xenolith suite and link it to regional
-findings on other xenolith locations, as well as geophysical data and
-modeling.
+In this integrative study, we investigate the petrology and geochemistry of the
+Crystal Knob xenolith suite and model the evolution of the mantle lithosphere
+beneath the California Coast Ranges. Building context from previous xenolith
+and geophysical studies, we explore the relative role of Cretaceous and Neogene
+processes in building the deep lithosphere beneath the western margin of North
+America.
 
 <!--[[context]]-->
 <!--[[field_photo]]-->
