@@ -130,12 +130,12 @@ Shatsky conjugate [@Luffi2009].
 Xenoliths of the eastern Sierra suite [@fig:context] occur in Pliocene-Quaternary mafic lava flows
 and record Neogene asthenospheric upwelling, with significantly steeper thermal
 gradients and more fertile compositions than observed in older suites in the
-central Sierra [@Ducea1996; @Ducea1998b]. Corresponding asthenospheric mantle
-is shown by seismic data to extend to the base of the crust (~30 km depth) in
-the eastern Sierra [@Jones1998; @Zandt2004; @Frassetto2011; @Jones2014]. The eruption of
-xenolith-hosting lavas of eastern Sierra suite within the <5 Ma Owens Valley
-rift system [@fig:context] was likely driven by upper mantle convection
-[@LePourhiet2006; @Jones2014].
+central Sierra [@Ducea1996; @Ducea1998b]. Seismic studies show a corresponding
+domain of asthenospheric mantle that extends to the base of the crust (~30 km
+depth) in the eastern Sierra [@Jones1998; @Zandt2004; @Frassetto2011;
+@Jones2014]. The eruption of xenolith-hosting lavas of eastern Sierra suite
+within the <5 Ma Owens Valley rift system [@fig:context] was likely driven by
+upper mantle convection [@LePourhiet2006; @Jones2014].
 
 These studies suggest a clear correspondence between xenolith-sampled upper
 mantle domains and surface geology. Sub-continental suites are generally
