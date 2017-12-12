@@ -40,43 +40,20 @@ Crystal Knob xenolith suite samples the uppermost mantle that has been
 constructed beneath both the Franciscan accretionary complex and its local
 veneer of Salinia crystalline nappes.
 
-## Regional tectonic setting and previous mantle xenolith studies
+## Regional tectonic setting
 
-The southwest North American Cordillera hosts many xenolith localities, at
-which upper mantle and lower crustal rock fragments were entrained in mainly
-late Cenozoic volcanic eruptions. Early studies of a number of these xenolith
-suites focused on the systematizing of petrographic features and classifying
-samples into textural groups [e.g. @Nixon1987; @Wilshire1988]. Subsequently,
-modern geochemical and petrogenetic techniques have revealed several regional
-mantle lithosphere domains: Precambrian crustal root, Cretaceous arc mantle
-wedge, underplated Farallon plate nappes, and late Cenozoic shallow convective
-asthenosphere [e.g. @Galer1989; @Livaccari1993; @Alibert1994; @Beard1995;
-@Ducea1998a; @Jove1998; @Lee2001; @Usui2003; @Luffi2009].
-
-These studies suggest a clear correspondence between xenolith-sampled upper
-mantle domains and surface geology. Sub-continental suites are generally
-erupted through cratonic and peri-cratonic crust, mantle wedge suites through
-the Cretaceous large-volume batholith, and asthenospheric suites through active
-rifts. Xenolith suites derived from underplated Farallon plate mantle nappes
-have thus far only been recovered from more inboard crustal domains, requiring
-large sub-horizontal displacements and underplating along relatively shallow
-subduction megathrust systems [@Helmstaedt1975; @Lee2001b]. Crystal Knob
-presents a rare opportunity to sample mantle lithosphere directly beneath the
-region of long-lived subduction accretion proximal to the plate edge.
-
-The tectonic setting of the sub-Crystal Knob mantle lithosphere is best understood
-by restoring its host crustal rocks to their position prior to San Andreas
-transform offset. This places them outboard of the southern California batholith,
-the southern continuation of the Sierra Nevada
-batholith across the Garlock fault [@fig:context].
-In this restored position, the crystalline nappes that constitute Salinia
-correlate to deeply exhumed Cretaceous arc plutonic rocks of the southernmost
-Sierra Nevada batholith and the northwestern zones of the southern California
-batholith, the latter widely exposed in the Mojave plateau [@Wood1997;
-@Saleeby2003; @Barbeau2005; @Chapman2012].
-The central and northern regions of the batholith are currently exposed at
-shallow to medial crustal depths (2 to 4 kb pressure), whereas at its southern
-reaches, a continuous gradient to deep  levels (10 kb) is exposed [@Ague1988a;
+The tectonic setting of the sub-Crystal Knob mantle lithosphere is best
+understood by restoring its host crustal rocks to their position prior to San
+Andreas transform offset. This places them outboard of the southern California
+batholith, the southern continuation of the Sierra Nevada batholith across the
+Garlock fault [@fig:context]. In this restored position, the crystalline nappes
+that constitute Salinia correlate to deeply exhumed Cretaceous arc plutonic
+rocks of the southernmost Sierra Nevada batholith and the northwestern zones of
+the southern California batholith, the latter widely exposed in the Mojave
+plateau [@Wood1997; @Saleeby2003; @Barbeau2005; @Chapman2012]. The central and
+northern regions of the batholith are currently exposed at shallow to medial
+crustal depths (2 to 4 kb pressure), whereas at its southern reaches,
+a continuous gradient to deep  levels (10 kb) is exposed [@Ague1988a;
 @Nadin2008].
 
 These deeply exhumed batholithic rocks form the regional upper plate above
@@ -113,10 +90,30 @@ and structurally attenuated by both the shallow subduction megathrust and
 subsequent trench-directed extensional faulting, which occurred as the Shatsky
 conjugate moved deeper into the mantle beneath the North American plate
 [@Saleeby2003; @Liu2010; @Chapman2012].
+In the Neogene, ridge subduction and the opening of the Pacific-Farallon slab
+window [@Atwater1998] drove far-field effects including late Cenozoic regional
+volcanism in central and southern California [@Dodge1988] and the convective
+ascent of asthenosphere in the southern Basin and Range province
+[@LePourhiet2006]. Beginning in the Miocene, crustal blocks hosting Crystal
+Knob were moved northwest along the San Andreas transform system to their
+present position [e.g. @Argus1991; @Wilson2005].
 
-The modification of the mantle lithosphere by this flat slab is recorded by
-integrated mantle xenolith studies and deep-lithosphere seismic studies. The
-central Sierra Nevada xenolith suite [@fig:context] was entrained in late
+# Previous mantle xenolith studies
+
+The southwest North American Cordillera hosts many xenolith localities, at
+which upper mantle and lower crustal rock fragments were entrained in mainly
+late Cenozoic volcanic eruptions. Early studies of a number of these xenolith
+suites catalogued petrographic features and classified samples into textural
+groups [e.g. @Nixon1987; @Wilshire1988]. Subsequently, modern geochemical and
+petrogenetic techniques have revealed several regional mantle lithosphere
+domains: Precambrian crustal root, Cretaceous arc mantle wedge, underplated
+Farallon plate nappes, and late Cenozoic shallow convective asthenosphere [e.g.
+@Galer1989; @Livaccari1993; @Alibert1994; @Beard1995; @Ducea1998a; @Jove1998;
+@Lee2001; @Usui2003; @Luffi2009].
+
+The modification of the mantle lithosphere by the Cretaceous "flat slab" is
+recorded by integrated mantle xenolith and deep-lithosphere seismic studies.
+The central Sierra Nevada xenolith suite [@fig:context] was entrained in late
 Miocene small-volume volcanic flows and plugs. It samples the intact Sierra
 Nevada batholithic root and corresponding Cretaceous mantle wedge [@Ducea1996;
 @Ducea1998a; @Lee2001; @Saleeby2003; @Lee2006; @Chin2015]. In contrast,
@@ -141,19 +138,25 @@ to the base of the crust (~30 km depth) in the eastern Sierra [@Jones1998;
 source for the eastern Sierra xenoliths. The eruption of xenolith-hosting lavas
 of eastern Sierra suite within the <5 Ma Owens Valley rift system
 [@fig:context] was likely driven by upper mantle convection [@LePourhiet2006;
-@Jones2014]. Both this convective ascent of asthenosphere and abundant late
-Cenozoic regional volcanism in central and southern California [@Dodge1988] are
-far-field effects of ridge subduction and the opening of the Pacific-Farallon
-slab window [@Atwater1998].
+@Jones2014].
 
+These studies suggest a clear correspondence between xenolith-sampled upper
+mantle domains and surface geology. Sub-continental suites are generally
+erupted through cratonic and peri-cratonic crust, mantle wedge suites through
+the Cretaceous large-volume batholith, and asthenospheric suites through active
+rifts. Xenolith suites derived from underplated Farallon plate mantle nappes
+have thus far only been recovered from more inboard crustal domains, requiring
+large sub-horizontal displacements and underplating along relatively shallow
+subduction megathrust systems [@Helmstaedt1975; @Lee2001b].
+
+Crystal Knob presents a rare opportunity to sample mantle lithosphere directly
+beneath a region of long-lived subduction accretion proximal to the plate edge.
 The reconstructed position of Crystal Knob, directly outboard of the Dish Hill
 locality [@fig:context], as well as its penetration of the Franciscan
 accretionary complex, suggests that its xenoliths may sample additional
 underplated Farallon mantle nappes outboard of the Dish Hill mantle duplex.
-However, the late Cenozoic plate kinematics of southern California [@Argus1991;
-@Atwater1998] could have affected its mantle lithosphere as well. The position
-of Crystal Knob above the outboard margin of the Pacific-Farallon slab window
-prior to Neogene dextral faulting [@Wilson2005] suggests that its upper mantle
+However, the restored position of Crystal Knob above the outboard margin of the
+Pacific-Farallon slab window [@Wilson2005] suggests that its upper mantle
 underpinnings may have originated as ascended asthenosphere in a manner
 analogous to the eastern Sierra xenolith suite.
 

@@ -1,0 +1,258 @@
+
+insert “existing” before xenolith?
+
+are these time-corrected values?
+
+of the hottest what?
+
+Desert
+
+
+
+
+
+also Wood and Saleeby, 1998
+
+
+
+also Chin et al., 2015 - geochemical perspectives letters
+
+
+
+also Ague and Brimhall, 1988
+
+
+
+Perhaps discuss petrography before age?
+
+
+
+avoid beginning sentence with number
+
+
+
+1 sigma?
+
+
+
+
+
+
+
+
+
+word missing
+
+
+
+why is phenocrysts in quotes?
+
+
+
+parentheses surrounding fig 3
+
+
+
+
+
+
+
+wording is off
+
+
+
+provide approximate Cr#
+
+
+
+
+
+I haven’t seen this before - are you sure you don’t mean volume percent or modal percent? Wt.% implies density is factored in.
+
+
+
+Implies grains grew via metamorphic processes, which may/may not be intended.
+
+
+
+Along with the comment above - what is the benefit to using wt%?
+
+
+
+above it is stated that CK-6 is the most fertile.
+
+
+
+wonky wording
+
+
+
+…further suggests that these samples represent…
+
+
+
+
+
+time-corrected?
+
+time corrected?
+
+
+
+
+
+
+
+these
+
+
+
+neither the text here nor the figure 16 caption adequately describe the graphical approach.
+
+
+
+Isn’t Ca2+ a rather large cation?
+
+I’d recommend “+10.3 to +11.0” rather than inserting “-“ otherwise it’s not clear.
+
+
+
+missing period.
+
+
+
+Cenozoic
+
+
+
+
+
+Salinia’s Late Cretaceous history - involving detaching from the southern Sierra Nevada and being shed some ~50 km to the SSW - likely has a lot to do with it (Wood and Saleeby, 1997 and me et al., 2012).
+
+More explanation needed - term is not self explanatory (nor did a quick google turn anything up)
+
+
+
+inconsistent figure referencing
+
+
+
+I didn’t see this term in Pikser et al., who use “remnant” or “stalled slab,” which are not as gross.
+
+
+
+
+
+perhaps “directly” ? Immediately implies time is involved
+
+cooled?
+
+
+
+
+
+i don’t see the connection between the first and second half of this sentence.
+
+
+
+clarify - do you mean directly beneath the moho?
+
+
+
+clarify - do you mean “Cretaceous mantle lithosphere” ?
+
+
+
+I assume the different colors (orange/red) in A are different amounts of time the asthenosphere blowtorch is in contact with the base of the crust?
+
+
+
+
+
+to paraphrase line 878, it is stated that the monterey microplate separated from the farallon in early Miocene.
+
+
+
+I must be missing something here.
+
+
+
+Kidder et al.’s P-T work is honored nicely here.
+
+I’d recommend specifying that these are Ar-Ar mica ages
+
+
+
+labeling the dark blue-purple model runs in fig 20c would be helpful
+
+
+
+
+
+It would be clearer to refer to the panels by age (e.g., the 74 Ma panel)
+
+
+
+This may be a more appropriate spot to discuss the viability of the dangling slab model.
+
+
+
+Is this plausible?
+
+SGHf puts franciscan on franciscan; not Salinia on Salinia, as shown in fig 18 (unless I’m reading it wrong).
+
+
+
+also west of the fault
+
+
+
+A brief indication of which markers are being referred to here would be helpful
+
+
+
+unlike the majority of this paper, this paragraph (beginning line 1262) does not flow well, resulting in an argument that’s tough to follow.
+
+
+
+I don’t follow.
+
+
+
+
+
+Cobble
+
+
+
+
+
+
+
+
+
+“records”
+
+this is the first of a few figures with nice colors, though I’m not sure what to make of them (I can’t see where the colors are decoded)
+
+
+
+again, what are the colors?
+
+
+
+colors?
+
+
+
+colors?
+
+
+
+
+
+are samples represented by different colors?
+
+What are colors?
+
+

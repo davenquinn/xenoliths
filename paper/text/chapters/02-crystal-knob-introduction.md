@@ -3,16 +3,15 @@
 The Crystal Knob volcanic neck (35.806º N, 121.174º W) is a mid-Pleistocene
 olivine--plagioclase phyric basalt that erupted along the margin of the
 Franciscan assemblage 500 m west of the Nacimiento Fault in the Santa Lucia
-Mountains of central California [@Seiders1989]. It was briefly described in
-@Wilshire1988 but not studied in detail. The basaltic plug is ~80
-m in diameter at the surface and has entrained abundant dunite and sparse
-spinel peridotite xenoliths [@fig:field_photo]. The dunites are cumulates, and
-grade texturally into single grain xenocrysts, or apparent
-phenocrysts, within the host lava. Sparse spinel
-peridotites are also present which lack textural
-features suggestive of igneous cumulate origin. In conjunction with the
-compositional data presented below, we interpret the peridotites as
-entrained fragments of the mantle lithosphere.
+Mountains of central California [@Seiders1989]. It was described in
+@Wilshire1988 but not studied in detail. The basaltic plug is ~80 m in diameter
+at the surface and has entrained abundant dunite and sparse spinel peridotite
+xenoliths [@fig:field_photo]. The dunites are cumulates, and grade texturally
+into single grain xenocrysts, or apparent phenocrysts, within the host lava.
+Sparse spinel peridotites are also present which lack textural features
+suggestive of igneous cumulate origin. In conjunction with the compositional
+data presented below, we interpret the peridotites as entrained fragments of
+the mantle lithosphere.
 
 Samples were collected from the Crystal Knob lava with an
 emphasis on these polyphase peridotite xenoliths.

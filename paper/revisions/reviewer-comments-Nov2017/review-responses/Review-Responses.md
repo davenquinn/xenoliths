@@ -1,7 +1,16 @@
+# Overall evaluations
+
+<p class='comment r3'>The manuscript by Quinn et al., explores the geochemistry of a suite of xenoliths erupted through the Franciscan belt in central California and investigates a series of 1D thermal models in order to evaluate possible tectonic scenarios for the upper mantle that were previously proposed for the region. These xenoliths have not previously been investigated and the analysis carried out here will be of significant interest to workers interested in western U.S. tectonics. The mantle duplex idea explored here will be of interest to a wider community. The methods and conclusions seem reasonable to this (non-geochemist) reader. The language is clear (some minor issues pointed out below), but the document seems longer than necessary. I do not have any specific recommendations on how to shorten it, but I encourage the authors to condense it for the sake of future readers. One general comment is that interpretations have been mixed in with methods and descriptions throughout the text in a way that sort of works but is also a little unconventional-I'm not sure I agree that it was necessary to dispense with the traditional sequence/existence of sections dedicated to methods-> observations-> interpretations.
+<span>The existing format helped in reducing the overall text length by not having to review various items multiple times in order to pose our various data acquisition pursuits as well as our interpretations.</span>
+</p>
+
 
 # Abstract {-}
 
-<p class="response r1 fixed ">Updated wording substantially and reordered to clarify importance of mantle xenoliths constraints constraint.</p>
+<p class='comment r1'>
+unclear - perhaps “…a new constraint on the mantle lithosphere
+architecture of the continental margin, which…”
+<span class="response r1 fixed ">Updated wording substantially and reordered to clarify importance of mantle xenoliths constraints constraint.</span><p>
 <p class="response r1 fixed">Added new clarifications of time-corrected isotope values.</p>
 
 <p class='comment r1'> In lines 5-6, xenolith studies are said to link crustal
@@ -12,8 +21,7 @@ xenoliths. Clarify. <span class="partial">Reversed order of a few sentences to r
 <p class="comment r2"> In line 8-9, the xenoliths are reported to be
 underplated sub-oceanic mantle, but I was left wondering here (as well as
 later) what happened to the intervening oceanic crust.
-<span> This is not easily knowable, and is addressed sparingly in cross-sectional
-views, but cannot be summarized in abstract </span> </p>
+<span class=partial> This is not easily knowable, as the oceanic crust is not sampled by xenoliths. This is addressed sparingly in cross-sectional views and discussion of seismic data, but cannot be easily summarized in abstract </span> </p>
 
 <p class="comment r2"> In the final line, "Neogene ridge subduction" is
 invoked, and I wondered if the Neogene ridge has a name, or if the oceanic
@@ -69,13 +77,18 @@ the references
 <span class='response'>Fixed, thanks</span>
 </p>
 
-
+## Regional tectonic setting and previous mantle xenolith studies
 
 <p class="response r1">
 Line 38: Added Precambrian
 </p>
 
 <p class="response r1 fixed">Line 56: fixed out of place figure order</p>
+
+<p class="comment r1">
+also Chin et al., 2015 - geochemical perspectives letters
+<span>Added ref</span>
+</p>
 
 <p class="response r1 fixed">Line 59: Added Wood and Saleeby</p>
 
@@ -93,11 +106,20 @@ Lines 81-83 and 94-97: The contrast is not apparent as phrased. Try, "In additio
 <p class="response fixed">Lines 53-120 were phrased in a very ponderous manner with several restatements. We have reworked significantly to present a more linear flow and work from more general background towards implications for our study.</span>
 </div>
 
+<div class='group'>
+<p class="comment r1">
+also Ague and Brimhall, 1988
+</p>
+<p class="comment r2">
+Ague and Brimhall, 1988
+</p>
+<p class='response fixed'>Added ref</p>
+</div>
+
 <p class="comment r2">
 Line 116: provide a reference for upper-mantle convection driving Owens Valley rifting, or specify "we presume"
 <span class="fixed">Added Jones, 2015 and Le Pourhiet, 2006 refs</span>
 </p>
-
 
 <p class="comment r2"> Line 131: explain why the dunites are cumulate - is this
 a textural determination? And how do they "grade"? is it like there are layers
