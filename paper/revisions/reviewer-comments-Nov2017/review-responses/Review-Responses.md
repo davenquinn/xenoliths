@@ -4,6 +4,7 @@
 <span>The existing format helped in reducing the overall text length by not having to review various items multiple times in order to pose our various data acquisition pursuits as well as our interpretations.</span>
 </p>
 
+<p class='response'>Corrected P Luffi affiliation</p>
 
 # Abstract {-}
 
@@ -103,7 +104,7 @@ the SNB
 Lines 81-83 and 94-97: The contrast is not apparent as phrased. Try, "In addition to Cretaceous mantle wedge, eastern margin xenoliths include ..... "
 </p>
 <p class="comment r3"> line 93 - new paragraph</p>
-<p class="response fixed">Lines 53-120 were phrased in a very ponderous manner with several restatements. We have reworked significantly to present a more linear flow and work from more general background towards implications for our study.</span>
+<p class="response fixed">Lines 53-120 were phrased in a very ponderous manner with several restatements. We have reworked significantly to present a more linear flow and work from more general background towards implications for our study. We also separated into two sections, **Regional tectonic setting** and **Previous xenolith studies**, which makes for better flow</span>
 </div>
 
 <div class='group'>

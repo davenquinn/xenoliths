@@ -50,35 +50,35 @@ Garlock fault [@fig:context]. In this restored position, the crystalline nappes
 that constitute Salinia correlate to deeply exhumed Cretaceous arc plutonic
 rocks of the southernmost Sierra Nevada batholith and the northwestern zones of
 the southern California batholith, the latter widely exposed in the Mojave
-plateau [@Wood1997; @Saleeby2003; @Barbeau2005; @Chapman2012]. The central and
+province [@Wood1997; @Saleeby2003; @Barbeau2005; @Chapman2012]. The central and
 northern regions of the batholith are currently exposed at shallow to medial
 crustal depths (2 to 4 kb pressure), whereas at its southern reaches,
 a continuous gradient to deep  levels (10 kb) is exposed [@Ague1988a;
 @Nadin2008].
 
-These deeply exhumed batholithic rocks form the regional upper plate above
-a polyphase low-angle fault system, interpreted as the extensionally
-remobilized shallow subduction megathrust. Below this tectonic surface,
-Franciscan-affinity, mainly metaclastic rocks were tectonically underplated in
-the Late Cretaceous [@Malin1995; @Barth2003; @Saleeby2003; @Yan2005;
-@Ducea2009; @Chapman2010; @Chapman2012; @Chapman2016b]. These subduction
-channel schists are exposed in a series of tectonic windows [@fig:context] and
-tectonically encase blocks and nappes of Farallon-plate oceanic basement and
-sediments. The schist protoliths were derived from the upper plate batholithic
-belt, which was rapidly exhumed above a shallow flat segment of the Franciscan
-subduction megathrust system [@Barth2003; @Saleeby2007; @Chapman2013;
-@Chapman2016a]. Shallow tectonic underplating of subduction-channel schists
-directly beneath lower-crustal batholithic rocks requires the prior tectonic
-erosion of the underlying mantle wedge lithosphere and parts of the deepest arc
-crust south of this transition zone at the southern Sierras. Seismic reflection
-imaging shows an effectively flat megathrust beneath the western Mojave plateau
-[@Yan2005] and dips of ~30ºN beneath the southernmost Sierra Nevada region
-[@Malin1995]. This inflection in the megathrust corresponds to the most-exhumed
-batholithic rocks of the southern Sierra Nevada and is interpreted as a lateral
-ramp towards a "flat slab" beneath the Mojave province and dispersed southern
-California batholith [@Saleeby2003; @Chapman2016b]. The Garlock fault
+Seismic reflection imaging shows an effectively flat megathrust beneath the
+western Mojave plateau [@Yan2005] and dips of ~30ºN beneath the southernmost
+Sierra Nevada [@Malin1995]. This inflection aligns with increasing exhumation
+of the batholith and is interpreted as a lateral ramp towards a "flat slab"
+beneath the Mojave province, atop which the southern California batholith was
+dispersed and truncated [@Saleeby2003; @Chapman2016b]. The Garlock fault
 [@fig:context] nucleated along this inflection during the early Miocene
 [@Saleeby2016].
+
+These exhumed batholithic rocks form the regional upper plate above a polyphase
+low-angle fault system, interpreted as the extensionally remobilized shallow
+subduction megathrust. Franciscan-affinity, mainly metaclastic rocks were
+underplated beneath this tectonic surface in the Late Cretaceous [@Malin1995;
+@Barth2003; @Saleeby2003; @Yan2005; @Ducea2009; @Chapman2010; @Chapman2012;
+@Chapman2016b]. These subduction channel schists are exposed in a series of
+tectonic windows [@fig:context] and encase blocks and nappes of
+Farallon-plate oceanic basement and sediments. The schist protoliths were
+derived from the upper plate batholithic belt, which was rapidly exhumed above
+a shallow flat segment of the Franciscan subduction megathrust system
+[@Barth2003; @Saleeby2007; @Chapman2013; @Chapman2016a].
+The truncation of lower-crustal batholithic rocks and underplating of
+subduction-channel schists requires the tectonic erosion of the underlying
+mantle wedge lithosphere and deepest arc crust.
 
 The southern California "flat slab" is attributed to the ephemeral buoyancy
 resulting from the subduction of the conjugate massif to the Shatsky Rise
@@ -99,7 +99,7 @@ ascent of asthenosphere in the southern Basin and Range province
 Knob were moved northwest along the San Andreas transform system to their
 present position [e.g. @Argus1991; @Wilson2005].
 
-# Previous mantle xenolith studies
+## Previous mantle xenolith studies
 
 The southwest North American Cordillera hosts many xenolith localities, at
 which upper mantle and lower crustal rock fragments were entrained in mainly
@@ -112,43 +112,39 @@ Farallon plate nappes, and late Cenozoic shallow convective asthenosphere [e.g.
 @Galer1989; @Livaccari1993; @Alibert1994; @Beard1995; @Ducea1998a; @Jove1998;
 @Lee2001; @Usui2003; @Luffi2009].
 
-The modification of the mantle lithosphere by the Cretaceous "flat slab" is
-recorded by integrated mantle xenolith and deep-lithosphere seismic studies.
 The central Sierra Nevada xenolith suite [@fig:context] was entrained in late
-Miocene small-volume volcanic flows and plugs. It samples the intact Sierra
-Nevada batholithic root and corresponding Cretaceous mantle wedge [@Ducea1996;
-@Ducea1998a; @Lee2001; @Saleeby2003; @Lee2006; @Chin2015]. In contrast,
-xenoliths recovered from the eastern margin of the Mojave province record the
-partial tectonic erosion of sub-continental mantle lithosphere (including
-Cretaceous mantle wedge) and the underplating of Farallon plate mantle
-lithosphere [@Shervais1973; @Luffi2009; @Armytage2015; @Shields2016GSA]. The
-Dish Hill suite [@fig:context] samples an upper mantle duplex with imbricated
-nappes of Farallon-plate oceanic mantle lying in structural sequence beneath
-a relatively thin roof of attenuated continental lithosphere peridotites. The
-mantle duplex is interpreted to have formed during the episode that dispersed
-the overlying southern California batholith,  as the Farallon plate retreated
-following low-angle subduction of the Shatsky conjugate [@Luffi2009].
+Miocene small-volume volcanic flows and plugs north of the zone of "flat slab"
+subduction. It samples the intact Sierra Nevada batholithic root and
+Cretaceous mantle wedge [@Ducea1996; @Ducea1998a; @Lee2001;
+@Saleeby2003; @Lee2006; @Chin2015]. In contrast, xenoliths suites in the
+eastern Mojave province record the partial tectonic erosion of sub-continental
+mantle lithosphere (including Cretaceous mantle wedge) and underplating of
+Farallon-plate mantle lithosphere [@Shervais1973; @Luffi2009; @Armytage2015;
+@Shields2016GSA]. The Dish Hill locality [@fig:context] records an upper mantle
+duplex with imbricated nappes of Farallon-plate oceanic mantle lying
+structurally beneath a relatively thin roof of attenuated
+continental-lithosphere peridotite. The mantle duplex is interpreted to have
+formed as the Farallon plate retreated following low-angle subduction of the
+Shatsky conjugate [@Luffi2009].
 
-Xenoliths of the eastern Sierra suite [@fig:context] record Neogene
-asthenospheric upwelling. These occur in Pliocene-Quaternary mafic lava flows
-and record significantly steeper thermal gradients and more fertile
-compositions than the Cretaceous mantle wedge suite from the central Sierra
-[@Ducea1996; @Ducea1998b]. Seismic data shows asthenospheric mantle extending
-to the base of the crust (~30 km depth) in the eastern Sierra [@Jones1998;
-@Zandt2004; @Frassetto2011; @Jones2014]: this mantle domain is the likely
-source for the eastern Sierra xenoliths. The eruption of xenolith-hosting lavas
-of eastern Sierra suite within the <5 Ma Owens Valley rift system
-[@fig:context] was likely driven by upper mantle convection [@LePourhiet2006;
-@Jones2014].
+Xenoliths of the eastern Sierra suite [@fig:context] occur in Pliocene-Quaternary mafic lava flows
+and record Neogene asthenospheric upwelling, with significantly steeper thermal
+gradients and more fertile compositions than observed in older suites in the
+central Sierra [@Ducea1996; @Ducea1998b]. Corresponding asthenospheric mantle
+is shown by seismic data to extend to the base of the crust (~30 km depth) in
+the eastern Sierra [@Jones1998; @Zandt2004; @Frassetto2011; @Jones2014]. The eruption of
+xenolith-hosting lavas of eastern Sierra suite within the <5 Ma Owens Valley
+rift system [@fig:context] was likely driven by upper mantle convection
+[@LePourhiet2006; @Jones2014].
 
 These studies suggest a clear correspondence between xenolith-sampled upper
 mantle domains and surface geology. Sub-continental suites are generally
 erupted through cratonic and peri-cratonic crust, mantle wedge suites through
-the Cretaceous large-volume batholith, and asthenospheric suites through active
-rifts. Xenolith suites derived from underplated Farallon plate mantle nappes
-have thus far only been recovered from more inboard crustal domains, requiring
-large sub-horizontal displacements and underplating along relatively shallow
-subduction megathrust systems [@Helmstaedt1975; @Lee2001b].
+the Cretaceous large-volume batholith, and asthenospheric suites through
+active rifts. Xenolith suites derived from underplated Farallon plate mantle
+nappes have thus far only been recovered from more inboard crustal domains,
+requiring large sub-horizontal displacements and underplating along relatively
+shallow subduction megathrust systems [@Helmstaedt1975; @Lee2001b].
 
 Crystal Knob presents a rare opportunity to sample mantle lithosphere directly
 beneath a region of long-lived subduction accretion proximal to the plate edge.
