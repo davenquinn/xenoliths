@@ -156,10 +156,10 @@ The reconstructed position of Crystal Knob, directly outboard of the Dish Hill
 locality [@fig:context], as well as its penetration of the Franciscan
 accretionary complex, suggests that its xenoliths may sample additional
 underplated Farallon mantle nappes outboard of the Dish Hill mantle duplex.
-However, the restored position of Crystal Knob above the outboard margin of the
-Pacific-Farallon slab window [@Wilson2005] suggests that its upper mantle
-underpinnings may have originated as ascended asthenosphere in a manner
-analogous to the eastern Sierra xenolith suite.
+However, its restored position above the Pacific-Farallon slab window
+[@Wilson2005] suggests that the upper mantle underpinnings of Crystal Knob may
+have originated as ascended asthenosphere, in a manner analogous to the eastern
+Sierra xenolith suite.
 
 In this integrative study, we investigate the petrology and geochemistry of the
 Crystal Knob xenolith suite and model the evolution of the mantle lithosphere
