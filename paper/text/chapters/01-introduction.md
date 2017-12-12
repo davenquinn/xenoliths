@@ -127,24 +127,25 @@ continental-lithosphere peridotite. The mantle duplex is interpreted to have
 formed as the Farallon plate retreated following low-angle subduction of the
 Shatsky conjugate [@Luffi2009].
 
-Xenoliths of the eastern Sierra suite [@fig:context] occur in Pliocene-Quaternary mafic lava flows
-and record Neogene asthenospheric upwelling, with significantly steeper thermal
-gradients and more fertile compositions than observed in older suites in the
-central Sierra [@Ducea1996; @Ducea1998b]. Seismic studies show a corresponding
-domain of asthenospheric mantle that extends to the base of the crust (~30 km
-depth) in the eastern Sierra [@Jones1998; @Zandt2004; @Frassetto2011;
-@Jones2014]. The eruption of xenolith-hosting lavas of eastern Sierra suite
-within the <5 Ma Owens Valley rift system [@fig:context] was likely driven by
-upper mantle convection [@LePourhiet2006; @Jones2014].
+Xenoliths of the eastern Sierra suite [@fig:context] occur in
+Pliocene-Quaternary mafic lava flows and record significantly steeper thermal
+gradients and more fertile compositions than the older xenoliths of the central
+Sierra, suggesting Neogene asthenospheric upwelling [@Ducea1996; @Ducea1998b].
+Seismic studies show a corresponding domain of asthenospheric mantle that
+extends to the base of the crust (~30 km depth) in the eastern Sierra
+[@Jones1998; @Zandt2004; @Frassetto2011; @Jones2014]. The eruption of
+xenolith-hosting lavas of eastern Sierra suite within the <5 Ma Owens Valley
+rift system [@fig:context] was likely driven by upper mantle convection
+[@LePourhiet2006; @Jones2014].
 
-These studies suggest a clear correspondence between xenolith-sampled upper
-mantle domains and surface geology. Sub-continental suites are generally
+The upper-mantle source of most xenolith suites in the Cordillera clearly
+corresponds to surface geology: sub-continental xenolith suites are generally
 erupted through cratonic and peri-cratonic crust, mantle wedge suites through
-the Cretaceous large-volume batholith, and asthenospheric suites through
-active rifts. Xenolith suites derived from underplated Farallon plate mantle
-nappes have thus far only been recovered from more inboard crustal domains,
-requiring large sub-horizontal displacements and underplating along relatively
-shallow subduction megathrust systems [@Helmstaedt1975; @Lee2001b].
+the Cretaceous large-volume batholith, and asthenospheric suites through active
+rifts. However, xenoliths derived from underplated Farallon-plate material
+have thus far only been recovered from more inboard crustal domains, requiring
+large sub-horizontal displacements and underplating along relatively shallow
+subduction megathrust systems [@Helmstaedt1975; @Lee2001b].
 
 Crystal Knob presents a rare opportunity to sample mantle lithosphere directly
 beneath a region of long-lived subduction accretion proximal to the plate edge.
