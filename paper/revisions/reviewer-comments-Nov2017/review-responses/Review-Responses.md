@@ -272,7 +272,7 @@ dunite. Is there a better word choice to replace "peridotite?"
 <span class="response"> We understand the concern and have tweaked to "spinel peridotites" in some places.  “Dunites” would be properly set against “polyphase peridotites” or “lherzolites and harzburgites”. We think that using “peridotite” as a shorthand for “polyphase peridotites” is appropriate and understandable phrasing. </span>
 </p>
 
-<p class='response r1 fixed'>Not porphyroblasts!</p>
+<p class='response r1 fixed'>Changed to avoid misleading use of porphyroblasts!</p>
 
 <p class="comment r2"> 269-270: try to avoid using the same word &gt;1x in
 a sentence.<span>Didn't see what was referred to, or may have already changed</span></p>
