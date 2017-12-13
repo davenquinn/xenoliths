@@ -171,46 +171,53 @@ table and results shown in *Figure 5*</span> </p>
 a reader I prefer to know which samples you KEPT and why you decided to keep
 them.<span class="partial">I think that it is implied that we kept all of the ones that weren't obviously bad measurements in the modes discussed here. Tried to make that a little more clear in text</span></p>
 
-<p class="comment r3"> 179- figure 5 should be mentioned here i think </p>
-
-
-<p class="comment r2"> Line 185: "section" - is this a thin section? \~5 cm
-xeno in thin section seems quite large </p>
-
-<p class="comment r3"> 192 "thin section" instead of "sample?" </p>
-
-<p class="comment r3">
-194. "textures similar to those in samples CK-2 to CK-7". Have we been
-     introduced to these samples? Don't expect reader to memorize the sample
-     numbers.
+<p class="comment r3">Line 179: figure 5 should be mentioned here i think
+<span>Yep! Added the reference, and moved things around for clarity.</span>
 </p>
 
-<p class="comment r2"> Line 196: what does "between fragments" mean here? </p>
+## The basaltic host
+
+<p class="comment r2"> Line 185: "section" - is this a thin section? \~5 cm
+xeno in thin section seems quite large<span class='fixed'>Yep, meant in the sample</span></p>
+
+<p class="comment r3"> 192 "thin section" instead of "sample?"<span class='fixed'>Yes, more clearly stated this way</span></p>
+
+<p class="comment r3"> Line 194. "textures similar to those in samples CK-2 to
+CK-7". Have we been introduced to these samples? Don't expect reader to
+memorize the sample numbers. <span class='fixed'>Explained relevance of this
+grouping</span> </p>
+
+<p class="comment r2">Line 196: what does "between fragments" mean here?
+<span class='fixed'>Depending on the fragment</span></p>
 
 
-<p class="comment r2">
-197: within a dunite inclusion? </p>
+<p class="comment r2">Line 197: within a dunite inclusion?
+<span class='fixed'>Yep, clarified</span></p>
 
-<p class="comment r2">202: are the microphenocrysts of plag here different from
-the plag lathes in line 187? </p>
+<p class="comment r2">Line 202: are the microphenocrysts of plag here different from
+the plag lathes in line 187?<span class='fixed'>Yep, a bit (the lathes are larger)</span></p>
 
-<p class="comment r3"> 201-202. is "microphenocryst" a word? hyphenate? </p>
+<p class="comment r3">Line 201-202: is "microphenocryst" a word? hyphenate?
+<span>It's a word</span>
+</p>
 
-<p class="comment r2">
-204: "measurements" here refers to more cpx grains? </p>
+<p class="comment r2">Line 204: "measurements" here refers to more cpx grains?
+<span>Fixed</span>
+</p>
 
-<p class="comment r2">
-208: relatively what? </p>
+<p class="comment r2">Line 208: relatively what?<span>Fixed</span> </p>
 
-<p class="comment r3"> 208-209. Some consideration of diffusion rates in
+<p class="comment r3">Line 208-209: Some consideration of diffusion rates in
 olivine could be useful here to put a more quantitative timescale on this. Also
-a word ("recently?") is missing from the sentence. </p>
+a word ("recently?") is missing from the sentence.
+<span class='partial'>Don't think I need to go into the timescale, which is presumably pretty quick. Fixed word.</span></p>
 
 <p class="comment r2">
-210: why the quotes on phenocrysts? </p>
+210: why the quotes on phenocrysts?
+<span class='fixed'>Reworded</span></p>
 
 <p class="comment r3"> 213-215. interpretation is mixed up here with
-descripition. </p>
+descripition.<span class='fixed'>Reworded to make it more clear that this is a bit interpretive, but it should be here as it motivates the previous section</span></p>
 
 <p class="comment r3">
 218. allotriomirphic is considered an obsolete synonym of "xenomorphic"
