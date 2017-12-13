@@ -317,7 +317,9 @@ or any kind of mafic xemolith?<span>Coleman and Glazner (1998?) argue that easte
 337: where does the reader find these averages? (table 7? Figs 10, 11?)
 <span class='fixed'>Moved up figure refs</span></p>
 
-<p class="comment r3 fixed"> 340 add "in olivine" after "compatible"</p>
+<p class="comment r3 fixed"> 340 add "in olivine" after "compatible"
+<span class='fixed'>Yup</span>
+</p>
 
 <p class="comment r2"> Section 2.6.1: I feel that the T and P determinations
 need to come first so the reader knows why you fed certain variables into
@@ -326,18 +328,22 @@ pMELTS. OR explain the utility of the generic model first.
 </span></p>
 
 
-<p class="comment r2"> 351; 353: depletion and re-enrichment in what? </p>
+<p class="comment r2"> 351; 353: depletion and re-enrichment in what?
+<span class='fixed'>Reworded to clarify</span></p>
+
+
+<p class="comment r2"> 354: what does it mean to be "depleted in whole-rock composition"? this is
+confusing: the cpx is depleted in REEs; what is the WR depleted in?
+<span class='fixed'>Clarified that it is also REEs</span>
+</p>
 
 
 <p class="comment r2">
-354: what does it mean to be "depleted in whole-rock composition"? this is
-     confusing: the cpx is depleted in REEs; what is the WR depleted in? </p>
+371: I am not sure what the utility of the "model composition" is.
+<span class='partial'>Tried to better motivate model</span>
+</p>
 
-
-<p class="comment r2">
-371: I am not sure what the utility of the "model composition" is. </p>
-
-<p class="comment r3"> 371 "a" not "an" </p>
+<p class="comment r3"> 371 "a" not "an"<span class='fixed'>Thanks, you are an star</span></p>
 
 <p class="comment r2">
 375: remind the reader what rock type CK-2 is </p>
