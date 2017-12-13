@@ -219,13 +219,17 @@ a word ("recently?") is missing from the sentence.
 <p class="comment r3"> 213-215. interpretation is mixed up here with
 descripition.<span class='fixed'>Reworded to make it more clear that this is a bit interpretive, but it should be here as it motivates the previous section</span></p>
 
+## Peridotite xenoliths
+
 <p class="comment r3">
 218. allotriomirphic is considered an obsolete synonym of "xenomorphic"
      (glossary of geology). use xenomorphic instead.
+ <span class='fixed'>Sure, makes sense</span>
 </p>
 
 <p class="comment r2">
-222: can you rule out strain after formation? </p>
+222: can you rule out strain after formation?
+<span class='fixed'>Nope, slightly tweaked statement to fix</span></p>
 
 <p class="comment r3"> 226-229. "alteration channel" or "melt channel"? </p>
 
@@ -237,19 +241,32 @@ descripition.<span class='fixed'>Reworded to make it more clear that this is a b
      it. probably there are lots of arrangements that could be categorized as
      intergrown. Since it is seen in all the samples, a figure or reference to
      previous literature describing this would help.
+ <span>Didn't mean it genetically. Reworded as "interlocking domains"</span>
 </p>
 
 <p class="comment r2">
-237: determined how? "as indicated by .... " </p>
+237: determined how? "as indicated by .... "
+<span>Changed to make more clear how fused domains are seen. Don't think I need
+to reiterate it was seen by extinctions on a petrographic scope because that is the point of this section. Added **Petrography** subhead to help lead reader./span>
+</p>
 
+### Compositions of dominant phases
 
-<p class="comment r2">
+###
+
+<p class="comment r2 fixed">
 260: "shows" or IS? </p>
 
 <p class="comment r3"> 262-264, and 237-238. these interpretative statements
 need more support (at least they are not self evident to this non-petrologist
 reader). Cite a reference where similar observations and conclusions have been
-made, or support the arguments more. </p>
+made, or support the arguments more.
+<span class='fixed'>
+  In the first instance, we tweaked slightly for clarity, but hold that the detection of composite grains is a basic petrographic technique that should not need much introduction.
+
+
+</span>
+</p>
 
 <p class="comment r3"> various places, e.g. 265: distinguishing them as
 "dunites" vs "peridotites" is problematic since the term peridotite encompasses
@@ -261,23 +278,30 @@ for “polyphase peridotites” is appropriate and understandable phrasing. </sp
 </p>
 
 <p class="comment r2"> 269-270: try to avoid using the same word &gt;1x in
-a sentence. </p>
+a sentence.<span>Didn't see what was referred to, or may have already changed</span></p>
 
+
+<p class="comment r1">
+Line 271: Along with the comment above - what is the benefit to using wt%?  It’s more abstract than simply vol.
+<span>Modal abundances need to be converted to wt% to be combined with compositional data to recalculate whole-rock compositions. Therefore, makes sense to report these, since it's a simple scaling by phase densities</span></p>
 
 <p class="comment r2">
 273: it would be nice to know the total \# of points - maybe include this
-     column in Table 6? </p>
+     column in Table 6?
+<span>It is 5000 as stated in text, updated to clarify</span>
+</p>
 
 <p class="comment r3">
 296. what is "net of possible refertilization?"
+<span>Fixed phrasing; we are not accountants here</span>
 </p>
 
 <p class="comment r2"> ---ORGANIZATIONAL NOTE---- My preference would be to
 read sections 2.4.2 and 2.4,3 before 2.4.1. I like the progression from larger
-to smaller scale observations </p>
+to smaller scale observations<span class='rejected'>Whole-rock compositions as assembled here require the use of both compositional and modal-abundance data introduced in 2.4.1 and 2.4.2.</span></p>
 
 <p class="comment r2"> 317-318: I'd prefer to read the interpretation after the
-data/results </p>
+data/results<span class='fixed'>Agreed, rephrased</span></p>
 
 
 <p class="comment r2"> 320-322: why would granite have the same Sr/Sr as basalt
