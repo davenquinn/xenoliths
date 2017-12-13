@@ -345,13 +345,13 @@ confusing: the cpx is depleted in REEs; what is the WR depleted in?
 
 <p class="comment r3"> 371 "a" not "an"<span class='fixed'>Thanks, you are an star</span></p>
 
-<p class="comment r2">
-375: remind the reader what rock type CK-2 is </p>
+<p class="comment r2">375: remind the reader what rock type CK-2 is
+<span class="fixed">Fixed</span></p>
 
 
 <p class="comment r2">
 386: maybe specify that CK-2 follows the trend of modelled depleted peridotite
-     </p>
+<span class="fixed">Fixed</span></p>
 
 
 <p class="comment r2">
