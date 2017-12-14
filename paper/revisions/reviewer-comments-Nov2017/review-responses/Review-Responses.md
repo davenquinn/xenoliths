@@ -419,7 +419,7 @@ Line 596: neither the text here nor the figure 16 caption adequately describe th
 
 <p class="comment r3">
 Isn’t Ca2+ a rather large cation?
-<span class="fixed">Fixed embarrasing mistake</span>
+<span class="fixed">Oops</span>
 </p>
 
 <p class="comment r2">
