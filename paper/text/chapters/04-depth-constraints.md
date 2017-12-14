@@ -46,32 +46,24 @@ a simple empirical relationship of spinel-out depth with Cr content and temperat
 @Robinson1998 suggests that, given fertile "pyrolite" compositions with little
 Cr, garnet is unstable at depths less than 80 km at the peridotite solidus (~1470ºC at this depth).
 Subsolidus experimental results show that the maximum depth of the spinel
-stability field in the absence of Cr ranges from 1.8-2.0 GPa (55-60 km) at 1000-1200ºC
-[@Klemme2000].
-Chromian spinels can be stable to much greater depth:
+stability field in the absence of Cr ranges from 1.8-2.0 GPa (55-60 km) at
+1000-1200ºC [@Klemme2000]. Chromian spinels are stable to much greater depth:
 thermodynamic modeling by @Klemme2004 suggests a broad garnet-spinel
-co-stability field (up to a spinel-out reaction at 5 GPa for Cr# of ~30),
-but a spinel-weighted metastable assemblage is possible even
-at higher pressures.
+co-stability field (up to a spinel-out reaction at 5 GPa for Cr# of ~30), but
+a spinel-weighted metastable assemblage is possible even at higher pressures.
 
-As shown in @fig:major_elements|c, samples in the high-temperature cohort (CK-3, CK-4, and CK-6) have
-higher spinel Cr# than the low-temperature samples. This enrichment in
-refractory Cr arises from the increased depletion of these samples and
-expands the stability field of spinel against garnet to deeper depths.
-
-Though @Robinson1998, @Klemme2000, and @Klemme2004 show a high-pressure
-phase transition with a complex compositional dependence,
-the rough estimate of the garnet-in pressure
-given by @ONeill1981 performs sufficiently well at T < 1200 ºC.
-This empirical relationship is used in @fig:depth to graphically illustrate
-the phase-transition depths given the Cr# of each sample (with error
-bars of 0.15 GPa).
-
-This simple treatment provides a high-pressure constraint on the Crystal Knob
-xenolith source. The
-maximum possible entrainment depths of the high-Cr samples increase by
-up to 15 km relative to Cr-free compositions, from ~65 km for the
-low-temperature samples to maximum depths of ~80 km for the high-temperature cohort.
+As shown in @fig:major_elements|c, samples in the high-temperature cohort
+(CK-3, CK-4, and CK-6) have high spinel Cr# due to their history of depletion
+by partial melting. This enrichment in refractory Cr expands the stability
+field of spinel against garnet to deeper depths. Though @Robinson1998,
+@Klemme2000, and @Klemme2004 show a high-pressure phase transition with
+a complex compositional dependence, the rough estimate of the garnet-in
+pressure given by @ONeill1981 performs sufficiently well at T < 1200 ºC. This
+empirical relationship is used in @fig:depth to graphically illustrate the
+predicted depth of the spinel-garnet phase-transition based on the Cr# of each
+sample. This simple treatment provides a high-pressure constraint on the
+Crystal Knob xenolith source. The maximum possible entrainment depth of the
+highest-Cr residual samples is ~80 km, versus ~65 km for the low-Cr samples.
 
 ### Ca-in-olivine barometer
 
@@ -105,7 +97,7 @@ covariance with major-element thermometers, as well as its sensitivity to small
 variations in Ca concentrations. The bulk of the spread in the data reflects
 the poor calibration of the barometer itself: the low-temperature samples in
 particular have significant scatter towards depths above the spinel-in isograd.
-The small Ca cation diffuses rapidly during transient heating [@Kohler1990],
+The large Ca cation diffuses rapidly during transient heating [@Kohler1990],
 producing a shallowing bias on the depth distribution. This may explain why
 CK-4, which apparently experienced a unique transient heating event, has
 a depth mode ~10 km shallower than the other samples (CK-3 and CK-6) despite

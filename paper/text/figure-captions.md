@@ -188,16 +188,20 @@ levels of whole-rock depletion, suggesting bulk assimilation
 of an enriching fluid.
 
 ##depth
-Summary of depth constraints for the xenolith samples.
-Depths from Ca-in-olivine geobarometry are plotted against
-TA98 temperature. A series of steady-state conductive geotherms for
-values of surface heat flow are
-plotted beneath the data, and the hatched region represents the
-bounds of the potential xenolith source region assembled from the  Lines show
-per-sample maximum emplacement depths calculated using the expanded
-stability of high-chromian spinel [@ONeill1981] with error bars of 0.15 GPa.
-The synthesis of this data suggests that the samples were sourced from
-~45--70 km depth.
+
+Summary of depth constraints for the xenolith samples. Colored field represent
+density contours of Monte Carlo error distributions of Ca-in-olivine
+pressure/TA98 temperature pairs for each sample, accounting for analytical
+errors and within-sample scatter. Plots on the right margin project these
+distributions along the depth axis. Colored, dashed lines show estimates of the
+maximum spinel stability depth for spinel Cr content matching each sample
+[@ONeill1981], with imposed error bars of 0.15 GPa. The hatched background
+represents P-T bounds of the potential xenolith source region based on
+thermobarometry and phase stability. Steady-state conductive geotherms for
+values of surface heat flow $q_0$ are plotted beneath the data, with 80-90
+mW/m^2 highlighted as maximum reasonable geotherms for the mantle. A dashed box
+shows the extent of sample temperatures along these geotherms. The synthesis of
+this data suggests that the samples were sourced from ~45--70 km depth.
 
 ##model_results
 Temperature-depth profiles through the crust and upper mantle
@@ -262,13 +266,14 @@ with timing equivalent to the replacement of the entire mantle lithosphere
 represented in (a).
 
 ##model_comparison
-Comparisons of Crystal Knob eruptive (1.65 Ma) sub-Salinia geotherms for each of the modeled scenarios.
-The profiles corresponding with a young underplated slab (Monterey-plate equivalent),
-wholesale mantle-lithosphere replacement by the slab window, and
-a Cretaceous Farallon slab both with and without deep slab-window reheating are shown.
-The results as shown are purely conductive geotherms in the absence of
-erosion and thus might be biased towards lower temperatures relative to
-measured xenolith pressure--temperature constraints [see @sec:model_supplement].
+
+Comparisons of Crystal Knob eruptive (1.65 Ma) sub-Salinia geotherms for each
+of the modeled scenarios. The hottest model run of each group is highlighted,
+with cooler models of the same family shown with lower opacity.
+The model predictions are purely conductive geotherms, and arrows show the
+potential response of model geotherms to erosion [see @sec:model_supplement].
+The background of the plot shows steady-state geotherms and the likely field
+of xenolith entrainment from @fig:depth.
 
 ##cross_sections
 Cross sections showing the evolution of southern California during the

@@ -408,10 +408,19 @@ Line 538. how much higher? put quantitative values in parentheses
 ## Depth constraints
 
 <p class="comment r2">
-563: a "depth deep within" - awkward </p>
+563: a "depth deep within" - awkward<span class="fixed">Fixed</span> </p>
+
+<p class="comment r1">
+Line 596: neither the text here nor the figure 16 caption adequately describe the graphical approach.  what are dashed blue/green/red/orange/yellow lines?  colorful clouds?
+</p>
 
 <p class="comment r2">
-609: awk phrasing </p>
+609: awk phrasing<span class="fixed">Fixed</span> </p>
+
+<p class="comment r3">
+Isn’t Ca2+ a rather large cation?
+<span class="fixed">Fixed embarrasing mistake</span>
+</p>
 
 <p class="comment r2">
 635: whose preference? </p>
@@ -476,6 +485,9 @@ xenoliths extraction depth" or "to investigate possible tectonic scenarios..."
      fluid transport along the SAF fracture network is downward from the
      surface, which may actually be cooler ... </p>
 
+<p class="comment r1">
+Salinia’s Late Cretaceous history - involving detaching from the southern Sierra Nevada and being shed some ~50 km to the SSW - likely has a lot to do with it (Wood and Saleeby, 1997 and me et al., 2012).  During this extensional episode, the Salinian basement was pervasively fractured, which likely made it permeable to fluids/heat.  The southern Sierra Nevada, on the other hand, escaped pervasive fracturing given that it was in the footwall of the Late Cretaceous detachment system.  As a result it is characterized by low heat flow.
+</p>
 
 <p class="comment r2"> 800-802: redundant </p>
 
@@ -495,6 +507,9 @@ xenoliths extraction depth" or "to investigate possible tectonic scenarios..."
 <p class="comment r2">
 807: perhaps specify the location (southern CA) for non-CA readers </p>
 
+<p class="comment r1">
+More explanation needed - term is not self explanatory (nor did a quick google turn anything up)
+</p>
 
 <p class="comment r2">
 829: different authors, or different spellings? </p>
@@ -514,6 +529,7 @@ long time to figure out what is the main message of this section. Find a way to
 state it near the top, and try to trim this section to \~ 2x the length of 3.3
 </p>
 
+<p class="comment r1">inconsistent figure referencing</p>
 
 <p class="comment r3"> 897-908. This paragraph is hard for me to follow,
 starting with identifying the location of the "narrow slab window shown along
@@ -535,6 +551,10 @@ notion should be given at lines 919-921. (I think these are on the next
 sentence/paragraph, so maybe this would be resolved by editing this section).
 </p>
 
+<p class="comment r1">Line 922: "dangling slab" - I didn’t see this term in
+Pikser et al., who use “remnant” or “stalled slab,” which are not as gross.
+Plus it’s not steeply dipping (i.e. dangling), right?</p>
+
 <p class="comment r2">
 928: join this graf to the former. </p>
 
@@ -546,6 +566,8 @@ the xenolith source region. </p>
 
 
 <p class="comment r2"> 955-56: which mechanism? </p>
+
+<p class="comment r1">Line 1002: i don’t see the connection between the first and second half of this sentence.  Are you implying that the schist was emplaced when T along the megathrust was ~715˚C, hence the calculated peak temps from the schist of SdS?  I’m not sure upper and lower plates would thermally equilibrate so efficiently.  I don’t think this is super critical for your argument, so perhaps consider removing this.</p>
 
 <p class="comment r3">
 1011. "accelerated rollback is driven by the formation of Farallon-plate mantle
@@ -648,9 +670,20 @@ something) </p>
 1229. missing "the"
 </p>
 
+<p class="comment r1">
+unlike the majority of this paper, this paragraph (beginning line 1262) does not flow well, resulting in an argument that’s tough to follow.
+</p>
+
 <p class="comment r2">
 1279: like Fig. 18c? citing this figure does not seem relevant here. </p>
 
+<p class="comment r1">
+1288: I don’t follow.  Figure 18c shows the source of xl knob xenoliths on the eastern wall of the SGHf.  How does putting Monterey lithosphere against slab window heated farallon lithosphere generate melt?  If anything, it should cool down the farallon lithosphere.
+Furthermore, the SGHf initiated in late Miocene (e.g., Dickinson et al., 2005), so why should the lag between slab window and xl knob eruption be so huge (~20 myr) ?
+Perhaps this is a nutty idea, but Ducea et al. ’03 shows evidence for a profound increase in denudation rate in the neighborhood of Xl knob at ca. 2 Ma.  Could these be related?
+</p>
+
+# Conclusion
 
 <p class="comment r2"> Conclusion: Please mention the age of the Crystal Knob
 basalt again, and suggest an age for the xenoliths. </p>
