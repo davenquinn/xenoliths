@@ -185,6 +185,6 @@ lithosphere-asthenosphere boundary occurs at 1200-1300ºC
 [e.g. @OReilly2010; @Fischer2010], this corresponds to steady-state
 geotherms of 70-80 mW/m^2.
 
-We next turn to the accuracy of this extrapolation from heat flow values,
-and its implication for understanding the thermal structure of the lithosphere.
+We next turn to the accuracy of this extrapolation from heat flow values, and
+their implication for understanding the thermal structure of the lithosphere.
 
