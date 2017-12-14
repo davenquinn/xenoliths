@@ -354,52 +354,56 @@ confusing: the cpx is depleted in REEs; what is the WR depleted in?
 <span class="fixed">Fixed</span></p>
 
 
-<p class="comment r2">
-432: "we show the full range in results of all thermometers in Table 9 and
-     Figure 13. </p>
+<p class="comment r2"> 432: "we show the full range in results of all thermometers in Table 9 and
+     Figure 13.
+<span class="fixed">Fixed</span></p>
 
 
 <p class="comment r2"> 487-498: this needs to be stated at the first mention of
-Fig. 8. It may mean rearranging figures and/or results. </p>
+Fig. 8. It may mean rearranging figures and/or results.
+<span class="rejected">Motivation of color schemes are not necessary to understand figures at first instance, but
+this element is understandable when temperatures are introduced. This is an unavoidable consequence of choosing to group major-element and REE temperatures (2.7 and 2.8) thematically instead of grouping with their respective measurements, which does not work as well</span></p>
 
 
 <p class="comment r2">
-515: typo? </p>
+515: typo?<span class="fixed">Fixed</span></p>
 
 
 <p class="comment r2">
-516: typo </p>
+516: typo <span class="fixed">Fixed</span></p>
 
 
 <p class="comment r2"> ----General Note ---- At some point in 2.8.1 or 2.8.2
-you need to list the T results </p>
+you need to list the T result<span class="fixed">Fixed</span>s </p>
 
-<p class="comment r3">
-530. By "perform well" i think it means that they give similar temperatures,
+<p class="comment r3"> Line 530. By "perform well" i think it means that they give similar temperatures,
      but since they are potentially measuring different times (e.g. the
      possible fossil high T event detected only with the REE mentioned in next
      paragraph) it's not actually expected that they should give the same
      numbers, so one can't really judge it as a good or bad performance.
      A different word/phrase should be used here. Maybe cut this sentence since
      it is the topic of the next section anyway.
+<span class="fixed">Cut out this sentence</span>
 </p>
 
 <p class="comment r3"> REE temperatures should be given in table form? (are
-they?) </p>
+they?) <span class="fixed">Added ref to table</span></p>
 
 <p class="comment r3"> 531-533. reference to a table or figure would be useful
-here </p>
-
-<p class="comment r3">
-538. how much higher? put quantitative values in parentheses
+here
+<span class="fixed">Fixed</span>
 </p>
 
 <p class="comment r3">
-548. evidence of a melt channel is not apparent to me in figure 5. this feature
-     should be described in the figure legend or pointed out in the figure
+Line 538. how much higher? put quantitative values in parentheses
+<span class="fixed">Fixed</span>
 </p>
 
-<p class="comment r2"> 548-549: I am not sure what this means. </p>
+<p class="comment r3">Line 548. evidence of a melt channel is not apparent to me in figure 5. this feature should be described in the figure legend or pointed out in the figure
+<span class="fixed">Added to caption</span>
+</p>
+
+<p class="comment r2"> 548-549: I am not sure what this means<span class="fixed">reworded substantially</span>. </p>
 
 <p class="comment r2">
 563: a "depth deep within" - awkward </p>

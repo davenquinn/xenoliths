@@ -63,11 +63,14 @@ xenocryst core with Mg\# $\approx 90$, surrounded by successive layers with
 lower Mg\#, with Mg\# 75 material in the outermost 30 µm of the grain.
 
 ##textures
-Mineral classification images of each sample (1" round thin-section)
-created atop coregistered electron backscatter and optical imagery that
-show the textural variation within Crystal Knob suite. These
-classifications form the basis of the modal abundance measurements
-presented in @fig:modes.
+
+Mineral classification images of each sample (1" round thin-section) created
+manually atop coregistered electron backscatter and optical imagery, showing
+the textural variation within Crystal Knob spinel peridotites. The variable
+clinopyroxene abundances corresponding to fertility are clearly visible, and
+a late-stage melt channel cuts diagonally across the bottom-right quadrant of
+CK-4. These classifications form the basis of modal abundance data
+[@fig:modes].
 
 ##step_heating
 Step-heating results for \ce{^{40}Ar}/\ce{^{39}Ar} dating of the Crystal Knob host basalt,
