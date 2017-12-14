@@ -432,16 +432,16 @@ Isn’t Ca2+ a rather large cation?
 section. lots of things "can be" done. what's the point of this thermal
 modeling? perhaps add something like "to provide an additional constraint on
 xenoliths extraction depth" or "to investigate possible tectonic scenarios..."
-</p>
+<span class="fixed">Fixed</span></p>
 
 <p class="comment r2">
-691: what is "it" here? </p>
+691: what is "it" here?<span class="fixed">Fixed</span> </p>
 
 <p class="comment r2">
-725: what do you consider "small"? insert a number (or range) here. </p>
+725: what do you consider "small"? insert a number (or range) here. <span class="fixed">Fixed</span></p>
 
 <p class="comment r2">
-727: awk; implies "temperature degrees" </p>
+727: awk; implies "temperature degrees" <span class="fixed">Fixed</span></p>
 
 <p class="comment r2">
 749: again, would be nice to know what "the crustal column" IS </p>
@@ -464,7 +464,7 @@ xenoliths extraction depth" or "to investigate possible tectonic scenarios..."
 
 
 <p class="comment r2">
-769: what is the heat flow in the Central Valley and Sierra Nevada? </p>
+769: what is the heat flow in the Central Valley and Sierra Nevada?<span class="fixed">Fixed</span> </p>
 
 
 <p class="comment r2">
