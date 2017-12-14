@@ -77,17 +77,19 @@ Step-heating results for \ce{^{40}Ar}/\ce{^{39}Ar} dating of the Crystal Knob ho
 showing a broad plateau for the accepted age of 1.65 Ma.
 
 ##major_elements
-(a) FeO vs. MgO for electron microprobe measurements of grain
-cores, showing range in major-element depletion between
-samples. Dotted lines show Mg\# levels.
-(b) Mg\# (measured with a total iron basis) vs. \ce{SiO2} for
-the silicate phases in the Crystal Knob peridotite xenoliths.
-This shows the range in major-element depletion between samples,
-including the low Mg\# of CK-6, the most fertile sample.
-(c) Spinel Cr# vs. Mg# showing grouping of samples by Cr content,
-corresponding to different levels of depletion. Mg# is corrected based cation charge balance.
-The highest-Cr samples (CK-3 and CK-4)
-are harzburgite residues, while the CK-6 is an apparently refertilized lherzolite.
+
+Major-element compositional data for the Crystal Knob spinel peridotites and
+host lavas. The data is colorized by sample in a consistent scheme used until
+@fig:depth. (a) FeO vs. MgO for electron microprobe measurements of grain
+cores, showing range in major-element depletion between samples. Dotted lines
+show Mg\# levels. (b) Mg\# (measured with a total iron basis) vs. \ce{SiO2} for
+the silicate phases in the Crystal Knob peridotite xenoliths. This shows the
+range in major-element depletion between samples, including the low Mg\# of
+CK-6, the most fertile sample. (c) Spinel Cr# vs. Mg# showing grouping of
+samples by Cr content, corresponding to different levels of depletion. Mg# is
+corrected based cation charge balance. The highest-Cr samples (CK-3 and CK-4)
+are harzburgite residues, while the CK-6 is an apparently refertilized
+lherzolite.
 
 ##ca_in_olivine
 Calcium abundance in olivine for xenolith samples, showing the

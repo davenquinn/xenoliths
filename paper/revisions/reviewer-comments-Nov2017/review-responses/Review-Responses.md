@@ -423,10 +423,10 @@ Isn’t Ca2+ a rather large cation?
 </p>
 
 <p class="comment r2">
-635: whose preference? </p>
+635: whose preference?<span class="fixed">Fixed</span> </p>
 
 <p class="comment r2">
-636: is there a reference for regional heat flow? </p>
+636: is there a reference for regional heat flow?<span class="fixed">Removed sentence</span> </p>
 
 <p class="comment r3"> 637-639 Not a very motivating introduction to this
 section. lots of things "can be" done. what's the point of this thermal

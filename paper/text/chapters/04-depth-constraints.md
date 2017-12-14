@@ -105,24 +105,19 @@ similar equilibration temperatures. Likewise, higher REE temperatures for
 samples CK-4 and CK-6 in the high-temperature cohort may indicate a slightly
 deeper source for these samples.
 
-Despite the imprecision of the method, Ca-in-olivine barometry
-suggests that the samples were sourced from relatively deep within the spinel
-stability field, at depths of ~40 km or greater.
+Despite the imprecision of the method, Ca-in-olivine barometry suggests that
+the samples were sourced from >40 km, relatively deep within the spinel
+stability field.
 
 ### Comparisons with steady-state heat flow
 
-The depth constraints derived from xenolith thermobarometry above
-can be compared to surface heat-flow and seismic
-constraints on the regional geotherm.
-
-Given our high-confidence temperature measurements for the Crystal
-Knob xenolith suite, we can generate model entrainment depths
-by pinning the samples to a conductive geotherm constrained by surface heat flux.
-These can be useful for comparisons with our intrinsic depth constraints from
-thermobarometry.
-In @fig:depth, we show potential steady-state geotherms for surface heat fluxes
-ranging from 60 to 120 mW/m^2, all of which intersect the potential
-depth distributions from spinel stability and Ca-in-olivine barometry.
+Estimates of the regional geotherm based on surface heat-flow measurements can
+be compared to depth constraints from thermobarometry. Model entrainment depths
+by pinning the equilibrium temperatures of the Crystal Knob samples to
+a conductive geotherm constrained by surface heat flux. In @fig:depth, we show
+potential steady-state geotherms for surface heat fluxes ranging from 60 to 120
+mW/m^2, all of which intersect the potential depth distributions from spinel
+stability and Ca-in-olivine barometry.
 
 These geothermal gradients are calculated using thermal conductivity and
 diffusivity given in @tbl:model_parameters for the crust to a depth of
