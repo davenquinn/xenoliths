@@ -11,27 +11,25 @@ with equilibration temperatures, provides a fully-defined constraint on the
 geotherm beneath Crystal Knob at the time of eruption. For spinel
 peridotites, equilibration depths can only be analytically
 estimated within broad boundaries. With no reliable geobarometers for spinel peridotites,
-several less robust metrics are used to evaluate the depth
-of the xenolith source. We present several lines of reasoning suggesting that the
-xenoliths were sourced along a depth gradient relatively deep within the spinel stability
-field, between roughly 45 and 75 km.
+several less robust metrics are used to evaluate the depth of the xenolith
+source. We present several lines of reasoning suggesting that the samples were
+entrained from relatively deep in the spinel stability field (~45-75 km).
 
-Several of the techniques below produce estimates of pressure, rather
-than depth. To discuss these data in depth--temperature space, we correct
-them using a hydrostatic gradient of ~0.03 GPa per km across the mantle lithosphere,
-based on integration of the crustal and mantle densities given in @tbl:model_parameters.
+Several of the techniques below produce estimates of pressure, rather than
+depth. We convert these to depths using a hydrostatic gradient of ~0.03 GPa/km
+across the mantle lithosphere, integrating crust and mantle densities given in
+@tbl:model_parameters.
 
 <!--[[ree_temperatures]]-->
 
 ### Limits of spinel stability
 
 Entrainment depths of all peridotite xenoliths must be greater than ~30 km,
-the depth of the Moho near the Crystal Knob eruption site [@Trehu1991],
-which will be discussed in more detail in @sec:tectonic_scenarios.
-Another minimum depth constraint is the plagioclase--spinel peridotite
-facies transition, which occurs at depths of 20-30 km but is
-highly composition-dependent [@Green1970a; @Borghini2009], with high-Cr
-harzburgites stable to the surface.
+the depth of the Moho near the Crystal Knob eruption site [@Trehu1991], which
+will be discussed in more detail in @sec:tectonic_scenarios. The
+plagioclase--spinel peridotite facies transition (typically at 20-30 km) is
+another minimum depth constraint, but it is highly composition-dependent
+[@Green1970a], with high-Cr harzburgites stable to the surface [@Borghini2009].
 
 The high-pressure boundary of spinel stability limits maximum possible
 entrainment depths.
@@ -86,19 +84,16 @@ high temperature dependence,vulnerability to late-stage diffusion, and dependenc
 concentrations in olivine near analytical thresholds for
 electron microprobe analysis [@Medaris1999; @OReilly1997].
 
-To model the variability of model pressures due to analytical uncertainties,
-barometry is applied separately for nearest-neighbor pyroxene and olivine measurements.
-Analytical errors are propagated through the calculation.
-To correct for the mild pressure dependence of the two-pyroxene thermometer, and the
-temperature dependence of the olivine barometer, we jointly solve temperature and
-pressure by iteratively optimizing to a common solution for each set of
-microprobe measurements.
-This yields a set of separate internally consistent depth and temperature
-measurements for each sample corresponding to individual pairs of
-microprobe measurements.
-In @fig:depth, we show the full pressure--temperature error space for each
-sample by applying a Monte Carlo random sampling ($n=100,000$) to the analytical
-errors on each pressure estimate.
+Within each sample, pressures are calculated separately for nearest-neighbor
+pyroxene and olivine measurements, and analytical errors are propagated through
+the calculation.  To correct for the mild pressure dependence of the
+two-pyroxene thermometer and coupled temperature dependence of the olivine
+barometer, we jointly solve temperature and pressure by iterative optimization.
+This yields internally consistent depth and temperature measurements for each
+set of microprobe shots. For each measurement, Monte Carlo random sampling
+($n=100,000$) explores the sensitivity of the pressure estimate to analytical
+errors. The density of the resulting error space for each sample is contoured
+in @fig:depth.
 
 The Ca-in-olivine barometer yields a broad distribution in model depths,
 largely coincident with the spinel stability field [@fig:depth]. The depth
@@ -108,23 +103,19 @@ separable, with high-temperature samples showing deeper equilibrium depths. The
 scale of the errors within a single sample reflects the barometer's strong
 covariance with major-element thermometers, as well as its sensitivity to small
 variations in Ca concentrations. The bulk of the spread in the data reflects
-the poor calibration of the barometer itself. The low-temperature samples in
+the poor calibration of the barometer itself: the low-temperature samples in
 particular have significant scatter towards depths above the spinel-in isograd.
 The small Ca cation diffuses rapidly during transient heating [@Kohler1990],
-which produces a shallowing bias on the depth distribution.
-This may explain why CK-4, the most altered sample, has a depth mode
-~10 km shallower than the other samples (CK-3 and CK-6) with similar equilibration temperatures.
-The temperatures derived from the independent REE system are higher
-than the major-element temperatures for several samples in the high-temperature
-cohort (CK-4 and CK-6), which may point to these samples being derived from a greater
-depth within the distribution of Ca-in-olivine depths.
+producing a shallowing bias on the depth distribution. This may explain why
+CK-4, which apparently experienced a unique transient heating event, has
+a depth mode ~10 km shallower than the other samples (CK-3 and CK-6) despite
+similar equilibration temperatures. Likewise, higher REE temperatures for
+samples CK-4 and CK-6 in the high-temperature cohort may indicate a slightly
+deeper source for these samples.
 
 Despite the imprecision of the method, Ca-in-olivine barometry
-suggests that the samples were sourced from relatively
-deep within the spinel stability field, at
-depths of ~40 km or greater. This preference is amplified by
-comparisons with depth estimates of the thermal state of the mantle
-lithosphere derived from regional heat flow datasets.
+suggests that the samples were sourced from relatively deep within the spinel
+stability field, at depths of ~40 km or greater.
 
 ### Comparisons with steady-state heat flow
 

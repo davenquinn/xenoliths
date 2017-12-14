@@ -161,19 +161,19 @@ study.
 ### Comparison with major-element thermometry {#sec:temperature-significance}
 
 Rare-earth exchange thermometry confirms the temperature groupings found by
-major-element thermometry [@fig:temp_summary]. REE temperatures of 950-970 ºC for the
-low-temperature cohort are most comparable to the TA98 results. For these
-samples, the TA98 and REE temperatures together record long-term equilibrium
-with no significant thermal perturbations. In the high-temperature cohort,
-samples CK-4 and CK-6 record REE temperatures significantly higher than TA98
-(~1080 ºC vs. ~1040 ºC). CK-3 records a lower temperature in line with
-major-element thermometry. Trivalent rare-earths in pyroxene diffuse several
-orders of magnitude slower than bivalent major elements [@Liang2013], so
-high-temperature events can set the distribution of rare-earths despite
-subsequent major-element re-equilibration at lower temperature. Excess
-heating recorded by REE thermometry for CK-4 and CK-6 and not reflected in
-major-element temperatures is likely due to a fossil heating event primarily
-affecting the deepest samples.
+major-element thermometry [@fig:temp_summary]. REE temperatures of 950-970 ºC
+for the low-temperature cohort are most comparable to TA98. For these samples,
+the TA98 and REE temperatures together record long-term equilibrium with no
+significant thermal perturbations. In the high-temperature cohort, samples CK-4
+and CK-6 record REE temperatures significantly higher than TA98 (~1080 ºC vs.
+~1040 ºC). CK-3 records a lower temperature in line with major-element
+thermometry. Trivalent rare-earths in pyroxene diffuse several orders of
+magnitude slower than bivalent major elements [@Liang2013], so high-temperature
+events can set the distribution of rare-earths despite subsequent major-element
+re-equilibration at lower temperature. Excess heating recorded by REE
+thermometry for CK-4 and CK-6 and not reflected in major-element temperatures
+is likely due to a fossil heating event primarily affecting the deepest
+samples.
 
 CK-4 may have experienced a unique transient heating event, with individual
 LREE cations recording high temperatures (>1200 ºC)

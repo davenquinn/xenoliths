@@ -405,6 +405,8 @@ Line 538. how much higher? put quantitative values in parentheses
 
 <p class="comment r2"> 548-549: I am not sure what this means<span class="fixed">reworded substantially</span>. </p>
 
+## Depth constraints
+
 <p class="comment r2">
 563: a "depth deep within" - awkward </p>
 
