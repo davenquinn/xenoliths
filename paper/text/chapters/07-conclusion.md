@@ -106,17 +106,6 @@ deformation in response to coupling across the shallow fault. Such surface
 deformation patterns are not expressed north of the Transverse Ranges during
 the Neogene.
 
-In seismic data, distinct steps and inflections in lower crustal velocity
-structure across San Gregorio-Hosgri fault system [@Brocher1999] indicates that
-it cuts the entire crust, likely forming the eastern boundary of the
-underplated Monterey plate. Additionally, offshore seismic observations show
-a ~16º eastward-dipping Monterey plate, with a typical abyssal crustal
-thickness, juxtaposed against a nearly flat thickened lower crustal layer
-beneath the adjacent Franciscan complex [@Trehu1991; @Nicholson1992]. These
-observations directly conflict with the notion that a structurally continuous
-Monterey Plate constitutes the lower crust beneath the central coastal
-California and adjacent offshore region.
-
 Seismic data cited in support of a structurally continuous stalled slab consist
 of an 8-15 km thick, shallowly east-dipping mafic lower crustal layer that
 extends beneath central California from the offshore region into proximity of
@@ -133,6 +122,15 @@ lower-crustal mafic layer is more plausibly interpreted as a regional
 underplated duplex of Farallon plate oceanic crustal nappes that accreted
 during Franciscan subduction [@fig:neogene_sections|c].
 
+Distinct steps and inflections in lower-crustal velocity structure across San
+Gregorio-Hosgri fault system [@Brocher1999] indicate that it cuts the entire
+crust, likely forming the eastern boundary of the underplated Monterey plate.
+Additionally, offshore seismic observations show a ~16º eastward-dipping
+Monterey plate, with a typical abyssal crustal thickness, juxtaposed against
+a nearly flat thickened lower crustal layer beneath the adjacent Franciscan
+complex [@Trehu1991; @Nicholson1992]. These observations directly conflict with
+the notion that a structurally continuous Monterey Plate constitutes the lower
+crust beneath the central coastal California and adjacent offshore region.
 
 Studies proposing a deep Monterey plate stalled slab [e.g. @Furlong1989;
 @Pikser2012] have suggested that translation of the Monterey plate along the
