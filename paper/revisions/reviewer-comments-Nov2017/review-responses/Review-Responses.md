@@ -519,11 +519,13 @@ More explanation needed - term is not self explanatory (nor did a quick google t
 
 <p class="comment r2">
 829: different authors, or different spellings?
-<span class="partial">Actually, same person but spelled differently in the publications. Weird. Left as is, not really sure what to do in this instance</span></p>
+<span class="partial">Actually, same person but spelled differently in the publications. Weird. Added é on the assumption that *Geology* made a typo</span></p>
 
 
 <p class="comment r2"> 860-866: this is a level of detail that I think detracts
-from the main message(s) of the paper. </p>
+from the main message(s) of the paper.
+<span class="fixed">Condensed this bit into a new section near the end that should illuminate the point</span>
+</p>
 
 
 <p class="comment r2">
@@ -542,42 +544,50 @@ state it near the top, and try to trim this section to \~ 2x the length of 3.3
 starting with identifying the location of the "narrow slab window shown along
 the eastern edge of the partially subducted plate" (line 899). After reading it
 5 times I think this is referring to the narrow "slab window" area west of the
-peninsula ranges batholith, better to describe it as such. </p>
+peninsula ranges batholith, better to describe it as such.
+<span class="fixed">Changed description</span>
+</p>
 
 <p class="comment r2">
-918: what is the "Nacimiento Franciscan"? (typo?) </p>
+918: what is the "Nacimiento Franciscan"? (typo?)
+<span class="fixed">"adjacent Franciscan complex"</span>
+</p>
 
 
 <p class="comment r2">
 919: rephrase for clarity: These observations all suggest that a lower-crustal
-     mafic layer must be structurally discontinuous/disrupted ... </p>
+     mafic layer must be structurally discontinuous/disrupted ...
+<span class="rejected">Not quite as clear, I guess?</span>
+</p>
 
 <p class="comment r3"> 919-932. There is some repeated information here that
 needs some editing. Some citation to the papers putting forth the conflicting
 notion should be given at lines 919-921. (I think these are on the next
-sentence/paragraph, so maybe this would be resolved by editing this section).
+sentence/paragraph, so maybe this would be resolved by editing this section).<span class="fixed">Reworked somewhat</span>
 </p>
 
 <p class="comment r1">Line 922: "dangling slab" - I didn’t see this term in
 Pikser et al., who use “remnant” or “stalled slab,” which are not as gross.
-Plus it’s not steeply dipping (i.e. dangling), right?</p>
+Plus it’s not steeply dipping (i.e. dangling), right?<span class="fixed">Actually the downdip end is supposed to be steeply dipping to represent the Isabella anomaly. But we don't talk about that right, and "dangling" is a Jason perjorative, so I excised (Thanks for catching)</span></p>
 
 <p class="comment r2">
-928: join this graf to the former. </p>
+928: join this graf to the former.
+<span class="fixed">Fixed</span></p>
 
 
 <p class="comment r2"> 943-959: I feel that this whole part can be deleted
 because it distracts from the main message of the paper. 933-942 are enough to
 reject the "dangling slab" as a mechanism for bringing mantle lithosphere to
-the xenolith source region. </p>
+the xenolith source region.
+<span class="partial">Yeah, but it needs to be directly attacked in the literature at some point, and this paper is the best opportunity. Anyway, I moved all of this discussion to the end, after the modeling section, which does not let it get in the way quite as much.</span>
+</p>
 
 
 <p class="comment r2"> 955-56: which mechanism? </p>
 
 <p class="comment r1">Line 1002: i don’t see the connection between the first and second half of this sentence.  Are you implying that the schist was emplaced when T along the megathrust was ~715˚C, hence the calculated peak temps from the schist of SdS?  I’m not sure upper and lower plates would thermally equilibrate so efficiently.  I don’t think this is super critical for your argument, so perhaps consider removing this.</p>
 
-<p class="comment r3">
-1011. "accelerated rollback is driven by the formation of Farallon-plate mantle
+<p class="comment r3"> 1011. "accelerated rollback is driven by the formation of Farallon-plate mantle
       duplexes." What "drives" what here is pretty speculative and unsupported
       by arguments. Focus on establishing that there IS a duplex or that it
       makes sense before going into the dynamics. Also I'm not sure it's really

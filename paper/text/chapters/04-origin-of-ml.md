@@ -191,16 +191,18 @@ trench-directed extension coupled to regional extrusion of the
 underplated subduction channel schists.
 In the @fig:cross_sections|c to d transition,
 accelerated rollback is driven by the formation of Farallon-plate mantle
-duplexes. We suspect that mantle nappe detachment was
-controlled primarily by the temperature of the brittle-plastic transition in
-olivine. For ~40-50 Myr old oceanic lithosphere entering the subduction zone
-[@fig:cross_sections|c and d], this ~700-800 ºC transition [@Warren2006;
-@Burgmann2008; @Mei2010] occurs at ~25-40 km depth in the slab [@Doin1996]. We
-also suspect that retreating subduction imparted a significant tensile stress
-within the slab that further promoted nappe detachment. Observational data and
-laboratory experiments show that profound co-seismic dilation transients can
-develop along subduction megathrusts [@Gabuchian2017], underscoring the
-potential importance of tensile stresses within subducting slabs.
+duplexes.
+
+We suspect that mantle nappe detachment was controlled primarily by the
+temperature of the brittle-plastic transition in olivine. For ~40-50 Myr old
+oceanic lithosphere entering the subduction zone [@fig:cross_sections|c and d],
+this ~700-800 ºC transition [@Warren2006; @Burgmann2008; @Mei2010] occurs at
+~25-40 km depth in the slab [@Doin1996]. We also suspect that retreating
+subduction imparted a significant tensile stress within the slab that further
+promoted nappe detachment. Observational data and laboratory experiments show
+that profound co-seismic dilation transients can develop along subduction
+megathrusts [@Gabuchian2017], underscoring the potential importance of tensile
+stresses within subducting slabs.
 
 The lack of high-pressure mafic schists in both the Crystal Knob and Dish
 Hill xenolith suites further suggests that slivers of oceanic crust were detached
@@ -221,10 +223,9 @@ Kinematic reconstructions of the
 impingement of the Pacific-Farallon
 spreading center on the SW Cordilleran subduction zone require a
 slab window beneath the Crystal Knob eruption site in the early Neogene
-[@Atwater1998; @Wilson2005]. Previous modeling of thermal effects of the slab window
-[@Erkan2008] has only investigated the resulting emplacement of
-asthenosphere at immediate subcrustal levels.
-However, the depth of
+[@Atwater1998; @Wilson2005]. Previous modeling of thermal effects of the slab
+window [@Erkan2008] only investigated the resulting emplacement of
+asthenosphere at immediate subcrustal levels. However, the depth of
 asthenospheric underplating related to slab window opening is poorly
 constrained and likely varies geographically as a function of thickness and
 thermal variations in the pre-existing lithospheric lid, as well its state of
@@ -237,15 +238,13 @@ Eocene--Miocene [e.g. @Humphreys1995].
 
 The lack of a signature of shallow asthenospheric mantle in the
 Miocene is readily explained if the slab window opened beneath
-pre-existing mantle lithosphere originating in the Cretaceous. This
-would consist of a tiered
-duplex of underplated Farallon mantle nappes, roofed by a duplex of
-underplated Farallon oceanic crust, in turn roofed
-by the Nacimiento Franciscan and Salinia nappes. Our estimate of a 45-75 km
-depth interval over which the Crystal Knob lavas sampled the underlying mantle
-lithosphere [@fig:depth], coupled with a general lack of significant late
-Cenozoic extensional faulting in the immediate region, implies a strong
-thermo-mechanical lid that likely suppressed the ascent of voluminous
-asthenosphere derived magmas that were hypothetically sourced from a deep
-underlying slab window.
+pre-existing mantle lithosphere originating in the Cretaceous. This would
+consist of a tiered duplex of underplated Farallon-plate oceanic crust and
+mantle lithosphere nappes, roofed by the Nacimiento Franciscan and Salinia
+nappes. Our estimate of a 45-75 km depth interval over which the Crystal Knob
+lavas sampled the underlying mantle lithosphere [@fig:depth], coupled with
+a general lack of significant late Cenozoic extensional faulting in the
+immediate region, implies a strong thermo-mechanical lid that likely suppressed
+the ascent of voluminous asthenosphere derived magmas that were hypothetically
+sourced from a deep underlying slab window.
 

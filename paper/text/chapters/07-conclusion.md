@@ -19,22 +19,22 @@ for all cases.
  predicts reasonable geotherms in the mantle lithosphere.
 
 Despite the inability to reject the stalled slab based on thermal modeling
-alone, we reject it in favor of scenario **C**, Cretaceous underplated mantle
-lithosphere heated at depth by the Neogene slab window. This scenario was
-constructed based on the architecture of the lithospheric mantle in the Mojave
-region and the crustal geologic structure of southern California from the
-Cretaceous to the Neogene, and is consistent with a wide literature on the
-tectonics and geodynamics of the Cordilleran margin [e.g. @Luffi2009; @Liu2010;
-@Chapman2012]. Furthermore, there are many geologic and geodynamic reasons to
-discount feasibility of the stalled slab model for lithospheric underplating,
-which we detail in @sec:stalled-slab-bad below.
+alone, there are many geologic and geodynamic reasons to discount the
+feasibility of the stalled slab model for lithospheric underplating, which we
+detail in @sec:stalled-slab-bad below. We strongly prefer scenario **C**,
+Cretaceous underplated mantle lithosphere heated at depth by the Neogene slab
+window. This scenario was constructed based on the architecture of the
+lithospheric mantle in the Mojave region and the crustal geologic structure of
+southern California from the Cretaceous to the Neogene, and is consistent with
+a wide literature on the tectonics and geodynamics of the Cordilleran margin
+[e.g. @Luffi2009; @Liu2010; @Chapman2012].
 
 @fig:neogene_sections|c shows our preferred model for the modern architecture
 of the mantle lithosphere beneath the Coast Ranges. The partially subducted
 terminus of the Monterey plate is bounded to the east by the San
 Gregorio-Hosgri fault. East of the fault, the Nacimiento-belt Franciscan
 complex and its tectonic veneer of Salinia nappes (not differentiated on the
-figure) and associated lower crustal oceanic crustal duplex lie tectonically
+figure) and associated oceanic crustal duplex lie tectonically
 above underplated Farallon-plate mantle nappes. The structural profile shown on
 @fig:neogene_sections|c closely follows the structure of offshore seismic lines
 in the region [@Trehu1991], and the part between the San Andreas and San
@@ -71,8 +71,6 @@ surface geological evidence presented here argues against models invoking
 horizontal translation of the Monterey plate "remnant slab”, beneath both the
 Coast Ranges and Central Valley.
 
-### Cessation of transrotational rifting
-
 In the @fig:reconstruction reconstruction, the future Crystal Knob eruption
 site sits above the Pacific-Farallon slab window ~50-100 km north of the
 northeast margin of the partially subducted Monterey plate. The narrow slab
@@ -94,8 +92,6 @@ on-trend with the outer edge of the Farallon-Monterey slab window
 transrotation, the Monterey Plate likely separated from its underplated
 extension.
 
-### Horizontal translation of a stalled slab
-
 If the subducted portion of the Monterey Plate maintained its structural
 integrity following borderland transrotational rifting and was not cut by the
 San Gregorio-Hosgri fault, it would be translated northward beneath the Coast
@@ -110,23 +106,13 @@ deformation in response to coupling across the shallow fault. Such surface
 deformation patterns are not expressed north of the Transverse Ranges during
 the Neogene.
 
-Studies proposing a deep Monterey plate stalled slab [e.g. @Furlong1989;
-@Pikser2012] have suggested that translation of the Monterey plate along the
-San Andreas system entailed significant sub-horizontal fault segments that
-accommodated dextral displacements. As of yet, however, all seismically imaged
-segments of the transform system have been shown to be steeply oriented
-[@Dietz1990; @Brocher1999; @Yan2005; @Titus2007; @Yan2007; @Ozacar2009].
-
-
-### Lower-crustal seismic structure
-
 In seismic data, distinct steps and inflections in lower crustal velocity
 structure across San Gregorio-Hosgri fault system [@Brocher1999] indicates that
 it cuts the entire crust, likely forming the eastern boundary of the
 underplated Monterey plate. Additionally, offshore seismic observations show
 a ~16º eastward-dipping Monterey plate, with a typical abyssal crustal
 thickness, juxtaposed against a nearly flat thickened lower crustal layer
-beneath the Nacimiento Franciscan [@Trehu1991; @Nicholson1992]. These
+beneath the adjacent Franciscan complex [@Trehu1991; @Nicholson1992]. These
 observations directly conflict with the notion that a structurally continuous
 Monterey Plate constitutes the lower crust beneath the central coastal
 California and adjacent offshore region.
@@ -147,13 +133,16 @@ lower-crustal mafic layer is more plausibly interpreted as a regional
 underplated duplex of Farallon plate oceanic crustal nappes that accreted
 during Franciscan subduction [@fig:neogene_sections|c].
 
-### The origin of the Isabella seismic anomaly
 
-Studies proposing a horizontally-translated slab projecting eastward beneath
-the San Andreas fault [e.g. @Pikser2012; @Wang2013] typically propose a steeply
-dipping eastward extension corresponding to the high-wave speed anomaly of the
-southern Sierra Nevada-Great Valley region [@fig:context], commonly called the
-“Isabella anomaly”.
+Studies proposing a deep Monterey plate stalled slab [e.g. @Furlong1989;
+@Pikser2012] have suggested that translation of the Monterey plate along the
+San Andreas system entailed significant sub-horizontal fault segments that
+accommodated dextral displacements. As of yet, however, all seismically imaged
+segments of the transform system have been shown to be steeply oriented
+[@Dietz1990; @Brocher1999; @Yan2005; @Titus2007; @Yan2007; @Ozacar2009]. These
+studies typically propose a steeply dipping eastward extension corresponding to
+the high-wave speed anomaly of the southern Sierra Nevada-Great Valley region
+[@fig:context], commonly called the “Isabella anomaly”.
 
 Seismological and geodynamic studies
 show that the Isabella anomaly is derived primarily from the convectively
