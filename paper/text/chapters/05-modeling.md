@@ -1,17 +1,15 @@
 # Thermal modeling of tectonic scenarios {#sec:modeling}
 
-The slab window, Monterey Plate, and Cretaceous mantle duplexing scenarios for the
-source of the Crystal Knob xenoliths all imply a peridotite composition
-with a depleted (convecting-mantle) isotopic and trace-element
-signature.  Though petrographic and geochemical variations provide
-information on the depletion history, they cannot discriminate between
-these potential depleted convecting mantle sources. However, these
-emplacement scenarios present potentially distinct thermal structures
-due to large differences in timescales of cooling.
-Tectonic models for the
-emplacement of depleted mantle lithosphere under the central coastal
-California region can be tested by comparison of their implied
-geothermal structure with xenolith geothermometry.
+The Crystal Knob mantle xenoliths have a peridotite composition with a depleted
+(convecting-mantle) isotopic and trace-element signature.  Petrographic and
+geochemical variations provide information on the depletion history, they
+cannot discriminate between the slab window, Monterey Plate, and Cretaceous
+mantle duplexing scenarios for the creation of depleted convecting mantle.
+However, these emplacement scenarios present potentially distinct thermal
+structures due to large differences in timescales of cooling. Tectonic models
+for the emplacement of depleted mantle lithosphere under the central coastal
+California region can be tested by comparison of their implied geothermal
+structure with xenolith geothermometry.
 
 <!--[[reconstruction]]-->
 

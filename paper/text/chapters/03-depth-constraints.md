@@ -288,3 +288,4 @@ in subarc settings [e.g. @Jean2010] but could also arise from intense heating
 from below [@Thorkelson2005]. In this context, the depletion of the deeper
 samples at Crystal Knob would correspond to melt generation deep within the
 mantle lithosphere.
+

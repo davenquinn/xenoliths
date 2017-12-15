@@ -1,12 +1,12 @@
 # Origin of the mantle lithosphere beneath Crystal Knob {#sec:tectonic_scenarios}
 
-The Crystal Knob spinel peridotite xenoliths uniformly isotopically depleted,
-with an $\epsilon_\mathrm{Nd}$ of 10.3-11.0, and \ce{^{87}Sr}/\ce{^{86}Sr} of
-.7023-.7024. These values are typical for the depleted upper mantle [e.g.
-@Hofmann1997] and require a mantle source that has not been recycled from the
-western North American subcontinental mantle or continental lithosphere more
-generally. The Crystal Knob xenolith suite is the only known direct sampling of
-this underplated mantle.
+The Crystal Knob spinel peridotite xenoliths are uniformly isotopically
+depleted, with an $\epsilon_\mathrm{Nd}$ of 10.3-11.0, and
+\ce{^{87}Sr}/\ce{^{86}Sr} of .7023-.7024. These values are typical for the
+depleted upper mantle [e.g. @Hofmann1997] and require a mantle source that
+has not been recycled from the western North American subcontinental mantle or
+continental lithosphere more generally. The Crystal Knob xenolith suite is the
+only known direct sampling of this underplated mantle.
 
 The lack of radiogenically enriched arc residues in the Crystal Knob xenolith
 suite  confirms the unrooted nature of Salinia continental arc rocks [e.g.
@@ -166,24 +166,25 @@ it stands to reason that upper mantle duplex accretion progressed
 westwards from the Mojave region to beneath the Salinia
 nappes as well as the Nacimiento belt of the Franciscan.
 
+### Mantle underplating after flat subduction
+
 In @fig:cross_sections, we present a model for the tectonic
 underplating of the Farallon plate mantle lithosphere beneath
 the Mojave-Salinia-Nacimiento segment of
-the Late Cretaceous convergent margin [after @Saleeby2003; @Luffi2009].
-This occurred in conjunction with shallow flat subduction
-of the Shatsky Rise conjugate Large Igneous Province [@Saleeby2003; @Liu2010; @Sun2017].
-The approximate age of
-Farallon plate entering the trench is shown on each frame [after @Seton2012].
-Crustal deformation, timing, and thermal conditions are integrated from
-@Kidder2006, @Chapman2010, @Chapman2012, and @Chapman2016a.
-@fig:cross_sections|a and b show the arrival of the oceanic plateau into the subducting
-trench, and plateau buoyancy driven shallowing of the subduction
-megathrust, which drove tectonic erosion of the mantle wedge.
-Temperature conditions along the flat subduction megathrust initiated at
-\~900ºC, ambient conditions within the deep levels of the then-active
-arc, and retrogressed to ~715ºC, peak temperatures recorded in shallowly
-subducted metaclastic rocks of the Sierra de Salinas schist, exposed in
-the principal Salinia window into the subduction channel schists [@Kidder2006].
+the Late Cretaceous convergent margin [after @Saleeby2003; @Luffi2009]. This
+occurred in conjunction with shallow flat subduction of the Shatsky Rise
+conjugate Large Igneous Province [@Saleeby2003; @Liu2010; @Sun2017]. The
+approximate age of Farallon plate entering the trench is shown on each frame
+[after @Seton2012]. Crustal deformation, timing, and thermal conditions are
+integrated from @Kidder2006, @Chapman2010, @Chapman2012, and @Chapman2016a.
+@fig:cross_sections|a and b show the arrival of the oceanic plateau into the
+subducting trench, and plateau buoyancy driven shallowing of the subduction
+megathrust, which drove tectonic erosion of the mantle wedge. Temperature
+conditions along the flat subduction megathrust initiated at \~900 ºC, ambient
+conditions within the deep levels of the then-active arc, and cooled to ~715
+ºC, peak temperatures recorded in shallowly subducted metaclastic rocks of the
+Sierra de Salinas schist, exposed in the principal Salinia window into the
+subduction channel schists [@Kidder2006].
 
 In @fig:cross_sections|c and d we adopt the focused slab rollback and mantle
 lithosphere underplating models of @Saleeby2003 and @Luffi2009,
@@ -196,17 +197,15 @@ underplated subduction channel schists.
 In the @fig:cross_sections|c to d transition,
 accelerated rollback is driven by the formation of Farallon-plate mantle
 duplexes. We suspect that mantle nappe detachment was
-controlled primarily by the temperature of the brittle-plastic
-transition in olivine. For ca. 40-50 m.y. old oceanic lithosphere
-entering the subduction zone [@fig:cross_sections|c and d],
-this ~700-800 ºC transition [@Warren2006; @Burgmann2008; @Mei2010] occurs
-at ~25-40 km depth in the slab [@Doin1996].
-We also suspect that retreating
-subduction imparted a significant tensile stress within the
-slab that further promoted nappe detachment. Observational data and
-laboratory experiments show that profound co-seismic dilation transients
-can develop along subduction megathrusts [@Gabuchian2017],
-underscoring the potential importance of tensile stresses within subducting slabs.
+controlled primarily by the temperature of the brittle-plastic transition in
+olivine. For ~40-50 Myr old oceanic lithosphere entering the subduction zone
+[@fig:cross_sections|c and d], this ~700-800 ºC transition [@Warren2006;
+@Burgmann2008; @Mei2010] occurs at ~25-40 km depth in the slab [@Doin1996]. We
+also suspect that retreating subduction imparted a significant tensile stress
+within the slab that further promoted nappe detachment. Observational data and
+laboratory experiments show that profound co-seismic dilation transients can
+develop along subduction megathrusts [@Gabuchian2017], underscoring the
+potential importance of tensile stresses within subducting slabs.
 
 The lack of high-pressure mafic schists in both the Crystal Knob and Dish
 Hill xenolith suites further suggests that slivers of oceanic crust were detached
@@ -221,7 +220,7 @@ construction of the mantle domain sampled by Crystal Knob. This section is
 idealized for Late Cretaceous time, and we now layer the complexity of late
 Cenozoic tectonics onto this framework.
 
-## A deep slab window beneath relict lithosphere
+### A deep slab window beneath relict lithosphere
 
 Kinematic reconstructions of the
 impingement of the Pacific-Farallon
@@ -232,32 +231,26 @@ slab window beneath the Crystal Knob eruption site in the early Neogene
 asthenosphere at immediate subcrustal levels.
 However, the depth of
 asthenospheric underplating related to slab window opening is poorly
-constrained, and likely to vary geographically as a function of
-thickness and thermal variations in the pre-existing lithospheric lid,
-as well its state of stress and structural coherency. Though volcanism
-in the central California Coast Ranges has been tied to slab window
-opening [e.g @Ernst1974], it has been volumetrically insignificant
-when compared to that generated by other
-coeval examples of shallow asthenospheric upwelling in the Cordillera
-such as the high-flux volcanism generated in the Basin and Range
-province in the Eocene--Miocene [e.g. @Humphreys1995].
+constrained and likely varies geographically as a function of thickness and
+thermal variations in the pre-existing lithospheric lid, as well its state of
+stress and structural coherency. Though volcanism in the central California
+Coast Ranges has been tied to slab window opening [e.g @Ernst1974], it has been
+volumetrically insignificant when compared to that generated by other coeval
+examples of shallow asthenospheric upwelling in the Cordillera such as the
+high-flux volcanism generated in the Basin and Range province in the
+Eocene--Miocene [e.g. @Humphreys1995].
 
 The lack of a signature of shallow asthenospheric mantle in the
 Miocene is readily explained if the slab window opened beneath
 pre-existing mantle lithosphere originating in the Cretaceous. This
 would consist of a tiered
 duplex of underplated Farallon mantle nappes, roofed by a duplex of
-underplated Farallon oceanic crust (lower crustal mafic layer), in turn
-roofed by the Nacimiento Franciscan and Salinia nappes. Our estimate of
-a 45-75 km depth interval over which the Crystal Knob lavas sampled the
-underlying mantle lithosphere [@fig:depth], coupled with a general lack of
-significant late Cenozoic extensional faulting in the immediate region,
-implies a strong thermo-mechanical lid that likely suppressed the ascent
-of voluminous asthenosphere derived magmas that were hypothetically
-sourced from a deep underlying slab window.
-
-We now model the thermal evolution of the coastal
-California mantle corresponding to the scenarios outlined above
-and test the resulting predictions against the sub-Crystal Knob
-geothermal state of the mantle lithosphere.
+underplated Farallon oceanic crust, in turn roofed
+by the Nacimiento Franciscan and Salinia nappes. Our estimate of a 45-75 km
+depth interval over which the Crystal Knob lavas sampled the underlying mantle
+lithosphere [@fig:depth], coupled with a general lack of significant late
+Cenozoic extensional faulting in the immediate region, implies a strong
+thermo-mechanical lid that likely suppressed the ascent of voluminous
+asthenosphere derived magmas that were hypothetically sourced from a deep
+underlying slab window.
 

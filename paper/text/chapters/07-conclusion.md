@@ -41,8 +41,8 @@ in the region [@Trehu1991], and the part between the San Andreas and San
 Gregorio-Hosgri faults restores to southern California latitudes, adjacent to
 the Mojave plateau and extended southern California batholith. Partial
 subduction and stalling of the Monterey plate occurred along the outer edge of
-the Franciscan complex, a further ~250 km south of the structural profile shown
-here [@fig:reconstruction].
+the Franciscan complex, ~250 km south of the inner part of the structural
+profile [@fig:reconstruction].
 
 ## Geodynamic implausibility of the Neogene stalled slab{#sec:stalled-slab-bad}
 
