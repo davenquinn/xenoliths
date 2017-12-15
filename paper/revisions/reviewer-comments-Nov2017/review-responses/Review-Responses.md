@@ -443,6 +443,7 @@ xenoliths extraction depth" or "to investigate possible tectonic scenarios..."
 <p class="comment r2">
 727: awk; implies "temperature degrees" <span class="fixed">Fixed</span></p>
 
+<div class='group'>
 <p class="comment r2">
 749: again, would be nice to know what "the crustal column" IS </p>
 
@@ -456,8 +457,10 @@ xenoliths extraction depth" or "to investigate possible tectonic scenarios..."
 
 
 <p class="comment r2">
-755: can you provide a time/age range for establishment of SAF system? </p>
+755: can you provide a time/age range for establishment of SAF system?</p>
 
+<p class="response fixed">Significantly reorganized</p>
+</div>
 
 <p class="comment r2">
 768: awk </p>
@@ -470,12 +473,12 @@ xenoliths extraction depth" or "to investigate possible tectonic scenarios..."
 <p class="comment r2">
 780: merge this graf with the one before </p>
 
-<p class="comment r3"> 782 brady ref? </p>
+<p class="comment r3"> 782 brady ref?<span class="fixed">good call!</span> </p>
 
 <p class="comment r3">
-783. unclear how regional heat diffusion associated with possible fluid
+Line 783. unclear how regional heat diffusion associated with possible fluid
      circulation on the San Andreas would cause Coast range heat flow estimates
-     to overshoot
+     to overshoot<span class="fixed">We mean the entire neogene margin belt</span>
 </p>
 
 <p class="comment r3"> 788-804. highly speculative </p>
@@ -483,10 +486,12 @@ xenoliths extraction depth" or "to investigate possible tectonic scenarios..."
 <p class="comment r2">
 794: note a recent paper by Leutkemeyer et al (2016; Tectonophysics) shows
      fluid transport along the SAF fracture network is downward from the
-     surface, which may actually be cooler ... </p>
+     surface, which may actually be cooler ...
+<span>This doesn't seem to show *no* upward fluid transport, just that meteoric fluids dominate. However, the main interest is in the entire Neogene margin. I can take out the claim altogether if that seems appropriate.</span></p>
 
 <p class="comment r1">
 Salinia’s Late Cretaceous history - involving detaching from the southern Sierra Nevada and being shed some ~50 km to the SSW - likely has a lot to do with it (Wood and Saleeby, 1997 and me et al., 2012).  During this extensional episode, the Salinian basement was pervasively fractured, which likely made it permeable to fluids/heat.  The southern Sierra Nevada, on the other hand, escaped pervasive fracturing given that it was in the footwall of the Late Cretaceous detachment system.  As a result it is characterized by low heat flow.
+<span class="fixed">Thanks, made sure to mention this history</span>
 </p>
 
 <p class="comment r2"> 800-802: redundant </p>
@@ -509,10 +514,12 @@ Salinia’s Late Cretaceous history - involving detaching from the southern Sier
 
 <p class="comment r1">
 More explanation needed - term is not self explanatory (nor did a quick google turn anything up)
+<span class="fixed">Deleted this, confusing to me as well</span>
 </p>
 
 <p class="comment r2">
-829: different authors, or different spellings? </p>
+829: different authors, or different spellings?
+<span class="partial">Actually, same person but spelled differently in the publications. Weird. Left as is, not really sure what to do in this instance</span></p>
 
 
 <p class="comment r2"> 860-866: this is a level of detail that I think detracts

@@ -1,45 +1,42 @@
 # Origin of the mantle lithosphere beneath Crystal Knob {#sec:tectonic_scenarios}
 
-Rb-Sr and Sm-Nd isotopic and trace-element compositions of peridotite xenoliths
-demonstrate that the mantle lithosphere that was sampled by the Crystal Knob
-volcanic neck is sourced from the depleted mantle, with no contribution from
-either recycled crustal material or ancient sub-continental mantle lithosphere.
-The lack of radiogenically enriched arc residues confirms the unrooted nature
-of Salinia continental arc rocks [e.g. @Hall2013] that lie slivered above the
-Franciscan accretionary complex that dominates the regional crustal column.
+The Crystal Knob spinel peridotite xenoliths uniformly isotopically depleted,
+with an $\epsilon_\mathrm{Nd}$ of 10.3-11.0, and \ce{^{87}Sr}/\ce{^{86}Sr} of
+.7023-.7024. These values are typical for the depleted upper mantle [e.g.
+@Hofmann1997] and require a mantle source that has not been recycled from the
+western North American subcontinental mantle or continental lithosphere more
+generally. The Crystal Knob xenolith suite is the only known direct sampling of
+this underplated mantle.
+
+The lack of radiogenically enriched arc residues in the Crystal Knob xenolith
+suite  confirms the unrooted nature of Salinia continental arc rocks [e.g.
+@Hall2013] that lie slivered above the Franciscan accretionary complex that
+dominates the regional crustal column. This suggests the existence of a major
+structural discontinuity below the crust of the Coast Ranges, with underplated,
+slightly depleted peridotite forming the framework of the mantle lithosphere.
+Several tectonic events experienced by the Coast Ranges since the Cretaceous
+provide a means to append suboceanic mantle lithosphere or upwelling
+asthenosphere to the base of the crust.
 
 The Franciscan complex of the region was assembled by sustained subduction of
 the Farallon plate during the Cretaceous and early Cenozoic [@Cowan1978;
 @Saleeby1986; @Seton2012; @Chapman2016a]. The mantle lithosphere beneath the
 eastern Mojave Plateau was constructed from partly subducted Farallon-plate
-upper mantle late in this Franciscan accretionary history [@Luffi2009]. Another
-mechanism could have operated following the cessation of Farallon plate
-subduction and during the establishment of the San Andreas transform system.
-
-The pre-Neogene tectonic setting of the Crystal Knob eruption site is shown in
-@fig:reconstruction by restoration of the San Andreas dextral transform system
-[@Matthews1976; @Dickinson2005; @Chapman2012; @Hall2013; @Sharman2013]. The
-Crystal Knob eruption site restores to a position outboard of the southern
-California batholith. The principal windows into shallowly underplated
-subduction channel schists are shown in @fig:reconstruction along with the
-principal upper plate batholithic exposures. The current western extent of the
-Salinia crystalline nappes is shown as the Nacimiento fault and the offshore
-Farallon escarpment. Crystalline rocks of the Salinia nappes extended an
-unknown distance westwards across the Nacimiento belt Franciscan [@Hall2013],
-but were eroded off the lower plate complex as the coastal region rose in the
-Pliocene [@Ducea2003].
+upper mantle late in this Franciscan accretionary history [@Luffi2009], and an
+outboard equivalent of this mechanism could have built the mantle lithosphere
+beneath Crystal Knob.
 
 In the Oligocene to early Miocene, the Pacific-Farallon spreading ridge
-obliquely intersected the SW Cordillera subduction zone, leading to the
-development of the San Andreas transform system [@Atwater1970]. Ridge
-impingement was kinematically complex due to large-offset ridge-ridge
-transforms, resulting in the opening of a geometrically complex slab
-window and the production of the Monterey microplate, which
-nucleated as an oblique intra-oceanic rift along an ~250 km long segment
-of the Pacific-Farallon ridge [@Thorkelson1989; @Bohannon1995; @Atwater1998; @Wilson2005].
-Late Cenozoic volcanism of the coastal region of central California
-has been attributed to partial melting of asthenosphere
-as it ascended into the slab window [@Wilson2005].
+obliquely intersected the Cordillera subduction zone at the coast of southern
+California, leading to the development of the San Andreas transform system
+[@Atwater1970]. Ridge impingement was kinematically complex due to large-offset
+ridge-ridge transforms, resulting in the opening of a geometrically complex
+slab window and the production of the Monterey microplate, which nucleated as
+an oblique intra-oceanic rift along an ~250 km long segment of the
+Pacific-Farallon ridge [@Thorkelson1989; @Bohannon1995; @Atwater1998;
+@Wilson2005]. Late Cenozoic volcanism of the coastal region of central
+California has been attributed to partial melting of asthenosphere as it
+ascended into the slab window [@Wilson2005].
 
 Alternatively, it has been suggested that microplate formation along the
 impinging Pacific-Farallon ridge was more dominant than slab window
@@ -48,33 +45,22 @@ California as the Farallon plate continued to subduct deeper into the
 mantle [@Bohannon1995; @Brocher1999; @VanWijk2001]. In this scenario,
 late Cenozoic volcanism in the region is linked to the youthfulness of the
 subducted microplate(s), implying a partial melting mechanism within and
-immediately adjacent to the lithospheric lid. Both the slab window (or gap) and
-stalled microplate hypotheses are based on plate kinematic relationships which
-require a combination of slab window and stalled oceanic microplate segments
+directly below the lithospheric lid. Both the slab window (or gap) and stalled
+microplate hypotheses are based on plate kinematic relationships which require
+a combination of slab window and stalled oceanic microplate segments
 [@Bohannon1995; @Atwater1998; @tenBrink1999; @Wilson2005].
 
-Based on the regional geologic history and constraints from crustal structure,
-The mantle lithosphere underlying the Coast Ranges could be underplated
-Farallon plate mantle, and/or Monterey microplate mantle. The Crystal Knob
-xenolith suite is the only known direct sampling of this underplated mantle.
-
-
-we identify several viable tectonic scenarios for the formation of the mantle
-lithosphere beneath coastal central California, which we summarize in
-@sec:slab_window‌-‌-@sec:farallon_nappe.
-
-
-The cross-sections presented in @fig:neogene_sections show the first-order crustal relations
-that are implied by three potential origins for the sub-Crystal Knob mantle
-lithosphere: **A**. shallowly ascended asthenosphere within the
+The cross-sections presented in @fig:neogene_sections show the first-order
+crustal relations implied by three potential origins for the sub-Crystal Knob
+mantle lithosphere: **A**. shallowly ascended asthenosphere within the
 Pacific-Farallon slab window [@Atwater1998]; **B**. subduction of an
-underplated, or stalled, Monterey oceanic microplate [@Bohannon1995];
-or **C**. underplated Farallon plate mantle lithosphere nappe(s) that lie in structural sequence with the upper mantle duplex
-resolved beneath the Dish Hill xenolith location in the Mojave region
-[@Luffi2009]. Scenarios **A** and **B** have been proposed in previous models
-of the lithospheric structure of the California coast [@Erkan2008], while
-scenario **C** is constructed from a large body of literature on crustal and
-mantle-lithosphere tectonics since the Cretaceous.
+underplated, or stalled, Monterey oceanic microplate [@Bohannon1995]; or **C**.
+underplated Farallon plate mantle lithosphere nappe(s) that lie in structural
+sequence with the upper mantle duplex resolved beneath the Dish Hill xenolith
+location in the Mojave region [@Luffi2009]. Scenarios **A** and **B** have been
+proposed in previous models of the lithospheric structure of the California
+coast [@Erkan2008], while scenario **C** is constructed from a large body of
+literature on crustal and mantle-lithosphere tectonics since the Cretaceous.
 
 ## The Neogene slab window {#sec:slab_window}
 
@@ -83,17 +69,7 @@ Pacific-Farallon slab window
 and partially subducted Monterey plate at ca. 19 Ma [@Wilson2005].
 The slab window formed by subduction of the trailing edge
 of the Farallon plate, unsupported by sea floor
-spreading along the former spreading axis with the Pacific plate. The
-Monterey plate nucleated along a ~250 km segment of the
-Pacific-Farallon ridge as an oblique rift that was rotated ~25º clockwise
-from the Pacific-Farallon rift axis [@Atwater1989].
-Its generation was synchronous with the early stages of
-Pacific-Farallon plate convergence into the Cordilleran subduction zone
-along the southern California coastal region, and coincided with
-transrotational rifting of the continental borderland region and
-displacement of the western Transverse Ranges bedrock
-[@Bohannon1995; @Atwater1998].
-
+spreading along the former spreading axis with the Pacific plate.
 According to the @Wilson2005 reconstruction of the
 Pacific-Farallon slab window and adjacent Monterey plate [@fig:reconstruction],
 the Crystal Knob eruption site was located above a slab window in the early
@@ -108,48 +84,60 @@ neck itself, which we return to in @sec:crystal_knob_eruption.
 
 ## The Monterey plate
 
-A stalled partially subducted Monterey microplate has been invoked as the source of the
-lithospheric mantle beneath the central Coast Ranges [@Erkan2008].
 When the East Pacific Rise first reached the North American plate at
 28.5 Ma, the Monterey microplate broke from the Farallon slab and
-subducted independently until 19.5 Ma, while rotating clockwise with respect
-to the Pacific plate [@Wilson2005; @fig:reconstruction]. The remnant
-microplate has been
-integrated into the Pacific plate and still forms part of the abyssal
-seafloor in the proximal offshore region [@fig:context].
-A recent permutation of the stalled slab hypothesis is that the Monterey plate
-extends eastward of the San Andreas fault as a horizontally translated
-"dangling" slab  [@tenBrink1999; @Pikser2012; @Wang2013; @fig:context].
+subducted independently until 19.5 Ma, while rotating clockwise with respect to
+the Pacific plate [@Wilson2005]. @fig:reconstruction shows the incipient tear
+between the rotating Monterey microplate and the bulk of the downgoing Farallon
+slab. The remnant microplate has been integrated into the Pacific plate and
+still forms part of the abyssal seafloor in the proximal offshore region
+[@fig:context].
+
+The eastward extent of the partially subducted Monterey Plate slab is unknown,
+and there is some evidence that it is truncated by the San Gregorio-Hosgri
+fault system [see @sec:stalled-slab-bad]. However, the Monterey plate may have
+separated at a deeper level and translated northward beneath a reactivated
+subduction megathrust [@fig:neogene_sections|b]. A recent permutation of the
+stalled slab hypothesis is that the Monterey plate extends eastward of the
+San Andreas fault as a horizontally translated stalled slab, potentially
+reaching ~300 km depth beneath the eastern Central Valley [@tenBrink1999;
+@Pikser2012; @Wang2013].
+
+If the downdip portion of the stalled slab extended east of the
+San Gregorio-Hosgri fault, it would make up the mantle lithosphere beneath
+Crystal Knob. Although geodynamically suspect, this model has been presented as
+a candidate for construction of the mantle lithosphere in previous modeling of
+the thermal structure of the Coast Ranges [@Erkan2008] and is commonly invoked
+in the seismology literature [e.g. @Wang2013]. We include the model in our
+consideration of thermal history, but return to its viability in @sec:
+
 
 
 ---
 
-Seismic data cited in support of the stalled slab hypothesis consist of
-an 8-15 km thick, shallowly east-dipping mafic lower crustal layer that extends
-beneath central California from the offshore region into proximity of
-the San Andreas fault, thickening eastwards over Moho depths
-of ~12-30 km [@Brocher1999]. Strong internal reflectivity within this layer
-[@Trehu1987; @Brocher1999], and sharp
-inflections in its upper surface [@Trehu1991], indicate that this mafic
-layer is internally deformed and imbricated, which accounts for its
-thickness exceeding typical oceanic mafic crust by a factor of two to three.
-
-This seismic data shows that the crustal section attributed to the Neogene
-stalled slab is imbricated along the toe of the mafic duplex in the offshore
-region. Such imbrication and underplating require a basal detachment, which is
-most logically located at the underlying Moho. In this context, the regions’s
-lower crustal mafic layer is more plausibly interpreted as a regional
-underplated duplex of Farallon plate oceanic crustal nappes that accreted
-during Franciscan subduction.
 
 
 ## Underplated Farallon Plate mantle nappes  {#sec:farallon_nappe}
 
-The reconstruction of the Crystal Knob eruption site to its pre-San
-Andreas position [@fig:reconstruction] suggests the underplating of
-Farallon-plate mantle nappes prior to Neogene transform faulting as a highly
-viable alternative for the development of the site’s underlying mantle
-lithosphere.
+The reconstruction of the Crystal Knob eruption site to its pre-San Andreas
+position [@fig:reconstruction] places it outboard of the Mojave province, where
+much of the mantle lithosphere was replaced by Farallon-plate nappes during the
+Cretaceous. An outboard extension of this underplating, prior to Neogene
+transform faulting, is a highly viable alternative for the development of the
+site’s underlying mantle lithosphere.
+
+The pre-Neogene tectonic setting of the Crystal Knob eruption site is shown in
+@fig:reconstruction by restoration of the San Andreas dextral transform system
+[@Matthews1976; @Dickinson2005; @Chapman2012; @Hall2013; @Sharman2013]. The
+Crystal Knob eruption site restores to a position outboard of the southern
+California batholith. The principal windows into shallowly underplated
+subduction channel schists are shown in @fig:reconstruction along with the
+principal upper plate batholithic exposures. The current western extent of the
+Salinia crystalline nappes is shown as the Nacimiento fault and the offshore
+Farallon escarpment. Crystalline rocks of the Salinia nappes extended an
+unknown distance westwards across the Nacimiento belt Franciscan [@Hall2013],
+but were eroded off the lower plate complex as the coastal region rose in the
+Pliocene [@Ducea2003b].
 
 The Crystal Knob neck erupted through the
 Nacimiento belt of the Franciscan complex, immediately adjacent to the
