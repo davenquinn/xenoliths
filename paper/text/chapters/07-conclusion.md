@@ -11,12 +11,12 @@ the higher-temperature part of the acceptable field, and its viability may be
 affected by erosion in the Coast Ranges, which would tend to elevate geotherms
 for all cases.
 
-@Erkan2008 model the thermal structure of the lithosphere beneath the Coast
-Ranges based on projected surface heat flow, and reject a shallow
-asthenospheric slab window in favor of the underplated stalled slab, which
-predicts lithospheric geotherms within acceptable bounds. Our modeling broadly
-replicates their results, but our additional scenario **C** also predicts
-reasonable geotherms in the mantle lithosphere.
+ @Erkan2008 model the thermal structure of the lithosphere beneath the Coast
+ Ranges based on projected surface heat flow, and reject a shallow
+ asthenospheric slab window in favor of the underplated stalled slab, which
+ predicts lithospheric geotherms within acceptable bounds. Our modeling
+ broadly replicates their results, but our additional scenario **C** also
+ predicts reasonable geotherms in the mantle lithosphere.
 
 Despite the inability to reject the stalled slab based on thermal modeling
 alone, we reject it in favor of scenario **C**, Cretaceous underplated mantle

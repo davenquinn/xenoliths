@@ -82,7 +82,7 @@ However, this phase of slab window opening and related volcanism
 cannot account for the eruption of the ca. 1.7 Ma Crystal Knob volcanic
 neck itself, which we return to in @sec:crystal_knob_eruption.
 
-## The Monterey plate
+## The Monterey plate stalled slab
 
 When the East Pacific Rise first reached the North American plate at
 28.5 Ma, the Monterey microplate broke from the Farallon slab and
@@ -109,13 +109,8 @@ Crystal Knob. Although geodynamically suspect, this model has been presented as
 a candidate for construction of the mantle lithosphere in previous modeling of
 the thermal structure of the Coast Ranges [@Erkan2008] and is commonly invoked
 in the seismology literature [e.g. @Wang2013]. We include the model in our
-consideration of thermal history, but return to its viability in @sec:
-
-
-
----
-
-
+consideration of thermal history, but return to its viability in
+@sec:stalled-slab-bad.
 
 ## Underplated Farallon Plate mantle nappes  {#sec:farallon_nappe}
 
