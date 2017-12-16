@@ -1,8 +1,8 @@
 # Figure Captions
 
 ##field_photo
-Outcrop view of Crystal Knob peridotite xenoliths in place within the
-alkali basalt host lava.
+
+Cobble of Crystal Knob alkali basalt containing peridotite xenoliths
 
 ##context
 
@@ -57,6 +57,7 @@ lithosphere underlying coastal California was sourced directly from the
 mantle, either at a mid-ocean ridge or by direct underplating.
 
 ##cpx_profile
+
 Profile of Mg\# measured across clinopyroxene phenocryst in the host
 lava sample CK-1. The grain has a partially cannibalized and fractured
 xenocryst core with Mg\# $\approx 90$, surrounded by successive layers with
@@ -89,12 +90,13 @@ CK-6, the most fertile sample. (c) Spinel Cr# vs. Mg# showing grouping of
 samples by Cr content, corresponding to different levels of depletion. Mg# is
 corrected based cation charge balance. The highest-Cr samples (CK-3 and CK-4)
 are harzburgite residues, while the CK-6 is an apparently refertilized
-lherzolite.
+lherzolite. Labels in (c) correspond to colorization by sample
 
 ##ca_in_olivine
-Calcium abundance in olivine for xenolith samples, showing the
-per-sample separability of microprobe analyses
-despite low measured abundances.
+
+Ca abundance in olivine for xenolith samples, showing the per-sample
+separability of microprobe analyses (colored by sample) despite low measured
+abundances.
 
 ##spinel_cr
 Spinel Cr# vs. Mg# showing two groups of samples with low and high Cr content,
@@ -103,8 +105,9 @@ The highest-Cr samples (CK-3 and CK-4)
 are harzburgite residues, while the CK-6 is an apparently refertilized lherzolite.
 
 ##whole_rock_major
-Major element composition (oxide %$_\textrm{wt}$, normalized to 100%)
-of xenolith samples recalculated from modal mineralogy.
+
+Major element composition (oxide %$_\textrm{wt}$, normalized to 100%) of
+xenolith samples recalculated from modal mineralogy.
 
 ##modes
 Modal composition of Crystal Knob perodotites. Abyssal
@@ -112,11 +115,14 @@ Modal composition of Crystal Knob perodotites. Abyssal
 compositions are shown for comparison.
 
 ##trace_elements
+
 (a) Chondrite-normalized pyroxene rare-earth element abundances showing
 the range in depletion and re-enrichment in the Crystal Knob sample set.
 (b) Element-ratio proxies for depletion and re-enrichment of
 clinopyroxene rare-earth elements, showing that samples have a range of
-depletion characteristics and a variety of re-enrichment patters.
+depletion characteristics and a variety of re-enrichment patters. Colors are by
+sample as labeled in (b).
+
 
 ##ree_model
 (a) Recalculated whole-rock trace elements for xenolith samples
@@ -138,12 +144,13 @@ required to explain the observed trends
 in re-enrichment of rare-earth elements.
 
 ##cpx_literature_comparison
+
 Clinopyroxene trace elements for Crystal Knob compared to abyssal peridotite
 data compiled by @Warren2016. The Crystal Knob samples show mild to moderate
-depletion in HREEs characteristic abyssal peridotites, but samples CK-3,
-CK-4, and CK-6 show re-enrichment of LREEs that is not seen in the
-abyssal peridotite dataset, implying that these samples saw a second
-phase of enrichment after creation.
+depletion in HREEs characteristic abyssal peridotites, but samples CK-3, CK-4,
+and CK-6 show re-enrichment of LREEs that is not seen in the abyssal peridotite
+dataset, implying that these samples saw a second phase of enrichment after
+creation. Colors are by sample.
 
 ##ree_temperatures
 (a) Per-element equilibrium temperatures for
@@ -159,35 +166,36 @@ kernel density distribution of TA98 temperatures.
 Joint error distributions are created using a Monte Carlo approach
 for both error distributions. This approach shows significant disequilibrium in
 Eu and across LREE for sample CK-4. The samples can be grouped into two
-temperature cohorts, with all samples, especially the low-temperature group, agreeing well with the TA98 thermometer.
+temperature cohorts, with all samples, especially the low-temperature group,
+agreeing well with the TA98 thermometer. Colors are by sample.
+
 
 ##temp_comparisons
-Comparison of results from pyroxene major-element thermometers. (a) Core
-and rim measurements (filled and open circles, respectively)
-for each sample using the @Taylor1998 thermometer.
-Samples CK-3, CK-4, and CK-7 show heating along grain rims, and the
-samples vary in the tightness of within-sample temperature scatter.
+
+Comparison of results from pyroxene major-element thermometers. (a) Core and
+rim measurements (filled and open circles, respectively) for each sample using
+the @Taylor1998 thermometer. Samples CK-3, CK-4, and CK-7 show heating along
+grain rims, and the samples vary in the tightness of within-sample temperature
+scatter.
 (b) The strong linear relationship between the TA98 and BKN themometers
 is shown, with BKN consistently measuring temperatures 30-70º higher.
 (c) Ca-in-orthopyroxene temperatures against TA98, showing the
-reproduction of two clear temperature cohorts around 980 and 1080ºC
-by this thermometer for grain cores.
+reproduction of two clear temperature cohorts around 980 and 1080ºC by this
+thermometer for grain cores. Colors are by sample as labeled in (a).
 
 ##temp_summary
-Summary of temperature and depletion-degree data for the peridotite
-xenoliths showing the two temperature cohorts
-of the dataset, which remain separable for all thermometers and
-are centered roughly 80ºC apart. Estimates for all thermometers
-track together except for the higher temperature estimates for
-the REE thermometer for samples CK-4 and CK-6, which may reflect a fossil
-heating event.
-Spinel Cr\# and several melt-extraction proxies are used to assess
-the level of depletion of the samples. The lower-temperature
-samples are generally less depleted in all systems, with variable MgO and
-\ce{Al2O3} depletion reflecting low modal abundances of pyroxene.
-Sample CK-6 has moderately high spinel Cr\# but low
-levels of whole-rock depletion, suggesting bulk assimilation
-of an enriching fluid.
+
+Summary of temperature and depletion-degree data for the peridotite xenoliths
+showing the two temperature cohorts of the dataset, which remain separable for
+all thermometers and are centered roughly 80ºC apart. Estimates for all
+thermometers track together except for the higher temperature estimates for the
+REE thermometer for samples CK-4 and CK-6, which may reflect a fossil heating
+event. Spinel Cr\# and several melt-extraction proxies are used to assess the
+level of depletion of the samples. The lower-temperature samples are generally
+less depleted in all systems, with variable MgO and \ce{Al2O3} depletion
+reflecting low modal abundances of pyroxene. Sample CK-6 has moderately high
+spinel Cr\# but low levels of whole-rock depletion, suggesting bulk
+assimilation of an enriching fluid.
 
 ##depth
 

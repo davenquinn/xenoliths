@@ -247,17 +247,15 @@ was likely active during the eruption of the Crystal Knob neck.
 Integration of theoretical and observational data on intra-continental
 transform faults [@Platt2011; @Titus2007] indicate
 that, at lower crustal--upper mantle levels, Hosgri fault shear could be
-distributed across 10s of kilometers normal to the fault surface
-[@fig:neogene_sections].
-Eruption of small-volume basalts of Plio-Pleistocene age occurred
-elsewhere in the Coast Range belt. This includes
-the Coyote Lake pipe [@fig:context], which occurred ~150 km north
-of Crystal Knob along the San Andreas-Calaveras fault bifurcation
-zone and entrained lower crust and upper mantle xenoliths [@Jove1998; @Titus2007].
-Xenoliths recovered
-from these flows record asthenosphere ascent and partial melting
-markedly post-dating any possible slab window opening. Thus, the
-Crystal Knob small volume eruption is not an exceptional event.
+distributed across 10s of kilometers laterally [@fig:neogene_sections|c].
+Eruption of small-volume basalts of Plio-Pleistocene age occurred elsewhere in
+the Coast Range belt. This includes the Coyote Lake pipe [@fig:context], which
+occurred ~150 km north of Crystal Knob along the San Andreas-Calaveras fault
+bifurcation zone and entrained lower crust and upper mantle xenoliths
+[@Jove1998; @Titus2007]. Xenoliths recovered from these flows record
+asthenosphere ascent and partial melting markedly post-dating any possible
+slab window opening. Thus, the Crystal Knob small volume eruption is not an
+exceptional event.
 
 Distributed shearing and strike-slip juxtaposition of the shallow
 sub-Monterey plate asthenosphere against underplated Farallon plate
@@ -274,9 +272,10 @@ entrainment of peridotite xenoliths underscores its rapid ascent at ~1.65 Ma.
 Two of the principal thermal maxima in the Coast Range thermal anomaly occur
 in the areas of the Crystal Knob and Coyote Lake Plio-Pleistocene
 basaltic eruptions [@Erkan2008, Figure 1], further
-suggesting recent mobilization of asthenospheric mantle that was
-initially emplaced into the early Neogene slab window, due to
-extension in the mantle lithosphere.
+suggesting recent mobilization of asthenospheric mantle that was initially
+emplaced into the early Neogene slab window. Rapid uplift of the central
+California coastal region at ca. 2 Ma [@Ducea2003b] is likely to have
+contributed to this mobilization as well.
 
 Conclusion
 ==========
@@ -313,11 +312,11 @@ The stalled slab and mantle nappe scenarios appear equally plausible in
 terms of the thermal modeling, equally satisfying constraints developed
 from xenolith thermobarometry. When the effects of potential
 exhumation/erosion are qualitatively considered, the Monterey plate
-stalled slab endmember scenario corresponds less well to constraints on
-the upper-mantle geotherm. This, along with a number of crustal
-geologic considerations, leads us to favor the Late Cretaceous mantle nappe
-underplating scenario, with reheating by a deep slab window in the
-Neogene.
+stalled slab endmember scenario corresponds less well to constraints on the
+upper-mantle geotherm. This, along with the poor correspondence of a stalled
+slab to crustal geology and geodynamic constraints, leads us to favor the Late
+Cretaceous mantle nappe underplating scenario, with reheating by a deep slab
+window in the Neogene.
 
 This preferred scenario for the origin of the mantle lithosphere sampled
 by Crystal Knob xenoliths matches a host of geologic constraints

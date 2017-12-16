@@ -196,12 +196,12 @@ could have occurred due to negative buoyancy during retreating subduction, with
 tensile stresses in the slab promoting nappe detachment. Observational data and
 laboratory experiments show that profound co-seismic dilation transients can
 develop along subduction megathrusts [@Gabuchian2017], underscoring the
-potential importance of tensile stresses within subducting slabs. We suspect
-that mantle nappe detachment was mediated by the temperature of the
-brittle-plastic transition in olivine. For ~40-50 Myr old oceanic lithosphere
-entering the subduction zone [@fig:cross_sections|c and d], this ~700-800 ºC
-transition [@Warren2006; @Burgmann2008; @Mei2010] occurs at ~25-40 km depth in
-the slab [@Doin1996].
+potential ability of tensile stresses to cause dislocations in subducting
+slabs. We suspect that mantle nappe detachment was mediated by the temperature
+of the brittle-plastic transition in olivine. For ~40-50 Myr old oceanic
+lithosphere entering the subduction zone [@fig:cross_sections|c and d], this
+~700-800 ºC transition [@Warren2006; @Burgmann2008; @Mei2010] occurs at ~25-40
+km depth in the slab [@Doin1996].
 
 The lack of high-pressure mafic schists in both the Crystal Knob and Dish
 Hill xenolith suites further suggests that slivers of oceanic crust were detached

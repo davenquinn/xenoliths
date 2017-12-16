@@ -638,18 +638,26 @@ PAC-NAM plate motion. These boundary conditions a created situation where the
 slab underwent shortening-this compressional event in the mantle lithosphere
 would likely cause uplift and further destabilization of the overlying crust.
 Could this even be the MAIN cause of late Cretaceous upper crustal extension in
-the Salinia- Mojave region. </p>
+the Salinia- Mojave region.
+<span class='fixed'>
+Duplexes are common in extensional environments, use Gabrielsen and Clausen (2001 GSA Mem 193) to break into literature, although our application is different from the cited paper here. We think that your scenario laid out here is basically what we had in mind (or at least one of the viable options) but attempt to explain in terms of mantle-lithosphere structure. We have sharpened our description based on your feedback, and hope that this is less confusing.
+</span>
+</p>
 
 <p class="comment r3">
 1066. Need a reference and definition of the variables in the equation.
+<span class="fixed">Fixed</span>
 </p>
 
 <p class="comment r3"> 1076-1077. These are more like "initial parameters" or
 "evolving boundary conditions" than things that "track the evolution". The
-finite difference model code tracks the evolution. </p>
+finite difference model code tracks the evolution.
+<span class="fixed">Fixed</span>
+</p>
 
 <p class="comment r3"> 1079-1080. More information on the model should be given
-here and less given in an appendix. </p>
+here and less given in an appendix.
+<span class="partial">We are quite long on text, and the next level of detail about the model would require us to essentially insert the appendix into text. We feel we have faithfully rendered the model through our graphical summaries, and the factors addressed in the appendix, while important considerations, do not drastically affect the model results or conclusions.</span></p>
 
 
 <p class="comment r2">
@@ -692,7 +700,8 @@ unlike the majority of this paper, this paragraph (beginning line 1262) does not
 </p>
 
 <p class="comment r2">
-1279: like Fig. 18c? citing this figure does not seem relevant here. </p>
+1279: like Fig. 18c? citing this figure does not seem relevant here.
+<span class='fixed'>May have been misnumbered</span></p>
 
 <p class="comment r1">
 1288: I don’t follow.  Figure 18c shows the source of xl knob xenoliths on the eastern wall of the SGHf.  How does putting Monterey lithosphere against slab window heated farallon lithosphere generate melt?  If anything, it should cool down the farallon lithosphere.
@@ -707,7 +716,8 @@ basalt again, and suggest an age for the xenoliths. </p>
 
 <p class="comment r3"> 1321-1322. if the effects of exhumation are important
 enough to include in the conclusion, they shouldn't be relegated to the
-supplement. Either cut here, or integrate that into the paper. </p>
+supplement. Either cut here, or integrate that into the paper.
+<span class='rejected'>We already did this at the end of "Summary of Model results</span></p>
 
 <p class="comment r2">
 1324: I would re-list the MOST relevant </p>

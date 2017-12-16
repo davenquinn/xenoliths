@@ -23,8 +23,10 @@ implied by each of the tectonic scenarios
 shown in @fig:neogene_sections.
 A model based on the one-dimensional heat-flow equation
 $$\frac{\partial T}{\partial t} = \frac{k}{\rho C_p} \frac{\partial^2 T}{\partial z^2} + \frac{\alpha}{\rho C_p}$$ {#eq:heat_flow}
-is used to track the evolution of the lithospheric geotherm predicted by
-the three tectonic scenarios presented above.
+(e.g. @Turcotte2002, with $T$: temperature, $t$: time, and standard values for oceanic and continental
+material properties shown in @tbl:model_parameters) is used to track the evolution of
+the lithospheric geotherm predicted by the three tectonic scenarios presented
+above.
 
 To simulate both subduction and slab-window driven mantle underplating,
 the forearc geotherm is stacked atop a modeled sub-oceanic or asthenospheric
@@ -36,11 +38,9 @@ finite difference approaches are combined using a two-sweep technique
 500 km to remove the effects of unknown mantle heat flux.
 
 Several auxiliary analytical models are used to constrain portions of
-our modeled scenarios.  We use the Global Depth and Heat (GDH) model for
-oceanic crust [@Stein1992], and the @Royden1993a forearc geotherm model
-to track the evolution of a geotherm during continuous subduction.
-Standard values used for oceanic and continental
-material properties are given in [@tbl:model_parameters].
+our modeled scenarios. The Global Depth and Heat (GDH) model for
+oceanic crust [@Stein1992] and the @Royden1993a forearc geotherm model
+provide evolving boundary conditions for subduction.
 More information about model setup and integration is given in @sec:model_supplement.
 
 <!--[[model_tracers]]-->
@@ -53,9 +53,9 @@ More information about model setup and integration is given in @sec:model_supple
 
 ## Model results
 
-Model results are presented as geotherms corresponding to specific model
-steps in @fig:model_results and as temperature--time tracers in
-@fig:model_tracers.
+Model results are presented as temperature--time tracers in
+@fig:model_tracers and as geotherms corresponding to specific model
+steps in @fig:model_results.
 
 ### Shallow slab window
 
@@ -231,13 +231,11 @@ xenolith thermobarometry, while not violating constraints posed by heat
 flow data. An assessment of model sensitivity presented in
 @sec:model_supplement includes biases that may influence the model
 results. Most pertinent is the underestimation of modeled geothermal
-gradients due to lack of accounting for exhumation during
-lithospheric thermal equilibration.
-This would: 1. for the slab
-window scenario, further push
-the model results out of the field of acceptable mantle lithosphere
-geotherms derived from xenolith constraints; 2. for the
-Monterey plate, push it to the upper margin of the field; and 3. for the
-reheated mantle nappe scenario, push it towards the centroid of the
-field.
+gradients due to lack of accounting for exhumation during lithospheric thermal
+equilibration. This would: 1. push model results for the slab window scenario
+further out of the field of acceptable mantle lithosphere geotherms derived
+from xenolith constraints; 2. push the Monterey plate to the upper margin of
+the field; and 3. push reheated mantle nappe towards the centroid of
+the field. The direction of these potential model biases is summarized in
+@fig:model_comparison.
 
