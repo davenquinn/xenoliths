@@ -25,17 +25,18 @@ fault within the area of Salinian nappes.
 ##microscope-images
 
 Optical petrographic images (2.5 mm wide field of view) showing characteristic
-textures of the xenolith samples and basaltic host.
-(a) shows sample CK-D2, with the edge of a cumulate xenolith composed of equant
-    olivine (ol) grains (~200 µm characteristic scale) set against a host lava
-    groundmass containing <100 µm phenocrysts of olivine, pyroxene, and
-    plagioclase feldspar.
-(b) shows the spinel lherzolite sample CK-4 with >2 mm olivine, orthopyroxene (opx), clinopyroxene (cpx),
-and spinel (sp). (c) shows sample CK-D2, with a single large orthopyroxene crystal with augite exsolution lamellae
-and containing an olivine inclusion juxtaposed against dunite cumulate
-material consisting of mosaic-textured olivine grains.
+textures of the xenolith samples and basaltic host. (a) shows sample CK-D2,
+with the edge of a cumulate xenolith composed of equant olivine (ol) grains
+(~200 µm characteristic scale) set against a host lava groundmass containing
+<100 µm phenocrysts of olivine, pyroxene, and plagioclase feldspar.
+(b) shows the spinel lherzolite sample CK-4 with >2 mm olivine, orthopyroxene
+(opx), clinopyroxene (cpx), and spinel (sp). (c) shows sample CK-D2, with
+a single large orthopyroxene crystal with augite exsolution lamellae and
+containing an olivine inclusion juxtaposed against dunite cumulate material
+consisting of mosaic-textured olivine grains.
 
 ##reconstruction
+
 Tectonic reconstruction of the California margin at 19 Ma showing the
 early evolution of the San Andreas transform system, offshore oceanic
 plates, and the reconstructed location of modern exposures of the
@@ -50,6 +51,7 @@ which is labeled and corresponds to the similar time label on
 @fig:neogene_sections|b.
 
 ##isotopes
+
 Paired Sm-Nd and Rb-Sr isotope data for the Crystal Knob sample set
 contextualized relative to major Earth reservoirs. The position of
 Crystal Knob within the "depleted mantle" field suggests that the mantle
@@ -99,6 +101,7 @@ separability of microprobe analyses (colored by sample) despite low measured
 abundances.
 
 ##spinel_cr
+
 Spinel Cr# vs. Mg# showing two groups of samples with low and high Cr content,
 corresponding to different levels of depletion. Mg# is corrected based cation charge balance.
 The highest-Cr samples (CK-3 and CK-4)
@@ -116,7 +119,7 @@ compositions are shown for comparison.
 
 ##trace_elements
 
-(a) Chondrite-normalized pyroxene rare-earth element abundances showing
+‌(a) Chondrite-normalized pyroxene rare-earth element abundances showing
 the range in depletion and re-enrichment in the Crystal Knob sample set.
 (b) Element-ratio proxies for depletion and re-enrichment of
 clinopyroxene rare-earth elements, showing that samples have a range of
@@ -125,8 +128,9 @@ sample as labeled in (b).
 
 
 ##ree_model
-(a) Recalculated whole-rock trace elements for xenolith samples
-@tbl:trace_elements_table presented with best-fitting
+
+‌(a) Recalculated whole-rock trace elements for xenolith samples
+[@tbl:trace_elements_table] presented with best-fitting
 modeled compositions for depleted peridotite and enriching
 fluid, using the model discussed in text. Normal mid-ocean
 ridge basalt (NMORB) rare-earth composition is
@@ -153,21 +157,18 @@ dataset, implying that these samples saw a second phase of enrichment after
 creation. Colors are by sample.
 
 ##ree_temperatures
-(a) Per-element equilibrium temperatures for
-REE thermometry of xenolith samples.
-Horizontal lines represent a projection of the best-fitting
-line representing the equilibrium temperature for each sample.
-Data points far from the
-horizontal line signify disequilibrium between pyroxene phases,
-and those outliers plotted with open circles are excluded from the fit.
-(b) Best-fitting REE temperatures for each sample
-with Gaussian error bounds, plotted against a
-kernel density distribution of TA98 temperatures.
-Joint error distributions are created using a Monte Carlo approach
-for both error distributions. This approach shows significant disequilibrium in
-Eu and across LREE for sample CK-4. The samples can be grouped into two
-temperature cohorts, with all samples, especially the low-temperature group,
-agreeing well with the TA98 thermometer. Colors are by sample.
+
+REE thermometry of xenolith samples. (a) Per-element equilibrium temperatures
+with projection of best-fitting sample temperature as horizontal lines for each
+sample. Data points far from the horizontal line signify disequilibrium between
+pyroxene phases, and those outliers plotted with open circles are excluded from
+the fit. (b) Best-fitting REE temperatures for each sample with Gaussian error
+bounds, plotted against a kernel density distribution of TA98 temperatures. Joint
+error distributions are created using a Monte Carlo approach for both error
+distributions. This approach shows significant disequilibrium in Eu and across
+LREE for sample CK-4. The samples can be grouped into two temperature cohorts,
+with all samples, especially the low-temperature group, agreeing well with the
+TA98 thermometer. Colors are by sample.
 
 
 ##temp_comparisons
@@ -176,10 +177,9 @@ Comparison of results from pyroxene major-element thermometers. (a) Core and
 rim measurements (filled and open circles, respectively) for each sample using
 the @Taylor1998 thermometer. Samples CK-3, CK-4, and CK-7 show heating along
 grain rims, and the samples vary in the tightness of within-sample temperature
-scatter.
-(b) The strong linear relationship between the TA98 and BKN themometers
-is shown, with BKN consistently measuring temperatures 30-70º higher.
-(c) Ca-in-orthopyroxene temperatures against TA98, showing the
+scatter. (b) The strong linear relationship between the TA98 and BKN
+themometers is shown, with BKN consistently measuring temperatures 30-70º
+higher. (c) Ca-in-orthopyroxene temperatures against TA98, showing the
 reproduction of two clear temperature cohorts around 980 and 1080ºC by this
 thermometer for grain cores. Colors are by sample as labeled in (a).
 
@@ -214,34 +214,32 @@ shows the extent of sample temperatures along these geotherms. The synthesis of
 this data suggests that the samples were sourced from ~45--70 km depth.
 
 ##model_results
+
 Temperature-depth profiles through the crust and upper mantle
 at key timesteps during the evolution of the three tectonic scenarios.
 Each plotted profile represents a different model run based on the same
-scenario.
-(a) presents a shallow slab window scenario, with underplating of
+scenario. (a) presents a shallow slab window scenario, with underplating of
 upwelling asthenosphere truncating a forearc geotherm at 24 Ma. This
-asthenosphere is held against the base of the crust from 0--6 Myr,
-accounting for the spread of models in the second panel. The final panel
-tracks all models to the present.
-(b) shows stalled slabs of different ages, with panels corresponding
+asthenosphere is held against the base of the crust from 0--6 Myr, accounting
+for the spread of models in the second panel. The final panel tracks all models
+to the present. (b) shows stalled slabs of different ages, with panels corresponding
 to shared tectonic events, modeled at different times based on the
 timing of subduction and age of oceanic crust. Subduction
 is bracketed by T$_\textrm{start}$ and T$_\textrm{end}$, with
 T$_\textrm{start}$ = T$_\textrm{end}$ -- 1.04 Myr for all cases.
 The youngest and hottest of these runs corresponds to the "Monterey plate"
-tectonic scenario.
-(c) tracks Farallon Plate mantle lithosphere emplaced beneath the
+tectonic scenario. (c) tracks Farallon Plate mantle lithosphere emplaced beneath the
 central California coast by mantle duplexing during
 the late Cretaceous [@fig:cross_sections] and reheated by
 a pulse of heat from below during the Miocene slab window
-[@fig:neogene_sections].
-The second panel, at the end of subduction,
+[@fig:neogene_sections]. The second panel, at the end of subduction,
 shows the geologic temperature constraints used to tune the model to
 subduction conditions on the late-Cretaceous megathrust [e.g. @Ducea2003; @Kidder2006]
 In this scenario, oceanic lithosphere is 55 Myr old at the time of
 subduction.
 
 ##model_tracers
+
 Temperature-time tracers for each modeled scenario shown in
 @fig:model_results, following the evolution of particles
 at final depths of 40 and 75 km in the model domain
