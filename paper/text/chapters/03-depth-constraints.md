@@ -50,7 +50,7 @@ model the geotherm in the mantle lithosphere.
 
 ## Depth constraints from Crystal Knob xenoliths
 
-<!--[[depth]]-->
+<!--[[[fig:depth]]]-->
 
 The depth of the xenolith samples in the mantle lithosphere, coupled
 with equilibration temperatures, provides a fully-defined constraint on the
@@ -69,7 +69,7 @@ depth. We convert these to depths using a hydrostatic gradient of ~0.03 GPa/km
 across the mantle lithosphere, integrating crust and mantle densities given in
 @tbl:model_parameters.
 
-<!--[[ree_temperatures]]-->
+<!--[[[fig:ree_temperatures]]]-->
 
 ### Limits of spinel stability
 

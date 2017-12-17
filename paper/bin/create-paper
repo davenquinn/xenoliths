@@ -33,11 +33,12 @@ cat text/figure-captions.md \
 # Process body text
 # Correct for pandoc-crossref annoyingness
 cat text/chapters/*.md \
+| sed -r 's/<!--\[\[\[(.+)\]\]\]-->/\\inlinefigure\{\1\}/g' \
+| text-pipeline \
 | figurator inline \
   text/includes.yaml \
   --captions $captions \
   --collect-dir collected \
-| text-pipeline \
 | sed -r 's/^\\section\*\{Acknowledgements\}/\\acknowledgments/g' \
 > $body
 # Process abstract

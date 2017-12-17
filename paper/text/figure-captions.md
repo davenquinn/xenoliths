@@ -113,7 +113,8 @@ Major element composition (oxide %$_\textrm{wt}$, normalized to 100%) of
 xenolith samples recalculated from modal mineralogy.
 
 ##modes
-Modal composition of Crystal Knob perodotites. Abyssal
+
+Modal composition of Crystal Knob peridotites. Abyssal
 [@Asimow1999; @Baker1999] and Dish Hill [@Luffi2009] peridotite
 compositions are shown for comparison.
 
@@ -132,20 +133,17 @@ sample as labeled in (b).
 ‌(a) Recalculated whole-rock trace elements for xenolith samples
 [@tbl:trace_elements_table] presented with best-fitting
 modeled compositions for depleted peridotite and enriching
-fluid, using the model discussed in text. Normal mid-ocean
-ridge basalt (NMORB) rare-earth composition is
-from @Sun1989, and the range presented for alkali basalts
-is compiled from a suite of Mojave-desert samples measured by @Farmer1995.
-These fields are presented for comparison with
+fluid, using the model discussed in text. The rare-earth compositions of
+normal mid-ocean ridge basalt (NMORB) [@Sun1989] and alkali basalt [@Farmer1995]
+are presented for comparison with
 the modeled composition of the enriching fluids, which closely
 resemble alkali basalt for all samples.
-The calculated re-enriching fluid composition for sample CK-2
-is not shown because this sample is not depleted relative to modeled values.
+Sample CK-2 shows no excess enrichment, and
+a hypothetical re-enriching fluid composition is not calculated.
 (b) REE depletion and re-enrichment trends for xenolith
 samples derived from modeling in (a). For all samples, <1%
 assimilation of alkali-basalt-like melt is
-required to explain the observed trends
-in re-enrichment of rare-earth elements.
+required to explain the observed trends of REE re-enrichment.
 
 ##cpx_literature_comparison
 
