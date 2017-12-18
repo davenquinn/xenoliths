@@ -2,9 +2,9 @@
 
 The Crystal Knob mantle xenoliths have a peridotite composition with a depleted
 (convecting-mantle) isotopic and trace-element signature.  Petrographic and
-geochemical variations provide information on the depletion history, they
-cannot discriminate between the slab window, Monterey Plate, and Cretaceous
-mantle duplexing scenarios for the creation of depleted convecting mantle.
+geochemical variations provide information on the depletion history but
+cannot discriminate between slab window, Monterey Plate, and Cretaceous
+mantle duplexing origins for the sampled parcel of depleted convecting mantle.
 However, these emplacement scenarios present potentially distinct thermal
 structures due to large differences in timescales of cooling. Tectonic models
 for the emplacement of depleted mantle lithosphere under the central coastal
@@ -15,14 +15,13 @@ structure with xenolith geothermometry.
 
 To distinguish between potential emplacement mechanisms for the mantle
 lithosphere sampled by Crystal Knob, we construct a forward model of the geotherm
-implied by each of the tectonic scenarios
-shown in @fig:neogene_sections.
+implied by each of the tectonic scenarios discussed in @sec:tectonic_scenarios.
 A model based on the one-dimensional heat-flow equation
 $$\frac{\partial T}{\partial t} = \frac{k}{\rho C_p} \frac{\partial^2 T}{\partial z^2} + \frac{\alpha}{\rho C_p}$$ {#eq:heat_flow}
 (e.g. @Turcotte2002, with $T$: temperature, $t$: time, and standard values for oceanic and continental
-material properties shown in @tbl:model_parameters) is used to track the evolution of
-the lithospheric geotherm predicted by the three tectonic scenarios presented
-above.
+material properties shown in @tbl:model_parameters) is used to track the
+evolution of the lithospheric geotherm predicted by the three tectonic
+scenarios presented above.
 
 <!--[[[tbl:model_parameters]]]-->
 
