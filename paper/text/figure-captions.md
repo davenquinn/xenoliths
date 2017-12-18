@@ -44,11 +44,9 @@ Cretaceous batholithic belt, the disaggregated Mojave--Salinia batholith,
 and surface outcrops of subduction channel schists in the Mojave province.
 Reconstruction of displaced features such as Salinia
 batholithic exposures from @Schott1998, @Schott2001, @Chapman2012, and @Dickinson2005
-is combined with reconstruction of the evolving slab window and
-microplate detachment after @Wilson2005.
-The Monterey plate ridge ceased spreading at 20 Ma (Chron 6),
-which is labeled and corresponds to the similar time label on
-@fig:neogene_sections|b.
+is combined with reconstruction of the evolving slab window and microplate
+detachment after @Wilson2005. The Monterey plate ridge ceased spreading at
+20 Ma, and the labeled age which corresponds to @fig:neogene_sections|b.
 
 ##isotopes
 
@@ -85,16 +83,15 @@ Ma.
 
 Major-element compositional data for the Crystal Knob spinel peridotites and
 host lavas. The data is colorized by sample in a consistent scheme used until
-@fig:depth. (a) FeO vs. MgO for electron microprobe measurements of grain
-cores, showing range in major-element depletion between samples. Dotted lines
-show Mg\# levels. (b) Mg\# (measured with a total iron basis) vs. \ce{SiO2} for
-the silicate phases in the Crystal Knob peridotite xenoliths. This shows the
+@fig:depth. (a) FeO vs. MgO measured by electron microprobe for grain cores,
+showing range in major-element depletion between samples. Dotted lines show
+Mg\# levels. (b) Mg\# (total iron basis) vs. \ce{SiO2} for the
+silicate phases in the Crystal Knob peridotite xenoliths. This shows the
 range in major-element depletion between samples, including the low Mg\# of
-CK-6, the most fertile sample. (c) Spinel Cr# vs. Mg# showing grouping of
-samples by Cr content, corresponding to different levels of depletion. Mg# is
-corrected based cation charge balance. The highest-Cr samples (CK-3 and CK-4)
-are harzburgite residues, while the CK-6 is an apparently refertilized
-lherzolite. Labels in (c) correspond to colorization by sample
+CK-6, the most fertile sample. (c) Spinel Cr# vs. Mg# (corrected based on
+cation charge balance) showing grouping of samples by Cr content, corresponding
+to different levels of depletion. The highest-Cr samples (CK-3 and CK-4) are
+harzburgite residues. Colors are by sample as labeled in (c).
 
 ##ca_in_olivine
 
@@ -177,13 +174,13 @@ sample.
 Comparison of results from pyroxene major-element thermometers. (a) Core and
 rim measurements (filled and open circles, respectively) for each sample using
 the @Taylor1998 thermometer. Samples CK-3, CK-4, and CK-7 show heating along
-grain rims, and the samples vary in the tightness of within-sample temperature
-scatter. (b) The strong linear relationship between the TA98 and BKN
-themometers is shown, with BKN consistently measuring temperatures 30-70º
-higher. (c) Ca-in-orthopyroxene temperatures against TA98, showing the
-reproduction of two temperature cohorts around 980 and 1080ºC by this
-thermometer for grain cores. Colors are by sample as labeled in (a). Grey lines
-show 1:1 relationship.
+grain rims, and the tightness of within-sample temperature scatter varies. (b)
+The strong linear relationship between the TA98 and BKN themometers is shown,
+with BKN consistently measuring temperatures 30-70º higher. (c)
+Ca-in-orthopyroxene temperatures against TA98, showing the reproduction of
+two temperature cohorts around 980 and 1080ºC by this thermometer for grain
+cores. Colors are by sample as labeled in (a). Grey lines show 1:1
+relationship.
 
 ##temp_summary
 
@@ -213,67 +210,56 @@ thermobarometry and phase stability. Steady-state conductive geotherms for
 values of surface heat flow $q_0$ are plotted beneath the data, with 80-90
 mW/m^2 highlighted as maximum reasonable geotherms for the mantle. A dashed box
 shows the extent of sample temperatures along these geotherms. The synthesis of
-this data suggests that the samples were sourced from ~45--70 km depth.
+this data suggests that the samples were sourced from ~45--75 km depth.
 
 ##model_results
 
-Temperature-depth profiles through the crust and upper mantle
-at key timesteps during the evolution of the three tectonic scenarios.
-Each plotted profile represents a different model run based on the same
-scenario. (a) presents a shallow slab window scenario, with underplating of
+Temperature-depth profiles through the crust and upper mantle at key timesteps
+during the evolution of the three tectonic scenarios shown in
+@fig:model_tracers. Each profile represents a different model run based
+on the same scenario. (a) A shallow slab window scenario, with underplating of
 upwelling asthenosphere truncating a forearc geotherm at 24 Ma. This
 asthenosphere is held against the base of the crust from 0--6 Myr, accounting
 for the spread of models in the second panel. The final panel tracks all models
-to the present. (b) shows stalled slabs of different ages, with panels corresponding
-to shared tectonic events, modeled at different times based on the
-timing of subduction and age of oceanic crust. Subduction
-is bracketed by T$_\textrm{start}$ and T$_\textrm{end}$, with
-T$_\textrm{start}$ = T$_\textrm{end}$ -- 1.04 Myr for all cases.
-The youngest and hottest of these runs corresponds to the "Monterey plate"
-tectonic scenario. (c) tracks Farallon Plate mantle lithosphere emplaced beneath the
-central California coast by mantle duplexing during
-the late Cretaceous [@fig:cross_sections] and reheated by
-a pulse of heat from below during the Miocene slab window
-[@fig:neogene_sections]. The second panel, at the end of subduction,
-shows the geologic temperature constraints used to tune the model to
-subduction conditions on the late-Cretaceous megathrust [e.g. @Ducea2003; @Kidder2006]
+to the present. (b) Stalled slabs of different ages, with panels
+corresponding to shared tectonic events, modeled at different times based on
+the timing of subduction and age of oceanic crust. Subduction is bracketed by
+T$_\textrm{start}$ and T$_\textrm{end}$, with T$_\textrm{start}$
+= T$_\textrm{end}$ -- 1.04 Myr for all cases. The youngest and hottest of
+these runs corresponds to the "Monterey plate" tectonic scenario. (c) Farallon
+Plate mantle lithosphere emplaced beneath the central California coast by
+mantle duplexing during the late Cretaceous [@fig:cross_sections] and reheated
+by a pulse of heat from below during the Miocene slab window
+[@fig:neogene_sections]. The second panel, at the end of subduction, shows the
+geologic temperature constraints used to tune the model to subduction
+conditions on the late-Cretaceous megathrust [e.g. @Ducea2003; @Kidder2006]
 In this scenario, oceanic lithosphere is 55 Myr old at the time of
 subduction.
 
 ##model_tracers
 
-Temperature-time tracers for each modeled scenario shown in
-@fig:model_results, following the evolution of particles
-at final depths of 40 and 75 km in the model domain
-(dashed and solid lines, respectively), bracketing the boundary
-conditions of the Crystal Knob xenolith suite. All models
-conclude at 1.65 Ma, the eruptive age of the Crystal Knob xenoliths.
-(a) shows a scenario corresponding to upwelling-driven mantle
-lithosphere replacement to the base of the crust during the Mendocino
-slab window episode beginning at 24 Ma [@Wilson2005]. Asthenospheric
-mantle is held at the base of the crust for a
-period of time between 0 and 6 Myr to represent potential
-durations of active convection.
-(b) shows a range of scenarios corresponding to oceanic lithosphere slices underplated at
-different times during the subduction of the Farallon plate until its
-cessation in the Neogene.
-The youngest of these scenarios corresponds to the likely
-thermal evolution of a Monterey Plate stalled slab.
-The models with subduction times >30 Ma are included for
-completeness, though none of these can be linked to geologic features of
-the margin as well as the Cretaceous underplating and Monterey plate
-scenarios.
-Model tracers begin at 10 and 45 km beneath the seafloor and are
-advected to depths of 40 and 75 km during subduction
-over the first 1.04 Myr of the model run.
-(c) tracks a Farallon-plate slab subducted and underplated
-during the late Cretaceous, as envisioned in @fig:cross_sections. While
-similar to the older models of **B**, it is
-tuned for key thermobarometric constraints on subduction channel schists
-[@Kidder2003]. The effect of
-Mendocino slab window upwelling at the base of this section is shown,
-with timing equivalent to the replacement of the entire mantle lithosphere
-represented in (a).
+Temperature-time tracers for each modeled scenario, following the evolution of
+particles at final depths of 40 and 75 km in the model domain (dashed and solid
+lines, respectively), bracketing the boundary conditions of the Crystal Knob
+xenolith suite. All models conclude at 1.65 Ma, the eruptive age of the Crystal
+Knob xenoliths. (a) Upwelling-driven mantle lithosphere replacement to the base
+of the crust during the Mendocino slab window episode beginning at 24 Ma
+[@Wilson2005]. Asthenospheric mantle is held at the base of the crust for
+a period of time between 0 and 6 Myr to represent potential durations of active
+convection. (b) Oceanic lithosphere slices underplated at different times until
+the cessation of Farallon-plate subduction in the Neogene. The youngest of
+these scenarios corresponds to the likely thermal evolution of a Monterey Plate
+stalled slab. The models with subduction times >30 Ma are included for
+completeness, though they do not correspond to specific events recorded by
+geologic features in coastal California. Model tracers begin at 10 and
+45 km beneath the seafloor and are advected to depths of 40 and 75 km during
+subduction over the first 1.04 Myr of the model run. (c) A Farallon-plate
+slab subducted and underplated during the late Cretaceous, as envisioned in
+@fig:cross_sections. While similar to the older models of **B**, it is tuned
+for key thermobarometric constraints on subduction channel schists
+[@Kidder2003]. The effect of Mendocino slab window upwelling at the base of
+this section is shown, with timing equivalent to the replacement of the
+entire mantle lithosphere represented in (a).
 
 ##model_comparison
 
@@ -294,15 +280,17 @@ underplating of Farallon-plate mantle nappes during slab rollback
 ##neogene_sections
 
 Schematic cross-sections showing potential scenarios for modification of the
-marginal mantle lithosphere at the end of subduction in the early Miocene. (a)
+marginal mantle lithosphere at the end of subduction in the early Miocene.
+Forearc crust (orange) is generalized for late-Cretaceous inherited structure,
+and includes Salina nappes and associated Franciscan-complex fragments. (a)
 Migration of the East Pacific mantle upwelling beneath the continental margin,
 forming a slab window and causing wholesale replacement of sub-Salinia mantle
-lithosphere with ascended asthenosphere. (b) Translation of the Monterey plate
-stalled slab along the former subduction megathrust to a current position
-beneath the California Coast Ranges [after @Bohannon1995] (c) Mantle
-lithosphere beneath the Crystal Knob eruption site composed of underplated
-Farallon plate mantle nappes reheated at their base by the Neogene slab window.
-The Monterey plate fragment is translated along the Hosgri fault from the
-Transverse Ranges region, to have its lithospheric column juxtaposed with
-previously underplated Farallon-plate mantle lithosphere.
+lithosphere with ascended asthenosphere. (b) Translation of the Monterey
+plate stalled slab along the former subduction megathrust to a current position
+beneath the California Coast Ranges [after @Bohannon1995]
+(c) Mantle lithosphere beneath the Crystal Knob eruption site composed of
+underplated Farallon plate mantle nappes reheated at their base by the Neogene
+slab window. The Monterey plate fragment is translated along the Hosgri fault
+from the Transverse Ranges region, to have its lithospheric column juxtaposed
+with previously underplated Farallon-plate mantle lithosphere.
 
