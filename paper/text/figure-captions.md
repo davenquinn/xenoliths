@@ -2,7 +2,7 @@
 
 ##field_photo
 
-Cobble of Crystal Knob alkali basalt containing peridotite xenoliths
+Cobble of Crystal Knob alkali basalt containing peridotite xenoliths.
 
 ##context
 
@@ -67,7 +67,7 @@ Mg\#, with Mg\# 75 material in the outermost 30 µm of the grain.
 
 ##textures
 
-Mineral classification images of each sample (1" round thin-section) created
+Mineral classification images of each sample (1" round thin section) created
 manually atop coregistered electron backscatter and optical imagery, showing
 the textural variation within Crystal Knob spinel peridotites. The variable
 clinopyroxene abundances corresponding to fertility are clearly visible, and
@@ -76,8 +76,10 @@ CK-4. These classifications form the basis of modal abundance data
 [@fig:modes].
 
 ##step_heating
-Step-heating results for \ce{^{40}Ar}/\ce{^{39}Ar} dating of the Crystal Knob host basalt,
-showing a broad plateau for the accepted age of 1.65 Ma.
+
+Step-heating results for \ce{^{40}Ar}/\ce{^{39}Ar} dating of the Crystal Knob
+host basalt, with a broad plateau for 1.65 Ma and an overall average of 1.71
+Ma.
 
 ##major_elements
 
@@ -161,12 +163,13 @@ with projection of best-fitting sample temperature as horizontal lines for each
 sample. Data points far from the horizontal line signify disequilibrium between
 pyroxene phases, and those outliers plotted with open circles are excluded from
 the fit. (b) Best-fitting REE temperatures for each sample with Gaussian error
-bounds, plotted against a kernel density distribution of TA98 temperatures. Joint
-error distributions are created using a Monte Carlo approach for both error
-distributions. This approach shows significant disequilibrium in Eu and across
-LREE for sample CK-4. The samples can be grouped into two temperature cohorts,
-with all samples, especially the low-temperature group, agreeing well with the
-TA98 thermometer. Colors are by sample.
+bounds, plotted against a kernel density distribution of TA98 major-element
+temperatures. Joint error distributions are created using a Monte Carlo
+approach for both error distributions. This approach shows significant
+disequilibrium in Eu and across LREE for sample CK-4. The samples can be
+grouped into two temperature cohorts, with all samples, especially the
+low-temperature group, agreeing well with the TA98 thermometer. Colors are by
+sample.
 
 
 ##temp_comparisons
@@ -178,8 +181,9 @@ grain rims, and the samples vary in the tightness of within-sample temperature
 scatter. (b) The strong linear relationship between the TA98 and BKN
 themometers is shown, with BKN consistently measuring temperatures 30-70º
 higher. (c) Ca-in-orthopyroxene temperatures against TA98, showing the
-reproduction of two clear temperature cohorts around 980 and 1080ºC by this
-thermometer for grain cores. Colors are by sample as labeled in (a).
+reproduction of two temperature cohorts around 980 and 1080ºC by this
+thermometer for grain cores. Colors are by sample as labeled in (a). Grey lines
+show 1:1 relationship.
 
 ##temp_summary
 
@@ -278,8 +282,8 @@ of the modeled scenarios. The hottest model run of each group is highlighted,
 with cooler models of the same family shown with lower opacity.
 The model predictions are purely conductive geotherms, and arrows show the
 potential response of model geotherms to erosion [see @sec:model_supplement].
-The background of the plot shows steady-state geotherms and the likely field
-of xenolith entrainment from @fig:depth.
+The background of the plot shows steady-state geotherms and the likely field of
+xenolith entrainment from @fig:depth.
 
 ##cross_sections
 Cross sections showing the evolution of southern California during the
@@ -288,19 +292,17 @@ underplating of Farallon-plate mantle nappes during slab rollback
 [after @Saleeby2003; @Luffi2009; @Chapman2010].
 
 ##neogene_sections
+
 Schematic cross-sections showing potential scenarios for modification of the
-marginal mantle lithosphere at the end of subduction in the early Miocene.
-(a) Migration of the East Pacific mantle
-upwelling beneath the continental margin, forming a slab window and causing
-wholesale replacement of sub-Salinia mantle lithosphere with ascended
-asthenosphere.
-(b) Translation of the Monterey plate stalled slab along the former
-subduction megathrust to a current position beneath the California Coast
-Ranges [after @Bohannon1995]
-(c) Mantle lithosphere beneath the Crystal Knob eruption site composed
-of underplated Farallon plate mantle nappes reheated at their base by
-the Neogene slab window. The Monterey plate fragment is translated along
-the Hosgri fault from the Transverse Ranges region, to have its lithospheric
-column juxtaposed with previously underplated Farallon-plate mantle
-lithosphere.
+marginal mantle lithosphere at the end of subduction in the early Miocene. (a)
+Migration of the East Pacific mantle upwelling beneath the continental margin,
+forming a slab window and causing wholesale replacement of sub-Salinia mantle
+lithosphere with ascended asthenosphere. (b) Translation of the Monterey plate
+stalled slab along the former subduction megathrust to a current position
+beneath the California Coast Ranges [after @Bohannon1995] (c) Mantle
+lithosphere beneath the Crystal Knob eruption site composed of underplated
+Farallon plate mantle nappes reheated at their base by the Neogene slab window.
+The Monterey plate fragment is translated along the Hosgri fault from the
+Transverse Ranges region, to have its lithospheric column juxtaposed with
+previously underplated Farallon-plate mantle lithosphere.
 

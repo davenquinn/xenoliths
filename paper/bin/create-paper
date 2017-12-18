@@ -27,6 +27,7 @@ echo "Converting markdown to latex"
 
 captions=build/figure-captions.tex
 cat text/figure-captions.md \
+| sed -r 's/@sec:model_supplement/Supplementary Information/g' \
 | text-pipeline \
 > $captions
 
@@ -34,6 +35,7 @@ cat text/figure-captions.md \
 # Correct for pandoc-crossref annoyingness
 cat text/chapters/*.md \
 | sed -r 's/<!--\[\[\[(.+)\]\]\]-->/\\inlinefigure\{\1\}/g' \
+| sed -r 's/@sec:model_supplement/Supplementary Information/g' \
 | text-pipeline \
 | figurator inline \
   text/includes.yaml \
@@ -82,4 +84,27 @@ outfile="output/$name.pdf"
 mv "$agubuild/$name.pdf" "$outfile"
 
 tag --set paper-draft $outfile
+
+
+## Create supporting info
+supp="${texfile:r}-supporting-info.tex"
+echo $supp
+
+cat $st/preamble.tex \
+| sed -r 's/^\\title/\\supportinginfo/g' \
+| sed '48i\\\\usepackage{xr,bibentry}\n\\externaldocument{Crystal-Knob-xenoliths-AGUFormat}' \
+> $supp
+
+tail -n +2 text/modeling-supplement.md \
+| sed -r 's/^##/#/g' \
+| text-pipeline \
+>> $supp
+
+echo '\\nobibliography{source/references}\n' >> $supp
+echo '\\end{document}\n' >> $supp
+
+latexmk -xelatex -quiet -f -jobname="${supp:t:r}" \
+  -output-directory=$agubuild $supp
+
+mv "${supp:r}.pdf" "output"
 

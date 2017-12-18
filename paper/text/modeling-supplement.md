@@ -1,6 +1,6 @@
 # Supplementary Information {#sec:model_supplement}
 
-## Thermal modeling setup
+## Thermal modeling setup {-}
 
 Standardized parameters used in modeling are justified
 in the text below. Standard values for thermal conductivity from
@@ -13,7 +13,7 @@ Radiogenic heat flow for the continental marginal crust
 is estimated conservatively, and changes result in only minor changes to modeled geotherms
 across the board.
 
-### Slab window crustal replacement
+### Slab window crustal replacement {-}
 
 In series **A**, we model shallow slab-window upwelling.
 The emplacement of slab-window
@@ -28,7 +28,7 @@ asthenospheric conditions for a set period which is varied between model
 runs (from 0 to 6 Myr) to simulate a period of active convection, after
 which it relaxes conductively to the conclusion of the model.
 
-### Subduction and underplating
+### Subduction and underplating {-}
 
 Thermal conditions
 during subduction are tracked using the @Royden1993a steady-state
@@ -48,7 +48,7 @@ increasing the slab dip angle will result in a cooler subduction
 interface at a given depth, the overall effect on the evolution of the
 thermal scenarios appears to be minimal.
 
-### Oceanic geotherm
+### Oceanic geotherm {-}
 
 For the Neogene stalled Monterey plate and Late Cretaceous Farallon
 mantle nappe scenarios, the Global Depth and Heat (GDH) model
@@ -75,7 +75,7 @@ in overestimates of geothermal gradients for the scenarios with the
 youngest subducted oceanic crust, such as the Monterey Plate scenario at
 the left of @fig:model_tracers.
 
-### Supra-subduction geotherm
+### Supra-subduction geotherm {-}
 
 The geotherm of the forearc wedge during subduction is calculated using
 the @Royden1993a analytical solution for the steady-state thermal
@@ -101,7 +101,7 @@ sediment rich in radiogenic elements [@Vila2010]. Still, lower
 radiogenic heat production in the crust yields only a slight decrease in
 modeled geotherms across the board, not impacting conclusions.
 
-## Thermal model sensitivity and bias {#sec:model_bias}
+## Thermal model sensitivity and bias {-}
 
 Generally, changes in model parameters such as radiogenic heat flux,
 thermal conductivity, and heat capacity do not impact the relative
@@ -161,7 +161,7 @@ biases [@fig:model_comparison]. Thus, geotherms predicted by this model might be
 for potential mantle temperature at a given depth, especially for the
 older tectonic scenarios modeled.
 
-## Factors not incorporated in the model
+## Factors not incorporated in the model {-}
 
 Several simplifications are made to create an internally consistent model framework.
 Subducted oceanic
@@ -172,7 +172,7 @@ there are no reliable estimates of the mantle heat flux that cover the
 model domain, the model is run to great depth to avoid any influence of
 this uncertainty on the surface geotherm.
 
-### Subduction zone rollback
+### Subduction zone rollback {-}
 
 The confounding factor of an active subduction zone just outboard of the
 scenarios for the older models is also not included within the model.
@@ -196,7 +196,7 @@ change the model results.  However, late-Cretaceous underplating and other stall
 be treated as maximum temperatures because of the influence of the
 subducting slab.
 
-### Change in convergence rate of rotating microplates
+### Change in convergence rate of rotating microplates {-}
 
 Potential Monterey
 Plate mantle lithosphere beneath Crystal Knob would have been emplaced
@@ -209,7 +209,7 @@ This is responsible for the kink in the "Age of initial oceanic lithosphere"
 curve in @fig:model_tracers|b. For model simplicity, we do not
 incorporate this disequilibrium shift into the starting parameters of the @Royden1993a subduction model.
 
-### Erosion of the forearc
+### Erosion of the forearc {-}
 
 Surface erosion after underplating is taken to be zero. Any erosion will
 result in higher apparent heat flow values and increased geotherm convexity,
