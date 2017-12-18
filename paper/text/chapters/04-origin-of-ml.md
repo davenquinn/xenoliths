@@ -178,12 +178,11 @@ approximate age of Farallon plate entering the trench is shown on each frame
 integrated from @Kidder2006, @Chapman2010, @Chapman2012, and @Chapman2016a.
 @fig:cross_sections|a and b show the arrival of the oceanic plateau into the
 subducting trench, and plateau buoyancy-driven shallowing of the subduction
-megathrust, which drove tectonic erosion of the mantle wedge. Temperature
-conditions along the flat subduction megathrust initiated at \~900 ºC, ambient
-conditions within the deep levels of the then-active arc, and cooled to ~715
-ºC, peak temperatures recorded in shallowly subducted metaclastic rocks of the
-Sierra de Salinas schist, exposed in the principal Salinia window into the
-subduction channel schists [@Kidder2006].
+megathrust, which drove tectonic erosion of the mantle wedge. During this
+episode, deep arc rocks cooled rapidly from ~900 ºC. Temperature conditions
+along the flat megathrust were near the ~715 ºC peak recorded in
+subduction-channel metaclastic rocks of the Sierra de Salinas schist
+[@Kidder2006].
 
 <!--[[[fig:cross_sections]]]-->
 
@@ -200,27 +199,25 @@ lithosphere and establishment of successive basal megathrust surfaces (leading
 to forearc overthickening, as mentioned above). Alternatively, duplex formation
 could have occurred due to negative buoyancy during retreating subduction, with
 tensile stresses in the slab promoting nappe detachment. Observational data and
-laboratory experiments show that profound co-seismic dilation transients can
-develop along subduction megathrusts [@Gabuchian2017], underscoring the
-potential ability of tensile stresses to cause dislocations in subducting
-slabs. We suspect that mantle nappe detachment was mediated by the temperature
-of the brittle-plastic transition in olivine. For ~40-50 Myr old oceanic
-lithosphere entering the subduction zone [@fig:cross_sections|c and d], this
-~700-800 ºC transition [@Warren2006; @Burgmann2008; @Mei2010] occurs at ~25-40
-km depth in the slab [@Doin1996].
+laboratory experiments of profound co-seismic dilation transients along
+subduction megathrusts [@Gabuchian2017] underscores the ability of tensile
+stresses to cause dislocations in subducting slabs. We suspect that mantle
+nappe detachment was mediated by the temperature of the brittle-plastic
+transition in olivine. For ~40-50 Myr oceanic lithosphere entering
+a subduction zone [@fig:cross_sections|c and d], this ~700-800 ºC transition
+[@Warren200; @Mei2010] occurs at ~25-40 km depth in the slab [@Doin1996].
 
-The lack of high-pressure mafic schists in both the Crystal Knob and Dish
-Hill xenolith suites further suggests that slivers of oceanic crust were detached
-along with mantle lithosphere nappes (presumably from oceanic Moho depths) to be
-underplated as the seismically imaged thickened mafic lower crust of the
-region [@Trehu1991; @Brocher1999].
-On the basis of both the regional structural evolution
-of the central to southern California basement and
-the petrogenetic history recorded in the region's mantle xenolith suites, we
-suspect the @fig:cross_sections|d section most accurately represents the
-construction of the mantle domain sampled by Crystal Knob. This section is
-idealized for Late Cretaceous time, and we now layer the complexity of late
-Cenozoic tectonics onto this framework.
+The lack of high-pressure mafic schists in both the Crystal Knob and Dish Hill
+xenolith suites further suggests that an intact subduction channel is not
+preserved in the mantle lithosphere. The seismically imaged, thickened lower
+crust of the region [@Trehu1991; @Brocher1999] may instead originate as
+underplated slivers of oceanic crust detached along with mantle lithosphere
+nappes. On the basis of both the regional structural evolution of the central
+to southern California basement and the petrogenetic history recorded in the
+region's mantle xenolith suites, we suspect the @fig:cross_sections|d section
+most accurately represents the construction of the mantle domain sampled by
+Crystal Knob. This section is idealized for Late Cretaceous time, and we now
+layer the complexity of late Cenozoic tectonics onto this framework.
 
 ### A deep slab window beneath relict lithosphere
 

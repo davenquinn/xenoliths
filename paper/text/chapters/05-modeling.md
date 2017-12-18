@@ -82,19 +82,17 @@ a specified time with the subduction of oceanic lithosphere assigned an
 initial thermal structure corresponding to the Global Depth and Heat model
 [@Stein1992] for oceanic lithosphere of a given age of oceanic crust.
 
-We model cooling scenarios for a wide range of underplating times,
-with the start of subduction ranging from 22 to 80 Ma.
-This reflects the long subduction history of the Farallon plate beneath the
-central California coast through the Cretaceous and Paleogene.
-These subduction times, T$_\textrm{start}$,  set the initial conditions
-shown in @fig:model_tracers|b and the first panel of
-@fig:model_results|b. Each model operates on oceanic crust of the
-appropriate age for the time of subduction, given the geometry of
-Farallon plate subduction over the Cretaceous and Paleogene [@Liu2010; @Seton2012].
-As T$_\textrm{start}$ approaches the present, the age
-of subducted oceanic crust generally decreases, reflecting the approach
-of the Pacific--Farallon spreading ridge to the western margin of North
-America.
+We model cooling scenarios for a wide range of underplating times, with the
+start of subduction ranging from 80 to 22 Ma. This reflects the long subduction
+history of the Farallon plate beneath the central California coast through the
+Cretaceous and Paleogene. These subduction times, T$_\textrm{start}$,  set the
+initial conditions shown in @fig:model_tracers|b and the first panel of
+@fig:model_results|b. Each model operates on oceanic crust of the appropriate
+age for the time of subduction, given the geometry of Farallon plate subduction
+over the Cretaceous and Paleogene [@Liu2010; @Seton2012]. As
+T$_\textrm{start}$ approaches the present, the age of subducted oceanic crust
+generally decreases, reflecting the approach of the Pacific--Farallon spreading
+ridge to the western margin of North America.
 
 Stalled slab scenarios with subduction ages older than 30 Ma simulate
 rollback during sustained Farallon-plate subduction.

@@ -281,11 +281,12 @@ underplating of Farallon-plate mantle nappes during slab rollback
 
 Schematic cross-sections showing potential scenarios for modification of the
 marginal mantle lithosphere at the end of subduction in the early Miocene.
-Forearc crust (orange) is generalized for late-Cretaceous inherited structure,
-and includes Salina nappes and associated Franciscan-complex fragments. (a)
-Migration of the East Pacific mantle upwelling beneath the continental margin,
-forming a slab window and causing wholesale replacement of sub-Salinia mantle
-lithosphere with ascended asthenosphere. (b) Translation of the Monterey
+Forearc crust (orange) is generalized for late-Cretaceous inherited structure
+[see @fig:cross_sections], including Salina nappes and associated
+Franciscan-complex fragments.
+(a) Migration of the East Pacific mantle upwelling beneath the continental
+margin, forming a slab window and causing wholesale replacement of sub-Salinia
+mantle lithosphere with ascended asthenosphere. (b) Translation of the Monterey
 plate stalled slab along the former subduction megathrust to a current position
 beneath the California Coast Ranges [after @Bohannon1995]
 (c) Mantle lithosphere beneath the Crystal Knob eruption site composed of

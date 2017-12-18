@@ -283,33 +283,34 @@ Cretaceous convergent margin tectonics, was severely
 overprinted by two subsequent tectonic episodes, with the impact and
 subduction of the Shatsky Rise large igneous province conjugate during
 the Late Cretaceous and the progressive evolution of a transform
-boundary in the Neogene. These episodes are recorded throughout the
-crustal geologic record of southern California and the central
-California Coast Ranges outboard of the San Andreas Fault. Using
-constraints from the Crystal Knob xenolith suite along with thermal
-modeling of tectonic scenarios, we show that the mantle lithosphere
-beneath the central California coast was profoundly affected by both of
-these episodes of deformation. The Crystal Knob suite is sourced along a
-depth gradient from ~45-70 km depth, and isotopic constraints show that
-it originates from the convecting mantle, which is typical of mid-ocean
-ridges or shallowly-ascended asthenosphere. Samples are variably
-depleted, and trace-element re-enrichment (and a single example of
-likely major-element assimilation) suggests interaction with low-volume
-melts after the formation and initial thermal equilibration of this
-mantle lithosphere material.
+boundary in the Neogene. These episodes are recorded throughout the crustal
+geologic record of southern California and the central California Coast Ranges
+outboard of the San Andreas Fault. Using constraints from the Crystal
+Knob xenolith suite along with thermal modeling of tectonic scenarios, we show
+that the mantle lithosphere beneath the central California coast was created
+during the late Cretaceous and warmed by an asthenospheric pulse in the
+Neogene.
 
-Major element, trace element, and radiogenic isotope data for the
-Crystal Knob xenolith suite equally satisfy the first-order geochemical
-requisites of the shallow slab window, stalled slab, and Late Cretaceous
-mantle nappe tectonic scenarios. Xenolith pressure-temperature
-constraints, thermal modeling, and geochemical subtleties of depletion
-and re-enrichment together add some discriminating factors between these
-scenarios. A shallowly underplated slab window predicts extremely hot
-geotherms that are untenable for the xenolith constraints of this study.
-The stalled slab and mantle nappe scenarios appear equally plausible in
-terms of the thermal modeling, equally satisfying constraints developed
-from xenolith thermobarometry. When the effects of potential
-exhumation/erosion are qualitatively considered, the Monterey plate
+The Crystal Knob xenolith suite was erupted at 1.65 Ma and is sourced along
+a depth gradient from ~45-70 km depth. It has the isotopic signature of the
+depleted convecting mantle, which is typical of mid-ocean ridges or
+shallowly-ascended asthenosphere. Samples are variably depleted by partial
+melting, and trace-element re-enrichment (and a single example of likely
+major-element assimilation) suggests interaction with low-volume melts after
+the formation and initial thermal equilibration of this mantle lithosphere
+material.
+
+Major element, trace element, and radiogenic isotope data for the Crystal Knob
+xenolith suite equally satisfy the first-order geochemical features of the
+shallow slab window, stalled slab, and Late Cretaceous mantle nappe tectonic
+scenarios. Xenolith pressure-temperature constraints, thermal modeling, and
+geochemical signatures of depletion and re-enrichment together add some
+discriminating factors between these scenarios. A shallowly underplated slab
+window predicts extremely hot geotherms that are untenable for the xenolith
+constraints of this study. The stalled slab and mantle nappe scenarios appear
+equally plausible in terms of the thermal modeling, equally satisfying
+constraints developed from xenolith thermobarometry. When the effects of
+potential exhumation/erosion are qualitatively considered, the Monterey plate
 stalled slab endmember scenario corresponds less well to constraints on the
 upper-mantle geotherm. This, along with the poor correspondence of a stalled
 slab to crustal geology and geodynamic constraints, leads us to favor the Late
@@ -327,18 +328,18 @@ during the retreat of the Farallon Plate subducting slab [@Luffi2009],
 and appears to have subsequently built the outboard mantle lithosphere beneath the
 Crystal Knob eruption site. The outer toe of this lithosphere-scale
 accretionary belt was subsequently displaced along the San Andreas
-transform system to its current location beneath the central California
-Coast Ranges. This displaced package of underplated mantle lithosphere
-records basal reheating by the Mendocino slab
-window, which opened in conjunction with the San Andreas plate juncture.
-Peridotite major- and trace-element re-enrichment and abundant dunite cumulate xenoliths and
-xenocrysts within the Crystal Knob basalt record the percolation of
-fluids and melts through the lithosphere. This percolation, the highly
-fractionated Crystal Knob basaltic pipe, and the modeled Neogene thermal
-pulse that reheated the lithosphere can be attributed to a deep slab
-window segment that opened as the Pacific--Farallon ridge encountered
-the California convergent margin. This adds to a growing body of
-evidence that much of the structural complexity in the California Coast
-Ranges is inherited from the Late Cretaceous regime of subduction
-accretion.
+transform system to its current location beneath the central California Coast
+Ranges.
+
+In the Neogene, the underplated mantle lithosphere nappes were reheated by the Mendocino slab window, which opened as the
+Pacific--Farallon ridge encountered the California convergent margin.
+Peridotite major- and trace-element re-enrichment and abundant dunite cumulate
+xenoliths and xenocrysts within the Crystal Knob basalt record the percolation
+of fluids and melts through the lithosphere. This percolation, the highly
+fractionated Crystal Knob basaltic pipe, and the modeled thermal pulse that
+reheated the lithosphere can be attributed to the ~24 Ma opening of an
+asthenospheric slab window at 70-90 km depth. The lithospheric history outlined
+here adds to a growing body of evidence that much of the structural complexity
+in the California Coast Ranges is inherited from the Late Cretaceous regime
+of subduction accretion.
 

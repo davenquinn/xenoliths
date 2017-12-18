@@ -1,10 +1,11 @@
 # Overall evaluations
 
-<p class='comment r3'>The manuscript by Quinn et al., explores the geochemistry of a suite of xenoliths erupted through the Franciscan belt in central California and investigates a series of 1D thermal models in order to evaluate possible tectonic scenarios for the upper mantle that were previously proposed for the region. These xenoliths have not previously been investigated and the analysis carried out here will be of significant interest to workers interested in western U.S. tectonics. The mantle duplex idea explored here will be of interest to a wider community. The methods and conclusions seem reasonable to this (non-geochemist) reader. The language is clear (some minor issues pointed out below), but the document seems longer than necessary. I do not have any specific recommendations on how to shorten it, but I encourage the authors to condense it for the sake of future readers. One general comment is that interpretations have been mixed in with methods and descriptions throughout the text in a way that sort of works but is also a little unconventional-I'm not sure I agree that it was necessary to dispense with the traditional sequence/existence of sections dedicated to methods-> observations-> interpretations.
 <span>The existing format helped in reducing the overall text length by not having to review various items multiple times in order to pose our various data acquisition pursuits as well as our interpretations.</span>
-</p>
 
 <p class='response'>Corrected P Luffi affiliation</p>
+
+<p class='response'>Added P Asimow as an author</p>
+
 
 # Abstract {-}
 
@@ -443,9 +444,12 @@ xenoliths extraction depth" or "to investigate possible tectonic scenarios..."
 <p class="comment r2">
 727: awk; implies "temperature degrees" <span class="fixed">Fixed</span></p>
 
+## Origin of the ML beneath CK
+
 <div class='group'>
 <p class="comment r2">
-749: again, would be nice to know what "the crustal column" IS </p>
+749: again, would be nice to know what "the crustal column" IS
+</p>
 
 
 <p class="comment r2">
@@ -471,7 +475,7 @@ xenoliths extraction depth" or "to investigate possible tectonic scenarios..."
 
 
 <p class="comment r2">
-780: merge this graf with the one before </p>
+780: merge this graf with the one before</p>
 
 <p class="comment r3"> 782 brady ref?<span class="fixed">good call!</span> </p>
 
@@ -481,7 +485,9 @@ Line 783. unclear how regional heat diffusion associated with possible fluid
      to overshoot<span class="fixed">We mean the entire neogene margin belt</span>
 </p>
 
-<p class="comment r3"> 788-804. highly speculative </p>
+<p class="comment r3"> 788-804. highly speculative
+<span class='partial'>Moved and made clear this is discussion</span>
+</p>
 
 <p class="comment r2">
 794: note a recent paper by Leutkemeyer et al (2016; Tectonophysics) shows
@@ -585,7 +591,8 @@ the xenolith source region.
 
 <p class="comment r2"> 955-56: which mechanism? </p>
 
-<p class="comment r1">Line 1002: i don’t see the connection between the first and second half of this sentence.  Are you implying that the schist was emplaced when T along the megathrust was ~715˚C, hence the calculated peak temps from the schist of SdS?  I’m not sure upper and lower plates would thermally equilibrate so efficiently.  I don’t think this is super critical for your argument, so perhaps consider removing this.</p>
+<p class="comment r1">Line 1002: i don’t see the connection between the first and second half of this sentence.  Are you implying that the schist was emplaced when T along the megathrust was ~715˚C, hence the calculated peak temps from the schist of SdS?  I’m not sure upper and lower plates would thermally equilibrate so efficiently.  I don’t think this is super critical for your argument, so perhaps consider removing this.
+<span class='partial'>We use this in the modeling setup so we keep it here, reworking for clarity.</span></p>
 
 <p class="comment r3"> 1011. "accelerated rollback is driven by the formation of Farallon-plate mantle
       duplexes." What "drives" what here is pretty speculative and unsupported
@@ -595,28 +602,36 @@ the xenolith source region.
       a shallow mantle "pile-up" phenomena, perhaps involving a break in what
       is generally thought of as subduction (where dense material is carried
       down).
+<span class='partial'>Clarified and contextualized</span>
 </p>
 
 <p class="comment r3"> 1012-1015. Remove these sentences about the brittle
 ductile transition. This occurs in all subducting stabs, so there's no argument
 presented explaining how this could explain the formation of duplexes here but
-not elsewhere. </p>
+not elsewhere.
+<span class='partial'>Clarified and contextualized</span>
+</p>
 
-<p class="comment r2">
-1014: I am a bit confused by the reference to Fig. 19 here, since nothing on
+<p class="comment r2"> Line 1014: I am a bit confused by the reference to Fig. 19 here, since nothing on
       that fig is 40-50 Ma also, I don't think that the Burgmann & Dresen
       (2008) ref works here because it's a review paper. The 700-800˚ B-P
       transition in olivine that you mention is cited in B&D as coming from
       Warren & Hirth (which you cite) but also from Dijkstra et al. (2002). It
       is merely summarized in B&D.
+<span class="fixed">Got rid of review paper ref. We're looking at 40-50 Myr *older* lithosphere than the subduction zones</span>
 </p>
 
 <p class="comment r3"> 1015-1019. I doubt that coseismic transients along
 faults are relevant to the presumably longer-term stress conditions within
-a slab that might lead to formation of a duplex. </p>
+a slab that might lead to formation of a duplex.
+<span class='partial'>We are using this just to discuss dilational transients that are recorded within slabs which show that
+duplex formation might occur in longer-term scenarios. Clarified the point of including this data </span>
+</p>
 
 <p class="comment r3"> 1020-1023. confusing. if they are lacking as xenoliths
-then why are thought to be "in this region?" </p>
+then why are thought to be "in this region?"
+<span class='partial'>Clarified</span>
+</p>
 
 <p class="comment r3"> 1025 spelling error "suspect" </p>
 
@@ -644,24 +659,26 @@ Duplexes are common in extensional environments, use Gabrielsen and Clausen (200
 </span>
 </p>
 
-<p class="comment r3">
-1066. Need a reference and definition of the variables in the equation.
+# Thermal modeling
+
+<p class="comment r3">Line 1066. Need a reference and definition of the variables in the equation.
 <span class="fixed">Fixed</span>
 </p>
 
-<p class="comment r3"> 1076-1077. These are more like "initial parameters" or
+<p class="comment r3">Line 1076-1077. These are more like "initial parameters" or
 "evolving boundary conditions" than things that "track the evolution". The
 finite difference model code tracks the evolution.
 <span class="fixed">Fixed</span>
 </p>
 
-<p class="comment r3"> 1079-1080. More information on the model should be given
+<p class="comment r3">Line 1079-1080. More information on the model should be given
 here and less given in an appendix.
 <span class="partial">We are quite long on text, and the next level of detail about the model would require us to essentially insert the appendix into text. We feel we have faithfully rendered the model through our graphical summaries, and the factors addressed in the appendix, while important considerations, do not drastically affect the model results or conclusions.</span></p>
 
 
 <p class="comment r2">
-1103: list older age first </p>
+1103: list older age first
+<span class="fixed">Fixed</span></p>
 
 
 <p class="comment r2">
@@ -675,26 +692,29 @@ in B, so shouldn't B be similarly constrained by that data? </p>
 <p class="comment r2">
 1156: typo? </p>
 
+<div class='group'>
 <p class="comment r3"> 1193-1195. Informal language, change two instances of
 "it" to "modeled geotherm" </p>
 
-<p class="comment r2"> 1194 + 1195: is "it" here "the model results"? </p>
+<p class="comment r2"> 1194 + 1195: is "it" here "the model results"?</p>
+<p class='response fixed'>Yep, reworded to clarify</p>
 
 
-<p class="comment r2">
-1205: how far is far? Can you give a km range? </p>
+<p class="comment r2">1205: how far is far? Can you give a km range?
+<span class='fixed'>Reworked substantially</span></div>
 
 
 <p class="comment r2"> 1218-1219: I would rephrase this to explain why you
 can't rule out mantle slab. Something like "Despite the inability of our
 thermal modelling to rule out a stalled Monterey plate, we conclude based on
 geological and geophysical reasoning that this is an untenable scenario." (or
-something) </p>
+something)
+<span class='fixed'>Reworked substantially</span></p>
 
 <p class="comment r3">
 1229. missing "the"
 </p>
-
+<div class="group">
 <p class="comment r1">
 unlike the majority of this paper, this paragraph (beginning line 1262) does not flow well, resulting in an argument that’s tough to follow.
 </p>
@@ -709,10 +729,18 @@ Furthermore, the SGHf initiated in late Miocene (e.g., Dickinson et al., 2005), 
 Perhaps this is a nutty idea, but Ducea et al. ’03 shows evidence for a profound increase in denudation rate in the neighborhood of Xl knob at ca. 2 Ma.  Could these be related?
 </p>
 
+<p class='response fixed'>
+Reworked this section substantially, and merged two related sections into one to make less claims on the least-well-resolved part of the paper.
+We did mention the denudation rate increase elsewhere, so we included here as well.
+</p>
+
+</div>
+
 # Conclusion
 
 <p class="comment r2"> Conclusion: Please mention the age of the Crystal Knob
-basalt again, and suggest an age for the xenoliths. </p>
+basalt again, and suggest an age for the xenoliths.
+<span class='fixed'>Added</span></p>
 
 <p class="comment r3"> 1321-1322. if the effects of exhumation are important
 enough to include in the conclusion, they shouldn't be relegated to the
@@ -720,16 +748,20 @@ supplement. Either cut here, or integrate that into the paper.
 <span class='rejected'>We already did this at the end of "Summary of Model results</span></p>
 
 <p class="comment r2">
-1324: I would re-list the MOST relevant </p>
-
-
-<p class="comment r2">
-1339: mention asthenosphere upwelling at x km depth somewhere in here again.
+1324: I would re-list the MOST relevant
+<span class='fixed'>Explained better</span>
 </p>
 
 
 <p class="comment r2">
-1341: at what age/time? </p>
+1339: mention asthenosphere upwelling at x km depth somewhere in here again.
+<span class="fixed">Added</span>
+</p>
+
+
+<p class="comment r2">
+1341: at what age/time?<span class="fixed">Added 24 Ma</span>
+</p>
 
 
 <p class="comment r2"> Comments on Figures are made directly in the manuscript.
@@ -737,11 +769,20 @@ supplement. Either cut here, or integrate that into the paper.
 
 <p class="comment r3"> Figure 5. The "coregistering" process needs to be better
 explained. Is it an automated procedure? A methods section would be a good
-place for this. </p>
+place for this.
+<span class='fixed'>Explained in text</span>``
+</p>
 
 <p class="comment r2"> Some general issues to look out for: Figures seem to
 numbered out of sequence Tables (esp Table 1) could be referenced more
-References are sometimes not ordered by date </p>
+References are sometimes not ordered by date
+<span class='fixed'>Moved figures to final order, and added more table references. Fixed out of order refs where found</span>
+</p>
 
-
-
+<p class="comment r1">Figure 18 (Neogene sections): What is orange/forearc crust and 
+why is Morro complex in apparent extended Southern CA batholith?
+<span class='partial'>Good point. Fixed somewhat with more explanation in caption - basically we generalized all Cretaceous inherited structure.
+If you have a better idea on how to render the forearc more accurately, I would love to hear it. jason and I will also take another look at this
+for the final version
+</span>
+</p>
