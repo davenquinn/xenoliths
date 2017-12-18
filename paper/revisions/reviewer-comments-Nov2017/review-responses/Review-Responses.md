@@ -1,6 +1,4 @@
-# Overall evaluations
-
-<span>The existing format helped in reducing the overall text length by not having to review various items multiple times in order to pose our various data acquisition pursuits as well as our interpretations.</span>
+# List of changes in response to reviewer comments
 
 <p class='response'>Corrected P Luffi affiliation</p>
 
@@ -296,7 +294,7 @@ above it is stated that CK-6 is the most fertile.  Perhaps it would be useful to
 
 ### Whole-rock composition
 
-<p class="comment r3">296. what is "net of possible refertilization?"
+<p class="comment r3">Line 296. what is "net of possible refertilization?"
 <span class="fixed">Fixed phrasing; we are not accountants here</span>
 </p>
 
@@ -594,7 +592,7 @@ the xenolith source region.
 <p class="comment r1">Line 1002: i don’t see the connection between the first and second half of this sentence.  Are you implying that the schist was emplaced when T along the megathrust was ~715˚C, hence the calculated peak temps from the schist of SdS?  I’m not sure upper and lower plates would thermally equilibrate so efficiently.  I don’t think this is super critical for your argument, so perhaps consider removing this.
 <span class='partial'>We use this in the modeling setup so we keep it here, reworking for clarity.</span></p>
 
-<p class="comment r3"> 1011. "accelerated rollback is driven by the formation of Farallon-plate mantle
+<p class="comment r3">Line 1011. "accelerated rollback is driven by the formation of Farallon-plate mantle
       duplexes." What "drives" what here is pretty speculative and unsupported
       by arguments. Focus on establishing that there IS a duplex or that it
       makes sense before going into the dynamics. Also I'm not sure it's really

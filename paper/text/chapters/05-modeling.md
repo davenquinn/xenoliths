@@ -151,16 +151,16 @@ mantle lithosphere structure implied by this scenario are shown in
 @fig:cross_sections.
 
 In model **C**, the age of subduction and underplating is taken as ~70 Ma, the
-youngest mica Ar/Ar ages for the Sierra de Salinas/Nacimiento Franciscan
-subduction complex [@Barth2003; @Grove2003; @Saleeby2007; @Chapman2010;
-@Chapman2016; @Chapman2016a]. Seafloor being subducted at that time was 40 Myr
-old [@Seton2012; @Liu2010]. In this tectonic scenario
+based on the youngest mica Ar/Ar ages for the Sierra de Salinas/Nacimiento
+Franciscan subduction complex [@Barth2003; @Grove2003; @Saleeby2007;
+@Chapman2010; @Chapman2016; @Chapman2016a]. Seafloor being subducted at that
+time was 40 Myr old [@Seton2012; @Liu2010]. In this tectonic scenario
 [@fig:neogene_sections|c and @fig:cross_sections], Farallon oceanic lithosphere
 continued to subduct after mantle nappe detachment until the Pacific--Farallon
 spreading ridge encountered the trench in the Neogene. In the thermal model
-[@fig:model_results], the underplated mantle nappe(s) cool beneath the
-forearc for 50 Myr, after which the geotherm is perturbed by the underplating
-of asthenosphere at ~80 km depth, corresponding to a deep slab window.
+[@fig:model_results], the underplated mantle nappe(s) cool beneath the forearc
+for 50 Myr, after which the geotherm is perturbed by the underplating of
+asthenosphere at ~80 km depth, corresponding to a deep slab window.
 
 In several model runs, asthenosphere is held against the base of the lithosphere for periods
 ranging from 0 Myr to 6 Myr.
