@@ -66,10 +66,8 @@ entrained from relatively deep in the spinel stability field (~45-75 km).
 
 Several of the techniques below produce estimates of pressure, rather than
 depth. We convert these to depths using a hydrostatic gradient of ~0.03 GPa/km
-across the mantle lithosphere, integrating crust and mantle densities given in
+across the mantle lithosphere, crust and mantle densities given in
 @tbl:model_parameters.
-
-<!--[[[fig:ree_temperatures]]]-->
 
 ### Limits of spinel stability
 

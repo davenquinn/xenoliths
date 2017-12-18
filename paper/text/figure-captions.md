@@ -62,8 +62,8 @@ mantle, either at a mid-ocean ridge or by direct underplating.
 
 Profile of Mg\# measured across clinopyroxene phenocryst in the host
 lava sample CK-1. The grain has a partially cannibalized and fractured
-xenocryst core with Mg\# $\approx 90$, surrounded by successive layers with
-lower Mg\#, with Mg\# 75 material in the outermost 30 µm of the grain.
+xenocryst core with a Mg\# of ~90, surrounded by successive layers with lower
+Mg\#, with Mg\# 75 material in the outermost 30 µm of the grain.
 
 ##textures
 

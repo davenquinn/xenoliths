@@ -12,7 +12,7 @@ agubuild="$build_dir/agu-format"
 body="$agubuild/draft_body.tex"
 
 name="Crystal-Knob-xenoliths-AGUFormat"
-auxfile="$build_dir/$name.aux"
+auxfile="$agubuild/$name.aux"
 texfile="$agubuild/$name.tex"
 
 mkdir -p $agubuild
@@ -64,9 +64,16 @@ echo '\\begin{abstract}' >> $texfile
 cat $agubuild/abstract.tex >> $texfile
 echo '\\end{abstract}\n' >> $texfile
 cat $body $build_dir/draft.bbl >> $texfile
+echo '\\bibliography{source/references}\n' >> $texfile
 echo '\\end{document}\n' >> $texfile
 
 echo "Running latex"
+
+# Filter bibliography
+LIBRARY="/Users/Daven/Resources/Papers/BibTeX/library.bib"
+bib-filter --clean --aux $auxfile $LIBRARY $bibfile
+# rebuild citations
+bibtex $auxfile
 
 run-latex $texfile
 

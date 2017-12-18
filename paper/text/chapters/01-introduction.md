@@ -40,6 +40,8 @@ Crystal Knob xenolith suite samples the uppermost mantle that has been
 constructed beneath both the Franciscan accretionary complex and its local
 veneer of Salinia crystalline nappes.
 
+<!--[[[fig:context]]]-->
+
 ## Regional tectonic setting
 
 The tectonic setting of the sub-Crystal Knob mantle lithosphere is best
@@ -164,7 +166,4 @@ beneath the California Coast Ranges. Building context from previous xenolith
 and geophysical studies, we explore the relative role of Cretaceous and Neogene
 processes in building the deep lithosphere beneath the western margin of North
 America.
-
-<!--[[context]]-->
-<!--[[field_photo]]-->
 

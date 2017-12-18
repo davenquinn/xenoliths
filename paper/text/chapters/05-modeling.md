@@ -11,10 +11,6 @@ for the emplacement of depleted mantle lithosphere under the central coastal
 California region can be tested by comparison of their implied geothermal
 structure with xenolith geothermometry.
 
-<!--[[reconstruction]]-->
-
-<!--[[model_parameters]]-->
-
 ## Model setup
 
 To distinguish between potential emplacement mechanisms for the mantle
@@ -28,6 +24,8 @@ material properties shown in @tbl:model_parameters) is used to track the evoluti
 the lithospheric geotherm predicted by the three tectonic scenarios presented
 above.
 
+<!--[[[tbl:model_parameters]]]-->
+
 To simulate both subduction and slab-window driven mantle underplating,
 the forearc geotherm is stacked atop a modeled sub-oceanic or asthenospheric
 geotherm and relaxed towards the present by
@@ -40,22 +38,17 @@ finite difference approaches are combined using a two-sweep technique
 Several auxiliary analytical models are used to constrain portions of
 our modeled scenarios. The Global Depth and Heat (GDH) model for
 oceanic crust [@Stein1992] and the @Royden1993a forearc geotherm model
-provide evolving boundary conditions for subduction.
-More information about model setup and integration is given in @sec:model_supplement.
-
-<!--[[model_tracers]]-->
-
-<!--[[cross_sections]]-->
-
-<!--[[neogene_sections]]-->
-
-<!--[[model_results]]-->
+provide evolving boundary conditions for subduction. More information about
+model setup and integration is given in @sec:model_supplement.
 
 ## Model results
 
-Model results are presented as temperature--time tracers in
-@fig:model_tracers and as geotherms corresponding to specific model
-steps in @fig:model_results.
+Model results are presented as temperature--time tracers in @fig:model_tracers
+and as geotherms corresponding to specific model steps in @fig:model_results.
+
+<!--[[[fig:model_tracers]]]-->
+
+<!--[[[fig:model_results]]]-->
 
 ### Shallow slab window
 
@@ -216,6 +209,8 @@ metamorphism did not have a long-lasting impact on the thermal structure
 of the margin. Thus, heating by a Miocene deep slab window
 is required for Cretaceous mantle nappe underplating scenarios to produce warm mantle
 lithosphere.
+
+<!--[[[fig:model_comparison]]]-->
 
 ## Summary of model results
 
