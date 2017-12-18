@@ -11,37 +11,39 @@ the higher-temperature part of the acceptable field, and its viability may be
 affected by erosion in the Coast Ranges, which would tend to elevate geotherms
 for all cases.
 
- @Erkan2008 model the thermal structure of the lithosphere beneath the Coast
- Ranges based on projected surface heat flow, and reject a shallow
- asthenospheric slab window in favor of the underplated stalled slab, which
- predicts lithospheric geotherms within acceptable bounds. Our modeling
- broadly replicates their results, but our additional scenario **C** also
- predicts reasonable geotherms in the mantle lithosphere.
+@Erkan2008 model the thermal structure of the lithosphere beneath the Coast
+Ranges based on projected surface heat flow, and reject a shallow
+asthenospheric slab window in favor of the underplated stalled slab, which
+predicts lithospheric geotherms within acceptable bounds. Our modeling broadly
+replicates their results, but our additional scenario **C** also predicts
+reasonable geotherms in the mantle lithosphere.
 
 Despite the inability to reject the stalled slab based on thermal modeling
 alone, there are many geologic and geodynamic reasons to discount the
 feasibility of the stalled slab model for lithospheric underplating, which we
 detail in @sec:stalled-slab-bad below. We strongly prefer scenario **C**,
-Cretaceous underplated mantle lithosphere heated at depth by the Neogene slab
-window. This scenario was constructed based on the architecture of the
-lithospheric mantle in the Mojave region and the crustal geologic structure of
-southern California from the Cretaceous to the Neogene, and is consistent with
-a wide literature on the tectonics and geodynamics of the Cordilleran margin
-[e.g. @Luffi2009; @Liu2010; @Chapman2012].
+underplating of mantle lithosphere during the Cretaceous, with heating at depth
+by the Neogene slab window. In addition to producing reasonable geotherms in
+the mantle lithosphere [@fig:model_comparison], this scenario was constructed
+based on the architecture of the lithospheric mantle in the Mojave region
+[@Luffi2009] and the crustal geologic structure of southern California
+inherited from Cretaceous tectonics [e.g. @Liu2010; @Chapman2012]. The modeled
+Neogene thermal pulse also aligns this scenario with the Neogene geodynamics of
+coastal California [@Atwater1998; @Wilson2005].
 
-@fig:neogene_sections|c shows our preferred model for the modern architecture
-of the mantle lithosphere beneath the Coast Ranges. The partially subducted
+@fig:neogene_sections|c shows the early Neogene architecture of the mantle
+lithosphere beneath the Coast Ranges in this scenario. The partially subducted
 terminus of the Monterey plate is bounded to the east by the San
 Gregorio-Hosgri fault. East of the fault, the Nacimiento-belt Franciscan
 complex and its tectonic veneer of Salinia nappes (not differentiated on the
-figure) and associated oceanic crustal duplex lie tectonically
-above underplated Farallon-plate mantle nappes. The structural profile shown on
-@fig:neogene_sections|c closely follows the structure of offshore seismic lines
-in the region [@Trehu1991], and the part between the San Andreas and San
+figure) and associated oceanic crustal duplex lie tectonically above
+underplated Farallon-plate mantle nappes. The structural profile shown on
+@fig:neogene_sections|c closely follows the structure of offshore seismic
+lines in the region [@Trehu1991], and the part between the San Andreas and San
 Gregorio-Hosgri faults restores to southern California latitudes, adjacent to
 the Mojave plateau and extended southern California batholith. Partial
-subduction and stalling of the Monterey plate occurred along the outer edge of
-the Franciscan complex, ~250 km south of the inner part of the structural
+subduction and stalling of the Monterey plate occurred along the outer edge
+of the Franciscan complex, ~250 km south of the inner part of the structural
 profile [@fig:reconstruction].
 
 ## Geodynamic implausibility of the Neogene stalled slab{#sec:stalled-slab-bad}

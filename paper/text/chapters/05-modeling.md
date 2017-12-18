@@ -2,14 +2,14 @@
 
 The Crystal Knob mantle xenoliths have a peridotite composition with a depleted
 (convecting-mantle) isotopic and trace-element signature.  Petrographic and
-geochemical variations provide information on the depletion history but
-cannot discriminate between slab window, Monterey Plate, and Cretaceous
-mantle duplexing origins for the sampled parcel of depleted convecting mantle.
+geochemical variations provide information on the depletion history but cannot
+discriminate between slab window, Monterey Plate, and Cretaceous mantle
+duplexing origins for the sampled parcel of depleted convecting mantle.
 However, these emplacement scenarios present potentially distinct thermal
 structures due to large differences in timescales of cooling. Tectonic models
-for the emplacement of depleted mantle lithosphere under the central coastal
-California region can be tested by comparison of their implied geothermal
-structure with xenolith geothermometry.
+for the emplacement of depleted mantle lithosphere under the central California
+coast can be tested by comparison of their implied geothermal structure with
+xenolith geothermometry.
 
 ## Model setup
 
@@ -27,18 +27,17 @@ scenarios presented above.
 
 To simulate both subduction and slab-window driven mantle underplating,
 the forearc geotherm is stacked atop a modeled sub-oceanic or asthenospheric
-geotherm and relaxed towards the present by
-iteratively solving the heat-flow equation. Finite-difference modeling
-is implemented in Python using the FiPy software package [@Guyer2009]. Explicit and implicit
-finite difference approaches are combined using a two-sweep technique
-[@Crank1947] to ensure a stable result.  The model is run to a depth of
-500 km to remove the effects of unknown mantle heat flux.
+geotherm and relaxed towards the present using finite-difference modeling. The
+model is implemented in Python using the FiPy software package [@Guyer2009],
+combining explicit and implicit finite difference approaches using a two-sweep
+technique [@Crank1947] to ensure a stable result.  The model is run to a depth
+of 500 km to remove the effects of unknown mantle heat flux.
 
-Several auxiliary analytical models are used to constrain portions of
-our modeled scenarios. The Global Depth and Heat (GDH) model for
-oceanic crust [@Stein1992] and the @Royden1993a forearc geotherm model
-provide evolving boundary conditions for subduction. More information about
-model setup and integration is given in @sec:model_supplement.
+The analytical Global Depth and Heat (GDH) model for oceanic crust [@Stein1992]
+and the @Royden1993a model for a forearc geotherm under continuing subduction
+provide evolving boundary conditions for scenarios **B** and **C**. More
+information about model setup and integration is given in
+@sec:model_supplement.
 
 ## Model results
 
@@ -51,36 +50,31 @@ and as geotherms corresponding to specific model steps in @fig:model_results.
 
 ### Shallow slab window
 
-The geologic context of the shallow slab window scenario is shown in
-@fig:neogene_sections|a, and our thermal modeling for this scenario
-(model group **A**) is displayed in @fig:model_results|a
-and -@fig:model_tracers|a.
-The model begins at 24 Ma, corresponding to the
-opening of the Mendocino slab window under southern California
-[@Wilson2005]. A steady-state profile through the crust is truncated
+The geologic context of the shallow slab window scenario (model group **A**) is
+shown in @fig:neogene_sections|a, and thermal modeling results are shown in
+@fig:model_tracers|a and -@fig:model_results|a. The model begins at 24 Ma,
+corresponding to the opening of the Mendocino slab window under southern
+California [@Wilson2005]. A steady-state profile through the crust is truncated
 by a mantle adiabat to simulate direct contact with the ascended asthenosphere
-(for 0-6 Myr), after
-which the domain relaxes conductively to the conclusion of the model.
-Previous
-modeling by @Erkan2008 suggests that this scenario yields temperatures too hot to
-correspond to the modern regional geotherm.
-We confirm this assessment, finding that this scenario produces extremely
-steep geotherms at the upper boundary of spinel lherzolite stability for
-much of the temperature domain of interest [@fig:model_comparison],
-reproducing neither the xenolith pressure--temperature array developed
-in this study nor the seismically-inferred depth of the
-lithosphere-asthenosphere boundary [e.g. @Li2007].
+(for 0-6 Myr), after which the domain relaxes conductively to the conclusion of
+the model. Previous modeling by @Erkan2008 suggests that this scenario yields
+temperatures too hot to correspond to the modern regional geotherm. We confirm
+this assessment, finding that this scenario produces extremely steep geotherms
+at the upper boundary of spinel lherzolite stability for much of the
+temperature domain of interest [@fig:model_comparison], reproducing neither the
+xenolith pressure--temperature array developed in this study nor the
+seismically-inferred depth of the lithosphere-asthenosphere boundary [e.g.
+@Li2007].
 
 ### Neogene stalled slab
 
-The geologic context of the stalled slab scenario is shown in
-@fig:neogene_sections|b, and our thermal modeling of this scenario
-(model group **B**) is displayed in @fig:model_results|b and -@fig:model_tracers|b.
-This scenario tracks the potential thermal structure of oceanic
-plates stalled under the forearc at a range of times. Each run begins at
-a specified time with the subduction of oceanic lithosphere assigned an
-initial thermal structure corresponding to the Global Depth and Heat model
-[@Stein1992] for oceanic lithosphere of a given age of oceanic crust.
+The geologic context of the stalled slab scenario (model group **B**) is shown
+in @fig:neogene_sections|b, and modeling results are displayed in
+@fig:model_tracers|b and -@fig:model_results|b. This scenario tracks the
+potential thermal structure of oceanic plates stalled under the forearc at
+a range of times. Each run begins with the subduction of oceanic lithosphere
+assigned an initial thermal structure corresponding to oceanic lithosphere of
+a given age.
 
 We model cooling scenarios for a wide range of underplating times, with the
 start of subduction ranging from 80 to 22 Ma. This reflects the long subduction
@@ -96,32 +90,30 @@ ridge to the western margin of North America.
 
 Stalled slab scenarios with subduction ages older than 30 Ma simulate
 rollback during sustained Farallon-plate subduction.
-While backstepping of the subduction megathrust and underplating of a
-slice of mantle lithosphere could, in principle, occur at any time during
-subduction, these older stalled-slab models do not correspond
-to geodynamic and geological evidence of a specific episode of
-subduction instability. Though improbable, these models are included to fully
-explore the model space between model groups **B** and **C**,
-and are represented with a reduced opacity on @fig:model_tracers|b.
-In the oldest model with a subduction time of 70 Ma, the
-oceanic lithosphere is 50 Myr old at the time of subduction.
-At this time, the Shatsky conjugate had already subducted to beneath the Cordilleran
-interior [@Liu2010] and the Nacimiento belt of the Franciscan
-was in its later stages of subduction accretion [@Chapman2016a].
-This is the earliest time a stalled slab could have developed outside
-of the specific scenario treated in model group **C**.
+While backstepping of the subduction megathrust and underplating of a slice of
+mantle lithosphere could, in principle, occur at any time, these older
+stalled-slab models do not correspond to geodynamic and geological evidence of
+a specific episode of subduction instability. Though improbable, these models
+are included to fully explore the model space between model groups **B** and
+**C**, and are represented with a reduced opacity on @fig:model_tracers|b. In
+the oldest model with a subduction time of 70 Ma, the oceanic lithosphere is 50
+Myr old at the time of subduction. At this time, the Shatsky conjugate had
+already subducted to beneath the Cordilleran interior [@Liu2010] and the
+Nacimiento belt of the Franciscan was in its later stages of subduction
+accretion [@Chapman2016a]. This is the earliest time a stalled slab could have
+developed outside of the specific scenario treated in model group **C**.
 
 The youngest model run in @fig:model_tracers|b corresponds to the "Monterey plate"
 hypothesis [@Pikser2012; @VanWijk2001], which entails
 hypothetical northward lateral translation on a shallowly-dipping
 arrested subduction megathrust.
-The potential thermal effects of the required anhydrous shearing of the underplated
-oceanic lithosphere along a ~300 km flat displacement trajectory [@fig:context]
-are not accounted for in model **B**. Instead, this scenario
-is modeled simply as a young
-endmember stalled-slab scenario, with generation of mantle lithosphere
-beneath the oceanic spreading ridge at 27 Ma (corresponding to the chron 7
-magnetic anomaly) and subduction shortly thereafter [@Atwater1998; @Wilson2005].
+The potential thermal effects of the required anhydrous shearing of the
+underplated oceanic lithosphere along a ~300 km flat displacement trajectory
+[see @sec:stalled-slab-bad] are not accounted for in model **B**. Instead, this
+scenario is modeled simply as a young endmember stalled-slab scenario, with
+generation of mantle lithosphere beneath the oceanic spreading ridge at 27 Ma
+(corresponding to the chron 7 magnetic anomaly) and subduction shortly
+thereafter [@Atwater1998; @Wilson2005].
 
 Overall, the stalled-slab underplating scenarios represented in **B** result
 in cooler geotherms than shallow slab window
@@ -139,28 +131,24 @@ from the thermobarometric constraints.
 ### Late-Cretaceous mantle nappe underplating
 
 The geologic context of the Late Cretaceous mantle nappe underplating scenario
-is shown in @fig:neogene_sections|c, and our thermal modeling of this
-scenario (model group **C**) is displayed in
-@fig:model_results|c and -@fig:model_tracers|c.
-The initiation of this scenario is similar to the older
-stalled slab scenarios [@fig:model_tracers|b].
-In both cases, the oceanic mantle forms under the
-Pacific--Farallon spreading ridge during the Late Cretaceous, thermally
-matures to form a mantle lithosphere lid during oceanic plate transport,
-and subducts beneath the southwest Cordilleran margin later in the
-Cretaceous.
+(model group **C**) is shown in @fig:neogene_sections|c, and model results are
+displayed in @fig:model_tracers|c and -@fig:model_results|c. The initiation of
+this scenario is similar to the older stalled slab scenarios
+[@fig:model_tracers|b]. In both cases, the oceanic mantle forms under the
+Pacific--Farallon spreading ridge during the early Cretaceous, thermally
+matures to form a mantle lithosphere lid during oceanic plate transport, and
+subducts beneath the southwest Cordilleran margin later in the Cretaceous.
 Thus, the initial conditions and thermal evolution of scenario **C** are
-qualitatively similar to the
-older runs of **B**, except that this scenario incorporates more
-crustal geological constraints that pertain to its subduction history.
-In model **C**, the @Royden1993a
-forearc geotherm is tied to temperature constraint of 715ºC at 25 km
-depth based on garnet-biotite thermometry of Salinia granites that lie
-tectonically above the subduction complex, and ~575ºC at 30 km depth
-based on garnet-biotite thermobarometry on the proximally underplated
-schist of Sierra de Salinas schist [@Ducea2003; @Kidder2006]. The
-subduction conditions and mantle lithosphere structure implied by this
-scenario are shown in @fig:cross_sections.
+qualitatively similar to the older runs of **B**, except that this scenario
+incorporates more crustal geological constraints that pertain to its subduction
+history. In model **C**, the @Royden1993a forearc geotherm is tied to
+temperature constraint of 715ºC at
+25 km depth based on garnet-biotite thermometry of Salinia granites that lie
+tectonically above the subduction complex, and ~575ºC at 30 km depth based on
+garnet-biotite thermobarometry on the proximally underplated schist of Sierra
+de Salinas schist [@Ducea2003; @Kidder2006]. The subduction conditions and
+mantle lithosphere structure implied by this scenario are shown in
+@fig:cross_sections.
 
 In model **C**, the age of
 subduction and underplating is taken as ~70 Ma, based on the youngest

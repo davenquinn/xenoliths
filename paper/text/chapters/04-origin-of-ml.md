@@ -11,12 +11,12 @@ only known direct sampling of this underplated mantle.
 The lack of radiogenically enriched arc residues in the Crystal Knob xenolith
 suite  confirms the unrooted nature of Salinia continental arc rocks [e.g.
 @Hall2013] that lie slivered above the Franciscan accretionary complex that
-dominates the regional crustal column. This suggests the existence of a major
-structural discontinuity below the crust of the Coast Ranges, with underplated,
-slightly depleted peridotite forming the framework of the mantle lithosphere.
-Several tectonic events experienced by the Coast Ranges since the Cretaceous
-provide a means to append suboceanic mantle lithosphere or upwelling
-asthenosphere to the base of the crust.
+dominates the crust of the Coast Ranges. This suggests the existence of a major
+structural discontinuity below the crust, with underplated, slightly depleted
+peridotite forming the framework of the mantle lithosphere. Several tectonic
+events experienced by the Coast Ranges since the Cretaceous provide a means to
+append suboceanic mantle lithosphere or upwelling asthenosphere to the base
+of the crust.
 
 The Franciscan complex of the region was assembled by sustained subduction of
 the Farallon plate during the Cretaceous and early Cenozoic [@Cowan1978;
@@ -40,17 +40,16 @@ asthenosphere as it ascended into the slab window [@Wilson2005].
 
 <!--[[[fig:reconstruction]]]-->
 
-Alternatively, it has been suggested that microplate formation along the
-impinging Pacific-Farallon ridge was more dominant than slab window
-upwelling, and that these microplates stalled beneath coastal central
-California as the Farallon plate continued to subduct deeper into the
-mantle [@Bohannon1995; @Brocher1999; @VanWijk2001]. In this scenario,
-late Cenozoic volcanism in the region is linked to the youthfulness of the
-subducted microplate(s), implying a partial melting mechanism within and
-directly below the lithospheric lid. Both the slab window (or gap) and stalled
-microplate hypotheses are based on plate kinematic relationships which require
-a combination of slab window and stalled oceanic microplate segments
-[@Bohannon1995; @Atwater1998; @tenBrink1999; @Wilson2005].
+Alternatively, microplate formation along the impinging Pacific-Farallon ridge
+may have been more dominant than slab window upwelling, suggesting that
+microplates stalled beneath coastal central California as the Farallon plate
+continued to subduct deeper into the mantle [@Bohannon1995; @Brocher1999;
+@VanWijk2001]. In this scenario, late Cenozoic volcanism in the region is
+linked to the youthfulness of the subducted microplate(s), implying a partial
+melting mechanism within and directly below the lithospheric lid. Both the slab
+window (or gap) and stalled microplate hypotheses are based on plate kinematic
+relationships which require a combination of slab window and stalled oceanic
+microplate segments [@Bohannon1995; @Atwater1998; @tenBrink1999; @Wilson2005].
 
 The cross-sections presented in @fig:neogene_sections show the first-order
 crustal relations implied by three potential origins for the sub-Crystal Knob
@@ -68,52 +67,53 @@ literature on crustal and mantle-lithosphere tectonics since the Cretaceous.
 
 ## The Neogene slab window {#sec:slab_window}
 
-@fig:reconstruction shows the hypothetical surface projection of the
-Pacific-Farallon slab window
-and partially subducted Monterey plate at ca. 19 Ma [@Wilson2005].
-The slab window formed by subduction of the trailing edge
-of the Farallon plate, unsupported by sea floor
-spreading along the former spreading axis with the Pacific plate.
-According to the @Wilson2005 reconstruction of the
-Pacific-Farallon slab window and adjacent Monterey plate [@fig:reconstruction],
-the Crystal Knob eruption site was located above a slab window in the early
-Neogene, ~50-100 km northeast of the northeastern boundary transform of the
-Monterey plate. Diffuse volcanism, some clearly derived from
-decompression partial melting of convecting mantle, is widespread at
-this time period across the region of the reconstructed slab window
-[@Hurst1982; @Sharma1991; @Cole1995; @Wilson2005].
-However, this phase of slab window opening and related volcanism
-cannot account for the eruption of the ca. 1.7 Ma Crystal Knob volcanic
-neck itself, which we return to in @sec:crystal_knob_eruption.
+@fig:reconstruction shows a hypothetical surface projection of the
+Pacific-Farallon slab window and partially subducted Monterey plate at ca. 19
+Ma [@Wilson2005]. The slab window formed by subduction of the trailing edge of
+the Farallon plate, unsupported by sea floor spreading along the former
+spreading axis with the Pacific plate. According to the @Wilson2005
+reconstruction of the Pacific-Farallon slab window and adjacent Monterey plate
+[@fig:reconstruction], the Crystal Knob eruption site was located above a slab
+window in the early Neogene, ~50-100 km northeast of the northeastern boundary
+transform of the Monterey plate. Diffuse volcanism, some clearly derived from
+decompression partial melting of convecting mantle, is widespread at this time
+period across the region of the reconstructed slab window [@Hurst1982;
+@Sharma1991; @Cole1995; @Wilson2005]. However, this phase of slab window
+opening and related volcanism cannot account for the eruption of the ca. 1.7 Ma
+Crystal Knob volcanic neck itself [see @sec:crystal_knob_eruption].
 
 ## The Monterey plate stalled slab
 
 When the East Pacific Rise first reached the North American plate at
 28.5 Ma, the Monterey microplate broke from the Farallon slab and
 subducted independently until 19.5 Ma, while rotating clockwise with respect to
-the Pacific plate [@Wilson2005]. @fig:reconstruction shows the incipient tear
-between the rotating Monterey microplate and the bulk of the downgoing Farallon
-slab. The remnant microplate has been integrated into the Pacific plate and
-still forms part of the abyssal seafloor in the proximal offshore region
-[@fig:context].
+the Pacific plate [@Wilson2005]. Partial subduction and stalling of the
+Monterey plate occurred along the outer edge of the Franciscan complex to the
+south of the evolving slab window, and @fig:reconstruction shows the incipient
+tear between the rotating microplate and the bulk of the downgoing Farallon
+slab. The relict Monterey Plate slab was integrated into the Pacific plate and
+translated to outboard of Crystal Knob by ~250 km north by slip on the
+subduction megathrust and the San Gregorio-Hosgri fault [@Dickinson2005;
+@Wheeler2005]. The remnant microplate still forms part of the abyssal seafloor
+in the proximal offshore region [@fig:context].
 
 The eastward extent of the partially subducted Monterey Plate slab is unknown,
 and there is some evidence that it is truncated by the San Gregorio-Hosgri
 fault system [see @sec:stalled-slab-bad]. However, the Monterey plate may have
 separated at a deeper level and translated northward beneath a reactivated
 subduction megathrust [@fig:neogene_sections|b]. A recent permutation of the
-stalled slab hypothesis is that the Monterey plate extends eastward of the
-San Andreas fault as a horizontally translated stalled slab, potentially
+stalled slab hypothesis is that the Monterey plate extends eastward of the San
+Andreas fault as a horizontally translated stalled slab, potentially
 reaching ~300 km depth beneath the eastern Central Valley [@tenBrink1999;
 @Pikser2012; @Wang2013].
 
-If the downdip portion of the stalled slab extended east of the
-San Gregorio-Hosgri fault, it would make up the mantle lithosphere beneath
-Crystal Knob. Although geodynamically suspect, this model has been presented as
-a candidate for construction of the mantle lithosphere in previous modeling of
-the thermal structure of the Coast Ranges [@Erkan2008] and is commonly invoked
-in the seismology literature [e.g. @Wang2013]. We include the model in our
-consideration of thermal history, but return to its viability in
+If the subducted extension of the stalled slab extended east of the San
+Gregorio-Hosgri fault, it would make up the mantle lithosphere beneath Crystal
+Knob. Although geodynamically suspect, this model has been presented as
+a candidate for construction of the mantle lithosphere in previous modeling
+of the thermal structure of the Coast Ranges [@Erkan2008] and is commonly
+invoked in the seismology literature [e.g. @Wang2013]. We include the model in
+our consideration of thermal history, but return to its viability in
 @sec:stalled-slab-bad.
 
 ## Underplated Farallon Plate mantle nappes  {#sec:farallon_nappe}
@@ -162,8 +162,8 @@ structural sequence of the western Mojave region is closely
 spatially and temporally correlated to
 that of the Salinia nappes [@Chapman2010; @Chapman2012; @Chapman2016],
 it stands to reason that upper mantle duplex accretion progressed
-westwards from the Mojave region to beneath the Salinia
-nappes as well as the Nacimiento belt of the Franciscan.
+westwards from the Mojave region to beneath the Salinia nappes as well as the
+Nacimiento belt of the Franciscan Complex.
 
 ### Mantle underplating after flat subduction
 
@@ -238,15 +238,26 @@ examples of shallow asthenospheric upwelling in the Cordillera such as the
 high-flux volcanism generated in the Basin and Range province in the
 Eocene--Miocene [e.g. @Humphreys1995].
 
-The lack of a signature of shallow asthenospheric mantle in the
-Miocene is readily explained if the slab window opened beneath
-pre-existing mantle lithosphere originating in the Cretaceous. This would
-consist of a tiered duplex of underplated Farallon-plate oceanic crust and
-mantle lithosphere nappes, roofed by the Nacimiento Franciscan and Salinia
-nappes. Our estimate of a 45-75 km depth interval over which the Crystal Knob
-lavas sampled the underlying mantle lithosphere [@fig:depth], coupled with
-a general lack of significant late Cenozoic extensional faulting in the
-immediate region, implies a strong thermo-mechanical lid that likely suppressed
-the ascent of voluminous asthenosphere derived magmas that were hypothetically
-sourced from a deep underlying slab window.
+An apparent lack of shallow asthenopheric upwelling in the Miocene is readily
+explained if the slab window opened beneath pre-existing mantle lithosphere
+originating in the Cretaceous. This would consist of a tiered duplex of
+underplated Farallon-plate oceanic crust and mantle lithosphere nappes,
+roofed by the Nacimiento belt of Franciscan and Salinia nappes. Our estimate of
+a 45-75 km depth interval over which the Crystal Knob lavas sampled the
+underlying mantle lithosphere, coupled with a general lack of significant late
+Cenozoic extensional faulting in the immediate region, implies a strong
+thermo-mechanical lid that likely suppressed the ascent of voluminous
+asthenosphere derived magmas that were hypothetically sourced from a deep
+underlying slab window.
 
+@fig:neogene_sections|c shows the early Neogene architecture of the mantle
+lithosphere beneath the Coast Ranges in this scenario. The partially subducted
+terminus of the Monterey plate is bounded to the east by the San
+Gregorio-Hosgri fault. East of the fault, the Nacimiento-belt Franciscan
+complex and its tectonic veneer of Salinia nappes and associated oceanic
+crustal duplex lie tectonically above underplated Farallon-plate mantle nappes.
+The structural profile shown on @fig:neogene_sections|c closely aligns with
+offshore seismic lines in the region [@Trehu1991], and the part between the San
+Andreas and San Gregorio-Hosgri faults restores to southern California
+latitudes, adjacent to the Mojave plateau and extended southern California
+batholith.
