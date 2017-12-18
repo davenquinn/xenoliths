@@ -14,6 +14,8 @@ origin, are also present. In conjunction with the compositional data presented
 below, we interpret the peridotites as entrained fragments of the mantle
 lithosphere.
 
+<!--[[[fig:field_photo]]]-->
+
 Samples were collected from the Crystal Knob lava with an
 emphasis on these polyphase peridotite xenoliths. Xenolith samples are 5-10 cm
 diameter friable peridotites with 200 µm -- 1 mm grains. Additionally, samples

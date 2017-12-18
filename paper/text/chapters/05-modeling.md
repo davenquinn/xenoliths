@@ -2,31 +2,28 @@
 
 The Crystal Knob mantle xenoliths have a peridotite composition with a depleted
 (convecting-mantle) isotopic and trace-element signature.  Petrographic and
-geochemical variations provide information on the depletion history, they
-cannot discriminate between the slab window, Monterey Plate, and Cretaceous
-mantle duplexing scenarios for the creation of depleted convecting mantle.
+geochemical variations provide information on the depletion history but
+cannot discriminate between slab window, Monterey Plate, and Cretaceous
+mantle duplexing origins for the sampled parcel of depleted convecting mantle.
 However, these emplacement scenarios present potentially distinct thermal
 structures due to large differences in timescales of cooling. Tectonic models
 for the emplacement of depleted mantle lithosphere under the central coastal
 California region can be tested by comparison of their implied geothermal
 structure with xenolith geothermometry.
 
-<!--[[reconstruction]]-->
-
-<!--[[model_parameters]]-->
-
 ## Model setup
 
 To distinguish between potential emplacement mechanisms for the mantle
 lithosphere sampled by Crystal Knob, we construct a forward model of the geotherm
-implied by each of the tectonic scenarios
-shown in @fig:neogene_sections.
+implied by each of the tectonic scenarios discussed in @sec:tectonic_scenarios.
 A model based on the one-dimensional heat-flow equation
 $$\frac{\partial T}{\partial t} = \frac{k}{\rho C_p} \frac{\partial^2 T}{\partial z^2} + \frac{\alpha}{\rho C_p}$$ {#eq:heat_flow}
 (e.g. @Turcotte2002, with $T$: temperature, $t$: time, and standard values for oceanic and continental
-material properties shown in @tbl:model_parameters) is used to track the evolution of
-the lithospheric geotherm predicted by the three tectonic scenarios presented
-above.
+material properties shown in @tbl:model_parameters) is used to track the
+evolution of the lithospheric geotherm predicted by the three tectonic
+scenarios presented above.
+
+<!--[[[tbl:model_parameters]]]-->
 
 To simulate both subduction and slab-window driven mantle underplating,
 the forearc geotherm is stacked atop a modeled sub-oceanic or asthenospheric
@@ -40,22 +37,17 @@ finite difference approaches are combined using a two-sweep technique
 Several auxiliary analytical models are used to constrain portions of
 our modeled scenarios. The Global Depth and Heat (GDH) model for
 oceanic crust [@Stein1992] and the @Royden1993a forearc geotherm model
-provide evolving boundary conditions for subduction.
-More information about model setup and integration is given in @sec:model_supplement.
-
-<!--[[model_tracers]]-->
-
-<!--[[cross_sections]]-->
-
-<!--[[neogene_sections]]-->
-
-<!--[[model_results]]-->
+provide evolving boundary conditions for subduction. More information about
+model setup and integration is given in @sec:model_supplement.
 
 ## Model results
 
-Model results are presented as temperature--time tracers in
-@fig:model_tracers and as geotherms corresponding to specific model
-steps in @fig:model_results.
+Model results are presented as temperature--time tracers in @fig:model_tracers
+and as geotherms corresponding to specific model steps in @fig:model_results.
+
+<!--[[[fig:model_tracers]]]-->
+
+<!--[[[fig:model_results]]]-->
 
 ### Shallow slab window
 
@@ -216,6 +208,8 @@ metamorphism did not have a long-lasting impact on the thermal structure
 of the margin. Thus, heating by a Miocene deep slab window
 is required for Cretaceous mantle nappe underplating scenarios to produce warm mantle
 lithosphere.
+
+<!--[[[fig:model_comparison]]]-->
 
 ## Summary of model results
 

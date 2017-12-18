@@ -50,7 +50,7 @@ model the geotherm in the mantle lithosphere.
 
 ## Depth constraints from Crystal Knob xenoliths
 
-<!--[[depth]]-->
+<!--[[[fig:depth]]]-->
 
 The depth of the xenolith samples in the mantle lithosphere, coupled
 with equilibration temperatures, provides a fully-defined constraint on the
@@ -66,10 +66,8 @@ entrained from relatively deep in the spinel stability field (~45-75 km).
 
 Several of the techniques below produce estimates of pressure, rather than
 depth. We convert these to depths using a hydrostatic gradient of ~0.03 GPa/km
-across the mantle lithosphere, integrating crust and mantle densities given in
+across the mantle lithosphere, crust and mantle densities given in
 @tbl:model_parameters.
-
-<!--[[ree_temperatures]]-->
 
 ### Limits of spinel stability
 
@@ -88,18 +86,18 @@ natural systems, but thought to lie over the 50-80 km depth interval
 [@ONeill1981; @Kinzler1997; @Gasparik2000; @Klemme2004].
 The breakdown depth of spinel is strongly dependent on temperature and composition, particularly
 the amount of refractory Cr hosted by spinel.
-Several experimental and thermodynamic studies have attempted to
-estimate the magnitude of this effect.
-@ONeill1981 presented experiments both with and without Cr and described
-a simple empirical relationship of spinel-out depth with Cr content and temperature.
-@Robinson1998 suggests that, given fertile "pyrolite" compositions with little
-Cr, garnet is unstable at depths less than 80 km at the peridotite solidus (~1470ºC at this depth).
-Subsolidus experimental results show that the maximum depth of the spinel
-stability field in the absence of Cr ranges from 1.8-2.0 GPa (55-60 km) at
-1000-1200ºC [@Klemme2000]. Chromian spinels are stable to much greater depth:
-thermodynamic modeling by @Klemme2004 suggests a broad garnet-spinel
-co-stability field (up to a spinel-out reaction at 5 GPa for Cr# of ~30), but
-a spinel-weighted metastable assemblage is possible even at higher pressures.
+Several experimental and thermodynamic studies have estimated the
+magnitude of this effect. @ONeill1981 presented experiments both with and
+without Cr and described a simple empirical relationship of spinel-out depth
+with Cr content and temperature. @Robinson1998 suggests that, given fertile
+"pyrolite" compositions with little Cr, garnet is unstable at depths less than
+80 km at the peridotite solidus (~1470ºC at this depth). Subsolidus
+experimental results show that the maximum depth of the spinel stability field
+in the absence of Cr ranges from 1.8-2.0 GPa (55-60 km) at 1000-1200ºC
+[@Klemme2000]. Chromian spinels are stable to much greater depth: thermodynamic
+modeling by @Klemme2004 suggests a broad garnet-spinel co-stability field (up
+to a spinel-out reaction at 5 GPa for Cr# of ~30), but a spinel-weighted
+metastable assemblage is possible even at higher pressures.
 
 As shown in @fig:major_elements|c, samples in the high-temperature cohort
 (CK-3, CK-4, and CK-6) have high spinel Cr# due to their history of depletion

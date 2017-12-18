@@ -31,12 +31,14 @@ obliquely intersected the Cordillera subduction zone at the coast of southern
 California, leading to the development of the San Andreas transform system
 [@Atwater1970]. Ridge impingement was kinematically complex due to large-offset
 ridge-ridge transforms, resulting in the opening of a geometrically complex
-slab window and the production of the Monterey microplate, which nucleated as
-an oblique intra-oceanic rift along an ~250 km long segment of the
-Pacific-Farallon ridge [@Thorkelson1989; @Bohannon1995; @Atwater1998;
-@Wilson2005]. Late Cenozoic volcanism of the coastal region of central
-California has been attributed to partial melting of asthenosphere as it
-ascended into the slab window [@Wilson2005].
+slab window and the production of the Monterey microplate
+[@fig:reconstruction], which nucleated as an oblique intra-oceanic rift along
+an ~250 km long segment of the Pacific-Farallon ridge [@Thorkelson1989;
+@Bohannon1995; @Atwater1998; @Wilson2005]. Late Cenozoic volcanism of the
+coastal region of central California has been attributed to partial melting of
+asthenosphere as it ascended into the slab window [@Wilson2005].
+
+<!--[[[fig:reconstruction]]]-->
 
 Alternatively, it has been suggested that microplate formation along the
 impinging Pacific-Farallon ridge was more dominant than slab window
@@ -61,6 +63,8 @@ location in the Mojave region [@Luffi2009]. Scenarios **A** and **B** have been
 proposed in previous models of the lithospheric structure of the California
 coast [@Erkan2008], while scenario **C** is constructed from a large body of
 literature on crustal and mantle-lithosphere tectonics since the Cretaceous.
+
+<!--[[[fig:neogene_sections]]]-->
 
 ## The Neogene slab window {#sec:slab_window}
 
@@ -180,6 +184,8 @@ conditions within the deep levels of the then-active arc, and cooled to ~715
 ºC, peak temperatures recorded in shallowly subducted metaclastic rocks of the
 Sierra de Salinas schist, exposed in the principal Salinia window into the
 subduction channel schists [@Kidder2006].
+
+<!--[[[fig:cross_sections]]]-->
 
 In @fig:cross_sections|c and d we adopt the focused slab rollback and mantle
 lithosphere underplating models of @Saleeby2003 and @Luffi2009, for the dynamic

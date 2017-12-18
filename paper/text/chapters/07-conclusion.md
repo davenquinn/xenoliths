@@ -204,15 +204,13 @@ the sample set. Deep partial melting and alkalic melt generation are common
 features of slab window volcanism [@Hole1991] and may contribute to the
 signature of deep depletion and re-enrichment seen in the Crystal Knob sample set.
 
-The sourcing of the Crystal Knob pipe from
-relatively deep levels of the mantle lithosphere, the highly
-fractionated, alkalic magma, and the
-presence of both dunite cumulates and peridotite xenoliths suggest that
-the magma was sourced from a complex multi-tiered melt percolation
-network within the mantle lithosphere at depths >45 km, such as the
-fractal scaling of melt migration channels
-investigated by @Kelemen2000. These host cumulates which are sometimes re-entrained
-by small-volume volcanism, during a process of progressive upwards
+The sourcing of the Crystal Knob pipe from relatively deep in the mantle
+lithosphere, the highly fractionated, alkalic magma, and the presence of both
+dunite cumulates and peridotite xenoliths suggest that the magma was sourced
+from a complex multi-tiered melt percolation network within the mantle
+lithosphere at depths >45 km, such as the fractal scaling of melt migration
+channels investigated by @Kelemen2000. These host cumulates which are sometimes
+re-entrained by small-volume volcanism, during a process of progressive upwards
 percolation of melt from a deep mantle source.
 
 A long-duration reservoir of slab window material locally rising through a thick lid of

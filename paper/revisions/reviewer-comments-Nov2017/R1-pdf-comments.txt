@@ -72,7 +72,6 @@ neither the text here nor the figure 16 caption adequately describe the graphica
 
 
 
-Isn’t Ca2+ a rather large cation?
 
 I’d recommend “+10.3 to +11.0” rather than inserting “-“ otherwise it’s not clear.
 
