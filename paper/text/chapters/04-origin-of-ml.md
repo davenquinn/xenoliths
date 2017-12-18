@@ -179,7 +179,7 @@ integrated from @Kidder2006, @Chapman2010, @Chapman2012, and @Chapman2016a.
 @fig:cross_sections|a and b show the arrival of the oceanic plateau into the
 subducting trench, and plateau buoyancy-driven shallowing of the subduction
 megathrust, which drove tectonic erosion of the mantle wedge. During this
-episode, deep arc rocks cooled rapidly from ~900 ºC. Temperature conditions
+episode, deep arc rocks cooled rapidly from ~900 ºC, and temperatures
 along the flat megathrust were near the ~715 ºC peak recorded in
 subduction-channel metaclastic rocks of the Sierra de Salinas schist
 [@Kidder2006].
