@@ -189,7 +189,7 @@ module.exports = (el_, cb)->
 
   line = ax.line(type:'object')
 
-  xa = xenolithsArea color: '#eee', size: 8, showInner: true
+  xa = xenolithsArea color: '#ddd', size: 8, showInner: true
   xa ax.plotArea(), ax.line()
 
   el.select "g:first-child"
@@ -205,7 +205,7 @@ module.exports = (el_, cb)->
       width: sz
       height: sz
       fill: xa.texture1.url()
-      stroke: "#eee"
+      stroke: "#ddd"
       'stroke-width': 1
 
   textBox = (text, attrs)->(el)->
@@ -218,7 +218,7 @@ module.exports = (el_, cb)->
         'font-size': 9
         'font-family': 'Helvetica Neue'
         'font-style': 'italic'
-        'color': '#ccc'
+        'color': '#aaa'
 
 
   attrs = {

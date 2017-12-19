@@ -87,8 +87,15 @@ plotScenarios = (el, scenarios)->
   el.styles width: totalWidth
 
   ## Apply labels ##
+  el.select '.scenario.underplated'
+    .call labels.underplatingProfileLabels('shallow')
+
+  el.select '.scenario.farallon'
+    .call labels.underplatingProfileLabels('farallon')
+
   el.select '.scenario.forearc'
     .call labels.profileLabels
+
   labels.santaLuciaConstraint(scenarios[2])
 
   labels.underplatingConstraint(scenarios[0])
