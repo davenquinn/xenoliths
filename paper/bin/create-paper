@@ -65,8 +65,10 @@ cat $st/preamble.tex \
 echo '\\begin{abstract}' >> $texfile
 cat $agubuild/abstract.tex >> $texfile
 echo '\\end{abstract}\n' >> $texfile
-cat $body $build_dir/draft.bbl >> $texfile
-echo '\\bibliography{source/references}\n' >> $texfile
+cat $body >> $texfile
+
+pattern="\\\\bibliography{source/references}"
+echo $pattern >> $texfile
 echo '\\end{document}\n' >> $texfile
 
 echo "Running latex"
@@ -85,9 +87,17 @@ mv "$agubuild/$name.pdf" "$outfile"
 
 tag --set paper-draft $outfile
 
+# After we've run bibtex and latex, we inline the bibliography (using the
+# specifications of AGU for the input tex file)
+
+pre="${texfile:r}"
+csplit --prefix $pre $texfile /$pattern/
+cat "${pre}00" > $texfile
+cat "${pre}.bbl" >> $texfile
+tail -n +2 "${pre}01" >> $texfile
 
 ## Create supporting info
-supp="${texfile:r}-supporting-info.tex"
+supp="${pre}-supporting-info.tex"
 echo $supp
 
 cat $st/preamble.tex \

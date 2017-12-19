@@ -93,9 +93,10 @@ south of the evolving slab window, and @fig:reconstruction shows the incipient
 tear between the rotating microplate and the bulk of the downgoing Farallon
 slab. The relict Monterey Plate slab was integrated into the Pacific plate and
 translated to outboard of Crystal Knob by ~250 km north by slip on the
-subduction megathrust and the San Gregorio-Hosgri fault [@Dickinson2005;
-@Warren2005]. The remnant microplate still forms part of the abyssal seafloor
-in the proximal offshore region [@fig:context].
+subduction megathrust and the San Gregorio-Hosgri fault
+[@Dickinson2005; @Wilson2005]. The remnant microplate
+still forms part of the abyssal seafloor in the proximal
+offshore region [@fig:context].
 
 The eastward extent of the partially subducted Monterey Plate slab is unknown,
 and there is some evidence that it is truncated by the San Gregorio-Hosgri
@@ -205,7 +206,7 @@ stresses to cause dislocations in subducting slabs. We suspect that mantle
 nappe detachment was mediated by the temperature of the brittle-plastic
 transition in olivine. For ~40-50 Myr oceanic lithosphere entering
 a subduction zone [@fig:cross_sections|c and d], this ~700-800 ºC transition
-[@Warren2005; @Mei2010] occurs at ~25-40 km depth in the slab [@Doin1996].
+[@Warren2006; @Mei2010] occurs at ~25-40 km depth in the slab [@Doin1996].
 
 The lack of high-pressure mafic schists in both the Crystal Knob and Dish Hill
 xenolith suites further suggests that an intact subduction channel is not
