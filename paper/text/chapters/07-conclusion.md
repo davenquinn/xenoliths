@@ -171,19 +171,16 @@ Crystal Knob.
 
 ## Thermal events recorded by xenolith petrology
 
-Petrologic markers within the Crystal Knob xenolith suite and the late
-timing of the Crystal Knob eruption can be related to interaction of
-the lithospheric lid from which the xenoliths were sourced with an
-underlying deep slab window.
-The Crystal Knob xenolith suite shows petrologic variation consistent
-with reheating from below.  As discussed in @sec:PT-geochemical-variation,
-the array of increasing depletion with depth in the Crystal Knob sample
-set does not match simple decompression melting, and sample CK-6
-experienced polyphase major-element refertilization by fractionated
-melt presumably generated below its pre-eruptive depth. At the same time,
-low levels of re-enrichment by alkali-basalt-like melt are evident across
-the sample set. Deep partial melting and alkalic melt generation are common
-features of slab window volcanism [@Hole1991] and may contribute to the
+The Crystal Knob xenolith suite shows petrologic variation consistent with
+reheating from below, possibly due to interaction of a deep slab window with
+a thick pre-existing lithospheric lid from which the xenoliths were sourced. As
+discussed in @sec:PT-geochemical-variation, the array of increasing depletion
+with depth in the Crystal Knob sample set does not match simple decompression
+melting, and sample CK-6 experienced polyphase major-element refertilization by
+fractionated melt presumably generated below its pre-eruptive depth. At the
+same time, low levels of re-enrichment by alkali-basalt-like melt are evident
+across the sample set. Deep partial melting and alkalic melt generation are
+common features of slab window volcanism [@Hole1991] and may contribute to the
 signature of depletion and re-enrichment recorded by the Crystal Knob
 xenoliths.
 
@@ -204,7 +201,7 @@ deeply-sourced, small-volume eruptions such as Crystal Knob.
 ## The timing of the Crystal Knob eruption {#sec:crystal_knob_eruption}
 
 The thermal transient recorded by the ~1.65 Ma eruption of the Crystal Knob
-pipe itself is puzzling in the context of the Miocene slab window discussed
+pipe is itself puzzling in the context of the Neogene slab window discussed
 here. The Crystal Knob xenoliths suggest an underlying
 lithosphere-asthenosphere boundary at a depth of 70-90 km, consistent with
 regional seismic studies [@Li2007]. However, the abundance of dunite cumulate
@@ -225,7 +222,7 @@ lower crustal--upper mantle levels, Hosgri fault shear could be distributed
 across 10s of kilometers laterally [@fig:neogene_sections|c].
 
 Plio-Pleistocene eruptions of small-volume basalts have occurred elsewhere in
-the Coast Range belt, associated with the traces of active faults. This
+the Coast Range belt are associated with the traces of active faults. This
 includes the Coyote Lake pipe [@fig:context], which occurred ~150 km north of
 Crystal Knob along the San Andreas-Calaveras fault bifurcation zone and
 entrained lower crust and upper mantle xenoliths [@Jove1998; @Titus2007]. As
