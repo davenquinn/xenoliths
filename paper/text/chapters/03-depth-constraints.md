@@ -134,16 +134,16 @@ error space for each sample is contoured in @fig:depth.
 
 <!--[[[fig:ca_in_olivine]]]-->
 
-The Ca-in-olivine barometer yields a broad distribution in model depths, with
-modes between 40 and 53 km, largely coincident with the spinel
-stability field [@fig:depth]. Within the Crystal Knob sample set, the low and
-high-temperature cohorts remain separable, with high-temperature samples
-showing deeper equilibrium depths. The scale of errors within a single sample
-reflects the barometer's strong covariance with major-element thermometers, as
-well as its sensitivity to small variations in Ca concentrations. The bulk of
-the spread in the data reflects the poor calibration of the barometer itself:
-the low-temperature samples in particular have significant scatter towards
-depths above the spinel-in isograd. The large Ca cation diffuses rapidly during
+The Ca-in-olivine barometer yields a broad distribution model depths, with
+modes between 40 and 53 km, largely coincident with the spinel stability field
+[@fig:depth]. Within the Crystal Knob sample set, the low and high-temperature
+cohorts remain separable, with high-temperature samples showing deeper
+equilibrium depths. The scale of errors within a single sample reflects the
+barometer's strong covariance with major-element thermometers, as well as its
+sensitivity to small variations in Ca concentrations. The bulk of the spread in
+the data reflects the poor calibration of the barometer itself: the
+low-temperature samples in particular have significant scatter towards depths
+above the spinel-in isograd. The large Ca cation diffuses rapidly during
 transient heating [@Kohler1990], producing a shallowing bias on the depth
 distribution. This may explain why CK-4, which apparently experienced a unique
 transient heating event, has a depth mode ~10 km shallower than the other
