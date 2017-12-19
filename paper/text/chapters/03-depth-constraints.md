@@ -1,4 +1,4 @@
-# Thermal structure of the mantle lithosphere beneth the Coast Ranges
+# Geothermal constraints on the deep lithosphere
 
 ## Extrapolation from surface heat flow {#sec:heat-flow}
 

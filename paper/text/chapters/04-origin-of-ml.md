@@ -1,4 +1,4 @@
-# Origin of the mantle lithosphere beneath Crystal Knob {#sec:tectonic_scenarios}
+# Origin of the mantle lithosphere beneath the Coast Ranges {#sec:tectonic_scenarios}
 
 The Crystal Knob spinel peridotite xenoliths are uniformly isotopically
 depleted, with an $\epsilon_\mathrm{Nd}$ of 10.3-11.0, and
@@ -262,3 +262,4 @@ offshore seismic lines in the region [@Trehu1991], and the part between the San
 Andreas and San Gregorio-Hosgri faults restores to southern California
 latitudes, adjacent to the Mojave plateau and extended southern California
 batholith.
+
