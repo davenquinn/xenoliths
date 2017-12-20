@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+
+rpath="paper/text"
+base="$PROJECT_DIR/versioned"
+cd "$base"
+
+paths=($rpath/abstract.md $rpath/key-points.md \
+  "$rpath/chapters"/*.md $rpath/figure-captions.md $rpath/modeling-supplement.md)
+
+function rev-text {
+  # If we don't have a revision, use current text
+  [ -z "$1" ] && cat $paths && exit 0
+
+  for fn in $paths; do
+    git show $1:$fn
+  done
+}
+
+if [[ "$1" == "--count" ]]; then
+  echo "             Lines   Words   Chars"
+  echo "Submitted: $(wc <(rev-text submitted))"
+  echo "  Current: $(wc <(rev-text))"
+  exit 0
+fi
+
+git text-diff --no-index \
+  =(rev-text submitted) \
+  =(rev-text)

@@ -2,35 +2,113 @@
 dir=$PROJECT_DIR/versioned/paper
 cd $dir
 
-# Collect figures
+# collect includes
 bin/collect-figures
+bin/create-draft
+bin/create-doc
 
-body='build/body.tex'
+build_dir='build'
 
-mkdir -p build
+agubuild="$build_dir/agu-format"
+
+body="$agubuild/draft_body.tex"
+
+name="Crystal-Knob-xenoliths-AGUFormat"
+auxfile="$agubuild/$name.aux"
+texfile="$agubuild/$name.tex"
+
+mkdir -p $agubuild
+
+function run-latex {
+  latexmk -xelatex -quiet -f -jobname=$name -output-directory=$agubuild $1
+}
+
+source bin/defs.zsh
+
+echo "Converting markdown to latex"
+
+captions=build/figure-captions.tex
+cat text/figure-captions.md \
+| sed -r 's/@sec:model_supplement/Supplementary Information/g' \
+| text-pipeline \
+> $captions
+
 # Process body text
+# Correct for pandoc-crossref annoyingness
 cat text/chapters/*.md \
-| figurator inline text/includes.yaml \
-  --captions text/figure-captions.md \
+| sed -r 's/<!--\[\[\[(.+)\]\]\]-->/\\inlinefigure\{\1\}/g' \
+| sed -r 's/@sec:model_supplement/Supplementary Information/g' \
+| text-pipeline \
+| figurator inline \
+  text/includes.yaml \
+  --captions $captions \
   --collect-dir collected \
-  --natbib \
-| paper markdown-to-latex > $body
+| sed -r 's/^\\section\*\{Acknowledgements\}/\\acknowledgments/g' \
+> $body
 # Process abstract
 cat text/abstract.md \
-| paper markdown-to-latex \
-> build/abstract.tex
+| text-pipeline \
+> "$agubuild/abstract.tex"
 
-auxfile=build/main.aux
-# build citations
-bibtex $auxfile
-# Filter bibliography
-LIBRARY=/Users/Daven/Resources/Papers/bibtex/library.bib
-bib-filter --clean --aux $auxfile $LIBRARY
-# rebuild citations
-bibtex $auxfile
+cat text/key-points.md \
+| text-pipeline \
+| sed -r 's/itemize/keypoints/g' \
+| sed -r 's/^\\tightlist//g' \
+> $agubuild/key-points.tex
 
-xelatex \
-  -interaction=nonstopmode \
-  -output-directory build "source/main.tex"
+st=source/agu-template
+cp $st/agufull08.bst \
+   $st/agujournal.cls $agubuild
 
-mv build/main.pdf output/Quinn-2016-xenoliths.pdf
+cat $st/preamble.tex \
+    $agubuild/key-points.tex \
+> $texfile
+
+echo '\\begin{abstract}' >> $texfile
+cat $agubuild/abstract.tex >> $texfile
+echo '\\end{abstract}\n' >> $texfile
+cat $body $build_dir/Crystal-Knob-xenoliths.bbl >> $texfile
+echo '\\end{document}\n' >> $texfile
+
+echo "Running latex"
+
+run-latex $texfile
+outfile="output/$name.pdf"
+
+mv "$agubuild/$name.pdf" "$outfile"
+
+tag --set paper-draft $outfile
+
+pre="${texfile:r}"
+
+# After we've run bibtex and latex, we inline the bibliography (using the
+# specifications of AGU for the input tex file)
+
+#csplit --prefix $pre $texfile /$pattern/
+#cat "${pre}00" > $texfile
+#cat "${pre}.bbl" >> $texfile
+#tail -n +3 "${pre}01" >> $texfile
+sed -i 's/{collected\//{/g' $texfile
+
+## Create supporting info
+supp="${pre}-supporting-info.tex"
+echo $supp
+
+cat $st/preamble.tex \
+| sed -r 's/^\\title/\\supportinginfo/g' \
+| sed '48i\\\\usepackage{xr,bibentry}\n\\externaldocument{Crystal-Knob-xenoliths-AGUFormat}' \
+> $supp
+
+tail -n +2 text/modeling-supplement.md \
+| sed -r 's/^##/#/g' \
+| text-pipeline \
+>> $supp
+
+echo '\\nobibliography{source/references}\n' >> $supp
+echo '\\end{document}\n' >> $supp
+
+latexmk -xelatex -quiet -f -jobname="${supp:t:r}" \
+  -output-directory=$agubuild $supp
+
+mv "${supp:r}.pdf" "output"
+

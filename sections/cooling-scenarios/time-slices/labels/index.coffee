@@ -46,10 +46,9 @@ santaLuciaConstraint = (scenario)->
 
 f = d3.format('.0f')
 
-v = [30,65]
 axisProfileLabels = (d,j)->
   sel = d3.select(@).selectAll 'g.data'
-
+  v = [30,65]
   sel.filter (d,i)->
       i == 0 or i >= sel.size()-3
     .each (d,i)->
@@ -104,6 +103,74 @@ axisProfileLabels = (d,j)->
               startOffset: "#{offs1}%"
               class: 'label timestep'
 
+__upl__ = (type)->(d,j)->
+  if type == 'farallon'
+    text = ['None',"6 Myr",'Instantaneous']
+    indices = [0,3,4]
+    labelIx = 0
+    labelY = 16
+    dy = [8,-3,5.5]
+  else
+    text = ['Instantaneous', "6 Myr"]
+    indices = [0,3]
+    labelIx = 1
+    labelY = -26
+    dy = [8,-3]
+
+  sel = d3.select(@).selectAll 'g.data'
+  sel.filter (d,i)->
+      indices.includes i
+    .each (d,i)->
+      el = d3.select @
+      u = el.select('use')
+
+      createText = (t, opts={})->
+        el.append 'text'
+          .styles fill: u.attr('stroke')
+          .attrs
+            dy: opts.dy or if i != 0 then -3 else 8
+          .append 'textPath'
+          .html t
+          .attrs
+            'xlink:href': u.attr('href')
+
+      offs = null
+      if type == 'farallon'
+        offs = 68-4*i**0.3
+        if i == 2
+          offs = 72
+      else
+        offs = 12+4*i**0.3
+
+      te = text[i]
+      t_ = createText(te, dy: dy[i])
+        .attrs
+          startOffset: "#{offs}%"
+          class: 'slab-window-age'
+
+      if type == 'farallon' and i == 2
+        t_.style 'font-size', '0.55em'
+
+
+      return unless i == labelIx
+      t = "Duration of\nslab window\nheating"
+      t.split('\n').forEach (t,i)->
+        createText(t, dy: labelY+7*i)
+          .attrs
+            startOffset: "#{offs}%"
+            class: 'slab-window-age label'
+          .styles 'text-align': 'middle'
+
+underplatingProfileLabels = (type)->(el)->
+  if type == 'shallow'
+    data = [false,true,false]
+  else
+    data = [false, false, false, true, false]
+  axes = el.selectAll 'g.axis'
+    .data data
+    .filter (d)->d
+    .each __upl__(type)
+
 
 profileLabels = (el)->
   axes = el.selectAll 'g.axis'
@@ -149,4 +216,5 @@ module.exports = {
   createAgeLabels
   profileLabels
   underplatingConstraint
+  underplatingProfileLabels
 }

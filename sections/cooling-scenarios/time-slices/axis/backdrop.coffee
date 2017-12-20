@@ -9,7 +9,7 @@ c = (d, s=.4, l=.85)->
 
 style =
   cc:
-    fill: c("#f5a185")
+    fill: c("#F7D8DB", 0.3,0.9)
     stroke: "#666666"
     "stroke-width": 1
   oc:
