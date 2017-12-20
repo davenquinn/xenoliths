@@ -88,6 +88,7 @@ pre="${texfile:r}"
 #cat "${pre}00" > $texfile
 #cat "${pre}.bbl" >> $texfile
 #tail -n +3 "${pre}01" >> $texfile
+sed -i 's/{collected\//{/g' $texfile
 
 ## Create supporting info
 supp="${pre}-supporting-info.tex"
