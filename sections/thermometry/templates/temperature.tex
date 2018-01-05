@@ -4,7 +4,6 @@
 <# macro un() -#>
 $\mu$ & $\sigma$
 <#- endmacro #>
-\newcommand{\cel}{[\si{\celsius}]}
 <# macro tloop(k, s) -#>
     <#- if k == 'coreA' -#>
       <# set preamble="\\textbf" #>
@@ -24,12 +23,12 @@ $\mu$ & $\sigma$
 \begin{tabular}{l r r@{\hskip 0.1cm}r r@{\hskip 0.1cm}r r@{\hskip 0.1cm}r r r r@{\hskip 0.1cm}r}
 \toprule
 \multicolumn{2}{c}{Sample} &
-\multicolumn{2}{c}{TA98 \cel} &
-\multicolumn{2}{c}{BKN \cel} &
-\multicolumn{2}{c}{Ca-Opx \cel}&
+\multicolumn{2}{c}{TA98 [\si{\celsius}]} &
+\multicolumn{2}{c}{BKN [\si{\celsius}]} &
+\multicolumn{2}{c}{Ca-Opx [\si{\celsius}]}&
 $\textrm{n}_\textrm{opx}$ &
 $\textrm{n}_\textrm{cpx}$ &
-\multicolumn{2}{c}{REE \cel} \\
+\multicolumn{2}{c}{REE [\si{\celsius}]} \\
 \midrule
 <# for s in samples  #>
     \rule{0pt}{2ex} 

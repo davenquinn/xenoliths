@@ -95,7 +95,7 @@
 
 - id: thermometry
   type: table
-  file: thermometry/build/temperatures.tex
+  file: thermometry/temperatures.tex
   caption: Results of two-pyroxene thermometers
   notes:
     "": >
