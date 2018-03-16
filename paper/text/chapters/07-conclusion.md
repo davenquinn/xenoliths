@@ -186,8 +186,8 @@ xenoliths.
 
 The highly fractionated, alkalic magma of the Crystal Knob pipe, its relatively
 deep source in the mantle lithosphere, and its entrainments of both dunite
-cumulates and peridotite xenoliths suggest it was sourced from melt percolating
-through a multi-tiered network within the mantle lithosphere at depths >45 km.
+cumulates and spinel peridotite xenoliths suggest that it was sourced from a
+multi-tiered network within the mantle lithosphere at depths > 45 km.
 The fractally-scaled melt migration channels investigated by @Kelemen2000
 provide a good potential model, in which cumulates are sometimes re-entrained
 by small-volume volcanism during progressive upwards percolation of melt from
@@ -201,44 +201,33 @@ deeply-sourced, small-volume eruptions such as Crystal Knob.
 ## The timing of the Crystal Knob eruption {#sec:crystal_knob_eruption}
 
 The thermal transient recorded by the ~1.65 Ma eruption of the Crystal Knob
-pipe is itself puzzling in the context of the Neogene slab window discussed
-here. The Crystal Knob xenoliths suggest an underlying
-lithosphere-asthenosphere boundary at a depth of 70-90 km, consistent with
-regional seismic studies [@Li2007]. However, the abundance of dunite cumulate
-xenoliths and xenocrysts in the Crystal Knob basalt suggests the generation of
-significant melt in the mantle lithosphere beneath the Coast Ranges, and the
-entrainment of peridotite xenoliths underscores its rapid ascent at ~1.65 Ma.
-The deep slab window provides a reservoir of heated material beneath the Coast
-Ranges, which could cause melt percolation as outlined above. Neogene dextral
-faulting may provide a means for deep, small-volume decompression melting.
+pipe is much more recent than the mid-Miocene slab window upwelling. Even with
+a potential reservoir of melt beneath the Coast
+Ranges, the event itself (along with other Plio-Pleistocene volcanic eruptions
+in the Coast Ranges) was likely more immediately triggered.
 
-Crystal Knob is located ~15 km east of the Hosgri fault, with its host
-Franciscan complex pervasively cut by faults and shear zones [@Cowan1978;
-@Seiders1989]. The geologic slip and seismicity history of the Hosgri fault
-[@Dickinson2005; @Hardebeck2010] indicate that it was likely active during the
-eruption of the Crystal Knob neck, and theoretical and observational data on
-intra-continental transform faults [@Platt2011; @Titus2007] indicate that, at
-lower crustal--upper mantle levels, Hosgri fault shear could be distributed
-across 10s of kilometers laterally [@fig:neogene_sections|c].
+Rapid uplift of the central California coastal region at ~2 Ma [@Ducea2003b]
+may have caused decompression of the lower lithosphere. However, Neogene
+dextral faulting provides a more localized mechanism for transient
+decompression leading to small-volume melting of the mantle lithosphere.
+Crystal Knob is located ~15 km east of the Hosgri fault, and its host
+Franciscan complex is pervasively cut by faults and shear zones [@Cowan1978;
+@Seiders1989]. The Hosgri fault was likely active during the eruption of the
+Crystal Knob neck [@Dickinson2005; @Hardebeck2010], and theoretical and
+observational data on intra-continental transform faults [@Platt2011;
+@Titus2007] indicate that Hosgri fault shear could be distributed across 10s of
+kilometers laterally in the lower crust and upper mantle
+[@fig:neogene_sections|c].
 
-Plio-Pleistocene eruptions of small-volume basalts have occurred elsewhere in
+Plio-Pleistocene eruptions of small-volume basalts elsewhere in
 the Coast Range belt are associated with the traces of active faults. This
 includes the Coyote Lake pipe [@fig:context], which occurred ~150 km north of
 Crystal Knob along the San Andreas-Calaveras fault bifurcation zone and
 entrained lower crust and upper mantle xenoliths [@Jove1998; @Titus2007]. As
-a Crystal Knob, xenoliths recovered from these flows record partial melting of
+at Crystal Knob, xenoliths recovered from these flows record partial melting of
 the mantle markedly post-dating any possible slab window opening. The deep
 extensional transients implied by these eruptions may have played a role in
 generating the Crystal Knob basalts as well.
-
-Along with the suggestive fault-association of these xenolith pipes, two of the
-principal thermal maxima in the Coast Range thermal anomaly occur near the
-Crystal Knob and Coyote Lake Plio-Pleistocene basaltic eruptions [@Erkan2008,
-Figure 1], further suggesting recent mobilization of asthenospheric mantle that
-was initially emplaced into the early Neogene slab window. Rapid uplift of the
-central California coastal at ~2 Ma [@Ducea2003b] is likely correlated with
-this thermal anomaly [@sec:heat-flow]. These events may have caused changes in
-the stress state of the underlying mantle lithosphere.
 
 Conclusion
 ==========
@@ -248,12 +237,12 @@ Cretaceous convergent margin tectonics, was severely
 overprinted by two subsequent tectonic episodes, with the impact and
 subduction of the Shatsky Rise large igneous province conjugate during
 the Late Cretaceous and the progressive evolution of a transform
-boundary in the Neogene. These episodes are recorded throughout the crustal
-geologic record of southern California and the central California Coast Ranges
+boundary in the Neogene. These episodes have remade the crustal
+architectureof southern California and the central California Coast Ranges
 outboard of the San Andreas Fault. Using constraints from the Crystal
 Knob xenolith suite along with thermal modeling of tectonic scenarios, we show
 that the mantle lithosphere beneath the central California coast was created
-during the late Cretaceous and warmed by an asthenospheric pulse in the
+during the late Cretaceous and heated by an asthenospheric pulse in the
 Neogene.
 
 The Crystal Knob xenolith suite was erupted at 1.65 Ma and is sourced along
@@ -283,8 +272,8 @@ the Late Cretaceous mantle nappe underplating scenario, with reheating by
 a deep slab window in the Neogene.
 
 A late-Cretaceous origin of the mantle lithosphere beneath the Coast Ranges
-matches a host of geologic constraints demonstrating slab rollback and regional
-crustal extension during the Late Cretaceous, as the Shatsky Rise conjugate
+matches crustal geologic constraints demonstrating slab rollback and regional
+extension during the Late Cretaceous, as the Shatsky Rise conjugate
 subducted deeper into the mantle following its initial collision and shallow
 subduction beneath the southern California convergent margin. This episode
 built the mantle lithosphere beneath the Mojave province by mantle duplexing

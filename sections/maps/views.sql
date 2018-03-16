@@ -41,10 +41,15 @@ CREATE OR REPLACE VIEW simplified_western_states AS
       WHEN lith62 IN ('Basalt','Andesite')
         AND unit_age LIKE '%Tertiary%'
         THEN 'felsic volcanic' -- proxy for teriary right now
+      WHEN (lith62 IN ('Basalt','Mafic volcanic rock',
+        'Alkaline basalt','Tephrite','Trachybasalt')
+        OR lith62mino LIKE 'basalt')
+        AND unit_age = 'Jurassic'
+        THEN 'ophiolite'
       WHEN lith62 IN ('Basalt','Mafic volcanic rock',
         'Alkaline basalt','Tephrite','Trachybasalt')
         OR lith62mino LIKE 'basalt'
-        THEN 'mafic volcanic'
+        THEN 'felsic volcanic'
       WHEN unit_link IN ('CAm;0','CAsch1;0')
         OR lith62 = 'Hornfels'
         OR (lith62 = 'Mica schist' AND lith62mino = 'Marble')
