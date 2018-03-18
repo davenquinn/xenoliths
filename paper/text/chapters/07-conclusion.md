@@ -53,23 +53,22 @@ surface geological evidence presented here argues against models invoking
 horizontal translation of the Monterey plate "remnant slab”, beneath both the
 Coast Ranges and Central Valley.
 
-The future Crystal Knob eruption site sits above the Pacific-Farallon slab
-window ~50-100 km north of the northeast margin of the partially subducted
-Monterey plate [@fig:reconstruction]. The narrow slab window segment east of
-the Peninsular Ranges marks the plate’s separation locus with the Farallon
-plate, which subsequently opened wider beneath the southern California region
-as the Farallon plate descended deeper into the mantle [@Atwater1998;
-@Wilson2005]. From ~22 to 10 Ma, the Monterey plate, already coupled to the
-Pacific plate, diverged from North America. This likely caused the underthrust
-portion of the Monterey Plate to be extensionally attenuated [@Bohannon1995].
-Coupling of Monterey plate rotation across the stalled subduction megathrust
-is hypothesized to have driven dextral transrotational rifting of the southern
-California borderland [@Nicholson1994; @Bohannon1995].
+The future Crystal Knob eruption site sits above the Pacific-Farallon
+slab window, ~50-100 km north of the northeast margin of the partially
+subducted Monterey plate [@fig:reconstruction]. The microplate separated
+from the Farallon Plate at ca. 22 Ma, forming a widening slab window segment
+east of the Peninsular Ranges [@Atwater1998; @Wilson2005]. From ca. 22 to 10 Ma, the
+Monterey plate, already coupled to the Pacific plate, diverged from
+North America. This likely caused the underthrust portion of the
+Monterey Plate to be extensionally attenuated [@Bohannon1995]. Coupling
+of Monterey plate rotation across the stalled subduction megathrust is
+hypothesized to have driven dextral transrotational rifting of the
+southern California borderland [@Nicholson1994; @Bohannon1995].
 
 As western Transverse Range crustal panels rotated to their current position at
 the end of borderland transrotation (~10 Ma), the Monterey plate was displaced
 northward along the San Gregorio-Hosgri fault system [@fig:context], which is
-on-trend with the outer edge of the Farallon-Monterey slab window
+aligned with the outer edge of the Farallon-Monterey slab window
 [@fig:reconstruction]. In conjunction with the sudden cessation of crustal
 transrotation, the Monterey Plate likely separated from its underplated
 extension.
@@ -79,7 +78,7 @@ integrity following borderland transrotational rifting and was not cut by the
 San Gregorio-Hosgri fault, it would be translated northward beneath the Coast
 Ranges on a shallowly dipping fault surface (presumably, the remobilized
 subduction megathrust) to remain attached its Pacific plate abyssal fragment
-after ~10 Ma [@fig:neogene_sections|c]. This geometry has been proposed to
+after ca. 10 Ma [@fig:neogene_sections|c]. This geometry has been proposed to
 extend beneath the entire Coast Ranges and east of the San Andreas fault [e.g.
 @tenBrink1999; @Pikser2012]. Although kinematically plausible, in theory, this
 is unlikely based on dynamic factors: a large mantle mass at the base of the
@@ -111,8 +110,8 @@ Additionally, offshore seismic observations show a ~16º eastward-dipping
 Monterey plate, with a typical abyssal crustal thickness, juxtaposed against
 a nearly flat thickened lower crustal layer beneath the adjacent Franciscan
 complex [@Trehu1991; @Nicholson1992]. These observations directly conflict with
-the notion that a structurally continuous Monterey Plate constitutes the lower
-crust beneath the central coastal California and adjacent offshore region.
+the idea that a structurally continuous Monterey Plate constitutes the lower
+crust beneath central coastal California and the adjacent offshore region.
 
 Studies proposing a deep Monterey plate stalled slab [e.g. @Furlong1989;
 @Pikser2012] have suggested its translation on significant sub-horizontal fault
@@ -137,7 +136,7 @@ mechanisms for lower crustal plastic deformation, observable surface faulting,
 upper mantle--lower crustal partial melting and dynamic topographic effects
 that are ignored in the stalled-slab hypothesis.
 
-First-order geological effects such as volcanism an
+First-order geological effects such as volcanism and
 topographic transients are closely correlated to the convective mobilization of
 the sub-Sierran mantle lithosphere and its current expression as the Isabella
 anomaly [@Ducea1998b; @Farmer2002; @Saleeby2013; @Cecil2014; @Levandowski2015].
