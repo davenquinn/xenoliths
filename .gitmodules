@@ -22,3 +22,6 @@
 [submodule "modules/node/d3-conventions"]
 	path = modules/node/d3-conventions
 	url = git://github.com/davenquinn/d3-conventions.git
+[submodule "paper/paper-components"]
+	path = paper/paper-components
+	url = /Users/Daven/Development/Repositories/paper-components.git

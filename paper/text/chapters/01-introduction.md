@@ -7,8 +7,7 @@ and Earth history. The architecture of the mantle lithosphere, when integrated
 with regional geophysical data and tectonic and petrogenetic studies of the
 overlying crust, offers critical insights into the geodynamic processes of
 continental assembly. Mantle xenoliths entrained in volcanic rock reveal
-compositions and textures of the deep lithosphere in a vertical transect below
-the eruptive event, and petrogenetic studies of xenolith suites can discern
+compositions and textures in a vertical transect through the underlying deep lithosphere. Petrogenetic studies of xenolith suites can discern
 their thermal conditions, depth of entrainment, and geochemical evolution. In
 this contribution, we present new petrologic and geochemical data on mantle
 xenoliths hosted in the Pleistocene Crystal Knob volcanic neck in coastal

@@ -39,16 +39,23 @@ paper will be an excellent contribution to g-cubed.
 This is a review with minor revisions but there are a few SMALL issues
 that the authors should address. There does not need to be a re-review.
 I have highlighted grammatical errors that need to be fixed, and added
-notes for questions or comments that the authors need to address. Other
+note for questions or comments that the authors need to address. Other
 grammatical fixes are made with Adobe Acrobat editing tools in the
 attached file. --Elisabeth Nadin
 
-Reviewer #3 Evaluations: Recommendation (Required): Return to author for
-minor revisions Significant (Required): Yes, the paper is a significant
-contribution and worthy of prompt publication. Supported (Required): Yes
-Referencing (Required): Yes Quality (Required): Yes, it is well-written,
-logically organized, and the figures and tables are appropriate. Data
-(Required): Yes Accurate Key Points (Required): Yes
+<p class='response fixed'>Eliminated abstract awkward language/passive
+voice</p>
+
+
+<p class="comment">
+I would list these as scenarios A, B, and C to be consistent with the text. Then also say "Models B and C fit the xenolith thermobarometry, but model B is geodynamically untenable. We favor model C, Cretaceous underplating of .... "
+<span class='response fixed'>This really clarifies thanks</span>
+</p>
+
+<p class="response fixed">
+Reworded intro
+</p>
+
 
 ## Reviewer #3
 
@@ -68,14 +75,20 @@ of the paper.
 
 Minor comments:
 
-<p class='comment'> Line 6 of abstract. Crystal knob volcanics did
-not erupt through Salinian terrane. Figure 1 shows the location of the
-xenoliths site as (barely) west of the Nascimiento fault. Salinian rocks
+<p class='comment'> Line 6 of abstract. Crystal knob volcanics did not
+erupt through Salinian terrane. Figure 1 shows the location of the
+xenoliths site as (barely) west of the Nacimiento fault. Salinian rocks
 are to the east in the hanging wall, so they are not to be found in the
-volcanic column.
-</p>
+volcanic column. <span class='response fixed'>This is a fair point,
+which we discuss in the body text. I was referring to the units together
+due to their structural coupling, but that doesn't come across with the
+wording. I added the word "adjacent to" to clarify the spatial
+relationship</span> </p>
 
-<p class='comment'>Line 5. assemblyntle</p>
+<p class='comment'>Line 5. assemblyntle
+<span class='response fixed'>Automated search and replace gone wrong,
+apparently; sorry</span>
+</p>
 
 
 <p class='comment'>
