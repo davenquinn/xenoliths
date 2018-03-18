@@ -88,11 +88,7 @@ forefront of the discipline. Supported (Required): Yes Referencing
 organized, and the figures and tables are appropriate. Data (Required):
 Yes Accurate Key Points (Required): Yes
 
-Reviewer #1 (Formal Review for Authors (shown to authors)):
-
-QUINN ET AL. REVIEW - A. CHAPMAN
-
-February 5, 2018
+## Reviewer #1:
 
 This revised manuscript by Quinn and coauthors contributes a large
 amount of new data, from a mantle xenolith locality in central coastal
@@ -126,7 +122,7 @@ slab dip and subduction of spreading ridges. Following revision, this
 paper will be an excellent contribution to g-cubed.
 
 
-## Reviewer 2 comments
+## Reviewer 2
 
 This is a review with minor revisions but there are a few SMALL issues
 that the authors should address. There does not need to be a re-review.
@@ -142,7 +138,7 @@ Referencing (Required): Yes Quality (Required): Yes, it is well-written,
 logically organized, and the figures and tables are appropriate. Data
 (Required): Yes Accurate Key Points (Required): Yes
 
-Reviewer #3 (Formal Review for Authors (shown to authors)):
+## Reviewer #3
 
 This is my second review of the manuscript by Quinn et al., which
 explores the geochemistry of a suite of xenoliths erupted through the
@@ -167,7 +163,7 @@ are to the east in the hanging wall, so they are not to be found in the
 volcanic column.
 </p>
 
-Line 5. assemblyntle
+<p class='comment'>Line 5. assemblyntle</p>
 
 
 <p class='comment'>
@@ -187,85 +183,102 @@ Loose language here: Seismic reflections
 shows what is *interpreted to be* a former megathrust.
 </p>
 
-Line 44. "That" instead of "and?"
+<p class="comment">
+Line 44 of "and?"
+</p>
 
+
+<p class="comment">
 Line 115. "Alternatively suggests"? Instead of "suggests"?
+</p>
 
-Line 139. These would be "thick" sections if that thickness is accurate.
-But I think from figure three that the sections must be a lot closer to
-standard thickness of 30 microns.
 
-Figure 1 caption. Why does it say "see also 17"? Also should say "the
-modern" (missing "the")
+<p class="comment">
+Line 139. These would be "thick" sections if that thickness is accurate. But I think from figure three that the sections must be a lot closer to standard thickness of 30 microns.
+</p>
 
-There are some labeling problems in Figure 1. It shows a lot of light
-grey "late cenozoic volcanic rocks" in Salinia and elsewhere where
-volcanic rocks aren't actually found. I think light grey should be
-labeled metamorphic framework?? Also there is a light purple color (very
-similar to the light grey) in the Southern Sierra Nevada and elsewhere
-that isn't defined in the key.
 
-Figure 5 caption. The bottom right quadrant of ck4 looks just like
-portions of the other samples. Are we supposed to be able to identify
-the "melt channel"? If not, why is it mentioned? If so, It isn't evident
-to this reader.
+<p class="comment">
+Figure 1 caption. Why does it say "see also 17"? Also should say "the modern" (missing "the")
+</p>
 
+
+<p class="comment">
+There are some labeling problems in Figure 1. It shows a lot of light grey "late cenozoic volcanic rocks" in Salinia and elsewhere where volcanic rocks aren't actually found. I think light grey should be labeled metamorphic framework?? Also there is a light purple color (very similar to the light grey) in the Southern Sierra Nevada and elsewhere that isn't defined in the key.
+</p>
+
+
+<p class="comment">
+Figure 5 caption. The bottom right quadrant of ck4 looks just like portions of the other samples. Are we supposed to be able to identify the "melt channel"? If not, why is it mentioned? If so, It isn't evident to this reader.
+</p>
+
+
+<p class="comment">
 Figure 4 not mentioned in text before figure 5
+</p>
 
-157. 157. "and emphasizing" 179. "dunites fragments"
 
-220. what are "parallel domain boundaries" and their significance?
-Provide a reference or figure. Googling this, it doesn't seem to be a
-common thing... Do you mean large, parallel, subgrain-boundaries cutting
-across grains?
+<p class="comment">
+Line 157. 157. "and emphasizing" 179. "dunites fragments"
+</p>
 
-259-260., 327-328 and elsewhere. I'm quite dubious regarding the
-significance of the calculated whole rock values given the very small
-areas upon which the modal work is estimated (figure 5).
 
-309. would be useful to cite the more recent Chapman et al (2014) on
-Salinian granites here also.
+<p class="comment">
+Line 220. what are "parallel domain boundaries" and their significance? Provide a reference or figure. Googling this, it doesn't seem to be a common thing... Do you mean large, parallel, subgrain-boundaries cutting across grains?
+</p>
 
-figure 13 caption "the tightness of within-sample temperature scatter
-varies." is there a simpler way to say this (not sure exactly what is
-being said)
 
-443-446. I'm not sure. Can you give a citation for this claim? It kind
-of sounds like you're just taking the mean two different ways and
-getting the same number both times--how does that indicate equilibrium?
+<p class="comment">
+259-260., 327-328 and elsewhere. I'm quite dubious regarding the significance of the calculated whole rock values given the very small areas upon which the modal work is estimated (figure 5).
+</p>
 
-477. "Figure 12" in parentheses.
 
-537-543. Lots of issues with this paragraph. My recollection is that the
-Salinian granitoids are not significantly different radiogenically from
-the Sierra Nevadan rocks (as seemingly implied here in the context of
-the previous paragraph). Also, the high uplift rates mentioned from
-Ducea et al., 2003 is probably from an area of atypically high
-exhumation rates-the preservation of the Crystal Knob volcanic rocks
-indicates that erosion rates are much lower in this particular spot than
-where Ducea et al. observed. The final sentence suggests that the
-minuscule amount of lava associated with Crystal Knob would affect the
-geotherm in a measurable way-this is probably demonstrably false.
+<p class="comment">
+Line 309. would be useful to cite the more recent Chapman et al (2014) on Salinian granites here also.
+</p>
 
-549-558. I don't understand the logic about surface heat flows
-representing a maximum limit on mantle lithosphere geothermal gradients.
-Has this concept been explored before? If so, a reference would be good
-here... I think there is a lot of speculative material that should just
-be cut. Just say that surface heat flows in the Coast Ranges are 70-90
-mW/m2 and leave it at that. Speculatively trimming 10 mW/m2 off makes no
-difference considering the large uncertainties (e.g. figure 16). This
-whole section (3.2) can be trimmed down significantly-the essential
-message is given in lines 658-660.
 
+<p class="comment">
+figure 13 caption "the tightness of within-sample temperature scatter varies." is there a simpler way to say this (not sure exactly what is being said)
+</p>
+
+
+<p class="comment">
+443-446. I'm not sure. Can you give a citation for this claim? It kind of sounds like you're just taking the mean two different ways and getting the same number both times--how does that indicate equilibrium?
+</p>
+
+
+<p class="comment">
+Line 477. "Figure 12" in parentheses.
+</p>
+
+
+<p class="comment">
+537-543. Lots of issues with this paragraph. My recollection is that the Salinian granitoids are not significantly different radiogenically from the Sierra Nevadan rocks (as seemingly implied here in the context of the previous paragraph). Also, the high uplift rates mentioned from Ducea et al., 2003 is probably from an area of atypically high exhumation rates-the preservation of the Crystal Knob volcanic rocks indicates that erosion rates are much lower in this particular spot than where Ducea et al. observed. The final sentence suggests that the minuscule amount of lava associated with Crystal Knob would affect the geotherm in a measurable way-this is probably demonstrably false.
+</p>
+
+
+<p class="comment">
+549-558. I don't understand the logic about surface heat flows representing a maximum limit on mantle lithosphere geothermal gradients. Has this concept been explored before? If so, a reference would be good here... I think there is a lot of speculative material that should just be cut. Just say that surface heat flows in the Coast Ranges are 70-90 mW/m2 and leave it at that. Speculatively trimming 10 mW/m2 off makes no difference considering the large uncertainties (e.g. figure 16). This whole section (3.2) can be trimmed down significantly-the essential message is given in lines 658-660.
+</p>
+
+
+<p class="comment">
 Figure 16 caption. "fields" not "field"
-
-642. kmntle  650, 669, 679, maybe elsewhere: heat flow values (units of
-mW/m2) are not geotherms and should not be referred to as such.
-
-667. "crust Section 3.1"
-
-728-729. This statement seems to be contradicted by the sentence at
-741-742.
+</p>
 
 
+<p class="comment">
+Line 642. kmntle  650, 669, 679, maybe elsewhere: heat flow values (units of mW/m2) are not geotherms and should not be referred to as such.
+</p>
+
+
+<p class="comment">
+Line 667. "crust Section 3.1"
+</p>
+
+
+<p class="comment">
+728-729. This statement seems to be contradicted by the sentence at 741-742. "That" instead of "and?"
+</p>
 
