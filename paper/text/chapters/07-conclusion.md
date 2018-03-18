@@ -26,7 +26,7 @@ aligns this scenario with the Neogene geodynamics of coastal California
 [@Atwater1998; @Wilson2005], and suggests an explanation for the lack of
 large-volume magmatism associated with this slab window.
 
-## Geodynamic implausibility of the Neogene stalled slab{#sec:stalled-slab-bad}
+## Geodynamic implausibility of the Neogene stalled slab {#sec:stalled-slab-bad}
 
 The Monterey plate nucleated along a ~250 km segment of the Pacific-Farallon
 ridge as an oblique rift that was rotated ~25º clockwise from the
@@ -219,15 +219,16 @@ observational data on intra-continental transform faults [@Platt2011;
 kilometers laterally in the lower crust and upper mantle
 [@fig:neogene_sections|c].
 
-Plio-Pleistocene eruptions of small-volume basalts elsewhere in
-the Coast Range belt are associated with the traces of active faults. This
-includes the Coyote Lake pipe [@fig:context], which occurred ~150 km north of
-Crystal Knob along the San Andreas-Calaveras fault bifurcation zone and
-entrained lower crust and upper mantle xenoliths [@Jove1998; @Titus2007]. As
-at Crystal Knob, xenoliths recovered from these flows record partial melting of
-the mantle markedly post-dating any possible slab window opening. The deep
-extensional transients implied by these eruptions may have played a role in
-generating the Crystal Knob basalts as well.
+Elsewhere in the Coast Ranges, Plio-Pleistocene eruptions of
+small-volume basalts are associated with the traces of active faults.
+This includes the Coyote Lake pipe [@fig:context], which occurred ~150
+km north of Crystal Knob along the San Andreas-Calaveras fault
+bifurcation zone and entrained lower crust and upper mantle xenoliths
+[@Jove1998; @Titus2007]. As at Crystal Knob, xenoliths recovered from
+these flows record partial melting of the mantle markedly post-dating
+any possible slab window opening. The deep extensional transients
+implied by these eruptions may have played a role in generating the
+Crystal Knob basalts as well.
 
 Conclusion
 ==========
