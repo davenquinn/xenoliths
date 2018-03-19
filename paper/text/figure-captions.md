@@ -256,7 +256,7 @@ geologic features in coastal California. Model tracers begin at 10 and
 45 km beneath the seafloor and are advected to depths of 40 and 75 km during
 subduction over the first 1.04 Myr of the model run. **(c)** A Farallon-plate
 slab subducted and underplated during the late Cretaceous, as envisioned in
-@fig:cross_sections. While similar to the older models of **B**, it is tuned
+@fig:cross_sections. While similar to the older stalled-slab models, it is tuned
 for key thermobarometric constraints on subduction channel schists
 [@Kidder2003]. The effect of Mendocino slab window upwelling at the base of
 this section is shown, with timing equivalent to the replacement of the

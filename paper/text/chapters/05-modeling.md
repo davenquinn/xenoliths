@@ -27,15 +27,17 @@ scenarios presented above.
 
 To simulate both subduction and slab-window driven mantle underplating,
 the forearc geotherm is stacked atop a modeled sub-oceanic or asthenospheric
-geotherm and relaxed towards the present using finite-difference modeling. The
+geotherm and relaxed towards the present. The
 model is implemented in Python using the FiPy software package [@Guyer2009],
 combining explicit and implicit finite difference approaches using a two-sweep
 technique [@Crank1947] to ensure a stable result.  The model is run to a depth
 of 500 km to remove the effects of unknown mantle heat flux.
 
-The analytical Global Depth and Heat (GDH) model for oceanic crust [@Stein1992]
-and the @Royden1993a model for a forearc geotherm under continuing subduction
-provide evolving boundary conditions for scenarios **B** and **C**. More
+A mantle adiabat held at the base of the crust
+provides a static initial thermal structure for models of scenario **A**, while
+analytical models for the thermal evolution of oceanic crust [@Stein1992]
+and a forearc geotherm under continuing subduction [@Royden1993a]
+provide time-dependent boundary conditions for scenarios **B** and **C**. More
 information about model setup and integration is given in
 @sec:model_supplement.
 
@@ -109,7 +111,7 @@ hypothetical northward lateral translation on a shallowly-dipping
 arrested subduction megathrust.
 The potential thermal effects of the required anhydrous shearing of the
 underplated oceanic lithosphere along a ~300 km flat displacement trajectory
-[see @sec:stalled-slab-bad] are not accounted for in model **B**. Instead, this
+\[see @sec:stalled-slab-bad\] are not accounted for in model **B**. Instead, this
 scenario is modeled simply as a young endmember stalled-slab scenario, with
 generation of mantle lithosphere beneath the oceanic spreading ridge at 27 Ma
 (corresponding to the chron 7 magnetic anomaly) and subduction shortly
@@ -123,8 +125,8 @@ field [@fig:model_comparison]. The Monterey plate subduction
 scenario likewise predicts a modern geotherm that matches the entrainment
 constraints on the Crystal Knob xenoliths. Without consideration of
 potential bias towards colder measurements in the modeled geotherms,
-this appears to match our xenolith data. When accounting for
-possible external effects [@sec:heat-flow and @sec:model_supplement],
+this appears to match our xenolith data. Accounting for
+possible external effects \[@sec:heat-flow and @sec:model_supplement\],
 it suggests a hotter geotherm than that derived
 from the thermobarometric constraints.
 
@@ -146,16 +148,16 @@ temperature constraint of 715ºC at
 25 km depth based on garnet-biotite thermometry of Salinia granites that lie
 tectonically above the subduction complex, and ~575ºC at 30 km depth based on
 garnet-biotite thermobarometry on the proximally underplated schist of Sierra
-de Salinas schist [@Ducea2003; @Kidder2006]. The subduction conditions and
+de Salinas [@Ducea2003; @Kidder2006]. The subduction conditions and
 mantle lithosphere structure implied by this scenario are shown in
 @fig:cross_sections.
 
-In model **C**, the age of subduction and underplating is taken as ~70 Ma, the
+In model **C**, the age of subduction and underplating is taken as  70 Ma,
 based on the youngest mica Ar/Ar ages for the Sierra de Salinas/Nacimiento
 Franciscan subduction complex [@Barth2003; @Grove2003; @Saleeby2007;
 @Chapman2010; @Chapman2016; @Chapman2016a]. Seafloor being subducted at that
 time was 40 Myr old [@Seton2012; @Liu2010]. In this tectonic scenario
-[@fig:neogene_sections|c and @fig:cross_sections], Farallon oceanic lithosphere
+\[@fig:neogene_sections|c and @fig:cross_sections\], Farallon oceanic lithosphere
 continued to subduct after mantle nappe detachment until the Pacific--Farallon
 spreading ridge encountered the trench in the Neogene. In the thermal model
 [@fig:model_results], the underplated mantle nappe(s) cool beneath the forearc

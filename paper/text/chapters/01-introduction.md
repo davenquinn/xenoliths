@@ -36,10 +36,9 @@ coast [@Hall1991; @Barth2003; @Kidder2006; @Ducea2009; @Chapman2012;
 margin of Salinia, adjacent to the Nacimiento fault [@fig:context], a
 polyphase shear zone which, in its original geometry, constituted the
 local structural base of the Salinian crystalline nappe sequence
-[@Hall2013]. The Franciscan accretionary complex and its local veneer of
-Salinia crystalline nappes have central Coast Ranges
-has been composed of the  has been The Crystal Knob xenolith suite
-samples the uppermost mantle beneath this extended 
+[@Hall2013]. The Crystal Knob xenolith suite
+samples the uppermost mantle beneath the Franciscan accretionary complex and its local veneer of
+Salinia crystalline nappes.
 
 <!--[[[fig:context]]]-->
 

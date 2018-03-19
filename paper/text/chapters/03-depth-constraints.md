@@ -41,11 +41,22 @@ advection. @Kennedy1997 shows the presence of mantle fluids in the San Andreas
 fault zone, suggesting that deep fluid transport along fracture networks may
 contribute to anomalously high surface heat flow in the Coast Ranges.
 
-Together, these factors suggest that conductive geotherms anchored by surface
-heat flows represent a maximum limit on geothermal gradients in the mantle
-lithosphere. Speculatively, 70-90 mW/m^2 surface heat flows in the Coast Ranges
-may correspond to conductive components of ~60-80 mW/m^2 that more accurately
-model the deep lithospheric geotherm.
+Estimates of the thermal state of the deep lithosphere derived from
+seismic tomography show cooler geotherms than predicted by conductive
+extrapolation of surface heat flow, with temperatures of 700--1100ºC
+occurring at depths of 50--100 km beneath coastal California
+[@Goes2002]. @Li2007 estimates the depth of the
+lithosphere-asthenosphere boundary to be ~70 km in the southern Coast
+Ranges. With a lithosphere-asthenosphere boundary at 1200-1300ºC [e.g.
+@OReilly2010; @Fischer2010], this corresponds to steady-state geotherms
+of 70-80 mW/m^2.
+
+Non-convective crustal heat transport mechanisms and external tomographic
+constraints suggest that conductive geotherms anchored by surface heat
+flows are maximum limits on geothermal gradients in the mantle
+lithosphere. Speculatively, 70-90 mW/m^2 surface heat flows in the Coast
+Ranges may correspond to conductive components of ~60-80 mW/m^2 that
+more accurately model the deep lithospheric geotherm.
 
 ## Depth constraints from Crystal Knob xenoliths
 
@@ -187,19 +198,19 @@ center of the depth distributions extracted using Ca-in-olivine barometry.
 
 ## Discussion of xenolith geothermal constraints
 
-Multiple techniques yield broad, overlapping boundaries on the depth of origin
-of the Crystal Knob xenoliths.  These depths must be greater than
-30 km, the depth to the Moho, and less than 60-90 km based on the
+The depth of origin of the Crystal Knob xenoliths can be estimated
+by several techniques. The xenoliths must originate deeper than
+30 km, the depth to the Moho, and shallower than 60-90 km based on the
 composition-dependent lower boundary of the spinel stability field.
 Ca-in-olivine barometry suggests tighter constraints near the center of the
 spinel stability field.
 
 For reasonable slopes of the geotherm beneath the Coast Ranges, the
 temperatures recorded by Crystal Knob suggest entrainment over a depth range of
-5-10 km within the mantle lithosphere, with the hotter samples sourced from
-deeper depths. This structure of the dataset is confirmed by Ca-in olivine
+5-10 km within the mantle lithosphere, with the hotter samples more
+deeply sourced. This dataset structure is confirmed by Ca-in olivine
 barometry. Model depths of 45-55 km from steady-state geotherms agree with
-xenolith thermobarometry, but might be underestimates due to potential
+xenolith thermobarometry but might be underestimates due to potential
 non-conductive heat transfer through the crust [@sec:heat-flow]. Given the
 bias of both Ca-in-olivine and heat-flow measurements towards shallower depths,
 we suggest the depth range of 45-75 km as the likely entrainment depth for the
@@ -207,15 +218,7 @@ Crystal Knob xenoliths, corresponding to ~65-90 mW/m^2 conductive geotherms.
 
 This assessment of relatively deep entrainment of the Crystal Knob xenoliths
 along a fairly "cool" lithospheric geotherm conforms to constraints from
-independent studies. Estimates of the thermal state of the deep lithosphere
-derived from seismic tomography show temperatures of 700--1100ºC occurring at
-depths of 50--100 km for coastal California [@Goes2002], corresponding to
-cooler geotherms than predicted by surface heat flow alone. More recent
-estimates put the depth of the lithosphere-asthenosphere boundary at roughly 70
-km in the southern Coast Ranges [@Li2007]. Given estimates that the
-subcontinental lithosphere-asthenosphere boundary occurs at 1200-1300ºC [e.g.
-@OReilly2010; @Fischer2010], this corresponds to steady-state geotherms of
-70-80 mW/m^2.
+independent studies.
 
 ## Geochemical variation with depth and temperature {#sec:PT-geochemical-variation}
 

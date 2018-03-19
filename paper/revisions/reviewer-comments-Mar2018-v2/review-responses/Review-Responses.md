@@ -91,6 +91,25 @@ surface heat flow component is from the deep lithosphere? Just say that.
 Otherwise this sounds like the deep lithosphere is 60-80 mW/m2 and
 somehow the surface has an additional 10. </p>
 
+<p class="comment">This seems like it fits better in sect. 3.1
+<span class='response fixed'>Agreed, I moved this discussion to that
+section</span>
+</p>
+
+<p class="comment">why not start the discussion of the 3 scenarios with A? 
+<span class='response fixed'>yeah good point, fixed</span>
+</p>
+
+<p class="comment">
+use same lettering scheme (upper vs lower case) in figure and caption.
+<span class='response partial'>I'll let the journal proofers handle this
+one, since I'm not sure what's correct</span>
+</p>
+
+<p class="comment">
+what would "a reasonable size" be?
+what is the volume? add it here.
+</p>
 
 ## Reviewer #3
 
@@ -131,6 +150,9 @@ Line 13. Delete "crucially" (overly dramatic, crucially important for
 who? A few dozen people interested in the precise origins of the mantle
 lithosphere beneath a sparsely populated part of of Southern
 California?)
+<span class='response fixed'>Agreed — but what's the world without a little
+self-aggrandizement?</span>
+
 </p>
 
 <p class='comment'>

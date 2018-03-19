@@ -50,7 +50,7 @@ hypothetical extension east of the San Andreas fault requires that this
 subduction interface likewise extended eastwards beyond the San Andreas fault
 [e.g. @Brocher1999; @tenBrink1999; @Pikser2012]. Seismological, geodynamic, and
 surface geological evidence presented here argues against models invoking
-horizontal translation of the Monterey plate "remnant slab”, beneath both the
+horizontal translation of the Monterey plate "remnant slab” beneath both the
 Coast Ranges and Central Valley.
 
 The future Crystal Knob eruption site sits above the Pacific-Farallon
@@ -66,7 +66,7 @@ hypothesized to have driven dextral transrotational rifting of the
 southern California borderland [@Nicholson1994; @Bohannon1995].
 
 As western Transverse Range crustal panels rotated to their current position at
-the end of borderland transrotation (~10 Ma), the Monterey plate was displaced
+the end of borderland transrotation (ca. 10 Ma), the Monterey plate was displaced
 northward along the San Gregorio-Hosgri fault system [@fig:context], which is
 aligned with the outer edge of the Farallon-Monterey slab window
 [@fig:reconstruction]. In conjunction with the sudden cessation of crustal
@@ -77,33 +77,34 @@ If the subducted portion of the Monterey Plate maintained its structural
 integrity following borderland transrotational rifting and was not cut by the
 San Gregorio-Hosgri fault, it would be translated northward beneath the Coast
 Ranges on a shallowly dipping fault surface (presumably, the remobilized
-subduction megathrust) to remain attached its Pacific plate abyssal fragment
-after ca. 10 Ma [@fig:neogene_sections|c]. This geometry has been proposed to
+subduction megathrust) along with its Pacific-plate abyssal fragment
+[@fig:neogene_sections|c]. This geometry has been proposed to
 extend beneath the entire Coast Ranges and east of the San Andreas fault [e.g.
-@tenBrink1999; @Pikser2012]. Although kinematically plausible, in theory, this
+@tenBrink1999; @Pikser2012]. Although kinematically plausible, this
 is unlikely based on dynamic factors: a large mantle mass at the base of the
 crust should cause transients in dynamic topography and brittle crustal
 deformation in response to coupling across the shallow fault. Such surface
 deformation patterns are not expressed north of the Transverse Ranges during
 the Neogene.
 
-Seismic data cited in support of a structurally continuous stalled slab consist
-of an 8-15 km thick, shallowly east-dipping mafic lower crustal layer that
-extends beneath central California from the offshore region into proximity of
-the San Andreas fault, thickening eastwards over Moho depths of ~12-30 km
-[@Brocher1999]. This layer purportedly represents the continuous surface of the
-stalled Monterey plate beneath coastal central California. Strong internal
-reflectivity within this layer [@Trehu1987; @Brocher1999], and sharp
-inflections in its upper surface [@Trehu1991], indicate that this mafic layer
-is internally deformed and imbricated, which accounts for its thickness
-exceeding typical oceanic mafic crust by a factor of two to three. Such
-imbrication and underplating require a basal detachment, which is most
-logically located at the underlying Moho. In this context, the regions’s
-lower-crustal mafic layer is more plausibly interpreted as a regional
-underplated duplex of Farallon plate oceanic crustal nappes that accreted
-during Franciscan subduction [@fig:neogene_sections|c].
+Seismic tomography of central California [@Trehu1987] suggests a 8-15 km
+thick, shallowly east-dipping mafic lower crustal layer that extends
+from the offshore region towards the San Andreas fault, thickening
+eastwards over Moho depths of ~12-30 km. This layer could represents the
+continuous surface of the stalled Monterey plate beneath coastal central
+California [@Brocher1999]. However, strong internal reflectivity within
+this mafic layer [@Trehu1987; @Brocher1999] and sharp inflections in its
+upper surface [@Trehu1991] indicate that it is internally deformed and
+imbricated. It is accordingly two to three times as thick as typical
+mafic oceanic crust. Such imbrication and underplating require a basal
+detachment, which is most logically located at the underlying Moho. In
+this context, the regions’s lower-crustal mafic layer is more plausibly
+interpreted as a regional underplated duplex of Farallon plate oceanic
+crustal nappes that accreted during Franciscan subduction
+[@fig:neogene_sections|c].
 
-Distinct steps and inflections in lower-crustal velocity structure across San
+Distinct steps and inflections in lower-crustal velocity structure
+across the San
 Gregorio-Hosgri fault system [@Brocher1999] indicate that it cuts the entire
 crust, likely forming the eastern boundary of the underplated Monterey plate.
 Additionally, offshore seismic observations show a ~16º eastward-dipping
@@ -129,9 +130,9 @@ mobilized mantle wedge, or mantle lithosphere, of the southern Sierra Nevada
 batholith [@Zandt2004; @Frassetto2011; @Gilbert2012; @Saleeby2012; @Jones2014;
 @Levandowski2015]. These studies show structural continuity between the seismic
 anomaly and the residual mantle lithosphere that is still in place beneath the
-Central Valley and Sierra Nevada [@fig:context] and suggest that the volume of
-the Isabella anomaly far exceeds the reasonable size of an attenuated terminus
-of a hypothetical translated Monterey slab. These studies also provide
+Central Valley and Sierra Nevada [@fig:context] and suggest that the 200
+km--deep by 100 km--wide Isabella anomaly far exceeds the reasonable
+size of an attenuated terminus of the Monterey Plate. These studies also provide
 mechanisms for lower crustal plastic deformation, observable surface faulting,
 upper mantle--lower crustal partial melting and dynamic topographic effects
 that are ignored in the stalled-slab hypothesis.
@@ -205,7 +206,7 @@ a potential reservoir of melt beneath the Coast
 Ranges, the event itself (along with other Plio-Pleistocene volcanic eruptions
 in the Coast Ranges) was likely more immediately triggered.
 
-Rapid uplift of the central California coastal region at ~2 Ma [@Ducea2003b]
+Rapid uplift of the central California coastal region at ca. 2 Ma [@Ducea2003b]
 may have caused decompression of the lower lithosphere. However, Neogene
 dextral faulting provides a more localized mechanism for transient
 decompression leading to small-volume melting of the mantle lithosphere.
@@ -234,9 +235,9 @@ Conclusion
 
 The lithospheric structure of southern California, to first order created by
 Cretaceous convergent margin tectonics, was severely
-overprinted by two subsequent tectonic episodes, with the impact and
+overprinted by two subsequent tectonic episodes: the impact and
 subduction of the Shatsky Rise large igneous province conjugate during
-the Late Cretaceous and the progressive evolution of a transform
+the Late Cretaceous, and the progressive evolution of a transform
 boundary in the Neogene. These episodes have remade the crustal
 architecture of southern California and the central California Coast Ranges
 outboard of the San Andreas Fault. Using constraints from the Crystal
@@ -245,8 +246,8 @@ that the mantle lithosphere beneath the central California coast was created
 during the late Cretaceous and heated by an asthenospheric pulse in the
 Neogene.
 
-The Crystal Knob xenolith suite was erupted at 1.65 Ma and is sourced along
-a depth gradient from ~45-75 km depth. It has the isotopic signature of the
+The Crystal Knob xenolith suite was entrained along
+a depth gradient from ~45-75 km and erupted at 1.65 Ma. It has the isotopic signature of the
 depleted convecting mantle, which is typical of mid-ocean ridges or
 shallowly-ascended asthenosphere. Samples are variably depleted by partial
 melting, and trace-element re-enrichment (and a single example of likely
@@ -272,11 +273,11 @@ strongly favor the Late Cretaceous mantle duplex underplating scenario,
 with reheating by a deep slab window in the Neogene.
 
 A late-Cretaceous origin of the mantle lithosphere beneath the Coast Ranges
-matches crustal geologic constraints demonstrating slab rollback and regional
+matches crustal geologic evidence of slab rollback and regional
 extension during the Late Cretaceous, as the Shatsky Rise conjugate
 subducted deeper into the mantle following its initial collision and shallow
 subduction beneath the southern California convergent margin. This episode
-built the mantle lithosphere beneath the Mojave province by mantle duplexing
+built the mantle lithosphere beneath the Mojave province by duplexing
 during the retreat of the Farallon Plate subducting slab [@Luffi2009], and
 appears to have subsequently built the outboard mantle lithosphere beneath the
 Crystal Knob eruption site.
