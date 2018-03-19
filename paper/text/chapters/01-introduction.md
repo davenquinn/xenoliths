@@ -16,7 +16,7 @@ geophysical and modeling studies of the mantle lithosphere and a well-developed
 literature on the tectonic and petrogenetic development of the overlying
 crust.
 
-The Crystal Knob xenolith locality samples a crucially important
+The Crystal Knob xenolith locality samples an important
 lithospheric column through the Late Cretaceous convergent margin of the
 North American Cordillera. This regionally extensive belt includes a
 voluminous continental magmatic arc, generated as the Farallon oceanic
@@ -172,11 +172,11 @@ heat flows in the Coast Ranges are more favorable for this scenario
 We propose a third model that accounts for the regional crustal geology.
 Reconstructed for Neogene offset, the lithospheric block hosting Crystal
 Knob was directly outboard of the Dish Hill locality [@fig:context], at
-which underplated Farallon mantle nappes were discovered to form the
-mantle lithosphere beneath much of the Mojave Desert. Accordingly, the
-mantle lithosphere beneath the Coast Ranges may be composed of
-additional underplated Farallon mantle nappes outboard of the Dish Hill
-mantle duplex. Given its outboard position, this lithospheric mantle
+which underplated Farallon nappes were discovered to form the
+mantle lithosphere beneath much of the Mojave Desert [@Luffi2009]. Accordingly,
+the mantle lithosphere beneath the Coast Ranges may be composed of outboard
+equivalents of these underplated nappes. Given its position
+near the edge of the continent, this lithospheric mantle
 underplated during the Cretaceous would have been strongly affected by
 ridge subduction in the Neogene [@Wilson2005].
 
