@@ -144,12 +144,13 @@ anomaly [@Ducea1998b; @Farmer2002; @Saleeby2013; @Cecil2014; @Levandowski2015].
 The surface effects of Monterey plate partial subduction, followed by
 transtensional coupling to the Pacific plate, are closely correlated to
 transrotational rifting in the southern California Borderland and the linked
-clockwise rotation of western Transverse Ranges bedrock panels [@Bohannon1995;
-@Wilson2005]. This is in line with the Monterey slab’s limited down-dip extent
-as bounded by the Monterey-Farallon slab window segment shown in
-@fig:reconstruction. If the hypothetical Monterey "relict slab" were of proper
-proportion to form the Isabella anomaly, then why were its effects on surface
-geology restricted to the Borderland and Transverse Ranges? Epeirogenic
+clockwise rotation of the western Transverse Ranges [@Bohannon1995;
+@Wilson2005]. This supports a Monterey slab with a limited down-dip extent,
+bounded by the Monterey-Farallon slab window segment
+[@fig:reconstruction]. If the hypothetical Monterey "relict slab" extended
+far enough inland to form the Isabella anomaly, its effects on surface
+geology should not be restricted to the Borderland and Transverse
+Ranges. Epeirogenic
 transients that correlate to the convective mobilization of the sub-Sierran
 mantle lithosphere as the Isabella anomaly are highly out of phase with the
 predicted translation pattern for a deep Monterey slab [@Saleeby2013;
@@ -200,8 +201,8 @@ deeply-sourced, small-volume eruptions such as Crystal Knob.
 
 ## The timing of the Crystal Knob eruption {#sec:crystal_knob_eruption}
 
-The thermal transient recorded by the ~1.65 Ma eruption of the Crystal Knob
-pipe is much more recent than the mid-Miocene slab window upwelling. Even with
+The thermal transient recorded by the ca. 1.65 Ma eruption of the Crystal Knob
+pipe is much more recent than the mid-Miocene onset of the slab window. Even with
 a potential reservoir of melt beneath the Coast
 Ranges, the event itself (along with other Plio-Pleistocene volcanic eruptions
 in the Coast Ranges) was likely more immediately triggered.

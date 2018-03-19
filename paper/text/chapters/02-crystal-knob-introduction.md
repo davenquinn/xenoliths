@@ -1,4 +1,4 @@
-# Crystal Knob xenolith locality
+# The Crystal Knob xenolith locality
 
 The Crystal Knob volcanic neck (35.806º N, 121.174º W) is a Pleistocene
 olivine--plagioclase phyric basalt that erupted along the margin of the

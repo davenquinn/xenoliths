@@ -68,9 +68,10 @@ Mineral classification images of each sample (1" round thin section)
 created manually atop coregistered electron backscatter and optical
 imagery, showing the textural variation within Crystal Knob spinel
 peridotites. The variable clinopyroxene abundances correspond to
-fertility. A late-stage melt channel cuts diagonally across the
-bottom-right quadrant of CK-4 (dark gray line). These classifications
-form the basis of modal abundance data [@fig:modes].
+fertility. A melt channel cutting diagonally across the
+bottom-right quadrant of CK-4 (dark gray line) is the most significant
+textural signature of late-stage melt-interaction in the sample set.
+These classifications form the basis of recalculated modal abundances [@fig:modes].
 
 ##step_heating
 

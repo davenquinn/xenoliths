@@ -158,60 +158,107 @@ self-aggrandizement?</span>
 <p class='comment'>
 Line 20. Reference issue "Chapman, 2016; Chapman et al., 2016a", these
 should be a and b??line 43.
+<span class='response partial'>Maybe, but they are different authors (no
+et al. on the first one). This is automatically handled by the AGU
+reference style so I assume it does what they want</span>
 </p>
 
 <p class='comment'>
 Loose language here: Seismic reflections
 shows what is *interpreted to be* a former megathrust.
+<span class='response fixed'>Fixed</span>
 </p>
 
 <p class="comment">
 Line 44 of "and?"
+<span class='response fixed'>Fixed</span>
 </p>
-
 
 <p class="comment">
 Line 115. "Alternatively suggests"? Instead of "suggests"?
+<span class='response fixed'>Reworked this section significantly</span>
 </p>
 
 
 <p class="comment">
 Line 139. These would be "thick" sections if that thickness is accurate. But I think from figure three that the sections must be a lot closer to standard thickness of 30 microns.
+<span class='response fixed'>I am really not sure where I got the 250 µm
+number from...that's absurdly thick, thank you for catching.</span>
 </p>
 
 
 <p class="comment">
 Figure 1 caption. Why does it say "see also 17"? Also should say "the modern" (missing "the")
+<span class='response fixed'>Fixed</span>
 </p>
 
 
 <p class="comment">
 There are some labeling problems in Figure 1. It shows a lot of light grey "late cenozoic volcanic rocks" in Salinia and elsewhere where volcanic rocks aren't actually found. I think light grey should be labeled metamorphic framework?? Also there is a light purple color (very similar to the light grey) in the Southern Sierra Nevada and elsewhere that isn't defined in the key.
+<span class='response fixed'>Yes this is right! I had 'metamorphic pendant' colored
+light gray when it should have been grouped with metamorphic, and "mafic
+volcanics" were mapped separately as light purple when I had intended to
+split those in the Jurassic ophiolite out from Neogene volcanics and
+group accordingly. I made this change in GIS but hadn't propagated it to
+the figure. Thanks for noticing, that was quite a subtle but clear
+problem. Labels should now correspond to the rocks across the map.
+</span>
 </p>
 
 
 <p class="comment">
 Figure 5 caption. The bottom right quadrant of ck4 looks just like portions of the other samples. Are we supposed to be able to identify the "melt channel"? If not, why is it mentioned? If so, It isn't evident to this reader.
+<span class='response fixed'>Added some explanatory text for both the
+feature itself (dark grey trace) and why it is called out</span>
+
 </p>
 
 
 <p class="comment">
 Figure 4 not mentioned in text before figure 5
+<span class='response fixed'>The order of these was flipped in the
+line-numbered version that went to you. Sorry.</span>
 </p>
 
 
 <p class="comment">
-Line 157. 157. "and emphasizing" 179. "dunites fragments"
+Line 157. "and emphasizing"
+<span class='response fixed'>Fixed</span>
 </p>
+
+<p class="comment">
+Line 179. "dunites fragments"
+<span class='response fixed'>Fixed</span>
+</p>
+
 
 
 <p class="comment">
 Line 220. what are "parallel domain boundaries" and their significance? Provide a reference or figure. Googling this, it doesn't seem to be a common thing... Do you mean large, parallel, subgrain-boundaries cutting across grains?
+<span class='response fixed'>Yes, that is what I mean, but the important
+point is the low axial rotation between crystal domains, and the large
+size of the domains. The parallel sides are less important but related.
+I simply removed, and discussed size instead.</span>
 </p>
 
 
 <p class="comment">
 259-260., 327-328 and elsewhere. I'm quite dubious regarding the significance of the calculated whole rock values given the very small areas upon which the modal work is estimated (figure 5).
+<span class='response rejected'>
+Yes, this is an issue, but this is a pretty standard technique for
+xenoliths that yields good results in comparison to XRF measurements
+(e.g. Luffi, 2009), although it is often challenging to do both on a
+single xenolith. You're right that large variations in the amount of
+CPX modally estimated could swing the total significantly, but in practice the
+amount of REE is consistent within phases in a single sample. Further,
+the size of the domain measured is a significant fraction of the overall
+size of each xenolith sample. For all samples except CK-3, many grains
+are intersected by our thin section slide, yielding a fairly robust
+modal measurement. For CK-3, totals are less certain but the fact that
+there is very little cpx (the main REE reservoir) is dependable. REE
+totals are good enough for our coarse modeling efforts here,
+but you wouldn't want to push too far into subtleties certainly.
+</span>
 </p>
 
 

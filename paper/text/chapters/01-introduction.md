@@ -56,16 +56,16 @@ southernmost Sierra Nevada batholith and northwestern
 southern California batholith [@Wood1997; @Saleeby2003; @Barbeau2005;
 @Chapman2012]. 
 
-The southernmost Sierra Nevada batholith is exhumed,
-with granitic rocks at the surface originating at
-shallow to medial crustal depths (2 to 4 kb pressure) in the bulk of the
-batholith grading towards deep crustal levels (10 kb) at its southernmost
-reaches [@Ague1988a; @Nadin2008].
-Seismic reflection imaging shows an effectively flat megathrust beneath the
-western Mojave plateau [@Yan2005] and dips of ~30ºN beneath the southernmost
-Sierra Nevada [@Malin1995]. This inflection aligns with increasing exhumation
-of the batholith and is interpreted as a lateral ramp towards a "flat slab"
-beneath the Mojave province, atop which the southern California batholith was
+The southernmost Sierra Nevada batholith is exhumed, with granitic rocks
+at the surface originating at shallow to medial crustal depths (2 to 4
+kb pressure) in the bulk of the batholith grading towards deep crustal
+levels (10 kb) at its southernmost reaches [@Ague1988a; @Nadin2008].
+Seismic imaging shows a strong reflector which is effectively flat
+beneath the western Mojave plateau [@Yan2005] and dips ~30ºN beneath the
+southernmost Sierra Nevada [@Malin1995]. This inflection aligns with
+increasing exhumation of the batholith and is interpreted as the relict
+megathrust surface, with a lateral ramp towards a "flat slab" beneath
+the Mojave province, atop which the southern California batholith was
 dispersed and truncated [@Saleeby2003; @Chapman2016b]. The Garlock fault
 [@fig:context] nucleated along this inflection during the early Miocene
 [@Saleeby2016].
