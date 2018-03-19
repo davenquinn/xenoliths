@@ -1,6 +1,6 @@
 # Crystal Knob xenolith locality
 
-The Crystal Knob volcanic neck (35.806º N, 121.174º W) is a mid-Pleistocene
+The Crystal Knob volcanic neck (35.806º N, 121.174º W) is a Pleistocene
 olivine--plagioclase phyric basalt that erupted along the margin of the
 Franciscan assemblage 500 m west of the Nacimiento Fault in the Santa Lucia
 Mountains of central California [@Seiders1989]. It was described in
@@ -16,8 +16,8 @@ lithosphere.
 
 <!--[[[fig:field_photo]]]-->
 
-Samples were collected from the Crystal Knob lava with an
-emphasis on these polyphase peridotite xenoliths. Xenolith samples are 5-10 cm
+Samples were collected from the Crystal Knob basalt with an
+emphasis on the polyphase peridotite xenoliths. Xenolith samples are 5-10 cm
 diameter friable peridotites with 200 µm -- 1 mm grains. Additionally, samples
 of the host basalt and dunite cumulates were collected to establish context for
 the xenoliths.

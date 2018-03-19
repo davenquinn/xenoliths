@@ -24,12 +24,12 @@ Knob source locale at 19 Ma \[see also @fig:reconstruction\].
 ##microscope-images
 
 Optical petrographic images (2.5 mm wide field of view) showing characteristic
-textures of the xenolith samples and basaltic host. (a) shows sample CK-D2,
+textures of the xenolith samples and basaltic host. **(a)** Sample CK-D2,
 with the edge of a cumulate xenolith composed of equant olivine (ol) grains
 (~200 µm characteristic scale) set against a host lava groundmass containing
 <100 µm phenocrysts of olivine, pyroxene, and plagioclase feldspar.
-(b) shows the spinel lherzolite sample CK-4 with >2 mm olivine, orthopyroxene
-(opx), clinopyroxene (cpx), and spinel (sp). (c) shows sample CK-D2, with
+**(b)** The spinel lherzolite sample CK-4 with >2 mm olivine, orthopyroxene
+(opx), clinopyroxene (cpx), and spinel (sp). **(c)** Sample CK-D2, with
 a single large orthopyroxene crystal with augite exsolution lamellae and
 containing an olivine inclusion juxtaposed against dunite cumulate material
 consisting of mosaic-textured olivine grains.
@@ -64,39 +64,40 @@ Mg\#, with Mg\# 75 material in the outermost 30 µm of the grain.
 
 ##textures
 
-Mineral classification images of each sample (1" round thin section) created
-manually atop coregistered electron backscatter and optical imagery, showing
-the textural variation within Crystal Knob spinel peridotites. The variable
-clinopyroxene abundances corresponding to fertility are clearly visible, and
-a late-stage melt channel cuts diagonally across the bottom-right quadrant of
-CK-4. These classifications form the basis of modal abundance data
-[@fig:modes].
+Mineral classification images of each sample (1" round thin section)
+created manually atop coregistered electron backscatter and optical
+imagery, showing the textural variation within Crystal Knob spinel
+peridotites. The variable clinopyroxene abundances correspond to
+fertility. A late-stage melt channel cuts diagonally across the
+bottom-right quadrant of CK-4 (dark gray line). These classifications
+form the basis of modal abundance data [@fig:modes].
 
 ##step_heating
 
 Step-heating results for \ce{^{40}Ar}/\ce{^{39}Ar} dating of the Crystal Knob
-host basalt, with a broad plateau for 1.65 Ma and an overall average of 1.71
+host basalt, with a broad plateau for 1.65 Ma and an average of 1.71
 Ma.
 
 ##major_elements
 
 Major-element compositional data for the Crystal Knob spinel peridotites and
 host lavas. The data is colorized by sample in a consistent scheme used until
-@fig:depth. (a) FeO vs. MgO measured by electron microprobe for grain cores,
+@fig:depth. **(a)** FeO vs. MgO measured by electron microprobe for grain cores,
 showing range in major-element depletion between samples. Dotted lines show
-Mg\# levels. (b) Mg\# (total iron basis) vs. \ce{SiO2} for the
+Mg\# levels. **(b)** Mg\# (total iron basis) vs. \ce{SiO2} for the
 silicate phases in the Crystal Knob peridotite xenoliths. This shows the
 range in major-element depletion between samples, including the low Mg\# of
-CK-6, the most fertile sample. (c) Spinel Cr# vs. Mg# (corrected based on
+CK-6, the most fertile sample. **(c)** Spinel Cr# vs. Mg# (corrected based on
 cation charge balance) showing grouping of samples by Cr content, corresponding
 to different levels of depletion. The highest-Cr samples (CK-3 and CK-4) are
-harzburgite residues. Colors are by sample as labeled in (c).
+harzburgite residues. Colors are by sample as labeled in *(c)*.
 
 ##ca_in_olivine
 
-Ca abundance in olivine for xenolith samples, showing the per-sample
-separability of microprobe analyses (colored by sample) despite low measured
-abundances.
+Ca abundance in olivine for peridotite samples, showing elevated
+Ca in samples CK-3, CK-4, and CK-6.
+The significant scatter in microprobe analyses (colored by sample)
+is due to low measured abundances.
 
 ##spinel_cr
 
@@ -118,17 +119,17 @@ compositions are shown for comparison.
 
 ##trace_elements
 
-‌(a) Chondrite-normalized pyroxene rare-earth element abundances showing
+**(a)** Chondrite-normalized pyroxene rare-earth element abundances showing
 the range in depletion and re-enrichment in the Crystal Knob sample set.
-(b) Element-ratio proxies for depletion and re-enrichment of
+**(b)** Element-ratio proxies for depletion and re-enrichment of
 clinopyroxene rare-earth elements, showing that samples have a range of
-depletion characteristics and a variety of re-enrichment patters. Colors are by
-sample as labeled in (b).
+depletion characteristics and levels of re-enrichment. Colors are by
+sample as labeled in *(b)*.
 
 
 ##ree_model
 
-‌(a) Recalculated whole-rock trace elements for xenolith samples
+**(a)** Recalculated whole-rock trace elements for xenolith samples
 [@tbl:trace_elements_table] presented with best-fitting
 modeled compositions for depleted peridotite and enriching
 fluid, using the model discussed in text. The rare-earth compositions of
@@ -138,8 +139,8 @@ the modeled composition of the enriching fluids, which closely
 resemble alkali basalt for all samples.
 Sample CK-2 shows no excess enrichment, and
 a hypothetical re-enriching fluid composition is not calculated.
-(b) REE depletion and re-enrichment trends for xenolith
-samples derived from modeling in (a). For all samples, <1%
+**(b)** REE depletion and re-enrichment trends for xenolith
+samples derived from modeling shown in *(a)*. For all samples, <1%
 assimilation of alkali-basalt-like melt is
 required to explain the observed trends of REE re-enrichment.
 
@@ -154,11 +155,11 @@ creation. Colors are by sample.
 
 ##ree_temperatures
 
-REE thermometry of xenolith samples. (a) Per-element equilibrium temperatures
+REE thermometry of xenolith samples. **(a)** Per-element equilibrium temperatures
 with projection of best-fitting sample temperature as horizontal lines for each
 sample. Data points far from the horizontal line signify disequilibrium between
 pyroxene phases, and those outliers plotted with open circles are excluded from
-the fit. (b) Best-fitting REE temperatures for each sample with Gaussian error
+the fit. **(b)** Best-fitting REE temperatures for each sample with Gaussian error
 bounds, plotted against a kernel density distribution of TA98 major-element
 temperatures. Joint error distributions are created using a Monte Carlo
 approach for both error distributions. This approach shows significant
@@ -170,15 +171,16 @@ sample.
 
 ##temp_comparisons
 
-Comparison of results from pyroxene major-element thermometers. (a) Core and
-rim measurements (filled and open circles, respectively) for each sample using
-the @Taylor1998 thermometer. Samples CK-3, CK-4, and CK-7 show heating along
-grain rims, and the tightness of within-sample temperature scatter varies. (b)
-The strong linear relationship between the TA98 and BKN themometers is shown,
-with BKN consistently measuring temperatures 30-70º higher. (c)
-Ca-in-orthopyroxene temperatures against TA98, showing the reproduction of
-two temperature cohorts around 980 and 1080ºC by this thermometer for grain
-cores. Colors are by sample as labeled in (a). Grey lines show 1:1
+Comparison of results from pyroxene major-element thermometers. **(a)**
+Core and rim measurements (filled and open circles, respectively) for
+each sample using the @Taylor1998 thermometer. Samples CK-3, CK-4, and
+CK-7 show heating along grain rims, and the tightness of within-sample
+temperature scatter varies. **(b)** Temperatures from the TA98 and BKN
+thermometers showing a strong linear relationship, with BKN consistently
+measuring temperatures 30-70º higher. **(c)** Ca-in-orthopyroxene
+temperatures against TA98, showing the reproduction of two temperature
+cohorts around 980 and 1080ºC by this thermometer for grain cores.
+Colors are by sample as labeled in *(a)*. Grey lines show 1:1
 relationship.
 
 ##temp_summary
@@ -216,16 +218,16 @@ this data suggests that the samples were sourced from ~45--75 km depth.
 Temperature-depth profiles through the crust and upper mantle at key timesteps
 during the evolution of the three tectonic scenarios shown in
 @fig:model_tracers. Each profile represents a different model run based
-on the same scenario. (a) A shallow slab window scenario, with underplating of
+on the same scenario. **(a)** A shallow slab window scenario, with underplating of
 upwelling asthenosphere truncating a forearc geotherm at 24 Ma. This
 asthenosphere is held against the base of the crust from 0--6 Myr, accounting
 for the spread of models in the second panel. The final panel tracks all models
-to the present. (b) Stalled slabs of different ages, with panels
+to the present. **(b)** Stalled slabs of different ages, with panels
 corresponding to shared tectonic events, modeled at different times based on
 the timing of subduction and age of oceanic crust. Subduction is bracketed by
 T$_\textrm{start}$ and T$_\textrm{end}$, with T$_\textrm{start}$
 = T$_\textrm{end}$ -- 1.04 Myr for all cases. The youngest and hottest of
-these runs corresponds to the "Monterey plate" tectonic scenario. (c) Farallon
+these runs corresponds to the "Monterey plate" tectonic scenario. **(c)** Farallon
 Plate mantle lithosphere emplaced beneath the central California coast by
 mantle duplexing during the late Cretaceous [@fig:cross_sections] and reheated
 by a pulse of heat from below during the Miocene slab window
@@ -241,24 +243,24 @@ Temperature-time tracers for each modeled scenario, following the evolution of
 particles at final depths of 40 and 75 km in the model domain (dashed and solid
 lines, respectively), bracketing the boundary conditions of the Crystal Knob
 xenolith suite. All models conclude at 1.65 Ma, the eruptive age of the Crystal
-Knob xenoliths. (a) Upwelling-driven mantle lithosphere replacement to the base
+Knob xenoliths. **(a)** Upwelling-driven mantle lithosphere replacement to the base
 of the crust during the Mendocino slab window episode beginning at 24 Ma
 [@Wilson2005]. Asthenospheric mantle is held at the base of the crust for
 a period of time between 0 and 6 Myr to represent potential durations of active
-convection. (b) Oceanic lithosphere slices underplated at different times until
+convection. **(b)** Oceanic lithosphere slices underplated at different times until
 the cessation of Farallon-plate subduction in the Neogene. The youngest of
 these scenarios corresponds to the likely thermal evolution of a Monterey Plate
 stalled slab. The models with subduction times >30 Ma are included for
 completeness, though they do not correspond to specific events recorded by
 geologic features in coastal California. Model tracers begin at 10 and
 45 km beneath the seafloor and are advected to depths of 40 and 75 km during
-subduction over the first 1.04 Myr of the model run. (c) A Farallon-plate
+subduction over the first 1.04 Myr of the model run. **(c)** A Farallon-plate
 slab subducted and underplated during the late Cretaceous, as envisioned in
 @fig:cross_sections. While similar to the older models of **B**, it is tuned
 for key thermobarometric constraints on subduction channel schists
 [@Kidder2003]. The effect of Mendocino slab window upwelling at the base of
 this section is shown, with timing equivalent to the replacement of the
-entire mantle lithosphere represented in (a).
+entire mantle lithosphere represented in *(a)*.
 
 ##model_comparison
 
@@ -283,12 +285,12 @@ marginal mantle lithosphere at the end of subduction in the early Miocene.
 Forearc crust (orange) is generalized for late-Cretaceous inherited structure
 [see @fig:cross_sections], including Salina nappes and associated
 Franciscan-complex fragments.
-(a) Migration of the East Pacific mantle upwelling beneath the continental
+**(a)** Migration of the East Pacific mantle upwelling beneath the continental
 margin, forming a slab window and causing wholesale replacement of sub-Salinia
-mantle lithosphere with ascended asthenosphere. (b) Translation of the Monterey
+mantle lithosphere with ascended asthenosphere. **(b)** Translation of the Monterey
 plate stalled slab along the former subduction megathrust to a current position
 beneath the California Coast Ranges [after @Bohannon1995]
-(c) Mantle lithosphere beneath the Crystal Knob eruption site composed of
+**(c)** Mantle lithosphere beneath the Crystal Knob eruption site composed of
 underplated Farallon plate mantle nappes reheated at their base by the Neogene
 slab window. The Monterey plate fragment is translated along the Hosgri fault
 from the Transverse Ranges region, to have its lithospheric column juxtaposed

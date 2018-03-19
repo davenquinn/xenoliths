@@ -66,6 +66,31 @@ Who interpreted the extensional megathrust?
 list of refs in next sentence.</span>
 </p>
 
+<p class="comment">
+I still thinks this needs more clarification, especially for the
+dunites: how do cumulates, presumably from the magma chamber (in the crust) "establish context" for xenoliths from the mantle, a totally different and possibly unrelated source?
+<span class='response partial'>They establish context in that they are
+at least from the same magmatic system, and they are present with
+the peridotites in the same lava flow -- this is just a reason why we
+*collected* them since we didn't use them for serious geochemical
+analysis. I can't think of a better way to phrase it, since I lumped
+them with the host lava, which definitely contextualizes the xenos by
+giving them a date.
+</span>
+</p>
+
+<p class="comment">
+Model results confirm
+<span class='response fixed'>Reworded for less stridency.</span>
+</p>
+
+<p class="comment"> I find the heat flow discussion to still be
+confusing, and indirect. Presumably heat flow is higher in the deep
+lithosphere (i.e., mantle fluids are hot). Are you saying that 90% of
+surface heat flow component is from the deep lithosphere? Just say that.
+Otherwise this sounds like the deep lithosphere is 60-80 mW/m2 and
+somehow the surface has an additional 10. </p>
+
 
 ## Reviewer #3
 

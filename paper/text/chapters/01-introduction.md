@@ -165,10 +165,7 @@ restored position of of Crystal Knob above the Pacific-Farallon slab
 window [@Wilson2005] suggests that its upper mantle underpinnings may
 have originated as ascended asthenosphere, in a manner analogous to the
 eastern Sierra xenolith suite. Other workers [e.g. @Pikser2012] propose
-a shallowly-dipping stalled slab beneath the Coast Ranges. Low crustal
-heat flows in the Coast Ranges are more favorable for this scenario
-[@VanWijk2001; @Erkan2008], but this model is geodynamically untenable.
-
+a shallowly-dipping stalled slab beneath the Coast Ranges.
 We propose a third model that accounts for the regional crustal geology.
 Reconstructed for Neogene offset, the lithospheric block hosting Crystal
 Knob was directly outboard of the Dish Hill locality [@fig:context], at
