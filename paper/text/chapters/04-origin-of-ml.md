@@ -151,7 +151,7 @@ shown in @fig:context and @fig:reconstruction as windows into subduction channel
 "autochthon" for the Salinia nappes is likewise detached from its
 original mantle wedge underpinnings, and shingled into crystalline
 nappes that lie on underplated high-grade subduction channel schists
-[@Saleeby2003; @Chapman2010; @Chapman2012; @Chapman2016b]. Tectonic
+[@Saleeby2003; @Chapman2010; @Chapman2012; @Chapman2016]. Tectonic
 erosion of the mantle wedge followed by shallow subduction underplating
 of Franciscan rocks requires subsequent reconstruction of the current
 mantle lithosphere. @Luffi2009 and @Armytage2015 present
@@ -161,7 +161,7 @@ Farallon plate upper mantle nappes in structural sequence beneath an
 eastern residual roof of continental mantle lithosphere. Since the crustal
 structural sequence of the western Mojave region is closely
 spatially and temporally correlated to
-that of the Salinia nappes [@Chapman2010; @Chapman2012; @Chapman2016],
+that of the Salinia nappes [@Chapman2010; @Chapman2012; @Chapman2016a],
 it stands to reason that upper mantle duplex accretion progressed
 westwards from the Mojave region to beneath the Salinia nappes as well as the
 Nacimiento belt of the Franciscan Complex.

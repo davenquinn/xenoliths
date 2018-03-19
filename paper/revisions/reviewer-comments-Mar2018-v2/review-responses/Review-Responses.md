@@ -56,6 +56,16 @@ I would list these as scenarios A, B, and C to be consistent with the text. Then
 Reworded intro
 </p>
 
+<p class="response fixed">
+Degree signs and micrometers were screwed up by journal formatting.
+</p>
+
+<p class="comment">
+Who interpreted the extensional megathrust?
+<span class='response fixed'>Fixed wording to clarify link to the long
+list of refs in next sentence.</span>
+</p>
+
 
 ## Reviewer #3
 

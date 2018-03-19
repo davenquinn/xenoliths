@@ -13,14 +13,13 @@ previous xenolith studies are shown: the Central and Eastern Sierran suites
 show a record of delamination of a batholithic root [@Ducea1996] and Mojave
 sites show underplating of Farallon-plate lithospheric nappes during the
 Cretaceous [@Luffi2009]. The position of Crystal Knob is also shown, along with
-its reconstruction for dextral offset on the Neogene San Andreas transform
-system. Independent reconstructions using the regional paleomagnetic framework
-of @Wilson2005 and restoration of slip along San Andreas--system faults
-[@Dickinson2005] agree to within 5 km on the position of the Crystal Knob
-source locale at 19 Ma \[see also @fig:reconstruction\]. Crystal Knob can be
-restored to ~350 km SE of its current location, accounting for ~310 km
-displacement on modern San Andreas Fault and ~40 km remainder on the Rinconada
-fault within the area of Salinian nappes.
+its location prior to dextral offset on the Neogene San Andreas transform
+system. Crystal Knob restores to ~350 km SE of its current location, with ~310
+km displacement on the modern San Andreas Fault and ~40 km remainder on the
+Rinconada Fault. Independent reconstructions using the regional paleomagnetic
+framework of @Wilson2005 and restoration of slip along San Andreas--system
+faults [@Dickinson2005] agree to within 5 km on the position of the Crystal
+Knob source locale at 19 Ma \[see also @fig:reconstruction\].
 
 ##microscope-images
 
