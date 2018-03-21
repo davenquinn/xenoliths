@@ -2,82 +2,88 @@
 dir=$PROJECT_DIR/versioned/paper
 cd $dir
 
+source paper-components/defs.zsh
+
 # collect includes
 bin/collect-figures
 
-build_dir='build'
-
-body="$build_dir/draft_body.tex"
-texfile="$build_dir/draft.tex"
-
+build='build'
+body="$build/draft_body.tex"
+texfile="$build/draft.tex"
+bibfile="text/references.bib"
+defs="paper-components/defs"
+md_body="$build/body.md"
+body="$build/body.tex"
 name="Crystal-Knob-xenoliths"
-auxfile="$build_dir/$name.aux"
+auxfile="${texfile:r}.aux"
+abstract="build/abstract.tex"
+outfile="output/$name.pdf"
 
-function run-latex {
-  latexmk -xelatex -quiet -f -jobname=$name -output-directory=$build_dir $1
-}
-
-mkdir -p build
-
-source bin/defs.zsh
+mkdir -p $build
 
 echo "Converting markdown to latex"
 
-rm -f $body build/abstract.tex build/figure-list.tex
-# Process body text
-# Correct for pandoc-crossref annoyingness
-cat text/chapters/*.md \
-| text-pipeline \
-| sed -r 's/^\\section\{(Introduction)\}/\\invisiblesection\{\1\}/g' \
-> $body
-# Process abstract
-cat text/abstract.md \
-| text-pipeline \
-> build/abstract.tex
+rm -f $body $captions $md_body $abstract
 
-cp text/title-block.tex build
-
-cat text/key-points.md | text-pipeline > build/key-points.tex
-
+## Figure captions
 captions=build/figure-captions.tex
-
 cat text/figure-captions.md \
 | text-pipeline \
 > $captions
 
+# Process abstract
+cat text/abstract.md \
+| text-pipeline \
+> $abstract
+
+# Process body text
+echo "" > $md_body
+for fn in text/chapters/*.md; do
+  cat $fn >> $md_body
+  echo "\n\n" >> $md_body
+done
+
+cat $md_body \
+| sed -r 's/^\\section\{(Introduction)\}/\\invisiblesection\{\1\}/g' \
+| sed -r 's/<!--\[\[\[(.+)\]\]\]-->/\\inlinefigure\{\1\}/g' \
+| text-pipeline \
+| figurator inline \
+  text/includes.yaml \
+  --template-dir paper-components/includes \
+  --captions $captions \
+  --collect-dir collected \
+> $body
+
+cp text/title-block.tex build/title-block.tex
+
+cat text/key-points.md | text-pipeline > build/key-points.tex
 cat text/modeling-supplement.md \
 | text-pipeline \
 > build/modeling-supplement.tex
 
-# Making figure list
-figurator list \
-  text/includes.yaml \
-  --captions $captions \
-  --collect-dir collected \
-| sed -r 's/^\\section\{(.+)\}/\\invisiblesection\{\1\}/g' \
-> build/figure-list.tex
+cp $defs/draft.tex $texfile
+# Copy preamble
+cat "$defs/preamble"/*.tex > "$build/preamble.tex"
 
-cp source/draft.tex $texfile
+echo "Running latex"
+run-latex $texfile $outfile 2>/dev/null
 
 echo "Filtering bibliography"
-
 # Filter bibliography
 LIBRARY="/Users/Daven/Resources/Papers/library.bib"
-bib-filter --clean --aux $auxfile $LIBRARY $bibfile
+bib-filter --clean --protect-titles \
+  --aux $auxfile $LIBRARY $bibfile
 # rebuild citations
 bibtex $auxfile
 
 echo "Running latex"
 
-run-latex $texfile
-
-outfile="output/$name.pdf"
+run-latex $texfile $outfile 2>/dev/null
 
 mv "build/$name.pdf" "$outfile"
 
 tag --set paper-draft $outfile
 
-/usr/local/bin/gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default \
-    -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages \
-    -dRENDERTTNOTDEF=true \
-    -dCompressFonts=true -r150 -sOutputFile="output/${name}-compressed.pdf" $outfile
+run-latex $texfile $build 2>/dev/null
+scale-images $outfile "${outfile:r}-sm.pdf" "print"
+
