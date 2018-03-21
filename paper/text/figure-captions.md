@@ -37,15 +37,12 @@ consisting of mosaic-textured olivine grains.
 ##reconstruction
 
 Tectonic reconstruction of the California margin at 19 Ma showing the
-early evolution of the San Andreas transform system, offshore oceanic
-plates, and the reconstructed location of modern exposures of the
+early evolution of the San Andreas transform system, the evolving slab
+window and microplate detachment [after @Wilson2005], and the reconstructed
+location of modern exposures of the
 Cretaceous batholithic belt, the disaggregated Mojave--Salinia batholith,
-and surface outcrops of subduction channel schists in the Mojave province.
-Reconstruction of displaced features such as Salinia
-batholithic exposures from @Schott1998, @Schott2001, @Chapman2012, and @Dickinson2005
-is combined with reconstruction of the evolving slab window and microplate
-detachment after @Wilson2005. The Monterey plate ridge ceased spreading at
-20 Ma, and the labeled age which corresponds to @fig:neogene_sections|b.
+and surface outcrops of subduction channel schists in the Mojave province
+[after @Schott1998; @Schott2001; @Chapman2012; @Dickinson2005].
 
 ##isotopes
 
@@ -210,7 +207,7 @@ maximum spinel stability depth for spinel Cr content matching each sample
 represents P-T bounds of the potential xenolith source region based on
 thermobarometry and phase stability. Steady-state conductive geotherms for
 values of surface heat flow $q_0$ are plotted beneath the data, with 80-90
-mW/m^2 highlighted as maximum reasonable geotherms for the mantle. A dashed box
+\si{mW/m^2} highlighted as maximum reasonable geotherms for the mantle. A dashed box
 shows the extent of sample temperatures along these geotherms. The synthesis of
 this data suggests that the samples were sourced from ~45--75 km depth.
 
@@ -256,8 +253,8 @@ completeness, though they do not correspond to specific events recorded by
 geologic features in coastal California. Model tracers begin at 10 and
 45 km beneath the seafloor and are advected to depths of 40 and 75 km during
 subduction over the first 1.04 Myr of the model run. **(c)** A Farallon-plate
-slab subducted and underplated during the late Cretaceous, as envisioned in
-@fig:cross_sections. While similar to the older stalled-slab models, it is tuned
+slab subducted and underplated during the late Cretaceous [@fig:cross_sections].
+While similar to the older stalled-slab models, it is tuned
 for key thermobarometric constraints on subduction channel schists
 [@Kidder2003]. The effect of Mendocino slab window upwelling at the base of
 this section is shown, with timing equivalent to the replacement of the
@@ -268,10 +265,10 @@ entire mantle lithosphere represented in *(a)*.
 Comparisons of Crystal Knob eruptive (1.65 Ma) sub-Salinia geotherms for each
 of the modeled scenarios. The hottest model run of each group is highlighted,
 with cooler models of the same family shown with lower opacity.
-The model predictions are purely conductive geotherms, and arrows show the
-potential response of model geotherms to erosion [see @sec:model_supplement].
+The model predicts purely conductive geotherms, and arrows show
+potential response to erosion \[see @sec:model_supplement\].
 The background of the plot shows steady-state geotherms and the likely field of
-xenolith entrainment from @fig:depth.
+xenolith entrainment [@fig:depth].
 
 ##cross_sections
 Cross sections showing the evolution of southern California during the
@@ -284,7 +281,7 @@ underplating of Farallon-plate mantle nappes during slab rollback
 Schematic cross-sections showing potential scenarios for modification of the
 marginal mantle lithosphere at the end of subduction in the early Miocene.
 Forearc crust (orange) is generalized for late-Cretaceous inherited structure
-[see @fig:cross_sections], including Salina nappes and associated
+\[see @fig:cross_sections\], including Salina nappes and associated
 Franciscan-complex fragments.
 **(a)** Migration of the East Pacific mantle upwelling beneath the continental
 margin, forming a slab window and causing wholesale replacement of sub-Salinia

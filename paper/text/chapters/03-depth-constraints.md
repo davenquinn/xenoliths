@@ -123,13 +123,13 @@ highest-Cr residual samples is ~80 km, versus ~65 km for the low-Cr samples.
 
 ### Ca-in-olivine barometer
 
-Equilibration pressure measurements are attempted for the peridotite
-xenoliths using the @Kohler1990 Ca-in-olivine
-barometer, which is based on the decreasing abundance of Ca
-in olivine with pressure. This barometer is explicitly calibrated for spinel
-peridotites but should be treated with caution based on poor resolution,
-high temperature dependence, vulnerability to late-stage diffusion, and dependence on low Ca concentrations in olivine near analytical thresholds for
-electron microprobe analysis [@Medaris1999; @OReilly1997].
+Equilibration pressure measurements are attempted for the peridotite xenoliths
+using the @Kohler1990 Ca-in-olivine barometer, which is based on the decreasing
+abundance of Ca in olivine with pressure. This barometer is
+calibrated for spinel peridotites but its accuracy is limited by
+poor resolution, high temperature dependence, vulnerability to late-stage
+diffusion, and dependence on low Ca concentrations in olivine near analytical
+thresholds for electron microprobe analysis [@Medaris1999; @OReilly1997].
 
 Within each sample, pressures are calculated separately for nearest-neighbor
 pyroxene and olivine measurements, and analytical errors are propagated through
@@ -137,30 +137,32 @@ the calculation. Measured olivine Ca concentrations of ~200-400 ppm are
 scattered within each sample but separable [@fig:ca_in_olivine]. To correct for
 the mild pressure dependence of the two-pyroxene thermometer and coupled
 temperature dependence of the olivine barometer, we jointly solve temperature
-and pressure by iterative optimization. This yields internally consistent depth
-and temperature measurements for each set of microprobe shots. For each
-measurement, Monte Carlo random sampling ($n=100,000$) explores the sensitivity
-of the pressure estimate to analytical errors. The density of the resulting
-error space for each sample is contoured in @fig:depth.
+and pressure by iterative optimization. This yields internally consistent pressure
+and temperature measurements for each set of analytical points. For each
+pressure estimate, sensitivity to analytical errors is explored using
+Monte Carlo random sampling ($n=100,000$).
+The density of the resulting
+error space yields a probable depth
+range for each sample [@fig:depth].
 
 <!--[[[fig:ca_in_olivine]]]-->
 
-The Ca-in-olivine barometer yields a broad distribution model depths, with
+The Ca-in-olivine barometer yields model depths with
 modes between 40 and 53 km, largely coincident with the spinel stability field
 [@fig:depth]. Within the Crystal Knob sample set, the low and high-temperature
 cohorts remain separable, with high-temperature samples showing deeper
 equilibrium depths. The scale of errors within a single sample reflects the
 barometer's strong covariance with major-element thermometers, as well as its
-sensitivity to small variations in Ca concentrations. The bulk of the spread in
-the data reflects the poor calibration of the barometer itself: the
+sensitivity to small variations in Ca concentrations. Much of the spread in
+the data reflects the poor calibration of the barometer: the
 low-temperature samples in particular have significant scatter towards depths
 above the spinel-in isograd. The large Ca cation diffuses rapidly during
 transient heating [@Kohler1990], producing a shallowing bias on the depth
 distribution. This may explain why CK-4, which apparently experienced a unique
-transient heating event, has a depth mode ~10 km shallower than the other
-samples (CK-3 and CK-6) despite similar equilibration temperatures. Likewise,
-higher REE temperatures for samples CK-4 and CK-6 in the high-temperature
-cohort may indicate a slightly deeper source for these samples. Despite the
+transient heating event, has a depth mode ~10 km shallower than
+samples with similar equilibration temperatures (CK-3 and CK-6). Likewise,
+higher REE temperatures for samples CK-4 and CK-6 may indicate a
+slightly deeper source. Despite the
 imprecision of the method, Ca-in-olivine barometry suggests that the samples
 were sourced from >40 km, relatively deep within the spinel stability field.
 
@@ -172,11 +174,10 @@ by surface heat flux. On @fig:depth, we show a range of geothermal gradients
 corresponding to surface heat fluxes of 60-120 mW/m^2. These are calculated
 using values for thermal conductivity and diffusivity given in
 @tbl:model_parameters for the crust to a depth of 30 km, and mantle lithosphere
-below this level. No fixed amount of radiogenic heat production is assumed, but
-the average empirical factor of 0.6 proposed by @Pollack1977 is used to reduce
+below this level. The empirical factor of 0.6 proposed by @Pollack1977 is used to reduce
 surface heat flux to a presumed mantle contribution, with the remainder being
-taken up by radiogenic heat production near the surface. We use a radiogenic
-contribution that exponentially decreases with depth with a characteristic
+taken up by radiogenic heat production near the surface. Radiogenic heating
+is modeled to decrease exponentially with depth, with an $e$-folding
 length scale of 10 km. Mantle heat flux and lithospheric thermal conductivity
 are the main controls on the slope of the modeled geothermal gradient. This
 methodology is developed in @Turcotte2002 and is identical to that used by
@@ -184,39 +185,31 @@ methodology is developed in @Turcotte2002 and is identical to that used by
 conditions used in dynamic thermal modeling [@sec:modeling]. This yields
 a slightly "hotter" geotherm throughout the mantle lithosphere.
 
-Projection of the TA98 temperature distribution onto our calculated
-steady-state geotherms suggests that phase stability constraints on the Crystal
-Knob xenoliths correspond to a broad range of plausible lithospheric conductive
-geotherms. Geotherms placing the Crystal Knob sample set within the spinel
-stability field range from ~65-120 mW/m^2 at the surface, accounting for the
-Cr-dependent depth of the spinel--garnet transition. The Ca-in-olivine model
-depth distributions broadly correspond to surface heat flows ranging from ~70
-to 110 mW/m^2. Estimates of surface heat flows of 80-90 mW/m^2 for the central
+Depths of entrainment can be estimated by projecting the TA98 temperatures for
+each sample onto these model geotherms. Geotherms corresponding to all
+reasonable surface heat flows suggest entrainment over a depth range of 5-10 km
+within the mantle lithosphere, with the hotter samples more deeply sourced.
+Geotherms corresponding surface heat flows of 65-120 mW/m^2 place
+the Crystal Knob sample set within the spinel stability field, and 70-110 mW/m^2
+surface heat flows limit depths to the range of Ca-in-olivine model depths.
+Measured surface heat flows of 80-90 mW/m^2 for the central
 California coast [@Erkan2009] suggest depths of ~45-55 km for the Crystal Knob
-sample set. These depths fall within the spinel stability field and near the
-center of the depth distributions extracted using Ca-in-olivine barometry.
+sample set.
 
 ## Discussion of xenolith geothermal constraints
 
-The depth of origin of the Crystal Knob xenoliths can be estimated
-by several techniques. The xenoliths must originate deeper than
-30 km, the depth to the Moho, and shallower than 60-90 km based on the
-composition-dependent lower boundary of the spinel stability field.
-Ca-in-olivine barometry suggests tighter constraints near the center of the
-spinel stability field.
-
-For reasonable slopes of the geotherm beneath the Coast Ranges, the
-temperatures recorded by Crystal Knob suggest entrainment over a depth range of
-5-10 km within the mantle lithosphere, with the hotter samples more
-deeply sourced. This dataset structure is confirmed by Ca-in olivine
-barometry. Model depths of 45-55 km from steady-state geotherms agree with
-xenolith thermobarometry but might be underestimates due to potential
+The Crystal Knob xenoliths are sourced within the mantle lithosphere, deeper
+than 30 km (the Moho) and shallower than the 60-90 km lower boundary of the
+spinel stability field. Ca-in-olivine barometry suggests tighter constraints
+near the center of the spinel stability field.
+Model depths of 45-55 km from steady-state geotherms agree with
+xenolith thermobarometry but may be underestimates due to potential
 non-conductive heat transfer through the crust [@sec:heat-flow]. Given the
 bias of both Ca-in-olivine and heat-flow measurements towards shallower depths,
-we suggest the depth range of 45-75 km as the likely entrainment depth for the
-Crystal Knob xenoliths, corresponding to ~65-90 mW/m^2 conductive geotherms.
-
-This assessment of relatively deep entrainment of the Crystal Knob xenoliths
+we suggest that the xenoliths were likely entrained at 45-75 km depth.
+This implies that the thermal structure of the mantle lithosphere can be
+modeled by ~65-90 mW/m^2 conductive geotherms.
+Relatively deep entrainment of the Crystal Knob xenoliths
 along a fairly "cool" lithospheric geotherm conforms to constraints from
 independent studies.
 
@@ -266,13 +259,12 @@ within a <10 km depth range suggests potential lateral heterogeneity to
 melting. @Luffi2009 found a similar inverted pattern within mantle lithosphere
 packages beneath Dish Hill, ascribing fertile lherzolites at the top of the
 package to refertilization of suboceanic mantle lithosphere. With the exception
-of sample CK-6, refertilization of the Crystal Knob samples over all REE is
-unlikely due to consistent phase abundances, major- and trace-element
-chemistry.
+of sample CK-6, HREE refertilization of the Crystal Knob samples is
+unlikely due to consistent major- and trace-element chemistry.
 
 The low-temperature samples are petrologically similar to abyssal peridotites
-\[@fig:modes and -@fig:trace_elements\], suggesting an origin as fertile to
-moderately depleted suboceanic mantle lithosphere. The depleted harzburgites
+\[@fig:modes and -@fig:trace_elements\], suggesting a fertile to
+moderately-depleted suboceanic mantle lithosphere origin. The depleted harzburgites
 CK-3 and CK-4 could be tectonically juxtaposed to deeper levels by duplexing
 [as in @Luffi2009] or depleted after emplacement by deeply-sourced melting.
 Along these lines, the obvious refertilization of CK-6 at the base of the

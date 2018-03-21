@@ -1,9 +1,11 @@
 - id: context
   file: maps/map-single.pdf
   two_column: true
+  title: Context map
 
 - id: field_photo
   file: figures/xenolith-photo.pdf
+  title: Field photo
 
 - id: sample_petrography
   type: table
@@ -12,22 +14,26 @@
 
 - id: microscope-images
   file: microscope-images/microscope-images.pdf
+  title: Petrography
 
 - id: cpx_profile
   file: cpx-profile/output/cpx-profile.pdf
+  title: Cpx compositional evolution
 
 # Textures
 - id: textures
   file: textures/build/textures.pdf
+  title: Mineral abundances
 
 - id: step_heating
   file: basalt-age/Crystal-Knob-basalt.pdf
+  title: Age of the Crystal Knob basalt
 
 # We need to create this table
 - id: step_heating_table
   file: lava-age/build/step-heating-table.tex
   type: table
-  caption: Step-heating data for Argon geochronology
+  caption: Step-heating data for Ar geochronology
   two_column: true
 
 - id: isotopes_table
@@ -42,6 +48,7 @@
 
 - id: isotopes
   file: isotopes/isotopes.pdf
+  title: Sm-Nd and Sr isotopes
 
 - id: composition
   type: table
@@ -52,6 +59,7 @@
 # Major elements
 - id: major_elements
   file: major-elements/build/fe-mg.pdf
+  title: Major-element chemistry
 
 - id: spinel_correction
   type: table
@@ -65,6 +73,7 @@
 # Modal mineralogy
 - id: modes
   file: modal-mineralogy/output/ternary.pdf
+  title: Modal mineralogy
 
 # Modal mineralogy
 - id: modal_mineralogy
@@ -78,6 +87,7 @@
 - id: trace_elements
   file: trace-elements/build/trace-elements.pdf
   caption: Clinopyroxene and orthopyroxene rare-earth element abundances.
+  title: Pyroxene trace elements
 
 - id: trace_elements_table
   type: table
@@ -87,6 +97,7 @@
 
 - id: ree_model
   file: depletion-model/output/depletion-model.pdf
+  title: Trace-element depletion model
 
 - id: depletion_degrees
   type: table
@@ -108,30 +119,38 @@
 - id: ree_temperatures
   file: thermometry/build/pyx-dree.pdf
   two_column: true
+  title: REE thermometry
 
 - id: temp_comparisons
   file: thermometry/build/temp-comparisons.pdf
+  title: Thermometer comparisons
 
 - id: temp_summary
   two_column: true
   file: summary-data/summary-data.pdf
+  title: Summary of thermometry and depletion
 
 - id: ca_in_olivine
   file: depth-constraints/olivine-ca-mg.pdf
+  title: Ca abundance in olivine
 
 - id: depth
   file: depth-constraints/ca-ol-pressures.pdf
+  title: Xenolith depth constraints
 
 ## Tectonic history
 
 - id: reconstruction
   file: maps/reconstruction.pdf
+  title: Reconstruction to 19 Ma
 
 - id: neogene_sections
   file: cross-section/neogene-cross-sections.pdf
+  title: Neogene cross-sections
 
 - id: cross_sections
   file: cross-section/cross-section.pdf
+  title: Cretaceous cross-sections
 
 # Modeling
 
@@ -144,12 +163,15 @@
 
 - id: model_results
   file: model-time-slices.pdf
+  title: Model results
   two_column: true
 
 - id: model_tracers
   two_column: true
+  title: Model tracers
   file: model-timeline.pdf
 
 - id: model_comparison
+  title: Model comparison
   file: model-comparison.pdf
 

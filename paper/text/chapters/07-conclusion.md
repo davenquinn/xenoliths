@@ -11,8 +11,8 @@ the higher-temperature part of the acceptable field, and its viability may be
 affected by erosion in the Coast Ranges, which would tend to elevate geotherms
 for all cases.
 
-Our inability to reject the stalled slab based on thermal modeling mirrors the
-results of previous modeling efforts [@Erkan2008]. However, there are many
+As in @Erkan2008, our model suggests that a stalled slab is consistent with the
+thermal state of the deep lithosphere. However, there are many
 geologic and geodynamic reasons to discount the feasibility of the stalled slab
 model for lithospheric underplating, which we detail in @sec:stalled-slab-bad
 below. We strongly prefer scenario **C**, underplating of mantle lithosphere
@@ -24,7 +24,7 @@ the crustal geologic structure of southern California inherited from Cretaceous
 tectonics [e.g. @Liu2010; @Chapman2012]. The modeled Neogene thermal pulse also
 aligns this scenario with the Neogene geodynamics of coastal California
 [@Atwater1998; @Wilson2005], and suggests an explanation for the lack of
-large-volume magmatism associated with this slab window.
+large-volume magmatism associated with the Pacific--Farallon slab window.
 
 ## Geodynamic implausibility of the Neogene stalled slab {#sec:stalled-slab-bad}
 
@@ -53,16 +53,16 @@ surface geological evidence presented here argues against models invoking
 horizontal translation of the Monterey plate "remnant slab” beneath both the
 Coast Ranges and Central Valley.
 
-The future Crystal Knob eruption site sits above the Pacific-Farallon
+In the early Miocene, the future Crystal Knob eruption site sat above the Pacific-Farallon
 slab window, ~50-100 km north of the northeast margin of the partially
 subducted Monterey plate [@fig:reconstruction]. The microplate separated
 from the Farallon Plate at ca. 22 Ma, forming a widening slab window segment
 east of the Peninsular Ranges [@Atwater1998; @Wilson2005]. From ca. 22 to 10 Ma, the
 Monterey plate, already coupled to the Pacific plate, diverged from
-North America. This likely caused the underthrust portion of the
-Monterey Plate to be extensionally attenuated [@Bohannon1995]. Coupling
-of Monterey plate rotation across the stalled subduction megathrust is
-hypothesized to have driven dextral transrotational rifting of the
+North America. This likely caused extensional attenuation of its subducted
+extension [@Bohannon1995]. Coupling
+of Monterey plate rotation across the stalled subduction megathrust
+may have driven dextral transrotational rifting of the
 southern California borderland [@Nicholson1994; @Bohannon1995].
 
 As western Transverse Range crustal panels rotated to their current position at
@@ -70,7 +70,7 @@ the end of borderland transrotation (ca. 10 Ma), the Monterey plate was displace
 northward along the San Gregorio-Hosgri fault system [@fig:context], which is
 aligned with the outer edge of the Farallon-Monterey slab window
 [@fig:reconstruction]. In conjunction with the sudden cessation of crustal
-transrotation, the Monterey Plate likely separated from its underplated
+transrotation, the Monterey Plate likely separated from its underthrust
 extension.
 
 If the subducted portion of the Monterey Plate maintained its structural
@@ -185,8 +185,8 @@ common features of slab window volcanism [@Hole1991] and may contribute to the
 signature of depletion and re-enrichment recorded by the Crystal Knob
 xenoliths.
 
-The highly fractionated, alkalic magma of the Crystal Knob pipe, its relatively
-deep source in the mantle lithosphere, and its entrainments of both dunite
+The highly fractionated, alkalic magma of the Crystal Knob pipe
+and its entrainment of both dunite
 cumulates and spinel peridotite xenoliths suggest that it was sourced from a
 multi-tiered network within the mantle lithosphere at depths > 45 km.
 The fractally-scaled melt migration channels investigated by @Kelemen2000
@@ -194,9 +194,8 @@ provide a good potential model, in which cumulates are sometimes re-entrained
 by small-volume volcanism during progressive upwards percolation of melt from
 a deep mantle source. A deep, slowly-cooling body of slab window material,
 locally mobilized as melt and rising through a thick lid of relict mantle
-lithosphere, may explain both mid-Miocene hypabyssal intrusives that are
-directly related to the slab window episode, such as the Morro Rock--Islay
-Hills complex [@Stanley2000] and Cambria Felsite [@Ernst1974], and later
+lithosphere, provides a mechanism both mid-Miocene hypabyssal
+intrusives [@Stanley2000; @Ernst1974] and later
 deeply-sourced, small-volume eruptions such as Crystal Knob.
 
 ## The timing of the Crystal Knob eruption {#sec:crystal_knob_eruption}
