@@ -159,16 +159,17 @@ plate are more plausibly correlated to the Transverse Ranges high-wave speed
 anomaly in terms of position and volume [@fig:context], and also have a firm
 geodynamic basis as such [@Burkett2009].
 
-The stalled slab hypothesis has provided a means to explain limited Neogene
-volcanism and low modern crustal heat flow in the Coast Ranges, neither of
-which can correspond to shallow underplated asthenosphere emplaced within
-a slab window [@Brocher1999; @Erkan2008]. Both of these features can be
-explained by the Cretaceous underplating of mantle lithosphere and subsequent
-heating at depth by the slab window, in a manner more consistent with the
-tectonic evolution of central California. Based on the wide spectrum of
+The stalled slab hypothesis has provided an explanation for the limited Neogene
+volcanism and low modern crustal heat flow observed in the Coast Ranges, neither of
+which can correspond the shallow emplacement of asthenosphere within
+a slab window [@Brocher1999; @Erkan2008]. These observations can also be
+explained by the formation of the slab window beneath a thick
+pre-existing mantle lithosphere attached to the continental margin.
+The underplated of such a domain during the Cretaceous is consistent
+with the tectonic evolution of southern California. Based on the
 geologic and geodynamic factors discussed above, we reject the stalled slab as
-a potential mechanism for underplating of the mantle lithosphere beneath
-Crystal Knob.
+a potential mechanism for underplating the mantle lithosphere beneath
+the central Coast Ranges.
 
 ## Thermal events recorded by xenolith petrology
 
