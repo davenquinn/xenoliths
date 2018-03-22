@@ -7,14 +7,39 @@ and Earth history. The architecture of the mantle lithosphere, when integrated
 with regional geophysical data and tectonic and petrogenetic studies of the
 overlying crust, offers critical insights into the geodynamic processes of
 continental assembly. Mantle xenoliths entrained in volcanic rock reveal
-compositions and textures in a vertical transect through the underlying deep lithosphere. Petrogenetic studies of xenolith suites can discern
-their thermal conditions, depth of entrainment, and geochemical evolution. In
-this contribution, we present new petrologic and geochemical data on mantle
-xenoliths hosted in the Pleistocene Crystal Knob volcanic neck in coastal
-central California. We integrate these findings both with regional
-geophysical and modeling studies of the mantle lithosphere and a well-developed
-literature on the tectonic and petrogenetic development of the overlying
-crust.
+compositions and textures in a vertical transect through the underlying deep
+lithosphere. Petrogenetic studies of xenolith suites can discern their thermal
+conditions, depth of entrainment, and geochemical evolution. These features
+can provide insight into tectonic processes affecting the entire lithosphere.
+
+The Crystal Knob xenolith suite, in the Coast Ranges of central California,
+presents a rare opportunity to sample the mantle lithosphere directly beneath
+a region of long-lived subduction accretion. The complex Late Cretaceous and
+Neogene tectonic processes that built the present Coast Ranges suggest several
+possible scenarios for the origin of the underlying  mantle lithosphere. When
+restored for Neogene dextral offset, the position of of Crystal Knob suggests
+that its upper mantle underpinnings may have originated as asthenospheric
+mantle upwelling into the Pacific-Farallon slab window [@Wilson2005]. Other
+workers [e.g. @Pikser2012] propose a shallowly-dipping stalled slab beneath the
+Coast Ranges from the latest phase of subduction in the Neogene. We propose
+a third model, in which mantle lithosphere was underplated during Given its
+position near the edge of the continent, this pre-existing lithospheric mantle
+would have experienced a thermal pulse due to ridge subduction in the Neogene
+[@Wilson2005].
+
+In this contribution, we present new petrologic, geochemical, and
+thermobarometric data on mantle xenoliths hosted in the Pleistocene Crystal
+Knob volcanic neck in coastal central California. These new datasets, plus
+derivative geochemical modeling and thermal modeling of the central California
+lithosphere, are used to decipher the petrogenesis of Crystal Knob xenoliths
+and host basaltic lavas. Constraints on the thermal structure of the mantle
+lithosphere are used to test the three models of the Late Cretaceous to present
+evolution of the lithospheric underpinnings of central California. The tectonic
+processes uncovered by this study can provide new insights into
+the relative role of Cretaceous and Neogene processes in building the margin of
+the North American continent.
+
+## Regional tectonic setting
 
 The Crystal Knob xenolith locality samples an important
 lithospheric column through the Late Cretaceous convergent margin of the
@@ -41,8 +66,6 @@ samples the uppermost mantle beneath the Franciscan accretionary complex and its
 Salinia crystalline nappes.
 
 <!--[[[fig:context]]]-->
-
-## Regional tectonic setting
 
 Restoring the central Coast Ranges to their
 position prior to San Andreas transform offset places them outboard of the
@@ -149,41 +172,22 @@ The upper-mantle source of most xenolith suites in the Cordillera clearly
 corresponds to surface geology: sub-continental xenolith suites are generally
 erupted through cratonic and peri-cratonic crust, mantle wedge suites through
 the Cretaceous large-volume batholith, and asthenospheric suites through active
-rifts. However, xenoliths derived from underplated Farallon-plate material
-have thus far only been recovered from more inboard crustal domains.
-This requires underplating with large
-sub-horizontal displacements along relatively shallow
-subduction megathrust systems [@Helmstaedt1975; @Lee2001b].
+rifts. However, xenoliths derived from underplated Farallon-plate material have
+thus far only been recovered from inboard crustal domains in the eastern Mojave
+province. This requires underplating with large sub-horizontal displacements
+along a relatively shallow subduction megathrust system [@Helmstaedt1975;
+@Lee2001b].
 
-The Crystal Knob xenolith suite presents a rare opportunity to sample
-mantle lithosphere directly beneath a region of long-lived subduction
-accretion. There are several possible scenarios for the origin of the
-mantle lithosphere beneath the Coast Ranges, each with implications for
-the tectonic structure of the edge of the North American plate. The
-restored position of of Crystal Knob above the Pacific-Farallon slab
-window [@Wilson2005] suggests that its upper mantle underpinnings may
-have originated as ascended asthenosphere, in a manner analogous to the
-eastern Sierra xenolith suite. Other workers [e.g. @Pikser2012] propose
-a shallowly-dipping stalled slab beneath the Coast Ranges.
-We propose a third model that accounts for the regional crustal geology.
-Reconstructed for Neogene offset, the lithospheric block hosting Crystal
-Knob was directly outboard of the Dish Hill locality [@fig:context], at
-which underplated Farallon nappes were discovered to form the
-mantle lithosphere beneath much of the Mojave Desert [@Luffi2009]. Accordingly,
-the mantle lithosphere beneath the Coast Ranges may be composed of outboard
-equivalents of these underplated nappes. Given its position
-near the edge of the continent, this lithospheric mantle
-underplated during the Cretaceous would have been strongly affected by
-ridge subduction in the Neogene [@Wilson2005].
-
-In this integrative study, we investigate the petrology and geochemistry
-of the Crystal Knob xenolith suite to constrain the modern geotherm in
-the mantle lithosphere beneath the California Coast Ranges. Modeling of
-the thermal evolution of the mantle lithosphere under the scenarios
-outlined above, combined with xenolith geochemical characteristics,
-provides means to test the origin of the mantle lithosphere beneath the
-Coast Ranges. Building context from previous xenolith and geophysical
-studies, we explore the relative role of Cretaceous and Neogene
-processes in building the deep lithosphere beneath the western margin of
-North America.
+The lithospheric block hosting Crystal Knob was directly outboard of the Dish
+Hill locality prior to Neogene dextral faulting [@fig:context], at which
+underplated Farallon nappes were discovered to form the mantle lithosphere
+beneath much of the Mojave Desert [@Luffi2009]. Accordingly, the mantle
+lithosphere beneath the Coast Ranges may be composed of outboard equivalents of
+these underplated nappes. However, the Coast Ranges are also proximal to
+a subduction zone that was active until the early Neogene, and directly above
+the Pacific--Farallon slab window that developed at the end of this subduction.
+The Crystal Knob xenolith suite provides an opportunity to resolve the
+ambiguous mantle lithosphere architecture of coastal California and build
+understanding of how flat-slab subduction, microplate rotation and capture, and
+ridge subduction affect the deep structure of a subducting margin.
 

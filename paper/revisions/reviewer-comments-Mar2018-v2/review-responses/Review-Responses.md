@@ -331,6 +331,8 @@ Line 642. kmntle
 
 <p class="comment">
 Line 650, 669, 679, maybe elsewhere: heat flow values (units of mW/m2) are not geotherms and should not be referred to as such.
+<span class="fixed">Made sure to refer to steady-state geotherms anchored to
+surface heat flow values.</span>
 </p>
 
 
@@ -342,6 +344,6 @@ Line 667. "crust Section 3.1"
 <p class="comment">
 728-729. This statement seems to be contradicted by the sentence at 741-742. "That" instead of "and?"
 <span class="fixed">I meant the only direct sampling of
-mantle underplated **beneath the Coast Ranges**. Oops. Tried to clarify.</span>
+mantle underplated beneath the Coast Ranges. Good point on the ambiguity. Tried to clarify.</span>
 </p>
 

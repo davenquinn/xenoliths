@@ -267,7 +267,7 @@ of the modeled scenarios. The hottest model run of each group is highlighted,
 with cooler models of the same family shown with lower opacity.
 The model predicts purely conductive geotherms, and arrows show
 potential response to erosion \[see @sec:model_supplement\].
-The background of the plot shows steady-state geotherms anchored to
+The background of the plot shows a range of steady-state geotherms anchored to
 surface heat flows and the likely field of
 xenolith entrainment [@fig:depth].
 
