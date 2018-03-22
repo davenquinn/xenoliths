@@ -175,11 +175,13 @@ the central Coast Ranges.
 
 The Crystal Knob xenolith suite shows petrologic variation consistent with
 reheating from below, possibly due to interaction of a deep slab window with
-a thick pre-existing lithospheric lid from which the xenoliths were sourced. As
-discussed in @sec:PT-geochemical-variation, the array of increasing depletion
-with depth in the Crystal Knob sample set does not match simple decompression
-melting, and sample CK-6 experienced polyphase major-element refertilization by
-fractionated melt presumably generated below its pre-eruptive depth. At the
+a thick pre-existing lithospheric lid from which the xenoliths were
+sourced. Increasing depletion
+with depth in the Crystal Knob sample
+set does not match the signature of simple decompression
+melting [@sec:PT-geochemical-variation], and sample
+CK-6 experienced polyphase major-element refertilization by
+fractionated melt presumably generated below its entrainment depth. At the
 same time, low levels of re-enrichment by alkali-basalt-like melt are evident
 across the sample set. Deep partial melting and alkalic melt generation are
 common features of slab window volcanism [@Hole1991] and may contribute to the
@@ -201,24 +203,22 @@ deeply-sourced, small-volume eruptions such as Crystal Knob.
 
 ## The timing of the Crystal Knob eruption {#sec:crystal_knob_eruption}
 
-The thermal transient recorded by the ca. 1.65 Ma eruption of the Crystal Knob
-pipe is much more recent than the mid-Miocene onset of the slab window. Even with
-a potential reservoir of melt beneath the Coast
-Ranges, the event itself (along with other Plio-Pleistocene volcanic eruptions
-in the Coast Ranges) was likely more immediately triggered.
-
-Rapid uplift of the central California coastal region at ca. 2 Ma [@Ducea2003b]
-may have caused decompression of the lower lithosphere. However, Neogene
-dextral faulting provides a more localized mechanism for transient
-decompression leading to small-volume melting of the mantle lithosphere.
-Crystal Knob is located ~15 km east of the Hosgri fault, and its host
-Franciscan complex is pervasively cut by faults and shear zones [@Cowan1978;
-@Seiders1989]. The Hosgri fault was likely active during the eruption of the
-Crystal Knob neck [@Dickinson2005; @Hardebeck2010], and theoretical and
-observational data on intra-continental transform faults [@Platt2011;
-@Titus2007] indicate that Hosgri fault shear could be distributed across 10s of
-kilometers laterally in the lower crust and upper mantle
-[@fig:neogene_sections|c].
+Although potentially sourced from slowly-propagating melts related to
+the slab window, the ca. 1.65 Ma eruption of Crystal Knob (and other
+Plio-Pleistocene volcanic eruptions in the Coast Ranges) was likely
+proximally triggered by recent tectonism. Rapid uplift of the
+central California coastal region at ca. 2 Ma [@Ducea2003b] could have
+caused decompression melting in the lower lithosphere. Additionally,
+Neogene dextral faulting provides a localized mechanism for transient
+decompression leading to mobilization of small volumes of mantle
+lithosphere melt. Crystal Knob is located ~15 km east of the Hosgri
+fault, and its host Franciscan complex is pervasively cut by faults and
+shear zones [@Cowan1978; @Seiders1989]. The Hosgri fault was likely
+active during the eruption of the Crystal Knob neck [@Dickinson2005;
+@Hardebeck2010], and theoretical and observational data on
+intra-continental transform faults [@Platt2011; @Titus2007] indicate
+that Hosgri fault shear could be distributed across 10s of kilometers
+laterally in the lower crust and upper mantle [@fig:neogene_sections|c].
 
 Elsewhere in the Coast Ranges, Plio-Pleistocene eruptions of
 small-volume basalts are associated with the traces of active faults.
@@ -227,9 +227,9 @@ km north of Crystal Knob along the San Andreas-Calaveras fault
 bifurcation zone and entrained lower crust and upper mantle xenoliths
 [@Jove1998; @Titus2007]. As at Crystal Knob, xenoliths recovered from
 these flows record partial melting of the mantle markedly post-dating
-any possible slab window opening. The deep extensional transients
-implied by these eruptions may have played a role in generating the
-Crystal Knob basalts as well.
+any possible slab window opening. The interplay of localized
+extensional transients with deep, low-volume melts is consistent with
+infrequent but energetic recent volcanism in the Coast Ranges.
 
 Conclusion
 ==========
