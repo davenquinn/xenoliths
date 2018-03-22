@@ -5,18 +5,19 @@ depleted, with an $\epsilon_\mathrm{Nd}$ of 10.3-11.0, and
 \ce{^{87}Sr}/\ce{^{86}Sr} of .7023-.7024. These values are typical for the
 depleted upper mantle [e.g. @Hofmann1997] and require a mantle source that
 has not been recycled from the western North American subcontinental mantle or
-continental lithosphere more generally. The Crystal Knob xenolith suite is the
-only known direct sampling of this underplated mantle.
+continental lithosphere more generally.
 
-The lack of radiogenically enriched arc residues in the Crystal Knob xenolith
-suite  confirms the unrooted nature of Salinia continental arc rocks [e.g.
-@Hall2013] that lie slivered above the Franciscan accretionary complex that
-dominates the crust of the Coast Ranges. This suggests the existence of a major
-structural discontinuity below the crust, with underplated, slightly depleted
-peridotite forming the framework of the mantle lithosphere. Several tectonic
-events experienced by the Coast Ranges since the Cretaceous provide a means to
-append suboceanic mantle lithosphere or upwelling asthenosphere to the base
-of the crust.
+The lack of radiogenically enriched arc residues in the Crystal Knob
+xenolith suite confirms the unrooted nature of Salinia arc rocks [e.g.
+@Hall2013] that lie slivered above the Franciscan accretionary complex
+that dominates the crust of the Coast Ranges. This suggests the
+existence of a major structural discontinuity below the crust, with
+underplated, depleted peridotite forming the framework of the mantle
+lithosphere. The Crystal Knob xenolith suite is the only known direct
+sampling of this underplated mantle beneath the Coast Ranges. Several
+tectonic events experienced by the Coast Ranges since the Cretaceous
+provide a means to append suboceanic mantle lithosphere or upwelling
+asthenosphere to the base of the crust.
 
 The Franciscan complex of the region was assembled by sustained subduction of
 the Farallon plate during the Cretaceous and early Cenozoic [@Cowan1978;

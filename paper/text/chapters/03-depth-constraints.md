@@ -16,7 +16,7 @@ active mantle upwelling (e.g. the southern Salton Trough) [@Pollack1977;
 @Erkan2009].
 
 @Erkan2009 attributed high surface heat flows in the Coast Ranges to
-processes such as shear heating, rapid surface uplift, and fluid
+non-conductive processes such as shear heating, rapid surface uplift, and fluid
 circulation along faults. Shear heating does not cause significant
 additions to heat flow [e.g @Lachenbruch1980; @Kidder2013]. However,
 sustained rock uplift and erosion, such as that documented since 2 Ma in
@@ -25,39 +25,33 @@ gradient through advection of material. More significantly, regional
 thermal conductivity can be enhanced by hydrothermal circulation in the
 presence of fractures. The crust of the Coast Ranges and the Mojave
 province underwent extensive crustal detachment faulting during the late
-Cretaceous [@Wood1997; @Chapman2012], and Neogene transform faults were
-overprinted in the Coast Ranges. These fractures may have increased
-permeability to fluid transport and heat advection, leading to high
-surface heat flows. Mantle fluids in the San Andreas fault zone
-[@Kennedy1997] suggest that the upwelling of deeply-sourced fluids along
-fracture networks may contribute to anomalously high surface heat flows
-in the Coast Ranges and Mojave province. In contrast, the intact
+Cretaceous [@Wood1997; @Chapman2012], and overprinted Neogene transform
+faulting in the Coast Ranges. Mantle fluids in the San Andreas fault zone
+[@Kennedy1997] suggest the fluid upwelling along these fractures.
+High surface heat flows in these areas may
+be due to increased permeability, fracture-following fluid transport,
+and heat advection. In contrast, the intact
 batholithic domains underlying the Sierra Nevada, Central Valley, and
 Peninsular Ranges have relatively low heat flows [@Erkan2009].
 
-The possibility of regional erosion over long time horizons, along with
-the apparent correspondence of surface heat flows with domains of
-differently-fractured crust, suggests that non-conductive mechanisms of
-heat transport can significantly impact the extrapolation of
-lithospheric geotherms from surface heat flows. Due to the factors
-discussed above, conductive geotherms anchored at the surface may
-overestimate temperatures in the mantle lithosphere.
-Accordingly, estimates of mantle lithosphere temperature from
-seismic tomography show cooler geotherms than those predicted by
-extrapolation of surface heat flows, with temperatures of 700--1100ºC
-occurring at depths of 50--100 km beneath coastal California
-[@Goes2002]. @Li2007 estimates the depth of the
-lithosphere-asthenosphere boundary to be ~70 km in the southern Coast
-Ranges. With a lithosphere-asthenosphere boundary at 1200-1300ºC [e.g.
-@OReilly2010; @Fischer2010], this corresponds to steady-state geotherms
-of 70-80 mW/m^2.
+Non-conductive heat transport
+can significantly impact the extrapolation of lithospheric geotherms
+from surface heat flows, and conductive
+geotherms anchored at the surface may overestimate mantle lithosphere temperatures. Accordingly, mantle lithosphere
+temperatures modeled by seismic tomography are cooler than those
+extrapolated from surface heat flows. @Goes2002 predicts
+temperatures of 700--1100ºC at 50--100 km depth beneath coastal
+California, suggesting < 60 mW/m^2 steady-state heat flows. @Li2007
+estimates the lithosphere-asthenosphere boundary to be at ~70
+km depth in the southern Coast Ranges. With a 1200-1300ºC
+lithosphere-asthenosphere boundary [e.g. @OReilly2010; @Fischer2010], this
+corresponds to steady-state heat flows of 70-80 mW/m^2.
 
-Extrapolation of lithospheric geotherms from surface heat flows
-generalize the heat-transfer properties of the entire lithospheric
-column and are thus of limited value for estimating the temperature at
-depth within the mantle lithosphere. Xenolith measurements of mantle
-lithosphere thermal state can allow the more direct reconstruction of
-deep lithospheric geotherms.
+Steady-state geotherms extrapolated from surface heat flows generalize
+the heat-transfer properties of the entire lithospheric column, and thus
+provide only first-order constraints on mantle lithosphere thermal
+state. Measurements of temperature and depth of xenolith equilibration
+can allow more direct reconstruction the deep lithospheric geotherm.
 
 ## Depth constraints from Crystal Knob xenoliths
 
@@ -189,9 +183,9 @@ Depths of entrainment can be estimated by projecting the TA98 temperatures for
 each sample onto these model geotherms. Geotherms corresponding to all
 reasonable surface heat flows suggest entrainment over a depth range of 5-10 km
 within the mantle lithosphere, with the hotter samples more deeply sourced.
-Geotherms corresponding surface heat flows of 65-120 mW/m^2 place
+Steady-state geotherms anchored to surface heat flows of 65-120 mW/m^2 place
 the Crystal Knob sample set within the spinel stability field, and 70-110 mW/m^2
-surface heat flows limit depths to the range of Ca-in-olivine model depths.
+surface heat flows limit depths to the range modeled by Ca-in-olivine barometry.
 Measured surface heat flows of 80-90 mW/m^2 for the central
 California coast [@Erkan2009] suggest depths of ~45-55 km for the Crystal Knob
 sample set.
@@ -208,7 +202,7 @@ non-conductive heat transfer through the crust [@sec:heat-flow]. Given the
 bias of both Ca-in-olivine and heat-flow measurements towards shallower depths,
 we suggest that the xenoliths were likely entrained at 45-75 km depth.
 This implies that the thermal structure of the mantle lithosphere can be
-modeled by ~65-90 mW/m^2 conductive geotherms.
+modeled by conductive geotherms with ~65-90 mW/m^2 steady-state heat flow.
 Relatively deep entrainment of the Crystal Knob xenoliths
 along a fairly "cool" lithospheric geotherm conforms to constraints from
 independent studies.

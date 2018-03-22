@@ -197,7 +197,7 @@ assimilation of an enriching fluid.
 
 ##depth
 
-Summary of depth constraints for the xenolith samples. Colored field represent
+Summary of depth constraints for the xenolith samples. Colored fields represent
 density contours of Monte Carlo error distributions of Ca-in-olivine
 pressure/TA98 temperature pairs for each sample, accounting for analytical
 errors and within-sample scatter. Plots on the right margin project these
@@ -267,7 +267,8 @@ of the modeled scenarios. The hottest model run of each group is highlighted,
 with cooler models of the same family shown with lower opacity.
 The model predicts purely conductive geotherms, and arrows show
 potential response to erosion \[see @sec:model_supplement\].
-The background of the plot shows steady-state geotherms and the likely field of
+The background of the plot shows steady-state geotherms anchored to
+surface heat flows and the likely field of
 xenolith entrainment [@fig:depth].
 
 ##cross_sections

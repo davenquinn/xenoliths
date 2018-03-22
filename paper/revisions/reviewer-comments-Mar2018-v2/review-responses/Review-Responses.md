@@ -292,23 +292,45 @@ Line 477. "Figure 12" in parentheses.
 </p>
 
 
-<p class="comment">
-537-543. Lots of issues with this paragraph. My recollection is that the Salinian granitoids are not significantly different radiogenically from the Sierra Nevadan rocks (as seemingly implied here in the context of the previous paragraph). Also, the high uplift rates mentioned from Ducea et al., 2003 is probably from an area of atypically high exhumation rates-the preservation of the Crystal Knob volcanic rocks indicates that erosion rates are much lower in this particular spot than where Ducea et al. observed. The final sentence suggests that the minuscule amount of lava associated with Crystal Knob would affect the geotherm in a measurable way-this is probably demonstrably false.
-</p>
+<p class="comment"> 537-543. Lots of issues with this paragraph. My
+recollection is that the Salinian granitoids are not significantly different
+radiogenically from the Sierra Nevadan rocks (as seemingly implied here in the
+context of the previous paragraph). Also, the high uplift rates mentioned from
+Ducea et al., 2003 is probably from an area of atypically high exhumation
+rates-the preservation of the Crystal Knob volcanic rocks indicates that
+erosion rates are much lower in this particular spot than where Ducea et al.
+observed. The final sentence suggests that the minuscule amount of lava
+associated with Crystal Knob would affect the geotherm in a measurable way-this
+is probably demonstrably false. <span class='response fixed'>OK: I reworked the paragraph significantly to combine with the below and strengthen the point on fracturing which I think is the most
+important. In so doing, I canned the
+lava thing, because it is kind of misdirecting. Also, I clarified bringing in
+the Ducea et al. result that I mean it only as an example of a potential process. I also got rid of the radiogenic
+thing, because I was trying to get across something subtle and frankly
+poorly thought through.</span> </p>
 
 
 <p class="comment">
 549-558. I don't understand the logic about surface heat flows representing a maximum limit on mantle lithosphere geothermal gradients. Has this concept been explored before? If so, a reference would be good here... I think there is a lot of speculative material that should just be cut. Just say that surface heat flows in the Coast Ranges are 70-90 mW/m2 and leave it at that. Speculatively trimming 10 mW/m2 off makes no difference considering the large uncertainties (e.g. figure 16). This whole section (3.2) can be trimmed down significantly-the essential message is given in lines 658-660.
+<span class='response fixed'>I do think that some of this is important because
+it motivates the need to verify the surface heat flows with thermobarometry. However, the whole section was stated kind of backwards, making it somewhat
+ponderous. I reorganized significantly, introducing heat flows, the potential inaccuracies, seismic constraints that lead us to think they may be incorrect, and
+lastly a call for direct measurements which leads directly into the next section. I find this considerably more direct and less speculative.</span>
 </p>
 
 
 <p class="comment">
 Figure 16 caption. "fields" not "field"
+<span class='fixed'>Thanks</span>
 </p>
 
 
 <p class="comment">
-Line 642. kmntle  650, 669, 679, maybe elsewhere: heat flow values (units of mW/m2) are not geotherms and should not be referred to as such.
+Line 642. kmntle
+</p>
+
+
+<p class="comment">
+Line 650, 669, 679, maybe elsewhere: heat flow values (units of mW/m2) are not geotherms and should not be referred to as such.
 </p>
 
 
@@ -319,5 +341,7 @@ Line 667. "crust Section 3.1"
 
 <p class="comment">
 728-729. This statement seems to be contradicted by the sentence at 741-742. "That" instead of "and?"
+<span class="fixed">I meant the only direct sampling of
+mantle underplated **beneath the Coast Ranges**. Oops. Tried to clarify.</span>
 </p>
 
