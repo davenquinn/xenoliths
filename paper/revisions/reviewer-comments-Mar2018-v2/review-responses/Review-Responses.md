@@ -245,17 +245,18 @@ I simply removed, and discussed size instead.</span>
 <p class="comment">
 259-260., 327-328 and elsewhere. I'm quite dubious regarding the significance of the calculated whole rock values given the very small areas upon which the modal work is estimated (figure 5).
 <span class='response rejected'>
-Yes, this is an issue, but this is a pretty standard technique for
-xenoliths that yields good results in comparison to XRF measurements
-(e.g. Luffi, 2009), although it is often challenging to do both on a
-single xenolith. You're right that large variations in the amount of
-CPX modally estimated could swing the total significantly, but in practice the
-amount of REE is consistent within phases in a single sample. Further,
+This is a pretty standard technique for
+xenoliths and yields good results in comparison to XRF measurements
+(e.g. Luffi et al., 2009), although it is often challenging to do both on a
+single xenolith given the small size. Still, this is the standard technique for
+modal estimates of peridotite classifications (in fact, we used many more points
+than typically used).
+Further,
 the size of the domain measured is a significant fraction of the overall
-size of each xenolith sample. For all samples except CK-3, many grains
-are intersected by our thin section slide, yielding a fairly robust
-modal measurement. For CK-3, totals are less certain but the fact that
-there is very little cpx (the main REE reservoir) is dependable. REE
+size of each xenolith sample.
+For REEs, large variations in the amount of
+CPX modally estimated could swing the estimated recalcuated REE pattern significantly, but in practice the
+amount of REE is consistent within phases in a single sample. REE
 totals are good enough for our coarse modeling efforts here,
 but you wouldn't want to push too far into subtleties certainly.
 </span>
@@ -264,21 +265,30 @@ but you wouldn't want to push too far into subtleties certainly.
 
 <p class="comment">
 Line 309. would be useful to cite the more recent Chapman et al (2014) on Salinian granites here also.
+<span class='response fixed'>Good call</span>
 </p>
 
 
 <p class="comment">
 figure 13 caption "the tightness of within-sample temperature scatter varies." is there a simpler way to say this (not sure exactly what is being said)
+<span class='response fixed'>Reworded</span>
 </p>
 
 
-<p class="comment">
-443-446. I'm not sure. Can you give a citation for this claim? It kind of sounds like you're just taking the mean two different ways and getting the same number both times--how does that indicate equilibrium?
-</p>
-
+<p class="comment"> 443-446. I'm not sure. Can you give a citation for this
+claim? It kind of sounds like you're just taking the mean two different ways
+and getting the same number both times--how does that indicate equilibrium?
+<span class='response fixed'>This wasn't a clear statement - and it's not an
+important point or the best way to demonstrate equilibrium (the individual
+analyses are obviously more robust than any across-sample averaged measurement,
+and we don't present or use whole-sample averages anywhere except in this
+statement). I eliminated it and replaced with a clarified alternative
+statement: measurements represent equilibrium due to (1) tight temperature
+distributions and (2) reproducibility between thermometers</span> </p>
 
 <p class="comment">
 Line 477. "Figure 12" in parentheses.
+<span class='response fixed'>Fixed</span>
 </p>
 
 

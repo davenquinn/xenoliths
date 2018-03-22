@@ -170,14 +170,14 @@ sample.
 ##temp_comparisons
 
 Comparison of results from pyroxene major-element thermometers. **(a)**
-Core and rim measurements (filled and open circles, respectively) for
-each sample using the @Taylor1998 thermometer. Samples CK-3, CK-4, and
-CK-7 show heating along grain rims, and the tightness of within-sample
-temperature scatter varies. **(b)** Temperatures from the TA98 and BKN
-thermometers showing a strong linear relationship, with BKN consistently
-measuring temperatures 30-70º higher. **(c)** Ca-in-orthopyroxene
-temperatures against TA98, showing the reproduction of two temperature
-cohorts around 980 and 1080ºC by this thermometer for grain cores.
+TA98 core and rim measurements (filled and open circles, respectively)
+categorized by sample. Samples CK-3, CK-4, and
+CK-7 show elevated grain rim temperatures, and core temperatures largely
+fall within a 25-50 ºC range for each sample. **(b)**
+TA98 and BKN temperatures showing a strong linear relationship, with BKN estimates
+higher by 30-70 ºC. **(c)** Ca-in-orthopyroxene
+and TA98 temperatures, showing the reproduction of two temperature
+cohorts around 980 and 1080ºC by the Ca-in-orthopyroxene thermometer.
 Colors are by sample as labeled in *(a)*. Grey lines show 1:1
 relationship.
 

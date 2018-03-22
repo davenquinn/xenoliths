@@ -62,7 +62,12 @@ cat text/modeling-supplement.md \
 | text-pipeline \
 > build/modeling-supplement.tex
 
-cp $defs/draft.tex $texfile
+# Insert the appendix into the standard template
+split=2
+head -n -$split $defs/draft.tex > $texfile
+cat source/supplement-shim.tex >> $texfile
+tail -n $split $defs/draft.tex >> $texfile
+
 # Copy preamble
 cat "$defs/preamble"/*.tex > "$build/preamble.tex"
 

@@ -1,30 +1,29 @@
 # Discussion of lithospheric history
 
-Of the three plausible scenarios depicted for the evolution of the sub-Crystal
-Knob mantle lithosphere [@fig:neogene_sections], we reject scenario **A**,
-asthenosphere emplaced in a shallow slab window, which predicts temperatures
-much hotter than the xenolith-sampled geotherm beneath the Coast Ranges. Both
-the Monterey plate stalled slab (**B**) and Cretaceous-underplated Farallon
-mantle nappe cases (**C**) are plausible based on our thermal modeling.
-However, the geotherm predicted for the Monterey Plate stalled slab occupies
-the higher-temperature part of the acceptable field, and its viability may be
-affected by erosion in the Coast Ranges, which would tend to elevate geotherms
-for all cases.
+Both the Monterey plate stalled slab (**B**) and Cretaceous-underplated
+Farallon mantle nappe cases (**C**) are plausible based on our thermal
+modeling. Our inability to reject the stalled slab scenario is
+consistent with the results of previous modeling by @Erkan2008. However,
+the geotherm predicted for the stalled slab occupies the
+higher-temperature part of the acceptable field, and its viability may
+be affected by Neogene erosion in the Coast Ranges, which would tend to
+elevate geotherms for all scenarios [@fig:model-comparison]. Additionally,
+there are many geologic and geodynamic reasons to discount the
+feasibility of the stalled slab model for lithospheric underplating,
+which we detail in @sec:stalled-slab-bad below.
 
-As in @Erkan2008, our model suggests that a stalled slab is consistent with the
-thermal state of the deep lithosphere. However, there are many
-geologic and geodynamic reasons to discount the feasibility of the stalled slab
-model for lithospheric underplating, which we detail in @sec:stalled-slab-bad
-below. We strongly prefer scenario **C**, underplating of mantle lithosphere
-during the Cretaceous, with heating at depth by the Neogene slab window. In
-addition to producing reasonable geotherms in the mantle lithosphere
-[@fig:model_comparison], this scenario was constructed based on the
-architecture of the lithospheric mantle in the Mojave region [@Luffi2009] and
-the crustal geologic structure of southern California inherited from Cretaceous
-tectonics [e.g. @Liu2010; @Chapman2012]. The modeled Neogene thermal pulse also
-aligns this scenario with the Neogene geodynamics of coastal California
-[@Atwater1998; @Wilson2005], and suggests an explanation for the lack of
-large-volume magmatism associated with the Pacific--Farallon slab window.
+We strongly prefer scenario **C**, Cretaceous underplating of mantle
+lithosphere followed by heating at depth by the Neogene slab window,
+which was not considered in previous modeling. This scenario produces
+reasonable geotherms in the mantle lithosphere [@fig:model_comparison]
+and is constructed based on the architecture of the lithospheric mantle
+in the Mojave region [@Luffi2009] and the crustal geologic structure of
+southern California inherited from Cretaceous tectonics [e.g. @Liu2010;
+@Chapman2012]. The modeled Neogene thermal pulse also aligns this
+scenario with the Neogene geodynamics of coastal California
+[@Atwater1998; @Wilson2005] and suggests an explanation for the lack of
+large-volume magmatism associated with the Pacific--Farallon slab
+window.
 
 ## Geodynamic implausibility of the Neogene stalled slab {#sec:stalled-slab-bad}
 

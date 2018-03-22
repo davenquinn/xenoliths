@@ -152,31 +152,28 @@ de Salinas [@Ducea2003; @Kidder2006]. The subduction conditions and
 mantle lithosphere structure implied by this scenario are shown in
 @fig:cross_sections.
 
-In model **C**, the age of subduction and underplating is taken as  70 Ma,
+In model group **C**, the age of subduction and underplating is taken as  70 Ma,
 based on the youngest mica Ar/Ar ages for the Sierra de Salinas/Nacimiento
 Franciscan subduction complex [@Barth2003; @Grove2003; @Saleeby2007;
 @Chapman2010; @Chapman2016; @Chapman2016a]. Seafloor being subducted at that
 time was 40 Myr old [@Seton2012; @Liu2010]. In this tectonic scenario
 \[@fig:neogene_sections|c and @fig:cross_sections\], Farallon oceanic lithosphere
 continued to subduct after mantle nappe detachment until the Pacific--Farallon
-spreading ridge encountered the trench in the Neogene. In the thermal model
+spreading ridge encountered the trench in the Neogene.
+
+In model runs for this scenario
 [@fig:model_results], the underplated mantle nappe(s) cool beneath the forearc
 for 50 Myr, after which the geotherm is perturbed by the underplating of
 asthenosphere at ~80 km depth, corresponding to a deep slab window.
-
-In several model runs, asthenosphere is held against the base of the lithosphere for periods
-ranging from 0 Myr to 6 Myr.
-An adiabatic temperature gradient with a
-mantle potential temperature of 1450ºC is held against the base of the
-lithosphere for the duration of contact.
+This interaction is modeled by holding an adiabatic temperature gradient with a
+mantle potential temperature of 1450ºC against the base of the
+lithosphere for a period ranging from 0 Myr to 6 Myr.
 The model for 0 Myr entails instantaneous contact followed immediately
 by conductive relaxation, while 6 Myr of sustained upwelling
 produces the "kinked" geotherm seen in panel 4 of @fig:model_results|c
 at the 18 Ma time step, due to continuing imposition of a mantle adiabat below 80
-km depth. A single model without slab window heating
-\[highlighted in @fig:model_comparison\] predicts much
-cooler geotherms that do not match the mantle geothermal constraints
-developed in this study.
+km depth. A single model without slab window heating predicts much
+cooler geotherms than allowed by xenolith constraints [@fig:model_comparison].
 
 @fig:model_results|c, panel 2 shows the thermobarometric constraints
 and inverted metamorphic gradient recorded by subduction-channel schists for this episode of
@@ -201,22 +198,27 @@ lithosphere.
 ## Summary of model results
 
 Our thermal modeling predicts much higher temperatures within the mantle
-lithosphere, and much higher geothermal gradients, for the shallow slab window
-than for the stalled-slab or underplated mantle nappe models. The geothermal
-gradients implied for the shallow slab window scenario are much higher than those
-suggested by heat flow data in the Coast Ranges, leading @Erkan2008 to favor a stalled slab
-tectonic scenario.
-Our modeling predicts that both the stalled slab
-and Cretaceous mantle nappes reheated by a deep slab window recover the geotherm determined by
-xenolith thermobarometry, while not violating constraints posed by heat
-flow data. An assessment of model sensitivity presented in
+lithosphere, and much higher geothermal gradients, for the shallow slab
+window (scenario **A**) than for either of the other modeled scenarios.
+Predicted geotherms for the slab window do not align with geothermal
+gradients suggested by by heat flow data in the Coast Ranges or with
+mantle lithosphere temperatures measured by xenolith thermobarometry
+[@fig:model-comparison]. We can thus reject a shallow slab-window source
+for the mantle lithosphere sampled by Crystal Knob.
+
+Both the stalled slab (scenario **B**) and Cretaceous mantle nappes
+reheated by a deep slab window (scenario **C**) suggest mantle
+lithosphere temperatures similar to those measured by xenolith
+thermobarometry and inferred from surface heat flows and seismic
+tomography. An assessment of model sensitivity presented in
 @sec:model_supplement includes biases that may influence the model
-results. Most pertinent is the underestimation of modeled geothermal
-gradients due to lack of accounting for exhumation during lithospheric thermal
-equilibration. This would: 1. push model results for the slab window scenario
-further out of the field of acceptable mantle lithosphere geotherms derived
-from xenolith constraints; 2. push the Monterey plate to the upper margin of
-the field; and 3. push reheated mantle nappe towards the centroid of
-the field. The direction of these potential model biases is summarized in
+results. Most pertinent is potential underestimation of true geothermal
+gradients due to lack of accounting for exhumation during lithospheric
+thermal equilibration. This would (1) push model results for the slab
+window scenario further out of the field of acceptable mantle
+lithosphere geotherms derived from xenolith constraints; (2) push the
+stalled slab scenario (**B**) to the upper margin of the field; and (3)
+push the reheated mantle nappe (**C**) towards the centroid of the
+field. The direction of these potential model biases is summarized in
 @fig:model_comparison.
 

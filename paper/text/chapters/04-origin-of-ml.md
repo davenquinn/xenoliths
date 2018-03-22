@@ -27,7 +27,7 @@ outboard equivalent of this mechanism could have built the mantle lithosphere
 beneath Crystal Knob.
 
 In the Oligocene to early Miocene, the Pacific-Farallon spreading ridge
-obliquely intersected the Cordillera subduction zone at the coast of southern
+obliquely intersected the Cordilleran subduction zone at the coast of southern
 California, leading to the development of the San Andreas transform system
 [@Atwater1970]. Ridge impingement was kinematically complex due to large-offset
 ridge-ridge transforms, resulting in the opening of a geometrically complex

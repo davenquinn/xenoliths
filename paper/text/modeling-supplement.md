@@ -2,8 +2,9 @@
 
 ## Thermal modeling setup {-}
 
-Standardized parameters used in modeling are justified
-in the text below. Standard values for thermal conductivity from
+In this section, we discuss parameters
+and techniques used in modeling.
+Standard values for thermal conductivity from
 @Fowler2005 yield good results.
 Increasing the thermal conductivity of the model domain
 substantially depresses the modeled geotherms (lowering predicted
@@ -15,7 +16,7 @@ across the board.
 
 ### Slab window crustal replacement {-}
 
-In series **A**, we model shallow slab-window upwelling.
+In model group **A**, we model shallow slab-window upwelling.
 The emplacement of slab-window
 asthenosphere directly under the coastal central California crust
 entails the truncation of a low-temperature forearc geotherm at the base of the crust
