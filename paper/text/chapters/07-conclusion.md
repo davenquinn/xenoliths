@@ -1,16 +1,16 @@
 # Discussion of lithospheric history
 
-Both the Monterey plate stalled slab (**B**) and Cretaceous-underplated
-Farallon mantle nappe cases (**C**) are plausible based on our thermal
-modeling. Our inability to reject the stalled slab scenario is
-consistent with the results of previous modeling by @Erkan2008. However,
-the geotherm predicted for the stalled slab occupies the
-higher-temperature part of the acceptable field, and its viability may
-be affected by Neogene erosion in the Coast Ranges, which would tend to
-elevate geotherms for all scenarios [@fig:model-comparison]. Additionally,
-there are many geologic and geodynamic reasons to discount the
-feasibility of the stalled slab model for lithospheric underplating,
-which we detail in @sec:stalled-slab-bad below.
+Based on thermal modeling alone, both the Monterey plate stalled slab (**B**)
+and Cretaceous-underplated Farallon mantle nappe cases (**C**) are plausible.
+However, the geotherm predicted for the stalled slab occupies the
+higher-temperature part of the acceptable field, and its viability could be
+impacted by potential erosion in the
+Coast Ranges, which would elevate geotherms for all scenarios
+[@fig:model_comparison]. Our finding that the stalled slab scenario produces
+a reasonable geotherm is consistent with previous modeling by @Erkan2008.
+Additionally, there are many geologic and geodynamic reasons to discount the
+feasibility of the stalled slab model for lithospheric underplating, which we
+detail in @sec:stalled-slab-bad below.
 
 We strongly prefer scenario **C**, Cretaceous underplating of mantle
 lithosphere followed by heating at depth by the Neogene slab window,

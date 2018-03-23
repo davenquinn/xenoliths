@@ -203,7 +203,7 @@ window (scenario **A**) than for either of the other modeled scenarios.
 Predicted geotherms for the slab window do not align with geothermal
 gradients suggested by by heat flow data in the Coast Ranges or with
 mantle lithosphere temperatures measured by xenolith thermobarometry
-[@fig:model-comparison]. We can thus reject a shallow slab-window source
+[@fig:model_comparison]. We can thus reject a shallow slab-window source
 for the mantle lithosphere sampled by Crystal Knob.
 
 Both the stalled slab (scenario **B**) and Cretaceous mantle nappes

@@ -2,6 +2,8 @@
 dir=$PROJECT_DIR/versioned/paper
 cd $dir
 
+source paper-components/defs.zsh
+
 # collect includes
 bin/collect-figures
 bin/create-draft
@@ -22,8 +24,6 @@ mkdir -p $agubuild
 function run-latex {
   latexmk -xelatex -quiet -f -jobname=$name -output-directory=$agubuild $1
 }
-
-source bin/defs.zsh
 
 echo "Converting markdown to latex"
 

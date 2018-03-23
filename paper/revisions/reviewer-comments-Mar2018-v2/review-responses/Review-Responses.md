@@ -2,6 +2,8 @@
 
 ## Reviewer #1:
 
+
+
 This revised manuscript by Quinn and coauthors contributes a large
 amount of new data, from a mantle xenolith locality in central coastal
 California. The integration of new petrologic data, new modeling, and
@@ -26,6 +28,10 @@ petrogenesis of Crystal Knob xenoliths and host basaltic lavas and 2)
 evaluating three models for the Late Cretaceous to Quaternary evolution
 of the lithosphere beneath central California. Some discussion of the
 three models would be really helpful in the intro.
+
+<p class='response fixed'>Significantly reworked introduction to include
+discussion of the models and state closer to the front why we are doing this.</p>
+
 
 Again, I sincerely enjoyed reading this paper and I think that, with a
 minor amount of revision, it will serve as a quality contribution to our
@@ -332,7 +338,7 @@ Line 642. kmntle
 <p class="comment">
 Line 650, 669, 679, maybe elsewhere: heat flow values (units of mW/m2) are not geotherms and should not be referred to as such.
 <span class="fixed">Made sure to refer to steady-state geotherms anchored to
-surface heat flow values.</span>
+surface heat flow values instead.</span>
 </p>
 
 
