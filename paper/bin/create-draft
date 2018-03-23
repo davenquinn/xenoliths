@@ -12,7 +12,6 @@ body="$build/draft_body.tex"
 texfile="$build/draft.tex"
 bibfile="text/references.bib"
 defs="paper-components/defs"
-md_body="$build/body.md"
 body="$build/body.tex"
 name="Crystal-Knob-xenoliths"
 abstract="build/abstract.tex"
@@ -24,7 +23,7 @@ mkdir -p $build
 
 echo "Converting markdown to latex"
 
-rm -f $body $captions $md_body $abstract
+rm -f $body $captions $abstract
 
 ## Figure captions
 captions=build/figure-captions.tex
@@ -38,15 +37,9 @@ cat text/abstract.md \
 > $abstract
 
 # Process body text
-echo "" > $md_body
-for fn in text/chapters/*.md; do
-  cat $fn >> $md_body
-  echo "\n\n" >> $md_body
-done
-
-cat $md_body \
+aggregate-text text/chapters/*.md  \
 | sed -r 's/^\\section\{(Introduction)\}/\\invisiblesection\{\1\}/g' \
-| sed -r 's/<!--\[\[\[(.+)\]\]\]-->/\\inlinefigure\{\1\}/g' \
+| mark-inline-figures \
 | text-pipeline \
 | figurator inline \
   text/includes.yaml \
