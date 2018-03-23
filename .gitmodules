@@ -1,9 +1,3 @@
-[submodule "modules/bib-filter"]
-	path = modules/python/bib-filter
-	url = git://github.com/davenquinn/bib-filter.git
-[submodule "modules/figurator"]
-	path = modules/python/figurator
-	url = git://github.com/davenquinn/figurator.git
 [submodule "modules/pdf-printer"]
 	path = modules/node/pdf-printer
   url = git://github.com/davenquinn/pdf-printer.git
@@ -13,9 +7,6 @@
 [submodule "sections/modal-mineralogy"]
 	path = sections/modal-mineralogy
 	url = git://github.com/davenquinn/crystal-knob-modal-mineralogy.git
-[submodule "modules/python/wrap-si-units"]
-	path = modules/python/wrap-si-units
-	url = git://github.com/davenquinn/wrap-si-units.git
 [submodule "modules/python/--force"]
 	path = modules/python/--force
 	url = git://github.com/davenquinn/wrap-si-units.git

@@ -197,28 +197,35 @@ lithosphere.
 
 ## Summary of model results
 
-Our thermal modeling predicts much higher temperatures within the mantle
-lithosphere, and much higher geothermal gradients, for the shallow slab
-window (scenario **A**) than for either of the other modeled scenarios.
-Predicted geotherms for the slab window do not align with geothermal
-gradients suggested by by heat flow data in the Coast Ranges or with
-mantle lithosphere temperatures measured by xenolith thermobarometry
-[@fig:model_comparison]. We can thus reject a shallow slab-window source
-for the mantle lithosphere sampled by Crystal Knob.
-
-Both the stalled slab (scenario **B**) and Cretaceous mantle nappes
-reheated by a deep slab window (scenario **C**) suggest mantle
-lithosphere temperatures similar to those measured by xenolith
-thermobarometry and inferred from surface heat flows and seismic
-tomography. An assessment of model sensitivity presented in
-@sec:model_supplement includes biases that may influence the model
-results. Most pertinent is potential underestimation of true geothermal
-gradients due to lack of accounting for exhumation during lithospheric
-thermal equilibration. This would (1) push model results for the slab
+An assessment of model sensitivity presented in @sec:model_supplement
+includes biases that may influence the model results. The largest
+potential bias is a potential underestimation of true geothermal
+gradients due to lack of accounting for exhumation during the
+progression of the model. A correction for this bias
+would (1) push model results for the slab
 window scenario further out of the field of acceptable mantle
 lithosphere geotherms derived from xenolith constraints; (2) push the
 stalled slab scenario (**B**) to the upper margin of the field; and (3)
 push the reheated mantle nappe (**C**) towards the centroid of the
-field. The direction of these potential model biases is summarized in
+field. The direction of these adjustments is summarized in
 @fig:model_comparison.
+
+Our thermal modeling predicts much higher temperatures within the mantle
+lithosphere, and much higher geothermal gradients, for the shallow slab
+window (scenario **A**) than for either of the other modeled scenarios.
+Predicted geotherms for the slab window are much higher than mantle
+lithosphere temperatures measured by xenolith thermobarometry or
+extrapolated from surface heat flows [@fig:model_comparison]. We can
+thus reject a shallow slab-window source for the mantle lithosphere
+sampled by Crystal Knob.
+
+The stalled slab (scenario **B**) and Cretaceous mantle nappes reheated
+by a deep slab window (scenario **C**) suggest mantle lithosphere
+temperatures similar to those measured by xenolith thermobarometry and
+inferred from surface heat flows and seismic tomography. Both scenarios
+**B** and **C** are acceptable given the thermal modeling. However, the
+geotherm predicted for the stalled slab occupies the higher-temperature
+part of the acceptable field, and its viability could be impacted by
+potential erosion in the Coast Ranges, which would elevate geotherms for
+all scenarios [@fig:model_comparison].
 

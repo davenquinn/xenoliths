@@ -1,29 +1,27 @@
 # Discussion of lithospheric history
 
-Based on thermal modeling alone, both the Monterey plate stalled slab (**B**)
-and Cretaceous-underplated Farallon mantle nappe cases (**C**) are plausible.
-However, the geotherm predicted for the stalled slab occupies the
-higher-temperature part of the acceptable field, and its viability could be
-impacted by potential erosion in the
-Coast Ranges, which would elevate geotherms for all scenarios
-[@fig:model_comparison]. Our finding that the stalled slab scenario produces
-a reasonable geotherm is consistent with previous modeling by @Erkan2008.
-Additionally, there are many geologic and geodynamic reasons to discount the
-feasibility of the stalled slab model for lithospheric underplating, which we
-detail in @sec:stalled-slab-bad below.
+Both the Monterey plate stalled slab (scenario **B**) and Cretaceous underplating
+of mantle lithosphere followed by heating at depth by the Neogene slab
+window (scenario **C**) predict plausible mantle lithosphere geotherms beneath
+the Coast Ranges that match surface heat-flow measurements and
+xenolith thermobarometry.
 
-We strongly prefer scenario **C**, Cretaceous underplating of mantle
-lithosphere followed by heating at depth by the Neogene slab window,
-which was not considered in previous modeling. This scenario produces
-reasonable geotherms in the mantle lithosphere [@fig:model_comparison]
-and is constructed based on the architecture of the lithospheric mantle
-in the Mojave region [@Luffi2009] and the crustal geologic structure of
-southern California inherited from Cretaceous tectonics [e.g. @Liu2010;
-@Chapman2012]. The modeled Neogene thermal pulse also aligns this
-scenario with the Neogene geodynamics of coastal California
-[@Atwater1998; @Wilson2005] and suggests an explanation for the lack of
-large-volume magmatism associated with the Pacific--Farallon slab
-window.
+We strongly prefer scenario **C**, which is informed by the architecture
+of the lithospheric mantle in the Mojave region [@Luffi2009] and the
+crustal geologic structure of southern California inherited from
+Cretaceous tectonics [e.g. @Liu2010; @Chapman2012]. The Neogene thermal
+pulse in scenario **C** also incorporates the geodynamic response of
+coastal California to ridge subduction in the Neogene [@Atwater1998;
+@Wilson2005], suggesting an explanation for the lack of large-volume
+magmatism associated with the Pacific--Farallon slab window.
+
+The plausibility of mantle lithosphere temperatures produced by scenario
+**B** reproduces the results of previous modeling [@Erkan2008]. However,
+these workers did not consider a mechanism equivalent to our scenario
+**C**, which provides a viable alternative. Although we cannot reject
+the stalled slab model based on thermal modeling alone, there are many
+geologic and geodynamic reasons to discount its feasibility, which we
+detail below.
 
 ## Geodynamic implausibility of the Neogene stalled slab {#sec:stalled-slab-bad}
 
@@ -158,17 +156,17 @@ plate are more plausibly correlated to the Transverse Ranges high-wave speed
 anomaly in terms of position and volume [@fig:context], and also have a firm
 geodynamic basis as such [@Burkett2009].
 
-The stalled slab hypothesis has provided an explanation for the limited Neogene
-volcanism and low modern crustal heat flow observed in the Coast Ranges, neither of
-which can correspond the shallow emplacement of asthenosphere within
-a slab window [@Brocher1999; @Erkan2008]. These observations can also be
-explained by the formation of the slab window beneath a thick
-pre-existing mantle lithosphere attached to the continental margin.
-The underplated of such a domain during the Cretaceous is consistent
-with the tectonic evolution of southern California. Based on the
-geologic and geodynamic factors discussed above, we reject the stalled slab as
-a potential mechanism for underplating the mantle lithosphere beneath
-the central Coast Ranges.
+The stalled slab hypothesis has provided an explanation for the limited
+Neogene volcanism and low modern crustal heat flow observed in the Coast
+Ranges, neither of which can correspond the shallow emplacement of
+asthenosphere within a slab window [@Brocher1999; @Erkan2008]. These
+observations can also be explained by the interaction of the slab window
+with the base of a pre-existing mantle lithosphere domain attached to
+the continental margin, such as the Cretaceous-underplated lithospheric
+duplexes envisioned in Scenario **C**. Based on the geologic and
+geodynamic factors discussed above, we reject the stalled slab as a
+potential mechanism for underplating the mantle lithosphere beneath the
+central Coast Ranges.
 
 ## Thermal events recorded by xenolith petrology
 
@@ -272,22 +270,22 @@ stalled slab to crustal geology and geodynamic constraints, leads us to
 strongly favor the Late Cretaceous mantle duplex underplating scenario,
 with reheating by a deep slab window in the Neogene.
 
-A late-Cretaceous origin of the mantle lithosphere beneath the Coast Ranges
-matches crustal geologic evidence of slab rollback and regional
-extension during the Late Cretaceous, as the Shatsky Rise conjugate
-subducted deeper into the mantle following its initial collision and shallow
-subduction beneath the southern California convergent margin. This episode
-built the mantle lithosphere beneath the Mojave province by duplexing
-during the retreat of the Farallon Plate subducting slab [@Luffi2009], and
-appears to have subsequently built the outboard mantle lithosphere beneath the
-Crystal Knob eruption site.
-The presence of underplated Cretaceous mantle lithosphere beneath the
-Coast Ranges confirm that the entire lithospheric column, including the
+A late-Cretaceous origin of the mantle lithosphere beneath the Coast
+Ranges (our scenario **C**) matches crustal geologic evidence of slab
+rollback and regional extension during the Late Cretaceous, as the
+Shatsky Rise conjugate subducted deeper into the mantle following its
+initial collision and shallow subduction beneath the southern California
+convergent margin. This episode built the mantle lithosphere beneath the
+Mojave province by duplexing during the retreat of the Farallon Plate
+subducting slab [@Luffi2009], and appears to have subsequently built the
+outboard mantle lithosphere beneath the Crystal Knob eruption site. The
+presence of underplated Cretaceous mantle lithosphere beneath the Coast
+Ranges confirm that the entire lithospheric column, including the
 Salinia nappes and Nacimiento belt of the Franciscan complex, were
-formed in a single episode of extension during the Late Cretaceous.
-The outer toe of this lithosphere-scale
-accretionary belt was subsequently displaced along the San Andreas transform
-system to its current location beneath the central California Coast Ranges.
+formed in a single episode of extension during the Late Cretaceous. The
+outer toe of this lithosphere-scale accretionary belt was subsequently
+displaced along the San Andreas transform system to its current location
+beneath the central California Coast Ranges.
 
 In the Neogene, the underplated mantle lithosphere was reheated by the
 Mendocino slab window, which opened as the Pacific--Farallon ridge encountered
