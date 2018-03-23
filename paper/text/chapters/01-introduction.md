@@ -178,16 +178,16 @@ province. This requires underplating with large sub-horizontal displacements
 along a relatively shallow subduction megathrust system [@Helmstaedt1975;
 @Lee2001b].
 
-The lithospheric block hosting Crystal Knob was directly outboard of the Dish
-Hill locality prior to Neogene dextral faulting [@fig:context], at which
-underplated Farallon nappes were discovered to form the mantle lithosphere
-beneath much of the Mojave Desert [@Luffi2009]. Accordingly, the mantle
+Restored for Neogene dextral faulting, the lithospheric block hosting
+Crystal Knob was directly outboard of the Dish Hill xenolith locality
+[@fig:context], where the mantle lithosphere is formed by Farallon nappes
+underplated during the Cretaceous [@Luffi2009]. Accordingly, the mantle
 lithosphere beneath the Coast Ranges may be composed of outboard equivalents of
-these underplated nappes. However, the Coast Ranges are also proximal to
-a subduction zone that was active until the early Neogene, and directly above
+these underplated nappes. However, the Coast Ranges are both proximal to
+a subduction zone that was active until the early Neogene and directly above
 the Pacific--Farallon slab window that developed at the end of this subduction.
 The Crystal Knob xenolith suite provides an opportunity to resolve the
-ambiguous mantle lithosphere architecture of coastal California and build
-understanding of how flat-slab subduction, microplate rotation and capture, and
-ridge subduction affect the deep structure of a subducting margin.
+ambiguous mantle lithosphere architecture of coastal California and to
+understand the effects of flat-slab subduction, microplate rotation and capture,
+and ridge subduction on the deep structure of a subducting margin.
 
