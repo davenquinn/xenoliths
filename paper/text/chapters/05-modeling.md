@@ -1,14 +1,14 @@
 # Thermal modeling of tectonic scenarios {#sec:modeling}
 
 The Crystal Knob mantle xenoliths have a peridotite composition with a depleted
-(convecting-mantle) isotopic and trace-element signature.  Petrographic and
+(convecting-mantle) isotopic and trace-element signature. Petrographic and
 geochemical variations provide information on the depletion history but cannot
 discriminate between slab window, Monterey Plate, and Cretaceous mantle
-duplexing origins for the sampled parcel of depleted convecting mantle.
+duplexing origins of the mantle lithosphere.
 However, these emplacement scenarios present potentially distinct thermal
 structures due to large differences in timescales of cooling. Tectonic models
 for the emplacement of depleted mantle lithosphere under the central California
-coast can be tested by comparison of their implied geothermal structure with
+coast can be tested by comparing their implied geothermal structure with
 xenolith geothermometry.
 
 ## Model setup
@@ -25,13 +25,13 @@ scenarios presented above.
 
 <!--[[[tbl:model_parameters]]]-->
 
-To simulate both subduction and slab-window driven mantle underplating,
-the forearc geotherm is stacked atop a modeled sub-oceanic or asthenospheric
-geotherm and relaxed towards the present. The
-model is implemented in Python using the FiPy software package [@Guyer2009],
-combining explicit and implicit finite difference approaches using a two-sweep
-technique [@Crank1947] to ensure a stable result.  The model is run to a depth
-of 500 km to remove the effects of unknown mantle heat flux.
+The model is implemented in Python using the FiPy software package
+[@Guyer2009], combining explicit and implicit finite difference approaches
+using a two-sweep technique [@Crank1947] to ensure a stable result. To simulate
+both subduction and slab-window driven mantle underplating, the forearc
+geotherm is stacked atop a modeled sub-oceanic or asthenospheric geotherm and
+relaxed towards the present. The model is run to a depth of 500 km to remove
+the effects of unknown mantle heat flux.
 
 A mantle adiabat held at the base of the crust
 provides a static initial thermal structure for models of scenario **A**, while
@@ -108,7 +108,7 @@ developed outside of the specific scenario treated in model group **C**.
 The youngest model run in @fig:model_tracers|b corresponds to the "Monterey plate"
 hypothesis [@Pikser2012; @VanWijk2001], which entails
 hypothetical northward lateral translation on a shallowly-dipping
-arrested subduction megathrust.
+stalled subduction megathrust.
 The potential thermal effects of the required anhydrous shearing of the
 underplated oceanic lithosphere along a ~300 km flat displacement trajectory
 \[see @sec:stalled-slab-bad\] are not accounted for in model **B**. Instead, this
@@ -127,8 +127,7 @@ constraints on the Crystal Knob xenoliths. Without consideration of
 potential bias towards colder measurements in the modeled geotherms,
 this appears to match our xenolith data. Accounting for
 possible external effects \[@sec:heat-flow and @sec:model_supplement\],
-it suggests a hotter geotherm than that derived
-from the thermobarometric constraints.
+it suggests a hotter geotherm marginally conforming to thermobarometric constraints.
 
 ### Late-Cretaceous mantle nappe underplating
 
@@ -167,7 +166,7 @@ for 50 Myr, after which the geotherm is perturbed by the underplating of
 asthenosphere at ~80 km depth, corresponding to a deep slab window.
 This interaction is modeled by holding an adiabatic temperature gradient with a
 mantle potential temperature of 1450ºC against the base of the
-lithosphere for a period ranging from 0 Myr to 6 Myr.
+lithosphere for 0-6 Myr.
 The model for 0 Myr entails instantaneous contact followed immediately
 by conductive relaxation, while 6 Myr of sustained upwelling
 produces the "kinked" geotherm seen in panel 4 of @fig:model_results|c
@@ -184,14 +183,12 @@ little difference to the final thermal structure of the mantle
 lithosphere [@fig:model_tracers|c]. When not reheated by a deep slab
 window, the Cretaceous underplating scenario has a similar final thermal
 structure to the longest-running stalled slab scenarios in **B**
-[@fig:model_comparison]. This
-reflects the model's basic correspondence with a generalized Farallon
-plate mantle lithosphere underplating event of similar age. High subduction-channel temperatures
+[@fig:model_comparison], suggesting that high subduction-channel temperatures
 experienced during late-Cretaceous flat slab subduction and schist
 metamorphism did not have a long-lasting impact on the thermal structure
 of the margin. Thus, heating by a Miocene deep slab window
-is required for Cretaceous mantle nappe underplating scenarios to produce warm mantle
-lithosphere.
+is required for Cretaceous mantle nappe underplating scenarios to produce
+the mantle lithosphere temperatures sampled by the Crystal Knob xenoliths.
 
 <!--[[[fig:model_comparison]]]-->
 

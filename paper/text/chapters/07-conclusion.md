@@ -44,38 +44,39 @@ fault offsets [@Dickinson2005] and plate kinematic reconstructions
 Gregorio-Hosgri fault requires the lateral translation of its downdip extension
 along the former subduction interface beneath the Coast Ranges. Its
 hypothetical extension east of the San Andreas fault requires that this
-subduction interface likewise extended eastwards beyond the San Andreas fault
+reactivated subduction interface likewise extended east of the San Andreas fault
 [e.g. @Brocher1999; @tenBrink1999; @Pikser2012]. Seismological, geodynamic, and
 surface geological evidence presented here argues against models invoking
 horizontal translation of the Monterey plate "remnant slab” beneath both the
 Coast Ranges and Central Valley.
 
-In the early Miocene, the future Crystal Knob eruption site sat above the Pacific-Farallon
-slab window, ~50-100 km north of the northeast margin of the partially
-subducted Monterey plate [@fig:reconstruction]. The microplate separated
+The Monterey microplate separated
 from the Farallon Plate at ca. 22 Ma, forming a widening slab window segment
-east of the Peninsular Ranges [@Atwater1998; @Wilson2005]. From ca. 22 to 10 Ma, the
+east of the Peninsular Ranges [@fig:reconstruction]. From ca. 22 to 10 Ma, the
 Monterey plate, already coupled to the Pacific plate, diverged from
-North America. This likely caused extensional attenuation of its subducted
+North America [@Atwater1998;@Wilson2005]. This likely caused extensional attenuation of its subducted
 extension [@Bohannon1995]. Coupling
 of Monterey plate rotation across the stalled subduction megathrust
 may have driven dextral transrotational rifting of the
 southern California borderland [@Nicholson1994; @Bohannon1995].
 
+<!--In the early Miocene, the future Crystal Knob eruption site sat above the Pacific-Farallon
+slab window, ~50-100 km north of the northeast margin of the partially
+subducted Monterey plate [@fig:reconstruction]. -->
+
 As western Transverse Range crustal panels rotated to their current position at
 the end of borderland transrotation (ca. 10 Ma), the Monterey plate was displaced
 northward along the San Gregorio-Hosgri fault system [@fig:context], which is
 aligned with the outer edge of the Farallon-Monterey slab window
-[@fig:reconstruction]. In conjunction with the sudden cessation of crustal
-transrotation, the Monterey Plate likely separated from its underthrust
-extension.
-
-If the subducted portion of the Monterey Plate maintained its structural
-integrity following borderland transrotational rifting and was not cut by the
-San Gregorio-Hosgri fault, it would be translated northward beneath the Coast
+[@fig:reconstruction]. The Monterey Plate likely separated from its underthrust
+extension in conjunction with the sudden cessation of crustal
+transrotation.
+If the subducted portion of the Monterey Plate instead maintained its structural
+integrity, it would be translated northward beneath the Coast
 Ranges on a shallowly dipping fault surface (presumably, the remobilized
 subduction megathrust) along with its Pacific-plate abyssal fragment
-[@fig:neogene_sections|c]. This geometry has been proposed to
+[@fig:neogene_sections|c] to its current position outboard of Crystal Knob.
+This geometry has been proposed to
 extend beneath the entire Coast Ranges and east of the San Andreas fault [e.g.
 @tenBrink1999; @Pikser2012]. Although kinematically plausible, this
 is unlikely based on dynamic factors: a large mantle mass at the base of the
@@ -194,14 +195,14 @@ provide a good potential model, in which cumulates are sometimes re-entrained
 by small-volume volcanism during progressive upwards percolation of melt from
 a deep mantle source. A deep, slowly-cooling body of slab window material,
 locally mobilized as melt and rising through a thick lid of relict mantle
-lithosphere, provides a mechanism both mid-Miocene hypabyssal
+lithosphere, provides a mechanism for both mid-Miocene hypabyssal
 intrusives [@Stanley2000; @Ernst1974] and later
 deeply-sourced, small-volume eruptions such as Crystal Knob.
 
 ## The timing of the Crystal Knob eruption {#sec:crystal_knob_eruption}
 
-Although potentially sourced from slowly-propagating melts related to
-the slab window, the ca. 1.65 Ma eruption of Crystal Knob (and other
+Although potentially sourced from slowly-rising slab window melts,
+the ca. 1.65 Ma eruption of Crystal Knob (and other
 Plio-Pleistocene volcanic eruptions in the Coast Ranges) was likely
 proximally triggered by recent tectonism. Rapid uplift of the
 central California coastal region at ca. 2 Ma [@Ducea2003b] could have
@@ -283,7 +284,7 @@ presence of underplated Cretaceous mantle lithosphere beneath the Coast
 Ranges confirm that the entire lithospheric column, including the
 Salinia nappes and Nacimiento belt of the Franciscan complex, were
 formed in a single episode of extension during the Late Cretaceous. The
-outer toe of this lithosphere-scale accretionary belt was subsequently
+outer toe of this extensionally-collapsed accretionary belt was subsequently
 displaced along the San Andreas transform system to its current location
 beneath the central California Coast Ranges.
 

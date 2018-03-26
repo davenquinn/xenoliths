@@ -5,15 +5,15 @@
 Previous studies have used surface heat flows to estimate the thermal structure
 and evolution of the mantle lithosphere beneath the central California coast
 ranges. @Blackwell2004 compiled a heat flow database across the western U.S.
-based on borehole measurements in wells > 100 m deep. A "Coast Range Thermal
-Anomaly" of high surface heat flux (70-90 mW/m^2) spans the entire Coast Range
-belt, both inboard and outboard of the San Andreas fault zone. These heat flows
-are similar to the Mojave province but much higher than in the adjacent Central
-Valley and Sierra Nevada (20-40 mW/m^2). Coast Range heat flows are high in the
-global distribution of regionally averaged continental heat flows, which range
-from lows of 20 mW/m^2 in cratonic cores to 120 mW/m^2 in focused areas of
-active mantle upwelling (e.g. the southern Salton Trough) [@Pollack1977;
-@Erkan2009].
+based on borehole measurements in wells > 100 m deep. @Erkan2009 reports
+a "Coast Range Thermal Anomaly" of high surface heat flux (70-90 mW/m^2) which
+spans the entire Coast Range belt, both inboard and outboard of the San Andreas fault
+zone. These heat flows are similar to the Mojave province but much higher than
+in the adjacent Central Valley and Sierra Nevada (20-40 mW/m^2). Coast Range
+heat flows are high in the global distribution of regionally averaged
+continental heat flows, which range from lows of 20 mW/m^2 in cratonic cores to
+120 mW/m^2 in focused areas of active mantle upwelling (e.g. the southern
+Salton Trough) [@Pollack1977; @Erkan2009].
 
 @Erkan2009 attributed high surface heat flows in the Coast Ranges to
 non-conductive processes such as shear heating, rapid surface uplift, and fluid
@@ -25,10 +25,10 @@ gradient through advection of material. More significantly, regional
 thermal conductivity can be enhanced by hydrothermal circulation in the
 presence of fractures. The crust of the Coast Ranges and the Mojave
 province underwent extensive crustal detachment faulting during the late
-Cretaceous [@Wood1997; @Chapman2012], and overprinted Neogene transform
-faulting in the Coast Ranges. Mantle fluids in the San Andreas fault zone
-[@Kennedy1997] suggest the fluid upwelling along these fractures.
-High surface heat flows in these areas may
+Cretaceous [@Wood1997; @Chapman2012], and the Coast Ranges underwent additional
+transform faulting in the Neogene. Mantle fluids in the San Andreas fault zone
+[@Kennedy1997] suggest fluid upwelling along these fractures, and
+high surface heat flows may
 be due to increased permeability, fracture-following fluid transport,
 and heat advection. In contrast, the intact
 batholithic domains underlying the Sierra Nevada, Central Valley, and
@@ -63,7 +63,7 @@ geotherm beneath Crystal Knob at the time of eruption. Pyroxene-exchange
 geothermometry shows that the peridotite samples form two temperature groups
 with centroids separated by roughly 60ºC. This temperature range likely
 corresponds to an array of sample sources along a depth gradient. For spinel
-peridotites, equilibration depths can only be analytically estimated within
+peridotites, equilibration depths can only be analytically determined within
 broad boundaries. With no reliable geobarometers for spinel peridotites,
 several less robust metrics are used to evaluate the depth of the xenolith
 source. We present several lines of reasoning suggesting that the samples were
@@ -245,27 +245,28 @@ sample CK-6, which has a fully equilibrated REE temperature measurement
 [@fig:ree_temperatures] and appears to have assimilated a sizable amount of
 enriched material.
 
-The pattern of increasing depletion with depth suggests increased melt
-extraction deeper in the lithospheric column, at odds with the decrease in
-melting degrees with depth expected for decompression melting. Also, the
-geochemical variation between undepleted and depleted/re-enriched samples
-within a <10 km depth range suggests potential lateral heterogeneity to
-melting. @Luffi2009 found a similar inverted pattern within mantle lithosphere
-packages beneath Dish Hill, ascribing fertile lherzolites at the top of the
-package to refertilization of suboceanic mantle lithosphere. With the exception
-of sample CK-6, HREE refertilization of the Crystal Knob samples is
-unlikely due to consistent major- and trace-element chemistry.
+The increasing depletion with depth of the Crystal Knob samples suggests
+increased melt extraction deeper in the lithospheric column. This pattern does
+not match the decrease in melting degrees with depth expected for decompression
+melting. Also, the geochemical variation between undepleted and
+depleted/re-enriched samples within a <10 km depth range suggests potential
+lateral heterogeneity to melting. @Luffi2009 found a similar inverted pattern
+within mantle lithosphere packages beneath Dish Hill, ascribing fertile
+lherzolites at the top of the package to refertilization of suboceanic mantle
+lithosphere. With the exception of sample CK-6, HREE refertilization of the
+Crystal Knob samples is unlikely due to consistent major- and trace-element
+chemistry.
 
 The low-temperature samples are petrologically similar to abyssal peridotites
-\[@fig:modes and -@fig:trace_elements\], suggesting a fertile to
-moderately-depleted suboceanic mantle lithosphere origin. The depleted harzburgites
+\[@fig:modes and -@fig:trace_elements\], suggesting an origin as fertile to
+moderately-depleted suboceanic mantle lithosphere. The depleted harzburgites
 CK-3 and CK-4 could be tectonically juxtaposed to deeper levels by duplexing
 [as in @Luffi2009] or depleted after emplacement by deeply-sourced melting.
 Along these lines, the obvious refertilization of CK-6 at the base of the
 column shows melt-rock interactions that were most intense at deep levels. This
 spatial pattern of melt generation is commonly associated with flux melting
 in subarc settings [e.g. @Jean2010] but could also arise from intense heating
-from below [@Thorkelson2005]. In this context, the depletion of the deeper
+from below [@Thorkelson2005]. In this context, depletion of the deeper
 samples at Crystal Knob would correspond to melt generation deep within the
 mantle lithosphere.
 

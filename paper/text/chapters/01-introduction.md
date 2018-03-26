@@ -3,7 +3,7 @@ Introduction
 
 The tectonic and petrogenetic processes by which Earth’s continental mantle
 lithosphere develops through time are of fundamental importance to geodynamics
-and Earth history. The architecture of the mantle lithosphere, when integrated
+and Earth history. The architecture of the mantle lithosphere, integrated
 with regional geophysical data and tectonic and petrogenetic studies of the
 overlying crust, offers critical insights into the geodynamic processes of
 continental assembly. Mantle xenoliths entrained in volcanic rock reveal
@@ -16,16 +16,17 @@ The Crystal Knob xenolith suite, in the Coast Ranges of central California,
 presents a rare opportunity to sample the mantle lithosphere directly beneath
 a region of long-lived subduction accretion. The complex Late Cretaceous and
 Neogene tectonic processes that built the present Coast Ranges suggest several
-possible scenarios for the origin of the underlying  mantle lithosphere. When
-restored for Neogene dextral offset, the position of of Crystal Knob suggests
-that its upper mantle underpinnings may have originated as asthenospheric
-mantle upwelling into the Pacific-Farallon slab window [@Wilson2005]. Other
-workers [e.g. @Pikser2012] propose a shallowly-dipping stalled slab beneath the
-Coast Ranges from the latest phase of subduction in the Neogene. We propose
-a third model, in which mantle lithosphere was underplated during Given its
-position near the edge of the continent, this pre-existing lithospheric mantle
-would have experienced a thermal pulse due to ridge subduction in the Neogene
-[@Wilson2005].
+possible sources for the underlying mantle lithosphere. When restored for
+Neogene dextral offset, the position of of Crystal Knob suggests that its upper
+mantle underpinnings may have been emplaced as asthenospheric mantle upwelling
+into the Pacific-Farallon slab window [@Wilson2005]. Other workers [e.g. @Pikser2012]
+propose a shallowly-dipping stalled slab beneath the Coast Ranges
+from the latest phase of subduction in the Neogene. We propose a third model,
+in which mantle lithosphere was underplated during the Cretaceous during
+extensional collapse after flat-slab subduction [@Luffi2009; @Chapman2012].
+Given its position near the edge of the continent, this underplated
+lithospheric mantle would have experienced a thermal pulse due to ridge
+subduction in the Neogene [@Wilson2005].
 
 In this contribution, we present new petrologic, geochemical, and
 thermobarometric data on mantle xenoliths hosted in the Pleistocene Crystal
@@ -69,15 +70,13 @@ Salinia crystalline nappes.
 
 Restoring the central Coast Ranges to their
 position prior to San Andreas transform offset places them outboard of the
-southern California batholith, the southern continuation of the Sierra
-Nevada batholith, extended remnants of which are widely exposed
-south of the Garlock fault in
-the Mojave Desert [@fig:context]. In this
+southern California batholith, the extended southern continuation of the Sierra
+Nevada batholith in the Mojave Desert [@fig:context]. In this
 restored position, the crystalline nappes that constitute Salinia
 correlate to deeply exhumed Cretaceous arc plutonic rocks of the
 southernmost Sierra Nevada batholith and northwestern
 southern California batholith [@Wood1997; @Saleeby2003; @Barbeau2005;
-@Chapman2012]. 
+@Chapman2012].
 
 The southernmost Sierra Nevada batholith is exhumed, with granitic rocks
 at the surface originating at shallow to medial crustal depths (2 to 4
@@ -113,12 +112,12 @@ The southern California "flat slab" is attributed to the ephemeral buoyancy
 resulting from the subduction of the conjugate massif to the Shatsky Rise
 oceanic igneous province [@Livaccari1981; @Sliter1984; @Saleeby2003], which is
 currently resolved in deep seismic tomographic images beneath the interior of
-North America [@Liu2010; @Sun2017]. The Salinia nappes and adjacent (restored
-for Neogene dextral faulting) deeply exhumed batholithic rocks were displaced
-and structurally attenuated by both the shallow subduction megathrust and
-subsequent trench-directed extensional faulting, which occurred as the Shatsky
-conjugate moved deeper into the mantle beneath the North American plate
-[@Saleeby2003; @Liu2010; @Chapman2012].
+North America [@Liu2010; @Sun2017]. As the Shatsky conjugate moved deeper into
+the mantle beneath the North American plate, the Salinia nappes and adjacent
+(restored for Neogene dextral faulting) deeply exhumed batholithic rocks were
+displaced and structurally attenuated by both the shallow subduction megathrust
+and subsequent trench-directed extensional faulting [@Saleeby2003; @Liu2010;
+@Chapman2012].
 
 In the Neogene, ridge subduction and the opening of the Pacific-Farallon
 slab window [@Atwater1998] drove far-field effects including late
@@ -174,9 +173,9 @@ erupted through cratonic and peri-cratonic crust, mantle wedge suites through
 the Cretaceous large-volume batholith, and asthenospheric suites through active
 rifts. However, xenoliths derived from underplated Farallon-plate material have
 thus far only been recovered from inboard crustal domains in the eastern Mojave
-province. This requires underplating with large sub-horizontal displacements
-along a relatively shallow subduction megathrust system [@Helmstaedt1975;
-@Lee2001b].
+province. These lithospheric underpinnings were underplated with large
+sub-horizontal displacements along a relatively shallow subduction megathrust
+system [@Helmstaedt1975; @Lee2001b].
 
 Restored for Neogene dextral faulting, the lithospheric block hosting
 Crystal Knob was directly outboard of the Dish Hill xenolith locality
