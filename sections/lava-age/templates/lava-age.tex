@@ -1,44 +1,48 @@
+<# macro Ar(iso) -#>
+  \ce{^{<<iso>>}Ar}
+<#- endmacro #>
+
+<# macro ratio(top,btm) -#>
+  $\displaystyle\frac{\mbox{<<top>>}}{\mbox{<<btm>>}}$
+<#- endmacro #>
+
+<# macro multicell(main, after="") -#>
+  \multirow{2}{*}{<<main>> \footnotesize <<after>>}
+<#- endmacro #>
+
+<# macro unitcell(main, type="c") -#>
+  \multicolumn{1}{<<type>>}{\footnotesize <<main>>}
+<#- endmacro #>
+
+<# macro h(main) -#>
+  \multicolumn{1}{c}{<<main>>}
+<#- endmacro #>
+
 {
-\newcommand{\ratio}[2]{$\displaystyle\frac{\mbox{#1}}{\mbox{#2}}$}
-\newcommand{\Ar}[1]{\ce{^{#1}Ar}}
-\newcommand{\unitcell}[2][c]{\multicolumn{1}{#1}{\footnotesize #2}}
-\newcommand{\multicell}[2][]{\multirow{2}{*}{#2 \footnotesize #1}}
 \begin{tabular}{l l <<"r "*10 >>} %S[table-format=3.2]
 \toprule
   Step &
   Power &
-  \multicell[\si{\times 10^{3}}]{
-    \ratio{\Ar{36}}{\Ar{39}}
-  } &
-  \multicell[]{
-    \ratio{\Ar{37}}{\Ar{39}}
-  } &
-  \multicell[\si{\times 10^{2}}]{
-    \ratio{\Ar{38}}{\Ar{39}}
-  } &
-  \multicell[]{
-    \ratio{\Ar{40}}{\Ar{39}}
-  } &
-  \h{\Ar{39}} &
-  \h{\Ar{39}} &
-  \multicell{
-    \ratio{\ce{Ca}}{\ce{K}}
-  } &
-  \multicell{
-    \ratio{\Ar{40}*}{\Ar{39}}
-  } &
-  \h{\Ar{40}*} &
-  \h{Age} \\
+  << multicell(ratio(Ar(36),Ar(39)), "\si{\\times 10^{3}}") >> &
+  << multicell(ratio(Ar(37),Ar(39))) >> &
+  << multicell(ratio(Ar(38),Ar(39)), "\si{\\times 10^{2}}") >> &
+  << multicell(ratio(Ar(40),Ar(39))) >> &
+  << h(Ar(39)) >> &
+  << h(Ar(39)) >> &
+  << multicell(ratio("\ce{Ca}","\ce{K}")) >> &
+  << multicell(ratio(Ar(40)+"*",Ar(39))) >> &
+  << h(Ar(40)+"*") >> &
+  << h("Age") >> \\
   &
-  \unitcell{\si{W}} &
+  << unitcell("\si{W}") >> &
   &
   &
   &
   &
-  \unitcell[r]{\si{mol\times 10^{-12}}}&
-  \unitcell{\%} & & &
-  \unitcell{\%} &
-  \unitcell{\si{Ma}} \\
+  << unitcell("\si{mol \\times 10^{-12}}","r") >> &
+  << unitcell("\%") >> & & &
+  << unitcell("\%") >> &
+  << unitcell("\si{Ma}") >> \\
 \midrule
 <#- for ix, r in data  #>
   << loop.index >> &
