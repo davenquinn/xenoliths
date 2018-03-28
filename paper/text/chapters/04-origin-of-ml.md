@@ -41,7 +41,7 @@ asthenosphere as it ascended into the slab window [@Wilson2005].
 
 The Monterey microplate [@fig:reconstruction] nucleated as an oblique
 intra-oceanic rift along an ~250 km long segment of the Pacific-Farallon ridge
-[@Thorkelson1989; @Bohannon1999], during slab window formation [@Wilson2005].
+[@Thorkelson1989; @Bohannon1995], during slab window formation [@Wilson2005].
 Microplates may have stalled beneath coastal central California as the Farallon plate
 continued to subduct deeper into the mantle [@Bohannon1995; @Brocher1999;
 @VanWijk2001]. In this scenario, late Cenozoic volcanism in the region is
