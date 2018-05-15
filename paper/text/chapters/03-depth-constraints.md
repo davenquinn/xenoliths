@@ -7,11 +7,11 @@ and evolution of the mantle lithosphere beneath the central California coast
 ranges. @Blackwell2004 compiled a heat flow database across the western U.S.
 based on borehole measurements in wells > 100 m deep. @Erkan2009 reports
 a "Coast Range Thermal Anomaly" of high surface heat flux (70-90 mW/m^2) which
-spans the entire Coast Range belt, both inboard and outboard of the San Andreas fault
-zone. These heat flows are similar to the Mojave province but much higher than
-in the adjacent Central Valley and Sierra Nevada (20-40 mW/m^2). Coast Range
+spans the entire Coast Range belt, on both sides of the San Andreas fault
+zone. The Mojave Plateau has similarly high heat flows, but lower heat flows of
+20-40 mW/m^2 are found in the adjacent Central Valley and Sierra Nevada. Coast Range
 heat flows are high in the global distribution of regionally averaged
-continental heat flows, which range from lows of 20 mW/m^2 in cratonic cores to
+continental heat flows, which ranges from lows of 20 mW/m^2 in cratonic cores to
 120 mW/m^2 in focused areas of active mantle upwelling (e.g. the southern
 Salton Trough) [@Pollack1977; @Erkan2009].
 
@@ -24,7 +24,7 @@ the Santa Lucia Range [@Ducea2003b], can raise the crustal geothermal
 gradient through advection of material. More significantly, regional
 thermal conductivity can be enhanced by hydrothermal circulation in the
 presence of fractures. The crust of the Coast Ranges and the Mojave
-province underwent extensive crustal detachment faulting during the late
+Plateau underwent extensive crustal detachment faulting during the late
 Cretaceous [@Wood1997; @Chapman2012], and the Coast Ranges underwent additional
 transform faulting in the Neogene. Mantle fluids in the San Andreas fault zone
 [@Kennedy1997] suggest fluid upwelling along these fractures, and

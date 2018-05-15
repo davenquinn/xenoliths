@@ -17,7 +17,7 @@ presents a rare opportunity to sample the mantle lithosphere directly beneath
 a region of long-lived subduction accretion. The complex Late Cretaceous and
 Neogene tectonic processes that built the present Coast Ranges suggest several
 possible sources for the underlying mantle lithosphere. When restored for
-Neogene dextral offset, the position of of Crystal Knob suggests that its upper
+Neogene dextral offset, the position of Crystal Knob suggests that its upper
 mantle underpinnings may have been emplaced as asthenospheric mantle upwelling
 into the Pacific-Farallon slab window [@Wilson2005]. Other workers [e.g. @Pikser2012]
 propose a shallowly-dipping stalled slab beneath the Coast Ranges
@@ -50,7 +50,7 @@ plate subducted eastward beneath western North America [e.g.
 @Glazner1991; @Ducea2015], and the Franciscan complex, the crustal-level
 accretionary complex of this subduction zone. The Franciscan includes
 tectonic slivers of Farallon plate oceanic basement and pelagic
-sediment, as well as upper plate siliciclastic sediments derived from
+sedimentary rocks, as well as upper plate siliciclastic rocks derived from
 the magmatic arc [@Cowan1978; @Murchey1984; @Sliter1984; @Blake1988;
 @Chapman2016; @Chapman2016a]. The crystalline basement blocks of the
 "Salinian terrane", or "Salinia" [@Page1981], have recently been
@@ -69,7 +69,8 @@ Salinia crystalline nappes.
 <!--[[[fig:context]]]-->
 
 Restoring the central Coast Ranges to their
-position prior to San Andreas transform offset places them outboard of the
+position relative to North America prior to San Andreas transform offset
+places them outboard of the
 southern California batholith, the extended southern continuation of the Sierra
 Nevada batholith in the Mojave Desert [@fig:context]. In this
 restored position, the crystalline nappes that constitute Salinia
@@ -100,7 +101,7 @@ underplated beneath this tectonic surface [@Malin1995;
 @Barth2003; @Saleeby2003; @Yan2005; @Ducea2009; @Chapman2010; @Chapman2012;
 @Chapman2016b]. These subduction channel schists are exposed in a series of
 tectonic windows [@fig:context] and encase blocks and nappes of
-Farallon-plate oceanic basement and sediments. The schist protoliths were
+Farallon-plate oceanic basement and sedimentary rock. The schist protoliths were
 derived from the upper plate batholithic belt, which was rapidly exhumed above
 a shallow flat segment of the Franciscan subduction megathrust system
 [@Barth2003; @Saleeby2007; @Chapman2013; @Chapman2016a].
@@ -145,8 +146,8 @@ The central Sierra Nevada xenolith suite [@fig:context] was entrained in late
 Miocene small-volume volcanic flows and plugs north of the zone of "flat slab"
 subduction. It samples the intact Sierra Nevada batholithic root and
 Cretaceous mantle wedge [@Ducea1996; @Ducea1998a; @Lee2001;
-@Saleeby2003; @Lee2006; @Chin2015]. In contrast, xenoliths suites in the
-eastern Mojave province record the partial tectonic erosion of sub-continental
+@Saleeby2003; @Lee2006; @Chin2015]. In contrast, xenolith suites in the
+eastern Mojave Desert record the partial tectonic erosion of sub-continental
 mantle lithosphere (including Cretaceous mantle wedge) and underplating of
 Farallon-plate mantle lithosphere [@Shervais1973; @Luffi2009; @Armytage2015;
 @Shields2016GSA]. The Dish Hill locality [@fig:context] records an upper mantle

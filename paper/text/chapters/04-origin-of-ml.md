@@ -2,7 +2,7 @@
 
 The Crystal Knob spinel peridotite xenoliths are uniformly isotopically
 depleted, with an $\epsilon_\mathrm{Nd}$ of 10.3-11.0, and
-\ce{^{87}Sr}/\ce{^{86}Sr} of .7023-.7024. These values are typical for the
+\ce{^{87}Sr}/\ce{^{86}Sr} of 0.7023-0.7024. These values are typical for the
 depleted upper mantle [e.g. @Hofmann1997] and require a mantle source that
 has not been recycled from the western North American subcontinental mantle or
 continental lithosphere more generally. Potential origins
@@ -17,18 +17,18 @@ existence of a major structural discontinuity below the crust, with
 underplated, depleted peridotite forming the framework of the mantle
 lithosphere. The Crystal Knob xenolith suite is the only known direct
 sampling of this underplated mantle beneath coastal California. Several
-tectonic events since the Cretaceous
-could replace the mantle lithosphere beneath the Coast Ranges.
+tectonic events since Cretaceous time
+could have replaced the mantle lithosphere beneath the Coast Ranges.
 
 The Franciscan complex of the region was assembled by sustained subduction of
-the Farallon plate during the Cretaceous and early Cenozoic [@Cowan1978;
+the Farallon plate during the Cretaceous and early Cenozoic periods [@Cowan1978;
 @Saleeby1986; @Seton2012; @Chapman2016a]. The mantle lithosphere beneath the
 eastern Mojave Plateau was constructed from partly subducted Farallon-plate
 upper mantle late in this Franciscan accretionary history [@Luffi2009], and an
 outboard equivalent of this mechanism could have built the mantle lithosphere
 beneath Crystal Knob.
 
-In the Oligocene to early Miocene, the Pacific-Farallon spreading ridge
+In Oligocene to early Miocene time, the Pacific-Farallon spreading ridge
 obliquely intersected the Cordilleran subduction zone at the coast of southern
 California, leading to the development of the San Andreas transform system
 [@Atwater1970]. Progressive impingement of large-offset
@@ -41,8 +41,9 @@ asthenosphere as it ascended into the slab window [@Wilson2005].
 
 The Monterey microplate [@fig:reconstruction] nucleated as an oblique
 intra-oceanic rift along an ~250 km long segment of the Pacific-Farallon ridge
-[@Thorkelson1989; @Bohannon1995], during slab window formation [@Wilson2005].
-Microplates may have stalled beneath coastal central California as the Farallon plate
+[@Thorkelson1989; @Bohannon1995] during slab window formation [@Wilson2005].
+Microplates may have stalled beneath coastal central California as the coherent
+main part of the Farallon plate
 continued to subduct deeper into the mantle [@Bohannon1995; @Brocher1999;
 @VanWijk2001]. In this scenario, late Cenozoic volcanism in the region is
 linked to the youthfulness of the subducted microplate(s), implying a partial
@@ -70,12 +71,12 @@ literature on crustal and mantle-lithosphere tectonics since the Cretaceous.
 @fig:reconstruction shows a hypothetical surface projection of the
 Pacific-Farallon slab window and partially subducted Monterey plate at ca. 19
 Ma [@Wilson2005]. The slab window formed by subduction of the trailing edge of
-the Farallon plate, unsupported by sea floor spreading along the former
+the Farallon plate and cessation of seafloor spreading along the former
 spreading axis with the Pacific plate. According to the @Wilson2005
 reconstruction of the Pacific-Farallon slab window and adjacent Monterey plate
 [@fig:reconstruction], the Crystal Knob eruption site was located above a slab
 window in the early Neogene, ~50-100 km northeast of the northeastern boundary
-transform of the Monterey plate. Diffuse volcanism, some clearly derived from
+transform fault of the Monterey plate. Diffuse volcanism, some clearly derived from
 decompression partial melting of convecting mantle, is widespread at this time
 period across the region of the reconstructed slab window [@Hurst1982;
 @Sharma1991; @Cole1995; @Wilson2005]. However, this phase of slab window
@@ -124,7 +125,7 @@ mantle lithosphere beneath the Coast Ranges.
 
 The pre-Neogene tectonic setting of the Crystal Knob eruption site is shown in
 @fig:reconstruction by restoration of the San Andreas dextral transform system
-[@Matthews1976; @Dickinson2005; @Chapman2012; @Hall2013; @Sharman2013]. The
+relative to North America [@Matthews1976; @Dickinson2005; @Chapman2012; @Hall2013; @Sharman2013]. The
 Crystal Knob eruption site restores to a position outboard of the southern
 California batholith. The principal windows into shallowly underplated
 subduction channel schists are shown in @fig:reconstruction along with the
@@ -228,7 +229,7 @@ asthenosphere at immediate subcrustal levels. However, the depth of
 asthenospheric underplating related to slab window opening is poorly
 constrained and likely varies geographically as a function of thickness and
 thermal variations in the pre-existing lithospheric lid, as well as its state of
-stress and structural coherency. Volcanism in the central California
+stress and structural coherence. Volcanism in the central California
 Coast Ranges tied to slab window opening [e.g @Ernst1974] has been
 volumetrically insignificant when compared to that generated by other coeval
 examples of shallow asthenospheric upwelling in the Cordillera, such as Eocene--Miocene
@@ -243,7 +244,7 @@ a 45-75 km depth interval over which the Crystal Knob lavas sampled the
 underlying mantle lithosphere, coupled with a general lack of significant late
 Cenozoic extensional faulting in the immediate region, implies a strong
 thermo-mechanical lid that likely suppressed the ascent of voluminous
-asthenosphere derived magmas that were hypothetically sourced from a deep
+asthenosphere--derived magmas that were hypothetically sourced from a deep
 underlying slab window.
 
 @fig:neogene_sections|c shows the early Neogene architecture of the mantle
@@ -255,6 +256,6 @@ crustal duplex lie tectonically above underplated Farallon-plate mantle nappes.
 The structural profile shown on @fig:neogene_sections|c closely aligns with
 offshore seismic lines in the region [@Trehu1991], and the part between the San
 Andreas and San Gregorio-Hosgri faults restores to southern California
-latitudes, adjacent to the Mojave plateau and extended southern California
+latitudes, adjacent to the Mojave Plateau and extended southern California
 batholith.
 

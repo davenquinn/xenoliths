@@ -10,10 +10,10 @@ Map of southern California showing the tectonic setting of Crystal Knob and its
 placement relative to the dispersed Southern California batholith, Neogene
 dextral faults, and the stalled Monterey microplate. Sampling locations for
 previous xenolith studies are shown: the Central and Eastern Sierran suites
-show a record of delamination of a batholithic root [@Ducea1996] and Mojave
+show a record of delamination of a batholithic root [@Ducea1996] and Mojave Plateau
 sites show underplating of Farallon-plate lithospheric nappes during the
 Cretaceous [@Luffi2009]. The position of Crystal Knob is also shown, along with
-its location prior to dextral offset on the Neogene San Andreas transform
+its North-America-relative position prior to dextral offset on the Neogene San Andreas transform
 system. Crystal Knob restores to ~350 km SE of its current location, with ~310
 km displacement on the modern San Andreas Fault and ~40 km remainder on the
 Rinconada Fault. Independent reconstructions using the regional paleomagnetic

@@ -68,7 +68,7 @@ As western Transverse Range crustal panels rotated to their current position at
 the end of borderland transrotation (ca. 10 Ma), the Monterey plate was displaced
 northward along the San Gregorio-Hosgri fault system [@fig:context], which is
 aligned with the outer edge of the Farallon-Monterey slab window
-[@fig:reconstruction]. The Monterey Plate likely separated from its underthrust
+[@fig:reconstruction]. The abyssal fragment of the Monterey Plate likely separated from its underthrust
 extension in conjunction with the sudden cessation of crustal
 transrotation.
 If the subducted portion of the Monterey Plate instead maintained its structural

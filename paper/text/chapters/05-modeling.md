@@ -64,7 +64,7 @@ temperatures too hot to correspond to the modern regional geotherm. We confirm
 this assessment, finding that this scenario produces extremely steep geotherms
 at the upper boundary of spinel lherzolite stability for much of the
 temperature domain of interest [@fig:model_comparison], reproducing neither the
-xenolith pressure--temperature array developed in this study nor the
+xenolith pressure--temperature array observed in this study nor the
 seismically-inferred depth of the lithosphere-asthenosphere boundary [e.g.
 @Li2007].
 
@@ -108,7 +108,7 @@ developed outside of the specific scenario treated in model group **C**.
 The youngest model run in @fig:model_tracers|b corresponds to the "Monterey plate"
 hypothesis [@Pikser2012; @VanWijk2001], which entails
 hypothetical northward lateral translation on a shallowly-dipping
-stalled subduction megathrust.
+remobilized subduction megathrust.
 The potential thermal effects of the required anhydrous shearing of the
 underplated oceanic lithosphere along a ~300 km flat displacement trajectory
 \[see @sec:stalled-slab-bad\] are not accounted for in model **B**. Instead, this
@@ -180,7 +180,7 @@ subduction [@Kidder2006; @Kidder2013] and used to tune the @Royden1993a
 forearc geotherm model.
 These high subduction temperatures constrained by crustal geothemometry make
 little difference to the final thermal structure of the mantle
-lithosphere [@fig:model_tracers|c]. When not reheated by a deep slab
+lithosphere [@fig:model_tracers|c]. Without reheating by a deep slab
 window, the Cretaceous underplating scenario has a similar final thermal
 structure to the longest-running stalled slab scenarios in **B**
 [@fig:model_comparison], suggesting that high subduction-channel temperatures
