@@ -88,7 +88,7 @@ cat $st/preamble.tex \
 | sed '48i\\\\usepackage{xr,bibentry}\n\\externaldocument{Crystal-Knob-xenoliths-AGUFormat}' \
 > $supp
 
-tail -n +2 text/modeling-supplement.md \
+tail -n +2 text/appendices/modeling-supplement.md \
 | sed -r 's/^##/#/g' \
 | text-pipeline-agu \
 >> $supp

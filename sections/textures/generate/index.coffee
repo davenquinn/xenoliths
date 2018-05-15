@@ -24,7 +24,7 @@ minerals =
     name: "Spinel"
     color: "#663300"
   al:
-    name: "Alteration"
+    name: "Melt channel"
     color: "#888888"
   na:
     name: "None"

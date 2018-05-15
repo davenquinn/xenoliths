@@ -49,8 +49,9 @@ and surface outcrops of subduction channel schists in the Mojave province
 Paired Sm-Nd and Rb-Sr isotope data for the Crystal Knob sample set
 contextualized relative to major Earth reservoirs. The position of
 Crystal Knob within the "depleted mantle" field suggests that the mantle
-lithosphere underlying coastal California was sourced directly from the
-mantle, either at a mid-ocean ridge or by direct underplating.
+lithosphere underlying coastal California was sourced directly from
+shallow mantle material with no continental component,
+either beneath a mid-ocean ridge or by direct underplating.
 
 ##cpx_profile
 

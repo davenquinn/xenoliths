@@ -51,7 +51,7 @@ aggregate-text text/chapters/*.md  \
 cp text/title-block.tex build/title-block.tex
 
 cat text/key-points.md | text-pipeline > build/key-points.tex
-cat text/modeling-supplement.md \
+cat text/appendices/modeling-supplement.md \
 | text-pipeline \
 > build/modeling-supplement.tex
 
