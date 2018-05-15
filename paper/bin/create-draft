@@ -15,6 +15,7 @@ defs="paper-components/defs"
 body="$build/body.tex"
 name="Crystal-Knob-xenoliths"
 abstract="build/abstract.tex"
+captions="build/figure-captions.tex"
 build_dest="$build/$name.pdf"
 auxfile="${build_dest:r}.aux"
 outfile="output/$name.pdf"
@@ -26,7 +27,6 @@ echo "Converting markdown to latex"
 rm -f $body $captions $abstract
 
 ## Figure captions
-captions=build/figure-captions.tex
 cat text/figure-captions.md \
 | text-pipeline \
 > $captions

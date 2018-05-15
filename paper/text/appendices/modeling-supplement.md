@@ -1,4 +1,4 @@
-# Supplementary Information {#sec:model_supplement}
+# Thermal modeling approach and sensitivity {#sec:model_supplement}
 
 ## Thermal modeling setup {-}
 
