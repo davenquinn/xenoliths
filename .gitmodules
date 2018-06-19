@@ -16,3 +16,6 @@
 [submodule "paper/paper-components"]
 	path = paper/paper-components
 	url = /Users/Daven/Development/Repositories/paper-components.git
+[submodule "paper/text"]
+	path = paper/text
+	url = /Users/Daven/Development/Repositories/xenoliths-text.git
