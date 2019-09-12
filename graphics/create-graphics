@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 
-g="$PROJECT_DIR/versioned/graphics"
-$g/node_modules/.bin/pdf-printer --spec-mode --dpi 1200 $@ -- $g/spec.coffee
+cd "$PROJECT_DIR/versioned/graphics"
+npx figment --spec --dpi 1200 -- ./spec.js

@@ -4,10 +4,7 @@ _ = require 'underscore'
 yaml = require "js-yaml"
 
 fs = require 'fs'
-
-f = fs.readFileSync __dirname+'/constraint-labels.yaml'
-labelData = yaml.load f
-
+import labelData from './constraint-labels.yaml'
 
 {axisTitles} = require './axis-labels'
 

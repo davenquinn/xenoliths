@@ -14,5 +14,8 @@
     "js-yaml": "^3.5.5",
     "savage-svg": "github:davenquinn/savage-svg",
     "yaml": "^0.3.0"
+  },
+  "devDependencies": {
+    "coffeescript": "^2.4.1"
   }
 }

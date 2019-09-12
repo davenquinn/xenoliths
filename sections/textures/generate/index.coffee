@@ -99,7 +99,7 @@ createView = (d,i)->
           stroke: "none"
           fill: (d)->colorScale(d.v)
 
-generate = (el, callback)->
+generate = (el, opts, callback)->
 
   data = JSON.parse(fs.readFileSync("#{__dirname}/../build/classes.json").toString())
   data = data.sort (a,b)->d3.ascending(a.id,b.id)
@@ -170,5 +170,4 @@ generate = (el, callback)->
 
   callback()
 
-module.exports = generate
-
+export default generate

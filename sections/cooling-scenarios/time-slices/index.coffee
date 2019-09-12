@@ -1,3 +1,4 @@
+require('coffeescript/register')
 _ = require "underscore"
 yaml = require "js-yaml"
 d3 = require 'd3'
@@ -12,11 +13,11 @@ G = require './geometry'
 Promise = require 'bluebird'
 require './main.styl'
 
-sql = storedProcedure "#{__dirname}/model-slice.sql"
+# Cruel hack
+sql = storedProcedure "#{__dirname}/../../model-slice.sql"
 
 # Create dataset from inputs
-cfg = yaml.safeLoad fs.readFileSync("#{__dirname}/../scenarios.yaml")
-cfg = JSON.parse(JSON.stringify(cfg))
+import cfg from "../scenarios.yaml"
 
 # Figure s at 100 ppi
 ppi = 100
@@ -100,7 +101,7 @@ plotScenarios = (el, scenarios)->
 
   labels.underplatingConstraint(scenarios[0])
 
-module.exports = (el_, callback)->
+module.exports = (el_, opts, callback)->
   el = d3.select el_
     .append 'div'
     .attrs
@@ -146,4 +147,3 @@ module.exports = (el_, callback)->
   p = Promise.map scenarios, getSlices, concurrency: 1
     .then (scenarios)-> plotScenarios(el,scenarios)
     .finally callback
-

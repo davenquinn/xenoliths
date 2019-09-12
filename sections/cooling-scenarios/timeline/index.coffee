@@ -236,7 +236,7 @@ setupElement = (el, data)->
 
     plt.call legend
 
-func = (el_, callback)->
+func = (el_, opts, callback)->
   el = d3.select(el_).append 'svg'
   Promise.map scenarios, getData, concurrency: 1
     .then (data)->setupElement(el, data)

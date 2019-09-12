@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "coffeescript": "next",
-    "pdf-printer": "file:../modules/node/pdf-printer"
+    "figment-ui": "^0.1.7"
   }
 }

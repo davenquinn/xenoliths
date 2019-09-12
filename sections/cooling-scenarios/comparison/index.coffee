@@ -149,7 +149,7 @@ setupStaticGeotherms = (rows)->
     .append 'xhtml:div'
       .html "Steady-state geotherm with surface heat flow <b>q<sub>0</sub></b> (mW/m<sup>2</sup>)"
 
-module.exports = (el_, cb)->
+module.exports = (el_, opts, cb)->
   el = d3.select el_
     .append 'svg'
       .attrs size
@@ -281,6 +281,3 @@ module.exports = (el_, cb)->
     .then setupElement
     .tap setupArrows
     .finally cb
-
-
-
