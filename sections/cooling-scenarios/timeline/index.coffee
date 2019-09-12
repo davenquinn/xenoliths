@@ -9,7 +9,7 @@ require './main.styl'
 modelColors = require '../shared/colors'
 {subductionTypeClasses} = require '../shared/util'
 {db, storedProcedure} = require '../shared/database'
-axes = require 'd3-plot-area/src'
+axes = require 'd3-plot-area'
 plotArea = require './plot-area'
 ageLabels = require './age-labels'
 legend = require './legend'
@@ -19,13 +19,12 @@ fs = require 'fs'
 
 ff = 'font-family': 'Helvetica Neue Light'
 
-_ = fs.readFileSync "#{__dirname}/../scenarios.yaml"
-scenarios = yaml.safeLoad _
+import scenarios from "../scenarios.yaml"
 
 dpi = 96
 sz = width: dpi*6.5, height: dpi*4
 
-fn = path.join __dirname,'query.sql'
+fn = path.join __dirname,'../../query.sql'
 sql = storedProcedure fn
 
 getData = (scenario)->
@@ -221,6 +220,8 @@ createAxes = (outerAxes)->
 setupElement = (el, data)->
     g = el
       .attrs sz
+      .append 'svg'
+      .attrs sz
       .append 'g'
       .attr 'class', 'outer'
 
@@ -237,7 +238,7 @@ setupElement = (el, data)->
     plt.call legend
 
 func = (el_, opts, callback)->
-  el = d3.select(el_).append 'svg'
+  el = d3.select(el_)
   Promise.map scenarios, getData, concurrency: 1
     .then (data)->setupElement(el, data)
     .finally callback
