@@ -19,7 +19,7 @@
     "simplify-js": "^1.2.1",
     "stylus": "^0.54.5",
     "textures": "^1.0.5",
-    "underscore": "^1.8.3",
+    "underscore": "^1.12.1",
     "uuid": "^3.0.1",
     "xenoliths-area": "file:../../modules/node/xenoliths-area"
   },
